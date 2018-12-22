@@ -1,0 +1,161 @@
+%
+% Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager.
+% This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+% https://creativecommons.org/licenses/by-nc-sa/4.0/
+%
+\documentclass[12pt,letterpaper, openany]{book}
+
+\usepackage{clp_problems_header}
+\graphicspath{{./figures/}}
+
+\usepackage{qhas} %question-hint-answer-solution
+
+\usepackage{xr}
+\externaldocument[CLP101-]{../textbook/clp_2_ic_text}
+\externaldocument[CLP100-]{../../../CLP1/latex/textbook/clp_1_dc_text}
+
+\newcommand{\eref}[2]{\ref*{#1-#2}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%% Cover image, not numbered
+\setcounter{page}{0}\includepdf[noautoscale=false]{clp2-exercises-cover.pdf}
+
+
+\begin{titlepage}
+\begin{center}
+\textsc{\LARGE
+CLP--II Integral Calculus \\[2ex]
+Questions
+}\\[2ex]
+
+\vspace{5ex}
+\hrule
+\vspace{5ex}
+
+\begin{tabular}{lcccr}
+&& \large Elyse \textsc{Yeager} \\[3ex]
+ Joel \textsc{Feldman}
+&\quad & &\quad&
+Andrew \textsc{Rechnitzer}
+\end{tabular}
+
+\end{center}
+\vspace{2ex}
+\hrule
+
+\vfill
+\textsc{This document was typeset on \today.}
+\end{titlepage}
+
+\section*{Legal stuff}
+\begin{itemize}
+ \item Copyright \copyright\ 2016--18 Elyse Yeager,  Joel Feldman,
+and Andrew  Rechnitzer
+
+\item In the near future this will be licensed under the
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+License. You can view a copy of the license at \\
+\url{http://creativecommons.org/licenses/by-nc-sa/4.0/}.
+\begin{center}
+ \includegraphics{figures/by-nc-sa.pdf}
+\end{center}
+\end{itemize}
+
+\newpage
+
+\frontmatter
+
+\chapter{How to use this book}
+\input{howtouse}
+
+\addtocontents{toc}{\protect\hypertarget{toc}{}}
+\tableofcontents
+
+\mainmatter
+
+\part{The questions}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+\chapter{Integration}
+\section{Definition of the Integral}
+\input{problems/prob_s1.1}
+\section{Basic properties of the definite integral}
+\input{problems/prob_s1.2}
+\section{The Fundamental Theorem of Calculus}
+\input{problems/prob_s1.3}
+\section{Substitution}
+\input{problems/prob_s1.4}
+\section{Area between curves}
+\input{problems/prob_s1.5}
+\section{Volumes}
+\input{problems/prob_s1.6}
+\section{Integration by parts}
+\input{problems/prob_s1.7}
+\section{Trigonometric Integrals}
+\input{problems/prob_s1.8}
+\section{Trigonometric Substitution}
+\input{problems/prob_s1.9}
+\section{Partial Fractions}
+\input{problems/prob_s1.10}
+\section{Numerical Integration}
+\input{problems/prob_s1.11}
+\section{Improper Integrals}
+\input{problems/prob_s1.12}
+\section{More Integration Examples}
+\input{problems/prob_s1.13}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Applications of Integration}
+\section{Work}
+\input{problems/prob_s2.1}
+\section{Averages}
+\input{problems/prob_s2.2}
+\section{Centre of Mass and Torque}
+\input{problems/prob_s2.3}
+\section{Separable Differential Equations}
+\input{problems/prob_s2.4}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Sequences and Series}
+\section{Sequences}
+\input{problems/prob_s3.1}
+\section{Series}
+\input{problems/prob_s3.2}
+\section{Convergence Tests}
+\input{problems/prob_s3.3}
+\section{Absolute and Conditional Convergence}
+\input{problems/prob_s3.4}
+\section{Power Series}
+\input{problems/prob_s3.5}
+\section{Taylor Series}
+\input{problems/prob_s3.6}
+
+
+%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+\closeoutputstream{thehints}
+\closeoutputstream{theanswers}
+\closeoutputstream{thesolutions}
+
+\newpage
+\part{Hints to problems}
+\input{hints.foo}
+
+\newpage
+\part{Answers to problems}
+\input{answers.foo}
+
+\newpage
+\part{Solutions to problems}
+\input{solutions.foo}
+
+\end{document}

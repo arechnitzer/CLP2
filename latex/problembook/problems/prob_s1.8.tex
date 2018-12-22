@@ -1,0 +1,852 @@
+%
+% Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager.
+% This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+% https://creativecommons.org/licenses/by-nc-sa/4.0/
+%
+\questionheader{ex:s1.8}
+
+
+\noindent
+Recall that we are using $\log x$ to denote the logarithm of $x$ with
+base $e$. In other courses it is often denoted $\ln x$.
+
+%%%%%%%%%%%%%%%%%%
+\subsection*{\Conceptual}
+%%%%%%%%%%%%%%%%%%
+\begin{Mquestion}
+Suppose you want to evaluate $\displaystyle\int_0^{\pi/4} \sin x \cos^n x ~\dee{x}$ using the substitution $u=\cos x$. Which of the following need to be true for your substitution to work?
+\begin{enumerate}[(a)]
+\item $n$ must be even
+\item $n$ must be odd
+\item $n$ must be an integer
+\item $n$ must be positive
+\item $n$ can be any real number
+\end{enumerate}
+\end{Mquestion}
+\begin{hint}
+Go ahead and try it!
+\end{hint}
+\begin{answer}
+(e)
+\end{answer}
+\begin{solution}
+If $u=\cos x$, then $-\dee{u}=\dee{x}$. If $n \neq -1$, then
+\begin{align*}
+\int_0^{\pi/4} \sin x \cos^n x ~\dee{x}&= - \int_1^{1/\sqrt2} u^n \dee{u} = \left[-\frac{1}{n+1}u^{n+1}\right]_1^{1/\sqrt2}=\frac{1}{n+1}\left(1-\frac{1}{\sqrt{2}^{n+1}}\right)
+\intertext{If $n=-1$, then}
+\int_0^{\pi/4} \sin x \cos^n x ~\dee{x}&= - \int_1^{1/\sqrt2} u^n \dee{u} =
+ - \int_1^{1/\sqrt2} \frac{1}{u} \dee{u} =\bigg[ -\log|u|\bigg]_1^{1/\sqrt2} \\
+& =-\log\left(\frac{1}{\sqrt2}\right) = \frac{1}{2}\log 2
+\end{align*}
+So, (e) $n$ can be any real number.
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+\begin{question}
+Evaluate $\displaystyle\int \sec^n x \tan x \dee{x}$, where $n$ is a strictly positive integer.\end{question}
+\begin{hint}
+Use the substitution $u=\sec x$.
+\end{hint}
+\begin{answer}
+$ \dfrac{1}{n}\sec^n x +C$
+\end{answer}
+\begin{solution}
+We use the substitution $u=\sec x$,  $\dee{u}=\sec x \tan x ~\dee{x}$.
+\begin{align*}
+\int \sec^n x \tan x \dee{x}&=\int \sec^{n-1}x \cdot \sec x \tan x~\dee{x} = \int u^{n-1}\dee{u}
+\intertext{Since $n$ is positive, $n-1 \neq -1$, so we antidifferentiate using the power rule.}
+&=\frac{u^n}{n}+C = \frac{1}{n}\sec^n x +C
+\end{align*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+\begin{question}
+Derive the identity $\tan^2 x +1 = \sec^2 x$ from the easier-to-remember identity $\sin^2x+\cos^2 x =1$.
+\end{question}
+\begin{hint}
+Divide both sides of the second identity by $\cos^2 x$.
+\end{hint}
+\begin{answer}
+We divide both sides by $\cos^2 x$, and simplify.
+\begin{align*}
+\sin^2x+\cos^2 x &=1
+\\\frac{\sin^2x+\cos^2 x }{\cos^2 x}&=\frac{1}{\cos^2 x}
+\\\frac{\sin^2x}{\cos^2 x}+1&=\sec^2 x
+\\\tan^2 x+1&=\sec^2 x
+\end{align*}
+
+\end{answer}
+\begin{solution}
+We divide both sides by $\cos^2 x$, and simplify.
+\begin{align*}
+\sin^2x+\cos^2 x &=1
+\\\frac{\sin^2x+\cos^2 x }{\cos^2 x}&=\frac{1}{\cos^2 x}
+\\\frac{\sin^2x}{\cos^2 x}+1&=\sec^2 x
+\\\tan^2 x+1&=\sec^2 x
+\end{align*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%
+\subsection*{\Procedural}
+%%%%%%%%%%%%%%%%%%
+
+\Instructions{Questions \ref{1.8sincos1} through \ref{1.8sincos2} deal with powers of sines and cosines. Review Section~\eref{CLP101}{sec:sincos} in the CLP--II text for integration strategies.}
+
+\begin{question}[M105 2015A]\label{1.8sincos1}
+Evaluate $\displaystyle\int\cos^3x\,\dee{x}$.
+\end{question}
+
+\begin{hint}
+See Example \eref{CLP101}{eg:TRGINTa} in the
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
+CLP--II text. Note that the power of cosine is odd, and the power of sine is even (it's zero).
+\end{hint}
+
+\begin{answer}
+$ \sin x-\dfrac{\sin^3 x}{3} +C$
+\end{answer}
+
+\begin{solution}
+The power of cosine is odd, and the power of sine is even (zero).  Following the strategy in the text, we make the substitution $u=\sin x$, so that $\dee{u}=\cos x\,\dee{x}$
+and $\cos^2 x = 1-\sin^2 x = 1-u^2$:
+\begin{align*}
+\int \cos^3x\,\dee{x}
+&=\int (1-\sin^2x)\cos x\,\dee{x}
+=\int (1-u^2)\,\dee{u}\\
+&=u-\frac{u^3}3+C
+=\sin x-\frac{\sin^3 x}{3}+C
+\end{align*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+\begin{Mquestion}[2014D]
+Evaluate $\displaystyle\int_0^\pi\cos^2x\,\dee{x}$.
+\end{Mquestion}
+
+\begin{hint}
+See Example \eref{CLP101}{eg:TRGINTb} in the
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
+CLP--II text. All you need is a helpful trig identity.
+\end{hint}
+
+\begin{answer}
+$\dfrac{\pi}{2}$
+\end{answer}
+
+\begin{solution}
+Using the trig identity $\cos^2 x=\dfrac{1+\cos(2x)}{2}$, we have
+\begin{alignat*}{3}
+\int \cos^2 x\dee{x}
+&= \frac{1}{2}\int_0^\pi \big[1+\cos(2x)\big]\dee{x}  %\\[0,1in]
+&= \frac{1}{2} \Big[x+\frac{1}{2}\sin(2x)\Big]_0^\pi
+&=\frac{\pi}{2}
+\end{alignat*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{question}[2016Q3]
+Evaluate $\displaystyle\int\sin^{36}t\,\cos^3t\,\dee{t}$.
+\end{question}
+
+\begin{hint}
+The power of cosine is odd, so we can reserve one cosine for $\dee{u}$, and turn the rest into sines using the identity $\sin^2 x + \cos^2 x =1$.
+\end{hint}
+
+\begin{answer}
+$\dfrac{\sin^{37}t}{37}-\dfrac{\sin^{39}t}{39}+C$
+\end{answer}
+
+\begin{solution}
+Since the power of cosine is odd, following the strategies in the text, we make the substitution $u=\sin t$, so that $\dee{u}=\cos t\,\dee{t}$
+and $\cos^2 t = 1-\sin^2 t = 1-u^2$.
+\begin{align*}
+\int\sin^{36}t\cos^3t\,\dee{t}
+&=\int\sin^{36}t \, (1-\sin^2t)\cos t\,\dee{t}
+=\int u^{36}(1-u^2)\,\dee{u}\\
+&=\frac{u^{37}}{37}-\frac{u^{39}}{39}+C
+=\frac{\sin^{37}t}{37}-\frac{\sin^{39}t}{39}+C
+\end{align*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+\begin{Mquestion}
+Evaluate $\displaystyle\int \dfrac{\sin^3 x}{\cos^4 x} ~\dee{x}$.
+\end{Mquestion}
+\begin{hint}
+Since the power of sine is odd (and positive), we can reserve one sine for $\dee{u}$, and turn the rest into cosines using the identity $\sin^2  + \cos^2 x =1$.
+\end{hint}
+\begin{answer}
+$\dfrac{1}{3\cos^3 x} - \dfrac{1}{\cos x}+C$
+\end{answer}
+\begin{solution}
+Since the power of sine is odd (and positive), we can reserve one sine for $\dee{u}$, and turn the rest into cosines using the identity $\sin^2  + \cos^2 x =1$. This allows us to use the substitution $u=\cos x$, $\dee{u}=-\sin x~\dee{x}$, and $\sin^2 x = 1-\cos^2 x = 1-u^2$.
+\begin{align*}
+\int \dfrac{\sin^3 x}{\cos ^4 x} ~\dee{x}&=\int \frac{\sin^2 x}{\cos^4 x}\sin x~\dee{x}
+=\int -\frac{1-u^2}{u^4}\dee{u}\\
+&=\int\left( -\frac{1}{u^{4}}+\frac{1}{u^{2}}\right)~\dee{u} = \frac{1}{3u^3}-\frac{1}{u}+C\\
+&=\frac{1}{3\cos^3 x} - \frac{1}{\cos x}+C
+\end{align*}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%
+\begin{question}
+Evaluate $\displaystyle\int_0^{\pi/3} \sin^{4}x~\dee{x}$.
+\end{question}
+\begin{hint}
+When we have even powers of sine and cosine both, we use the identities in the last two lines of Equation~\eref{CLP101}{eq:TRGINTtrigidentityC} in the CLP--II text.
+\end{hint}
+\begin{answer}
+$\displaystyle\frac{\pi}{8} -\frac{9\sqrt3}{64}$
+\end{answer}
+\begin{solution}
+Both sine and cosine have even powers (four and zero, respectively), so we don't have the option of using a substitution like $u=\sin x$ or $u=\cos x$. Instead, we use the identity $\sin^2 \theta = \dfrac{1-\cos(2\theta)}{2}$.
+\begin{align*}
+\int_0^{\pi/3} \sin^{4}x~\dee{x} &= \int_0^{\pi/3} \left(\sin^{2}x\right)^2~\dee{x}
+= \int_0^{\pi/3} \left(\frac{1-\cos(2x)}{2}\right)^2~\dee{x}\\
+&=\frac{1}{4}\int_0^{\pi/3}\left(1-2\cos(2x)+\cos^2(2x)\right)~\dee{x}
+\\&=\frac{1}{4}\int_0^{\pi/3}\left(1-2\cos(2x)\right)~\dee{x}+\frac{1}{4}\int_0^{\pi/3}\cos^2(2x)~\dee{x}
+\intertext{We can antidifferentiate the first integral right away. For the second integral, we use the identity \quad $\cos^2 \theta = \dfrac{1+\cos(2\theta)}{2}$,\quad with $\theta=2x$.}
+&=\frac{1}{4}\Big[x - \sin(2x)\Big]_{0}^{\pi/3} + \frac{1}{8}\int_0^{\pi/3}(1+\cos(4x))~\dee{x}\\
+&=\frac{1}{4}\left[\frac{\pi}{3}-\frac{\sqrt{3}}{2}\right]+\frac{1}{8}\Big[x+\frac{1}{4}\sin(4x)\Big]_0^{\pi/3}\\
+&=\frac{1}{4}\left[\frac{\pi}{3}-\frac{\sqrt{3}}{2}\right]+\frac{1}{8}\left[\frac{\pi}{3}-\frac{\sqrt{3}}{8}\right]\\
+&=\frac{\pi}{8} -\frac{9\sqrt3}{64}
+\end{align*}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%
+\begin{question}
+Evaluate $\displaystyle\int \sin^{5}x~\dee{x}$.
+\end{question}
+\begin{hint}
+Since the power of sine is odd, you can use the substitution $u=\cos x$.
+\end{hint}
+\begin{answer}
+$-\cos x + \dfrac{2}{3}\cos^3 x - \dfrac{1}{5}\cos^5 x +C$
+\end{answer}
+\begin{solution}
+Since the power of sine is odd, we can reserve one sine for $\dee{u}$, and change the remaining four into cosines. This sets us up to use the substitution $u=\cos x$, $\dee{u}=-\sin x~\dee{x}$.
+\begin{align*}
+\int \sin^{5}x~\dee{x}&=\int \sin^4 x \cdot \sin x~\dee{x} = \int (1-\cos^2 x)^2 \sin x~\dee{x}
+\\&=-\int (1-u^2)^2~\dee{u}
+= -\int (1-2u^2+u^4)\dee{u}\\
+&=-u+\frac{2}{3}u^3-\frac{1}{5}u^5+C\\
+&=-\cos x + \frac{2}{3}\cos^3 x - \frac{1}{5}\cos^5 x +C
+\end{align*}
+\end{solution}
+
+%%%%%%%%%%%%%%%%%%%
+
+
+\begin{Mquestion}\label{1.8sincos2}
+Evaluate $\displaystyle\int \sin^{1.2}x\cos x ~\dee{x}$.
+\end{Mquestion}
+\begin{hint}
+Which substitution will work better: $u=\sin x$, or $u=\cos x$?
+\end{hint}
+\begin{answer}
+$\dfrac{1}{2.2}\sin^{2.2}x+C$
+\end{answer}
+\begin{solution}
+If we use the substitution $u=\sin x$, then $\dee{u}=\cos x~\dee{x}$, which very conveniently shows up in the integrand.
+\begin{align*}
+\int \sin^{1.2}x\cos x ~\dee{x}&=\int u^{1.2}\dee{u} = \frac{u^{2.2}}{2.2}+C = \frac{1}{2.2}\sin^{2.2}x+C
+\end{align*}
+Note this is exactly the strategy described in the text when the power of cosine is odd. The non-integer power of sine doesn't cause a problem.
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+\Instructions{Questions \ref{1.8tansec1} through \ref{1.8tansec2} deal with powers of tangents and secants. Review Section~\eref{CLP101}{sec:tansec} in the CLP--II text for strategies.}
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+\begin{Mquestion}
+Evaluate $\displaystyle\int \tan x \sec^2 x \dee{x}$.
+\end{Mquestion}
+\begin{hint}
+Try a substitution.
+\end{hint}
+\begin{answer}
+$\dfrac{1}{2}\tan^2 x+C$, or equivalently, $\dfrac{1}{2}\sec^2  +C$
+\end{answer}
+\begin{solution}
+\begin{description}
+\item[Solution 1:] Let's use the substitution $u=\tan x$, $\dee{u} = \sec^2 x~\dee{x}$:
+\[\int \tan x \sec^2 x \dee{x} = \int u~\dee{u} = \frac{1}{2}u^2+C = \frac{1}{2}\tan^2 x +C\]
+\item[Solution 2:]
+We can also use the substitution $u=\sec x$, $\dee{u} = \sec x \tan x~\dee{x}$:
+\[ \int\tan x \sec^2 x \dee{x} = \int u~\dee{u} = \frac{1}{2}u^2+C = \frac{1}{2}\sec^2 x +C\]
+\end{description}
+We note that because $\tan^2x$ and $\sec^2 x$ only differ by a constant, the two answers are equivalent.
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+\begin{Mquestion}[2015A]\label{1.8tansec1}
+Evaluate $\displaystyle\int \tan^3 x \sec^5x \,\dee{x}$.
+\end{Mquestion}
+
+\begin{hint}
+For practice, try doing this in two ways, with different
+substitutions.
+\end{hint}
+
+\begin{answer}
+$\dfrac{1}{7}\sec^7 x -\dfrac{1}{5}\sec^5 x + C$
+\end{answer}
+
+\begin{solution}
+\begin{description}
+\item[Solution 1:]
+Substituting $u=\cos x$, $\dee{u}=-\sin x\,\dee{x}$, $\sin^2 x= 1-\cos^2x=1-u^2$,
+gives
+\begin{align*}
+\int \tan^3 x \sec^5x \,\dee{x}
+&=\int\frac{\sin^3 x}{\cos^8 x}\,\dee{x}
+=\int\frac{(1-\cos^2 x)\sin x}{\cos^8 x}\,\dee{x}
+=-\int\frac{1-u^2}{u^8}\,\dee{u} \\
+&=-\Big[\frac{u^{-7}}{-7}-\frac{u^{-5}}{-5}\Big]+C
+=\frac{1}{7}\sec^7 x -\frac{1}{5}\sec^5 x + C
+\end{align*}
+
+\item[Solution 2:]
+ Alternatively, substituting $u=\sec x$, $\dee{u}=\sec x\tan x\,\dee{x}$,
+$\tan^2 x= \sec^2x-1=u^2-1$,
+gives
+\begin{align*}
+\int \tan^3 x \sec^5x \,\dee{x}
+&=\int \tan^2 x \sec^4x\ (\tan x\sec x)\,\dee{x}
+=\int (u^2-1) u^4\,\dee{u} \\
+&=\Big[\frac{u^{7}}{7}-\frac{u^{5}}{5}\Big]+C
+=\frac{1}{7}\sec^7 x -\frac{1}{5}\sec^5 x + C
+\end{align*}
+\end{description}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+\begin{Mquestion}[2016Q3]
+Evaluate $\displaystyle\int\sec^4x\,\tan^{46}x\,\dee{x}$.
+\end{Mquestion}
+
+\begin{hint}
+ A substitution will work.
+See Example \eref{CLP101}{eg:TRGINTe} in the
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
+CLP--II text for a template for integrands with even powers of secant.
+\end{hint}
+
+\begin{answer}
+$\displaystyle\frac{\tan^{49}x}{49}+\frac{\tan^{47}x}{47}+C$
+\end{answer}
+
+\begin{solution}
+Use the substitution $u=\tan x$, so that $\dee{u}=\sec^2 x\,\dee{x}$:
+\begin{align*}
+\int\sec^4x\,\tan^{46}x\,\dee{x}
+&=\int(\tan^2x+1) \tan^{46}x\, \sec^2 x\,\dee{x} =\int (u^2+1)u^{46}\,\dee{u} \\
+&=\frac{u^{49}}{49}+\frac{u^{47}}{47}+C
+=\frac{\tan^{49}x}{49}+\frac{\tan^{47}x}{47}+C
+\end{align*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{question}\label{1.8_oddtanonesec}
+Evaluate $\displaystyle\int \tan^3 x \sec^{1.5} x ~\dee{x}$.
+\end{question}
+\begin{hint}
+Try the substitution $u=\sec x$.
+\end{hint}
+\begin{answer}
+$\dfrac{1}{3.5}\sec^{3.5}x - \dfrac{1}{1.5}\sec^{1.5}x+C$
+\end{answer}
+\begin{solution}
+We use the substitution $u=\sec x$, $\dee{u} = \sec x \tan x~\dee{x}$. Then $\tan^2 x = \sec^2 x - 1 = u^2-1$.
+\begin{align*}
+\int \tan^3 x \sec^{1.5} x ~\dee{x} &= \int \tan^2 x \cdot \sec^{0.5}x \cdot \sec x \tan x \dee{x}\\
+&=\int(u^2-1)u^{0.5}~\dee{u} = \int \left(u^{2.5} - u^{0.5}\right)~\dee{u}\\
+&=\frac{u^{3.5}}{3.5} - \frac{u^{1.5}}{1.5}+C\\
+&=\frac{1}{3.5}\sec^{3.5}x - \frac{1}{1.5}\sec^{1.5}x+C
+\end{align*}
+Note this solution used the same method as Example~\eref{CLP101}{eg:TRGINTf}  in the CLP--II text for the case that the power of tangent is odd and there is at least one secant.
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\begin{question}\label{1.8_oddtanonesec2}
+Evaluate $\displaystyle\int \tan^3x\sec^2x~\dee{x}$.
+\end{question}
+\begin{hint}
+Compare to Question~\ref{1.8_oddtanonesec}.
+\end{hint}
+\begin{answer}
+$\dfrac{1}{4}\sec^4 x - \dfrac{1}{2}\sec^2 x +C$
+\end{answer}
+\begin{solution}
+As in Question~\ref{1.8_oddtanonesec}, we have an odd power of tangent and at least one secant. So, we can use the substitution $u=\sec x$, $\dee{u}=\sec x \tan x~\dee{x}$, and $\tan^2 x = \sec^2 x -1=u^2-1$.
+\begin{align*}
+\int \tan^3x\sec^2x~\dee{x}&=\int \tan^2 x \sec x \cdot \sec x \tan x~\dee{x}\\
+&=\int(u^2-1)u~\dee{u} = \int \left(u^3-u\right)~\dee{u}\\
+&=\frac{1}{4}u^4 - \frac{1}{2}u^2+C\\
+&=\frac{1}{4}\sec^4 x - \frac{1}{2}\sec^2 x +C
+\end{align*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+\begin{question}
+Evaluate $\displaystyle\int \tan^4 x \sec^2 x ~\dee{x}$.
+\end{question}
+\begin{hint}
+What is the derivative of tangent?
+\end{hint}
+\begin{answer}
+$\dfrac{1}{5}\tan^5 x +C$
+\end{answer}
+\begin{solution}
+In contrast to Questions~\ref{1.8_oddtanonesec} and \ref{1.8_oddtanonesec2}, we do not have an odd power of tangent, so we should consider a different substitution. Luckily, if we choose $u=\tan x$, then $\dee{u}=\sec^2 x~\dee{x}$, and this fits our integrand nicely.
+\begin{align*}
+\int \tan^4 x \sec^2 x ~\dee{x}&=\int u^4~\dee{u}=\frac{1}{5}u^5+C = \frac{1}{5}\tan^5 x +C
+\end{align*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{question}
+Evaluate $\displaystyle\int \tan^3 x \sec^{-0.7}x ~\dee{x}$.
+\end{question}
+\begin{hint}
+Don't be scared off by the non-integer power of secant. You can still use the strategies in the notes for an odd power of tangent.
+\end{hint}
+\begin{answer}
+$\dfrac{1}{1.3}\sec^{1.3}x + \dfrac{1}{0.7}\cos^{0.7}x+C$
+\end{answer}
+\begin{solution}
+\begin{description}
+\item[Solution 1:] Since the power of tangent is odd, let's try to use the substitution $u=\sec x$, $\dee{u} = \sec x \tan x ~\dee{x}$, and $\tan^2 x = \sec^2 x -1 = u^2-1$, as in Questions~\ref{1.8_oddtanonesec} and \ref{1.8_oddtanonesec2}. In order to make this work, we need to see $\sec x \tan x~\dee{x}$ in the integrand, so we do a little algebraic manipulation.
+\begin{align*}
+\int \tan^3 x \sec^{-0.7}x ~\dee{x}&= \int \dfrac{\tan^3 x}{\sec^{0.7 x}}~\dee{x}
+= \int \dfrac{\tan^3 x}{\sec^{1.7 x}}\sec x~\dee{x}\\
+&=\int \frac{\tan^2x}{\sec^{1.7}x}\cdot \sec x \tan x~\dee{x}\\
+&=\int \frac{u^2-1}{u^{1.7}}~\dee{u} = \int \left(u^{0.3}-u^{-1.7}\right)~\dee{u}\\
+&=\frac{u^{1.3}}{1.3} + \frac{1}{0.7u^{0.7}}+C\\
+&=\frac{1}{1.3}\sec^{1.3}x + \frac{1}{0.7\sec^{0.7}x}+C\\
+&=\frac{1}{1.3}\sec^{1.3}x + \frac{1}{0.7}\cos^{0.7}x+C
+\end{align*}
+\item[Solution 2:] Let's convert the secants and tangents to sines and cosines.
+\begin{align*}
+\int \tan^3 x \sec^{-0.7}x ~\dee{x}&=
+\int \frac{\sin^3 x}{\cos^3 x}\cdot \cos^{0.7}x~\dee{x}\\
+&=\int\frac{\sin^3 x}{\cos^{2.3}x}~\dee{x}=\int \frac{\sin^2 x}{\cos^{2.3}x}\cdot\sin x~\dee{x}
+\intertext{Using the substitution $u=\cos x$, $\dee{u}=-\sin~\dee{x}$, and $\sin^2 x = 1-\cos^2 x = 1-u^2$:}
+& = -\int\frac{1-u^2}{u^{2.3}}~\dee{u} = \int \left(-u^{-2.3}+u^{-0.3}\right)~\dee{u}\\
+&=\frac{1}{1.3}u^{-1.3} + \frac{1}{0.7}u^{0.7}+C\\
+&=\dfrac{1}{1.3}\sec^{1.3}x + \dfrac{1}{0.7}\cos^{0.7}x+C
+\end{align*}
+\end{description}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{question}
+Evaluate $\displaystyle\int \tan^5 x  ~\dee{x}$.
+\end{question}
+\begin{hint}
+ Since there are no secants in the problem, it's difficult to use the substitution $u=\sec x$ that we've enjoyed in the past.
+ Example~\eref{CLP101}{eg:TRGINTh} in the CLP--II text provides a template for antidifferentiating an odd power of tangent.
+\end{hint}
+\begin{answer}
+$=\dfrac{1}{4}\sec^4 x - \sec^2 x + \log|\sec x|+C$
+\end{answer}
+\begin{solution}
+We replace $\tan x$ with $\dfrac{\sin x}{\cos x}$.
+\begin{align*}
+\int \tan^5 x~\dee{x}&=\int\left(\frac{\sin x}{\cos x}\right)^5~\dee{x} = \int\frac{\sin^4 x}{\cos^5 x}\cdot \sin x~\dee{x}
+\intertext{Now we use the substitution $u=\cos x$, $\dee{u}=-\sin x~\dee{x}$, and $\sin^2 x = 1-\cos^2 x = 1-u^2$.}
+&=-\int\frac{(1-u^2)^2}{u^5}~\dee{u} = \int \left(-u^{-5}+2u^{-3}-u^{-1}\right)~\dee{u}\\
+&=\frac{1}{4}u^{-4} - u^{-2}-\log|u|+C\\
+&=\dfrac{1}{4}\sec^4 x - \sec^2 x - \log|\cos x|+C\\
+&=\dfrac{1}{4}\sec^4 x - \sec^2 x + \log|\sec x|+C
+\end{align*}
+where in the last line, we used the logarithm rule $\log(b^a) = a\log b$, with $
+b^a = \cos x = \left(\sec x\right)^{-1}$.
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+\begin{Mquestion}\label{1.8_tan6} Evaluate $\displaystyle\int_0^{\pi/6} \tan^6 x ~\dee{x}$.
+\end{Mquestion}
+\begin{hint}
+Integrating even powers of tangent is surprisingly different from integrating odd powers of tangent. You'll want to use the identity $\tan^2x  = \sec^2 x -1$, then use the substitution $u=\tan x$, $\dee{u}=\sec^2 x~\dee{x}$ on (parhaps only a part of) the resulting integral.
+ Example~\eref{CLP101}{eg:TRGINTi} in the CLP--II text show you how this can be accomplished.
+\end{hint}
+\begin{answer}
+$\dfrac{41}{45\sqrt{3}} - \dfrac{\pi}{6}$
+\end{answer}
+\begin{solution}
+Integrating even powers of tangent is surprisingly different from integrating odd powers of tangent. For even powers, we use the identity $\tan^2x  = \sec^2 x -1$, then use the substitution $u=\tan x$, $\dee{u}=\sec^2 x~\dee{x}$ on (parhaps only a part of) the resulting integral.
+\begin{align*}
+\int_0^{\pi/6} \tan^6 x ~\dee{x}&=\int_0^{\pi/6} \tan^4 x(\sec^2 x -1) ~\dee{x}\\
+&=\int_0^{\pi/6} \bigg(\underbrace{\tan^4 x \sec^2 x}_{u^4~\dee{u}} - \tan^4 x\bigg)~\dee{x}\\
+&=\int_0^{\pi/6} \bigg(\tan^4 x \sec^2 x - \tan^2 x(\sec^2 x-1)\bigg)~\dee{x}
+\\&=\int_0^{\pi/6}\bigg( \tan^4 x \sec^2 x - \underbrace{\tan^2 x\sec^2 x}_{u^2~\dee{u}}+\tan^2 x\bigg)~\dee{x}
+\\&=\int_0^{\pi/6}\bigg( \tan^4 x \sec^2 x - \tan^2 x\sec^2 x+(\underbrace{\sec^2x}_{\dee{u}}-1)\bigg)~\dee{x}
+\\&=\int_0^{\pi/6}\left( \tan^4 x  - \tan^2 x+1\right)\sec^2 x~\dee{x} - \int_0^{\pi/6} 1\dee{x}
+\intertext{ Note $\tan(0)=0$, and $\tan(\pi/6)=1/\sqrt{3}$.}
+&=\int_0^{1/\sqrt{3}}(u^4-u^2+1)~\dee{u} - \big[ x\big]_0^{\pi/6}\\
+&=\left[\frac{1}{5}u^5 - \frac{1}{3}u^3+u\right]_0^{1/\sqrt{3}} - \frac{\pi}{6}\\
+&=\frac{1}{5\sqrt{3}^5} - \frac{1}{3\sqrt{3}^3}+\frac{1}{\sqrt{3}}-\frac{\pi}{6}\\
+&=\dfrac{41}{45\sqrt{3}} - \dfrac{\pi}{6}
+\end{align*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{question}
+Evaluate $\displaystyle\int_0^{\pi/4} \tan^8 x \sec^4 x ~\dee{x}$.
+\end{question}
+\begin{hint}
+Since there is an even power of secant in the integrand, we can use the substitution $u=\tan x$.
+\end{hint}
+\begin{answer}
+$\dfrac{1}{11}+\dfrac{1}{9}$
+\end{answer}
+\begin{solution}
+Since there is an even power of secant in the integrand, we can reserve two secants for $\dee{u}$ and change the rest to tangents. That sets us up nicely to use the substitution $u=\tan x$, $\dee{u}=\sec^2 x~\dee{x}$. Note $\tan(0)=0$ and $\tan(\pi/4)=1$.
+\begin{align*}
+\int_0^{\pi/4} \tan^8 x \sec^4 x ~\dee{x}&=\int_0^{\pi/4} \tan^8 x~( \tan^2 x+1) \sec^2 x~\dee{x}\\&=\int_0^{1} u^8 ~( u^2 +1) ~\dee{u}\\
+&=\int_0^1 u^{10}+u^8~\dee{u}\\
+&=\frac{1}{11}+\frac{1}{9}
+\end{align*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{question}\label{1.8tansec2}
+Evaluate $\displaystyle\int \tan x \sqrt{\sec x} ~\dee{x}$.
+\end{question}
+\begin{hint}
+How have we handled integration in the past that involved an odd power of tangent?
+\end{hint}
+\begin{answer}
+$2\sqrt{\sec x}+C$
+\end{answer}
+\begin{solution}
+\begin{description}
+\item[Solution 1:] Let's use the substitution $u=\sec x$, $\dee{u}=\sec x \tan x~\dee{x}$. In order to make this work, we need to see $\sec x \tan x$ in the integrand, so we start with some algebraic manipulation.
+\begin{align*}
+\int \tan x \sqrt{\sec x}\left(\frac{\sqrt{\sec x}}{\sqrt{\sec x}}\right) ~\dee{x}&=\int \frac{1}{\sqrt{\sec x}}\sec x\tan x~\dee{x}\\
+&=\int \frac{1}{\sqrt{u}}~\dee{u}=2\sqrt{u}+C\\
+&=2\sqrt{\sec x}+C
+\end{align*}
+\item[Solution 2:] Let's turn our secants and tangents into sines and cosines.
+\begin{align*}
+\int \tan x \sqrt{\sec x}~\dee{x}&=\int \frac{\sin x}{\cos x\cdot\sqrt{\cos x}}~\dee{x}=\int \frac{\sin x}{\cos^{1.5}x}~\dee{x}
+\intertext{We use the substitution $u=\cos x$, $\dee{u}=-\sin x~\dee{x}$.}
+&=\int -u^{-1.5}~\dee{u}=\frac{2}{\sqrt{u}}+C\\
+&=2\sqrt{\sec x}+C
+\end{align*}
+\end{description}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+\begin{Mquestion}
+Evaluate $\displaystyle\int \sec^{8}\theta \tan^{e}\theta ~\dee{\theta}$.
+\end{Mquestion}
+\begin{hint}
+Remember $e$ is some constant. What are our strategies when the power of secant is even and positive? We've seen one such substitution in Example~\eref{CLP101}{eg:TRGINTfredux}
+of the CLP--II text.
+\end{hint}
+\begin{answer}
+$\tan^{e+1}\theta\left(
+\dfrac{\tan^{6}\theta}{7+e}+\dfrac{3\tan^4\theta}{5+e}+\dfrac{3\tan^2\theta}{3+e}+\dfrac{1}{1+e}
+\right)+C$
+\end{answer}
+\begin{solution}
+Since the power of secant is even and positive, we can reserve two secants for $\dee{u}$, and change the rest into tangents, setting the stage for the substitution $u = \tan \theta$, $\dee{u}=\sec^2 \theta~\dee{\theta}$.
+\begin{align*}
+\int \sec^{8}\theta \tan^{e}\theta ~\dee{\theta}&=\int \sec^6 \theta \tan^e \theta \sec^2 \theta~\dee{\theta}\\
+&=\int (\tan^2 \theta +1)^3  \tan^e \theta \sec^2 \theta~\dee{\theta}\\
+&=\int (u^2+1)^3 \cdot u^e ~\dee{u}\\
+&=\int (u^6+3u^4 +3u^2+1) \cdot u^e ~\dee{u}\\
+&=\int (u^{6+e}+3u^{4+e} +3u^{2+e}+ u^e) ~\dee{u}\\
+&=\frac{1}{7+e}u^{7+e}+\frac{3}{5+e}u^{5+e}+\frac{3}{3+e}u^{3+e}+\frac{1}{1+e}u^{1+e}+C
+\\
+&=\frac{1}{7+e}\tan^{7+e}\theta+\frac{3}{5+e}\tan^{5+e}\theta+\frac{3}{3+e}\tan^{3+e}\theta+\frac{1}{1+e}\tan^{1+e}\theta+C\\
+&=\tan^{1+e}\theta\left(
+\frac{\tan^{6}\theta}{7+e}+\frac{3\tan^4\theta}{5+e}+\frac{3\tan^2\theta}{3+e}+\frac{1}{1+e}
+\right)+C
+\end{align*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%
+\subsection*{\Application}
+%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{Mquestion}[2001D]
+A reduction formula.
+\begin{enumerate}[(a)]
+\item
+Let $n$ be a positive integer with $n\ge 2$.
+Derive the reduction formula
+\[\int\tan^n(x)\,\dee{x}=\frac{\tan^{n-1}(x)}{n-1}
+-\int\tan^{n-2}(x)\,\dee{x}.\]
+\item
+Calculate $\displaystyle\int_0^{\pi/4}\tan^6(x)\,\dee{x}$.
+\end{enumerate}
+\end{Mquestion}
+
+\begin{hint}
+See Example \eref{CLP101}{eg:TRGINTi} in the
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
+CLP--II text for a strategy for integrating powers of tangent.
+\end{hint}
+
+\begin{answer} (a) Using the trig identity $\tan^2x=\sec^2 x-1$ and the substitution
+$y=\tan x$, $\dee{y}=\sec^2 x\  \dee{x}$,
+\begin{alignat*}{3}
+\int\tan^nx\ \dee{x}
+&=\int\tan^{n-2}x\ \tan^2x\ \dee{x}
+&&=\int\tan^{n-2}x\ \sec^2x\ \dee{x}-\int\tan^{n-2}x\ \dee{x}\\
+&=\int y^{n-2}\,\dee{y}-\int\tan^{n-2}x\ \dee{x}
+&&=\frac{y^{n-1}}{n-1}-\int\tan^{n-2}x\ \dee{x}\\
+&=\frac{\tan^{n-1}x}{n-1} -\int\tan^{n-2}x\ \dee{x}
+\end{alignat*}
+
+ (b) $\displaystyle\frac{13}{15}-\frac{\pi}{4}\approx0.0813$
+\end{answer}
+
+\begin{solution} (a)
+Using the trig identity $\tan^2x=\sec^2 x-1$ and the substitution
+$y=\tan x$, $\dee{y}=\sec^2 x\  \dee{x}$,
+\begin{alignat*}{3}
+\int\tan^nx\ \dee{x}
+&=\int\tan^{n-2}x\ \tan^2x\ \dee{x}
+&&=\int\tan^{n-2}x\ \sec^2x\ \dee{x}-\int\tan^{n-2}x\ \dee{x}\\
+&=\int y^{n-2}\,\dee{y}-\int\tan^{n-2}x\ \dee{x}
+&&=\frac{y^{n-1}}{n-1}-\int\tan^{n-2}x\ \dee{x}\\
+&=\frac{\tan^{n-1}x}{n-1} -\int\tan^{n-2}x\ \dee{x}
+\end{alignat*}
+
+\noindent (b)
+By the reduction formula of part (a),
+\begin{align*}
+\int_0^{\pi/4}\tan^n(x)\,\dee{x}&=
+\left[\frac{\tan^{n-1}x}{n-1}\right]_{0}^{\pi/4}-\int_0^{\pi/4}\tan^{n-2}(x)\,\dee{x}\\
+&=\frac{1}{n-1}-\int_0^{\pi/4}\tan^{n-2}(x)\,\dee{x}
+\end{align*}
+for all integers $n\ge 2$, since $\tan 0=0$ and $\tan\frac{\pi}{4}=1$.
+We apply this reduction formula, with $n=6,4,2$.
+\begin{align*}
+\int_0^{\pi/4}\tan^6(x)\,\dee{x}
+&=\frac{1}{5}-\int_0^{\pi/4}\tan^4(x)\,\dee{x}
+=\frac{1}{5}-\frac{1}{3}+\int_0^{\pi/4}\tan^2(x)\,\dee{x}
+=\frac{1}{5}-\frac{1}{3}+1-\int_0^{\pi/4}\,\dee{x}\cr
+&=\frac{1}{5}-\frac{1}{3}+1-\frac{\pi}{4}
+=\frac{13}{15}-\frac{\pi}{4}
+\end{align*}
+Using a calculator, we see this is approximately $0.0813$.
+
+Notice how much faster this was than the method of Question~\ref{1.8_tan6}.
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{Mquestion}
+Evaluate $\displaystyle\int \tan^5 x \cos^2 x ~\dee{x}$.
+\end{Mquestion}
+\begin{hint}
+Write $\tan x = \dfrac{\sin x}{\cos x}$.
+\end{hint}
+\begin{answer}
+$\dfrac{1}{2\cos^2 x}+2\log|\cos x|-\dfrac{1}{2}\cos^2 x +C$
+\end{answer}
+\begin{solution}
+Recall $\tan x = \dfrac{\sin x}{\cos x}$.
+\begin{align*}
+\int \tan^5 x \cos^2 x ~\dee{x}&=\int \frac{\sin^5 x}{\cos^5 x}\cos^2 x ~\dee{x}
+=\int \frac{\sin^5 x}{\cos^3 x}~\dee{x}
+\intertext{Substitute $u=\cos x$, so  $\dee{u}=-\sin x~\dee{x}$ and $\sin^2 x = 1-\cos^2 x = 1-u^2$.}
+&=\int \frac{\sin^4 x}{\cos^3 x}~\sin x~\dee{x}
+=-\int \frac{(1-u^2)^2}{u^3}~\dee{u}\\
+&=-\int \frac{1-2u^2+u^4}{u^3}~\dee{u}=
+\int \left(-\frac{1}{u^3}+\frac{2}{u}-u\right)\dee{u}\\
+&=\frac{1}{2u^2}+2\log|u|-\frac{1}{2}u^2+C\\
+&=\frac{1}{2\cos^2 x}+2\log|\cos x|-\frac{1}{2}\cos^2 x +C
+\end{align*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+\begin{question}
+Evaluate $\displaystyle\int \frac{1}{\cos^2 \theta}\dee{\theta}$.
+\end{question}
+\begin{hint}
+$\dfrac{1}{\cos \theta} = \sec \theta$
+\end{hint}
+\begin{answer}
+$\tan \theta +C$
+\end{answer}
+\begin{solution}
+We can use the definition of secant to make this integral look more familiar.
+\[\int \frac{1}{\cos^2 \theta}~\dee{\theta} = \int \sec^2\theta~\dee{\theta} = \tan \theta +C\]
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+\begin{Mquestion}
+Evaluate $\displaystyle\int \cot x~\dee{x}$.
+\end{Mquestion}
+\begin{hint}
+$\cot x = \dfrac{\cos x}{\sin x}$
+\end{hint}
+\begin{answer}
+$ \log|\sin x|+C$
+\end{answer}
+\begin{solution}
+We re-write $\cot x = \dfrac{\cos x}{\sin x}$, and use the substitution $u=\sin x$, $\dee{u}=\cos x~\dee{x}$.
+\begin{align*}
+\int \cot x~\dee{x}&= \int \frac{\cos x}{\sin x}~\dee{x} = \int \frac{1}{u}~\dee{u}\\
+&=\log|u|+C = \log|\sin x|+C
+\end{align*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+\begin{question}
+Evaluate $\displaystyle\int e^x\sin(e^x)\cos(e^x) ~\dee{x}$.
+\end{question}
+\begin{hint}
+Try substituting.
+\end{hint}
+\begin{answer}
+$\dfrac{1}{2}\sin^2(e^x)+C$
+\end{answer}
+\begin{solution}
+\begin{description}
+\item[Solution 1:]
+We begin with the obvious substitution, $w=e^x$, $\dee{w}=e^x \dee{w}$.
+\begin{align*}
+\int e^x\sin(e^x)\cos(e^x) ~\dee{x}&= \int \sin w \cos w ~\dee{w}
+\intertext{Now we see another substitution, $u=\sin w$, $\dee{u}=\cos w~\dee{w}$.}
+&=\int u~\dee{u}=\frac{1}{2}u^2+C=\frac{1}{2}\sin^2 w +C\\
+&=\frac{1}{2}\sin(e^x)+C
+\end{align*}
+\item[Solution 2:] Notice that $\diff{}{x}\{\sin(e^x)\} = e^x \cos(e^x)$. This suggests to us the substitution $u=\sin(e^x)$, $\dee{u} = e^x \cos(e^x)~\dee{x}$.
+\begin{align*}
+\int e^x\sin(e^x)\cos(e^x) ~\dee{x}&= \int u~\dee{u} =\frac{1}{2}u^2+C = \frac{1}{2}\sin^2(e^x)+C
+\end{align*}
+\end{description}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{question}
+Evaluate $\displaystyle\int \sin(\cos x)\sin^3 x ~\dee{x}$.
+\end{question}
+\begin{hint}
+To deal with the ``inside function," start with a substitution.
+\end{hint}
+\begin{answer}
+$(\sin^2x+2)\cos (\cos x) + 2\cos x\sin (\cos x)  +C$
+\end{answer}
+\begin{solution}
+Since we have an ``inside function," we start with the substitution $s=\cos x$, so $-\dee{s}=\sin x ~\dee{x}$ and $\sin^2 x = 1-\cos^2 x = 1-s^2$.
+\begin{align*}
+\int \sin(\cos x)\sin^3 x ~\dee{x}&=\int \sin(\cos x) \cdot \sin^2 x \cdot \sin x \dee{x}\\
+&=-\int \sin(s)\cdot (1-s^2) ~\dee{s}
+\intertext{We use integration by parts with $u=(1-s^2)$, $\dee{v}=\sin s ~\dee{s}$; $\dee{u}=-2s~\dee{s}$, and $v = -\cos s$.}
+&=-\left[-(1-s^2)\cos s - \int 2s\cos s~ \dee{s}\right]
+\\&= (1-s^2)\cos s + \int 2s\cos s~ \dee{s}
+\intertext{We integrate by parts again, with $u=2s$, $\dee{v}=\cos s ~\dee{s}$; $\dee{u}=2~\dee{s}$, and $v=\sin s$.}
+&=(1-s^2)\cos s + 2s\sin s - \int 2\sin s~\dee{s}
+\\&=(1-s^2)\cos s + 2s\sin s +2\cos s +C
+\\&=\sin^2 x\cdot\cos (\cos x) + 2\cos x\cdot\sin (\cos x) +2\cos (\cos x) +C
+\\&=(\sin^2x+2)\cos (\cos x) + 2\cos x\cdot\sin (\cos x)  +C
+\end{align*}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\begin{Mquestion}
+Evaluate $\displaystyle\int x\sin x \cos x ~\dee{x}$.
+\end{Mquestion}
+\begin{hint}
+Try an integration by parts.
+\end{hint}
+\begin{answer}
+$\dfrac{x}{2}\sin^2 x - \dfrac{x}{4} +\dfrac{1}{4}\sin x \cos x+C$
+\end{answer}
+\begin{solution}
+
+Since the integrand is the product of polynomial and trigonometric functions, we suspect it might yield to integration by parts. There are a number of ways this can be accomplished.
+
+\begin{description}
+\item[Solution 1:] Before we choose parts, let's use the identity $\sin(2x) = 2\sin x \cos x$.
+\begin{align*}
+\int x\sin x \cos x \dee{x}&=\frac{1}{2}\int x \sin(2x)\dee{x}
+\intertext{Now let $u= x$, $\dee{v}=\sin(2x)\dee{x}$; $\dee{u}=\dee{x}$, and $v=-\frac{1}{2}\cos (2x) $. Using integration by parts:}
+&=\frac{1}{2}\left[-\frac{x}{2}\cos (2x) +\frac{1}{2} \int \cos (2x) \dee{x}\right]\\
+&=-\frac{x}{4}\cos (2x) +\frac{1}{8}\sin (2x) +C\\
+&=-\frac{x}{4}(1-2\sin^2x) +\frac{1}{4}\sin x\cos x +C\\
+&=-\frac{x}{4} + \frac{x}{2}\sin^2x+\frac{1}{4}\sin x \cos x +C
+\end{align*}
+
+\item[Solution 2:] If we let $u=x$, then $\dee{u}=\dee{x}$, and this seems desirable for integration by parts. If $u=x$, then $\dee{v} = \sin x \cos x \dee{x}$. To find $v$ we can use the substitution $u=\sin x$, $\dee{u}=\cos x \dee{x}$.
+\begin{align*}
+v=\int \sin x  \cos x \dee{x}&=\int u \dee{u} = \frac{1}{2}u^2+C = \frac{1}{2}\sin^2 x +C
+\intertext{So, we take $v = \frac{1}{2}\sin^2 x$. Now we can apply integration by parts to our original integral.}
+\int x\sin x \cos x ~\dee{x}&=\frac{x}{2}\sin^2 x - \int \frac{1}{2}\sin^2 x \dee{x}
+\intertext{Apply the identity $\sin^2x = \dfrac{1-\cos(2x)}{2}$.}
+&=\frac{x}{2}\sin^2 x - \frac{1}{4}\int 1-\cos(2 x) \dee{x}\\
+&=\frac{x}{2}\sin^2 x - \frac{x}{4} +\frac{1}{8}\sin(2 x)+C\\
+&=\frac{x}{2}\sin^2 x - \frac{x}{4} +\frac{1}{4}\sin x \cos x+C
+\end{align*}
+\item[Solution 3:] Let $u=x\sin x$ and $\dee{v}=\cos x \dee{x}$; then $\dee{u} = (x\cos x + \sin x)\dee{x}$ and $v = \sin x$.
+\begin{align*}
+\int x\sin x  \cos x \dee{x}&=x\sin^2 x - \int  \sin x(x\cos x + \sin x)\dee{x}\\
+&=x\sin^2 x - \int x \sin x \cos x\dee{x} - \int \sin^2 x\dee{x}
+\intertext{Apply the identity $\sin^2 x = \dfrac{1-\cos(2x)}{2}$ to the second integral.}
+&=x\sin^2 x - \int x \sin x \cos x\dee{x} - \int \dfrac{1-\cos(2x)}{2}\dee{x}
+\\&=x\sin^2 x - \int x \sin x \cos x\dee{x} - \frac{x}{2} +\frac{1}{4}\sin(2x)+C
+\intertext{So, we have the equation}
+\color{red}\int x\sin x  \cos x \dee{x}&=x\sin^2 x -\textcolor{red}{ \int x \sin x \cos x\dee{x}} - \frac{x}{2} + \frac{1}{4}\sin(2x)+C\\
+\color{red}2\int x\sin x  \cos x \dee{x}&=x\sin^2 x - \frac{x}{2} + \frac{1}{4}\sin(2x)+C\\
+\int x\sin x  \cos x \dee{x}&=\frac{x}{2}\sin^2 x - \frac{x}{4} + \frac{1}{8}\sin(2x)+\frac{C}{2}\\
+&=\frac{x}{2}\sin^2 x - \frac{x}{4} + \frac{1}{4}\sin x\cos x+\frac{C}{2}
+\end{align*}
+Since $C$ is an arbitrary constant that can take any number in $(-\infty,\infty)$, also $\frac{C}{2}$ is an arbitrary constant that can take any number in $(-\infty,\infty)$, so we're free to rename $\frac{C}{2}$ to $C$.
+  \end{description}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%

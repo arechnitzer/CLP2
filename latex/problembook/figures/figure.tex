@@ -1,0 +1,35 @@
+% To create a .eps file, use the command
+%      dvips -E -o file.eps figure
+% Use gv file.eps to check the bounding box.
+% Then to convert the .eps file to a .pdf file while
+% preserving the bounding box, use
+%         ps2pdf -dEPSCrop file.eps
+
+\documentclass[12pt]{article}
+
+\usepackage{../clp_macros}
+%\usepackage{../qhas_v3} %question-hint-answer-solution - Andrew's hacking was here.
+
+
+\thispagestyle{empty}
+\input figMac
+\def\figdir{}
+
+\begin{document}
+\null\vskip1in
+%\centerline{\figput{OEM105_13A_1e}}
+%\centerline{\figput{OQ16_1}}
+%\centerline{\figput{OQ16_3_4}}
+%\centerline{\figput{OQ16_4_4l}}
+%\centerline{\figput{OE16A_8}}
+%\centerline{\figput{OE16A_8b}}
+%\centerline{\figput{OE14D_4}}
+%\centerline{\figput{E121_02A_2a}}
+%\centerline{\figput{E121_01A_1c}}
+%\centerline{\figput{E121_99D_8a}}
+%\centerline{\figput{E121_14A_5}}
+\centerline{\figput{OE12A_2a}}
+
+
+
+\end{document}
