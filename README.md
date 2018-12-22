@@ -8,7 +8,7 @@ It is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.
 <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
 
 
-## Source files - Still being uploaded
+## Source files 
 In this repository we give two sets of source files - latex and pretext.
 
 ### Latex sources
