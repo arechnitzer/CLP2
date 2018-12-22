@@ -1,0 +1,1378 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_sep_de">
+<title>Separable Differential Equations</title>
+<introduction>
+
+<p>
+A differential equation is an equation for an unknown function that involves the derivative of the unknown function. Differential equations play a central role in modelling a huge number of different phenomena. Here is a table giving a bunch of named differential equations and what they are used for. It is far from complete.
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" bottom="minor" top="minor">
+<row>
+<cell>  Newton's Law of Motion  </cell><cell> describes motion of particles </cell>
+</row><row>
+<cell> Maxwell's equations  </cell><cell>describes electromagnetic radiation </cell>
+</row><row>
+<cell> Navier-Stokes equations  </cell><cell>describes fluid motion </cell>
+</row><row>
+<cell>  Heat equation  </cell><cell>describes heat flow </cell>
+</row><row>
+<cell>  Wave equation  </cell><cell>describes wave motion </cell>
+</row><row>
+<cell>  Schrödinger equation  </cell><cell>describes atoms, molecules and crystals </cell>
+</row><row>
+<cell>  Stress-strain equations  </cell><cell>describes elastic materials </cell>
+</row><row>
+<cell>  Black-Scholes models </cell><cell>used for pricing financial options </cell>
+</row><row>
+<cell>  Predator-prey equations  </cell><cell>describes ecosystem populations  </cell>
+</row><row>
+<cell>  Einstein's equations  </cell><cell>connects gravity and geometry  </cell>
+</row><row>
+<cell>  Ludwig-Jones-Holling's equation  </cell><cell>models spruce budworm/Balsam fir ecosystem  </cell>
+</row><row>
+<cell>  Zeeman's model  </cell><cell>models heart beats and nerve impulses </cell>
+</row><row>
+<cell>  Sherman-Rinzel-Keizer model  </cell><cell>for electrical activity in Pancreatic <m>\beta</m>-cells  </cell>
+</row><row>
+<cell>  Hodgkin-Huxley equations  </cell><cell>models nerve action potentials  </cell>
+</row>
+</tabular>
+</sidebyside>
+
+<p>
+We are just going to scratch the surface of the study of differential equations. Most universities offer half a dozen different undergraduate courses on various aspects of differential equations. We will just look at one special, but important, type of equation.
+</p>
+</introduction>
+
+<subsection>
+<title>Separate and integrate</title>
+
+<definition xml:id="def_SDEsepdiffeq">
+<statement><p>
+A <em>separable differential equation</em> is an equation for a function
+<m>y(x)</m> of the form
+<me>
+\diff{y}{x}(x) = f(x)\ g\big(y(x)\big)
+</me>
+</p></statement>
+</definition>
+
+<p>
+We'll start by developing a recipe for solving separable differential  equations. Then we'll look at many examples. Usually one supresses the argument of <m>y(x)</m>  and writes the  equation
+	<fn>
+		Look at the right hand side of the equation. The <m>x</m>-dependence is separated from the <m>y</m>-dependence. That's the reason for the name <q>separable</q>.
+	</fn>
+<me>
+\diff{y}{x} = f(x)\ g(y)
+</me>
+and solves such an equation by cross multiplying/dividing to get all of the <m>y</m>'s, including the <m>\dee{y}</m> on one side of  the equation and all of the <m>x</m>'s, including the <m>\dee{x}</m>, on the  other side of the equation.
+<me>
+\frac{\dee{y}}{g(y)}=f(x)\,\dee{x}
+</me>
+(We are of course assuming that <m>g(y)</m> is nonzero.) Then you integrate both sides
+<mdn>
+<mrow xml:id="eq_SDEbasicSln" tag="star">
+\int\frac{\dee{y}}{g(y)}=\int f(x)\,\dee{x}
+</mrow>
+</mdn>
+This looks illegal, and indeed is illegal <mdash/> <m>\diff{y}{x}</m> is not a fraction. But we'll now see that the answer is still correct. This procedure is simply  a mnenomic device to help you remember that answer. Let <m>G(y)</m> be an  antiderivative of <m>\frac{1}{g(y)}</m> (i.e. <m>G'(y)=\frac{1}{g(y)}</m>) and  <m>F(x)</m> be an antiderivative of <m>f(x)</m> (i.e. <m>F'(x)=f(x))</m>.  If we reinstate the argument of <m>y</m>, equation<nbsp/><xref ref="eq_SDEbasicSln"/> is
+
+<mdn>
+<mrow xml:id="eq_SDEbasicSlnRig" tag="dstar">
+G\big(y(x)\big) = F(x) + C
+</mrow>
+</mdn>
+
+To check that a function <m>y(x)</m> obeys  <m>\diff{y}{x}(x) = f(x)\ g\big(y(x)\big)</m> if and only if it obeys equation<nbsp/><xref ref="eq_SDEbasicSlnRig"/>, just differentiate both sides of equation<nbsp/><xref ref="eq_SDEbasicSlnRig"/> with respect to <m>x</m>. By the chain rule
+<md>
+<mrow>
+G\big(y(x)\big) = F(x) + C &amp;\iff G'\big(y(x)\big)\ y'(x) = F'(x) \iff \frac{y'(x)}{g(y(x))}=f(x)
+</mrow><mrow>
+&amp;\iff y'(x) = f(x)\ g(y(x))
+</mrow>
+</md>
+(We have again assumed that <m>g(y)</m> is nonzero.)
+</p>
+
+<p>
+Observe that the solution equation<nbsp/><xref ref="eq_SDEbasicSlnRig"/> contains an arbitrary constant, <m>C</m>. The value of this arbitrary constant <em>can not</em> be determined by the differential equation. You need additional data to determine it. Often this data consists of the value of the unknown function for one value of <m>x</m>. That is, often the problem you have to solve is of the form
+<me>
+\diff{y}{x}(x) = f(x)\ g\big(y(x)\big)\qquad y(x_0)=y_0
+</me>
+where <m>f(x)</m> and <m>g(y)</m> are given functions and <m>x_0</m> and <m>y_0</m> are given numbers. This type of problem is called an <q>initial value problem</q>. It is solved by first using the method above to find the general solution to the differential equation, including the arbitrary constant <m>C</m>, and then using the <q>initial condition</q> <m>y(x_0)=y_0</m> to determine the value of <m>C</m>. We'll see examples of this shortly.
+</p>
+
+<example xml:id="eg_SDEsdeAA"><title>A separable warm-up</title>
+<p>
+The diferential equation
+<me>
+\diff{y}{x} = xe^{-y}
+</me>
+is separable, and we now find all of its solutions by using our mnemonic  device. We start by cross-multiplying so as to move all <m>y</m>'s to the left  hand side and all <m>x</m>'s to the right hand side.
+<me>
+e^y\,\dee{y} = x\,\dee{x}
+</me>
+Then we integrate both sides
+<me>
+\int e^y\dee{y} = \int x\dee{x} \iff e^y = \frac{x^2}{2}+C
+</me>
+The <m>C</m> on the right hand side contains both the arbitrary constant  for the indefinite integral <m>\int e^y\dee{y}</m> and the arbitrary constant for  the indefinite integral  <m>\int x\dee{x}</m>. Finally, we solve for <m>y</m>,  which is really a function of <m>x</m>.
+<me>
+y(x) = \log\Big(\frac{x^2}{2}+C\Big)
+</me>
+Recall that we are using <m>\log</m> to refer to the natural (base <m>e</m>) logarithm.
+</p>
+
+<p>
+Note that <m>C</m> is an arbitrary constant. It can take any value. It cannot be determined by the differential equation itself. In applications <m>C</m> is usually determined by a requirement that <m>y</m> take some prescribed value (determined by the  application) when <m>x</m> is some prescribed value. For example, suppose that we wish to find a function <m>y(x)</m> that obeys both
+<me>
+\diff{y}{x} = xe^{-y}\qquad\text{and}\qquad y(0)=1
+</me>
+We know that, to have <m>\diff{y}{x} = xe^{-y}</m> satisfied, we must have  <m>y(x) = \log\big(\frac{x^2}{2}+C\big)</m>, for some constant <m>C</m>. To also have <m>y(0)=1</m>, we must have
+<md>
+<mrow>
+1=y(0)=\log\Big(\frac{x^2}{2}+C\Big)\bigg|_{x=0}=\log C \iff \log C =1 \iff C=e
+</mrow>
+</md>
+So our final solution is <m>y(x) = \log\big(\frac{x^2}{2}+e\big)</m>.
+</p>
+</example>
+
+<example xml:id="eg_SDEsdeFrist"><title>A little more warm-up</title>
+<p>
+Let <m>a</m> and <m>b</m> be any two constants. We'll now solve the family of differential equations
+<me>
+\diff{y}{x} =a(y-b)
+</me>
+using our mnemonic device.
+<md>
+<mrow>
+\frac{\dee{y}}{y-b} =a\,\dee{x} &amp;\implies  \int \frac{\dee{y}}{y-b}= \int a\,\dee{x}
+</mrow>
+<mrow>
+&amp; \implies  \log|y-b|= ax+c \implies |y-b|= e^{ax+c} =e^c e^{ax}
+</mrow><mrow>
+&amp;\implies y-b = C e^{ax}
+</mrow>
+</md>
+where <m>C</m> is either <m>+e^c</m> or <m>-e^c</m>. Note that as <m>c</m> runs over all real numbers, <m>+e^c</m> runs over all strictly poisitive real numbers and <m>-e^c</m> runs over all strictly negative real numbers. So, so far, <m>C</m> can be any real number except <m>0</m>. But we were a bit sloppy here. We implicitly assumed that <m>y-b</m> was nonzero, so that we could divide it across.  None-the-less, the constant function <m>y=b</m>, which corresponds to <m>C=0</m>, is a perfectly good solution <mdash/> when <m>y</m> is the constant function <m>y=b</m>, both <m>\diff{y}{x}</m> and <m>a(y-b)</m> are zero. So the general solution to <m>\diff{y}{x} =a(y-b)</m> is <m>y(x)=C e^{ax}+b</m>, where the constant <m>C</m> can be any real number. Note that when <m>y(x)=C e^{ax}+b</m> we have <m>y(0)=C+b</m>. So <m>C=y(0)-b</m> and the general solution is
+<me>
+y(x) = \{y(0)-b\}\,e^{ax} + b
+</me>
+</p>
+
+</example>
+
+
+<p>
+This is worth stating as a theorem.
+</p>
+<theorem xml:id="thm_linearODE">
+<statement><p>
+Let <m>a</m> and <m>b</m> be constants. The differentiable function <m>y(x</m>) obeys the differential equation
+<me>
+\diff{y}{x} =a(y-b)
+</me>
+if and only if
+<me>
+y(x) = \{y(0)-b\}\,e^{ax} + b
+</me>
+</p></statement>
+</theorem>
+
+
+<example xml:id="eg_SDEsdeA"><title>Solve <m>\diff{y}{x}=y^2</m></title>
+<p>
+ Solve <m>\diff{y}{x}=y^2</m>
+</p>
+
+<p><alert>Solution:</alert> When <m>y\ne 0</m>,
+<me>
+\diff{y}{x}=y^2
+\implies \frac{\dee{y}}{y^2}=\dee{x}
+\implies \frac{y^{-1}}{-1}=x+C
+\implies y=-\frac{1}{x+C}
+</me>
+When <m>y=0</m>, this computation breaks down because  <m> \frac{\dee{y}}{y^2}</m> contains a division by 0. We can check if the function <m>y(x)=0</m> satisfies the differential equation by just subbing it in:
+<me>
+y(x)=0\implies y'(x)=0,\ y(x)^2=0\implies y'(x)=y(x)^2
+</me>
+So <m>y(x)=0</m> is a solution and the full solution is
+<me>
+y(x)=0 \text{ or } y(x)=-\frac{1}{x+C}, \text{ for any constant $C$}
+</me>
+</p>
+</example>
+
+<example xml:id="eg_SDEraindrop"><title>A falling raindrop</title>
+<p>
+When a raindrop falls it increases in size so that its mass <m>m(t)</m>, is a function of time <m>t</m>. The rate of growth of mass, i.e. <m>\frac{dm}{dt}</m>, is <m>km(t)</m> for some positive  constant <m>k</m>. According to Newton's law of motion, <m>\diff{}{t} (mv)=gm</m>,  where <m>v</m> is the velocity of the raindrop (with <m>v</m> being positive for downward motion) and <m>g</m> is the acceleration due to gravity. Find the  terminal velocity, <m>\lim\limits_{t\rightarrow\infty}v(t)</m>, of a raindrop.
+</p>
+
+<p>
+<alert>Solution:</alert> In this problem we have two unknown functions, <m>m(t)</m> and <m>v(t)</m>, and two differential equations, <m>\frac{dm}{dt}=km</m> and <m>\diff{}{t} (mv)=gm</m>. The first differential equation, <m>\frac{dm}{dt}=km</m>, involves only  <m>m(t)</m>, not <m>v(t)</m>, so we use it to determine <m>m(t)</m>. By Theorem <xref ref="thm_linearODE"/>, with <m>b=0</m>, <m>a=k</m>, <m>y</m> replaced by <m>m</m> and <m>x</m> replaced by <m>t</m>,
+<me>
+\diff{m}{t}=km \implies m(t) = m(0) e^{kt}
+</me>
+</p>
+
+<p>
+Now that we know <m>m(t)</m> (except for the value of the constant <m>m(0)</m>),  we can substitute it into the second differential equation, which we can then use to determine the remaining unknown function <m>v(t)</m>. Observe that the second equation, <m>\diff{}{t} (mv)=gm(t)=gm(0)e^{kt}</m> tells that the derivative of the function <m>y(t)=m(t)v(t)</m> is <m>gm(0)e^{kt}</m>. So <m>y(t)</m> is just an antiderivative of <m>gm(0)e^{kt}</m>.
+<me>
+\diff{y}{t}=gm(t)=gm(0)e^{kt}
+\qquad
+\implies y(t)=\int gm(0)e^{kt}\,dt = gm(0)\frac{e^{kt}}{k}+C
+</me>
+Now that we know <m>y(t)=m(t)v(t)=m(0)e^{kt}v(t)</m>, we can get <m>v(t)</m> just by dividing out the <m>m(0)e^{kt}</m>.
+<md>
+<mrow>
+y(t) =gm(0)\frac{e^{kt}}{k}+C &amp; \implies m(0)e^{kt}v(t)=gm(0)\frac{e^{kt}}{k}+C
+</mrow>
+<mrow>
+&amp;  \implies v(t)=\frac{g}{k}+\frac{C}{m(0)e^{kt}}
+</mrow>
+</md>
+
+Our solution, <m>v(t)</m>, contains two arbitrary constants, namely <m>C</m> and <m>m(0)</m>. They will be determined by, for example, the mass and velocity at time <m>t=0</m>. But since we are only interested in the terminal velocity  <m>\lim\limits_{t\rightarrow\infty}v(t)</m>, we don't need to know <m>C</m> and <m>m(0)</m>. Since <m>k \gt 0</m>, <m>\lim\limits_{t\rightarrow\infty}\frac{C}{e^{kt}}=0</m> and the terminal velocity <m>\lim\limits_{t\rightarrow\infty}v(t)=\frac{g}{k}</m>.
+</p>
+
+</example>
+
+
+<example xml:id="eg_SDEgluclose"><title>Intravenous glucose</title>
+<p>
+A glucose solution is administered  intravenously into the bloodstream at a constant rate <m>r</m>. As the glucose is added, it is converted into other substances at a rate that is proportional to the concentration at that time. The concentration, <m>C(t)</m>, of the glucose in the bloodstream at time <m>t</m> obeys the differential equation
+<me>
+\diff{C}{t}=r-kC
+</me>
+where <m>k</m> is a positive constant of proportionality.
+<ol label="a">
+<li> Express <m>C(t)</m> in terms of <m>k</m> and <m>C(0)</m>. </li>
+<li> Find <m>\lim\limits_{t\rightarrow\infty} C(t)</m>. </li>
+</ol>
+</p>
+<p>
+<alert>Solution:</alert> (a) Since <m>r-kC=-k\big(C-\frac{r}{k}\big)</m> the given equation is
+<me>
+\diff{C}{t}=-k\big(C-\frac{r}{k}\big)
+</me>
+which is of the form solved in Theorem <xref ref="thm_linearODE"/>  with <m>a=-k</m> and <m>b=\frac{r}{k}</m>. So the solution is
+<me>
+C(t)=\frac{r}{k}+\Big(C(0)-\frac{r}{k}\Big)e^{-kt}
+</me>
+</p>
+
+<p>
+For any <m>k \gt 0</m>, <m>\lim\limits_{t\rightarrow\infty} e^{-kt}=0</m>. Consequently, for any <m>C(0)</m> and any <m>k \gt 0</m>,  <m>\lim\limits_{t\rightarrow\infty} C(t)=\frac{r}{k}, </m>. We could have predicted this limit without solving for <m>C(t)</m>. If we  assume that <m>C(t)</m> approaches some equilibrium value <m>C_e</m> as <m>t</m> approaches infinity, then taking the limits of both sides of <m>\frac{dC}{dt}=r-kC</m> as <m>t\rightarrow\infty</m> gives
+<me>
+0=r-kC_e\implies C_e=\frac{r}{k}
+</me>
+</p>
+</example>
+</subsection>
+
+<subsection>
+<title>Optional <mdash/> Carbon Dating</title>
+
+<p>
+Scientists can determine the age of objects containing organic  material by a method called <em>carbon dating</em> or  <em>radiocarbon dating</em>
+	<fn>
+		Willard Libby, of Chicago  University was awarded the Nobel Prize in Chemistry in 1960, for  developing radiocarbon dating.
+	</fn>.
+The bombardment of the upper atmosphere by cosmic rays converts nitrogen to a radioactive isotope of carbon, <m>{}^{14}C</m>, with a half-life of about 5730 years. Vegetation absorbs carbon dioxide from the atmosphere through photosynthesis  and animals acquire <m>{}^{14}C</m> by eating plants.  When a plant or animal dies, it stops replacing its carbon and the amount of  <m>{}^{14}C</m> begins to decrease through radioactive decay. Therefore the level of radioactivity also decreases. More precisely,  let <m>Q(t)</m> denote the amount of <m>{}^{14}C</m> in the plant or animal <m>t</m>  years after it dies. The number of radioactive decays per unit time,  at time <m>t</m>, is proportional to the amount of <m>{}^{14}C</m> present  at time t, which is <m>Q(t)</m>. Thus
+<fact xml:id="eq_carbonDating"><title>Radioactive decay</title>
+<statement><p>
+<me>
+\diff{Q}{t}(t)=-k Q(t)
+</me>
+</p></statement>
+</fact>
+Here <m>k</m> is a constant of proportionality that is determined by the  half-life. We shall explain what half-life is, and also determine the  value of <m>k</m>, in Example <xref ref="eg_carbonDatingHalfLife"/>, below.
+</p>
+
+<p>
+Before we do so, let's think about the sign in equation<nbsp/>(<xref ref="eq_carbonDating"/>).
+<ul>
+<li>
+	Recall that <m>Q(t)</m> denotes a quantity, namely the amount  of <m>{}^{14}C</m> present at time <m>t</m>. There cannot be a negative amount of <m>{}^{14}C</m>.  Nor can this quantity be zero. (We would not use carbon dating  when there is no <m>{}^{14}C</m> present.)  Consequently, <m>Q(t) \gt  0</m>.
+</li>
+<li>
+	As the time <m>t</m> increases, <m>Q(t)</m> decreases, because <m>{}^{14}C</m> is being continuously converted into <m>{}^{14}N</m> by radioactive decay
+	<fn>
+		 The precise transition is <m>{}^{14}C\rightarrow {}^{14}N+ e^- + \bar{\nu}_e</m>  where <m>e^-</m> is an electron and <m>\bar{\nu}_e </m> is an electron neutrino.
+	 </fn>.
+	 Thus <m>\diff{Q}{t}(t) \lt  0</m>.
+</li>
+<li>
+	The signs <m>Q(t) \gt  0</m> and <m>\diff{Q}{t}(t) \lt  0</m> are consistent with (<xref ref="eq_carbonDating"/>) provided the constant of  proportionality <m>k \gt 0</m>.
+</li>
+<li>
+	In (<xref ref="eq_carbonDating"/>), we chose to call the constant of proportionality <q><m>-k</m></q>. We did so in order to make <m>k \gt 0</m>. We could just as well have chosen to call the constant of proportionality <q><m>K</m></q>.  That is, we could have replaced  equation<nbsp/>(<xref ref="eq_carbonDating"/>) by <m>\diff{Q}{t}(t)=K Q(t)</m>. The constant of proportionality <m>K</m> would have to be negative, (and <m>K</m> and <m>k</m> would be related by  <m>K=-k</m>).
+</li>
+</ul>
+</p>
+
+
+<example xml:id="eg_carbonDatingHalfLife"><title>Half life and the constant <m>k</m></title>
+<p>
+In this example, we determine the value of the constant of proportionality <m>k</m> in (<xref ref="eq_carbonDating"/>) that corresponds to the half-life of <m>{}^{14}C</m>, which is 5730 years.
+<ul>
+<li>
+	Imagine that some plant or animal contains a quantity <m>Q_0</m> of <m>{}^{14}C</m> at its time of death. Let's choose the zero point of time <m>t=0</m> to be the instant that the plant or animal died.
+</li>
+<li>
+	Denote by <m>Q(t)</m> the amount of <m>{}^{14}C</m> in the plant or animal <m>t</m> years after it died. Then <m>Q(t)</m> must obey both (<xref ref="eq_carbonDating"/>) and <m>Q(0)=Q_0</m>.
+</li>
+<li>
+	Theorem <xref ref="thm_linearODE"/>, with <m>b=0</m> and <m>a=-k</m>, then tells us that <m>Q(t) = Q_0 e^{-kt}</m> for all <m>t\ge 0</m>.
+</li>
+<li>
+	By definition, the half-life of <m>{}^{14}C</m> is the length of time that it takes for half of the <m>{}^{14}C</m> to decay. That is, the half-life <m>t_{1/2}</m> is determined by
+	<md>
+	<mrow>
+	Q(t_{1/2})=\half Q(0)&amp;=\half Q_0 &amp;\text{but we know that $Q(t)=Q_0e^{-kt}$}
+	</mrow><mrow>
+	Q_0 e^{-kt_{1/2}}&amp;=\half Q_0&amp;\text{now cancel $Q_0$}
+	</mrow><mrow>
+	e^{-kt_{1/2}}&amp;=\half
+	</mrow>
+	</md>
+	Taking the logarithm of both sides gives
+	<md>
+	<mrow>
+	-k t_{1/2}=\log \frac{1}{2} = -\log 2 \implies k=\frac{\log 2}{t_{1/2}}
+	</mrow>
+	</md>
+	Recall that, in this text, we use <m>\log x</m> to indicate the natural logarithm. That is,
+	<me>
+	\log x = \log_e x=\log x
+	</me>
+</li>
+</ul>
+We are told that, for <m>{}^{14}C</m>, the half-life <m>t_{1/2}=5730</m>, so
+<md>
+<mrow>
+k=\frac{\log 2}{5730} &amp;= 0.000121 &amp;\text{to 6 decimal places}
+</mrow>
+</md>
+</p>
+</example>
+
+<p>
+From the work in the above example we have accumulated enough new facts to make a corollary to Theorem <xref ref="thm_linearODE"/>.
+</p>
+
+<corollary xml:id="cor_carbonDating">
+<statement><p>
+The function <m>Q(t)</m> satisfies the equation
+<md>
+<mrow>
+\diff{Q}{t} = -k Q(t)
+</mrow>
+</md>
+if and only if
+<md>
+<mrow>
+Q(t) = Q(0)\, e^{-kt}
+</mrow>
+</md>
+The half-life is defined to be the time <m>t_{1/2}</m> which obeys
+<md>
+<mrow>
+Q\big(t_{1/2}\big) = \frac{1}{2}\,Q(0)
+</mrow>
+</md>
+The half-life is related to the constant <m>k</m> by
+<md>
+<mrow>
+t_{1/2} =\frac{\log 2}{k}
+</mrow>
+</md>
+</p></statement>
+</corollary>
+
+
+<p>
+Now here is a typical problem that is solved using Corollary <xref ref="cor_carbonDating"/>.
+</p>
+
+<example xml:id="eg_SDEcarbonDating"><title>The age of a piece of parchment</title>
+<p>
+A particular piece of parchment contains about <m>64\%</m> as  much <m>{}^{14}C</m> as plants do today.  Estimate the age of the parchment.
+</p>
+
+<p><alert>Solution:</alert>
+Let <m>Q(t)</m> denote the amount of <m>{}^{14}C</m> in the parchment <m>t</m> years after it was first created. By equation<nbsp/>(<xref ref="eq_carbonDating"/>) and  Example <xref ref="eg_carbonDatingHalfLife"/>
+<md>
+<mrow>
+\diff{Q}{t}(t)=-k Q(t)\qquad\text{with } k=\frac{\log 2}{5730} = 0.000121
+</mrow>
+</md>
+By Corollary <xref ref="cor_carbonDating"/>
+<md>
+<mrow>
+Q(t) = Q(0)\, e^{-kt}
+</mrow>
+</md>
+The time at which <m>Q(t)</m> reaches <m>0.64\,Q(0)</m> is determined by
+<md>
+<mrow>
+Q(t)&amp;=0.64\, Q(0) &amp;\text{but $Q(t) = Q(0)\, e^{-kt}$}
+</mrow>
+<mrow>
+Q(0)\,e^{-kt}&amp;=0.64\, Q(0) &amp;\text{cancel $Q(0)$}
+</mrow>
+<mrow>
+e^{-kt}&amp;=0.64&amp;\text{take logarithms}
+</mrow>
+<mrow>
+-kt&amp;=\log 0.64
+</mrow>
+<mrow>
+t&amp;=\frac{\log 0.64}{-k}
+=\frac{\log 0.64}{-0.000121}
+= 3700 \qquad&amp;\text{to 2 significant digits}
+</mrow>
+</md>
+That is, the parchment
+	<fn>
+		The British Museum has an Egyptian mathematical text from the seventeenth century B.C.
+	</fn>
+is about 37 centuries old.
+</p>
+</example>
+
+<p>
+We have stated that the half-life of <m>{}^{14}C</m> is 5730 years. How can this be  determined? We can explain this using the following example.
+</p>
+<example xml:id="eg_findHalfLife"><title>Half life of implausium</title>
+<p>
+A scientist in a B-grade science fiction film is studying a sample of the rare  and fictitious   element, implausium. With great effort he has produced  a sample of pure implausium. The next day <mdash/> 17 hours later <mdash/> he comes back  to his lab and discovers that his sample is now only <m>37\%</m> pure. What is the  half-life of the element?
+</p>
+
+<p>
+<alert>Solution:</alert>
+We can again set up our problem using Corollary<nbsp/><xref ref="cor_carbonDating"/>.  Let <m>Q(t)</m> denote the quantity of implausium at time <m>t</m>, measured  in hours. Then we know
+<md>
+<mrow>
+  Q(t)&amp;= Q(0) \cdot e^{-kt}
+</mrow>
+</md>
+We also know that
+<md>
+<mrow>
+  Q(17) &amp;= 0.37 Q(0).
+</mrow>
+</md>
+That enables us to determine <m>k</m> via
+<md>
+<mrow>
+  Q(17) = 0.37 Q(0) &amp;= Q(0) e^{-17k} &amp; \text{ divide both sides by $Q(0)$}
+</mrow><mrow>
+  0.37 &amp;= e^{-17k}
+</mrow>
+<intertext>and so</intertext>
+<mrow>
+  k &amp;= -\frac{\log 0.37}{17} = 0.05849
+</mrow>
+</md>
+We can then convert this to the half life  using Corollary<nbsp/><xref ref="cor_carbonDating"/>:
+<md>
+<mrow>
+  t_{1/2} &amp;= \frac{\log 2}{k} \approx 11.85 \text{ hours}
+</mrow>
+</md>
+While this example is entirely fictitious, one really can use this approach to  measure the half-life of materials.
+</p>
+
+</example>
+
+</subsection>
+
+
+<subsection>
+<title>Optional <mdash/> Newton's Law of Cooling</title>
+
+<p>Newton's law of cooling says:
+<ul>
+<li>
+	The rate of change of temperature of an object is proportional to the difference in temperature between the object and its surroundings. The temperature of the surroundings is sometimes called the ambient  temperature.
+</li>
+</ul>
+If we denote by <m>T(t)</m> the temperature of the object at time <m>t</m> and by <m>A</m> the temperature of its surroundings, Newton's law of cooling says that there is some constant of proportionality, <m>K</m>, such that
+<fact xml:id="eq_newtonCooling"><title>Newton's law of cooling</title>
+<statement><p>
+<me>
+\diff{T}{t}(t) = K\big[T(t)-A\big]
+</me>
+</p></statement>
+</fact>
+This mathematical model of temperature change works well when  studying a small object in a large, fixed temperature, environment.  For example, a hot cup of coffee in a large room
+	<fn>
+		It does not  work so well when the object is of a similar size to its surroundings  since the temperature of the surroundings will rise as the object cools.  It also fails when there are phase transitions involved <mdash/> for example,  an ice-cube melting in a warm room does not obey Newton's law of cooling.
+	</fn>.
+Let's start by thinking a little about the sign of the constant of proportionality. At any time <m>t</m>, there are three possibilities.
+<ul>
+<li>
+	If <m>T(t) \gt A</m>, that is, if the body is warmer than its surroundings, we would expect heat to flow from the body into its surroundings and so we would expect the body to cool off so that  <m>\diff{T}{t}(t) \lt 0</m>. For this  expectation to be consistent with (<xref ref="eq_newtonCooling"/>), we need <m>K \lt 0</m>.
+</li>
+<li>
+	If <m>T(t) \lt A</m>, that is the body is cooler than its surroundings, we would expect heat to flow from the surroundings into the body and so we would expect the body to warm up so that  <m>\diff{T}{t}(t) \gt 0</m>. For this  expectation to be consistent with (<xref ref="eq_newtonCooling"/>), we again need <m>K \lt 0</m>.
+</li>
+<li>
+	Finally if <m>T(t)=A</m>, that is the body and its environment have the same temperature, we would not expect any heat to flow between the two and so we would expect that <m>\diff{T}{t}(t)=0</m>. This does not impose any condition on <m>K</m>.
+</li>
+</ul>
+In conclusion, we would expect <m>K \lt 0</m>. Of course, we could have chosen to call the constant of proportionality <m>-k</m>, rather than <m>K</m>. Then the differential equation would be  <m>\diff{T}{t} = -k\big(T-A\big)</m> and we would expect <m>k \gt 0</m>.
+</p>
+
+<example xml:id="eg_SDEcoolingA"><title>Warming iced tea</title>
+<p>
+The temperature of a glass of iced tea is initially <m>5^\circ</m>. After 5 minutes, the tea has heated to <m>10^\circ</m> in a room where the air temperature is <m>30^\circ</m>.
+<ol label="a">
+<li>   Determine the temperature as a function of time. </li>
+<li>   What is the temperature after 10 minutes? </li>
+<li>  Determine when the tea will reach a temperature of <m>20^\circ</m>. </li>
+</ol>
+</p>
+
+<p><alert>Solution:</alert>
+(a)
+<ul>
+<li>
+	Denote by <m>T(t)</m> the temperature of the tea <m>t</m> minutes after it was removed from the fridge, and let <m>A=30</m> be the ambient temperature.
+</li>
+<li>
+	By Newton's law of cooling,
+	<me>
+	\diff{T}{t}=K(T-A) = K(T-30)
+	</me>
+	for some, as yet unknown, constant of proportionality <m>K</m>.
+</li>
+<li>
+	By Theorem <xref ref="thm_linearODE"/> with <m>a=K</m> and <m>b=30</m>,
+	<me>
+	T(t) = [T(0)-30]\,e^{Kt} + 30
+		  =30-25 e^{Kt}
+	</me>
+	since the initial temperature <m>T(0)=5</m>.
+</li>
+<li>
+	This solution is not complete because it still contains an unknown constant, namely <m>K</m>. We have not yet used the given data that <m>T(5)=10</m>. We can use it to determine <m>K</m>. At <m>t=5</m>,
+	<md>
+	<mrow>
+	T(5)=30-25 e^{5K}=10
+	&amp;\implies e^{5K}=\frac{20}{25}
+	\implies 5K=\log\frac{20}{25}
+	</mrow><mrow>
+	&amp;\implies K=\frac{1}{5}\log\frac{4}{5}=-0.044629
+	</mrow>
+	</md>
+	to six decimal places.
+	</li>
+</ul>
+</p>
+
+<p>(b)
+To find the temperature at 10 minutes we can just use the solution  we have determined above.
+<md>
+<mrow>
+T(10)&amp;=30-25 e^{10K}
+</mrow><mrow>
+  &amp;=30-25 e^{10\times\frac{1}{5}\log\frac{4}{5}}
+</mrow><mrow>
+  &amp;=30-25 e^{2\log\frac{4}{5}}  = 30-25 e^{\log\frac{16}{25}}
+</mrow><mrow>
+  &amp;=30-16=\text{$14^\circ$}
+</mrow>
+</md>
+</p>
+
+<p>(c) The temperature is <m>20^\circ</m> when
+<md>
+<mrow>
+30-25 e^{Kt}=20 &amp;\implies e^{Kt}=\frac{10}{25} \implies Kt=\log\frac{10}{25}
+</mrow><mrow>
+&amp;\implies t=\frac{1}{K}\log\frac{2}{5}=\hbox{20.5 min}
+</mrow>
+</md>
+to one decimal place.
+</p>
+</example>
+
+<example xml:id="eg_SDEcoolingC"><title>Temperature back in time</title>
+<p>
+A dead body is discovered at 3:45pm in a room where the temperature is 20<m>^\circ</m>C. At that time the temperature of the body 1s 27<m>^\circ</m>C.  Two hours later, at 5:45pm, the temperature of the body  is 25.3<m>^\circ</m>C. What was the time of death? Note that the normal (adult human) body temperature is <m>37^\circ</m>C.
+</p>
+
+<p><alert>Solution:</alert>
+We will assume that the body's temperature obeys Newton's law of cooling.
+<ul>
+<li>
+	Denote by <m>T(t)</m> the temperature of the body at time <m>t</m>, with <m>t=0</m> corresponding to 3:45pm. We wish to find the time of death <mdash/>  call it <m>t_d</m>.
+</li>
+<li>
+<p>
+	There is a lot of data in the statement of the problem. We are told
+	<ol label="1">
+	<li> the ambient temperature: <m>A=20</m> </li>
+	<li> the temperature of the body when discovered: <m>T(0)=27</m> </li>
+	<li> the temperature of the body 2 hours later: <m>T(2)=25.3</m> </li>
+	<li>
+		assuming the person was a healthy adult right up until he died, the  temperature at the time of death: <m>T(t_d)=37</m>.
+	</li>
+	</ol>
+</p>
+</li>
+<li>
+	Theorem <xref ref="thm_linearODE"/> with <m>a=K</m> and <m>b=A=20</m>
+	<me>
+	T(t) = [T(0)-A]\,e^{Kt} + A
+		  =20+7 e^{Kt}
+	</me>
+	Two unknowns remain, <m>K</m> and <m>t_d</m>.
+</li>
+<li>
+	We can find the first, <m>K</m>, by using the condition (3), which says <m>T(2)=25.3</m>.
+	<md>
+	<mrow>
+	25.3=T(2) = 20+7 e^{2K}
+	&amp;\implies 7 e^{2K}=5.3
+	\implies 2K = \log\big(\tfrac{5.3}{7}\big)
+	</mrow><mrow>
+	&amp;\implies K = \tfrac{1}{2} \log\big(\tfrac{5.3}{7}\big) = -0.139
+	</mrow>
+	</md>
+</li>
+<li>
+	Finally, <m>t_d</m> is determined by the condition (4).
+	<md>
+	<mrow>
+	37 = T(t_d) = 20+7 e^{-0.139 t_d}
+	&amp;\implies e^{-0.139 t_d} = \tfrac{17}{7}
+	\implies -0.139 t_d =\log\big(\tfrac{17}{7}\big)
+	</mrow><mrow>
+	&amp;\implies t_d = -\tfrac{1}{0.139}\log\big(\tfrac{17}{7}\big)
+	 = - 6.38
+	</mrow>
+	</md>
+	to two decimal places. Now <m>6.38</m> hours is <m>6</m> hours and <m>0.38\times 60 = 23</m> minutes. So the time of death was <m>6</m> hours and <m>23</m> minutes before 3:45pm, which is 9:22am.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+A slightly tricky example <mdash/> we need to determine the ambient temperature from  three
+measurements at different times.
+</p>
+<example xml:id="eg_SDEcoolingB"><title>Finding the ambient temperature</title>
+<p>
+A glass of room-temperature water is carried out onto a balcony from an  apartment where the temperature is <m>22^\circ</m>C. After one minute the water has  temperature <m>26^\circ</m>C and after two minutes it has temperature <m>28^\circ</m>C.  What is the outdoor temperature?
+</p>
+
+<p>
+<alert>Solution:</alert> We will assume that the temperature of the thermometer obeys Newton's  law  of  cooling.
+<ul>
+<li>
+	Let <m>A</m> be the outdoor temperature and <m>T(t)</m> be the temperature of the water <m>t</m> minutes after it is taken outside.
+</li>
+<li>
+	By Newton's law of cooling,
+	<md>
+	<mrow>
+	T(t)=A+\big(T(0)-A\big)e^{Kt}
+	</mrow>
+	</md>
+	Theorem <xref ref="thm_linearODE"/> with <m>a=K</m> and <m>b=A</m>.  Notice there are 3 unknowns here <mdash/> <m>A</m>, <m>T(0)</m> and <m>K</m> <mdash/> so we  need three pieces of information to find them all.
+</li>
+<li>
+	We are told <m>T(0)=22</m>, so
+	<md>
+	<mrow>
+	T(t) &amp;=A+\big(22-A\big)e^{Kt}.
+	</mrow>
+	</md>
+</li>
+<li>
+	We are also told <m>T(1)=26</m>, which gives
+	<md>
+	<mrow>
+	26 &amp;=A+\big(22-A\big)e^{K} &amp; \text{rearrange things}
+	</mrow><mrow>
+	e^K&amp;=\frac{26-A}{22-A}
+	</mrow>
+	</md>
+</li>
+<li>
+	Finally, <m>T(2)=28</m>, so
+	 <md>
+	<mrow>
+	 28&amp;=A+\big(22-A\big)e^{2K} &amp; \text{rearrange}
+	</mrow><mrow>
+	 e^{2K} &amp;= \frac{28-A}{22-A} &amp; \text{but $e^K=\frac{26-A}{22-A}$, so}
+	</mrow><mrow>
+	 \left(\frac{26-A}{22-A}\right)^2 &amp;=\frac{28-A}{22-A}
+			 &amp; \text{multiply through by  $(22-A)^2$}
+	</mrow><mrow>
+	 (26-A)^2 &amp;= (28-A)(22-A)
+	 </mrow>
+	</md>
+	 We can expand out both sides and collect up terms to get
+	 <md>
+	<mrow>
+	 \underbrace{26^2}_{=676}-52A+A^2 &amp;= \underbrace{28\times22}_{=616}-50A+A^2
+	</mrow><mrow>
+	  60 &amp;= 2A
+	</mrow><mrow>
+	   30 &amp;= A
+	 </mrow>
+	</md>
+	 So the temperature outside is <m>30^\circ</m>.
+</li>
+</ul>
+</p>
+</example>
+</subsection>
+
+<subsection>
+<title>Optional <mdash/> Population Growth</title>
+
+<p>
+Suppose that we wish to predict the size <m>P(t)</m> of a  population as a function of the time <m>t</m>.  In the most naive model of population growth,  each couple produces  <m>\beta</m> offspring (for some constant <m>\beta</m>) and then dies. Thus  over the course of one generation <m>\beta\tfrac{P(t)}{2}</m> children are produced and <m>P(t)</m> parents die so that the size of the population grows  from  <m>P(t)</m> to
+<md>
+<mrow>
+  P(t+t_g)=
+    \underbrace{P(t)
+  +\beta\frac{P(t)}{2}}_{\text{parents+offspring}}
+    -\underbrace{P(t)}_{\text{parents die}}
+   =\frac{\beta}{ 2 } P(t)
+</mrow>
+</md>
+where <m>t_g</m> denotes the lifespan of one generation. The rate of change  of the size of the population per unit time is
+<md>
+<mrow>
+  \frac{P(t+t_g)-P(t)}{t_g}
+  =\frac{1}{t_g}\Big[\frac{\beta}{2}P(t) -P(t)\Big]
+  = b P(t)
+</mrow>
+</md>
+where <m> b=\tfrac{\beta-2}{2t_g}</m> is the net birthrate per member  of the population per unit time. If we approximate
+<md>
+<mrow>
+\frac{P(t+t_g)-P(t)}{t_g}\approx\diff{P}{t}(t)
+</mrow>
+</md>
+we get the differential equation
+<fact xml:id="eqn_Malthus"><title>Population growth</title>
+<statement><p>
+<me>
+  \diff{P}{t} = bP(t)
+</me>
+</p></statement>
+</fact>
+By Corollary<nbsp/><xref ref="cor_carbonDating"/>, with <m>-k</m> replaced by <m>b</m>,
+<fact xml:id="eqn_MalthusSln"><title>Malthusian growth model</title>
+<statement><p>
+<me>
+P(t) = P(0)\cdot e^{bt}
+</me>
+</p></statement>
+</fact>
+This is called the Malthusian
+	<fn>
+		This is named after Rev. Thomas  Robert Malthus. He described this model in a 1798 paper called <q>An essay on  the principle of population</q>.
+	</fn>
+growth model. It is, of course, very  simplistic. One of its main characteristics is that, since  <m>P(t+T) = P(0)\cdot e^{b(t+T)} = P(t)\cdot e^{bT}</m>, every time  you <em>add</em> <m>T</m> to the time, the population size is  <em>multiplied</em> by <m>e^{bT}</m>. In particular, the population  size doubles every <m>\frac{\log 2}{b}</m> units of time.  The Malthusian growth model can be a reasonably good model  only when the population size is very small compared to its  environment
+	<fn>
+		That is, the population has plenty of food and space to grow.
+	</fn>.
+A more sophisticated model of population  growth, that takes into account the <q>carrying capacity of the environment</q>  is considered below.
+</p>
+
+
+<example xml:id="eg_SDEpopgthA"><title>A rough estimate of the earth's population</title>
+<p>
+In 1927 the population of the world was about 2 billion. In 1974 it was about 4 billion. Estimate when it reached 6 billion. What will the population of the world be in 2100, assuming the Malthusian growth model?
+</p>
+
+<p>
+<alert>Solution:</alert> We follow our usual pattern for dealing with such problems.
+<ul>
+<li>
+	Let <m>P(t)</m> be the world's population, in billions,  <m>t</m> years after 1927.  Note that 1974 corresponds to <m>t=1974-1927 = 47</m>.
+</li>
+<li>
+	We are assuming that <m>P(t)</m> obeys equation<nbsp/>(<xref ref="eqn_Malthus"/>).
+	So, by (<xref ref="eqn_MalthusSln"/>)
+	<md>
+	<mrow>
+			   P(t)=P(0)\cdot e^{bt}
+	</mrow>
+	</md>
+	Notice that there are 2 unknowns here <mdash/> <m>b</m> and <m>P(0)</m>  <mdash/> so we need two pieces of information to find them.
+</li>
+<li>
+	We are told <m>P(0)=2</m>, so
+	 <md>
+	<mrow>
+	   P(t)=2\cdot e^{bt}
+	 </mrow>
+	</md>
+</li>
+<li>
+	We are also told <m>P(47)=4</m>, which gives
+	 <md>
+	<mrow>
+	   4 &amp;=2\cdot e^{47b} &amp; \text{clean up}
+	</mrow><mrow>
+	   e^{47b}&amp;=2 &amp; \text{take the log and clean up}
+	</mrow><mrow>
+	   b&amp;=\frac{\log 2}{47} = 0.0147 &amp; \text{to 3 decimal places}
+	 </mrow>
+	</md>
+</li>
+<li>
+	We now know <m>P(t)</m> completely, so we can easily determine the predicted population
+		<fn>
+			The <em>2015 Revision of World Population</em>, a publication of the United Nations, predicts that the world's population in 2100 will be about 11 billion. But <q>about</q> covers a pretty large range. They give an <m>80\%</m> confidence interval running from 10 billion to 12.5 billion.
+		</fn>
+	in 2100,  i.e. at <m>t=2100-1927 = 173</m>.
+	 <md>
+	<mrow>
+	   P(173) = 2 e^{173 b} = 2 e^{173\times 0.0147} = 12.7\text{ billion}
+	 </mrow>
+	</md>
+</li>
+<li>
+	Finally, our crude model predicts that the population is 6 billion at the time <m>t</m> that obeys
+	 <md>
+	<mrow>
+	   P(t) &amp;= 2 e^{b t} = 6 &amp; \text{clean up}
+	</mrow><mrow>
+	   e^{b t}&amp;=3 &amp; \text{take the log and clean up}
+	</mrow><mrow>
+	   t&amp;=\frac{\log 3}{b} = 47\frac{\log 3}{\log 2}
+						   = 74.5
+	 </mrow>
+	</md>
+	which corresponds
+		<fn>
+			The world population really reached 6 billion in about 1999.
+		</fn>
+	to the middle of 2001.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+Logistic growth adds one more wrinkle to the simple population model.  It assumes that the population only has access to limited resources. As the size of the population grows the amount of food available to each member decreases. This in turn causes the net birth rate <m>b</m> to decrease. In the logistic growth model <m>b=b_0\left(1-\tfrac{P}{K}\right)</m>, where <m>K</m> is called the carrying capacity of the environment,  so that
+<md>
+<mrow>
+  P'(t) =b_0\left(1-\frac{P(t)}{K}\right)P(t)
+</mrow>
+</md>
+</p>
+
+<p>
+This is a separable differential equation and we can solve it explicitly. We shall do so shortly. See Example <xref ref="eg_SDElogisticA"/>, below. But, before doing that, we'll see what we can learn about the behaviour  of solutions to differential equations like this without finding  formulae for the solutions. It turns out that we can learn a lot just by watching the sign of <m>P'(t)</m>. For concreteness, we'll look at solutions of the differential equation
+<md>
+<mrow>
+  \diff{P}{t}(t)=\big(\,6000-3P(t)\,\big)\,P(t)
+</mrow>
+</md>
+We'll sketch the graphs of four functions <m>P(t)</m> that obey this equation.
+<ul>
+<li>    For the first function, <m>P(0)=0</m>. </li>
+<li>    For the second function, <m>P(0)=1000</m>. </li>
+<li>    For the third function, <m>P(0)=2000</m>. </li>
+<li>    For the fourth function, <m>P(0)=3000</m>. </li>
+</ul>
+</p>
+
+<p>
+The sketchs will be based on the observation that <m>(6000-3P)\,P=3(2000-P)\,P</m>
+<ul>
+<li> is zero for <m>P=0,\ 2000</m>, </li>
+<li> is strictly positive for <m>0 \lt P \lt 2000</m> and </li>
+<li> is strictly negative for <m>P \gt 2000</m>. </li>
+</ul>
+Consequently
+<md>
+<mrow>
+  \diff{P}{t}(t)\ \begin{cases}
+                       =0  &amp; \text{if }P(t)=0
+</mrow><mrow>
+                         \gt 0 &amp; \text{if }0 \lt P(t) \lt 2000
+</mrow><mrow>
+                        =0 &amp; \text{if }P(t)=2000
+</mrow><mrow>
+                         \lt 0 &amp; \text{if }P(t) \gt 2000
+                  \end{cases}
+</mrow>
+</md>
+Thus if <m>P(t)</m> is some function that obeys  <m>\diff{P}{t}(t)=\big(6000-3P(t)\big)P(t)</m>, then as the graph of <m>P(t)</m> passes through the point <m>\big(t,P(t)\big)</m>
+<md>
+<mrow>
+\text{the graph has }
+  \begin{cases}
+      \text{slope zero,}&amp; \text{i.e. is horizontal, \ \ if }P(t)=0
+      \\
+      \text{positive slope,}&amp; \text{i.e. is increasing, \ \ if } 0 \lt P(t) \lt 2000
+      \\
+      \text{slope zero,}&amp; \text{i.e. is horizontal, \ \ if }P(t)=2000
+      \\
+      \text{negative slope,}&amp; \text{i.e. is decreasing, \ \ if }0 \lt P(t) \lt 2000
+  \end{cases}
+</mrow>
+</md>
+as illustrated in the figure
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/pop1"/>
+</sidebyside>
+
+<p>
+As a result,
+<ul>
+<li>
+	if <m>P(0)=0</m>, the graph starts out horizontally. In other words, as <m>t</m> starts to increase, <m>P(t)</m> remains at zero, so the slope of the graph remains at zero. The population size remains zero for all time. As a check, observe that  the function <m>P(t)=0</m> obeys <m>\diff{P}{t}(t)=\big(6000-3P(t)\big)P(t)</m>  for all <m>t</m>.
+</li>
+<li>
+	Similarly, if <m>P(0)=2000</m>, the graph again starts out  horizontally. So <m>P(t)</m> remains at <m>2000</m> and the slope remains at zero.  The population size remains 2000 for all time. Again, the function  <m>P(t)=2000</m> obeys <m>\diff{P}{t}(t)=\big(6000-3P(t)\big)P(t)</m> for all <m>t</m>.
+</li>
+<li>
+	If <m>P(0)=1000</m>, the graph starts out with positive slope. So <m>P(t)</m> increases with <m>t</m>. As <m>P(t)</m> increases towards 2000, the slope <m>(6000-3P(t)\big)P(t)</m>, while remaining positive, gets closer and closer to zero. As the graph approachs height 2000, it becomes more and more  horizontal. The graph cannot actually cross from below 2000 to above 2000, because to do so it would have to have strictly positive slope for  some value of <m>P</m> above 2000, which is not allowed.
+</li>
+<li>
+	If <m>P(0)=3000</m>, the graph starts out with negative slope. So <m>P(t)</m> decreases with <m>t</m>. As <m>P(t)</m> decreases towards 2000, the slope <m>(6000-3P(t)\big)P(t)</m>, while remaining negative, gets closer and closer to zero. As the graph approachs height 2000, it becomes more and more  horizontal. The graph cannot actually cross from above 2000 to below 2000, because to do so it would have to have negative slope for some value of <m>P</m> below 2000, which is not allowed.
+</li>
+</ul>
+</p>
+
+<p>
+These curves are sketched in the figure below. We conclude that for any initial population size <m>P(0)</m>, except <m>P(0)=0</m>, the population size approachs <m>2000</m> as <m>t\rightarrow\infty</m>.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/pop2"/>
+</sidebyside>
+
+<p>
+Now we'll do an example in which we explictly solve the logistic growth equation.
+</p>
+
+<example xml:id="eg_SDElogisticA"><title>Population predictions using logistic growth</title>
+<p>
+In 1986, the population of the world was 5 billion and was increasing at a rate of <m>2\%</m> per year. Using the logistic growth model with an assumed maximum population of 100 billion, predict the population of the world in the years 2000, 2100 and 2500.
+</p>
+
+<p><alert>Solution:</alert> Let <m>y(t)</m> be the population of the world, in billions of people, at time <m>1986+t</m>. The logistic growth model assumes
+<me>
+y'=ay(K-y)
+</me>
+where <m>K</m> is the carrying capacity and <m>a=\frac{b_0}{K}</m>.
+</p>
+
+<p>
+First we'll determine the values of the constants <m>a</m> and <m>K</m> from the given data.
+<ul>
+<li>
+	We know  that, if at time zero the population is below <m>K</m>, then as time increases the population increases, approaching the limit <m>K</m> as <m>t</m> tends to infinity. So in this problem <m>K</m> is the maximum population. That is, <m>K=100</m>.
+</li>
+<li>
+	We are also told that, at time zero, the percentage rate of change of population, <m>100\frac{y'}{y}</m>, is 2, so that, at time zero,  <m>\frac{y'}{y}=0.02</m>. But, from the differential equation, <m>\frac{y'}{y}=a(K-y)</m>. Hence at time zero, <m>0.02=a(100-5)</m>, so that <m>a= \frac{2}{9500}</m>.
+</li>
+</ul>
+We now know <m>a</m> and <m>K</m> and can solve the (separable) differential equation
+<md>
+<mrow>
+\frac{\dee{y}}{dt}=ay(K-y)&amp;\implies
+\frac{\dee{y}}{y(K-y)}=a\,dt\implies
+\int\frac{1}{K}\Big[\frac{1}{y}-\frac{1}{y-K}\Big]\dee{y}=\int a\,dt
+</mrow><mrow>
+&amp;\implies \frac{1}{K}[\log |y|-\log|y-K|]=at+C
+</mrow><mrow>
+&amp;\implies  \log\frac{|y|}{|y-K|}=aKt+CK\implies
+\Big|\frac{y}{y-K}\Big|=De^{aKt}
+</mrow>
+</md>
+with <m>D=e^{CK}</m>. We know that <m>y</m> remains between <m>0</m> and <m>K</m>, so that <m>\Big|\frac{y}{y-K}\Big|=\frac{y}{K-y}</m> and our solution obeys
+<me>
+\frac{y}{K-y}=De^{aKt}
+</me>
+At this stage, we know the values of the constants <m>a</m> and <m>K</m>, but not the value of the constant <m>D</m>. We are given that at <m>t=0</m>, <m>y=5</m>. Subbing in this, and the values of <m>K</m> and <m>a</m>,
+<me>
+\frac{5}{100-5}=De^{0} \implies D=\frac{5}{95}
+</me>
+So the solution obeys the algebraic equation
+<me>
+ \frac{y}{100-y}=\frac{5}{95}e^{2t/95}
+</me>
+which we can solve to get <m>y</m> as a function of <m>t</m>.
+<md>
+<mrow>
+ y=(100-y)\frac{5}{95}e^{2t/95} &amp;\implies 95y=(500-5y)e^{2t/95}
+</mrow><mrow>
+     &amp;\implies \big(95+5e^{2t/95}\big)y=500 e^{2t/95}
+</mrow><mrow>
+     &amp;\implies y=\frac{500e^{2t/95}}{95+5e^{2t/95}}
+=\frac{100e^{2t/95}}{19+e^{2t/95}}
+=\frac{100}{1+19e^{-2t/95}}
+</mrow>
+</md>
+Finally,
+<ul>
+<li>
+	In the year 2000, <m>t=14</m> and  <m>y=\frac{100}{1+19e^{-28/95}}\approx6.6</m> billion.
+</li>
+<li>
+	In the year 2100, <m>t=114</m> and  <m>y=\frac{100}{1+19e^{-228/95}}\approx 36.7</m> billion.
+</li>
+<li>
+	In the year 2200, <m>t=514</m> and  <m>y=\frac{100}{1+19e^{-1028/95}}\approx 100</m> billion.
+</li>
+</ul>
+</p>
+</example>
+</subsection>
+
+<subsection>
+<title>Optional <mdash/> Mixing Problems</title>
+
+<example xml:id="eg_SDEmixingA"><title>Dissolving salt</title>
+<p>
+At time <m>t=0</m>, where <m>t</m> is measured in minutes, a tank with a 5-litre capacity contains 3 litres of water in which 1 kg of salt  is dissolved. Fresh water enters the tank at a rate of 2 litres per  minute and the fully mixed solution leaks out of the tank at the  <em>varying</em> rate of <m>2t</m> litres per minute.
+<ol label="a">
+<li>
+	Determine the volume of solution <m>V(t)</m> in the tank at time <m>t</m>.
+</li>
+<li>
+	Determine the amount of salt <m>Q(t)</m> in solution when the amount of water in the tank is at maximum.
+</li>
+</ol>
+</p>
+
+<p>
+<alert>Solution<fn>No pun intended (sorry).</fn>:</alert> (a) The rate of change of the volume in the tank, at time <m>t</m>,  is <m>2-2t</m>, because water is entering at a rate <m>2</m> and solution is  leaking out at a rate <m>2t</m>. Thus
+<me>
+\diff{V}{t}=2-2t
+\implies dV=(2-2t)\,dt
+\implies V=\int (2-2t)\,dt
+=2t-t^2+C
+</me>
+at least until <m>V(t)</m> reaches either the capacity of the tank or zero.  When <m>t=0</m>, <m>V=3</m> so <m>C=3</m> and <m>V(t)=3+2t-t^2</m>. Observe that  <m>V(t)</m> is at a maximum when <m>\diff{V}{t}=2-2t=0</m>, or <m>t=1</m>.
+</p>
+
+<p> (b) In the very short time interval from time <m>t</m> to time <m>t+dt</m>, <m>2t\,dt</m> litres of brine leaves the tank. That is, the fraction  <m>\frac{2t\,dt}{V(t)}</m> of the total salt in the tank, namely <m>Q(t)\frac{2t\,dt}{V(t)}</m> kilograms, leaves. Thus salt is leaving the  tank at the rate
+<me>
+\frac{Q(t)\frac{2t\,dt}{V(t)}}{dt}
+=\frac{2tQ(t)}{V(t)}
+=\frac{2tQ(t)}{3+2t-t^2} \text{ kilograms per minute}
+</me>
+so
+<md>
+<mrow>
+\diff{Q}{t}=-\frac{2tQ(t)}{3+2t-t^2}
+&amp;\implies
+\frac{dQ}{Q}=-\frac{2t}{3+2t-t^2}dt=-\frac{2t}{(3-t)(1+t)}dt
+</mrow>
+<mrow>
+&amp; \qquad\qquad\qquad =\Big[\frac{3/2}{t-3}+\frac{1/2}{t+1}\Big]dt
+</mrow><mrow>
+&amp;\implies
+\log Q=\frac{3}{2}\log|t-3|+\frac{1}{2}\log|t+1|+C
+</mrow>
+</md>
+We are interested in the time interval <m>0\le t\le 1</m>. In this time interval <m>|t-3|=3-t</m> and <m>|t+1|=t+1</m> so
+<me>
+\log Q=\frac{3}{2}\log(3-t)+\frac{1}{2}\log(t+1)+C
+</me>
+At <m>t=0</m>, <m>Q</m> is 1 so
+<md>
+<mrow>
+\log 1 &amp; =\frac{3}{2}\log(3-0)+\frac{1}{2}\log(0+1)+C
+</mrow>
+<mrow>
+&amp;\implies  C=\log 1-\frac{3}{2}\log 3-\frac{1}{2}\log 1=-\frac{3}{2}\log 3
+</mrow>
+</md>
+At <m>t=1</m>
+<md>
+<mrow>
+\log Q&amp;=\frac{3}{2}\log(3-1)+\frac{1}{2}\log(1+1)-\frac{3}{2}\log 3
+</mrow>
+<mrow>
+&amp; =2\log 2-\frac{3}{2}\log 3 =\log 4 -\log 3^{\frac{3}{2}}
+</mrow>
+</md>
+so <m>Q=\frac{4}{3^{\frac{3}{2}}}</m>.
+</p>
+</example>
+
+<example xml:id="eg_SDEmixingB"><title>Mixing brines</title>
+<p>
+A tank contains 1500 liters of brine with a concentration of <m>0.3</m> kg of  salt per liter. Another brine solution, this with a concentration of  <m>0.1</m> kg of salt per liter is poured into the tank at a rate of <m>20</m> li/min.  At the same time, <m>20</m> li/min of the solution in the tank, which is stirred  continuously, is drained from the tank.
+<ol label="a">
+<li> How many kilograms of salt will remain in the tank after half an hour? </li>
+<li> How long will it take to reduce the concentration to <m>0.2</m> kg/li? </li>
+</ol>
+</p>
+
+<p><alert>Solution:</alert>
+Denote by <m>Q(t)</m> the amount of salt in the tank at time <m>t</m>. In a very short time interval <m>dt</m>, the incoming solution adds <m>20\, dt</m> liters of a solution carrying <m>0.1</m> kg/li. So the incoming solution adds <m>0.1\times 20\, dt=2\, dt</m> kg of salt. In the same time interval <m>20\, dt</m> liters is drained from the tank. The concentration of the drained brine is <m>\frac{Q(t)}{1500}</m>. So <m>\frac{Q(t)}{1500} 20\, dt</m> kg were  removed. All together, the change in the salt content of the tank during  the short time interval is
+<me>
+dQ=2\, dt-\frac{Q(t)}{1500} 20\, dt =\Big(2-\frac{Q(t)}{75}\Big) dt
+</me>
+The rate of change of salt content per unit time is
+<me>
+\frac{dQ}{dt}=2-\frac{Q(t)}{75} =-\frac{1}{75}\big(Q(t)-150\big)
+</me>
+The solution of this equation  is
+<me>
+Q(t)=\big\{Q(0)-150\big\}e^{-t/75} + 150
+</me>
+by Theorem <xref ref="thm_linearODE"/>, with <m>a=-\frac{1}{75}</m> and <m>b=150</m>.  At time <m>0</m>, <m>Q(0)=1500\times 0.3=450</m>. So
+<me>
+Q(t)=150+300e^{-t/75}
+</me>
+</p>
+
+<p>(a) At <m>t=30</m>
+<me>
+Q(30)=150+300e^{-30/75}=\text{351.1 kg}
+</me>
+</p>
+
+<p> (b) <m>Q(t)=0.2\times 1500=300</m> kg is achieved when
+<md>
+<mrow>
+&amp;150+300e^{-t/75}=300\implies 300e^{-t/75}=150
+\implies e^{-t/75}=0.5\cr
+&amp;\implies -\frac{t}{75}=\log (0.5)
+\implies t=-75\log (0.5)=\text{51.99 min}
+</mrow>
+</md>
+</p>
+</example>
+</subsection>
+
+<subsection>
+<title>Optional <mdash/> Interest on Investments</title>
+
+<p>
+Suppose that you deposit <m>\$P</m> in a bank account at time <m>t=0</m>. The account pays <m>r\%</m> interest per year compounded <m>n</m> times per year.
+</p>
+
+<p><ul>
+<li>
+	The first interest payment is made at time <m>t=\frac{1}{n}</m>. Because the balance in the account during the time interval  <m>0 \lt t \lt \frac{1}{n}</m> is <m>\$P</m> and interest is being paid for <m>\big(\frac{1}{n}\big)^{\rm th}</m> of a year, that first  interest payment is <m>\frac{1}{n}\times\frac{r}{100}\times P</m>. After the first interest payment, the balance in the account is <m>P+\frac{1}{n}\times\frac{r}{100}\times P  =  \big(1+\frac{r}{100n}\big)P</m>.
+</li>
+<li>
+	The second interest payment is made at time <m>t=\frac{2}{n}</m>. Because the balance in the account during the time interval  <m>\frac{1}{n} \lt t \lt \frac{2}{n}</m> is <m>\big(1+\frac{r}{100n}\big)P</m>  and interest is being paid for <m>\big(\frac{1}{n}\big)^{\rm th}</m>  of a year, the second  interest payment is  <m>\frac{1}{n}\times\frac{r}{100}\times \big(1+\frac{r}{100n}\big)P</m>. After the second interest payment, the balance in the account is <m>\big(1+\frac{r}{100n}\big)P+\frac{1}{n}\times\frac{r}{100}\times  \big(1+\frac{r}{100n}\big)P  =  \big(1+\frac{r}{100n}\big)^2P</m>.
+</li>
+<li>  And so on. </li>
+</ul>
+In general, at time <m>t=\frac{m}{n}</m> (just after the <m>m^{\rm th}</m> interest  payment), the balance in the account is
+<fact xml:id="eq_SDEdiscreteCompounding"><title>Discrete compounding interest</title>
+<statement><p>
+<me>
+B(t) = \Big(1+\frac{r}{100n}\Big)^m P = \Big(1+\frac{r}{100n}\Big)^{nt}P
+</me>
+</p></statement>
+</fact>
+Three common values of <m>n</m> are <m>1</m> (interest is paid once a year), <m>12</m> (i.e. interest is paid once a month) and 365 (i.e. interest  is paid daily). The limit <m>n\rightarrow\infty</m> is called continuous  compounding
+	<fn>
+		There are banks that advertise continuous compounding.  You can find some by googling <q>interest is compounded continuously and  paid</q>
+	</fn>.
+Under continuous compounding, the balance at time <m>t</m> is
+<md>
+<mrow>
+B(t) &amp;= \lim_{n\rightarrow\infty} \Big(1+\frac{r}{100n}\Big)^{nt}P
+</mrow>
+</md>
+You may have already seen the limit
+<fact xml:id="eq_SDEexpLimit"><title>A useful limit</title>
+<statement><p>
+<me>
+\lim_{x\rightarrow 0}(1+x)^{a/x}=e^a
+</me>
+</p></statement>
+</fact>
+If so, you can evaluate <m>B(t)</m> by applying <xref ref="eq_SDEexpLimit"/> with <m>x=\frac{r}{100n}</m> and <m>a=\frac{rt}{100}</m> (so that <m>\frac{a}{x}=nt</m>).  As <m>n\rightarrow \infty</m>, <m>x\rightarrow 0</m> so that
+<fact xml:id="eq_SDEcontinuousCompounding"><title>Continuous compound interest</title>
+<statement><p>
+<me>
+B(t) = \lim_{n\rightarrow\infty} \Big(1+\frac{r}{100n}\Big)^{nt}P
+     =\lim_{x\rightarrow 0}(1+x)^{a/x}P=e^aP
+     = e^{rt/100}P
+</me>
+</p></statement>
+</fact>
+If you haven't seen (<xref ref="eq_SDEexpLimit"/>) before, that's OK. In the following example, we rederive (<xref ref="eq_SDEcontinuousCompounding"/>) using a differential equation instead of (<xref ref="eq_SDEexpLimit"/>).
+</p>
+
+<example xml:id="eg_SDEmoneyA"><title>Computing my future bank balance</title>
+<p>
+Suppose, again, that you deposit <m>\$P</m> in a bank  account at time <m>t=0</m>, and that the account pays <m>r\%</m> interest per year  compounded <m>n</m> times per year, and denote by <m>B(t)</m> the balance at time <m>t</m>. Suppose that you have just received an interest payment at time <m>t</m>. Then the next interest payment will be made at time <m>t+\frac{1}{n}</m> and will be <m>\frac{1}{n}\times\frac{r}{100}\times B(t)=\frac{r}{100n}B(t)</m>. So, calling <m>\frac{1}{n}=h</m>,
+<me>
+B(t+h)=B(t) + \frac{r}{100}B(t)h\qquad\text{or}\qquad \frac{B(t+h)-B(t)}{h} = \frac{r}{100}B(t)
+</me>
+To get continuous compounding we take the limit <m>n\rightarrow\infty</m> or, equivalently, <m>h\rightarrow 0</m>. This gives
+<me>
+\lim_{h\rightarrow 0}\frac{B(t+h)-B(t)}{h} = \frac{r}{100}B(t)
+\qquad\text{or}\qquad
+\diff{B}{t}(t) = \frac{r}{100}B(t)
+</me>
+By Theorem <xref ref="thm_linearODE"/>, with <m>a=\frac{r}{100}</m> and <m>b=0</m>, (or Corollary <xref ref="cor_carbonDating"/> with <m>k=-\frac{r}{100}</m>),
+<md>
+<mrow>
+B(t)=e^{rt/100}B(0)=e^{rt/100}P
+</mrow>
+</md>
+once again.
+</p>
+</example>
+
+<example xml:id="eg_SDEmoneyB"><title>Double your money</title>
+<p>
+<ol label="a">
+<li>
+	A bank advertises that it compounds interest continuously and that  it will double your money in ten years. What is the annual interest rate?
+</li>
+<li>
+	A bank advertises that it compounds monthly and that it will double your money in ten years. What is the annual interest rate?
+</li>
+</ol>
+</p>
+
+<p><alert>Solution:</alert> (a)
+Let the interest rate be <m>r\%</m> per year. If you start with <m>\$P</m>, then after <m>t</m> years, you have <m>Pe^{rt/100}</m>, under continuous compounding. This was equation<nbsp/>(<xref ref="eq_SDEcontinuousCompounding"/>). After 10 years you have <m>Pe^{r/10}</m>. This is supposed to be <m>2P</m>, so
+<md>
+<mrow>
+Pe^{r/10}=2P\quad &amp;\Longrightarrow\quad e^{r/10}=2
+</mrow>
+<mrow>
+&amp; \Longrightarrow\quad \frac{r}{10}=\log 2\quad\Longrightarrow\quad
+r=10\log2 =6.93\%
+</mrow>
+</md>
+</p>
+
+<p>(b)
+Let the interest rate be <m>r\%</m> per year. If you start with <m>\$P</m>, then after <m>t</m> years, you have <m>P\big(1+\frac{r}{100\times 12}\big)^{12 t}</m>,  under monthly compounding. This was (<xref ref="eq_SDEdiscreteCompounding"/>). After 10 years you have <m>P\big(1+\frac{r}{100\times 12}\big)^{120}</m>. This is  supposed to be <m>2P</m>, so
+<md>
+<mrow>
+&amp;P\big(1+\frac{r}{100\times 12}\big)^{120}=2P
+&amp;&amp;\Longrightarrow\quad
+    \big(1+\frac{r}{1200}\big)^{120}=2
+</mrow>
+<mrow>
+&amp;&amp;&amp;\Longrightarrow\quad 1+\frac{r}{1200}=2^{1/120}
+</mrow><mrow>
+&amp;\Longrightarrow\quad \frac{r}{1200}=2^{1/120}-1
+&amp;&amp;\Longrightarrow\quad
+r=1200\big(2^{1/120}-1\big) =6.95\%
+</mrow>
+</md>
+</p>
+</example>
+
+<example xml:id="eg_SDEmoneyC"><title>Pension planning</title>
+<p>
+A 25 year old graduate of UBC is given <dollar/>50,000 which is invested at 5<percent/> per year compounded continuously. The graduate also intends to deposit money continuously at the rate of <dollar/>2000 per year.
+<ol label="a">
+<li>
+	Find a differential equation that <m>A(t)</m> obeys, assuming that the interest rate remains 5<percent/>.
+</li>
+<li>
+	Determine the amount of money in the account when the graduate is 65.
+</li>
+<li>
+	At age 65, the graduate will start withdrawing money  continuously at the rate of <m>W</m> dollars per year. If the money  must last until the person is 85, what is the largest possible  value of <m>W</m>?
+</li>
+</ol>
+</p>
+
+<p>
+<alert>Solution:</alert> (a) Let's consider what happens to <m>A</m> over a very short time interval from time <m>t</m> to time <m>t + \De t</m>. At time <m>t</m> the account balance is <m>A(t)</m>. During the (really short) specified time interval the balance  remains very close to <m>A(t)</m> and so earns interst of  <m>\frac{5}{100}\times\De t\times A(t)</m>.  During the same time interval, the graduate also deposits an additional <m>\$ 2000\De t</m>. So
+<md>
+<mrow>
+A(t+\De t)&amp; \approx A(t) + 0.05 A(t)\De t+ 2000\De t
+</mrow>
+<mrow>
+&amp; \implies
+\frac{A(t+\De t)- A(t)}{\De t} \approx 0.05 A(t)  + 2000
+</mrow>
+</md>
+In the limit <m>\De t\rightarrow 0</m>, the approximation becomes exact and we get
+<me>
+\diff{A}{t}= 0.05 A+2000
+</me>
+</p>
+
+<p>
+(b) The amount of money at time <m>t</m> obeys
+<me>
+\diff{A}{t}= 0.05 A(t)+2,\!000=0.05\big(A(t)+40,\!000\big)
+</me>
+So by Theorem <xref ref="thm_linearODE"/>  (with <m>a=0.05</m> and <m>b=-40,\!000</m>),
+<me>
+A(t)=\big(A(0)+40,\!000\big)e^{0.05 t} -40,\!000
+</me>
+At time 0 (when the graduate is 25), <m>A(0)=50,\!000</m>, so the amount of  money at time <m>t</m> is
+<me>
+A(t)=90,\!000\, e^{0.05 t}-40,000
+</me>
+In particular, when the graduate is 65 years old, <m>t=40</m> and
+<me>
+A(40)=90,\!000\, e^{0.05 \times 40}-40,000=\text{\$625,015.05 }
+</me>
+</p>
+
+<p>
+(c) When the graduate stops depositing money and instead  starts withdrawing money at a rate <m>W</m>, the equation for <m>A</m> becomes
+<me>
+\diff{A}{t}= 0.05 A-W= 0.05 (A-20 W)
+</me>
+assuming that the interest rate remains 5<percent/>.  This time, Theorem <xref ref="thm_linearODE"/> (with <m>a=0.05</m> and <m>b=20W</m>) gives
+<me>
+A(t)=\big(A(0)-20W\big)e^{0.05 t} + 20W
+</me>
+If we now reset our clock so that <m>t=0</m> when the graduate is 65,   <m>A(0)=625,015.05</m>. So the amount of money at time <m>t</m> is
+<me>
+A(t)=20W+ e^{0.05 t}(625,015.05-20W)
+</me>
+We want the account to be depleted when the graduate is 85. So, we want <m>A(20)=0</m>. This is the case if
+<md>
+<mrow>
+20W+ e^{0.05\times 20}(625,015.05-20W) &amp; =0
+</mrow>
+<mrow>
+&amp;\implies
+20W+ e(625,015.05-20W)=0
+</mrow><mrow>
+&amp;\implies
+20(e-1)W= 625,015.05e
+</mrow><mrow>
+&amp;\implies
+W=\frac{625,015.05e}{20(e-1)}=\$49,437.96
+</mrow>
+</md>
+</p>
+</example>
+</subsection>
+
+
+
+<xi:include href="../problems/prob_s2.4.xml" />
+
+
+</section>

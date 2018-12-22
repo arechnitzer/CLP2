@@ -1,0 +1,1683 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<exercises>
+<introduction>
+<p>
+Recall that we are using <m>\log x</m> to denote the logarithm of <m>x</m> with
+base <m>e</m>. In other courses it is often denoted <m>\ln x</m>.
+</p>
+</introduction>
+
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise xml:id="prob_s1_9_1" purpose="RQS"><title><fromexam>2015A</fromexam></title>
+<statement><p>
+For each of the following integrals, choose the substitution that
+is most beneficial for evaluating the integral.
+<ol label="a">
+<li>
+<m>\displaystyle \int \frac{2x^2}{\sqrt{9x^2-16}} \, \dee{x}</m>
+</li>
+<li> <m>\displaystyle \int \frac{x^4-3}{\sqrt{1-4x^2}} \, \dee{x}</m>
+</li>
+<li> <m>\displaystyle \int {(25+x^2)}^{-5/2} \, \dee{x}</m>
+</li>
+</ol>
+</p>
+
+</statement>
+
+<hint><p>
+The beginning of this section has a template for choosing a substitution. Your goal is to use a trig identity to turn the argument of the square root into a perfect square, so you can cancel <m>\sqrt{(\mbox{something})^2}=(\mbox{something})</m>.
+</p></hint>
+
+<answer><p>
+(a) <m>x=\dfrac{4}{3}\sec\theta</m>
+</p><p>
+(b) <m>x=\dfrac{1}{2}\sin\theta</m>
+</p><p>
+(c) <m>x=5\tan\theta</m>
+</p></answer>
+
+<solution><p>
+In the text, there is a template for choosing an appropriate substitution, but for this problem we will explain the logic of the choices.
+</p>
+
+<p>The trig identities that we can use are:
+<md>
+<mrow>
+&amp;1-\sin^2\theta=\cos^2\theta &amp; &amp;\tan^2 \theta +1 = \sec^2 \theta &amp; &amp;\sec^2 \theta - 1 =\tan^2 \theta
+</mrow>
+<intertext>They have the following forms:</intertext><mrow>
+&amp;\mbox{constant } - \mbox{ function} &amp;&amp;\mbox{function } + \mbox{ constant} &amp;
+&amp;\mbox{function } - \mbox{ constant}
+</mrow>
+</md>
+In order to cancel out the square root, we should choose a substitution that will match the argument under the square root with the trig identity of the corresponding form.
+</p>
+
+<p>(a)
+There's not an obvious non-trig substitution for evaluating this problem, so we want a trigonometric substitution to get rid of the square root in the denominator. Under the square root is the function <m>9x^2-16</m>, which has the form (function) <m>-</m> (constant). This form matches the trig identity <m>\sec^2 \theta - 1 = \tan^2 \theta</m>. We can set <m>x</m> to be whatever we need it to be, but we don't have the same control over the constant, 16. So, to make the substitution work, we use a different form of the trig identity: multiplying both sides  by 16, we get
+<md>
+<mrow>
+16\sec^2\theta - 16 &amp;= 16\tan^2\theta
+</mrow>
+<intertext>What we want is a substitution that gives us</intertext><mrow>
+9x^2-16&amp;=16\sec^2\theta - 16
+</mrow><mrow>
+\mbox{So,}\qquad 9x^2&amp;=16\sec^2\theta
+</mrow><mrow>
+x &amp;= \frac{4}{3}\sec\theta
+</mrow>
+<intertext>Using this substitution,</intertext><mrow>
+\sqrt{9x^2-16}&amp;=\sqrt{16\sec^2\theta-16}
+</mrow><mrow>
+&amp;=\sqrt{16\tan^2\theta}
+</mrow><mrow>
+&amp;=4\tan\theta
+</mrow>
+</md>
+So, we eliminated the square root.
+</p>
+
+<p> (b)
+There's not an obvious non-trig substitution for evaluating this problem, so we want a trigonometric substitution to get rid of the square root in the denominator. Under the square root is the function <m>1-4x^2</m>, which has the form (constant) <m>-</m> (function). This form matches the trig identity <m>1-\sin^2\theta = \cos^2\theta</m>. What we want is a substitution that gives us
+<md>
+<mrow>
+1-4x^2&amp;=1-\sin^2\theta
+</mrow><mrow>
+\mbox{So,}\qquad 4x^2&amp;=\sin^2\theta
+</mrow><mrow>
+x &amp;= \frac{1}{2}\sin\theta
+</mrow>
+<intertext>Using this substitution,</intertext><mrow>
+\sqrt{1-4x^2}&amp;=\sqrt{1-\sin^2\theta}
+</mrow><mrow>
+&amp;=\sqrt{\cos^2\theta}
+</mrow><mrow>
+&amp;=\cos\theta
+</mrow>
+</md>
+So, we eliminated the square root.
+</p>
+
+<p> (c)
+There's not an obvious non-trig substitution for evaluating this problem, so we want a trigonometric substitution to get rid of the fractional power. (That is, we want to eliminate the square root.) The function under the power is <m>25+x^2</m>, which has the form (constant) <m>+</m> (function). This form matches the trig identity <m>\tan^2 \theta + 1 = \sec^2 \theta</m>. We can set <m>x</m> to be whatever we need it to be, but we don't have the same control over the constant, 25. So, to make the substitution work, we use a different form of the trig identity: multiplying both sides  by 25, we get
+<md>
+<mrow>
+25\tan^2 \theta + 25 &amp;= 25\sec^2 \theta
+</mrow>
+<intertext>What we want is a substitution that gives us</intertext><mrow>
+25+x^2&amp;=25\tan^2\theta+25
+</mrow><mrow>
+\mbox{So,}\qquad x^2&amp;=25\tan^2\theta
+</mrow><mrow>
+x &amp;= 5\tan\theta
+</mrow>
+<intertext>Using this substitution,</intertext><mrow>
+(25+x^2)^{-5/2}&amp;=(25+25\tan^2\theta)^{-5/2}
+</mrow><mrow>
+&amp;=(25\sec^2\theta)^{-5/2}
+</mrow><mrow>
+&amp;=(5\sec\theta)^{-5}
+</mrow>
+</md>
+So, we eliminated the square root.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_21_9_complete" purpose="RQS">
+<statement><p>
+For each of the following integrals, choose a trigonometric substitution that
+will allow the roots to cancel.
+<ol label="a">
+<li> <m>\displaystyle\int \dfrac{1}{\sqrt{x^2-4x+1}}\dee{x}</m>
+</li>
+<li> <m>\displaystyle\int \dfrac{(x-1)^6}{(-x^2+2x+4)^{3/2}}\dee{x}</m>
+</li>
+<li> <m>\displaystyle\int \dfrac{1}{\sqrt{4x^2+6x+10}}\dee{x}</m>
+</li>
+<li> <m>\displaystyle\int \sqrt{x^2-x}\dee{x}</m>
+</li>
+</ol>
+</p></statement>
+<hint><p>
+You want to do the same thing you did in Question<nbsp/><xref ref="prob_s1_9_1" text="local"/>, but you'll have to complete the square first.
+</p></hint>
+<answer><p>
+(a) <m>x-2=\sqrt{3}\sec u</m>
+</p><p>
+(b) <m>x-1=\sqrt{5}\sin u</m>
+</p><p>
+(c) <m>\left(2x+\dfrac{3}{2}\right) =\dfrac{\sqrt{31}}{2}\tan u</m>
+</p><p>
+(d) <m>x - \dfrac{1}{2}=\dfrac{1}{2}\sec u</m>
+</p></answer>
+<solution><p>
+Just as in Question<nbsp/><xref ref="prob_s1_9_1" text="local"/>, we want to choose a trigonometric substitution that will allow us to eliminate the square roots. Before we can make that choice, though, we need to complete the square. In subsequent problems, we won't show the algebra behind completing the square, but for this problem we'll work it out explicitly. After some practice, you'll  be able to do this step in your head for many cases.
+</p>
+
+<p>After the squares are completed, the choice of trig substitution follows the logic outlined in the solutions to Question<nbsp/><xref ref="prob_s1_9_1" text="local"/>, or (equivalently) the template in the text.
+</p>
+
+<p><ol label="a">
+<li>
+<p>
+The quadratic function under the square root is <m>x^2-4x+1</m>. To complete the square, we match the non-constant terms to those of a perfect square.
+<md>
+<mrow>
+(ax+b)^2&amp;=a^2x^2+2abx+b^2
+</mrow><mrow>
+\textcolor{red}{x^2}-\textcolor{blue}{4x}+1&amp;=\textcolor{red}{a^2x^2} + \textcolor{blue}{2abx} +b^2 + c \quad\mbox{for some constant } c
+</mrow>
+</md>
+<ul>
+<li> <textred>Looking at the leading term tells us <m>a=1</m>.</textred>
+</li>
+<li> <textblue>Then the second term tells us <m>-4=2ab=2b</m>, so <m>b=-2</m>.</textblue>
+</li>
+<li> Finally, the constant terms give us <m>1=b^2+c=4+c</m>, so <m>c=-3</m>.
+</li>
+</ul>
+<me>
+\displaystyle\int \dfrac{1}{\sqrt{x^2-4x+1}}\dee{x}=\displaystyle\int \dfrac{1}{\sqrt{(x-2)^2-3}}\dee{x}=\displaystyle\int \dfrac{1}{\sqrt{\left(x-2\vphantom{\sqrt{3}}\right)^2-\sqrt{3}^2}}\dee{x}
+</me>
+</p>
+
+<p>So we use the substitution <m>(x-2) = \sqrt{3}\sec u</m>, which eliminates the square root:
+<me>
+\sqrt{\left(x-2\right)^2-3}=\sqrt{3\sec^2 u - 3} = \sqrt{3\tan^2 u} = \sqrt{3}\tan u</me>
+</p>
+</li>
+<li>
+<p>
+The quadratic function under the square root is <m>-x^2+2x+4=-[x^2-2x-4]</m>. To complete the square, we match the non-constant terms to those of a perfect square. We factored out the negative to make things a little easier <mdash/> don't forget to put it back in before choosing a substitution!
+<md>
+<mrow>
+(ax+b)^2&amp;=a^2x^2+2abx+b^2
+</mrow><mrow>
+\textcolor{red}{x^2}-\textcolor{blue}{2x}-4&amp;=\textcolor{red}{a^2x^2} + \textcolor{blue}{2abx} +b^2 + c \quad\mbox{for some constant } c
+</mrow>
+</md>
+<ul>
+<li> <textred>Looking at the leading term tells us <m>a=1</m>.</textred> </li>
+<li> <textblue>Then the second term tells us <m>-2=2ab=2b</m>, so <m>b=-1</m>.</textblue> </li>
+<li> Finally, the constant terms give us <m>-4=b^2+c=1+c</m>, so <m>c=-5</m>. </li>
+<li> Then <m>-x^2+2x+4 = -[x^2-2x-4]=-[(x-1)^2-5]=5-(x-1)^2</m>. </li>
+</ul>
+<me>
+\displaystyle\int \dfrac{(x-1)^6}{(-x^2+2x+4)^{3/2}}\dee{x}=\displaystyle\int \dfrac{(x-1)^6}{(5-(x-1)^2)^{3/2}}\dee{x}=\displaystyle\int \dfrac{(x-1)^6}{\left(\sqrt{5}^2-\left(x-1\vphantom{\sqrt{3}}\right)^2\right)^{3/2}}\dee{x}</me>
+</p>
+
+<p>So we use the substitution <m>(x-1) = \sqrt{5}\sin u</m>, which eliminates the square root (fractional power):
+<me>
+(5-\left(x-1\right)^2)^{3/2}=\left(5-5\sin^2u\right)^{3/2} = \left(5\cos^2 u\right)^{3/2} = 5\sqrt{5}\cos^3 u</me>
+</p>
+</li>
+<li>
+<p>
+The quadratic function under the square root is <m>4x^2+6x+10</m>. To complete the square, we match the non-constant terms to those of a perfect square.
+<md>
+<mrow>
+(ax+b)^2&amp;=a^2x^2+2abx+b^2
+</mrow><mrow>
+\textcolor{red}{4x^2}+\textcolor{blue}{6x}+10&amp;=\textcolor{red}{a^2x^2} + \textcolor{blue}{2abx} +b^2 + c \quad\mbox{for some constant $c$}
+</mrow>
+</md>
+<ul>
+<li> <textred>Looking at the leading term tells us <m>a=2</m>.</textred>
+</li>
+<li> <textblue>Then the second term tells us <m>6=2ab=4b</m>, so <m>b=\frac{3}{2}</m>.</textblue>
+</li>
+<li> Finally, the constant terms give us <m>10=b^2+c=\frac{9}{4}+c</m>, so <m>c=\frac{31}{4}</m>.
+</li>
+</ul>
+<me>
+\displaystyle\int \dfrac{1}{\sqrt{4x^2+6x+10}}\dee{x}=\displaystyle\int \dfrac{1}{\sqrt{\left(2x+\frac{3}{2}\right)^2+\frac{31}{4}}}\dee{x}
+=\displaystyle\int \dfrac{1}{\sqrt{\left(2x+\frac{3}{2}\right)^2+\left(\frac{\sqrt{31}}{2}\right)^2}}\dee{x}</me>
+So we use the substitution <m>\left(2x+\frac{3}{2}\right) =\frac{\sqrt{31}}{2}\tan u</m>, which eliminates the square root:
+<me>
+\sqrt{\left(2x+\frac{3}{2}\right)^2+\frac{31}{4}}=\sqrt{\frac{31}{4}\tan^2 u +\frac{31}{4}} = \sqrt{\frac{31}{4}\sec^2 u} =\frac{\sqrt{31}}{2}\sec u</me>
+</p>
+</li>
+<li>
+<p>
+The quadratic function under the square root is <m>x^2-x</m>. To complete the square, we match the non-constant terms to those of a perfect square.
+<md>
+<mrow>
+(ax+b)^2&amp;=a^2x^2+2abx+b^2
+</mrow><mrow>
+\textcolor{red}{x^2}-\textcolor{blue}{x}&amp;=\textcolor{red}{a^2x^2} + \textcolor{blue}{2abx} +b^2 + c \quad\mbox{for some constant $c$}
+</mrow>
+</md>
+<ul>
+<li> <textred>Looking at the leading term tells us <m>a=1</m>.</textred>
+</li>
+<li> <textblue>Then the second term tells us <m>-1=2ab=2b</m>, so <m>b=-\frac{1}{2}</m>.</textblue>
+</li>
+<li> Finally, the constant terms give us <m>0=b^2+c=\frac{1}{4}+c</m>, so <m>c=-\frac{1}{4}</m>.
+</li>
+</ul>
+<me>
+\displaystyle\int \sqrt{x^2-x}\dee{x}=\displaystyle\int \sqrt{\left(x-\frac{1}{2}\right)^2 -\frac{1}{4}}\dee{x}=\displaystyle\int  \sqrt{\left(x-\frac{1}{2}\right)^2 -\left(\frac{1}{2}\right)^2}\dee{x}
+</me>
+So we use the substitution <m>(x-1/2) = \frac{1}{2}\sec u</m>, which eliminates the square root:
+<me>
+\sqrt{\left(x-\frac{1}{2}\right)^2-\frac{1}{4}}=\sqrt{\frac{1}{4}{\sec\vphantom{|}}^2 u - \frac{1}{4}} = \sqrt{\frac{1}{4}\tan^2 u} =\frac{1}{2}\tan u</me>
+</p>
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+
+<exercise xml:id="prob_s1_9_3">
+<statement><p>
+In each part of this question, assume  <m>\theta</m> is an angle in the interval <m>\left[ 0,\pi/2\right]</m>.
+<ol label="a">
+<li> If <m>\sin\theta=\dfrac{1}{20}</m>, what is <m>\cos\theta</m><nbsp/>?
+</li>
+<li> If <m>\tan\theta=7</m>, what is <m>\csc\theta</m><nbsp/>?
+</li>
+<li> If <m>\sec\theta=\dfrac{\sqrt{x-1}}{2}</m>, what is <m>\tan\theta</m><nbsp/>?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Since <m>\theta</m> is acute, you can draw it as an angle of a right triangle. The given information will let you label two sides of the triangle, and the Pythagorean Theorem will lead you to the third.
+</p></hint>
+<answer><p>
+(a) <m>\dfrac{\sqrt{399}}{20}</m>
+</p><p>
+(b) <m>\dfrac{5\sqrt{2}}{7}</m>
+</p><p>
+(c) <m>\dfrac{\sqrt{x-5}}{2} </m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<p>
+If <m>\sin\theta=\dfrac{1}{20}</m> and <m>\theta</m> is between 0 and <m>\pi/2</m>, then we can draw a right triangle with angle <m>\theta</m> that has opposite side length 1, and hypotenuse length 20. By the Pythagorean Theorem, the adjacent side has length <m>\sqrt{20^2-1^2}=\sqrt{399}</m>. So,  <m>\cos\theta = \dfrac{\mathrm{adj}}{\mathrm{hyp}}=\dfrac{\sqrt{399}}{20}</m>.
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{\theta}{\sqrt{399}}{1}{20}]]></latex-image></image>
+</sidebyside>
+
+<p>
+We can do a quick <q>reasonableness</q> check here: <m>\frac{1}{20}</m> is pretty close to 0, so we might expect <m>\theta</m> to be pretty close to 0, and so <m>\cos \theta</m> should be pretty close to 1. Indeed it is: <m>\dfrac{\sqrt{399}}{20}\approx \dfrac{\sqrt{400}}{20}=\dfrac{20}{20}=1</m>.
+</p>
+
+<p>Alternately, we can solve this problem using identities.
+<md>
+<mrow>
+\sin^2 \theta + \cos^2 \theta &amp;=1
+</mrow><mrow>
+\left(\frac{1}{20}\right)^2+ \cos^2 \theta &amp;=1
+</mrow><mrow>
+\cos\theta &amp;= \pm\sqrt{1-\frac{1}{400}}=\pm\frac{\sqrt{399}}{20}
+</mrow>
+<intertext>Since <m>0 \leq \theta \leq \frac{\pi}{2}</m>, <m>\cos\theta \geq 0</m>, so
+</intertext><mrow>
+\cos\theta &amp;= \frac{\sqrt{399}}{20}
+</mrow>
+</md>
+</p>
+</li>
+<li><p> If <m>\tan\theta=7</m> and <m>\theta</m> is between 0 and <m>\pi/2</m>, then we can draw a right triangle with angle <m>\theta</m> that has opposite side length 7 and adjacent side length 1. By the Pythagorean Theorem, the hypotenuse has length <m>\sqrt{7^2+1^2} = \sqrt{50}=5\sqrt{2}</m>. So,  <m>\csc\theta = \dfrac{\mathrm{hyp}}{\mathrm{opp}}=\dfrac{5\sqrt{2}}{7}</m>.
+</p>
+<sidebyside width="25%">
+<image><latex-image><![CDATA[\trigtri{\theta}{1}{7}{5\sqrt{2}}]]></latex-image></image>
+</sidebyside>
+<p>
+Again, we can do a quick reasonableness check. Since 7 is much larger than 1, the triangle we're thinking of doesn't look much like the triangle in our standardized picture above: it's really quite tall, with a small base. So, the opposite side and hypotenuse are pretty close in length. Indeed, <m>\dfrac{5\sqrt{2}}{7}\approx 7.071</m>, so this dimension seems reasonable.
+</p>
+</li>
+<li><p>
+If <m>\sec\theta=\dfrac{\sqrt{x-1}}{2}</m> and <m>\theta</m> is between 0 and <m>\pi/2</m>, then we can draw a right triangle with angle <m>\theta</m> that has hypotenuse length <m>\sqrt{x-1}</m> and adjacent side length 2. By the Pythagorean Theorem, the opposite side has length <m>\sqrt{\sqrt{x-1}^2 - 2^2} = \sqrt{x-1-4}=\sqrt{x-5}</m>. So,  <m>\tan\theta = \dfrac{\mathrm{opp}}{\mathrm{adj}}=\dfrac{\sqrt{x-5}}{2}</m>.
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{\theta}{2}{\sqrt{x-5}}{\sqrt{x-1}}]]></latex-image></image>
+</sidebyside>
+<p>
+We can also solve this using identities. Note that since <m>\sec\theta</m> exists,  <m>\theta \neq \frac{\pi}{2}</m>.
+<md>
+<mrow>
+\tan^2\theta+1&amp;=\sec^2\theta
+</mrow><mrow>
+\tan^2\theta+1&amp;=\left(\frac{\sqrt{x-1}}{2}\right)^2=\frac{x-1}{4}
+</mrow><mrow>
+\tan\theta &amp;= \pm\sqrt{\frac{x-1}{4}-1} = \pm\frac{\sqrt{x-5}}{2}
+</mrow>
+<intertext>Since <m>0 \leq \theta  \lt  \frac{\pi}{2}</m>, <m>\tan\theta \geq 0</m>, so
+</intertext><mrow>
+\tan\theta &amp;= \frac{\sqrt{x-5}}{2}
+</mrow>
+</md>
+</p>
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+
+<exercise xml:id="prob_s1_9_4" purpose="RQS">
+<statement><p>
+Simplify the following expressions.
+<ol label="a">
+<li> <m>\sin\left(\arccos \left(\frac{x}{2}\right)\right)</m>
+</li>
+<li> <m>\sin\left(\arctan \left(\frac{1}{\sqrt{3}}\right)\right)</m>
+</li>
+<li> <m>\sec\left(\arcsin \left(\sqrt{x}\right)\right)</m>
+</li>
+</ol>
+</p></statement>
+<hint><p>
+You can draw a right triangle with angle <m>\theta</m>, and use the given information to label two of the sides. The Pythagorean Theorem gives you the third side.
+</p></hint>
+<answer><p>
+(a) <m>\dfrac{\sqrt{4-x^2}}{2}</m>
+</p><p>
+(b) <m>\dfrac{1}{2}</m>
+</p><p>
+(c) <m>\dfrac{1}{\sqrt{1-x}}</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li><p>
+Let <m>\theta = \arccos \left(\frac{x}{2}\right)</m>. That is, <m>\cos(\theta) = \frac{x}{2}</m>, and <m>0 \leq \theta \leq \pi</m>. Then we can draw the corresponding right triangle with angle <m>\theta</m> with adjacent side of signed length <m>x</m> (we note that if <m>\theta  \gt  \frac{\pi}{2}</m>, then <m>x</m> is negative) and hypotenuse of length <m>2</m>. By the Pythagorean Theorem, the opposite side of the triangle has length <m>\sqrt{4-x^2}</m>.
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{\theta}{x}{\sqrt{4-x^2}}{2}]]></latex-image></image>
+</sidebyside>
+<p>
+So,
+<me>
+\sin\left(\arccos \left(\frac{x}{2}\right)\right)=\sin \theta = \frac{\mathrm{opp}}{\mathrm{hyp}} = \frac{\sqrt{4-x^2}}{2}</me>
+</p>
+</li>
+<li>
+<p>
+Let <m>\theta = \arctan \left(\frac{1}{\sqrt{3}}\right)</m>. That is, <m>\tan(\theta) = \frac{1}{\sqrt{3}}</m>, and <m>-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}</m>.
+</p>
+
+<p>
+<ul>
+<li>Solution 1: Then <m>\theta = \dfrac{\pi}{6}</m>, so <m>\sin\theta = \dfrac{1}{2}</m>.
+</li>
+<li>
+<p>
+Solution 2:
+Then we can draw the corresponding right triangle with angle <m>\theta</m> with opposite side of length <m>1</m>  and adjacent side of length <m>\sqrt{3}</m>. By the Pythagorean Theorem, the hypotenuse of the triangle has length <m>\sqrt{\sqrt{3}^2+1^2}=2</m>.
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{\theta}{\sqrt{3}}{1}{2}]]></latex-image></image>
+</sidebyside>
+<p>
+So,
+<me>
+\sin\left(\arctan \left(\frac{1}{\sqrt{3}}\right)\right)=\sin \theta = \frac{\mathrm{opp}}{\mathrm{hyp}} = \frac{1}{2}</me>
+</p>
+</li>
+</ul>
+</p>
+</li>
+<li><p>
+Let <m>\theta = \arcsin \left(\sqrt{x}\right)</m>. That is, <m>\sin(\theta) = \sqrt{x}</m>, and <m>-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}</m>. Then we can draw the corresponding right triangle with angle <m>\theta</m> with opposite side of length <m>\sqrt{x}</m> and hypotenuse of length <m>1</m>. By the Pythagorean Theorem, the adjacent side of the triangle has length <m>\sqrt{1-x}</m>.
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{\theta}{\sqrt{1-x}}{\sqrt{x}}{1}]]></latex-image></image>
+</sidebyside>
+<p>
+So,
+<me>
+\sec\left(\arcsin \left(\sqrt{x}\right)\right)=\sec \theta = \frac{\mathrm{hyp}}{\mathrm{adj}} = \frac{1}{\sqrt{1-x}}</me>
+</p>
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise xml:id="prob_s1_9_P1"><title><fromexam>2016Q4</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int \frac1{(x^2+4)^{3/2}} \,\dee{x}.</m>
+</p></statement>
+
+<hint><p>
+As in Question <xref ref="prob_s1_9_1" text="local"/>, choose an appropriate substitution. Your answer should be in terms of your original variable, <m>x</m>, which can be achieved using the methods of Question<nbsp/><xref ref="prob_s1_9_3" text="local"/>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac14\cdot \dfrac x{\sqrt{x^2+4}} + C</m>
+</p></answer>
+
+<solution><p>
+Let <m>x = 2\tan\theta</m>, so that <m>x^2+4 = 4\tan^2\theta+4=4\sec^2\theta</m> and <m>\dee{x} = 2\sec^2\theta\,\dee{\theta}</m>. Then
+<md>
+<mrow>
+\int \frac1{(x^2+4)^{3/2}} \,\dee{x} &amp;= \int \frac1{(4\sec^2\theta)^{3/2}} \cdot 2\sec^2\theta\,\dee{\theta}
+</mrow><mrow>
+&amp;= \int \frac{2\sec^2\theta}{8\sec^3\theta} \,\dee{\theta}
+</mrow><mrow>
+&amp;=\frac14 \int \cos\theta\,\dee{\theta}
+</mrow><mrow>
+&amp;= \frac14\sin\theta+C = \frac14 \frac x{\sqrt{x^2+4}} + C
+</mrow>
+</md>
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{\theta}{2}{x}{\sqrt{x^2+4}}]]></latex-image></image>
+</sidebyside>
+<p>
+To find <m>\sin\theta</m> in terms of <m>x</m>, we construct the right triangle above.
+Since <m>\tan\theta = \dfrac{x}{2} = \dfrac{\mbox{opp}}{\mbox{adj}}</m>, we label the opposite side <m>x</m> and the adjacent side <m>2</m>. By the Pythagorean Theorem, the hypotenuse has length <m>\sqrt{x^2+4}</m>. Then <m>\sin\theta = \dfrac{\mbox{opp}}{\mbox{hyp}} = \dfrac{x}{\sqrt{x^2+4}}</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q4</fromexam></title>
+<statement><p>
+Evaluate
+<m>\displaystyle\int_0^4 \frac{1}{{(4+x^2)}^{3/2}}\,\dee{x}</m>.
+Your answer may not contain inverse trigonometric functions.
+</p></statement>
+<hint><p>
+As in Question <xref ref="prob_s1_9_1" text="local"/>, choose an appropriate substitution. Your answer will be a number, so as long as you change your limits of integration when you substitute, you don't need to bother changing the antiderivative back into the original variable <m>x</m>. However, you might want to use the techniques of Question<nbsp/><xref ref="prob_s1_9_4" text="local"/> to simplify your final answer.
+</p></hint>
+
+<answer><p>
+<m> \dfrac{1}{2\sqrt{5}}</m>
+</p></answer>
+
+<solution><p>
+<ul>
+<li><p>
+Solution 1:
+As in Question<nbsp/><xref ref="prob_s1_9_P1" text="local"/>, substitute <m>x=2\tan u</m>,  <m>\dee{x}=2 \sec^2u\,\dee{u}</m>. Note that when <m>x=4</m>
+we have <m>4=2\tan u</m>, so that <m>\tan u=2</m>.
+<md>
+<mrow>
+\int_0^4 \frac{1}{{(4+x^2)}^{3/2}}\,\dee{x}
+&amp;=\int_0^{\arctan 2} \frac{1}{{(4+4\tan^2 u)}^{3/2}}\,2\sec^2 u\,\dee{u}
+</mrow>
+<mrow>
+&amp;=\int_0^{\arctan 2} \frac{2\sec^2 u}{{(2\sec u)}^{3}}\,\dee{u}
+</mrow>
+<mrow>
+&amp;=\frac{1}{4}\int_0^{\arctan 2} \frac{\sec^2u}{\sec^3u}\,\dee{u}
+</mrow>
+<mrow>
+&amp;=\frac{1}{4}\int_0^{\arctan 2} \cos u\,\dee{u}
+</mrow><mrow>
+&amp;=\bigg[\frac{1}{4}\sin u \bigg]_0^{\arctan2}
+</mrow><mrow>
+&amp;=\frac{1}{4} \big( \sin(\arctan 2) - 0 \big)
+= \frac{1}{2\sqrt{5}}
+</mrow>
+</md>
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{u}{1}{2}{\sqrt{5}}]]></latex-image></image>
+</sidebyside>
+
+<p>
+To find <m>\sin(\arctan 2)</m>, we use the right triangle above, with angle <m>u=\arctan 2</m>. Since <m>\tan u=2 = \dfrac{\mbox{opp}}{\mbox{adj}}</m>, we label the opposite side as 2, and the adjacent side as 1. The Pythagorean Theorem tells us the hypotenuse has length <m>\sqrt{5}</m>, so <m>\sin u = \dfrac{\mbox{opp}}{\mbox{hyp}} = \dfrac{2}{\sqrt{5}}</m>.
+</p>
+</li>
+<li>Solution 2:
+Using our result from Question<nbsp/><xref ref="prob_s1_9_P1" text="local"/>,
+<md>
+<mrow>
+\int_0^4 \frac{1}{{(4+x^2)}^{3/2}}\,\dee{x}&amp;=\frac{1}{4}\left[ \dfrac x{\sqrt{x^2+4}}\right]_0^4
+</mrow><mrow>
+&amp;=\frac{1}{4}\cdot \dfrac{4}{\sqrt{4^2+4}}=\frac{1}{2\sqrt{5}}
+</mrow>
+</md>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M105 2013A</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int_0^{5/2} \frac{\dee{x}}{\sqrt{25-x^2}}</m>.
+</p></statement>
+
+<hint><p>
+Question <xref ref="prob_s1_9_1" text="local"/> guides the way to finding the appropriate substitution.
+Since the integral is definite, your final answer will be a number. Your limits of integration should be common reference angles.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{\pi}{6}</m>
+</p></answer>
+
+<solution><p>
+ Make the change of variables <m>x=5\sin\theta</m>, <m>\dee{x}=5\cos\theta\,\dee{\theta}</m>.
+Since <m>x=0</m> corresponds to <m>\theta=0</m> and <m>x=\frac{5}{2}</m> correponds to
+<m>\sin\theta=\half</m> or <m>\theta =\frac{\pi}{6}</m>,
+<md>
+<mrow>
+\int_0^{5/2} \frac{\dee{x}}{\sqrt{25-x^2}}
+=\int_0^{\pi/6} \frac{5\cos\theta\,\dee{\theta}}{\sqrt{25-25\sin^2\theta}}
+=\int_0^{\pi/6} \dee{\theta}
+=\frac{\pi}{6}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M105 2015A</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int \frac{\dee{x}}{\sqrt{x^2+25}}</m>.
+You may use that
+<m>{\displaystyle\int} \sec \dee{x} = \log\big|\sec x+\tan x\big|+C</m>.
+</p></statement>
+
+<hint><p>
+Question <xref ref="prob_s1_9_1" text="local"/> guides the way to finding the appropriate substitution. Since you have in indefinite integral, make sure to get your answer back in terms of the original variable, <m>x</m>. Question <xref ref="prob_s1_9_3" text="local"/> gives a reliable method for this.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\log\left|\sqrt{1+\frac{x^2}{25}}+\frac{x}{5}\right|+C</m>
+</p></answer>
+
+<solution><p>
+Substitute <m>x=5\tan u</m>, so that <m>\dee{x}=5 \sec^2u\,\dee{u}</m>.
+<md>
+<mrow>
+\int\frac{1}{\sqrt{x^2+25}}\,\dee{x}
+&amp;=\int \frac{1}{\sqrt{25\tan^2 u+25}}\,5\sec^2 u\,\dee{u}
+</mrow><mrow>
+&amp;=\int \frac{5\sec^2u}{5\sec u}\,\dee{u} =\int \sec u\,\dee{u}
+</mrow><mrow>
+&amp;= \log\big|\sec u+\tan u\big|+C
+</mrow><mrow>
+&amp;= \log\Big|\sqrt{1+\frac{x^2}{25}}+\frac{x}{5}\Big|+C
+</mrow>
+</md>
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{u}{5}{x}{\sqrt{x^2+25}}]]></latex-image></image>
+</sidebyside>
+<p>
+To find <m>\sec u</m> and <m>\tan u</m>, we have two options. One is to set up a right triangle with angle <m>u</m> and <m>\tan u = \frac{x}{5}</m>. Then we can label the opposite side <m>x</m> and the adjacent side 5, and use Pythagorus to find that the hypotenuse is <m>\sqrt{x^2+25}</m>.
+</p>
+
+<p>Another option is to look back at our work a little more closely <mdash/> in fact, we've already found what we're looking for. Since we used the substitution <m>x=5\tan u</m>, this gives us <m>\tan u = \frac{x}{5}</m>. In the denominator of the integrand, we simplified <m>\sqrt{x^2+25} = 5\sec u</m>, so <m>\sec u = \frac{1}{5}\sqrt{x^2+25} = \sqrt{1+\frac{x^2}{25}}</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int\frac{x+1}{\sqrt{2x^2+4x}}
+\, \dee{x}</m>.
+</p></statement>
+<hint><p>
+A trig substitution is not the easiest path.
+</p></hint>
+<answer><p>
+<m>\dfrac{1}{2}\sqrt{2x^2+4x}+C</m>
+</p></answer>
+<solution><p>
+The quadratic formula underneath the square root makes us think of a trig substitution, but in the interest of developing good habits, let's check for an easier way first. If we let <m>u=2x^2+4x</m>, then <m>\dee{u} = (4x+4)\dee{x}</m>, so <m>\frac{1}{4}\,\dee{u}=(x+1)\,\dee{x}</m>. This substitution looks easier than a trig substitution (which would start with completing the square).
+<md>
+<mrow>
+\int\frac{x+1}{\sqrt{2x^2+4x}}
+\, \dee{x}&amp;=\frac{1}{4}\int \frac{1}{\sqrt{u}}\,\dee{u} = \frac{1}{2}\sqrt{u}+C = \frac{1}{2}\sqrt{2x^2+4x}+C
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2014D</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int\frac{\dee{x}}{x^2\sqrt{x^2+16}}</m>.
+</p></statement>
+
+<hint><p>
+To antidifferentiate, change your trig functions into sines and cosines.
+</p></hint>
+
+<answer><p>
+<m>-\displaystyle\frac{1}{16}\dfrac{\sqrt{x^2+16}}{x}+C</m>
+</p></answer>
+
+<solution><p>
+Substitute <m>x=4\tan u</m>, <m>\dee{x}=4 \sec^2u\,\dee{u}</m>.
+<md>
+<mrow>
+\int\frac{1}{x^2\sqrt{x^2+16}}\,\dee{x}
+&amp;=\int \frac{1}{16\tan^2 u \sqrt{16\tan^2 u+16}}\,4\sec^2 u\,\dee{u}
+</mrow><mrow>
+&amp;=\int \frac{\sec^2u}{16\tan^2u\sec u}\,\dee{u}
+=\frac{1}{16}\int \frac{\sec u}{\tan^2u}\,\dee{u}
+</mrow><mrow>
+&amp;= \frac{1}{16}\int\frac{\cos u}{\sin^2 u}\,\dee{u}
+</mrow>
+</md>
+To finish off the integral, we'll substitute <m>v=\sin u</m>,
+<m>\dee{v}=\cos u\,\dee{u}</m>.
+<md>
+<mrow>
+\int\frac{1}{x^2\sqrt{x^2+16}}\,\dee{x}
+&amp;=\frac{1}{16} \int\frac{\cos u}{\sin^2 u}\,\dee{u}
+= \frac{1}{16}\int\frac{\dee{v}}{v^2}
+=-\frac{1}{16v} +C
+</mrow><mrow>
+&amp;=-\frac{1}{16\sin u} +C
+=-\frac{1}{16}\dfrac{\sqrt{x^2+16}}{x}+C
+</mrow>
+</md>
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{u}{4}{x}{\sqrt{x^2+16}}]]></latex-image></image>
+</sidebyside>
+<p>
+To find <m>\sin u</m>, we draw a right triangle with angle <m>u</m> and <m>\tan u = \frac{x}{4}</m>. We label the opposite side <m>x</m> and the adjacent side <m>4</m>, and then from Pythagorus we find that the hypotenuse has length <m>\sqrt{x^2+16}</m>. So, <m>\sin u = \dfrac{\sqrt{x^2+16}}{x}</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016A</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int \frac{\dee{x}}{x^2\sqrt{x^2-9}}</m>.
+Do not include any inverse trigonometric functions in your answer.
+</p></statement>
+
+<hint><p>
+The integrand should simplify quite far after your substitution.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\frac{\sqrt{x^2-9}}{9x} +C </m>
+</p></answer>
+
+<solution><p>
+Substituting <m>x=3\sec u</m>, so that <m>\dee{x}= 3\sec u\tan u\,\dee{u}</m>
+and <m>x^2-9=9\sec^2 u-9 = 9\tan^2 u</m>, gives
+<md>
+<mrow>
+\int \frac{\dee{x}}{x^2\sqrt{x^2-9}}
+&amp;=\int \frac{3\sec u\tan u\dee{u}}
+              {9\sec^2u\sqrt{9\tan^2u}}
+</mrow><mrow>
+&amp;=\frac{1}{9}\int\frac{\dee{u}}{\sec u}
+</mrow><mrow>
+         &amp;=\frac{1}{9}\int \cos u\dee{u}
+          =\frac{1}{9}\sin u +C.
+
+</mrow>
+</md>
+To evaluate <m>\sin u</m>, we make a right triangle with angle <m>u</m>. Since <m>\sec u = \dfrac{x}{3} = \dfrac{\mbox{hyp}}{\mbox{adj}}</m>, we label the hypotenuse <m>x</m> and the adjacent side <m>3</m>.
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{u}{3}{\sqrt{x^2-9}}{x}]]></latex-image></image>
+</sidebyside>
+<p>
+Using the Pythagorean Theorem, the opposite side has length <m>\sqrt{x^2-9}</m>. So, <m>\sin u = \dfrac{\sqrt{x^2-9}}{x}</m> and
+<md>
+<mrow>
+\int \frac{\dee{x}}{x^2\sqrt{x^2-9}} &amp;= \frac{\sqrt{x^2-9}}{9x} +C.
+</mrow>
+</md>
+
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2013A</fromexam></title>
+<statement><p>
+(a) Show that
+<m>\displaystyle\int_0^{\pi/4}\cos^4\theta\dee{\theta}=(8+3\pi)/32</m>.
+</p>
+
+<p>
+(b) Evaluate
+<m>\displaystyle\int_{-1}^1\frac{\dee{x}}{{(x^2+1)}^3}</m>.
+</p></statement>
+
+<hint><p>
+In part (a) you are asked to integrate an even power of <m>\cos x</m>.
+For part (b) you can use a trigonometric substitution to reduce the integral
+of part (b) almost to the integral of part (a).
+</p></hint>
+
+<answer><p>
+(a) We'll use the trig identity <m>\cos2\theta=2\cos^2\theta-1</m>.
+It implies that
+<md>
+<mrow>
+\cos^2\theta=\frac{\cos2\theta+1}{2}
+\implies \cos^4\theta &amp;=\frac{1}{4}\big[\cos^22\theta+2\cos2\theta+1\big]
+=\frac{1}{4}\Big[\frac{\cos4\theta+1}{2}+2\cos2\theta+1\Big]
+</mrow><mrow>
+&amp;=\frac{\cos4\theta}{8}+\frac{\cos2\theta}{2}+\frac{3}{8}
+</mrow>
+<intertext>So,</intertext><mrow>
+\int_0^{\pi/4}\cos^4\theta\dee{\theta}
+&amp;=\int_0^{\pi/4}\Big(\frac{\cos4\theta}{8}+\frac{\cos2\theta}{2}+\frac{3}{8}\Big)
+            \dee{\theta}
+</mrow><mrow>
+&amp;=\left[\frac{\sin4\theta}{32}+\frac{\sin2\theta}{4}+\frac{3}{8}\theta\right]_0^{\pi/4}
+</mrow><mrow>
+&amp;= \frac{1}{4}+\frac{3}{8}\cdot \frac{\pi}{4}
+</mrow><mrow>
+&amp;=\frac{8+3\pi}{32}
+</mrow>
+</md>
+as required.
+</p>
+<p>
+ (b)
+<m>\dfrac{8+3\pi}{16}</m>
+</p></answer>
+
+<solution><p>
+ (a)
+We'll use the trig identity <m>\cos2\theta=2\cos^2\theta-1</m>.
+It implies that
+<md>
+<mrow>
+\cos^2\theta=\frac{\cos2\theta+1}{2}
+\implies \cos^4\theta &amp;=\frac{1}{4}\big[\cos^22\theta+2\cos2\theta+1\big]
+=\frac{1}{4}\Big[\frac{\cos4\theta+1}{2}+2\cos2\theta+1\Big]
+</mrow><mrow>
+&amp;=\frac{\cos4\theta}{8}+\frac{\cos2\theta}{2}+\frac{3}{8}
+</mrow>
+<intertext>So,</intertext><mrow>
+\int_0^{\pi/4}\cos^4\theta\dee{\theta}
+&amp;=\int_0^{\pi/4}\Big(\frac{\cos4\theta}{8}+\frac{\cos2\theta}{2}+\frac{3}{8}\Big)
+            \dee{\theta}
+</mrow><mrow>
+&amp;=\left[\frac{\sin4\theta}{32}+\frac{\sin2\theta}{4}+\frac{3}{8}\theta\right]_0^{\pi/4}
+</mrow><mrow>
+&amp;= \frac{1}{4}+\frac{3}{8}\cdot \frac{\pi}{4}
+</mrow><mrow>
+&amp;=\frac{8+3\pi}{32}
+</mrow>
+</md>
+as required.
+</p>
+
+<p> (b) We'll use the trig substitution <m>x=\tan\theta</m>,
+<m>\dee{x}=\sec^2\theta\dee{\theta}</m>. Note that when <m>\theta=\pm\frac{\pi}{4}</m>, we have <m>x=\pm
+1</m>. Also note that dividing the trig identity <m>\sin^2\theta+\cos^2\theta=1</m>
+by <m>\cos^2\theta</m> gives the trig identity <m>\tan^2\theta+1=\sec^2\theta</m>. So
+<md>
+<mrow>
+\int_{-1}^1\frac{\dee{x}}{{(x^2+1)}^3}
+&amp;=2\int_0^1\frac{\dee{x}}{{(x^2+1)}^3}&amp;\mbox{(even integrand)}
+</mrow><mrow>
+&amp;=2\int_0^{\pi/4}\frac{\sec^2\theta\dee{\theta}}{{(\tan^2\theta+1)}^3}
+</mrow><mrow>
+&amp;=2\int_0^{\pi/4}\frac{\sec^2\theta\dee{\theta}}{{(\sec^2\theta)}^3}
+</mrow><mrow>
+&amp;=2\int_0^{\pi/4}\cos^4\theta\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{8+3\pi}{16}
+</mrow>
+</md>
+by part (a).
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int_{-\pi/12}^{\pi/12} \dfrac{15x^3}{(x^2+1)(9-x^2)^{5/2}}\dee{x}</m>.
+</p></statement>
+<hint><p>
+What is the symmetry of the integrand?
+</p></hint>
+<answer><p>
+0
+</p></answer>
+<solution><p>
+The integrand is an odd function, and the limits of integration are symmetric, so
+<m>\displaystyle\int_{-\pi/12}^{\pi/12} \dfrac{15x^3}{(x^2+1)\sqrt{9-x^2}^5}\dee{x}=0</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M121 2014A</fromexam></title>
+<statement><p>
+Evaluate <m>{\displaystyle\int} \sqrt{4-x^2}\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_INVTRIGa"/>.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle2\arcsin\frac{x}{2}+\frac{x}{2}\sqrt{4-x^2}+ C</m>
+</p></answer>
+
+<solution><p>
+Substitute <m>x=2\sin u</m>, so that <m>\dee{x}=2 \cos u\,\dee{u}</m>.
+<md>
+<mrow>
+\int \sqrt{4-x^2}\,\dee{x}
+&amp;=\int \sqrt{4-4\sin^2u}\ 2\cos u\,\dee{u}
+</mrow><mrow>
+&amp;=\int \sqrt{4\cos^2u}\ 2\cos u\,\dee{u}
+</mrow><mrow>
+&amp;=\int 4\cos^2 u\,\dee{u}
+=2\int \big(1+\cos(2u)\big)\,\dee{u}
+</mrow><mrow>
+&amp;= 2u +\sin(2u) + C
+</mrow><mrow>
+&amp;=2u + 2\sin u\cos u + C
+</mrow><mrow>
+&amp;=2\arcsin\frac{x}{2} + \frac{ x}{2}\sqrt{4-x^2} + C
+</mrow>
+</md>
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{u}{\sqrt{4-x^2}}{x}{2}]]></latex-image></image>
+</sidebyside>
+<p>
+We used the substitution <m>x = 2\sin u</m>, so we know <m>\sin u = \frac{x}{2}</m> and <m>u=\arcsin(\frac{x}{2})</m>. We have three options for finding  <m>\cos u</m>.
+</p>
+
+<p>First, we can draw a right triangle with angle <m>u</m>. Since <m>\sin u = \frac{x}{2}</m>, we label the opposite side <m>x</m> and the hypotenuse 2, then by the Pythagorean Theorem the adjacent side has length <m>\sqrt{4-x^2}</m>. So, <m>\cos u = \dfrac{\mbox{adj}}{\mbox{hyp}} = \dfrac{\sqrt{4-x^2}}{2}</m>.
+</p>
+
+<p>Second, we can look back carefully at our work. We simplified <m>\sqrt{4-x^2} = 2\cos u</m>, so <m>\cos u = \dfrac{\sqrt{4-x^2}}{2}</m>.
+</p>
+
+<p>Third, we could use the identity <m>\sin^2 u + \cos^2 u =1</m>. Then <m>\cos u = \pm\sqrt{1-\sin^2 u} = \pm\sqrt{1-\frac{x^2}{4}}</m>. Since <m>u = \arcsin (x/2)</m>, <m>u</m> is in the range of arcsine, which means <m>-\frac{\pi}{2} \leq u \leq \frac{\pi}{2}</m>. Therefore, <m>\cos u \geq 0</m>, so <m>\cos u = \sqrt{1-\frac{x^2}{4}} = \frac{\sqrt{4-x^2}}{2}</m>.
+</p>
+
+<p>So,
+<me>
+\int \sqrt{4-x^2}\,\dee{x}=2u + 2\sin u\cos u + C=
+2\arcsin\frac{x}{2}+x\cdot\frac{\sqrt{4-x^2}}{2}+C
+</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2012A</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int \frac{\sqrt{25x^2-4}}{x}\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+To integrate an even power of tangent, use the identity <m>\tan^2 x = \sec^2 x - 1</m>.
+</p></hint>
+
+<answer><p>
+<m>\sqrt{25x^2-4}-2\arcsec\frac{5x}{2}  + C</m>
+</p></answer>
+
+<solution><p>
+Substitute <m>x=\frac{2}{5}\sec u</m>, so that
+<m>\dee{x}=\frac{2}{5} \sec u\,\tan u\,\dee{u}</m> and
+<m>25 x^2-4 = 4(\sec^2u-1) = 4\tan^2u</m>.
+<md>
+<mrow>
+\int \frac{\sqrt{25x^2-4}}{x}\,\dee{x}
+&amp;=\int \frac{2\tan u}{\frac{2}{5}\sec u}\cdot\frac{2}{5}\sec u\tan u\,\dee{u}
+</mrow><mrow>
+&amp;=2\int \tan^2 u\,\dee{u}
+=2\int \big(\sec^2 u -1\big)\,\dee{u}
+</mrow><mrow>
+&amp;= 2\tan u -2u + C
+</mrow><mrow>
+&amp;=\sqrt{25x^2-4}-2\arcsec\tfrac{5x}{2}  + C
+</mrow>
+</md>
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{u}{2}{\sqrt{25x^2-4}}{5x}]]></latex-image></image>
+</sidebyside>
+<p>
+To find <m>\tan u</m>, we draw a right triangle with angle <m>u</m>. Since <m>\sec u =\dfrac{5x}{2}</m>, we label the hypotenuse <m>5x</m> and the adjacent side 2. Then the Pythagorean Theorem gives us the opposite side as length <m>\sqrt{25x^2-4}</m>. Then <m>\tan u = \dfrac{\mbox{opp}}{\mbox{adj}} = \dfrac{\sqrt{25x^2-4}}{2}</m>.
+</p>
+
+<p>Alternately, we can notice that in our work, we already showed <m>2\tan u = \sqrt{25x^2-4}</m>, so <m>\tan u = \frac{1}{2}\sqrt{25x^2-4} .</m>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int_{\sqrt{10}}^{\sqrt{17}} \frac{x^3}{\sqrt{x^2-1}}\, \dee{x}</m>.
+</p></statement>
+<hint><p>
+A trig substitution is not the easiest path.
+</p></hint>
+<answer><p>
+<m>\dfrac{40}{3}</m>
+</p></answer>
+<solution><p>
+The integrand has a quadratic polynomial under a square root, which makes us think of trig substitutions. However, it's good practice to look for simpler methods before we jump into more complicated ones, and in this case we find something nicer than a trig substitution: the substitution <m>u=x^2-1</m>, <m>\dee{u}=2x\,\dee{x}</m>. Then <m>x\dee{x} = \frac{1}{2}\dee{u}</m>, and <m>x^2 ={u+1}</m>. When <m>x=\sqrt{10}</m>, <m>u=9</m>, and when <m>x=\sqrt{17}</m>, <m>u=16</m>.
+</p>
+
+<p><md>
+<mrow>
+\int_{\sqrt{10}}^{\sqrt{17}} \frac{x^3}{\sqrt{x^2-1}}\, \dee{x}&amp;=
+\int_{\sqrt{10}}^{\sqrt{17}} \frac{x^2}{\sqrt{x^2-1}}\, \cdot x\dee{x}
+</mrow><mrow>&amp;=\frac{1}{2}
+\int_{9}^{16} \frac{u+1}{\sqrt{u}}\,\dee{u}
+</mrow><mrow>
+&amp;=\frac{1}{2}
+\int_{9}^{16}\left(u^{1/2}+u^{-1/2}\right)\,\dee{u}
+</mrow><mrow>&amp;=\frac{1}{2}\left[\frac{2}{3}u^{3/2} + 2u^{1/2}
+\right]_{9}^{16}
+</mrow><mrow>&amp;=\frac{1}{2}\left[\frac{2}{3}\cdot 4^3 + 2\cdot 4
+-\frac{2}{3}\cdot 3^3 -2\cdot 3
+\right]
+</mrow><mrow>
+&amp;=\frac{40}{3}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M105 2014A</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int \frac{\dee{x}}{\sqrt{3-2x-x^2}}</m>.
+</p></statement>
+
+<hint><p>
+Complete the square. Your final answer will have an inverse trig function in it.
+</p></hint>
+
+<answer><p>
+<m>\arcsin\dfrac{x+1}{2} + C</m>
+</p></answer>
+
+<solution><p>
+This integrand looks very different from those above. But it is
+only slightly disguised. If we complete the square
+<md>
+<mrow>
+\int \frac{\dee{x}}{\sqrt{3-2x-x^2}}
+  = \int \frac{\dee{x}}{\sqrt{4-(x+1)^2}}
+</mrow>
+</md>
+and make the substitution <m>y=x+1</m>, <m>\dee{y}=\dee{x}</m>
+<md>
+<mrow>
+\int \frac{\dee{x}}{\sqrt{3-2x-x^2}}
+  = \int \frac{\dee{x}}{\sqrt{4-(x+1)^2}}
+  = \int \frac{\dee{y}}{\sqrt{4-y^2}}
+</mrow>
+</md>
+we get a typical trig substitution integral. So, we substitute
+<m>y=2\sin\theta</m>, <m>\dee{y}=2\cos\theta\,\dee{\theta}</m> to get
+<md>
+<mrow>
+\int \frac{\dee{x}}{\sqrt{3-2x-x^2}}
+&amp;= \int \frac{\dee{y}}{\sqrt{4-y^2}}
+  = \int\frac{2\cos\theta\,\dee{\theta}}{\sqrt{4-4\sin^2\theta}}
+  = \int\frac{2\cos\theta\,\dee{\theta}}{\sqrt{4\cos^2\theta}}
+</mrow><mrow>
+  &amp;=\int\dee{\theta}
+  =\theta +C
+  =\arcsin\frac{y}{2} + C
+</mrow><mrow>
+&amp;=\arcsin\frac{x+1}{2} + C
+</mrow>
+</md>
+An experienced integrator would probably substitute <m>x+1 = 2\sin\theta</m>
+directly, without going through <m>y</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\int \dfrac{1}{(2x-3)^3\sqrt{4x^2-12x+8}}\dee{x}</m>.
+</p></statement>
+<hint><p>
+To antidifferentiate even powers of   cosine, use the formula <m>\cos^2\theta = \frac{1}{2}(1+\cos(2\theta))</m>. Then, remember <m>\sin(2\theta)=2\sin\theta\cos\theta</m>.
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{1}{4}\left(\arccos\left(\frac{1}{2x-3}\right) + \frac{\sqrt{4x^2-12x+8}}{(2x-3)^2}\right)+C</m>, or equivalently,
+<m>\displaystyle\frac{1}{4}\left(\arcsec\left({2x-3}\right) + \frac{\sqrt{4x^2-12x+8}}{(2x-3)^2}\right)+C</m>
+</p></answer>
+<solution><p>
+Completing the square, we see <m>4x^2-12x+8 = (2x-3)^2-1</m>.
+<md>
+<mrow>
+\int \dfrac{1}{(2x-3)^3\sqrt{4x^2-12x+8}}\dee{x}&amp;=
+\int \dfrac{1}{(2x-3)^3\sqrt{(2x-3)^2-1}}\dee{x}
+</mrow>
+<intertext>We use the substitution <m>2x-3 = \sec \theta</m>, so <m>2\dee{x}=\sec\theta\tan\theta\dee{\theta}</m>.
+</intertext><mrow>
+&amp;=\frac{1}{2}\int\frac{1}{\sec^3\theta\sqrt{\sec^2\theta-1}}\sec\theta\tan\theta\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{1}{2}\int\frac{1}{\sec^3\theta\tan\theta}\sec\theta\tan\theta\dee{\theta}
+</mrow><mrow>&amp;=\frac{1}{2}\int\frac{1}{\sec^2\theta}\dee{\theta}
+</mrow><mrow>&amp;=\frac{1}{2}\int{\cos^2\theta}\dee{\theta}
+</mrow><mrow>&amp;=\frac{1}{4}\int{\left(1+\cos(2\theta)\right)}\dee{\theta}
+</mrow><mrow>&amp;=\frac14\left(\theta + \frac{1}{2}\sin(2\theta)\right)+C
+</mrow><mrow>&amp;=\frac14\left(\theta + \sin\theta\cos\theta\right)+C
+</mrow><mrow>&amp;=\frac{1}{4}\left(\arccos\left(\frac{1}{2x-3}\right) + \frac{\sqrt{4x^2-12x+8}}{(2x-3)^2}\right)+C
+</mrow>
+</md>
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{\theta}{1}{\sqrt{4x^2-12x+8}}{2x-3}]]></latex-image></image>
+</sidebyside>
+
+<p>Since <m>2x-3=\sec\theta</m>, we know <m>\cos\theta = \frac{1}{2x-3}</m> and <m>\theta = \arccos\left(\frac{1}{2x-3}\right)</m>. (Equivalently, <m>\theta = \arcsec(2x-3)</m>.) To find <m>\sin\theta</m>, we draw a right triangle with adjacent side of length 1, and hypotenuse of length <m>2x-3</m>. By the Pythagorean Theorem, the opposite side has length <m>\sqrt{4x^2-12x+8}</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int_0^1\dfrac{x^2}{(x^2+1)^{3/2}}\dee{x}</m>.
+</p>
+
+<p>You may use that  <m>\int \sec x\dee{x} = \log|\sec x+\tan x| +C</m>.
+</p></statement>
+<hint><p>
+After substituting, use the identity <m>\tan^2 x = \sec^2 x - 1</m> more than once.
+</p>
+<p>
+ Remember <m>\displaystyle\int \sec x \dee{x} = \log \big|\sec x + \tan x \big|+C</m>.
+</p></hint>
+<answer><p>
+<m>\log(1+\sqrt{2})-\dfrac{1}{\sqrt{2}}</m>
+</p></answer>
+<solution><p>
+We use the substitution <m>x=\tan u</m>, <m>\dee{x}=\sec^2 u\dee{u}</m>. Note <m>\tan 0=0</m> and <m>\tan \frac{\pi}{4} =1</m>.
+<md>
+<mrow>
+\displaystyle\int_0^1\dfrac{x^2}{\sqrt{x^2+1}^3}\dee{x}&amp;=
+\int_0^{\pi/4}\dfrac{\tan^2 u}{\sqrt{\tan^2 u +1}^3}\sec^2u\dee{u}
+</mrow><mrow>
+&amp;=
+\int_0^{\pi/4}\dfrac{\tan^2 u}{\sqrt{\sec^2u}^3}\sec^2u\dee{u}
+</mrow><mrow>
+&amp;=
+\int_0^{\pi/4}\frac{\tan^2 u}{\sec u}\dee{u}
+</mrow><mrow>&amp;=
+\int_0^{\pi/4}\frac{\sec^2 u-1}{\sec u}\dee{u}
+</mrow><mrow>&amp;=
+\int_0^{\pi/4}\big({\sec u}-\cos u\big)\dee{u}
+</mrow><mrow>
+&amp;=\Big[\log\left|\sec u + \tan u \right| - \sin u\Big]_{0}^{\pi/4}
+</mrow><mrow>
+&amp;=\left(\log\left|\sqrt{2} + 1 \right| -\frac{1}{\sqrt{2}}\right) -
+\left(\log|1+0|-0\right)
+</mrow><mrow>
+&amp;=\log(1+\sqrt{2})-\frac{1}{\sqrt{2}}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_9_forpartialfractions" purpose="RQS">
+<statement><p> Evaluate <m>\displaystyle\int \frac{1}{(x^2+1)^2}\dee{x}</m>.
+</p></statement>
+<hint><p>
+There's no square root, but we can still make use of the substitution <m>x=\tan\theta</m>.
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{1}{2}\left(\arctan x + \frac{x}{x^2+1}\right)+C</m>
+</p></answer>
+<solution><p>
+There's no square root, but we can still make use of the substitution <m>x=\tan\theta</m>, <m>\dee{x} = \sec^2\theta\dee{\theta}</m>.
+<md>
+<mrow>
+\int \frac{1}{(x^2+1)^2}\dee{x}&amp;=\int\frac{1}{(\tan^2\theta+1)^2}\sec^2\theta\dee{\theta}
+</mrow><mrow>
+&amp;=\int\frac{1}{\sec^4\theta}\sec^2\theta\dee{\theta} = \int\cos^2\theta\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{1}{2}\int \big(1 + \cos(2\theta)\big)\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{1}{2}\left(\theta + \frac{1}{2}\sin(2\theta)\right)+C
+</mrow><mrow>
+&amp;=\frac{1}{2}\left(\theta + \sin\theta\cos\theta\right)+C
+</mrow><mrow>
+&amp;=\frac{1}{2}\left(\arctan x + \frac{x}{x^2+1}\right)+C
+</mrow>
+</md>
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{\theta}{1}{x}{\sqrt{x^2+1}}]]></latex-image></image>
+</sidebyside>
+<p>
+Since <m>x = \tan\theta</m>, we can draw a right triangle with angle <m>\theta</m>, opposite side <m>x</m>, and adjacent side <m>1</m>. Then by the Pythagorean Theorem, its hypotenuse has length <m>\sqrt{x^2+1}</m>, which allows us to find <m>\sin\theta</m> and <m>\cos\theta</m>.
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int \dfrac{x^2}{\sqrt{x^2-2x+2}}\dee{x}</m>.
+</p>
+<p>
+You may assume without proof that <m>\displaystyle\int \sec^3 \theta\dee{\theta} = \frac{1}{2}\sec\theta\tan\theta + \frac{1}{2}\log|\sec\theta+\tan\theta|+C</m>.
+</p></statement>
+<hint><p>
+You'll probably want to use the identity <m>\tan^2\theta+1=\sec^2\theta</m> more than once.
+</p></hint>
+<answer><p>
+<m>\dfrac{3+x}{2}\sqrt{x^2-2x+2}+ \dfrac{1}{2}\log\left|\sqrt{x^2-2x+2}+x-1\right|+C</m>
+</p></answer>
+<solution><p>
+We complete the square to find <m>x^2-2x+2 = (x-1)^2+1</m>.
+<md>
+<mrow>
+\int \dfrac{x^2}{\sqrt{x^2-2x+2}}\dee{x}&amp;=
+\int \dfrac{x^2}{\sqrt{(x-1)^2+1}}\dee{x}
+</mrow>
+<intertext>We use the substitution <m>x-1=\tan\theta</m>,  which implies <m>\dee{x}=\sec^2\theta\dee{\theta}</m> and <m>x=\tan\theta+1</m>
+</intertext><mrow>
+&amp;=\int \dfrac{(\tan\theta+1)^2}{\sqrt{(\tan\theta)^2+1}} \sec^2\theta\dee{\theta}
+</mrow><mrow>
+&amp;=\int\frac{\textcolor{red}{\tan^2\theta}+2\tan\theta+\textcolor{red}1}{\sec\theta}\sec^2\theta\dee{\theta}
+</mrow><mrow>
+&amp;=\int(\textcolor{red}{\sec^2\theta}+2\tan\theta)\sec\theta\dee{\theta}
+</mrow><mrow>
+&amp;=\int\big( \sec^3\theta+2\tan\theta\sec\theta\big)\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{1}{2}\sec\theta\tan\theta + \frac{1}{2}\log|\sec\theta+\tan\theta|+2\sec\theta+C
+</mrow><mrow>
+&amp;=\frac{1}{2}\sqrt{x^2-2x+2}(x-1) + \frac{1}{2}\log\left|\sqrt{x^2-2x+2}+x-1\right|+2\sqrt{x^2-2x+2}+C
+</mrow><mrow>
+&amp;=\frac{3+x}{2}\sqrt{x^2-2x+2}+ \frac{1}{2}\log\left|\sqrt{x^2-2x+2}+x-1\right|+C
+</mrow>
+</md>
+</p>
+
+<p>From our substitution, we know <m>\tan\theta = x-1</m>. To find <m>\sec\theta</m>, we can notice that in our work we already simplified <m>\sqrt{x^2-2x+1}=\sec\theta</m>.
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{\theta}{1}{x-1}{\sqrt{x^2-2x+2}}]]></latex-image></image>
+</sidebyside>
+
+<p>
+Alternately, we can draw a right triangle with angle <m>\theta</m>, opposite side <m>x-1</m>, adjacent side <m>1</m>, and use the Pythagorean Theorem to find the hypotenuse.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\int \dfrac{1}{\sqrt{3x^2+5x}}\dee{x}</m>.
+</p>
+
+<p>You may use that  <m>\int \sec x\dee{x} = \log|\sec x+\tan x| +C</m>.
+</p></statement>
+<hint><p>
+Complete the square <mdash/> refer to Question<nbsp/><xref ref="prob_21_9_complete" text="local"/> if you want a refresher. The constants aren't pretty, but don't let them scare you.
+</p></hint>
+<answer><p>
+<m>\displaystyle\left| \left(\frac{6}{5}x+1\right)+\frac{2}{5}\sqrt{9x^2+15x} \right|+C</m>
+</p></answer>
+<solution><p>
+First, we complete the square. The constants aren't integers, but we can still use the same method as in Question<nbsp/><xref ref="prob_21_9_complete" text="local"/>.
+The quadratic function under the square root is <m>3x^2+5x</m>. We match the non-constant terms to those of a perfect square.
+<md>
+<mrow>
+(ax+b)^2&amp;=a^2x^2+2abx+b^2
+</mrow><mrow>
+\textcolor{red}{3x^2}+\textcolor{blue}{5x}&amp;=\textcolor{red}{a^2x^2} + \textcolor{blue}{2abx} +b^2 + c \quad\mbox{for some constant $c$}
+</mrow>
+</md>
+<ul>
+<li> <textred> Looking at the leading term tells us <m>a=\sqrt{3}</m>.</textred> </li>
+<li> <textblue> Then the second term tells us <m>5=2ab=2\sqrt{3}b</m>, so <m>b=\frac{5}{2\sqrt3}</m>.</textblue> </li>
+<li> Finally, the constant terms give us <m>0=b^2+c=\frac{25}{12}+c</m>, so <m>c=-\frac{25}{12}</m>. </li>
+</ul>
+</p>
+
+<p>So, <m>3x^2+5x=\left(\sqrt{3}x+\frac{5}{2\sqrt{3}}\right)^2-\frac{25}{12}</m>.
+<md>
+<mrow>
+\int \dfrac{1}{\sqrt{3x^2+5x}}\dee{x}&amp;=\int \dfrac{1}{\sqrt{\left(\sqrt{3}x+\frac{5}{2\sqrt3}\right)^2-\frac{25}{12}}}\dee{x}
+</mrow>
+<intertext>We use the substitution <m>\sqrt{3}x + \frac{5}{2\sqrt3}=\frac{5}{2\sqrt{3}}\sec\theta</m>, which leads to <m>\sqrt{3}\dee{x} = \frac{5}{2\sqrt{3}}\sec\theta\tan\theta\dee{\theta}</m>, i.e. <m>\dee{x} = \frac{5}{6}\sec\theta\tan\theta\dee{\theta}</m>.
+</intertext><mrow>
+&amp;=\int\frac{1}{\sqrt{\left(\frac{5}{2\sqrt3}\sec\theta\right)^2-\frac{25}{12}}}\cdot\frac{5}{6}\sec\theta\tan\theta\dee{\theta}
+</mrow><mrow>
+&amp;=\int\frac{1}{\sqrt{\frac{25}{12}\sec^2\theta-\frac{25}{12}}}\cdot\frac{5}{6}\sec\theta\tan\theta\dee{\theta}
+</mrow><mrow>
+&amp;=\int\frac{1}{\sqrt{\frac{25}{12}\tan^2\theta}}\cdot\frac{5}{6}\sec\theta\tan\theta\dee{\theta}
+</mrow><mrow>
+&amp;=\int\frac{1}{{\frac{5}{2\sqrt{3}}\tan\theta}}\cdot\frac{5}{6}\sec\theta\tan\theta\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{1}{\sqrt3}\int\sec\theta\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{1}{\sqrt3}\log\left|\sec\theta+\tan\theta\right|+C
+</mrow><mrow>
+&amp;=\frac{1}{\sqrt3}\log\left| \left(\frac{6}{5}x+1\right)+\frac{2}{5}\sqrt{9x^2+15x} \right|+C
+</mrow>
+</md>
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{\theta}{5}{2\sqrt{9x^2+15x}}{6x+5}]]></latex-image></image>
+</sidebyside>
+<p>
+Since we used the substitution <m>\sqrt3x+\frac{5}{2\sqrt{3}}=\frac{5}{2\sqrt3}\sec\theta</m>, we have <m>\sec\theta = \frac{6}{5}x+1 = \frac{6x+5}{5}</m>. To find <m>\tan\theta</m> in terms of <m>x</m>, we have two options. We can make a right triangle with angle <m>\theta</m>, hypotenuse <m>6x+5</m>, and adjacent side <m>5</m>, then use the Pythagorean Theorem to find the opposite side. Or, we can look through our work and see that <m>\sqrt{3x^2+5}=\frac{5}{2\sqrt3}\tan\theta</m>, so <m>\tan\theta = \frac{2\sqrt3}{5}\sqrt{3x^2+5}=\frac{2}{5}\sqrt{9x^2+15}</m>.
+</p>
+
+<p>Remark: in applications, often the numbers involved are messier than they are in textbooks. The ideas of this problem are similar to other problems in this section, but it's good practice to apply them in a slightly messy context.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int\dfrac{(1+x^2)^{3/2}}{x}\dee{x}</m>. You may use the fact that <m>\displaystyle\int \csc \theta\dee{\theta}=\log|\cot \theta - \csc \theta|+C</m>.
+</p></statement>
+<hint><p>
+After substituting, use the identity <m>\sec^2 u = \tan^2 u +1</m>. It might help to break the integral into a few pieces.
+</p></hint>
+<answer><p>
+<m>\dfrac{1}{3}\sqrt{1+x^2}(4+x^2)+\log\left|\dfrac{1-\sqrt{1+x^2}}{x} \right|+C</m>
+</p></answer>
+<solution><p>
+We use the substitution <m>x=\tan u</m>, <m>\dee{x}=\sec^2 u\dee{u}</m>.
+<md>
+<mrow>
+\int\dfrac{\sqrt{1+x^2}^3}{x}\dee{x}&amp;=\int\frac{\sqrt{1+\tan^2 u}^3}{\tan u}\sec^2 u\dee{u}
+</mrow><mrow>&amp;=\int\frac{\sec^3u}{\tan u}\sec^2 u\dee{u}
+</mrow><mrow>&amp;=\int\frac{(\sec^2u)^2}{\tan u}\sec u\dee{u}
+</mrow><mrow>&amp;=\int\frac{(\tan^2u+1)^2}{\tan u}\sec u\dee{u}
+</mrow><mrow>&amp;=\int\frac{\tan^4u+2\tan^2 u + 1}{\tan u}\sec u\dee{u}
+</mrow><mrow>&amp;=\int \tan^3 u \sec u \dee{u} + \int 2\sec u \tan u\dee u + \int \frac{\sec u}{\tan u}\dee{u}
+</mrow>
+<intertext>For the first integral, we use the substitution <m>w=\sec u</m>. The second is the antiderivative of <m>2\sec u</m>. The third we simplify as <m>\frac{\sec u}{\tan u} = \frac{1}{\cos u}\cdot \frac{\cos u}{\sin u} = \csc u</m><nbsp/>.
+</intertext><mrow>
+&amp;=\int\bigg((\sec^2 u -1)\sec u \tan u\bigg)\dee{u} + 2\sec u + \log|\cot u - \csc u |+C
+</mrow><mrow>
+&amp;=\int (w^2-1)\dee{w}+2\sec u + \log|\cot u - \csc u|+C
+</mrow><mrow>
+&amp;=\frac{1}{3}w^3-w+2\sec u + \log|\cot u - \csc u|+C
+</mrow><mrow>
+&amp;=\frac{1}{3}\sec^3u-\sec u+2\sec u + \log|\cot u - \csc u|+C
+</mrow><mrow>
+&amp;=\frac{1}{3}\sec^3u+\sec u + \log|\cot u - \csc u|+C
+</mrow>
+<intertext>We began with the substitution <m>x=\tan u</m>. Then <m>\cot u = \frac{1}{x}</m>. To find <m>\csc u</m> and <m>\sec u</m>, we draw a right triangle with angle <m>u</m>, opposite side <m>x</m>, and adjacent side <m>1</m>. The Pythagorean Theorem gives us the hypotenuse.
+</intertext><mrow>
+&amp;=\frac{1}{3}\sqrt{1+x^2}^3+\sqrt{1+x^2}+\log\left| \frac{1}{x}-\frac{\sqrt{1+x^2}}{x} \right|+C
+</mrow><mrow>&amp;=\frac{1}{3}\sqrt{1+x^2}(4+x^2)+\log\left|\frac{1-\sqrt{1+x^2}}{x} \right|+C
+</mrow>
+</md>
+</p>
+<sidebyside>
+<image width="33%"><latex-image> <![CDATA[\trigtri{u}{1}{x}{\sqrt{1+x^2}}]]></latex-image></image>
+</sidebyside>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Below is the graph of the ellipse <m>\left(\frac{x}{4}\right)^2+\left(\frac{y}{2}\right)^2=1</m>. Find the area of the shaded region using the ideas from this section.
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0) node[shape=ellipse, minimum width=8cm, minimum height=4cm, draw]{};
+\fill[fill=blue, fill opacity=0.2] plot[domain=-1:1, samples=100]({4*sqrt(1-\x*\x/4)},\x)--
+plot[domain=1:-1, samples=100]({-4*sqrt(1-\x*\x/4)},\x)--cycle;
+\YEaxis{4.5}{2.25}
+\YEycoord{-1}{-1}
+\YEycoord{1}{1}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+Make use of symmetry, and integrate with respect to <m>y</m> (rather than <m>x</m>). The limits of integration should be reference angles.
+</p></hint>
+<answer><p>
+<m>\dfrac{8\pi}{3}+4\sqrt{3}</m>
+</p></answer>
+<solution><p>
+The half of the ellipse to the right of the <m>y</m>-axis is given by the equation
+<md>
+<mrow>
+x=f(y)&amp;=4\sqrt{1-\left(\frac{y}{2}\right)^2}
+</mrow>
+<intertext>The area we want is the twice the area between the right-hand side of the curve and the <m>y</m>-axis, from <m>y=-1</m> to <m>y=1</m>. In other words,</intertext><mrow>
+\mbox{Area}&amp;=2\int_{-1}^1 4\sqrt{1-\left(\frac{y}{2}\right)^2}\dee{y}
+</mrow>
+<intertext>Making use of symmetry,</intertext><mrow>
+&amp;=16\int_{0}^1 \sqrt{1-\left(\frac{y}{2}\right)^2}\dee{y}
+</mrow>
+<intertext>We use the substitution <m>\frac{y}{2} = \sin \theta</m>, <m>\frac{1}{2}\dee{y}=\cos\theta\dee{\theta}</m>. Notice <m>\sin \frac{\pi}{6} = \frac{1}{2}</m> and <m>\sin 0 =0</m>.
+</intertext><mrow>
+&amp;=16\int_{0}^{\pi/6} \sqrt{1-\left(\sin\theta\right)^2} \cdot 2\cos\theta\dee{\theta}
+</mrow><mrow>&amp;=32\int_{0}^{\pi/6} \sqrt{\cos^2\theta} \cos\theta\dee{\theta}
+</mrow><mrow>&amp;=32\int_{0}^{\pi/6}\cos^2\theta\dee{\theta}
+</mrow><mrow>&amp;=16\int_{0}^{\pi/6}\left(1+\cos(2\theta)\right)\dee{\theta}
+</mrow><mrow>&amp;=16\left[\theta +\frac{1}{2}\sin(2\theta)\right]_{0}^{\pi/6}\\
+&amp;=16\left(\frac{\pi}{6}+\frac{1}{2}\cdot \frac{\sqrt{3}}{2}
+\right)
+</mrow><mrow>
+&amp;=\frac{8\pi}{3}+4\sqrt{3}
+</mrow>
+</md>
+</p>
+
+<p>Remark: we also investigated areas of ellipses in Question<nbsp/><xref ref="prob_s1_2_ellipsearea"/>, Section<nbsp/><xref ref="sec_def_int"/>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>f(x) = \dfrac{|x|}{\sqrt[4]{1-x^2}}</m>, and let <m>R</m> be the region between <m>f(x)</m> and the <m>x</m>-axis over the interval <m>[-\frac{1}{2},\frac{1}{2}]</m>.
+<ol label="a">
+<li> Find the area of <m>R</m>.
+</li>
+<li> Find the volume of the solid formed by rotating <m>R</m> about the <m>x</m>-axis.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Use the symmetry of the function to re-write your integrals without an absolute value.
+</p></hint>
+<answer><p>
+Area: <m>\dfrac{4}{3} - \sqrt[4]{\dfrac{4}{3}}</m>
+</p><p>
+Volume: <m>\dfrac{\pi^2}{6} - \dfrac{\sqrt{3}\pi}{4}</m>
+</p></answer>
+<solution><p>
+Note that <m>f(x)</m> is an even function, nonnegative over its entire domain.
+</p>
+<p>
+ (a) To find the area of <m>R</m>, we evaluate
+<md>
+<mrow>
+\mbox{Area}&amp;=\int _{-1/2}^{1/2} \dfrac{|x|}{\sqrt[4]{1-x^2}}\dee{x} =
+2\int _{0}^{1/2} \dfrac{x}{\sqrt[4]{1-x^2}}\dee{x}
+</mrow>
+<intertext>We use the substitution <m>u=1-x^2</m>, <m>\dee{u}=-2x\dee{x}</m>.
+</intertext><mrow>
+&amp;=-\int_{1}^{3/4} \frac{1}{u^{1/4}}\dee{u}
+</mrow><mrow>
+&amp;=-\left[\frac{4}{3}u^{3/4}\right]_1^{3/4} = -\frac{4}{3}\left(\left(\frac{3}{4}\right)^{3/4}-1\right)
+</mrow><mrow>
+&amp;=\frac{4}{3} - \sqrt[4]{\frac{4}{3}}
+</mrow>
+</md>
+ (b) We slice the solid of rotation into circular disks of width <m>\dee{x}</m> and radius <m>\dfrac{|x|}{\sqrt[4]{1-x^2}}</m>.
+<md>
+<mrow>
+\mbox{Volume}&amp;=\int_{-1/2}^{1/2} \pi\left(\dfrac{|x|}{\sqrt[4]{1-x^2}}\right)^2\dee{x}
+</mrow><mrow>
+&amp;=2\pi\int_{0}^{1/2} \dfrac{x^2}{\sqrt{1-x^2}}\dee{x}
+</mrow>
+<intertext>We use the substitution <m>x=\sin \theta</m>, <m>\dee{x} = \cos\theta\dee{\theta}</m>, so <m>\sqrt{1-x^2} = \sqrt{1-\sin^2\theta}=\cos \theta</m>. Note <m>\sin 0 =0</m> and <m>\sin\frac{\pi}{6}=\frac{1}{2}.</m>
+</intertext><mrow>
+&amp;=2\pi\int_{0}^{\pi/6} \frac{\sin^2 \theta}{\cos \theta}\cos \theta\dee{\theta}
+</mrow><mrow>&amp;=2\pi\int_{0}^{\pi/6} \sin^2 \theta\dee{\theta}
+</mrow><mrow>&amp;=\pi\int_{0}^{\pi/6}\big(1- \cos(2 \theta)\big)\dee{\theta}\\
+&amp;=\pi\left[\theta - \frac{1}{2}\sin(2\theta)\right]_0^{\pi/6}
+</mrow><mrow>
+&amp;=\pi\left(\frac{\pi}{6} - \frac{1}{2}\cdot \frac{\sqrt{3}}{2}\right)
+</mrow><mrow>
+&amp;=\frac{\pi^2}{6} - \frac{\sqrt{3}\pi}{4}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_9_sqrt1ex">
+<statement><p>
+Evaluate <m>\displaystyle\int \sqrt{1+e^x}\dee{x}</m>.
+You may use the antiderivative <m>\displaystyle\int \csc \theta \dee{\theta} = \log|\cot \theta - \csc \theta|+C</m>.
+</p></statement>
+<hint><p> Think of <m>e^x</m> as <m>\left(e^{x/2}\right)^2</m>, and use a trig substitution. Then, use the identity <m>\sec^2 \theta = \tan^2 \theta +1</m>.
+</p></hint>
+<answer><p>
+<m>2\sqrt{1+e^x}+2\log\left| 1-\sqrt{1+e^x} \right|-x+C
+</m>
+</p></answer>
+<solution><p>
+If we think of <m>e^x</m> as <m>\left(e^{x/2}\right)^2</m>, the function under the square root suggests the substitution <m>e^{x/2}=\tan \theta</m>. Then <m>\frac{1}{2}e^{x/2}\dee{x}=\sec^2\theta\dee{\theta}</m>, so <m>\dee{x} = \frac{2}{e^{x/2}}\sec^2\theta\dee{\theta} = \frac{2}{\tan\theta}\sec\theta\dee{\theta}</m>.
+<md>
+<mrow>
+\int \sqrt{1+e^x}\dee{x}&amp;=\int\frac{2\sqrt{1+\tan^2 \theta}}{\tan\theta}\sec^2\theta\dee{\theta}
+</mrow><mrow>
+&amp;=2\int \frac{\sec^3\theta}{\tan\theta}\dee{\theta}
+</mrow><mrow>
+&amp;=2\int \frac{\sec\theta(\tan^2\theta+1)}{\tan\theta}\dee{\theta}
+</mrow><mrow>
+&amp;=2\int \left(\sec\theta \tan\theta + \frac{\sec \theta}{\tan\theta}\right)\dee{\theta}
+</mrow><mrow>
+&amp;=2\int\big( \sec\theta \tan\theta + \csc\theta\big)\dee{\theta}
+</mrow><mrow>
+&amp;=2\sec\theta + 2\log|\cot\theta-\csc\theta|+C
+</mrow><mrow>
+&amp;=2\sqrt{1+e^x}+2\log\left| \frac{1}{e^{x/2}} - \frac{\sqrt{1+e^x}}{e^{x/2}} \right|+C
+</mrow><mrow>
+&amp;=2\sqrt{1+e^x}+2\log\left| 1-\sqrt{1+e^x} \right|-2\log(e^{x/2})+C
+</mrow><mrow>&amp;=2\sqrt{1+e^x}+2\log\left| 1-\sqrt{1+e^x} \right|-x+C
+</mrow>
+</md>
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\trigtri{\theta}{1}{e^{x/2}}{\sqrt{1+e^x}}]]></latex-image></image>
+</sidebyside>
+<p>
+We used the substitution <m>e^{x/2}=\tan\theta</m>, so <m>\cot\theta = \frac{1}{e^{x/2}}</m>. To find <m>\sec \theta</m> and <m>\csc\theta</m>, we draw a right triangle with opposite side <m>e^{x/2}</m> and adjacent side 1. They by the Pythagorean Theorem, the hypotenuse has length <m>\sqrt{1+e^x}</m>.
+</p>
+
+<p>Remark: if we use the substitution <m>u=\sqrt{1+e^x}</m>, then we can change the integral to <m>\displaystyle\int \dfrac{2u^2}{u^2-1}\dee{u}</m>. We can integrate this using the method of partial fractions, which we'll learn in the next section. You can explore this option in Question<nbsp/><xref ref="prob_s1_10_sqrt1ex"/>, Section<nbsp/><xref ref="sec_parfrac"/>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Consider the following work.
+</p>
+<textblue>
+<p>
+<md>
+<mrow>
+\int \frac{1}{1-x^2}\dee{x}&amp;=\int\dfrac{1}{1-\sin^2 \theta}\cos\theta\dee{\theta}
+\qquad\qquad \mbox{using } x=\sin\theta, \dee{x}=\cos\theta\dee{\theta}
+</mrow><mrow>
+&amp;=\int \frac{\cos \theta}{\cos^2 \theta}\dee\theta
+</mrow><mrow>
+&amp;=\int \sec \theta\dee{\theta}
+</mrow><mrow>
+&amp;=\log|\sec \theta + \tan \theta| +C
+\qquad\qquad\qquad \mbox{Example }<xref ref="eg_TRGINTopta"/>
+</mrow><mrow>
+&amp;=\log\left |
+\dfrac{1}{\sqrt{1-x^2}}+\dfrac{x}{\sqrt{1-x^2}}
+\right| +C
+\qquad \text{using the triangle below}
+</mrow><mrow>
+&amp;=\log\left |
+\dfrac{1+x}{\sqrt{1-x^2}}
+\right| +C
+</mrow>
+</md>
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[
+\trigtri{\theta}{\sqrt{1-x^2}}{x}{1}
+]]></latex-image></image>
+</sidebyside>
+</textblue>
+
+
+<p>
+<ol label="a">
+<li> Differentiate <m>\log\left|  \dfrac{1+x}{\sqrt{1-x^2}}\right|</m>.
+</li>
+<li> True or false: <m>\displaystyle\int_{2}^{3} \frac{1}{1-x^2}\dee{x} =
+\left[\log\left|  \dfrac{1+x}{\sqrt{1-x^2}}\right|\right]_{x=2}^{x=3}</m>
+</li>
+<li> Was the work in the question correct? Explain.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+<ol label="a">
+<li> Use logarithm rules to simplify first.
+</li>
+<li> Think about domains.
+</li>
+<li><p>
+What went wrong in part (b)? At what point in the work was that problem introduced?
+</p>
+<p>
+There is a subtle but important point mentioned in the introductory text to Section<nbsp/><xref ref="sec_trigsub"/> that may help you make sense of things.
+</p>
+</li>
+</ol>
+</p></hint>
+<answer>
+
+<p><ol label="a">
+<li> <m>\dfrac{1}{1-x^2}</m>
+</li>
+<li> False
+</li>
+<li>
+<p>
+The work in the question is not correct. The most salient problem is that when we make the substitution <m>x=\sin\theta</m>, we restrict the possible values of <m>x</m> to <m>[-1,1]</m>, since this is the range of the sine function. However, the original integral had no such restriction.
+</p>
+
+<p>How can we be sure we avoid this problem in the future? In the introductory text to Section<nbsp/><xref ref="sec_trigsub"/> (before Example<nbsp/><xref ref="eg_first_trigsub"/>), the notes tell us that we are allowed to write our old variable as a function of a new variable (say <m>x=s(u)</m>) <em>as long as that function is invertible to recover our original variable</em> <m>x</m>. There is one very obvious reason why invertibility is necessary: after we antidifferentiate using our new variable <m>u</m>, we need to get it back in terms of our original variable, so we need to be able to recover <m>x</m>. Moreover, invertibility  reconciles  potential problems with domains: if an inverse function <m>u=s^{-1}(x)</m> exists, then for any <m>x</m>, there exists a <m>u</m> with <m>s(u)=x</m>. (This was not the case in the work for the question, because we chose <m>x=\sin \theta</m>, but if <m>x=2</m>, there is no corresponding <m>\theta</m>. Note, however, that <m>x=\sin\theta</m> is invertible over <m>[-1,1]</m>,  so the work is correct if we restrict <m>x</m> to those values.)
+</p>
+</li>
+</ol>
+</p>
+
+</answer>
+<solution><p>
+<ol label="a">
+<li> We can save ourselves some trouble by applying logarithm rules before we differentiate.
+<md>
+<mrow>
+\log\left|  \dfrac{1+x}{\sqrt{1-x^2}}\right|&amp;=\log|1+x| - \log|\sqrt{1-x^2}|
+</mrow><mrow>
+&amp;=\log|1+x| - \frac{1}{2}\log|1-x^2|
+</mrow><mrow>
+&amp;=\log|1+x| - \frac{1}{2}\log|(1+x)(1-x)|
+</mrow><mrow>
+&amp;=\log|1+x| - \frac{1}{2}\log|1+x|- \frac{1}{2}\log|1-x|
+</mrow><mrow>
+\diff{}{x}\left\{\log\left|  \dfrac{1+x}{\sqrt{1-x^2}}\right|\right\}&amp;=
+\diff{}{x}\left\{\log|1+x| - \frac{1}{2}\log|1+x|- \frac{1}{2}\log|1-x|\right\}
+</mrow><mrow>
+&amp;=\frac{1}{1+x} -  \frac{1/2}{1+x}+ \frac{1/2}{1-x}
+</mrow><mrow>
+&amp;=  \frac{1/2}{1+x}+ \frac{1/2}{1-x}
+</mrow><mrow>
+&amp;=\frac{1}{1-x^2}
+</mrow>
+</md>
+Notice this is the integrand from our work in blue.
+</li>
+<li> False: <m>\displaystyle\int_{2}^{3} \frac{1}{1-x^2}\dee{x}</m> is a number, because it is the area under a finite portion of a continuous curve. (We note that the integrand is continuous over the interval <m>[2,3]</m>, although it is not continuous everywhere.) However,
+<m>\left[\log\left|  \dfrac{1+x}{\sqrt{1-x^2}}\right|\right]_{x=2}^{x=3}</m> is not defined, since the denominator takes the square root of a negative number. So, these two expressions are not the same.
+</li>
+<li>
+<p>
+The work in the question is not correct. The most salient problem is that when we make the substitution <m>x=\sin\theta</m>, we restrict the possible values of <m>x</m> to <m>[-1,1]</m>, since this is the range of the sine function. However, the original integral had no such restriction.
+</p>
+
+<p>How can we be sure we avoid this problem in the future? In the introductory text to Section<nbsp/><xref ref="sec_trigsub"/> (before Example<nbsp/><xref ref="eg_first_trigsub"/>), the notes tell us that we are allowed to write our old variable as a function of a new variable (say <m>x=s(u)</m>) <em>as long as that function is invertible to recover our original variable</em> <m>x</m>. There is one very obvious reason why invertibility is necessary: after we antidifferentiate using our new variable <m>u</m>, we need to get it back in terms of our original variable, so we need to be able to recover <m>x</m>. Moreover, invertibility  reconciles  potential problems with domains: if an inverse function <m>u=s^{-1}(x)</m> exists, then for any <m>x</m>, there exists a <m>u</m> with <m>s(u)=x</m>. (This was not the case in the work for the question, because we chose <m>x=\sin \theta</m>, but if <m>x=2</m>, there is no corresponding <m>\theta</m>. Note, however, that <m>x=\sin\theta</m> is invertible over <m>[-1,1]</m>,  so the work is correct if we restrict <m>x</m> to those values.)
+</p>
+
+<p>Remark: in the next section, you will learn to use partial fractions to find <m>\displaystyle\int \dfrac{1}{1-x^2}\dee{x} = \log|1+x|-\dfrac{1}{2}\log|1-x|</m>. When <m>-1 \lt x \lt 1</m>, this is equivalent to <m>\log\left| \dfrac{1+x}{\sqrt{1-x^2}}\right|</m>.
+</p>
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+<ol label="a">
+<li>
+Suppose we are evaluating an integral that contains the term <m>\sqrt{a^2-x^2}</m>, where <m>a</m> is a positive constant, and we use the substitution <m>x=a\sin u</m> (with inverse <m>u = \arcsin(x/a)</m>), so that
+<me>
+\sqrt{a^2-x^2} = \sqrt{a^2\cos^2u}= |a\cos u|</me>
+Under what circumstances is <m>|a\cos u|\neq a\cos u</m>?
+</li>
+<li>
+Suppose we are evaluating an integral that contains the term <m>\sqrt{a^2+x^2}</m>, where <m>a</m> is a positive constant, and we use the substitution <m>x=a\tan u</m> (with inverse <m>u = \arctan(x/a)</m>), so that
+<me>
+\sqrt{a^2+x^2} = \sqrt{a^2\sec^2u}= |a\sec u|
+</me>
+Under what circumstances is <m>|a\sec u|\neq a\sec u</m>?
+</li>
+<li> Suppose we are evaluating an integral that contains the term <m>\sqrt{x^2-a^2}</m>, where <m>a</m> is a positive constant, and we use the substitution <m>x=a\sec u</m> (with inverse <m>u = \arcsec(x/a)=\arccos(a/x)</m>), so that
+<me>
+\sqrt{x^2-a^2} = \sqrt{a^2\tan^2u}= |a\tan u|
+</me>
+Under what circumstances is <m>|a\tan u|\neq a\tan u</m>?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Consider the ranges of the inverse trigonometric functions. For (c), also consider the domain of <m>\sqrt{x^2-a^2}</m>.
+</p></hint>
+<answer><p>
+(a), (b): None.
+</p><p>
+(c): <m>x \lt  -a</m>
+</p></answer>
+<solution><p>
+Remember that for any value <m>X</m>,
+<me>
+|X| = \left\{\begin{array}{rl}
+X&amp;\mbox{if }X \ge 0\\
+-X&amp;\mbox{if }X \le 0
+\end{array}\right.</me>
+</p>
+
+<p>So, <m>|X| \neq X</m> precisely when <m>X \lt 0</m>.
+</p>
+
+<p>(a) The range of arcsine is <m>\big[-\frac{\pi}{2},\frac{\pi}{2}\big]</m>. So, since <m>u=\arcsin(x/a)</m>, <m>u</m> is in the range <m>\big[-\frac{\pi}{2},\frac{\pi}{2}\big]</m>. Therefore <m>\cos u \geq 0</m>. Since <m>a</m> is positive, <m>a\cos u \ge 0</m>, so <m>a\cos u = |a\cos u|</m>. That is,
+<me>
+\sqrt{a^2-x^2}=|a\cos u|=a\cos u</me>
+</p>
+
+<p>all the time.
+</p>
+
+<p>(b) The range of arctangent is <m>\big(-\frac{\pi}{2},\frac{\pi}{2}\big)</m>. So, since <m>u=\arctan(x/a)</m>, <m>u</m> is in the range <m>\big(-\frac{\pi}{2},\frac{\pi}{2}\big)</m>. Therefore <m>\sec u = \frac{1}{\cos u}  \gt 0 </m>. Since <m>a</m> is positive, <m>a\sec u  \gt  0</m>, so <m>a\sec u = |a\sec u|</m>.That is,
+<me>
+\sqrt{a^2+x^2}=|a\sec u|=a\sec u</me>
+</p>
+
+<p>all the time.
+</p>
+
+<p>(c) The range of arccosine is <m>\big[0,\pi \big]</m>. So, since <m>u=\arcsec(x/a) = \arccos(a/x)</m>, <m>u</m> is in the range <m>\big[0,\pi\big]</m>. (Actually, it's in the range <m>[0,\frac{\pi}{2}) \cup (\frac{\pi}{2},\pi]</m>, since secant is undefined at <m>\pi/2</m>.) If <m>|a\tan u| \neq a\tan u</m>, then <m>\tan u  \lt 0</m>, which happens when <m>u</m> is in the range <m>\big (\frac{\pi}{2},\pi)</m>. This is the same range over which <m>-1 \lt \cos u  \lt 0</m>, and so <m>-1 \lt \frac{a}{x} \lt 0</m>.
+Since <m>\frac{a}{x} \lt 0</m>, <m>a</m> and <m>x</m> have different signs, so <m>x \lt 0</m>.  Then since <m>-1 \lt \frac{a}{x}</m>, also <m>x \lt -a</m>.
+</p>
+
+<p>So,
+<me>
+\sqrt{x^2-a^2} = |a\tan u| = -a\tan u \neq a\tan u</me>
+</p>
+
+<p>happens precisely when  when <m>x \lt  -a</m>.
+</p></solution>
+</exercise></exercisegroup>
+
+</exercises>

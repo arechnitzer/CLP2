@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<appendix xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="app_highschool">
+<title>High school material</title>
+<introduction>
+
+<p>
+This chapter is really split into three parts.
+<ul>
+<li>
+	Sections<nbsp/><xref ref="sec_simtri"/> to<nbsp/><xref ref="sec_volumes"/> contains results that we expect you to understand and know.
+</li>
+<li>
+	Then Section<nbsp/><xref ref="sec_must_deriv"/> contains results that we don't  expect you to memorise, but that we think you should be able to  quickly derive from other results you know.
+</li>
+<li>
+	The remaining sections contain some material (that may be new to you) that is related to topics covered in the main body of these notes.
+</li>
+</ul>
+</p>
+</introduction>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_simtri">
+<title>Similar triangles</title>
+<introduction>
+<sidebyside width="75%">
+<image source="text/figs/similar"/>
+</sidebyside>
+
+<p>
+Two triangles <m>T_1,T_2</m> are similar when
+<ul>
+<li> (AAA <mdash/> angle angle angle) The angles of <m>T_1</m> are the same as the  angles of <m>T_2</m>. </li>
+<li>
+	(SSS <mdash/> side side side) The ratios of the side lengths are the same.  That is
+	<md>
+	<mrow>
+	  \frac{A}{a} &amp;= \frac{B}{b} = \frac{C}{c}
+	</mrow>
+	</md>
+</li>
+<li>
+	(SAS <mdash/> side angle side) Two sides have lengths in the same ratio and  the angle between them is the same. For example
+	<md>
+	<mrow>
+	  \frac{A}{a} &amp;= \frac{C}{c} \text{ and angle $\beta$ is same}
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</introduction>
+</section>
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Pythagoras</title>
+<introduction>
+<p>
+For a right-angled triangle the length of the hypotenuse is related to the lengths of the other two sides by
+</p>
+<sidebyside width="33%">
+  <image source="text/figs/right_triangle"/>
+</sidebyside>
+<p>
+<me>
+(\text{adjacent})^2+(\text{opposite})^2 = (\text{hypotenuse})^2
+</me>
+</p>
+
+</introduction>
+</section>
+
+
+<section>
+<title>Trigonometry <mdash/> definitions</title>
+<sidebyside width="33%">
+<image source="text/figs/right_triangle"/>
+</sidebyside>
+<p>
+<me>
+\begin{array}{rlcrl}
+<![CDATA[
+\sin\theta &= \dfrac{\text{opposite}}{\text{hypotenuse}} & \qquad & \csc \theta &= \dfrac{1}{\sin\theta} \\
+\cos\theta &= \dfrac{\text{adjacent}}{\text{hypotenuse}} & \qquad & \sec \theta &= \dfrac{1}{\cos\theta} \\
+\tan\theta &= \dfrac{\text{opposite}}{\text{adjacent}} & \qquad & \cot \theta &= \dfrac{1}{\tan\theta}
+ ]]>
+\end{array}
+</me>
+</p>
+</section>
+
+<section xml:id="app_rad_arc_sec"><title>Radians, arcs and sectors</title>
+<sidebyside width="75%">
+<image source="text/figs/radian"/>
+</sidebyside>
+<p>
+For a circle of radius <m>r</m> and angle of <m>\theta</m> radians:
+<ul>
+<li> Arc length <m>L(\theta) = r \theta</m>. </li>
+<li> Area of sector <m>A(\theta) = \frac{\theta}{2} r^2</m>. </li>
+</ul>
+</p>
+</section>
+
+<section xml:id="app_sec_trig_graphs">
+<title>Trigonometry <mdash/> graphs</title>
+
+<sbsgroup widths="32% 32% 32%" valign="middle">
+<sidebyside>
+<p><me>\sin \theta</me></p> <p><me>\cos \theta</me></p> <p><me>\tan \theta</me></p>
+</sidebyside>
+<sidebyside>
+<image><latex-image><![CDATA[
+\begin{tikzpicture}
+\begin{axis}[
+  axis x line=center, axis y line=center,
+  ymax=1.1,ymin=-1.1, ytick={-1,1},
+  xtick={-3.141592654,-1.570796327,1.570796327,3.141592654,4.71238898,6.283185307},
+  xticklabels={$-\pi$, $-\frac{\pi}{2}$, $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$,$2\pi$}
+  ]
+\addplot[blue,domain=-1.1*pi:2.1*pi,samples=100] {sin(deg(x))};
+\end{axis}
+\end{tikzpicture}
+]]></latex-image></image>
+
+<image><latex-image><![CDATA[
+\begin{tikzpicture}
+\begin{axis}[
+  axis x line=center, axis y line=center,
+  ymax=1.1,ymin=-1.1, ytick={-1,1},
+  xtick={-3.141592654,-1.570796327,1.570796327,3.141592654,4.71238898,6.283185307},
+  xticklabels={$-\pi$, $-\frac{\pi}{2}$, $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$,$2\pi$}
+  ]
+\addplot[blue,domain=-1.1*pi:2.1*pi,samples=100] {cos(deg(x))};
+\end{axis}
+\end{tikzpicture}
+]]></latex-image></image>
+
+<image><latex-image><![CDATA[
+\begin{tikzpicture}
+\begin{axis}[
+  axis x line=center, axis y line=center,
+  ymax=4.1,ymin=-4.1, ymajorticks=false,
+  xtick={-3.141592654,-1.570796327,1.570796327,3.141592654,4.71238898,6.283185307},
+  xticklabels={$-\pi$, $-\frac{\pi}{2}$, $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$,$2\pi$}
+  ]
+\addplot[blue,domain=-1.1*pi:2.1*pi,samples=100] {tan(deg(x))};
+\addplot[line width=1pt,red] coordinates {(-1.570796327,4.15) (-1.570796327,-4.15)};
+\addplot[line width=1pt,red] coordinates {(1.570796327,4.15) (1.570796327,-4.15)};
+\addplot[line width=1pt,red] coordinates {(4.71238898,4.15) (4.71238898,-4.15)};
+\end{axis}
+\end{tikzpicture}
+]]></latex-image></image>
+</sidebyside>
+</sbsgroup>
+
+</section>
+
+<section>
+<title>Trigonometry <mdash/> special triangles</title>
+<sidebyside width="75%">
+<image source="text/figs/special_triangles"/>
+</sidebyside>
+
+<p>
+From the above pair of special triangles we have
+<md>
+<mrow>
+  \sin \frac{\pi}{4} &amp;= \frac{1}{\sqrt{2}} &amp;  \sin \frac{\pi}{6} &amp;= \frac{1}{2} &amp; \sin \frac{\pi}{3} &amp;= \frac{\sqrt{3}}{2}
+</mrow><mrow>
+  \cos \frac{\pi}{4} &amp;= \frac{1}{\sqrt{2}} &amp;  \cos \frac{\pi}{6} &amp;= \frac{\sqrt{3}}{2} &amp; \cos \frac{\pi}{3} &amp;= \frac{1}{2}
+</mrow><mrow>
+  \tan \frac{\pi}{4} &amp;= 1 &amp;  \tan \frac{\pi}{6} &amp;= \frac{1}{\sqrt{3}} &amp; \tan
+\frac{\pi}{3} &amp;= \sqrt{3}
+</mrow>
+</md>
+</p>
+
+</section>
+
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Trigonometry <mdash/> simple identities</title>
+
+<p>
+<ul>
+<li>
+	Periodicity
+	<md>
+	<mrow>
+	  \sin(\theta+2\pi) &amp;= \sin(\theta) &amp;
+	  \cos(\theta+2\pi) &amp;= \cos(\theta)
+	</mrow>
+	</md>
+</li>
+<li>
+	Reflection
+	<md>
+	<mrow>
+	  \sin(-\theta)&amp;=-\sin(\theta) &amp; \cos(-\theta) &amp;=\cos(\theta)
+	  </mrow>
+	</md>
+</li>
+<li>
+	Reflection around <m>\pi/4</m>
+	<md>
+	<mrow>
+	\sin\left(\tfrac{\pi}{2}-\theta\right)&amp;=\cos\theta &amp;
+	\cos\left(\tfrac{\pi}{2}-\theta\right)&amp;=\sin\theta
+	</mrow>
+	</md>
+</li>
+<li>
+	Reflection around <m>\pi/2</m>
+	<md>
+	<mrow>
+	\sin\left(\pi-\theta\right)&amp;=\sin\theta &amp;
+	\cos\left(\pi-\theta\right)&amp;=-\cos\theta
+	</mrow>
+	</md>
+</li>
+<li>
+	Rotation by <m>\pi</m>
+	<md>
+	<mrow>
+	\sin\left(\theta+\pi\right)&amp;=-\sin\theta &amp;
+	\cos\left(\theta+\pi\right)&amp;=-\cos\theta
+	</mrow>
+	</md>
+</li>
+<li>
+	Pythagoras
+	<md>
+	<mrow>
+	\sin^2\theta + \cos^2 \theta &amp;=1
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</section>
+
+
+<section xml:id="sec_trig_add">
+<title>Trigonometry <mdash/> add and subtract angles</title>
+<p>
+<ul>
+<li> Sine
+<md>
+<mrow>
+  \sin(\alpha \pm \beta) &amp;= \sin(\alpha)\cos(\beta) \pm \cos(\alpha)\sin(\beta)
+  </mrow>
+</md>
+</li>
+<li> Cosine
+<md>
+<mrow>
+  \cos(\alpha \pm \beta) &amp;= \cos(\alpha)\cos(\beta) \mp \sin(\alpha)\sin(\beta)
+</mrow>
+</md>
+</li>
+</ul>
+</p>
+</section>
+
+
+<section xml:id="sec_inv_trig">
+<title>Inverse trigonometric functions</title>
+<p>
+Some of you may not have studied inverse trigonometric functions in highschool, however  we still expect you to know them by the end of the course.
+</p>
+
+<sbsgroup widths="32% 32% 32%">
+<sidebyside>
+<p><me>\arcsin x</me> </p><p> <me>\arccos x</me> </p><p> <me>\arctan x</me></p>
+</sidebyside>
+<sidebyside>
+<p>Domain: <m>-1 \leq x \leq 1</m></p>
+<p>Domain: <m>-1 \leq x \leq 1</m></p>
+<p>Domain: all real numbers</p>
+</sidebyside>
+<sidebyside>
+<p>Range: <m>-\frac{\pi}{2} \leq \arcsin x \leq \frac{\pi}{2}</m></p>
+<p>Range: <m>0 \leq \arccos x \leq \pi</m></p>
+<p>Range: <m>-\frac{\pi}{2}  \lt  \arctan x  \lt  \frac{\pi}{2}</m></p>
+</sidebyside>
+<sidebyside>
+<image><latex-image><![CDATA[
+\begin{tikzpicture}
+\begin{axis}[
+  legend pos = north west,
+  axis x line=center, axis y line=center,
+  xmax=1.1,xmin=-1.1, xtick={-1,1},
+  ymin=-2, ymax=2,
+  ytick={-1.570796327,1.570796327},
+  yticklabels={$-\frac{\pi}{2}$, $\frac{\pi}{2}$}
+  ]
+\addplot[blue,domain=-1:1,samples=100] {asin(x)/180*pi};
+\end{axis}
+\end{tikzpicture}
+]]></latex-image></image>
+
+<image><latex-image><![CDATA[
+\begin{tikzpicture}
+\begin{axis}[
+  axis x line=center, axis y line=center,
+  xmax=1.1,xmin=-1.1, xtick={-1,1},
+  ymin=-0.3,ymax=3.4,
+  ytick={0,1.570796327,3.141592654},
+  yticklabels={0,$\frac{\pi}{2}$, $\pi$}
+  ]
+ \addplot[blue,domain=-1:1,samples=100] {acos(x)/180*pi};
+\end{axis}
+\end{tikzpicture}
+]]></latex-image></image>
+
+<image><latex-image><![CDATA[
+\begin{tikzpicture}
+\begin{axis}[
+  legend pos = north west,
+  axis x line=center, axis y line=center,
+  xmax=4.3,xmin=-4.3, xmajorticks=false,
+  ymin=-2,ymax=2,
+  ytick={-1.570796327,1.570796327},
+  yticklabels={$-\frac{\pi}{2}$, $\frac{\pi}{2}$}
+  ]
+\addplot[blue,domain=-4:4,samples=100] {atan(x)/180*pi};
+\addplot[line width=1pt,red] coordinates {(4.15,-1.570796327) (-4.15,-1.570796327)};
+\addplot[line width=1pt,red] coordinates {(4.15,1.570796327) (-4.15,1.570796327)};
+\end{axis}
+\end{tikzpicture}
+]]></latex-image></image>
+</sidebyside>
+</sbsgroup>
+<p>
+Since these functions are inverses of each other we have
+<md>
+<mrow>
+  \arcsin(\sin \theta) &amp;= \theta &amp; -\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}
+</mrow><mrow>
+  \arccos(\cos \theta) &amp;= \theta &amp; 0 \leq \theta \leq \pi
+</mrow><mrow>
+  \arctan(\tan \theta) &amp;= \theta &amp; -\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}
+</mrow>
+</md>
+and also
+<md>
+<mrow>
+  \sin(\arcsin x) &amp;= x &amp; -1 \leq x \leq 1
+</mrow><mrow>
+  \cos(\arccos x) &amp;= x &amp; -1 \leq x \leq 1
+</mrow><mrow>
+  \tan(\arctan x) &amp;= x &amp; \text{any real } x
+</mrow>
+</md>
+</p>
+
+</section>
+
+
+<section xml:id="app_sec_areas">
+<title>Areas</title>
+<sidebyside width="100%">
+<image source="text/figs/area2d"/>
+</sidebyside>
+
+<p>
+<ul>
+<li> Area of a rectangle
+<md>
+<mrow>
+  A &amp;= b h
+</mrow>
+</md>
+</li>
+<li> Area of a triangle
+<md>
+<mrow>
+  A &amp;= \frac{1}{2} b h = \frac{1}{2} ab \sin \theta
+</mrow>
+</md>
+</li>
+<li> Area of a circle
+<md>
+<mrow>
+  A &amp;= \pi r^2
+</mrow>
+</md>
+</li>
+<li> Area of an ellipse
+<md>
+<mrow>
+  A &amp;= \pi ab
+</mrow>
+</md>
+</li>
+</ul>
+</p>
+
+</section>
+<section xml:id="sec_volumes">
+<title>Volumes</title>
+<sidebyside width="100%">
+<image source="text/figs/vol3d"/>
+</sidebyside>
+
+<p>
+<ul>
+<li> Volume of a rectangular prism
+<md>
+<mrow>
+  V &amp;= l w h
+</mrow>
+</md>
+</li>
+<li> Volume of a cylinder
+<md>
+<mrow>
+  V &amp;= \pi r^2 h
+</mrow>
+</md>
+</li>
+<li> Volume of a cone
+<md>
+<mrow>
+  V &amp;= \frac{1}{3} \pi r^2 h
+</mrow>
+</md>
+</li>
+<li> Volume of a sphere
+<md>
+<mrow>
+  V &amp;= \frac{4}{3} \pi r^3
+</mrow>
+</md>
+</li>
+</ul>
+</p>
+
+</section>
+
+
+<section xml:id="sec_powers">
+<title>Powers</title>
+<p>
+In the following, <m>x</m> and <m>y</m> are arbitrary real numbers, and <m>q</m> is an arbitrary constant that is strictly bigger than zero.
+<ul>
+<li> <m>q^0=1</m>
+</li>
+<li> <m>q^{x+y}=q^xq^y</m>,
+         <m>q^{x-y}=\frac{q^x}{q^y}</m>
+</li>
+<li> <m>q^{-x}=\frac{1}{q^x}</m>
+</li>
+<li> <m>\big(q^x\big)^y=q^{xy}</m>
+</li>
+<li>  <m>\lim\limits_{x\rightarrow\infty}q^x=\infty</m>,
+           <m>\lim\limits_{x\rightarrow-\infty}q^x=0</m> if <m>q \gt 1</m>
+</li>
+<li> <m>\lim\limits_{x\rightarrow\infty}q^x=0</m>,
+           <m>\lim\limits_{x\rightarrow-\infty}q^x=\infty</m> if <m>0 \lt q \lt 1</m>
+</li>
+<li><p>
+The graph of <m>2^x</m> is given below. The graph of  <m>q^x</m>, for any <m>q \gt 1</m>, is similar.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/expGraph2"/>
+</sidebyside>
+</li>
+</ul>
+</p>
+</section>
+
+<section xml:id="sec_logs">
+<title>Logarithms</title>
+<p>
+In the following, <m>x</m> and <m>y</m> are arbitrary real numbers that  are strictly bigger than 0, and <m>p</m> and <m>q</m> are arbitrary constants that are strictly bigger than one.
+</p>
+
+<p><ul>
+<li>   <m>q^{\log_q x}=x, \qquad \log_q \big(q^x\big)=x</m>
+</li>
+<li>   <m>\log_q x=\frac{\log_p x}{\log_p q}</m>
+</li>
+<li>  <m>\log_q 1=0, \qquad \log_q q=1</m>
+</li>
+<li> <m>\log_q(xy)=\log_q x+\log_q y</m>
+</li>
+<li> <m>\log_q\big(\frac{x}{y}\big)=\log_q x-\log_q y</m>
+</li>
+<li> <m>\log_q\big(\frac{1}{y}\big)=-\log_q y</m>,
+</li>
+<li> <m>\log_q(x^y)=y\log_q x</m>
+</li>
+<li> <m>\lim\limits_{x\rightarrow\infty}\log_q x=\infty, \qquad \lim\limits_{x\rightarrow0}\log_q x=-\infty</m>
+</li>
+<li><p>
+The graph of <m>\log_{10} x</m> is given below. The graph of  <m>\log_q x</m>, for any <m>q \gt 1</m>, is similar.</p>
+<sidebyside width="50%">
+<image source="text/figs/logGraph10"/>
+</sidebyside>
+</li>
+</ul>
+</p>
+
+</section>
+
+<section xml:id="sec_must_deriv"><title>Highschool material you should be able to derive</title>
+<p>
+<ul>
+<li> Graphs of <m>\csc\theta, \sec \theta</m> and <m>\cot \theta</m>:
+</li>
+</ul>
+</p>
+<sbsgroup widths="32% 32% 32%">
+<sidebyside>
+<p><me>\csc \theta</me> </p><p> <me>\sec \theta</me> </p><p> <me>\cot \theta</me> </p>
+</sidebyside>
+<sidebyside>
+<image><latex-image><![CDATA[
+\begin{tikzpicture}
+\begin{axis}[
+  axis x line=center, axis y line=center,
+  ymax=4.1,ymin=-4.1,ytick={-1,1},
+  xtick={-3.141592654,-1.570796327,1.570796327,3.141592654,4.71238898,6.283185307},
+  xticklabels={$-\pi$, $-\frac{\pi}{2}$, $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$,$2\pi$}
+  ]
+\addplot[blue,domain=-1.1*pi:2.1*pi,samples=200] {cosec(deg(x))};
+\addplot[line width=1pt,red] coordinates {(-3.141592654,4.15) (-3.141592654,-4.15)};
+\addplot[line width=1pt,red] coordinates {(0,3.7) (0,-3.7)};
+\addplot[line width=1pt,red] coordinates {(3.141592654,4.15) (3.141592654,-4.15)};
+\addplot[line width=1pt,red] coordinates {(6.283185307,4.15) (6.283185307,-4.15)};
+\end{axis}
+\end{tikzpicture}
+]]></latex-image></image>
+
+<image><latex-image><![CDATA[
+\begin{tikzpicture}
+\begin{axis}[
+  axis x line=center, axis y line=center,
+  ymax=4.1,ymin=-4.1, ytick={-1,1},
+  xtick={-3.141592654,-1.570796327,1.570796327,3.141592654,4.71238898,6.283185307},
+  xticklabels={$-\pi$, $-\frac{\pi}{2}$, $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$,$2\pi$}
+  ]
+\addplot[blue,domain=-1.1*pi:2.1*pi,samples=100] {sec(deg(x))};
+\addplot[line width=1pt,red] coordinates {(-1.570796327,4.15) (-1.570796327,-4.15)};
+\addplot[line width=1pt,red] coordinates {(1.570796327,4.15) (1.570796327,-4.15)};
+\addplot[line width=1pt,red] coordinates {(4.71238898,4.15) (4.71238898,-4.15)};
+\end{axis}
+\end{tikzpicture}
+]]></latex-image></image>
+
+<image><latex-image><![CDATA[
+\begin{tikzpicture}
+\begin{axis}[
+  axis x line=center, axis y line=center,
+  ymax=4.1,ymin=-4.1, ymajorticks=false,
+  xtick={-3.141592654,-1.570796327,1.570796327,3.141592654,4.71238898,6.283185307},
+  xticklabels={$-\pi$, $-\frac{\pi}{2}$, $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$,$2\pi$}
+  ]
+\addplot[blue,domain=-1.1*pi:2.1*pi,samples=400] {cot(deg(x))};
+\addplot[line width=1pt,red] coordinates {(-3.14,4.15) (-3.14,-4.15)};
+\addplot[line width=1pt,red] coordinates {(0,4) (0,-4)};
+\addplot[line width=1pt,red] coordinates {(3.14,4.15) (3.14,-4.15)};
+\addplot[line width=1pt,red] coordinates {(6.3,4.15) (6.3,-4.15)};
+\end{axis}
+\end{tikzpicture}
+]]></latex-image></image>
+</sidebyside>
+</sbsgroup>
+<p>
+<ul>
+<li> More Pythagoras
+<md>
+<mrow>
+\sin^2\theta + \cos^2 \theta &amp;=1 &amp; \xmapsto{\text{divide by $\cos^2\theta$}}&amp;&amp;
+\tan^2\theta + 1  &amp;= \sec^2\theta
+</mrow><mrow>
+\sin^2\theta + \cos^2 \theta &amp;=1 &amp; \xmapsto{\text{divide by $\sin^2\theta$}}&amp;&amp;
+1 + \cot^2 \theta &amp;=\csc^2\theta
+</mrow>
+</md>
+</li>
+<li> Sine <mdash/> double angle (set <m>\beta =\alpha</m> in sine angle addition formula)
+<md>
+<mrow>
+  \sin(2\alpha) &amp;= 2\sin(\alpha)\cos(\alpha)
+</mrow>
+</md>
+</li>
+<li> Cosine <mdash/> double angle (set <m>\beta =\alpha</m> in cosine angle addition formula)
+<md>
+<mrow>
+  \cos(2\alpha) &amp;= \cos^2(\alpha) - \sin^2(\alpha)
+</mrow><mrow>
+  &amp;= 2\cos^2(\alpha) - 1  &amp; \text{(use $\sin^2(\alpha)= 1-\cos^2(\alpha)$)}
+</mrow><mrow>
+  &amp;= 1 - 2\sin^2(\alpha) &amp; \text{(use $\cos^2(\alpha)= 1-\sin^2(\alpha)$)}
+</mrow>
+</md>
+</li>
+<li> Composition of trigonometric and inverse trigonometric functions:
+<md>
+<mrow>
+  \cos( \arcsin x) &amp;= \sqrt{1-x^2} &amp;
+  \sec( \arctan x) &amp;= \sqrt{1+x^2}
+</mrow>
+</md>
+and similar expressions.
+</li>
+</ul>
+</p>
+
+</section>
+
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Cartesian Coordinates</title>
+<introduction>
+
+<p>
+Each point in two dimensions may be labeled by two coordinates <m>(x,y)</m> which specify the position of the point in some units with respect to some axes as in the figure below.
+</p>
+
+<sidebyside width="33%">
+<image source="text/figs/point2d"/>
+</sidebyside>
+
+<p>
+The set of all points in two dimensions is denoted <m>\bbbr^2</m>. Observe that
+<ul>
+<li> the distance from the point <m>(x,y)</m> to the <m>x</m>-axis is <m>|y|</m> </li>
+<li> the distance from the point <m>(x,y)</m> to the <m>y</m>-axis is <m>|x|</m> </li>
+<li> the distance from the point <m>(x,y)</m> to the origin <m>(0,0)</m> is  <m>\sqrt{x^2+y^2}</m> </li>
+</ul>
+</p>
+
+<p>
+Similarly, each point in three dimensions may be labeled by  three coordinates <m>(x,y,z)</m>, as in the two figures below.
+</p>
+
+<sidebyside widths="40% 40%">
+<image source="text/figs/point3d"/>
+<image source="text/figs/point3db"/>
+</sidebyside>
+
+<p>
+The set of all points in three dimensions is denoted <m>\bbbr^3</m>. The plane that contains, for example, the <m>x</m>- and <m>y</m>-axes is called the <m>xy</m>-plane.
+<ul>
+<li> The <m>xy</m>-plane is the set of all points <m>(x,y,z)</m> that obey <m>z=0</m>. </li>
+<li> The <m>xz</m>-plane is the set of all points <m>(x,y,z)</m> that obey <m>y=0</m>. </li>
+<li> The <m>yz</m>-plane is the set of all points <m>(x,y,z)</m> that obey <m>x=0</m>. </li>
+</ul>
+More generally,
+<ul>
+<li>
+	The set of all points <m>(x,y,z)</m> that obey <m>z=c</m> is a plane that is parallel to the <m>xy</m>-plane and is a distance <m>|c|</m> from it.  If <m>c \gt 0</m>, the plane <m>z=c</m> is above the <m>xy</m>-plane. If <m>c \lt 0</m>, the plane <m>z=c</m> is below the <m>xy</m>-plane. We say that the plane <m>z=c</m> is a signed distance <m>c</m> from the <m>xy</m>-plane.
+</li>
+<li>
+	The set of all points <m>(x,y,z)</m> that obey <m>y=b</m> is a plane that is parallel to the <m>xz</m>-plane and is a signed distance <m>b</m> from it.
+</li>
+<li>
+	The set of all points <m>(x,y,z)</m> that obey <m>x=a</m> is a plane that is parallel to the <m>yz</m>-plane and is a signed distance <m>a</m> from it.
+</li>
+</ul>
+</p>
+
+<sidebyside>
+<image source="text/figs/xyplane"/>
+<image source="text/figs/xzplane"/>
+<image source="text/figs/yzplane"/>
+</sidebyside>
+
+<p>
+Observe that
+<ul>
+<li> the distance from the point <m>(x,y,z)</m> to the <m>xy</m>-plane is <m>|z|</m> </li>
+<li> the distance from the point <m>(x,y,z)</m> to the <m>xz</m>-plane is <m>|y|</m> </li>
+<li> the distance from the point <m>(x,y,z)</m> to the <m>yz</m>-plane is <m>|x|</m> </li>
+<li> the distance from the point <m>(x,y,z)</m> to the origin <m>(0,0,0)</m> is  <m>\sqrt{x^2+y^2+z^2}</m> </li>
+</ul>
+The distance from the point <m>(x,y,z)</m> to the point <m>(x',y',z')</m> is <me> \sqrt{(x-x')^2+(y-y')^2+(z-z')^2} </me> so that the equation of the sphere centered on <m>(1,2,3)</m> with radius <m>4</m>,  that is, the set of all points <m>(x,y,z)</m> whose distance from <m>(1,2,3)</m> is <m>4</m>,  is
+<me>
+(x-1)^2+(y-2)^2+(z-3)^2=16
+</me>
+</p>
+
+</introduction>
+</section>
+
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ap_roots">
+<title>Roots of Polynomials</title>
+<introduction>
+
+<p>
+Being able to factor polynomials is a very important part of many of the computations in  this course. Related to this is the process of finding roots (or zeros) of polynomials.  That is, given a polynomial <m>P(x)</m>, find all numbers <m>r</m> so that <m>P(r)=0</m>.
+</p>
+
+<p>
+In the case of a quadratic <m>P(x)=ax^2+bx+c</m>, we can use the formula
+<md>
+<mrow>
+  x &amp;= \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+</mrow>
+</md>
+The corresponding formulas for cubics and quartics
+	<fn>
+		The method for cubics was  developed in the 15th century by del Ferro, Cardano and Ferrari (Cardano's  student). Ferrari then went on to discover a formula for the roots of a quartic. His  formula requires the solution of an associated cubic polynomial.
+	</fn>
+are extremely cumbersome, and no such formula exists for polynomials of degree 5  and higher
+	<fn>This is the famous Abel-Ruffini theorem.</fn>.
+</p>
+
+<p>
+	Despite this there are many tricks
+	<fn>
+		There is actually a large body of  mathematics devoted to developing methods for factoring polynomials. Polynomial  factorisation is a fundamental problem for most computer algebra systems. The interested  reader should make use of their favourite search engine to find out more.
+	</fn>
+for finding  roots of polynomials that work well in some situations but not all. Here we describe  approaches that will help you find integer and rational roots of polynomials that will  work well on exams, quizzes and homework assignments.
+</p>
+
+<p>
+Consider the quadratic equation <m>x^2 - 5x + 6=0</m>. We could
+	<fn>
+		We probably  shouldn't do it this way for such a simple polynomial, but for pedagogical  purposes we do here.
+	</fn>
+solve this using the quadratic formula
+<md>
+<mrow>
+  x &amp;= \frac{5 \pm \sqrt{25-4\times1\times6}}{2} = \frac{5 \pm 1}{2} = 2,3.
+</mrow>
+</md>
+Hence  <m>x^2 - 5x + 6</m> has roots <m>x = 2,3</m> and so it factors as <m>(x - 3)(x -  2)</m>. Notice
+	<fn>
+		Many of you may have been taught this approach in  highschool.
+	</fn>
+that the numbers <m>2</m> and <m>3</m> divide the constant term of the  polynomial, <m>6</m>. This happens in general and forms the basis of our first trick.
+</p>
+
+<lemma><title>A very useful trick</title>
+<statement><p>
+If <m>r</m> or <m>-r</m> is an integer root of a polynomial
+<m>P(x)=a_nx^n+\ \cdots\ +a_1x+a_0</m> with integer coefficients, then <m>r</m> is a factor
+of the constant term <m>a_0</m>.
+</p></statement>
+</lemma>
+
+<proof>
+<p>
+If <m>r</m> is a root of the polynomial we know that <m>P(r)=0</m>. Hence
+<md>
+<mrow>
+  a_n \cdot r^n+\ \cdots\ +a_1\cdot r+a_0&amp;=0
+</mrow>
+</md>
+If we isolate <m>a_0</m> in this expression we get
+<md>
+<mrow>
+  a_0 &amp;=-\big[a_n r^n+\ \cdots\ +a_1r\big]
+</mrow>
+</md>
+We can see that <m>r</m> divides every term on the right-hand side. This means that the  right-hand side is an integer times <m>r</m>. Thus the left-hand side, being <m>a_0</m>, is an  integer times <m>r</m>, as required. The argument for when <m>-r</m> is a root is almost identical.
+</p>
+</proof>
+
+<p>
+Let us put this observation to work.
+</p>
+
+<example><title>Integer roots of <m>x^3-x^2+2</m></title>
+<p>
+Find the integer roots of <m>P(x)=x^3-x^2+2</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li> The constant term in this polynomial is <m>2</m>. </li>
+<li>
+	The only divisors of <m>2</m> are <m>1,2</m>. So the only candidates for integer roots are <m>\pm 1, \pm 2</m>.
+</li>
+<li>
+	Trying each in turn
+	<md>
+	<mrow>
+	P(1)&amp;=2 &amp; P(-1)&amp;=0
+	</mrow><mrow>
+	P(2)&amp;=6 &amp; P(-2) &amp;=-10
+	</mrow>
+	</md>
+</li>
+<li>
+	Thus the only integer root is <m>-1</m>.
+</li>
+</ul>
+</p>
+</example>
+
+<example><title>Integer roots of <m>3x^3+8x^2-5x-6</m> </title>
+<p>
+ Find the integer roots of <m>P(x)= 3x^3+8x^2-5x-6</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li> The constant term is <m>-6</m>. </li>
+<li>
+	The divisors of <m>6</m> are <m>1,2,3,6</m>. So the only candidates for integer roots are <m>\pm1, \pm 2, \pm 3, \pm 6</m>.
+</li>
+<li>
+	We try each in turn (it is tedious but not difficult):
+	<md>
+	<mrow>
+	  P(1) &amp;= 0 &amp; P(-1) &amp;= 4
+	</mrow><mrow>
+	  P(2) &amp;= 40 &amp; P(-2) &amp;= 12
+	</mrow><mrow>
+	  P(3) &amp;= 132 &amp; P(-3) &amp;= 0
+	</mrow><mrow>
+	  P(6) &amp;= 900 &amp; P(-6) &amp;= -336
+	</mrow>
+	</md>
+</li>
+<li>
+	Thus the only integer roots are <m>1</m> and <m>-3</m>.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+We can generalise this approach in order to find rational roots. Consider the polynomial <m>6x^2-x-2</m>. We can find its zeros using the quadratic formula:
+<md>
+<mrow>
+ x &amp;= \frac{1 \pm \sqrt{1 + 48}}{12} = \frac{1\pm 7}{12} = -\frac{1}{2}, \frac{2}{3}.
+</mrow>
+</md>
+Notice now that the numerators, 1 and 2, both divide the constant term of the polynomial  (being 2). Similarly, the denominators, 2 and 3, both divide the coefficient of the  highest power of <m>x</m> (being 6). This is quite general.
+</p>
+
+<lemma><title>Another nice trick</title>
+<statement><p>
+If <m>b/d</m> or <m>-b/d</m> is a rational root in lowest terms (i.e. <m>b</m> and <m>d</m> are integers with no common factors) of a polynomial  <m>Q(x) = a_nx^n+\ \cdots\ +a_1x+a_0</m> with integer coefficients, then the numerator <m>b</m> is a factor of the constant term <m>a_0</m> and the denominator <m>d</m> is a factor of <m>a_n</m>.
+</p></statement>
+</lemma>
+
+<proof>
+<p>
+Since <m>\frac{b}{d}</m> is a root of <m>P(x)</m> we know that
+<md>
+<mrow>
+a_n(b/d)^n+\ \cdots\ +a_1(b/d)+a_0 &amp;=0
+</mrow>
+</md>
+Multiply this equation through by <m>d^n</m> to get
+<md>
+<mrow>
+a_n b^n+\ \cdots\ +a_1 b d^{n-1}+a_0d^n &amp;=0
+</mrow>
+</md>
+Move terms around to isolate <m>a_0 d^n</m>:
+<md>
+<mrow>
+  a_0d^n &amp;= - \big[ a_n b^n+\ \cdots\ +a_1 b d^{n-1} \big]
+</mrow>
+</md>
+Now every term on the right-hand side is some integer times <m>b</m>. Thus the left-hand side  must also be an integer times <m>b</m>. We know that <m>d</m> does not contain any factors of <m>b</m>,  hence <m>a_0</m> must be some integer times <m>b</m> (as required).
+</p>
+
+<p>
+Similarly we can isolate the term <m>a_n b^n</m>:
+<md>
+<mrow>
+  a_n b^n &amp;= - \big[ a_{n-1} b^{n-1}d+\ \cdots\ +a_1 b d^{n-1} + a_0 d^n \big]
+</mrow>
+</md>
+Now every term on the right-hand side is some integer times <m>d</m>. Thus the left-hand side  must also be an integer times <m>d</m>. We know that <m>b</m> does not contain any factors of <m>d</m>,  hence <m>a_n</m> must be some integer times <m>d</m> (as required).
+</p>
+
+<p>
+The argument when <m>-\frac{b}{d}</m> is a root is nearly identical.
+</p>
+</proof>
+
+<p>
+We should put this to work:
+</p>
+
+<example><title>Rational roots of <m>2x^2-x-3</m></title>
+<p>
+<m>P(x)=2x^2-x-3</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	The constant term in this polynomial is <m>3=1\times 3</m> and the coefficient of the highest power of <m>x</m> is <m>2=1\times 2</m>.
+</li>
+<li>
+	Thus the only candidates for integer roots are <m>\pm 1,\ \pm 3</m>.
+</li>
+<li>
+	By our newest trick, the only candidates for fractional roots are <m>\pm \frac{1}{2},\ \pm\frac{3}{2}</m>.
+</li>
+<li>
+	We try each in turn
+	<fn>
+		Again, this is a little tedious, but not  difficult. Its actually pretty easy to code up for a computer to do. Modern  polynomial factoring algorithms do more sophisticated things, but these are a  pretty good way to start.
+	</fn>
+	<md>
+	<mrow>
+	P(1)&amp;=-2 &amp; P(-1)&amp;=0
+	</mrow><mrow>
+	P(3)&amp;=12 &amp; P(-3)&amp;=18
+	</mrow><mrow>
+	P\left(\tfrac{1}{2}\right) &amp;= -3 &amp;
+	P\left(-\tfrac{1}{2}\right) &amp;= -2
+	</mrow><mrow>
+	P\left(\tfrac{3}{2}\right) &amp;= 0 &amp;
+	P\left(-\tfrac{3}{2}\right) &amp;= 3
+	</mrow>
+	</md>
+	so the roots are <m>-1</m> and <m>\frac{3}{2}</m>.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+The tricks above help us to find integer and rational roots of polynomials. With a little  extra work we can extend those methods to help us factor polynomials. Say we have a  polynomial <m>P(x)</m> of degree <m>p</m> and have established that <m>r</m> is one of its  roots. That is, we know <m>P(r)=0</m>. Then we can factor <m>(x-r)</m> out from  <m>P(x)</m> <mdash/> it is always possible to find a polynomial <m>Q(x)</m> of degree <m>p-1</m> so  that
+<md>
+<mrow>
+  P(x) = (x-r)Q(x)
+</mrow>
+</md>
+</p>
+
+<p>
+In sufficiently simple cases, you can probably do this factoring by  inspection. For example, <m>P(x)=x^2-4</m> has <m>r=2</m> as a root because  <m>P(2)=2^2-4=0</m>.  In this case, <m>P(x)=(x-2)(x+2)</m> so that <m>Q(x)=(x+2)</m>. As another example, <m>P(x)=x^2-2x-3</m> has <m>r=-1</m> as a root because <m>P(-1)=(-1)^2-2(-1)-3=1+2-3=0</m>. In this case,  <m>P(x)=(x+1)(x-3)</m> so that <m>Q(x)=(x-3)</m>.
+</p>
+
+<p>
+For higher degree polynomials we need to use something more systematic <mdash/> long  divison.
+</p>
+
+<lemma><title>Long Division</title>
+<statement><p>
+Once you have found a root <m>r</m> of a polynomial, even if you cannot factor <m>(x-r)</m> out of the polynomial by inspection, you can find <m>Q(x)</m>  by dividing <m>P(x)</m> by <m>x-r</m>, using the long division algorithm you learned
+	<fn>
+		This  is a standard part of most highschool mathematics curricula, but perhaps not all. You  should revise this carefully.
+	</fn>
+in school, but with <m>10</m> replaced by <m>x</m>.
+</p></statement>
+</lemma>
+
+<example><title>Roots of <m>x^3-x^2+2</m></title>
+<p>
+Factor <m>P(x)=x^3-x^2+2</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	We can go hunting for integer roots of the polynomial by looking at the divisors  of the constant term. This tells us to try <m>x=\pm1, \pm2</m>.
+</li>
+<li>
+	A quick computation shows that <m>P(-1)=0</m> while <m>P(1),P(-2),P(2) \neq 0</m>. Hence  <m>x=-1</m> is a root of the polynomial and so <m>x+1</m> must be a factor.
+</li>
+<li>
+<p>
+	So we divide  <m>\frac{x^3-x^2+2}{x+1}</m>. The first term, <m>x^2</m>, in the quotient  is chosen so that when you multiply it by the  denominator,  <m>x^2(x+1)=x^3+x^2</m>, the leading term, <m>x^3</m>,  matches the leading term  in the numerator, <m>x^3-x^2+2</m>, exactly.
+</p>
+<sidebyside width="50%">
+<image source="text/figs/longdiv2"/>
+</sidebyside>
+</li>
+<li>
+<p>
+	When you subtract <m>x^2(x+1)=x^3+x^2</m> from the numerator <m>x^3-x^2+2</m> you  get the remainder <m>-2x^2+2</m>. Just like in public school, the <m>2</m> is  not normally <q>brought down</q> until it is actually needed.
+</p>
+<sidebyside width="50%">
+<image source="text/figs/longdiv3"/>
+</sidebyside>
+</li>
+<li>
+<p>
+	The next term, <m>-2x</m>, in the quotient is chosen so that when you multiply it by the  denominator, <m>-2x(x+1)=-2x^2-2x</m>, the leading term <m>-2x^2</m>  matches the leading term in the remainder exactly.
+</p>
+
+<sidebyside width="66%">
+	<image source="text/figs/longdiv4"/>
+</sidebyside>
+<p>
+And so on.
+</p>
+<sidebyside width="66%">
+<image source="text/figs/longdiv5"/>
+</sidebyside>
+</li>
+<li>
+<p>
+	Note that we finally end up with a remainder <m>0</m>. A nonzero remainder would have signalled a computational error, since we know that the  denominator <m>x-(-1)</m> must divide the numerator <m>x^3-x^2+2</m> exactly.
+</p>
+</li>
+<li>
+	We conclude that
+	<md>
+	<mrow>
+	(x+1)(x^2-2x+2)=x^3-x^2+2
+	</mrow>
+	</md>
+	To check this, just multiply out the left hand side explicitly.
+</li>
+<li>
+	Applying the high school quadratic root formula  <m>\frac{-b\pm\sqrt{b^2-4ac}}{2a}</m> to <m>x^2-2x+2</m> tells us that it has no real  roots and that we cannot factor it further
+		<fn>Because we are not permitted  to use complex numbers.</fn>.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+We finish by describing an alternative to long division. The approach is roughly  equivalent, but is perhaps more straightforward at the expense of requiring  more algebra.
+</p>
+
+<example><title>Roots of <m>x^3-x^2+2</m> again</title>
+<p>
+Factor <m>P(x)=x^3-x^2+2</m>, again.
+</p>
+
+<p>
+<alert>Solution:</alert> Let us do this again but avoid long division.
+<ul>
+<li>
+	From the previous example, we know that  <m>\frac{x^3-x^2+2}{x+1}</m> must be a polynomial (since <m>-1</m> is a root of the numerator) of degree 2. So write
+	<md>
+	<mrow>
+	\frac{x^3-x^2+2}{x+1}=ax^2+bx+c
+	</mrow>
+	</md>
+	for some, as yet unknown, coefficients <m>a,\ b</m> and <m>c</m>.
+</li>
+<li>
+	Cross multiplying and simplifying gives us
+	<md>
+	<mrow>
+	x^3-x^2+2&amp;=(ax^2+bx+c)(x+1)
+	</mrow><mrow>
+	&amp;=ax^3+(a+b)x^2+(b+c)x+c
+	</mrow>
+	</md>
+</li>
+<li>
+	Now matching coefficients of the various powers of <m>x</m> on the left and right hand sides
+	<md>
+	<mrow>
+	&amp;\text{coefficient of $x^3$:}\qquad&amp;a&amp;=1
+	</mrow><mrow>
+	&amp;\text{coefficient of $x^2$:}&amp;a+b&amp;=-1
+	</mrow><mrow>
+	&amp;\text{coefficient of $x^1$:}&amp; b+c&amp;=0
+	</mrow><mrow>
+	&amp;\text{coefficient of $x^0$:}&amp; c&amp;=2
+	</mrow>
+	</md>
+</li>
+<li>
+	This gives us a system of equations that we can solve quite directly. Indeed it  tells us immediately that that <m>a=1</m> and <m>c=2</m>. Subbing <m>a=1</m> into <m>a+b=-1</m> tells us  that <m>1+b=-1</m> and hence <m>b=-2</m>.
+</li>
+<li>
+	Thus
+	<md>
+	<mrow>
+	x^3-x^2+2 &amp;= (x+1)(x^2-2x+2).
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+</introduction>
+</section>
+
+</appendix>

@@ -1,0 +1,2907 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<exercises>
+<introduction>
+<p>
+Recall that we are using <m>\log x</m> to denote the logarithm of <m>x</m> with
+base <m>e</m>. In other courses it is often denoted <m>\ln x</m>.
+</p>
+</introduction>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise>
+<statement><p>
+Match the integration method to a common kind of integrand it's used to antidifferentiate.
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell> (A) <m>u</m>-substitution </cell><cell> (I)</cell><cell> a function multiplied by its derivative </cell>
+</row>
+<row>
+<cell>(B) trigonometric substitution </cell><cell> (II) </cell><cell>a polynomial times an exponential </cell>
+</row>
+<row>
+<cell>(C) integration by parts </cell><cell> (III) </cell><cell>a rational function</cell>
+</row>
+<row>
+<cell>(D) partial fractions </cell><cell> (IV) </cell><cell>the square root of a quadratic function</cell>
+</row>
+</tabular>
+</sidebyside>
+</statement>
+<hint><p>
+Each option in each column should be used exactly once.
+</p></hint>
+<answer><p>
+(A)<ndash />(I),
+(B)<ndash />(IV),
+(C)<ndash />(II),
+(D)<ndash />(III)
+</p></answer>
+<solution><p>
+(A) Note <m>\int f'(x)f(x)\ \dee{x} = \int u\ \dee{u} </m> if we substitute <m>u=f(x)</m>. This is the kind of integrand described in (I). It's quite possible that a <m>u</m>-substitution would work on the others, as well, but (I) is the most reliable kind of integrand for a <m>u</m>-substitution.
+</p>
+<p>
+(B) A trigonometric substitution usually allows us to cancel out a square root containing a quadratic function, as in (IV).
+</p>
+<p>
+(C) We can often antidifferentiate the product of a polynomial with an exponential function using integration by parts: see Examples<nbsp/><xref ref="eg_PRTSxex"/>, <xref ref="eg_PRTSxtwoex"/>
+ in the CLP-II text. If we let <m>u</m> be the polynomial function and <m>\dee{v}</m> be the exponential, as long as we can antidifferentiate <m>\dee{v}</m>, we can repeatedly apply integration by parts until the polynomial function goes away. So, we go with (II)
+</p>
+<p>
+(D) We apply partial fractions to rational functions, (III).
+</p>
+
+<p>Note: without knowing more about the functions, there's no guarantee that the methods we chose will be the best methods, or even that they will work (with the exception of (I)).  With practice, you gain intuition about likely methods for different integrals. Luckily for you, there's lots of practice below.
+</p></solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><procedural/></title><introduction/>
+<exercise>
+<statement><p> Evaluate
+<m>\displaystyle\int_0^{{\pi}/{2}} \sin^4 x \cos^5 x \dee{x}</m>.
+</p></statement>
+
+<hint><p>
+The integrand is the product of sines and cosines. See how this was handled with a substitution in Section<nbsp/><xref ref="sec_sincos"/> of the CLP-II text.
+</p>
+
+<p>After your substitution, you should have a polynomial expression in <m>u</m><mdash/>but it might take some simplification to get it into a form you can easily integrate.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{5}-\dfrac{2}{7}+\dfrac{1}{9}
+=\dfrac{8}{315}</m>
+</p></answer>
+
+<solution>
+
+<p>The integrand is a product of powers of sine and cosine. Since cosine has an odd power, we want to substitute <m>u=\sin x</m>, <m>\dee{u}=\cos x \dee{x}</m>. Therefore, we should:
+<ul>
+<li> reserve one cosine for the derivative of sine in our substitution, and
+</li>
+<li> change the rest of the cosines to sines using the identity <m>\sin^2x+\cos^2x=1</m>.
+</li>
+</ul>
+<md>
+<mrow>
+\int_0^{\pi/2}\sin^4x\cos^5x\dee{x}&amp;=
+\int_{0}^{\pi/2}\sin^4x(\cos^2x)^2\cos x\dee{x}
+</mrow><mrow>
+&amp;=\int_{0}^{\pi/2}\sin^4x(1-\sin^2x)^2\underbrace{\cos x\dee{x}}_{du}
+</mrow><mrow>
+&amp;=
+\int_{\sin(0)}^{\sin(\pi/2)}u^4(1-u^2)^2du
+</mrow><mrow>
+&amp;=
+\int_{0}^{1}u^4(1-2u^2+u^4)du
+</mrow><mrow>
+&amp;=
+\int_{0}^{1}(u^4-2u^6+u^8)du
+</mrow><mrow>
+&amp;=\left[
+\frac{1}{5}u^5-\frac{2}{7}u^7+\frac{1}{9}u^9
+\right]_{u=0}^{u=1}
+</mrow><mrow>
+&amp;=
+\left(\frac{1}{5}-\frac{2}{7}+\frac{1}{9}\right)
+-
+0
+</mrow><mrow>
+&amp;=\dfrac{8}{315}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate
+<m>\displaystyle\int \sqrt{3-5x^2}\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+We notice that the integrand has a quadratic polynomial under the square root. If that polynomial were a perfect square, we could get rid of the square root:
+try a trig substitution, as in Section<nbsp/><xref ref="sec_trigsub"/> of the CLP-II text.
+</p>
+
+<p>The identity <m>\sin(2\theta)=2\sin\theta\cos\theta</m> might come in handy.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{3}{2\sqrt{5}}
+\arcsin\left(x\sqrt{\dfrac{5}{3}}\right) + \dfrac{x}{2}\sqrt{3-5x^2}
++C</m>
+</p></answer>
+
+<solution>
+
+<p>We notice that there is a quadratic equation under the square root. If that equation were a perfect square, we could get rid of the square root: so we'll mould it into a perfect square using a trig substitution.
+</p>
+
+<p>Our candidates will use one of the following identities:
+<me>
+1-\sin^2\theta=\cos^2\theta \hspace{1cm} \tan^2\theta+1=\sec^2\theta \hspace{1cm} \sec^2\theta-1=\tan^2\theta</me>
+</p>
+
+<p>We'll be substituting <m>x=</m>(something), so we notice that <m>3-5x^2</m> has the general form of
+(constant)<m>-</m>(function), as does <m>1-\sin^2\theta</m>. In order to get the constant right, we multiply through by three:
+<me>
+3-3\sin^2\theta = 3\cos^2\theta</me>
+</p>
+
+<p>Our goal is to get <m>3-5x^2=3-3\sin^2\theta</m>; so we solve this equation for <m>x</m> and decide on the substitution
+<me>
+x=\sqrt{\frac{3}{5}}\sin\theta,\hspace{1cm}
+\dee{x}=\sqrt{\frac{3}{5}}\cos\theta \dee{\theta}</me>
+</p>
+
+<p>Now we evaluate our integral.
+<md>
+<mrow>
+\int\sqrt{3-5x^2}\dee{x}&amp;=\int\sqrt{3-5\left( \sqrt{\frac{3}{5}}\sin\theta\right)^2}\sqrt{\frac{3}{5}}\cos\theta d \theta
+</mrow><mrow>
+&amp;=\int
+\sqrt{3-3\sin^2\theta}\sqrt{3/5}\cos\theta
+\dee{\theta}
+</mrow><mrow>
+&amp;=\int
+\sqrt{3\cos^2\theta}\sqrt{3/5}\cos\theta
+\dee{\theta}
+</mrow><mrow>
+&amp;=\int
+\sqrt{3}\cos\theta\sqrt{3/5}\cos\theta
+\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{3}{\sqrt{5}}\int
+\cos^2\theta
+\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{3}{\sqrt{5}}\int
+\frac{1+\cos 2\theta}{2}
+\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{3}{2\sqrt{5}}\int
+(1+\cos2\theta)
+\dee{\theta}
+</mrow><mrow>
+&amp;=
+\frac{3}{2\sqrt{5}}\left[
+\theta+\frac{1}{2}\sin(2\theta)
+\right]+C
+</mrow><mrow>
+&amp;=\frac{3}{2\sqrt{5}}\left[
+\theta + \sin\theta\cos\theta
+\right]+C
+</mrow>
+</md>
+From our substitution <m>x=\sqrt{3/5}\sin\theta</m>, we glean <m>\sin\theta = x\sqrt{5/3}</m>, and <m>\theta = \arcsin \left(x\sqrt{5/3} \right)</m>. To figure out <m>\cos\theta</m>, we draw a right triangle. Let <m>\theta</m> be one angle, and since <m>\sin\theta = \dfrac{x\sqrt{5}}{\sqrt{3}}</m>, we let the hypotenuse be <m>\sqrt{3}</m> and the side opposite <m>\theta</m> be <m>x\sqrt{5}</m>. By Pythagorus, the missing side (adjacent to <m>\theta</m>) has length <m>\sqrt{3-5x^2}</m>.
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[
+\trigtri{\theta}{\sqrt{3-5x^2}}{x\sqrt{5}}{\sqrt{3}}
+]]></latex-image></image>
+</sidebyside>
+<p>
+Therefore, <m>\cos\theta = \frac{\mbox{adj}}{\mbox{hyp}} = \dfrac{\sqrt{3-5x^2}}{\sqrt{3}}</m>. So our integral evaluates to:
+</p>
+
+<p><md>
+<mrow>
+\frac{3}{2\sqrt{5}}\left[
+\theta + \sin\theta\cos\theta
+\right]+C&amp;=
+\frac{3}{2\sqrt{5}}\left[
+\arcsin(x\sqrt{5/3}) + x\sqrt{5/3}\cdot \frac{\sqrt{3-5x^2}}{\sqrt{3}}
+\right]+C
+</mrow><mrow>
+&amp;=
+\frac{3}{2\sqrt{5}}
+\arcsin(x\sqrt{5/3}) + \frac{x}{2}\cdot {\sqrt{3-5x^2}}
++C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int_0^\infty \dfrac{x-1}{e^x}\dee{x}</m>.
+</p></statement>
+<hint><p>
+Notice the integral is improper. When you compute the limit, l'Hôpital's rule might help.
+</p>
+
+<p>If you're struggling to think of how to antidifferentiate, try writing <m>\dfrac{x-1}{e^x} = (x-1)e^{-x}</m>.
+</p></hint>
+<answer><p>
+0
+</p></answer>
+<solution><p>
+First, we note the integral is improper. So, we'll need to replace the top bound with a variable, and take a limit. Second, we're going to have to antidifferentiate. The integrand is the product of an exponential function, <m>e^{-x}</m>, with a polynomial function, <m>x-1</m>, so we use integration by parts with <m>u=x-1</m>, <m>\dee{v}=e^{-x}\dee{u}</m>, <m>\dee{u}=\dee{x}</m>, and <m>v = -e^{-x}</m>.
+<md>
+<mrow>
+\int \dfrac{x-1}{e^x} \dee{x}&amp;=-(x-1)e^{-x} + \int e^{-x} \dee{x}
+</mrow><mrow>&amp;=-(x-1)e^{-x} -e^{-x}+C
+=-xe^{-x}+C
+</mrow><mrow>
+\text{So,}\qquad\int_0^\infty \dfrac{x-1}{e^x} \dee{x} &amp; = \lim_{b \to \infty}\int_0^b \dfrac{x-1}{e^x} \dee{x}
+</mrow><mrow>
+&amp; = \lim_{b \to \infty}\left[-\frac{x}{e^x}\right]_0^b = \lim_{b \to \infty}\bigg[-\underbrace{\frac{b}{e^b}}_{\atp{\mathrm{num}\to\infty}{\mathrm{den}\to\infty}}\bigg]
+</mrow><mrow>
+&amp; \stackrel{(*)}{=} \lim_{b \to \infty}\frac{1}{e^b}=0
+</mrow>
+</md>
+(In the equality marked (<m>*</m>), we used l'Hôpital's rule.)
+</p>
+
+<p>So, <m>\displaystyle\int_0^\infty \dfrac{x-1}{e^x}\dee{x}=0</m>.
+</p>
+
+<p>Remark: this shows that, interestingly, <m>\displaystyle\int_0^\infty \dfrac{x}{e^x}\dee{x}=\displaystyle\int_0^\infty \dfrac{1}{e^x}\dee{x}</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate <m>\displaystyle\int \frac{-2}{3x^2+4x+1}\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+Which method usually works for rational functions (the quotient of two polynomials)?
+</p></hint>
+
+<answer><p>
+<m>\log\left|\dfrac{x+1}{3x+1}\right|+C</m>
+</p></answer>
+
+<solution><p>
+<ul>
+<li>
+<p>
+Solution 1: Notice the denominator factors as <m>(x+1)(3x+1)</m>. Since the integrand is a rational function (the quotient of two polynomials), we can use partial fraction decomposition.
+<md>
+<mrow>
+\frac{-2}{3x^2+4x+1}&amp;=\frac{-2}{(x+1)(3x+1)}
+</mrow><mrow>
+&amp;=\frac{A}{x+1}+\frac{B}{3x+1}
+</mrow><mrow>
+&amp;=\frac{A(3x+1)+B(x+1)}{(x+1)(3x+1)}
+</mrow><mrow>
+&amp;=\frac{(3A+B)x+(A+B)}{(x+1)(3x+1)}
+</mrow>
+<intertext>So:</intertext><mrow>
+-2&amp;=(3A+B)x+(A+B)
+</mrow><mrow>
+0&amp;=3A+B \mbox{ and }-2=A+B
+</mrow><mrow>
+B&amp;=-3A \mbox{ and hence } -2=A+(-3A)
+</mrow><mrow>
+{\color{red}A}&amp;{\textcolor{red}{=1}} \mbox{ so then } {\color{red}B=-3}
+</mrow>
+<intertext>So now:</intertext><mrow>
+\frac{-2}{3x^2+4x+1}&amp;=\frac{1}{x+1}-\frac{3}{3x+1}
+</mrow><mrow>
+\int \frac{-2}{3x^2+4x+1}\dee{x}&amp;=\int\left(\frac{1}{x+1}-\frac{3}{3x+1}\right)\dee{x}
+</mrow><mrow>
+&amp;=\log|x+1|-\log|3x+1|+C
+</mrow><mrow>
+&amp;=\log\left|\dfrac{x+1}{3x+1}\right|+C
+</mrow>
+</md>
+</p>
+</li>
+<li>
+<p>
+Solution 2: The previous solution is probably the nicest. However, for the foolhardy or the brave, this integral can also be evaluated using trigonometric substitution.
+</p>
+
+<p>We start by completing the square on the denominator.
+<md>
+<mrow>
+3x^2+4x+1 &amp;= 3\left(x^2+\frac{4}{3}x+\frac{1}{3}\right)
+</mrow><mrow>
+&amp;=3\left(x^2+2\cdot\frac{2}{3}x+\frac{4}{9}-\frac{4}{9}+\frac{1}{3}\right)
+</mrow><mrow>
+&amp;=3\left(\left(x+\frac{2}{3}\right)^2-\frac{4}{9}+\frac{3}{9}\right)
+</mrow><mrow>
+&amp;=3\left(\left(x+\frac{2}{3}\right)^2-\frac{1}{9}\right)
+</mrow><mrow>
+&amp;=3\left(x+\frac{2}{3}\right)^2-\frac{1}{3}
+</mrow>
+<intertext>This has the form of a function minus a constant, which matches the trigonometric identity <m>\sec^2\theta - 1 = \tan^2\theta</m>. Multiplying through by <m>\frac{1}{3}</m>, we see we can use the identity <m>\frac{1}{3}\sec^2\theta - \frac{1}{3} = \frac{1}{3}\tan^2\theta</m>. So, to get the substitution right, we want to choose a substitution that makes the following true:</intertext>
+<mrow>
+3\left(x+\frac{2}{3}\right)^2-\frac{1}{3}&amp;=\frac{1}{3}\sec^2\theta-\frac{1}{3}
+</mrow><mrow>
+3\left(x+\frac{2}{3}\right)^2&amp;=\frac{1}{3}\sec^2\theta
+</mrow><mrow>
+9\left(x+\frac{2}{3}\right)^2&amp;=\sec^2\theta
+</mrow><mrow>
+\color{red}3x+2&amp;=\color{blue}\sec\theta
+</mrow>
+<intertext>And, accordingly:</intertext><mrow>
+\color{red}3\dee{x}&amp;=\color{blue}\sec\theta\tan\theta \dee{\theta}
+</mrow>
+<intertext>Now, let's  simplify a little and use this substitution on our integral:</intertext><mrow>
+\int\dfrac{-2}{3x^2+4x+1}\dee{x}&amp;=\int\dfrac{-2}{3\left(x+\frac{2}{3}\right)^2-\frac{1}{3}}\dee{x}
+</mrow><mrow>
+&amp;=\int\dfrac{-2}{9\left(x+\frac{2}{3}\right)^2-1}3\dee{x}
+</mrow><mrow>
+&amp;=\int\dfrac{-2}{\left(\color{red}{3x+2}\right)^2-1}\textcolor{red}{3\dee{x}}
+</mrow><mrow>
+&amp;=\int\dfrac{-2}{\left(\color{blue}{\sec\theta}\right)^2-1}\color{blue}{\sec\theta\tan\theta \dee{\theta}}
+</mrow><mrow>
+&amp;=\int\dfrac{-2}{\tan^2\theta}\sec\theta\tan\theta \dee{\theta}
+</mrow><mrow>
+&amp;=\int -2\dfrac{\sec\theta}{\tan\theta}\dee{\theta}
+</mrow><mrow>
+&amp;=\int -2\dfrac{1}{\cos\theta}\cdot\dfrac{\cos\theta}{\sin\theta} \dee{\theta}
+</mrow><mrow>
+&amp;=\int -2\dfrac{1}{\sin\theta} \dee{\theta}
+</mrow><mrow>
+&amp;=\int -2\csc\theta \dee{\theta}
+</mrow>
+<intertext>Using the result of Example<nbsp/><xref ref="eg_TRGINToptc"/> in the CLP-II text,
+or a table of integrals:</intertext>
+<mrow>
+&amp;=2\log\left|\csc\theta+\cot\theta \right|+C
+</mrow>
+</md>
+Our final task is to translate this back from <m>\theta</m> to <m>x</m>. Recall we used the substitution <m>3x+2=\sec\theta</m>. Using this information, and <m>\sec\theta = \dfrac{\mathrm{hypotenuse}}{\mathrm{adjacent}}</m>, we can fill in two sides of a right triangle with angle <m>\theta</m>. The Pythagorean theorem tells us the third side (opposite to <m>\theta</m>) has measure <m>\sqrt{(3x+2)^2-1}=\sqrt{9x^2-12x+3}</m>.
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[
+\trigtri{\theta}{1}{\sqrt{9x^2+12x+3}}{3x+2}
+]]></latex-image></image>
+</sidebyside>
+<p>
+<md>
+<mrow>
+2\log\left|\csc\theta+\cot\theta \right|+C&amp;=
+2\log\left|\dfrac{3x+2}{\sqrt{9x^2+12x+3}}+\dfrac{1}{\sqrt{9x^2+12x+3}} \right|+C
+</mrow><mrow>
+&amp;=
+2\log\left|\dfrac{3x+3}{\sqrt{9x^2+12x+3}}\right|+C
+</mrow><mrow>
+&amp;=
+\log\left|\dfrac{(3x+3)^2}{\sqrt{9x^2+12x+3}^2}\right|+C
+</mrow><mrow>
+&amp;=
+\log\left|\dfrac{(3x+3)^2}{9x^2+12x+3}\right|+C
+</mrow><mrow>
+&amp;=
+\log\left|\dfrac{9(x+1)^2}{3(3x+1)(x+1)}\right|+C
+</mrow><mrow>
+&amp;=
+\log\left|\dfrac{3(x+1)^2}{(3x+1)(x+1)}\right|+C
+</mrow><mrow>&amp;=
+\log\left|\dfrac{3(x+1)}{3x+1}\right|+C
+</mrow><mrow>&amp;=
+\log\left|\dfrac{x+1}{3x+1}\right|+\log3+C
+</mrow>
+<intertext>Since <m>C</m> is an arbitrary constant, we can write our final answer as </intertext><mrow>
+&amp; \log\left|\dfrac{x+1}{3x+1}\right|+C
+</mrow>
+</md>
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate
+<m>\displaystyle\int_1^2 x^2\log x \dee{x}</m>.
+</p></statement>
+
+<hint><p>
+It would be nice to replace logarithm with its derivative, <m>\dfrac{1}{x}</m>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{8}{3}\log2-\dfrac{7}{9}</m>
+</p></answer>
+
+<solution>
+
+<p>We see that we have two functions multiplied, but they don't simplify nicely with each other. However, if we differentiate logarithm, and integrate <m>x^2</m>, we'll get a polynomial. So, let's use integration by parts.
+</p>
+
+<p><me>
+u=\log x \hspace{1cm} \dee{v}=x^2\dee{x}</me>
+</p>
+
+<p><me>
+\dee{u}=(1/x)\dee{x} \hspace{1cm} v=x^3/3</me>
+</p>
+
+<p>First, let's antidifferentiate. We'll deal with the limits of integration later.
+<md>
+<mrow>
+\int x^2\log x \dee{x} &amp;=\underbrace{(\log x)}_{u}\underbrace{(x^3/3)}_{v})-\int\underbrace{(x^3/3)}_{v}\underbrace{(1/x)\dee{x}}_{\dee{u}}
+</mrow><mrow>
+&amp;=\frac{1}{3}x^3\log x - \frac{1}{3}\int x^2\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{3}x^3\log x -\frac{1}{3}\cdot\frac{1}{3}x^3+C
+</mrow><mrow>
+&amp;=\frac{1}{3}x^3\log x - \frac{1}{9}x^3+C
+</mrow>
+<intertext>
+We use the Fundamental Theorem of Calculus Part 2 to evaluate the definite integral.</intertext><mrow>
+\int_1^2 x^3\log x \dee{x}&amp;=
+\left[\frac{1}{3}x^3\log x - \frac{1}{9}x^3\right]_1^2
+</mrow><mrow>
+&amp;=\left[\frac{1}{3}2^3\log 2 - \frac{1}{9}2^3 \right] - \left[\frac{1}{3}1^3\log 1 - \frac{1}{9}1^3 \right]
+</mrow><mrow>
+&amp;=\frac{8\log 2}{3}-\frac{8}{9}-0+\frac{1}{9}
+</mrow><mrow>
+&amp;=\frac{8}{3}\log2-\frac{7}{9}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2014D</fromexam></title>
+<statement><p>
+Evaluate  <m>\displaystyle\int\frac{x}{x^2-3}\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+The integrand is a rational function, so it is possible to use partial fractions. But there is a much easier way!
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{2}\log\big|x^2-3\big| + C</m>
+</p></answer>
+
+<solution><p> The derivative of the denominator shows up in the numerator, only differing by a constant, so we perform a substitution. Specifically,
+substitute <m>u=x^2-3</m>, <m>\dee{u}=2x\,\dee{x}</m>.
+This gives
+<md>
+<mrow>
+\int\frac{x}{x^2-3}\dee{x}
+=\int\frac{\dee{u}/2}{u}
+=\frac{1}{2}\log|u| + C
+=\frac{1}{2}\log\big|x^2-3\big| + C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1997A</fromexam></title>
+<statement><p>
+Evaluate the following integrals.
+<ol label="a">
+<li>
+<m>\displaystyle\int_0^4\frac{x}{\sqrt{9+x^2}}\,\dee{x}</m>
+</li>
+<li>
+<m>\displaystyle\int_0^{\pi/2}\cos^3x\ \sin^2x\,\dee{x}</m>
+</li>
+<li>
+ <m>\displaystyle\int_1^{e}x^3\log x\,\dee{x}</m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+You should prepare your own personal internal list of integration techniques ordered
+from easiest to hardest. You should have associated to each technique
+your own personal list of signals that you use to decide when the technique
+is likely to be useful.
+</p></hint>
+
+<answer><p> (a)
+<m>2</m>
+</p><p>
+(b) <m>\dfrac{2}{15}</m>
+</p><p>
+(c)
+<m>\dfrac{3e^4}{16}+\dfrac{1}{16}</m>
+</p></answer>
+
+<solution><p> (a)  Although a quadratic under a square root often suggests trigonometric substitution, in this case we have an easier substitution.
+Specifically, let <m>y=9+x^2</m>. Then <m>\dee{y}=2x\dee{x},\ x\dee{x}=\frac{\dee{y}}{2},\ y(0)=9,</m> and <m>y(4)=25</m>.
+<md>
+<mrow>
+\int_0^4\frac{x}{\sqrt{9+x^2}}\,\dee{x}
+&amp;=\int_9^{25}\frac{1}{\sqrt{y}}\,\frac{\dee{y}}{2}
+=\frac{1}{2}\cdot\frac{\sqrt{y}}{1/2}\Big|_9^{25}
+=5-3= 2
+</mrow>
+</md>
+</p>
+
+<p> (b)
+The power of cosine is odd, so we can reserve one cosine for the differential and change the rest to sines.
+ Substituting <m>y=\sin x,</m> <m>\dee{y}=\cos x</m>, <m>\dee{x},</m> <m>y(0)=0,</m>  <m>y(\pi/2)=1,</m> <m> \cos^2x=1-y^2</m>:
+<md>
+<mrow>
+\int_0^{\pi/2}\hskip-.2in\cos^3x\ \sin^2x\,\dee{x}
+&amp;=\int_0^{\pi/2}\hskip-.2in\cos^2x\ \sin^2x\ \cos x\,\dee{x}
+=\int_0^1\!(1-y^2)y^2\,\dee{y}
+=\int_0^1(y^2-y^4)\,\dee{y}
+</mrow><mrow>
+&amp;=\bigg[\frac{y^3}{3}-\frac{y^5}{5}\bigg]_0^1
+=\frac{1}{3}-\frac{1}{5}
+</mrow><mrow>
+&amp;= \frac{2}{15}
+</mrow>
+</md>
+</p>
+
+<p> (c)
+The integrand is the product of two different kinds of functions, with no obvious substitution or simplification. If we differentiate <m>\log x</m>, it will match better with the polynomial nature of the rest of the integrand.
+So, integrate by parts with <m>u(x)=\log x</m> and <m>\dee{v}=x^3\,\dee{x}</m>, then
+<m>\dee{u}=\frac{1}{x}\,\dee{x}</m> and <m>v=x^4/4</m>.
+<md>
+<mrow>
+\int_1^{e}x^3\log x\,\dee{x}
+&amp;=\frac{x^4}{4}\log x\bigg|_1^e
+-\int_1^{e}\frac{x^4}{4}\cdot\frac{1}{x}\,\dee{x}
+=\frac{e^4}{4}-\int_1^{e}\frac{x^3}{4}\,\dee{x}
+=\frac{e^4}{4}-\frac{x^4}{16}\bigg|_1^e
+</mrow><mrow>
+&amp;=\frac{3e^4}{16}+\frac{1}{16}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1997D</fromexam></title>
+<statement><p>
+Evaluate the following integrals.
+<ol label="a">
+<li>
+<m>\displaystyle\int_0^{\pi/2} x\sin x\,\dee{x} </m>
+</li>
+<li>
+<m>\displaystyle\int_0^{\pi/2} \cos^5 x\,\dee{x} </m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+Despite both containing a trig function, the two integrals are easiest to evaluate using  different methods.
+</p></hint>
+
+<answer><p> (a)
+<m>1</m>
+</p><p>
+(b)
+ <m>\dfrac{8}{15}</m>
+</p></answer>
+
+<solution><p> (a)
+Integrate by parts with <m>u=x</m> and <m>\dee{v}=\sin x\,\dee{x}</m> so that
+<m>\dee{u}=\dee{x}</m> and <m>v=-\cos x</m>.
+<md>
+<mrow>
+\int x\sin x\,\dee{x}&amp;= -x\cos x-\int (-\cos x)\,\dee{x}
+=-x\cos x+\sin x+C
+</mrow><mrow>
+\mbox{So, }\quad\int_0^{\pi/2} x\sin x\,\dee{x}&amp;=\Big[-x\cos x+\sin x\Big]_0^{\pi/2}
+=1
+</mrow>
+</md>
+</p>
+
+<p> (b)
+The power of cosine is odd, so we can reserve one cosine for <m>\dee{u}</m> and change the rest into sines. Make the substitution <m>u=\sin x</m>, <m>\dee{u}=\cos x\,\dee{x}</m>.
+<md>
+<mrow>
+\int_0^{\pi/2} \cos^5 x\,\dee{x}
+&amp;=\int_0^{\pi/2} \big(1-\sin^2x\big)^2\cos x\,\dee{x}
+=\int_0^1\big(1-u^2\big)^2\,\dee{u}
+=\int_0^1\big(1-2u^2+u^4\big)\,\dee{u}\cr
+&amp;=\left[u-\frac{2}{3}u^3+\frac{1}{5}u^5\right]_0^1
+=1-\frac{2}{3}+\frac{1}{5}
+=\frac{8}{15}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>1998A</fromexam></title>
+<statement><p>
+Evaluate the following integrals.
+<ol label="a">
+<li>
+<m>\displaystyle\int_0^2 xe^x\,\dee{x}</m>
+</li>
+<li>
+ <m>\displaystyle\int_0^1\frac{1}{\sqrt{1+x^2}}\,\dee{x}</m>
+</li>
+<li>
+<m>\displaystyle\int_3^5\frac{4x}{(x^2-1)(x^2+1)}\,\dee{x}</m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+For the integral of secant, see
+See Section<nbsp/><xref ref="sec_secantEtc"/> or Example <xref ref="eg_PFe"/> in the
+</p>
+
+<p>CLP-II text.
+</p>
+
+<p>In (c), notice the denominator is not yet entirely factored.
+</p></hint>
+
+<answer><p> (a)
+<m>e^2+1</m>
+<p></p>
+(b)
+<m>\log(\sqrt{2}+1)</m>
+<p></p>
+(c)
+<m>\log\frac{15}{13}\approx 0.1431</m>
+</p></answer>
+
+<solution><p> (a) This is a classic integration-by-parts example. If we integrate <m>e^x</m>, it doesn't change, and if we differentiate <m>x</m> it becomes a constant. So,
+let <m>u=x</m> and <m>\dee{v}=e^x\,\dee{x}</m>,
+so that <m>\dee{u}=\dee{x}</m> and <m>v=e^x</m>.
+<md>
+<mrow>
+\int_0^2 xe^x\,\dee{x}=\Big[xe^x\Big]_0^2-\int_0^2 e^x\,\dee{x}
+=2e^2-\Big[e^x\Big]_0^2
+=e^2+1
+</mrow>
+</md>
+</p>
+
+<p> (b)  We have a quadratic function underneath a square root. In the absence of an easier substitution, we can get rid of the square root with a trigonometric substitution.
+ Substitute <m>x=\tan y</m>, <m>\dee{x}=\sec^2 y\,\dee{y}</m>. When <m>x=0</m>, <m>\tan y=0</m>
+so <m>y=0</m>. When <m>x=1</m>, <m>\tan y=1</m> so <m>y=\frac{\pi}{4}</m>. Also <m>\sqrt{1+x^2}
+=\sqrt{1+\tan^2y}=\sqrt{\sec^2 y}=\sec y</m>, since <m>\sec y\ge 0</m> for all
+<m>0\le y\le\frac{\pi}{4}</m>.
+<md>
+<mrow>
+\int_0^1\frac{1}{\sqrt{1+x^2}}\,\dee{x}
+&amp;=\int_0^{\pi/4} \frac{\sec^2y\,\dee{y}}{\sec y}
+=\int_0^{\pi/4} \sec y\,\dee{y}
+=\Big[\log|\sec y+\tan y|\Big]_0^{\pi/4}
+</mrow><mrow>
+&amp;=\log\left| \sec \frac{\pi}{4}  + \tan\frac{\pi}{4}\right|-\log\left| \sec 0 + \tan 0\right|
+</mrow><mrow>
+&amp;=\log\left| \sqrt{2}  + 1\right|-\log\left| 1+  0\right|=\log(\sqrt{2}+1)
+</mrow><mrow>
+\text{So,}\qquad\int_0^1\frac{1}{\sqrt{1+x^2}}\,\dee{x}&amp;=\log(\sqrt{2}+1)
+</mrow>
+</md>
+</p>
+
+<p> (c)  The integral is a rational function. In the absence of an obvious substitution,
+we use partial fractions.
+<md>
+<mrow>
+\frac{4x}{(x^2-1)(x^2+1)}
+&amp;=\frac{4x}{(x-1)(x+1)(x^2+1)}
+=\frac{a}{x-1}+\frac{b}{x+1}+\frac{cx+d}{x^2+1}
+</mrow>
+<intertext>Multiplying by the denominator,</intertext><mrow>
+4x&amp;=a(x+1)(x^2+1)+b(x-1)(x^2+1)+(cx+d)(x-1)(x+1)\tag{*}
+</mrow>
+</md>
+Setting <m>x=1</m>
+gives <m>4a=4</m>, so <m>\textcolor{red}{a=1}</m>. Setting <m>x=-1</m> gives <m>-4b=-4</m>, so <m>\textcolor{red}{b=1}</m>. Substituting
+in <m>a=b=1</m> in (<m>*</m>) gives:
+<md>
+<mrow>
+4x&amp;=(x+1)(x^2+1)+(x-1)(x^2+1)+(cx+d)(x-1)(x+1)\cr
+4x&amp;= 2x(x^2+1)+(cx+d)(x-1)(x+1)\cr
+4x-2x(x^2+1)&amp;=(cx+d)(x-1)(x+1)\cr
+-2x(x^2-1)&amp;=(cx+d)(x^2-1)\cr
+-2x&amp;=cx+d\cr
+\color{red} c&amp;\color{red}=-2,\ d=0\cr
+</mrow>
+</md>
+So,
+<md>
+<mrow>
+\int_3^5\frac{4x}{(x^2-1)(x^2+1)}\,\dee{x}
+&amp;=\int_3^5\Big(\frac{1}{x-1}+\frac{1}{x+1}-\frac{2x}{x^2+1}\Big)\,\dee{x}
+</mrow><mrow>
+&amp;=\Big[\log|x-1|+\log|x+1|-\log(x^2+1)\Big]_3^5
+</mrow><mrow>
+&amp;=\log 4+\log 6-\log 26-\log 2-\log 4+\log 10
+</mrow><mrow>
+&amp;=\log\frac{6\times 10}{26\times 2}
+=\log\frac{15}{13}\approx 0.1431
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2000D</fromexam></title>
+<statement><p>
+Calculate the following integrals.
+<ol label="a">
+<li>
+<m>\displaystyle\int_0^3\sqrt{9-x^2}\,\dee{x}</m>
+</li>
+<li>
+ <m>\displaystyle\int_0^1\log(1+x^2)\,\dee{x}</m>
+</li>
+<li>
+ <m>\displaystyle\int_3^\infty\frac{x}{(x-1)^2(x-2)}\,\dee{x}</m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+Part (a) can be done by inspection <mdash/> use a little highschool geometry!
+Part (b) is reminiscent of the antiderivative of logarithm<mdash/>how did we find that one out?
+Part (c) is an improper integral.
+</p></hint>
+
+<answer><p>
+(a)
+<m>\dfrac{9}{4}\pi</m>
+</p><p>
+ (b)
+<m>\log 2-2+\dfrac{\pi}{2}\approx 0.264</m>
+</p><p>
+ (c)
+<m>2\log 2-\half\approx0.886</m>
+</p></answer>
+
+<solution><p>
+ (a)
+<m>\int_0^3\sqrt{9-x^2}\,\dee{x}</m> is the area of the portion of the
+disk <m>x^2+y^2\le 9</m> that lies in the first quadrant. It is
+<m>\frac{1}{4}\pi 3^3={\frac{9}{4}\pi}\,</m>. Alternatively,
+you could also evaluate this integral using the substitution
+<m>x=3\sin y</m>, <m>\dee{x}=3\cos y\,\dee{y}</m>.
+<md>
+<mrow>
+\int_0^3\sqrt{9-x^2}\,\dee{x}
+&amp;=\int_0^{\pi/2}\sqrt{9-9\sin^2y}\ (3\cos y)\,\dee{y}
+=9\int_0^{\pi/2}\cos^2 y\,\dee{y}
+</mrow><mrow>
+&amp;=\frac{9}{2}\int_0^{\pi/2}[1+\cos(2y)]\,\dee{y}
+=\frac{9}{2}{\Big[y+\frac{\sin(2y)}{2}\Big]}_0^{\pi/2}
+</mrow><mrow>
+&amp;=\frac{9}{4}\pi
+</mrow>
+</md>
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{3.5}{1}{3.5}
+\draw[thick, blue] (3,0) arc (0:95:3cm) node[midway, above right]{$y=\sqrt{9-x^2}$};
+\YExcoord{3}{3}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+ (b) It's not immediately obvious what to do with this one, but remember we found <m>\int \log x \dee{x}</m> using integration by parts with <m>u=\log x</m> and <m>\dee{v}=\dee{x}</m>. Let's hope a similar trick works here.
+ Integrate by parts, using <m>u=\log(1+x^2)</m> and <m>\dee{v}=\dee{x}</m>, so that
+<m>\dee{u}=\frac{2x}{1+x^2}\,\dee{x}</m>, <m>v=x</m>.
+<md>
+<mrow>
+\int_0^1\log(1+x^2)\,\dee{x}
+&amp;=\Big[x\log(1+x^2)\Big]_0^1-\int_0^1 x\frac{2x}{1+x^2}\,\dee{x}
+=\log 2-2\int_0^1 \frac{x^2}{1+x^2}\,\dee{x}
+</mrow><mrow>
+&amp;=\log 2-2\int_0^1\Big(1- \frac{1}{1+x^2}\Big)\,\dee{x}
+=\log 2-2\big[x-\arctan x\big]_0^1
+</mrow><mrow>
+&amp;=\log 2-2+\frac{\pi}{2}\approx 0.264
+</mrow>
+</md>
+</p>
+
+<p> (c)
+The integrand is a rational function with no obvious substitution, so we use partial fractions.
+<md>
+<mrow>
+\frac{x}{(x-1)^2(x-2)}
+&amp;=\frac{a}{(x-1)^2}+\frac{b}{x-1}+\frac{c}{x-2}
+=\frac{a(x-2)+b(x-1)(x-2)+c(x-1)^2}{(x-1)^2(x-2)}
+</mrow><mrow>
+</mrow>
+<intertext>Multiply by the denominator.</intertext><mrow>
+x&amp;=a(x-2)+b(x-1)(x-2)+c(x-1)^2
+</mrow>
+</md>
+Setting <m>x=1</m> gives <m>\textcolor{red}{a=-1}</m>. Setting <m>x=2</m> gives <m>\textcolor{red}{c=2}</m>. Substituting in <m>a=-1</m>
+and <m>c=2</m> gives
+<md>
+<mrow>
+b(x-1)(x-2)&amp;=x+(x-2)-2(x-1)^2=-2x^2+6x-4=-2(x-1)(x-2)
+</mrow><mrow>
+\implies \color{red}b&amp;\color{red}=-2
+</mrow>
+</md>
+Hence
+<md>
+<mrow>
+\int_3^\infty\frac{x}{(x-1)^2(x-2)}\,\dee{x}
+&amp;=\lim_{M\rightarrow\infty}
+\int_3^M\left(-\frac{1}{(x-1)^2}-\frac{2}{x-1}+\frac{2}{x-2}\right)\,\dee{x}
+</mrow><mrow>
+&amp;=\lim_{M\rightarrow\infty}
+\left[\frac{1}{x-1}-2\log|x-1|+2\log|x-2|\right]_3^M
+</mrow><mrow>
+&amp;=\lim_{M\rightarrow\infty}
+\bigg[\frac{1}{x-1}+2\log\bigg|\frac{x-2}{x-1}\bigg|\bigg]_3^M
+</mrow><mrow>
+&amp;=\lim_{M\rightarrow\infty}
+\bigg[\frac{1}{M-1}+2\log\bigg|\frac{M-2}{M-1}\bigg|\bigg]
+-\bigg[\frac{1}{3-1}+2\log\bigg|\frac{3-2}{3-1}\bigg|\bigg]
+</mrow><mrow>
+&amp;=2\log 2-\frac{1}{2}\approx0.886
+</mrow>
+</md>
+since
+<md>
+<mrow>
+\lim_{M\rightarrow\infty}\log\frac{M-2}{M-1}
+&amp;=\lim_{M\rightarrow\infty}\log\frac{1-2/M}{1-1/M}
+=\log 1=0
+</mrow><mrow>
+\text{and}\qquad \log\frac{1}{2}&amp;=-\log2
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int\frac{\sin^4\theta-5\sin^3\theta+4\sin^2\theta+10\sin\theta}{\sin^2\theta-5\sin\theta+6}\cos\theta\dee{\theta}</m>.
+</p></statement>
+<hint><p>
+Use the substitution <m>u=\sin\theta</m>.
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{1}{3}\sin^3\theta-2\sin\theta+12\log\left|\frac{\sin\theta-3}{\sin\theta-2}\right|+C</m>
+</p></answer>
+<solution><p>
+This looks quite a lot like a rational function, but with variable <m>\sin\theta</m> instead of <m>x</m>. So, we use the substitution <m>x=\sin\theta</m>, <m>\dee{x} = \cos\theta\dee{\theta}</m>.
+<md>
+<mrow>
+\int\frac{\sin^4\theta-5\sin^3\theta+4\sin^2\theta+10\sin\theta}{\sin^2\theta-5\sin\theta+6}\cos\theta\dee{\theta}&amp;=\int \frac{x^4-5x^3+4x^2+10x}{x^2-5x+6}\dee{x}
+</mrow>
+</md>
+Since the numerator does not have smaller degree than the denominator, we need to do some long division before we can set up our partial fractions decomposition.
+</p>
+
+<p>
+<image><latex-image><![CDATA[\polylongdiv{x^4-5x^3+4x^2+10x}{x^2-5x+6}]]></latex-image></image>
+</p>
+
+<p>
+That is,
+<me>
+ \frac{x^4-5x^3+4x^2+10x}{x^2-5x+6}=x^2-2+\frac{12}{x^2-5x+6}=x^2-2+\frac{12}{(x-2)(x-3)}</me>
+</p>
+
+<p>We use partial fractions decomposition on the rightmost term.
+<md>
+<mrow>
+ \frac{12}{(x-2)(x-3)}&amp;=\frac{A}{x-2}+\frac{B}{x-3}
+</mrow><mrow>
+ 12&amp;=A(x-3)+B(x-2)
+ </mrow>
+<intertext>Setting <m>x=3</m> and <m>x=2</m> gives us</intertext><mrow>
+\color{red} B&amp;\color{red}=12,\quad A=-12
+</mrow>
+</md>
+Now we can evaluate our integral.
+<md>
+<mrow>
+ \int\frac{\sin^4\theta-5\sin^3\theta+4\sin^2\theta+10\sin\theta}{\sin^2\theta-5\sin\theta+6}\cos\theta\dee{\theta}&amp;=\int \frac{x^4-5x^3+4x^2+10x}{x^2-5x+6}\dee{x}
+</mrow><mrow>
+ &amp;=\int\left( x^2-2+\frac{12}{(x-2)(x-3)}\right)\dee{x}
+</mrow><mrow>
+ &amp;=\int\left( x^2-2\textcolor{red}{ -} \frac{\textcolor{red}{12}}{x-2}+\frac{\textcolor{red}{12}}{x-3}\right)\dee{x}
+</mrow><mrow>
+ &amp;=\frac{1}{3}x^3-2x-12\log|x-2|+12\log|x-3|+C
+</mrow><mrow>
+ &amp;=\frac{1}{3}x^3-2x+12\log\left|\frac{x-3}{x-2}\right|+C
+</mrow><mrow>
+ &amp;=\frac{1}{3}\sin^3\theta-2\sin\theta+12\log\left|\frac{\sin\theta-3}{\sin\theta-2}\right|+C
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2001A</fromexam></title>
+<statement><p>
+Evaluate the following integrals. <em>Show your work.</em>
+<ol label="a">
+<li>
+<m>\displaystyle\int_0^{\pi\over 4}\sin^2(2x)\cos^3(2x)\ \dee{x}</m>
+</li>
+<li>
+<m>\displaystyle\int\big(9+x^2\big)^{-{3\over 2}}\ \dee{x}</m>
+</li>
+<li>
+<m>\displaystyle\int\frac{\dee{x}}{(x-1)(x^2+1)}</m>
+</li>
+<li>
+ <m>\displaystyle\int x\arctan x\ \dee{x}</m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+For (c), try a little algebra to split the integral into pieces that are easy to antidifferentiate.
+</p></hint>
+
+<answer><p> (a)
+<m>\dfrac{1}{15}</m>
+</p><p> (b)
+<m>\dfrac{1}{9}\cdot\dfrac{x}{\sqrt{x^2+9}}+C</m>
+</p><p>
+(c)
+<m>\dfrac{1}{2}\log|x-1|-\dfrac{1}{4}\log(x^2+1)-\dfrac{1}{2}\arctan x+C</m>
+</p>
+<p> (d)
+<m>\dfrac12\big[ x^2\arctan  x -x +\arctan x\big]+C</m>
+</p></answer>
+
+<solution><p> (a) It doesn't matter to us right now that the arguments of sine and cosine are <m>2x</m> rather than <m>x</m>. This is still the integral of powers of products of sines and cosines. Since cosine has an odd power, we
+make the substitution <m>u=\sin (2x)</m>, <m>\dee{u}=2\cos(2 x)\,\dee{x}</m>.
+<md>
+<mrow>
+\int_0^{\pi\over 4}\sin^2(2x)\cos^3(2x)\ \dee{x}
+&amp;=\int_0^{\pi\over 4} \sin^2(2x)\big[1-\sin^2(2x)\big]\cos(2 x)\ \dee{x}
+=\frac{1}{2}\int_0^1 u^2\big[1-u^2\big]\ \dee{u}\cr
+&amp;=\frac{1}{2}\int_0^1\big(u^2-u^4\big)\ \dee{u}
+=\frac{1}{2}{\Big[\frac{1}{3}u^3-\frac{1}{5}u^5\Big]}_0^1
+=\frac{1}{15}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+Make the substitution <m>x=3\tan t</m>, <m>\dee{x}=3\sec^2t\,\dee{t}</m> and use
+the trig identity <m>9+9\tan^2 t = 9\sec^2 t</m>.
+</p>
+
+<p><md>
+<mrow>
+\int\big(9+x^2\big)^{-{3\over 2}}\ \dee{x}
+&amp;=\int\big(9+9\tan^2t\big)^{-{3\over 2}}\ 3\sec^2t\,\dee{t}
+=\int\big(3\sec t\big)^{-3}\ 3\sec^2t\,\dee{t}
+</mrow><mrow>
+&amp;=\frac{1}{9}\int\cos t\ \dee{t}
+=\frac{1}{9}\sin t+C
+=\frac{1}{9}\frac{x}{\sqrt{x^2+9}}+C
+</mrow>
+</md>
+To convert back to <m>x</m>, in the last step, we used the triangle below, which
+is rigged to have <m>\tan t =\frac{x}{3}</m>.
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[
+\trigtri{t}{3}{x}{\sqrt{x^2+9}}
+]]></latex-image></image>
+</sidebyside>
+<p>
+ (c)
+Seeing a rational function with no obvious substitutions, we use partial fractions.
+<md>
+<mrow>
+\frac{1}{(x-1)(x^2+1)}
+&amp;=\frac{a}{x-1}+\frac{bx+c}{x^2+1}
+=\frac{a(x^2+1)+(bx+c)(x-1)}{(x-1)(x^2+1)}
+</mrow>
+<intertext>Multiply by the original denominator.</intertext><mrow>
+1&amp;=a(x^2+1)+(bx+c)(x-1)\tag{*}
+</mrow>
+</md>
+Setting <m>x=1</m>
+gives <m>2a=1</m> or <m>\textcolor{red}{a=\half}</m>. Substituting in <m>a=\half</m> in <m>(*)</m> gives
+<md>
+<mrow>
+&amp;\frac{1}{2}(x^2+1)+(bx+c)(x-1)=1\cr
+\iff\qquad&amp; (bx+c)(x-1)=\frac{1}{2}(1-x^2)=-\frac{1}{2}(x-1)(x+1)\cr
+\iff\qquad&amp; (bx+c)=-\frac{1}{2}(x+1)\cr
+ \iff\qquad&amp;\color{red} b=c=-\frac{1}{2}\cr
+</mrow>
+</md>
+So,
+<md>
+<mrow>
+\int\frac{\dee{x}}{(x-1)(x^2+1)}
+&amp;=\int\Big[\frac{1/2}{x-1}-\frac{\frac{1}{2}(x+1)}{x^2+1}\Big]\,\dee{x}
+</mrow>
+<intertext>To antidifferentiate the second piece, we split it into two integrals: one that can be handled with the substitution <m>u=x^2+1</m>, and another that looks like the derivative of arctangent.</intertext><mrow>
+&amp;=\int\Big(\frac{1/2}{x-1}-\frac{x/2}{x^2+1}
+-\frac{1/2}{x^2+1}\Big)\,\dee{x}\cr
+&amp;=\int\Big(\frac{1/2}{x-1}-\frac{1}{4}\cdot\frac{2x}{x^2+1}
+-\frac{1/2}{x^2+1}\Big)\,\dee{x}\cr
+&amp;=\frac{1}{2}\log|x-1|-\frac{1}{4}\log(x^2+1)-\frac{1}{2}\arctan x+C
+</mrow>
+</md>
+</p>
+
+<p> (d)
+We know the derivative of arctangent, and it would integrate nicely if multiplied to the antiderivative of <m>x</m>. So, we
+integrate by parts with <m>u=\arctan x</m> and <m>\dee{v}=x\,\dee{x}</m> so that
+<m>\dee{u}=\frac{1}{1+x^2}\dee{x}</m> and <m>v=\frac{1}{2} x^2</m>. Then
+<md>
+<mrow>
+\int x\arctan  x\,\dee{x}&amp;= \frac{1}{2} x^2\arctan  x
+               -\frac{1}{2}\int \frac{x^2}{1+x^2}\,\dee{x}
+</mrow><mrow>
+&amp;= \frac{1}{2} x^2\arctan  x-\frac{1}{2}\int \frac{1+x^2-1}{1+x^2}\,\dee{x}\cr
+&amp;= \frac{1}{2} x^2\arctan  x-\frac{1}{2}\int \left(1-\frac{1}{1+x^2}\right)\,\dee{x}\cr
+&amp;=\frac{1}{2}\big[ x^2\arctan  x -x +\arctan x\big]+C
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M121 2000A</fromexam></title>
+<statement><p>
+Evaluate the following integrals.
+<ol label="a">
+<li>
+<m>\displaystyle\int_0^{\pi/4}\sin^5(2x)\,\cos(2x)\ \dee{x}</m>
+</li>
+<li>
+<m>\displaystyle\int\sqrt{4-x^2}\ \dee{x}</m>
+</li>
+<li>
+<m>\displaystyle\int\frac{x+1}{x^2(x-1)}\ \dee{x}</m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+If you're stumped, review Sections<nbsp/><xref ref="sec_trigint"/>,
+<xref ref="sec_trigsub"/>,
+and
+<xref ref="sec_parfrac"/>.
+</p></hint>
+
+<answer><p> (a)
+<m>\dfrac{1}{12}</m>
+</p><p>
+ (b)
+<m>\displaystyle2\sin^{-1}\frac{x}{2}+x\sqrt{1-\frac{x^2}{4}}+C</m>
+</p>
+<p> (c)
+<m>\displaystyle-2\log|x|+\frac{1}{x}+2\log|x-1|+C</m>
+</p></answer>
+
+<solution><p> (a)
+We substitute <m>y=\sin(2x)</m>, <m>\dee{y}=2\cos(2x)\ \dee{x}</m>. Note <m>\sin(2\cdot 0)=0</m> and <m>\sin(2\cdot\frac{\pi}{4}) = 1.</m>
+<me>
+\int_0^{\pi/4}\sin^5(2x)\,\cos(2x)\ \dee{x}
+=\int_{0}^{1} y^5\,\frac{\dee{y}}{2}
+=\frac{1}{12}\bigg[y^6\bigg]_0^1
+=\frac{1}{12}
+</me>
+</p>
+
+<p> (b) We can get rid of the square root with a trig substitution.
+Substituting <m>x=2\sin y</m>, <m>\dee{x}=2\cos y\ \dee{y}</m>,
+<md>
+<mrow>
+\int\sqrt{4-x^2}\ \dee{x}
+&amp;=\int \sqrt{4-4\sin^2 y}\ 2\cos y\ \dee{y}
+=4\int \cos^2y\ \dee{y}
+=2\int\big[1+\cos(2y)\big]\ \dee{y}
+</mrow><mrow>
+&amp;=2 y +\sin(2y)+C
+=2y+2\sin y\cos y+C
+</mrow><mrow>
+&amp;=2\sin^{-1}\frac{x}{2}+x\sqrt{1-\frac{x^2}{4}}+C
+</mrow>
+</md>
+since <m>\sin y =\frac{x}{2}</m> and <m>\cos y=\sqrt{1-\sin^2y}
+=\sqrt{1-\frac{x^2}{4}}</m>. Alternately, we can draw a triangle with <m>\sin y = \frac{x}{2}</m>, and use the Pythagorean theorem to find the adjacent side.
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[
+\trigtri{y}{\sqrt{4-x^2}}{x}{2}
+]]></latex-image></image>
+</sidebyside>
+<p>
+ (c)
+Seeing a rational function with no obvious substitution, we use the method of partial fractions. The denominator is already completely factored.
+<md>
+<mrow>
+\frac{x+1}{x^2(x-1)}&amp;=\frac{A}{x}+\frac{B}{x^2}+\frac{C}{x-1}
+</mrow><mrow>
+x+1&amp;=Ax(x-1)+B(x-1)+Cx^2
+</mrow>
+</md>
+Setting <m>x=1</m> gives us <m>\textcolor{red}{C=2}</m>.
+Setting <m>x=0</m> gives us <m>\textcolor{red}{B=-1}</m>. Furthermore,  the coefficient
+of <m>x^2</m> on the left hand side (after collecting like terms), namely <m>A+C</m>, must be the same as
+the  coefficient of <m>x^2</m> on the right hand side, namely <m>0</m>.
+So <m>A+C=0</m> and <m>\textcolor{red}{A=-2}</m>.
+Checking,
+<me>
+-2x(x-1)-(x-1)+2x^2=-2x^2+2x-x+1+2x^2=x+1
+</me>
+as desired. Thus,
+<me>
+\int\frac{x+1}{x^2(x-1)}\ \dee{x}
+=\int\Big[\textcolor{red}{-}\frac{\textcolor{red}{2}}{x}\textcolor{red}{-}\frac{\textcolor{red}{1}}{x^2}+\frac{\textcolor{red}{2}}{x-1}\Big]\ \dee{x}
+=-2\log|x|+\frac{1}{x}+2\log|x-1|+C
+</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2001D</fromexam></title>
+<statement><p>
+Calculate the following integrals.
+<ol label="a">
+<li>
+<m>\displaystyle\int_0^\infty e^{-x} \sin(2x)\,\dee{x}</m>
+</li>
+<li>
+ <m>\displaystyle\int_0^{\sqrt{2}}\frac{1}{(2+x^2)^{3/2}}\,\dee{x}</m>
+</li>
+<li>
+<m>\displaystyle\int_0^1 x\log(1+x^2)\,\dee{x}</m>
+</li>
+<li>
+<m>\displaystyle\int_3^\infty\frac{1}{(x-1)^2(x-2)}\,\dee{x}</m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+For part (a), see  Example <xref ref="eg_PRTSexsinx"/>.
+For part (d), see  Example <xref ref="eg_PFdd"/>.
+</p>
+
+</hint>
+
+<answer><p> (a)
+<m>\displaystyle\frac{2}{5}</m>
+</p><p>
+ (b)
+<m>\displaystyle\frac{1}{2\sqrt{2}}</m>
+</p><p> (c)
+<m>\displaystyle\log 2-\frac{1}{2}\approx 0.193</m>
+</p><p>(d)
+<m>\displaystyle\log 2-\frac{1}{2}\approx0.193</m>
+</p></answer>
+
+<solution><p> (a)
+Define
+<md>
+<mrow>
+I_1=\int_0^\infty e^{-x} \sin(2x)\,\dee{x}\qquad
+I_2=\int_0^\infty e^{-x} \cos(2x)\,\dee{x}
+</mrow>
+</md>
+We integrate by parts, with <m>u=\sin(2x)</m> or <m>\cos(2x)</m> and <m>\dee{v}=e^{-x}\,\dee{x}</m>.
+That is, <m>v=-e^{-x}</m>.
+<md alignment="alignat">
+  <mrow>
+I_1&amp;=\int_0^\infty e^{-x} \sin(2x)\,\dee{x}
+&amp;&amp;=\lim_{R\rightarrow\infty}\int_0^R e^{-x} \sin(2x)\,\dee{x}
+</mrow><mrow>
+&amp;&amp;&amp;=
+  \lim_{R\rightarrow\infty}\bigg(\Big[-e^{-x}\sin(2x)\Big]_0^R+2\int_0^R e^{-x} \cos(2x)\,\dee{x}\bigg)
+=2I_2
+</mrow><mrow>
+I_2&amp;=\int_0^\infty e^{-x} \cos(2x)\,\dee{x}
+&amp;&amp;=\lim_{R\rightarrow\infty}\int_0^R e^{-x} \cos(2x)\,\dee{x}
+</mrow><mrow>
+&amp;&amp;&amp;=\lim_{R\rightarrow\infty}
+\bigg(\Big[-e^{-x}\cos(2x)\Big]_0^R-2\int_0^R e^{-x} \sin(2x)\,\dee{x}
+                               \bigg)
+=1-2I_1
+</mrow>
+</md>
+Substituting <m>I_2=\dfrac12 I_1</m> into <m>I_2=1-2I_1</m> gives <m>\dfrac{5}{2}I_1=1</m>,
+or <m>\displaystyle\int_0^\infty e^{-x} \sin(2x)\,\dee{x}=\dfrac{2}{5}</m>.
+</p>
+
+<p> (b) We can cancel out the square root if we use a trig substitution.
+Substitute <m>x=\sqrt{2}\tan y</m>, <m>\dee{x}=\sqrt{2}\sec^2 y\,\dee{y}</m>.
+<md>
+<mrow>
+\int_0^{\sqrt{2}}\frac{1}{(2+x^2)^{3/2}}\,\dee{x}
+=\sqrt{2}\int_0^{\pi/4}\frac{\sec^2 y}{(2+2\tan^2y)^{3/2}}\,\dee{y}
+=\frac{1}{2}\int_0^{\pi/4}\cos y\,\dee{y}
+=\frac{1}{2} \bigg[\sin y\bigg]_0^{\pi/4}
+=\frac{1}{2\sqrt{2}}
+</mrow>
+</md>
+</p>
+
+<p> (c)
+<ul>
+<li>Solution 1:
+Integrate by parts, using <m>u=\log(1+x^2)</m> and <m>\dee{v}=x\,\dee{x}</m>, so that
+<m>\dee{u}=\frac{2x}{1+x^2}</m>, <m>v=\frac{x^2}{2}</m>.
+<md>
+<mrow>
+\int_0^1 x\log(1+x^2)\,\dee{x}
+&amp;=\Big[\frac{1}{2} x^2\log(1+x^2)\Big]_0^1-\int_0^1 \frac{x^3}{1+x^2}\,\dee{y}
+=\frac{1}{2} \log 2 -\int_0^1\Big[x-\frac{x}{1+x^2}\Big]\,\dee{x}\cr
+&amp;=\frac{1}{2} \log 2 -\Big[\frac{x^2}{2}-\frac{1}{2}\log(1+x^2)\Big]_0^1
+=\log 2-\frac{1}{2}\approx 0.193
+</mrow>
+</md>
+</li>
+<li>Solution 2:
+First substitute <m>y=1+x^2</m>, <m>\dee{y}=2x\,\dee{x}</m>.
+<md>
+<mrow>
+\int_0^1 x\log(1+x^2)\,\dee{x}
+=\frac{1}{2}\int_1^2\log y\ \dee{y}
+</mrow>
+</md>
+Then integrate by parts, using <m>u=\log y</m> and <m>\dee{v}=\dee{y}</m>, so that
+<m>\dee{u}=\frac{1}{y}</m>, <m>v=y</m>.
+<md>
+<mrow>
+\int_0^1 x\log(1+x^2)\,\dee{x}
+=\frac{1}{2}\int_1^2\log y\ \dee{y}
+=\Big[\frac{1}{2} y\log y\Big]_1^2-\frac{1}{2}\int_1^2 y\frac{1}{y}\,\dee{y}
+=\log 2-\frac{1}{2}\approx 0.193
+</mrow>
+</md>
+</li>
+</ul>
+</p>
+
+<p> (d)
+Seeing a rational function with no obvious substitution, we use partial fractions.
+<md>
+<mrow>
+\frac{1}{(x-1)^2(x-2)}
+&amp;=\frac{a}{(x-1)^2}+\frac{b}{x-1}+\frac{c}{x-2}
+</mrow><mrow>
+1&amp;=a(x-2)+b(x-1)(x-2)+c(x-1)^2\tag{*}
+</mrow>
+</md>
+Setting <m>x=1</m> gives <m>\textcolor{red}{a=-1}</m>. Setting <m>x=2</m> gives <m>\textcolor{red}{c=1}</m>. Substituting in <m>a=-1</m>
+and <m>c=1</m> to (<m>*</m>) gives
+<md>
+<mrow>
+b(x-1)(x-2)&amp;=1+(x-2)-(x-1)^2
+</mrow><mrow>
+&amp;=-x^2+3x-2
+</mrow><mrow>
+&amp;=-(x-1)(x-2)
+</mrow><mrow>
+\implies\qquad \color{red}b&amp;\color{red}=-1
+</mrow>
+</md>
+Hence:
+<md>
+<mrow>
+\int_3^\infty\frac{x}{(x-1)^2(x-2)}\,\dee{x}
+&amp;=\lim_{M\rightarrow\infty}
+\int_3^M\Big(-\frac{1}{(x-1)^2}-\frac{1}{x-1}+\frac{1}{x-2}\Big)\,\dee{x}
+</mrow><mrow>
+&amp;=\lim_{M\rightarrow\infty}
+\Big[\frac{1}{x-1}-\log(x-1)+\log(x-2)\Big]_3^M
+</mrow><mrow>
+&amp;=\lim_{M\rightarrow\infty}
+\Big[\frac{1}{M-1}+\log\frac{M-2}{M-1}\Big]
+-\Big[\frac{1}{3-1}+\log\frac{3-2}{3-1}\Big]
+</mrow><mrow>
+&amp;=\log 2-\frac{1}{2}\approx0.193
+</mrow>
+</md>
+since
+<md>
+<mrow>
+\lim_{M\rightarrow\infty}\log\frac{M-2}{M-1}
+=\lim_{M\rightarrow\infty}\log\frac{1-2/M}{1-1/M}
+=\log 1=0
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2002A</fromexam></title>
+<statement><p>
+Evaluate the following integrals.
+<ol label="a">
+<li>
+<m>\displaystyle\int x\,\log x\ \dee{x}</m>
+</li>
+<li>
+ <m>\displaystyle\int\frac{(x-1)\,\dee{x}}{x^2+4x+5}</m>
+</li>
+<li>
+<m>\displaystyle\int\frac{\dee{x}}{x^2-4x+3}</m>
+</li>
+<li>
+<m>\displaystyle\int\frac{x^2\,\dee{x}}{1+x^6}</m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+For part (b), first complete the square in the denominator.
+You can save some work by first comparing the derivative of the denominator
+            with the numerator.
+For part (d) use a simple substitution.
+</p></hint>
+
+<answer><p> (a)
+<m>\displaystyle\frac12 x^2\log x -\frac{1}{4} x^2+C</m>
+</p><p> (b)
+<m>\displaystyle\frac{1}{2} \log [x^2+4x+5] -3\arctan(x+2)+C</m>
+</p>
+<p> (c)
+<m>\displaystyle\frac12\log|x-3|-\frac12\log|x-1|+C</m>
+</p><p> (d)
+<m>\displaystyle\frac{1}{3}\arctan x^3 +C</m>
+</p></answer>
+
+<solution><p> (a)
+Integrate by parts with <m>u=\log x</m> and <m>\dee{v}=x\,\dee{x}</m>,
+so that <m>\dee{u}=\frac{\dee{x}}{x}</m> and <m>v=\half x^2</m>.
+<md>
+<mrow>
+\int x\,\log x\ \dee{x}= \frac{1}{2} x^2\log x- \frac{1}{2} \int x^2\cdot\frac{1}{x}\,\dee{x}
+=\frac{1}{2} x^2\log x -\frac{1}{4} x^2+C
+</mrow>
+</md>
+</p>
+
+<p> (b)   The denominator is an irreducible quadratic, so partial fractions can't get us any further. To integrate a function whose denominator is quadratic, we split the numerator up so that one piece can be evaluated with a <m>u</m>-substitution, and the other piece looks like arctangent.
+<md>
+<mrow>
+\int\frac{(x-1)\dee{x}}{x^2+4x+5}
+&amp;=\int\frac{x+2-3}{x^2+4x+5}\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{2}\int\frac{2x+4}{x^2+4x+5}\dee{x}
+-\int\frac{3}{x^2+4x+5}\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{2}\int\frac{2x+4}{x^2+4x+5}\dee{x}-3\int\frac{1}{(x+2)^2+1}\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{2} \log [x^2+4x+5] -3\arctan(x+2)+C
+</mrow>
+</md>
+For the last step, you can guess the antiderivative, or use the substitutions <m>u_1=x^2+4x+5</m> and <m>u_2=x+2</m>, respectively, for the two integrals.
+</p>
+
+<p> (c) We use partial fractions.
+<md>
+<mrow>
+\frac{1}{x^2-4x+3}
+&amp;=\frac{1}{(x-3)(x-1)}
+=\frac{a}{x-3}+\frac{b}{x-1}
+</mrow><mrow>
+1&amp;=a(x-1)+b(x-3)
+</mrow>
+</md>
+Setting <m>x=3</m> gives <m>\textcolor{red}{a=\frac{1}{2}}</m>.
+Setting <m>x=1</m> gives <m>\textcolor{red}{b=-\frac{1}{2}}</m>.  So,
+<md>
+<mrow>
+\int\frac{\dee{x}}{x^2-4x+3}
+=\int\Big(\frac{\textcolor{red}{1/2}}{x-3}\textcolor{red}{-}\frac{\textcolor{red}{1/2}}{x-1}\Big)\,\dee{x}
+=\frac{1}{2}\log|x-3|-\frac{1}{2}\log|x-1|+C
+</mrow>
+</md>
+</p>
+
+<p> (d) Substitute <m>y=x^3</m>, <m>\dee{y}=3x^2\,\dee{x}</m>.
+<md>
+<mrow>
+\int\frac{x^2\,\dee{x}}{1+x^6}= \frac{1}{3} \int \frac{\dee{y}}{1+y^2}
+= \frac{1}{3}\arctan y+C
+=\frac{1}{3}\arctan x^3 +C
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2013A</fromexam></title>
+<statement><p>
+Evaluate the following integrals.
+<ol label="a">
+<li>
+<m>\displaystyle\int_0^1\arctan  x\ \dee{x}</m>.
+</li>
+<li>
+<m>\displaystyle\int\frac{2x-1}{x^2-2x+5}\ \dee{x}</m>.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+For part (b), complete the square in the denominator.
+You can save some work by first comparing the derivative of the denominator
+with the numerator.
+</p></hint>
+
+<answer><p> (a)
+<m>\displaystyle\frac{\pi}{4}-\frac{1}{2}\log 2</m>
+<p></p> (b)
+<m>\displaystyle\log |x^2-2x+5| +\frac{1}{2}\arctan \frac{x-1}{2} +C</m>
+</p></answer>
+
+<solution><p> (a)
+Integrate by parts with <m>u=\arctan x</m>, <m>\dee{v}=\dee{x}</m>,
+<m>\dee{u}=\frac{\dee{x}}{1+x^2}</m> and <m>v=x</m>. This gives
+<md>
+<mrow>
+\int_0^1\arctan  x\ \dee{x}
+&amp;= \big[x\arctan x\big]_0^1-\int_0^1 \frac{x}{1+x^2} \dee{x}
+=\arctan 1-\Big[\frac{1}{2}\log(1+x^2)\Big]_0^1
+=\frac{\pi}{4}-\frac{1}{2}\log 2
+</mrow>
+</md>
+</p>
+
+<p> (b)
+Note that the derivative of the denominator is <m>2x-2</m>, which
+differs from the numerator only by <m>1</m>.
+<md>
+<mrow>
+\int\frac{2x-1}{x^2-2x+5}\ \dee{x}
+&amp;=\int\frac{2x-2}{x^2-2x+5}\ \dee{x}+\int\frac{1}{x^2-2x+5}\ \dee{x}
+</mrow><mrow>
+&amp;=\int\frac{2x-2}{x^2-2x+5}\ \dee{x}+\int\frac{1}{(x-1)^2+4}\ \dee{x}
+</mrow><mrow>
+&amp;=\log |x^2-2x+5| +\frac{1}{2}\arctan \frac{x-1}{2} +C
+</mrow>
+</md>
+In the last step, you can guess the antiderivative, or use the substitutions <m>u_1=x^2-2x+5</m> and <m>u_2=(x-1)/2</m>, respectively.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2014A</fromexam></title>
+<statement><p>
+<ol label="a">
+<li>
+Evaluate <m>{\displaystyle \int\frac{x^2}{(x^3 + 1)^{101}}\,\dee{x}}</m>.
+</li>
+<li>
+Evaluate <m>\displaystyle\int \cos^3\!x\ \sin^4\!x\ \dee{x}</m>.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+For part (a), the numerator is the derivative of a function that appears
+in the denominator.
+</p>
+
+</hint>
+
+<answer><p>
+(a)
+<m>\displaystyle-\frac{1}{300(x^3+1)^{100}} + C</m>
+</p><p> (b)
+<m>\displaystyle\frac{\sin^5\!x}{5}-\frac{\sin^7\!x}{7}+C</m>
+</p>
+
+</answer>
+
+<solution><p>
+(a)
+Substituting <m>u=x^3+1</m>, <m>\dee{u}=3x^2\,\dee{x}</m>
+<me>
+\int\frac{x^2}{(x^3 + 1)^{101}}\dee{x}
+=\int\frac{1}{u^{101}}\cdot \frac{\dee{u}}{3}
+=\frac{u^{-100}}{-100}\cdot\frac{1}{3}+C
+=-\frac{1}{300(x^3+1)^{100}} + C
+</me>
+</p>
+
+<p> (b)
+Substituting <m>u=\sin x</m>,  <m>\dee{u}=\cos x\ \dee{x}</m>,
+<m>\cos^2 x = 1-\sin^2 x = 1-u^2</m>,
+<md>
+<mrow>
+\int \cos^3\!x\ \sin^4\!x\ \dee{x}
+&amp;=\int \cos^2\!x\ \sin^4\!x\ \cos x\ \dee{x}
+=\int (1-u^2) u^4\ \dee{u}
+</mrow><mrow>
+&amp;=\int (u^4-u^6)\ \dee{u}
+=\frac{u^5}{5}-\frac{u^7}{7}+C
+</mrow><mrow>
+&amp;=\frac{\sin^5\!x}{5}-\frac{\sin^7\!x}{7}+C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int_{\pi/2}^\pi \frac{\cos x}{\sqrt{\sin x}}\dee{x}</m>.
+</p></statement>
+<hint><p>
+The integral is improper.
+</p></hint>
+<answer><p>
+-2
+</p></answer>
+<solution><p>
+First, we note that the integral is improper, because <m>\sin\pi=0</m>. So, we'll have to use a limit.
+</p>
+
+<p>Second, we need to antidifferentiate. The substitution <m>u=\sin x</m>, <m>\dee{u}=\cos x\dee{x}</m> fits just right.
+<md>
+<mrow>
+\int_{\pi/2}^\pi \frac{\cos x}{\sqrt{\sin x}}\dee{x}&amp;=\lim_{b \to \pi^-}\int_{\pi/2}^b \frac{\cos x}{\sqrt{\sin x}}\dee{x} =
+\lim_{b \to \pi^-}\int_{1}^{\sin b} \frac{1}{\sqrt{u}}\dee{u}
+</mrow><mrow>
+&amp;=\lim_{b \to \pi^-}\Big[2\sqrt{u}\Big]_{1}^{\sin b}  = 2\sqrt{0} - 2\sqrt{1}=-2
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2015A</fromexam></title>
+<statement><p>
+Evaluate the following integrals.
+<ol label="a">
+<li>
+<m>\displaystyle\int \frac{e^x}{(e^x+1)(e^x-3)}\, \dee{x}</m>
+</li>
+<li>
+<m>\displaystyle\int_2^4 \frac{x^2-4x+4}{\sqrt{12+4x-x^2}}\, \dee{x}</m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+For part (a), can you convert this into a partial fractions integral?
+For part (b), start by completing the square inside the square root.
+</p></hint>
+
+<answer><p> (a)
+<m>\displaystyle-\frac{1}{4}\log|e^x+1| +\frac{1}{4}\log|e^x-3| + C</m>
+<p></p> (b)
+<m>\displaystyle\frac{4\pi}{3}-2\sqrt{3}</m>
+</p>
+
+</answer>
+
+<solution><p> (a)
+If the integrand had <m>x</m>'s instead of <m>e^x</m>'s it would be a rational function,
+ripe for the application of partial fractions. So let's start by making the
+substitution <m>u=e^x</m>, <m>\dee{u}=e^x\,\dee{x}</m>:
+<md>
+<mrow>
+\int \frac{e^x}{(e^x+1)(e^x-3)} \dee{x}
+  = \int \frac{\dee{u}}{(u+1)(u-3)}
+</mrow>
+</md>
+Now, we follow the partial fractions protocol, starting with expressing
+<md>
+<mrow>
+\frac{1}{(u+1)(u-3)} = \frac{A}{u+1} + \frac{B}{u-3}
+</mrow>
+</md>
+To find <m>A</m> and <m>B</m>, the sneaky way, we cross multiply by the denominator
+<md>
+<mrow>
+1 = A(u-3) + B(u+1)
+</mrow>
+</md>
+and find <m>A</m> and <m>B</m> by evaluating at <m>u=-1</m> and <m>u=3</m>, respectively.
+<md>
+<mrow>
+1 = A(-1-3) + B(-1+1)  &amp;\iff\color{red} A=-\frac{1}{4}
+</mrow><mrow>
+1 = A(3-3) + B(3+1)  &amp;\iff \color{red}B=\frac{1}{4}
+</mrow>
+</md>
+Finally, we can do the integral:
+<md>
+<mrow>
+\int \frac{e^x}{(e^x+1)(e^x-3)} \dee{x}
+  &amp;= \int \frac{\dee{u}}{(u+1)(u-3)}
+  = \int \Big(\frac{\textcolor{red}{-1/4}}{u+1} + \frac{\textcolor{red}{1/4}}{u-3}\Big)\dee{u}
+</mrow><mrow>
+  &amp;=-\frac{1}{4}\log|u+1| +\frac{1}{4}\log|u-3| + C
+</mrow><mrow>
+  &amp;=-\frac{1}{4}\log|e^x+1| +\frac{1}{4}\log|e^x-3| + C
+</mrow>
+</md>
+</p>
+
+<p> (b)  The argument of the square root is
+<md>
+<mrow>
+12+4x-x^2
+=12-(x-2)^2 +4
+=16-(x-2)^2
+</mrow>
+</md>
+Hmmm. The numerator is <m>x^2-4x+4=(x-2)^2</m>. So let's make the integral look somewhat simpler by substituting <m>u=x-2</m>, <m>\dee{u}=\dee{x}</m>.
+When <m>x=2</m> we have <m>u=0</m>, and when <m>x=4</m> we have <m>u=2</m>, so:
+<md>
+<mrow>
+\int_{x=2}^{x=4} \frac{x^2-4x+4}{\sqrt{12+4x-x^2}} \dee{x}
+=\int_{u=0}^{u=2} \frac{u^2}{\sqrt{16-u^2}} \dee{u}
+</mrow>
+</md>
+This is perfect for the trig substitution <m>u=4\sin\theta</m>,
+<m>\dee{u} = 4\cos(\theta)\,\dee{\theta}</m>. When <m>u=0</m> we have <m>4\sin\theta = 0</m>
+and hence <m>\theta=0</m>. When <m>u=2</m> we have <m>4\sin\theta = 2</m>
+and hence <m>\theta=\frac{\pi}{6}</m>. So
+<md>
+<mrow>
+\int_{u=0}^{u=2} \frac{u^2}{\sqrt{16-u^2}} \dee{u}
+&amp;=\int_{\theta=0}^{\theta=\pi/6}
+      \frac{16\sin^2\theta}{\sqrt{16-16\sin^2\theta}}
+              4\cos\theta\dee{\theta}
+</mrow><mrow>
+&amp;=16\int_{0}^{\pi/6} \sin^2\theta\ \dee{\theta}
+</mrow><mrow>
+&amp;=8\int_{0}^{\pi/6} \big(1-\cos(2\theta)\big)\ \dee{\theta}
+</mrow><mrow>
+&amp;=8 \bigg[\theta-\frac{1}{2}\sin(2\theta)\bigg]_{0}^{\pi/6}
+ =8 \bigg[\frac{\pi}{6}-\frac{1}{2}\cdot \frac{\sqrt{3}}{2} \bigg]
+</mrow><mrow>
+&amp; = \frac{4\pi}{3}-2\sqrt{3}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M121 1999A</fromexam></title>
+<statement><p>
+Evaluate these integrals.
+</p>
+
+<p><ol label="a">
+<li>
+<m>\displaystyle\int\frac{\sin^3x}{\cos^3x} \ \dee{x}</m>
+</li>
+<li>
+<m>\displaystyle\int_{-2}^{2}\frac{x^4}{x^{10}+16}\ \dee{x}</m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+For part (b), the numerator is the derivative of a function that is
+embedded in the denominator.
+</p>
+
+</hint>
+
+<answer><p> (a)
+<m>\displaystyle\frac{1}{2}\sec^2 x+\log|\cos x|+C</m>
+</p><p> (b)
+<m>\displaystyle \frac{1}{10}\arctan 8\approx 0.1446</m>
+</p></answer>
+
+<solution><p> (a)
+Substituting <m>y=\cos x</m>, <m>\dee{y}=-\sin x\,\dee{x}</m>, <m>\sin^2 x = 1-\cos^2x=1-y^2</m>
+<md>
+<mrow>
+\int \frac{\sin^3x}{\cos^3x}\ \dee{x}
+&amp;=\int \frac{\sin^2 x}{\cos^3 x}\ \sin x\,\dee{x}
+=\int \frac{1-y^2}{y^3}\ (-\dee{y})
+=-\int \big( y^{-3}-y^{-1}\big)\ \dee{y}
+</mrow><mrow>
+&amp;=-\frac{y^{-2}}{-2}+\log|y|+C
+=\frac{1}{2}\sec^2 x+\log|\cos x|+C
+</mrow>
+</md>
+</p>
+
+<p> (b)
+The integrand is an even function, and the limits of integration are symmetric. So, we can slightly simplify the integral by replacing the lower limit with 0, and doubling the integral.
+</p>
+
+<p>We'd rather not use partial fractions here, because it would be pretty complicated. Instead, notice that the numerator is only off by a constant from the derivative of <m>x^5</m>.
+Substituting <m>x^5=4y</m>, <m>5x^4\,\dee{x}=4\,\dee{y}</m>,
+and using that <m>x=2\implies 2^5=4y\implies y=8</m>,
+<md>
+<mrow>
+\int_{-2}^{2}\frac{x^4}{x^{10}+16}\ \dee{x}
+&amp;=2\int_0^{2}\frac{x^4}{x^{10}+16}\ \dee{x}
+=2\cdot\frac{4}{5}\int_0^{8}\frac{1}{16y^2+16}\ \dee{y}
+=\frac{1}{10}\int_0^{8}\frac{1}{y^2+1}\ \dee{y}
+</mrow><mrow>
+&amp;= \frac{1}{10}\arctan 8\approx 0.1446
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int x\sqrt{x-1}\dee{x}</m>.
+</p></statement>
+<hint><p>
+Try a substitution.
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{2}{5}(x-1)^{5/2} + \frac{2}{3}(x-1)^{3/2}+C</m>
+</p></answer>
+<solution><p>
+<ul>
+<li>Solution 1:
+Let's use the substitution <m>u=x-1</m>, <m>\dee{u}=\dee{x}</m>.
+<md>
+<mrow>
+\int x\sqrt{x-1}\dee{x}&amp;=\int(u+1)\sqrt{u}\dee{u}
+</mrow><mrow>
+&amp;=\int \left(u^{3/2}+u^{1/2}\right)\dee{u}
+</mrow><mrow>
+&amp;=\frac{2}{5}u^{5/2} + \frac{2}{3}u^{3/2}+C
+</mrow><mrow>
+&amp;=\frac{2}{5}(x-1)^{5/2} + \frac{2}{3}(x-1)^{3/2}+C
+</mrow>
+</md>
+</li>
+<li><p>
+Solution 2: We have an integrand with <m>x</m> multiplied by something integrable. So, if we use integration by parts with <m>u=x</m> and <m>\dee{v} = \sqrt{x-1}\dee{x}</m>, then <m>\dee{u}=\dee{x}</m> (that is, the <m>x</m> goes away) and <m>v = \frac{2}{3}(x-1)^{3/2}</m>.
+<md>
+<mrow>
+\int x\sqrt{x-1}\dee{x}&amp;=\frac{2}{3}x\sqrt{x-1}^3 - \frac{2}{3}\int(x-1)^{3/2}\dee{x}
+</mrow><mrow>
+&amp;= \frac{2}{3}x\sqrt{x-1}^3 - \frac{2}{3}\left(\frac{2}{5}(x-1)^{5/2}\right)+C
+</mrow><mrow>
+&amp;=\frac{2}{3}\sqrt{x-1}\left(x(x-1)-\frac{2}{5}(x-1)^2\right)+C
+</mrow><mrow>
+&amp;=\frac{2}{15}\sqrt{x-1}\cdot(3x^2-x-2)+C
+</mrow><mrow>
+&amp;=\frac{2}{15}\sqrt{x-1}\cdot(3(x^2-2x+1)+5x-5)+C
+</mrow><mrow>
+&amp;=\frac{2}{15}\sqrt{x-1}\cdot(3(x-1)^2+5(x-1))+C
+</mrow><mrow>
+&amp;=\frac{2}{15}\cdot 3\sqrt{x-1}^5 +\frac{2}{15}\cdot 5\sqrt{x-1}^3+C
+</mrow><mrow>
+&amp;=\frac{2}{5}\sqrt{x-1}^5 +\frac{2}{3}\sqrt{x-1}^3+C
+</mrow>
+</md>
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate
+<m>\displaystyle\int \frac{\sqrt{x^2-2}}{x^2}\dee{x}</m>.
+</p>
+
+<p>You may use that  <m>\int \sec x\dee{x} = \log|\sec x+\tan x| +C</m>.
+</p></statement>
+
+<hint><p>
+Note the quadratic function under the square root: you can solve this with trigonometric substitution, as in Section<nbsp/><xref ref="sec_trigsub"/> of the CLP-II text.
+</p></hint>
+
+<answer><p>
+<m>\log \left| x+{\sqrt{x^2-2}}
+\right|-\dfrac{\sqrt{x^2-2}}{x}+C</m>
+</p></answer>
+
+<solution>
+
+<p><me>
+\int \frac{\sqrt{x^2-2}}{x^2}\dee{x}</me>
+</p>
+
+<p>We notice that there is a quadratic function under the square root. If that equation were a perfect square, we could get rid of the square root: so we'll mould it into a perfect square using a trig substitution.
+</p>
+
+<p>Our candidates will use one of the following identities:
+<me>
+1-\sin^2\theta=\cos^2\theta \hspace{1cm} \tan^2\theta+1=\sec^2\theta \hspace{1cm} \sec^2\theta-1=\tan^2\theta</me>
+</p>
+
+<p>We'll be substituting <m>x=</m>(something), so we notice that <m>x^2-2</m> has the general form of
+(function)<m>-</m>(constant), as does <m>\sec^2\theta-1</m>. In order to get the constant right, we multiply through by two:
+<me>
+2\sec^2\theta-2=2\tan^2\theta</me>
+</p>
+
+<p>or:
+<me>
+(\sqrt{2}\sec \theta)^2-2=2\tan^2\theta</me>
+</p>
+
+<p>so we decide to use the substitution
+<me>
+x=\sqrt{2}\sec\theta\hspace{1cm}\dee{x}=\sqrt{2}\sec\theta\tan\theta \dee{\theta}</me>
+</p>
+
+<p>Now that we've chosen the substitution, we evaluate the integral.
+</p>
+
+<p><md>
+<mrow>
+\int\frac{\sqrt{x^2-2}}{x^2}\dee{x}&amp;=\int\frac{\sqrt{2\sec^2\theta-2}}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta \dee{\theta}
+</mrow><mrow>
+&amp;=\int
+\frac{\sqrt{2\tan^2\theta}}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta
+\dee{\theta}
+</mrow><mrow>
+&amp;=\int
+\frac{\sqrt{2}\tan\theta}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta
+\dee{\theta}
+</mrow><mrow>
+&amp;=\int
+\frac{\tan^2\theta}{\sec\theta}
+\dee{\theta}
+</mrow><mrow>
+&amp;=
+\int \frac{\sec^2\theta-1}{\sec\theta}\dee{\theta}
+</mrow><mrow>
+&amp;=\int \big(\sec\theta-\cos\theta\big)\, \dee{\theta}
+</mrow><mrow>
+&amp;=\log|\sec\theta + \tan\theta|-\sin\theta +C
+</mrow>
+</md>
+Now we need everything back in terms of <m>x</m>. We need a triangle. Since <m>x=\sqrt{2}\sec\theta</m>, that means if we label an angle <m>\theta</m>, its secant (hypotenuse over adjacent side) is <m>\dfrac{x}{\sqrt{2}}</m>. By Pythagoras, the opposite side is <m>\sqrt{x^2-2}</m>.
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[
+\trigtri{\theta}{\sqrt2}{\sqrt{x^2-2}}{x}
+]]></latex-image></image>
+</sidebyside>
+<p>
+So <m>\tan \theta = \frac{\mbox{opp}}{\mbox{adj}}=\dfrac{\sqrt{x^2-2}}{\sqrt{2}}</m>, and <m>\sin\theta = \frac{\mbox{opp}}{\mbox{hyp}}=\dfrac{\sqrt{x^2-2}}{x}</m>. Then the value of the integral is:
+</p>
+
+<p><md>
+<mrow>
+\log|\sec\theta + \tan\theta|-\sin\theta +C
+&amp;={ \log \left|
+\frac{x}{\sqrt{2}}+\frac{\sqrt{x^2-2}}{\sqrt{2}}
+\right|-\frac{\sqrt{x^2-2}}{x}+C}
+</mrow><mrow>
+&amp;={ \log \left| x+{\sqrt{x^2-2}}
+\right|-\log\sqrt{2}-\frac{\sqrt{x^2-2}}{x}+C}
+</mrow><mrow>
+&amp;= \log \left| x+{\sqrt{x^2-2}}
+\right|-\frac{\sqrt{x^2-2}}{x}+C
+</mrow>
+</md>
+</p>
+
+<p>Note the simplification in the last step is due to our convention that <m>C</m> is an arbitrary constant. So, <m>C-\log\sqrt{2}</m> can be re-written as simply <m>C</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate
+<m>\displaystyle\int_0^{\pi/4} \sec^4x\tan^5x\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+Try a <m>u</m>-substitution, as in Section<nbsp/><xref ref="sec_tansec"/> of the CLP-II text
+</p></hint>
+
+<answer><p>
+<m>\dfrac{7}{24}</m>
+</p></answer>
+
+<solution>
+
+<p>This is the product of secants and tangents, as in Section<nbsp/><xref ref="sec_tansec"/>
+of the CLP-II text.
+ If <m>u=\tan x</m>, then <m>\dee{u}=\sec^2x\dee{x}</m>. We can get the remaining two secants to turn into tangents with the identity <m>\sec^2x=1+\tan^2x</m>, so we'll use this substitution.
+</p>
+
+<p><md>
+<mrow>
+\int_{0}^{\pi/4} \sec^4x\tan^5x\dee{x}&amp;=
+\int_{0}^{\pi/4} \sec^2x\tan^5x\sec^2x\dee{x}
+</mrow><mrow>
+&amp;=
+\int_{0}^{\pi/4} (1+\tan^2x)\tan^5x\underbrace{\sec^2x\dee{x}}_{\dee{u}}
+</mrow><mrow>
+&amp;=
+\int_{\tan(0)}^{\tan(\pi/4)} (1+u^2)u^5\dee{u}
+</mrow><mrow>
+&amp;=
+\int_{0}^{1} (u^5+u^7)\dee{u}
+</mrow><mrow>
+&amp;=
+\left[\frac{1}{6}u^6+\frac{1}{8}u^8\right]_{0}^{1}
+</mrow><mrow>
+&amp;=\frac{1}{6}+\frac{1}{8}-0=\frac{7}{24}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate
+<m>\displaystyle\int \frac{3x^2+4x+6}{(x+1)^3} \, \dee{x}</m>.
+</p></statement>
+
+<hint><p>
+What's the usual trick for evaluating a rational function (quotient of polynomials)?
+</p></hint>
+
+<answer><p>
+<m>3\log|x+1|+\dfrac{2}{x+1}-\dfrac{5}{2(x+1)^2}+C</m>
+</p></answer>
+
+<solution><p>
+We can use partial fraction decomposition to break this into chunks that we can deal with. The denominator has a repeated linear factor, so it can be decomposed as the sum of constants divided by powers of that factor.
+<md>
+<mrow>
+ \frac{3x^2+4x+6}{(x+1)^3} &amp;=\frac{A}{x+1}+\frac{B}{(x+1)^2}+\frac{C}{(x+1)^3}
+</mrow><mrow>
+ &amp;=\frac{A(x+1)^2+B(x+1)+C}{(x+1)^3}
+</mrow><mrow>
+ \Rightarrow \quad
+ 3x^2+4x+6&amp;=A(x+1)^2+B(x+1)+C
+</mrow><mrow>
+ &amp;=Ax^2+(2A+B)x+(A+B+C)
+ </mrow>
+<intertext>So, by matching coefficients:</intertext><mrow>
+ &amp;A=3, 2A+B=4,\mbox{ and } A+B+C=6
+</mrow><mrow>
+ &amp;\color{red}A=3,\quad B=-2,\quad C=5
+ </mrow>
+<intertext>Therefore:</intertext><mrow>
+ \frac{3x^2+4x+6}{(x+1)^3} &amp;= \frac{\textcolor{red}{3}}{x+1}+\frac{\textcolor{red}{-2}}{(x+1)^2}+\frac{\textcolor{red}{5}}{(x+1)^3}
+</mrow>
+<intertext>
+Now, the integration is easy, with a substitution of <m>u=x+1</m> and <m>\dee{u}=\dee{x}</m>:</intertext><mrow>
+\int\frac{3x^2+4x+6}{(x+1)^3} \dee{x}&amp;= \int\left(\frac{3}{x+1}+\frac{-2}{(x+1)^2}+\frac{5}{(x+1)^3}\right)\dee{x}
+</mrow><mrow>
+&amp;=\int \left( 3u^{-1}-2u^{-2}+5u^{-3}\right)\dee{u}
+</mrow><mrow>
+&amp;=3\log|u|+2u^{-1}-\frac{5}{2} u^{-2}+C
+</mrow><mrow>
+&amp;=3\log|x+1|+\frac{2}{x+1}-\frac{5}{2(x+1)^2}+C
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate
+<m>\displaystyle\int\frac{1}{x^2+x+1}\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+If the denominator were <m>x^2+1</m>, the antiderivative would be arctangent.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{2}{\sqrt3}\arctan\left(\dfrac{2}{\sqrt3}x+\dfrac{1}{\sqrt3}\right) +C</m>
+</p></answer>
+
+<solution>
+
+<p>If the denominator were <m>x^2+1</m>, the antiderivative would be arctangent. So, by completing the square, let's aim for the fraction to look like <m>\dfrac{1}{u^2+1}</m>, for some <m>u</m>. This is a good strategy for integrating an irreducible quadratic under a constant.
+</p>
+
+<p><md>
+<mrow>
+</mrow>
+<intertext>First: complete the square</intertext><mrow>
+\int\frac{1}{x^2+x+1}\dee{x}&amp;=
+\int\frac{1}{x^2+x+\frac{1}{4}+\frac{3}{4}}\dee{x}
+=
+\int\frac{1}{\left(x+\frac{1}{2}\right)^2+\frac{3}{4}}\dee{x}
+</mrow>
+<intertext>Second: get the denominator in the form <m>u^2+1</m>. To do this, we need to fix the constant</intertext><mrow>
+&amp;=\int\left(\frac{1}{\left(x+\frac{1}{2}\right)^2+\frac{3}{4}}\right)\left(\frac{\frac{4}{3}}{\frac{4}{3}}\right)\dee{x}
+</mrow><mrow>
+&amp;=\frac{4}{3}\int\frac{1}{\frac{4}{3}\cdot\left(x+\frac{1}{2}\right)^2+1}\dee{x}
+</mrow>
+<intertext>Now a quick wiggle to make that first part of the denominator into something squared again:</intertext><mrow>
+&amp;=\frac{4}{3}\int\frac{1}{\left(\frac{2}{\sqrt{3}}x+\frac{1}{\sqrt{3}}\right)^2+1}\dee{x}
+</mrow>
+<intertext>Now we see that <m>u=\dfrac{2}{\sqrt{3}}x+\dfrac{1}{\sqrt{3}}</m>, <m>\dee{u}=\dfrac{2}{\sqrt3}\dee{x}</m> will do the job</intertext><mrow>
+&amp;=\frac{4}{3}\int\frac{1}{u^2+1}\cdot\frac{\sqrt{3}}{2}\dee{u}
+=\frac{2}{\sqrt3}\int\frac{1}{u^2+1}\dee{u}
+</mrow><mrow>
+&amp;=\frac{2}{\sqrt3}\arctan u +C
+</mrow><mrow>
+&amp;=\frac{2}{\sqrt3}\arctan\left(\frac{2}{\sqrt3}x+\frac{1}{\sqrt3}\right) +C
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int \sin x \cos x \tan x\dee{x}</m>.
+</p></statement>
+<hint><p>
+Simplify first.
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac12\left(x -\sin x \cos x \right)+C</m>
+</p></answer>
+<solution><p> Since <m>\tan x =\frac{\sin x}{\cos x}</m>,
+<md>
+<mrow>
+\int \sin x \cos x \tan x\dee{x}&amp;=\int \sin^2 x\dee{x} = \int \frac{1}{2}\big(1-\cos(2x) \big)\dee{x}
+</mrow><mrow>
+&amp;=\frac12\left(x - \frac{1}{2}\sin(2x) \right)+C
+</mrow><mrow>&amp;=\frac12\left(x -\sin x \cos x \right)+C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int \frac{1}{x^3+1}\dee{x}</m>.
+</p></statement>
+<hint><p>
+<m>x^3+1 = (x+1)(x^2-x+1)</m>
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{1}{3}\log|x+1| - \frac{1}{6}\log|x^2+x+1| +
+\frac{1}{\sqrt3}\arctan\left(\frac{2x-1}{\sqrt3}\right)+C</m>
+</p></answer>
+<solution><p>
+We have the integral of a rational function with no obvious substitution, so we use partial fractions. That means we need to factor the denominator. We see that <m>x=-1</m> is a root of the denominator, so <m>x+1</m> is a factor. You might be able to figure out the rest of the factorization by inspection, or from having seen this common expression before; alternately, we can use long division.
+</p>
+<p>
+<image><latex-image><![CDATA[\polylongdiv{x^3+1}{x+1}]]></latex-image></image>
+</p>
+<p>
+Note <m>x^2-x+1</m> is an irreducible quadratic.
+<md>
+<mrow>
+\frac{1}{x^3+1} &amp;= \frac{1}{(x+1)(x^2-x+1)} = \frac{A}{x+1} + \frac{Bx+C}{x^2-x+1}
+</mrow><mrow>
+1&amp;=A(x^2-x+1)+(Bx+C)(x+1) \tag{*}
+</mrow>
+<intertext>When <m>x=-1</m>, we see <m>1=3A</m>, so <m>\textcolor{red}{\frac{1}{3}=A}</m>. We plug this into (<m>*</m>).</intertext>
+<mrow>
+1&amp;=\textcolor{red}{\frac{1}{3}}(x^2-x+1)+(Bx+C)(x+1)
+</mrow><mrow>
+-\frac{1}{3}x^2+\frac{1}{3}x+\frac{2}{3}&amp;=Bx^2+(B+C)x+C
+</mrow>
+<intertext>Matching up coefficients of corresponding power of <m>x</m>, we see <m>\textcolor{red}{B = -\frac{1}{3}}</m> and <m>\textcolor{red}{C = \frac{2}{3}}</m>.</intertext><mrow>
+\int \frac{1}{x^3+1}\dee{x}&amp;=\int \left(\frac{\textcolor{red}{1/3}}{x+1} \textcolor{red}{-} \frac{\textcolor{red}{\frac{1}{3}}x-\textcolor{red}{\frac{2}{3}}}{x^2-x+1}\right)\dee{x}
+</mrow>
+<intertext>To integrate the second fraction, we break it up into two pieces: one we can integrate using the substitution <m>u=x^2-x+1</m>, the other will look like the derivative of arctangent.</intertext><mrow>
+&amp;=\frac{1}{3}\log|x+1| -\int\frac{\frac{1}{3}x-\frac{1}{6}-\frac{1}{2}}{x^2-x+1}\dee{x}
+</mrow><mrow>&amp;=\frac{1}{3}\log|x+1| - \frac{1}{6}\int\frac{2x-1}{x^2-x+1}\dee{x} + \frac{1}{2}\int \frac{1}{(x-\frac{1}{2})^2+\frac{3}{4}}\dee{x}
+</mrow><mrow>&amp;=\frac{1}{3}\log|x+1| - \frac{1}{6}\log|x^2-x+1| +
+\frac{1}{2}\int\frac{1}{\frac{3}{4}\left(\left(\frac{2x-1}{\sqrt{3}}\right)^2+1\right)} \dee{x}
+</mrow><mrow>&amp;=\frac{1}{3}\log|x+1| - \frac{1}{6}\log|x^2-x+1| +
+\frac{2}{3}\int\frac{1}{\left(\frac{2x-1}{\sqrt{3}}\right)^2+1} \dee{x}
+</mrow>
+<intertext>Let <m>u= \frac{2x-1}{\sqrt3}</m>, <m>\dee{u} = \frac{2}{\sqrt 3}\dee{x}</m>.</intertext>
+<mrow>
+&amp;=\frac{1}{3}\log|x+1| - \frac{1}{6}\log|x^2-x+1| +
+\frac{1}{\sqrt3}\int\frac{1}{u^2+1} \dee{x}
+</mrow><mrow>&amp;=\frac{1}{3}\log|x+1| - \frac{1}{6}\log|x^2-x+1| +
+\frac{1}{\sqrt3}\arctan\left(\frac{2x-1}{\sqrt3}\right)+C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate
+<m>\displaystyle\int (3x)^2\arcsin x \dee{x}</m>.
+</p></statement>
+
+<hint><p>
+You have the product of two quite dissimilar functions in the integrand<mdash/>try integration by parts.
+</p></hint>
+
+<answer><p>
+<m>3x^3\arcsin x + 3\sqrt{1-x^2}-(1-x^2)^{3/2} + C</m>
+</p></answer>
+
+<solution><p>
+By process of elimination, we decide to use  integration by parts. We won't get anything better by antidifferentiating arcsine, so let's plan on differentiating it:
+<md>
+<mrow>
+u&amp;=\arcsin x \qquad &amp;\dee{v} &amp;= (3x)^2\dee{x}
+</mrow>
+<mrow>
+\dee{u}&amp;=\dfrac{1}{\sqrt{1-x^2}}\dee{x} \qquad &amp;v&amp;=3x^3
+</mrow>
+</md>
+<md>
+<mrow>
+\int (3x)^2\arcsin x \dee{x}&amp;=
+\underbrace{\arcsin x}_{u}\cdot\underbrace{3x^3}_{v}-\int
+\underbrace{3x^3}_{v}\cdot
+\underbrace{\frac{1}{\sqrt{1-x^2}}\dee{x}}_{\dee{u}}
+</mrow><mrow>
+&amp;=3x^3\arcsin x -\int \frac{3x^3}{\sqrt{1-x^2}}\dee{x}
+</mrow>
+</md>
+So: we've gotten rid of the ugly pairing of arcsine with a polynomial, but now we're in another pickle. From here, two options present themselves. We could use the substitution <m>u=1-x^2</m>, or we could use a trig substitution.
+<ul>
+<li>Option 1: Let <m>u=1-x^2</m>. Then <m>-\frac{1}{2}\dee{u}=\dee{x}</m>, and <m>x^2 = 1-u</m>.
+<md>
+<mrow>
+\int (3x)^2\arcsin x \dee{x}&amp;=
+3x^3\arcsin x -\int \frac{3x^3}{\sqrt{1-x^2}}\dee{x}
+</mrow><mrow>
+&amp;=3x^3 \arcsin x - 3\int\frac{x^2}{\sqrt{1-x^2}}\cdot x\dee{x}
+</mrow><mrow>&amp;=3x^3 \arcsin x + \frac{3}{2}\int\frac{1-u}{\sqrt{u}}\dee{u}
+</mrow><mrow>&amp;=3x^3 \arcsin x + \frac{3}{2}\int\left(u^{-1/2} - u^{1/2}\right)\dee{u}
+</mrow><mrow>&amp;=3x^3 \arcsin x + \frac{3}{2}\left(2u^{1/2} - \frac{2}{3}u^{3/2}\right)+C
+</mrow><mrow>&amp;=3x^3 \arcsin x + 3\sqrt{1-x^2} - \sqrt{1-x^2}^3+C
+</mrow>
+</md>
+</li>
+<li><p>Option 2: If we let <m>x=\sin\theta</m>, then <m>\sqrt{1-x^2}=\sqrt{\cos^2\theta}=\cos\theta</m>. So let's use the substitution <m>x=\sin\theta</m>, <m>\dee{x}=\cos\theta \dee{\theta}</m>.
+<md>
+<mrow>
+\int (3x)^2\arcsin x \dee{x}&amp;=
+3x^3\arcsin x -\int \frac{3x^3}{\sqrt{1-x^2}}\dee{x}
+</mrow><mrow>
+&amp;=3x^3\arcsin x - \int \frac{3\sin^3\theta}{\sqrt{1-\sin^2\theta}}\cos\theta \dee{\theta}
+</mrow><mrow>
+&amp;=
+3x^3\arcsin x - \int {3\sin^3\theta \dee{\theta}}</mrow>
+<intertext>And now: a substitution from Section<nbsp/><xref ref="sec_sincos"/> of the CLP-II text,
+ <m>u=\cos x</m> and <m>\dee{u}=-\sin x \dee{x}</m></intertext><mrow>
+3x^3\arcsin x - \int {3\sin^3\theta \dee{\theta}}&amp;=3x^3\arcsin x - 3\int\sin^2\theta \sin\theta \dee{\theta}
+</mrow><mrow>
+&amp;=3x^3\arcsin x - 3\int(1-\cos^2\theta) \sin\theta \dee{\theta}
+</mrow><mrow>
+&amp;=3x^3\arcsin x + 3\int(1-u^2)\dee{u}
+</mrow><mrow>
+&amp;=3x^3\arcsin x + 3 \left(u-\frac{1}{3}u^3\right) + C
+</mrow><mrow>
+&amp;=3x^3\arcsin x + 3u-u^3 + C
+</mrow><mrow>
+&amp;=3x^3\arcsin x + 3\cos\theta-\cos^3\theta + C
+</mrow>
+<intertext>Recall <m>x=\sin\theta</m>; so we draw a triangle with angle <m>\theta</m>, opposite side <m>x</m>, hypotenuse 1. Then by Pythagoras, adjacent side is <m>\sqrt{1-x^2}</m>, so <m>\cos\theta = \sqrt{1-x^2}</m>.</intertext>
+<mrow>
+&amp;=3x^3\arcsin x + 3\sqrt{1-x^2}-(1-x^2)^{3/2} + C
+</mrow>
+</md>
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[
+\trigtri{\theta}{\sqrt{1-x^2}}{x}{1}
+]]></latex-image></image>
+</sidebyside>
+
+</li>
+</ul>
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int_0^{\pi/2}\sqrt{\cos t+1}\ \dee{t}</m>.
+</p></statement>
+<hint><p>
+Use the identity <m>\cos(2x) = 2\cos^2x -1</m>.
+</p></hint>
+<answer><p>
+2
+</p></answer>
+<solution><p>
+We would like to not have that square root there. Luckily, there's a way of turning cosine into cosine squared: the identity <m>\cos(2x) = 2\cos^2x -1</m>. If we take <m>2x=t</m>, then <m>\cos t = 2\cos^2(t/2)-1</m>.
+<md>
+<mrow>
+\int_0^{\pi/2}\sqrt{\cos t+1}\ \dee{t}&amp;=\int_0^{\pi/2}\sqrt{2\cos^2 (t/2)}\dee{t} =
+\sqrt{2}\int_0^{\pi/2} |\cos (t/2)|\dee{t}
+</mrow>
+<intertext>Over the interval <m>[0,\frac{\pi}{2}]</m>, <m>\cos (t/2)  \gt 0</m>, so we can drop the absolute values.</intertext>
+<mrow>
+&amp;= \sqrt{2}\int_0^{\pi/2} \cos (t/2)\dee{t} = \sqrt{2}\left[2\sin\left(\frac{t}{2}\right)\right]_0^{\pi/2}
+</mrow><mrow>
+&amp;=2\sqrt{2}\sin\left(\frac{\pi}{4}\right) = {2}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate
+<m>\displaystyle\int_1^e \frac{\log\sqrt{x}}{{x}}\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+Using logarithm rules can make the integrand simpler.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{4}</m>
+</p></answer>
+
+<solution><p>
+<ul>
+<li>
+<p> Solution 1: Using logarithm rules, <m>\log\sqrt{x} = \log\left(x^{1/2}\right)=\frac{1}{2}\log x</m>, so we can simplify:
+<me>
+\int_1^e \frac{\log\sqrt{x}}{{x}}\dee{x} =\int_1^e \frac{\log{x}}{{2x}}\dee{x}
+</me>
+We use the substitution <m>u=\log x</m>, <m>\dee{u}=\frac{1}{x}\dee{x}</m>:
+<md>
+<mrow>
+\int_1^e \frac{\log{x}}{{2x}}\dee{x}&amp;=\frac{1}{2}\int_1^e \underbrace{\log(x)}_{u}\cdot\underbrace{\frac{1}{x}\,\dee{x}}_{\dee{u}}
+</mrow><mrow>
+&amp;=\frac{1}{2}\int_{\log(1)}^{\log(e)}u\,\dee{u}
+</mrow><mrow>
+&amp;=\frac{1}{2}\int_{0}^{1}u\,\dee{u}
+</mrow><mrow>
+&amp;=\frac{1}{2}\left[ \frac{1}{2}u^2\right]_0^1
+</mrow><mrow>
+&amp;=\frac{1}{2}\left[\frac{1}{2}-0\right]=\dfrac{1}{4}
+</mrow>
+</md>
+</p>
+</li>
+<li><p>
+Solution 2:
+We use the substitution <m>u=\log\sqrt{x}</m>. Then <m>\dfrac{\dee{u}}{\dee{x}}=\dfrac{1}{\sqrt{x}}\cdot\dfrac{1}{2\sqrt{x}}=\dfrac{1}{2x}</m>, hence <m>2\dee{u}=\dfrac{1}{x}\dee{x}</m>. This fits our integral nicely!
+<md>
+<mrow>
+\int_1^e\frac{\log\sqrt{x}}{x}\dee{x} &amp;=
+\int_{\log\sqrt{1}}^{\log\sqrt{e}}u\cdot 2\dee{u}
+</mrow><mrow>
+&amp;=\Big[u^2\Big]_{0}^{1/2}
+</mrow><mrow>
+&amp;=\left(\frac{1}{2}\right)^2-0^2=\frac{1}{4}
+</mrow>
+</md>
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate
+<m>\displaystyle\int_{0.1}^{0.2} \frac{\tan x}{\log(\cos x)}\,  \dee{x}</m>.
+</p>
+
+</statement>
+
+<hint><p>
+What is the derivative of the function in the denominator? How could that be useful to you?
+</p></hint>
+
+<answer><p>
+<m>\log\left(\dfrac{\log(\cos(0.1))}{\log(\cos(0.2))}\right)</m>
+</p></answer>
+
+<solution><p>
+<me>
+\int_{0.1}^{0.2} \frac{\tan x}{\log(\cos x)}  \dee{x}</me>
+</p>
+
+<p>It might not be immediately obvious how to proceed on this one, so this is another example of an integral where you should not be discouraged by finding methods that don't work. One thing that's worked for us in the past is to use a <m>u</m>-substitution with the denominator. With that in mind, let's find the derivative of the denominator.
+<me>
+\diff{}{x}\left\{\log(\cos x)\right\}= \frac{1}{\cos x}\cdot (-\sin x) = \frac{-\sin x}{\cos x} = -\tan x</me>
+</p>
+
+<p>So, if we let <m>u=\log(\cos x</m>), we see <m>-\dee{u}=\tan x \dee{x}</m>, which will work for a substitution.
+</p>
+
+<p><md>
+<mrow>
+\int_{0.1}^{0.2} \frac{\tan x}{\log(\cos x)}  \dee{x}&amp;=
+\int_{\log(\cos(0.1))}^{\log(\cos(0.2))} \frac{-\dee{u}}{u}
+</mrow><mrow>
+&amp;=\Big[-\log|u|\Big]_{\log(\cos(0.1))}^{\log(\cos(0.2))}
+</mrow><mrow>
+&amp;=
+-\log|\log(\cos 0.2)|+\log|\log(\cos 0.1)|
+</mrow><mrow>
+&amp;={\log\left|\frac{\log(\cos(0.1))}{\log(\cos(0.2))}\right|}
+</mrow><mrow>&amp;=
+\log\left(\frac{\log(\cos(0.1))}{\log(\cos(0.2))}\right)
+</mrow>
+</md>
+</p>
+
+<p>Things to notice: the integrand is only defined when <m>\log(\cos x)</m> exists AND is nonzero. So, for instance, it is not defined when <m>x=0</m>, because then <m>\log\cos x = \log1=0</m>, and we can't divide by zero.
+</p>
+
+<p>In the final simplification, since <m>0.1</m> and <m>0.2</m> are between 0 and <m>\pi/2</m>, the cosine term is positive but less than one, so <m>\log(\cos 0.1)</m> and <m>\log(\cos 0.2)</m> are both negative; then their quotient is positive, so we can drop the absolute value signs.
+</p>
+
+<p>Using the base change formula, we can also write the final answer as
+<m>\log\left(\log_{\cos (0.2)}\cos(0.1)\right)</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2012A</fromexam></title>
+<statement><p>
+Evaluate these integrals.
+</p>
+
+<p><ol label="a">
+<li>
+<m>\displaystyle\int\sin(\log x) \ \dee{x}</m>
+</li>
+<li>
+<m>\displaystyle\int_0^1\frac{1}{x^2-5x+6}\ \dee{x}</m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+For part (a), the substitution <m>u=\log x</m> gives an integral that you
+have seen before.
+</p></hint>
+
+<answer><p> (a)
+<m>\displaystyle \frac{1}{2} x \big[\sin(\log x) -\cos(\log x)\big]+C </m>
+</p><p> (b)
+<m>\log |x-3| -  \log|x-2| + C </m>
+</p></answer>
+
+<solution><p> (a) Without any other ideas, we see we have a compound function<mdash/>a function of a function. We often find it useful to substitute for the <q>inside</q> function. So, we
+substitute <m>u=\log x</m>, <m>\dee{u}=\frac{1}{x}\,\dee{x}</m>. Then
+<m>\dee{x} = x\,\dee{u}= e^u\,\dee{u}</m>.
+<md>
+<mrow>
+\int\sin(\log x) \ \dee{x}
+&amp;=\int\sin(u)\ e^u\ \dee{u}
+</mrow>
+</md>
+We have already seen, in Example <xref ref="eg_PRTSexsinx"/> of
+the CLP-II text, that
+<me>
+\int\sin(u)\ e^u\ \dee{u}
+=\frac{1}{2}e^u\big(\sin u -\cos u\big)+C
+</me>
+So,
+<me>
+\int\sin(\log x)\ \dee{x} =\frac{1}{2} x \big[\sin(\log x) -\cos(\log x)\big]+C
+</me>
+</p>
+
+<p> (b)
+The integrand is of the form <m>N(x)/D(x)</m> with <m>N(x)</m> of lower degree
+than <m>D(x)</m>. So we factor <m>D(x)=(x-2)(x-3)</m> and look for a partial fractions decomposition:
+<me>
+\frac{1}{(x-2)(x-3)} = \frac{A}{x-2} + \frac{B}{x-3}.
+</me>
+Multiplying through by the denominator yields
+<md>
+<mrow>
+1 &amp;= A(x-3) + B(x-2)
+</mrow>
+</md>
+Setting <m>x=2</m> we find:
+<md>
+<mrow>
+   1 = A(2-3) + 0 \implies\color{red}  A = -1
+</mrow>
+</md>
+Setting <m>x=3</m> we find:
+<md>
+<mrow>
+   1 = 0 + B(3-2) \implies \color{red} B = 1
+</mrow>
+</md>
+So we have found that <m>A=-1</m> and <m>B=1</m>. Therefore
+<md>
+<mrow>
+  \int\frac{1}{(x-2)(x-3)}\ \dee{x}
+  &amp;= \int \bigg( \frac{1}{x-3} - \frac{1}{x-2} \bigg) \,\dee{x}
+</mrow><mrow>
+   &amp;=  \log |x-3| -  \log|x-2| + C
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M121 2012A</fromexam></title>
+<statement><p>
+Evaluate (with justification).
+</p>
+
+<p><ol label="a">
+<li>
+<m>\displaystyle\int_0^3(x+1)\sqrt{9-x^2} \ \dee{x}</m>
+</li>
+<li>
+<m>\displaystyle\int\frac{4x+8}{(x-2)(x^2+4)}\ \dee{x}</m>
+</li>
+<li>
+<m>\displaystyle\int_{-\infty}^{+\infty} \frac{1}{e^x+e^{-x}}\ \dee{x}</m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+For part (a), split the integral in two. One part may be evaluated
+ by interpreting it geometrically, without doing any integration at all.
+For part (c), multiply both the numerator and denominator by <m>e^x</m>
+and then make a substitution.
+</p>
+
+</hint>
+
+<answer><p> (a)
+<m>\displaystyle\frac{9}{4}\pi + 9
+</m>
+</p><p>
+ (b)
+<m>\displaystyle2 \log |x-2| -  \log (x^2 + 4) + C</m>
+<p></p>
+ (c)
+<m>\displaystyle\frac{\pi}{2}</m>
+</p></answer>
+
+<solution><p> (a)
+If we expand the integrand, one part of it is quite familiar<mdash/>a portion of a circle.
+So, we split the specified integral in two.
+<me>
+\int_0^3(x+1)\sqrt{9-x^2} \ \dee{x}
+  = \int_0^3\sqrt{9-x^2} \ \dee{x}
+    +\int_0^3x\sqrt{9-x^2} \ \dee{x}
+</me>
+The first piece represents the area above the <m>x</m>-axis and below the curve
+<m>y=\sqrt{9-x^2}</m>, i.e. <m>x^2+y^2=9</m>, with <m>0\le x\le 3</m>. That's the area of
+one quadrant of a disk of radius <m>3</m>. So
+<me>
+\int_0^3\sqrt{9-x^2} \ \dee{x}
+ =\frac{1}{4}(\pi \cdot 3^2) = \frac{9}{4}\pi
+</me>
+For the second part, we substitute <m>u=9-x^2</m>, <m>\dee{u}= -2x\,\dee{x}</m>. Note
+<m>u(0)=9</m> and <m>u(3)=0</m>. So,
+<md>
+<mrow>
+\int_0^3x\sqrt{9-x^2} \ \dee{x}
+= \int_9^0\sqrt{u} \ \frac{\dee{u}}{-2}
+=-\frac{1}{2}\left[\frac{u^{3/2}}{3/2}\right]_9^0
+=-\frac{1}{2}\left[-\frac{27}{3/2}\right]
+=9
+</mrow>
+</md>
+All together,
+<me>
+\int_0^3(x+1)\sqrt{9-x^2} \ \dee{x} = \frac{9}{4}\pi + 9
+</me>
+</p>
+
+<p> (b)
+The integrand is of the form <m>N(x)/D(x)</m> with <m>D(x)</m> already factored
+and <m>N(x)</m> of lower degree. We immediately look for a partial fractions decomposition:
+<me>
+\frac{4x+8}{(x-2)(x^2+4)} = \frac{A}{x-2} + \frac{Bx+C}{x^2+4}.
+</me>
+Multiplying through by the denominator yields
+<me>
+4x+8 = A(x^2+4) + (Bx+C)(x-2)
+\tag{*}
+</me>
+Setting <m>x=2</m> we find:
+<md>
+<mrow>
+   8 +8 = A(4 + 4) + 0 \implies 16 =8A  \implies\color{red} A = 2
+</mrow>
+</md>
+Substituting <m>A=2</m> in <m>(*)</m> gives
+<md alignment="alignat">
+  <mrow>
+&amp;&amp;4x+8 &amp;= A(x^2+4) + (Bx+C)(x-2)
+</mrow><mrow>
+  &amp;\implies &amp;  -2x^2+4 x &amp;=(x-2)(Bx + C)
+</mrow><mrow>
+  &amp;\implies\qquad &amp;  (-2x)(x-2)&amp;=(Bx + C)(x-2)
+</mrow><mrow>
+  &amp; \implies&amp; \color{red} B&amp; \color{red} =-2,<nbsp/>C=0
+</mrow>
+</md>
+So we have found that <m>A=2</m>, <m>B=-2</m>, and <m>C=0</m>. Therefore
+<md>
+<mrow>
+  \int\frac{4x+8}{(x-2)(x^2+4)}\ \dee{x} &amp;= \int \bigg( \frac{\textcolor{red}2}{x-2} \textcolor{red}- \frac{\textcolor{red}2x}{x^2+4} \bigg) \,\dee{x}
+</mrow><mrow>
+   &amp;=  2 \log |x-2| -  \log (x^2 + 4) + C
+</mrow>
+</md>
+Here the second integral was found just by guessing an antiderivative.
+Alternatively, one could use the substitution <m>u=x^2+4</m>,
+<m>\dee{u}=2x\,\dee{x}</m>.
+</p>
+
+<p> (c)
+The given integral is improper, but only because of its infinite limits of integration. (The integrand is continuous for all real numbers.) So, we'll have to take two limits. Before we do that, though, let's find the antiderivative. We would like to use the substitution <m>u=e^x</m>, <m>\dee{u}=e^x\dee{x}</m>. That is, <m>\frac{1}{u}\dee{u} = \dee{x}</m>.
+<md>
+<mrow>
+\int \frac{1}{e^x+e^{-x}}\dee{x}&amp;=\int \frac{1}{u(u+\frac{1}{u})}\dee{u} = \int\frac{1}{u^2+1} = \arctan u+C
+</mrow><mrow>&amp;=\arctan(e^x)+C
+</mrow>
+<intertext>Now we can deal with the limits of integration.</intertext><mrow>
+\int _{ -\infty}^\infty\frac{1}{e^x+e^{-x}}\dee{x}&amp;=
+\int _{ -\infty}^0\frac{1}{e^x+e^{-x}}\dee{x}+
+\int _{ 0}^\infty\frac{1}{e^x+e^{-x}}\dee{x}
+</mrow><mrow>&amp;=
+\lim_{a \to -\infty}\left[\int_{a}^0\frac{1}{e^x+e^{-x}}\dee{x}\right]+
+\lim_{b \to \infty}\left[\int_{ 0}^b\frac{1}{e^x+e^{-x}}\dee{x}\right]
+</mrow><mrow>&amp;=
+\lim_{a \to -\infty}\big[\arctan(e^x)\big]_a^0+
+\lim_{b \to \infty}\big[\arctan(e^x)\big]_0^b
+</mrow><mrow>&amp;=
+\lim_{a \to -\infty}\big[\arctan(e^0)-\arctan(e^a)\big]+
+\lim_{b \to \infty}\big[\arctan(e^b)-\arctan(e^0)\big]
+</mrow><mrow>&amp;=
+\lim_{a \to -\infty}\big[-\arctan(e^a)\big]+
+\lim_{b \to \infty}\big[\arctan(e^b)\big]
+</mrow><mrow>
+&amp;=-\arctan(0)+\frac{\pi}{2} = \frac{\pi}{2}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int \sqrt{\frac{x}{1-x}}\dee{x}</m>.
+</p></statement>
+<hint><p>
+Let <m>u=\sqrt{1-x}</m>.
+</p></hint>
+<answer><p>
+<m>-\arcsin (\sqrt{1-x})-\sqrt{1-x}\sqrt{x}+C</m>
+</p></answer>
+<solution><p>
+It's not immediately clear where to start, but a common method we've seen is to use the denominator in a <m>u</m>-substitution, especially when square roots are involved.
+</p>
+
+<p>Let <m>u = \sqrt{1-x}</m>, <m>\dee{u} = -\frac{1}{2\sqrt{1-x}}\dee{x}</m>. Then <m>u^2=1-x</m>, so <m>x = 1-u^2</m>.
+</p>
+
+<p><md>
+<mrow>
+\int \sqrt{\frac{x}{1-x}}\dee{x}&amp;=2\int \frac{\sqrt{x}}{2\sqrt{1-x}}\dee{x} =- 2\int\sqrt{1-u^2}\dee{u}
+</mrow>
+<intertext>Now we're back in familiar territory. Let <m>u=\sin \theta</m>, <m>\dee{u}=\cos \theta\dee{\theta}</m>.
+</intertext><mrow>
+&amp;=-2\int\sqrt{1-\sin^2 \theta }\cos\theta\dee{\theta}
+</mrow><mrow>
+&amp;=-2\int\cos^2\theta\dee{\theta}
+</mrow><mrow>
+&amp;=-\int \big(1+\cos(2\theta)\big)\dee{\theta}
+</mrow><mrow>
+&amp;=-\theta - \frac{1}{2}\sin(2\theta)+C
+</mrow><mrow>
+&amp;=-\theta - \sin\theta\cos\theta+C
+</mrow><mrow>
+&amp;=-\arcsin u - u\sqrt{1-u^2}+C \tag{*}
+</mrow><mrow>
+&amp;=-\arcsin (\sqrt{1-x})-\sqrt{1-x}\sqrt{x}+C
+</mrow>
+</md>
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[
+\trigtri{\theta}{\sqrt{1-u^2}}{u}{1}
+]]></latex-image></image>
+</sidebyside>
+<p>
+In (<m>*</m>), to convert from <m>\theta</m> to <m>u</m>, our substitution <m>u=\sin\theta</m> tells us <m>\theta = \arcsin u</m>. To find <m>\cos \theta</m>, we can either trace our work backwards to see that we already simplified <m>\sqrt{1-u^2}</m> into <m>\cos\theta</m>, or we can draw a right triangle with angle <m>\theta</m> and <m>\sin \theta=u</m>, then use the Pythagorean theorem to find the length of the adjacent side of the triangle and <m>\cos\theta</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int_0^1e^{2x}e^{e^x}\,\dee{x}</m>.
+</p></statement>
+<hint><p>
+Use the substitution <m>u=e^x</m>.
+</p></hint>
+<answer><p>
+<m>e^e(e-1)</m>
+</p></answer>
+<solution><p>
+Let's use the substitution <m>u=e^x</m>. There are a few reasons to think this is a good choice. It's an <q>inside function,</q> in that if we let <m>f(x)=e^x</m>, then <m>f(e^x)=e^{e^x}</m>, which is a piece of our integrand. Also its derivative, <m>e^x</m>, is multiplied by the rest of the integrand, since <m>e^{2x}=e^x\cdot e^x</m>.
+</p>
+
+<p>Let <m>u=e^x</m>, <m>\dee{u} = e^x\dee{x}</m>. When <m>x=0</m>, <m>u=1</m>, and when <m>x=1</m>, <m>u=e</m>.
+<md>
+<mrow>
+\displaystyle\int_0^1e^{2x}e^{e^x}\dee{x} &amp;= \int_0^1e^{x}e^{e^x}e^x\dee{x} =\int_1^e ue^u\dee{u}
+</mrow>
+<intertext>This is more familiar. We use integration by parts with <m>\dee{v} = e^u\dee{u}</m>, <m>v=e^u</m>. Conveniently, the <q><m>u</m></q> we brought in with the substitution is what we want to use for the <q><m>u</m></q> in integration by parts, so we don't have to change the names of our variables.</intertext><mrow>
+&amp;=\big[ue^u\big]_1^e - \int_1^e e^u\dee{u}
+</mrow><mrow>
+&amp;=e\cdot e^e-e-e^e+e=e^e(e-1)
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int\frac{xe^x}{(x+1)^2}\dee{x}</m>.
+</p></statement>
+<hint><p>
+Use integration by parts. If you choose your parts well, the resulting integration will be very simple.
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{e^x}{x+1}+C</m>
+</p></answer>
+<solution><p>
+The substitution <m>u=x+1</m> looks promising at first, but doesn't result in something easily integrable. We can't use partial fractions because our integration isn't rational. This doesn't look like something from the trig-substitution family.  So, let's think about integration by parts. There's a lot of different ways we could break up the integrand into two parts. For example, we could view it as <m>\Big(\frac{x}{(x+1)^2}\Big)\Big(e^x\Big)</m>, or we could view it as <m>\Big(\frac{x}{x+1}\Big)\Big(\frac{e^x}{x+1}\Big)</m>. After some trial and error, we settle on <m>u=xe^x</m> and <m>\dee{v}=(x+1)^{-2}\dee{x}</m>. Then <m>\dee{u}=e^x(x+1)</m> and <m>v=\frac{-1}{x+1}</m>.
+<md>
+<mrow>
+\int\frac{xe^x}{(x+1)^2}\dee{x}&amp;=-\frac{xe^x}{x+1} +\int \frac{e^x(x+1)}{x+1}\dee{x}
+</mrow><mrow>&amp;=-\frac{xe^x}{x+1} +\int e^x\dee{x}\\
+&amp;=-\frac{xe^x}{x+1}+e^x+C
+</mrow><mrow>&amp;= \frac{e^x}{x+1}+C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int \frac{x\sin x}{\cos^2 x}\,\dee{x}</m>.
+</p>
+
+<p>You may use that  <m>\int \sec x\dee{x} = \log|\sec x+\tan x| +C</m>.
+</p></statement>
+<hint><p>
+ <m>\frac{\sin x}{\cos^2 x} = \tan x \sec x</m>
+</p></hint>
+<answer><p>
+<m>\displaystyle x\sec x - \log|\sec x + \tan x|+C</m>
+</p></answer>
+<solution><p>
+It would be nice to use integration by parts with <m>u=x</m>, because then we would integrate <m>\int v\dee{u}</m>, and <m>\dee{u} = \dee{x}</m>. That is, the <m>x</m> would go away, and we'd be left with a pure trig integral. If we use <m>u=x</m>, then <m>\dee{v} = \frac{\sin x}{\cos^2 x}</m>. We need to find <m>v</m>:
+<md>
+<mrow>
+v&amp;=\int \frac{\sin x}{\cos^2 x}\dee{x} = \int \tan x \sec x\dee{x} = \sec x
+</mrow>
+<intertext>Now we use integration by parts.</intertext><mrow>
+\int \frac{x\sin x}{\cos^2 x}\dee{x}&amp;=x\sec x - \int \sec x \dee{x}= x\sec x - \log|\sec x + \tan x|+C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int x(x+a)^n\dee{x}</m>, where <m>a</m> and <m>n</m> are constants.
+</p></statement>
+<hint><p>
+The cases <m>n=-1</m> and <m>n=-2</m> are different from all other values of <m>n</m>.
+</p></hint>
+<answer><p>
+<m>\displaystyle\int x(x+a)^n\dee{x}=\begin{cases}
+\frac{(x+a)^{(n+2)}}{n+2}-a\frac{(x+a)^{n+1}}{n+1}+C&amp;\text{ if } n \neq -1,-2\\
+ (x+a)-a\log|x+a|+C &amp; \text{ if } n=-1\\
+ \log|x+a| + \frac{a}{x+a}+C&amp; \text{ if } n=-2
+\end{cases}
+</m>
+</p></answer>
+<solution><p>
+If the unknown exponent gives you the jitters,  think about what this looks like in easier cases. If <m>n</m> is a whole number, the integrand is a polynomial. Not so scary, right? However, it's a little complicated to expand. (You can do it using the very handy binomial theorem.) Let's think of an easier way.
+</p>
+
+<p>If we had simply the variable <m>x</m> raised to the power <m>n</m>, rather than the binomial <m>x+a</m>, that might be nicer. So, let's use the substitution <m>u=x+a</m>, <m>\dee{u}=\dee{x}</m>. Note <m>x=u-a</m>.
+<md>
+<mrow>
+\int x(x+a)^n\dee{x}&amp;=\int (u-a)u^n\dee{x} = \int \big(u^{n+1}-au^n\big)\dee{u}
+</mrow>
+<intertext>Now, if <m>n\neq -1</m> and <m>n \neq -2</m>, we can just use the power rule:</intertext><mrow>
+&amp;=\frac{u^{(n+2)}}{n+2}-a\frac{u^{n+1}}{n+1}+C
+</mrow><mrow>
+&amp;=\frac{(x+a)^{(n+2)}}{n+2}-a\frac{(x+a)^{n+1}}{n+1}+C
+</mrow>
+<intertext>If <m>n=-1</m>, then</intertext><mrow>
+\int x(x+a)^n\dee{x}&amp;=\int \big(u^{n+1}-au^n\big)\dee{u} =\int \left(1 - \frac{a}{u}\right)\dee{u}
+</mrow><mrow>&amp;= u - a\log|u|+C = (x+a)-a\log|x+a|+C
+</mrow>
+<intertext>If <m>n=-2</m>, then</intertext><mrow>
+\int x(x+a)^n\dee{x}&amp;=\int \big(u^{n+1}-au^n\big)\dee{u}=\int\left( \frac{1}{u} - au^{-2}\right)\dee{u}
+</mrow><mrow>&amp; = \log|u| + \frac{a}{u}+C= \log|x+a| + \frac{a}{x+a}+C
+</mrow>
+<intertext>All together,</intertext><mrow>
+\int x(x+a)^n\dee{x}&amp;=\begin{cases}
+\frac{(x+a)^{(n+2)}}{n+2}-a\frac{(x+a)^{n+1}}{n+1}+C&amp;\text{ if } n \neq -1,-2
+</mrow><mrow>
+ (x+a)-a\log|a+x|+C &amp; \text{ if } n=-1
+</mrow><mrow>
+ \log|x+a| +\frac{a}{x+a}+C&amp; \text{ if } n=-2
+\end{cases}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int\arctan (x^2)\dee{x}</m>.
+</p></statement>
+<hint><p>
+<m>x^4+1 = (x^2+\sqrt2x+1)(x^2-\sqrt2x+1)</m>
+</p></hint>
+<answer><p>
+<m>x\arctan(x^2) -
+\frac{1}{\sqrt 2}\Bigg( \frac{1}{2}\log\left|\tfrac{x^2-\sqrt2x+1}{ x^2+\sqrt2x+1}\right|
++\arctan\left(\sqrt{2}x+1\right)+ \arctan\left(\sqrt{2}x-1\right)
+\Bigg)+C</m>
+</p></answer>
+<solution><p>
+We've seen how to antidifferentiate <m>\arctan x</m>: integration by parts. Let's hope the same thing will work here.
+</p>
+
+<p><alert>Step 1: integration by parts.</alert>
+</p>
+<p>
+ Let <m>u=\arctan(x^2)</m> and <m>\dee{v} = \dee{x}</m>. Then <m>\dee{u} = \frac{2x}{x^4+1}\dee{u}</m> and <m>v=x</m>.
+<md>
+<mrow>
+\int\arctan (x^2)\dee{x}&amp;=x\arctan(x^2) - \int \frac{2x^2}{x^4+1}\dee{x}
+</mrow>
+</md>
+Now we have a rational function. There's no obvious substitution, but we can use partial fractions. The degree of the numerator is strictly less than the degree of the denominator, so we don't need to long divide first. We do, however, need to factor the denominator. It's a common function, so you might already know the factorization, or you might be able to guess it. Below, we show another way to find the factorization, similar to the method of partial fractions.
+</p>
+
+<p><alert>Step 2: factor <m>\mathbf{x^4+1}</m></alert>.
+For any real <m>x</m>, note <m>x^4+1  \gt 0</m>. Since it has no roots, it has no linear factors. That means it factors as the product of two irreducible quadratics. That is,
+<md>
+<mrow>
+x^4+1&amp;=(ax^2+bx+c)(dx^2+ex+f)
+</mrow>
+<intertext>Since the coefficient of <m>x^4</m> on the left-hand is 1, we may assume <m>a=d=1</m>.</intertext><mrow>
+x^4+1&amp;=(x^2+bx+c)(x^2+ex+f)
+</mrow>
+<intertext>Since the constant term is 1, <m>cf=1</m>. That is, <m>f = \frac{1}{c}</m>.</intertext><mrow>
+x^4+1&amp;=(x^2+bx+c)(x^2+ex+1/c)
+</mrow><mrow>
+&amp;=x^4 + \underbrace{\vphantom{\bigg(}(b+e)}_{(1)}x^3+\underbrace{\left(\frac{1}{c}+be+c\right)}_{(3)}x^2+\underbrace{\left(\frac{b}{c}+ec\right)}_{(2)}x+1
+</mrow>
+</md>
+<ol label="1">
+<li> The coefficient of <m>x^3</m> tells us <m>e=-b</m>.
+</li>
+<li> Then the coefficient of <m>x</m> tells us <m>0=\frac{b}{c}+ec = \frac{b}{c}-bc</m>. So, <m>c = \frac{1}{c}</m>, hence <m>c=\pm 1</m>.
+</li>
+<li> Finally, the coefficient of <m>x^2</m> tells us
+<m>0=\frac{1}{c}+be + c = \frac{1}{c}-b^2+c</m>. Since <m>-b^2</m> is negative (or zero), <m>\frac{1}{c}+c</m> is positive, so <m>c=1</m>. That is, <m>0=1-b^2+1</m>. So, <m>b = \sqrt{2}</m>.
+</li>
+</ol>
+All together,
+<me>
+x^4+1 = (x^2+\sqrt{2}x+1)(x^2-\sqrt{2}x+1)</me>
+</p>
+
+<p><alert>Step 3: partial fraction decomposition.</alert></p>
+<p>
+Now that we have the denominator factored into irreducible quadratics, we can find the partial fraction decomposition of the integrand.
+<md>
+<mrow>
+\frac{2x^2}{x^4+1}&amp;=\frac{Ax+B}{x^2+\sqrt2x+1} + \frac{Cx+D}{x^2-\sqrt2x+1}
+</mrow><mrow>
+2x^2&amp;=(Ax+B)(x^2-\sqrt2x+1)+(Cx+D)(x^2+\sqrt2x+1)
+</mrow><mrow>&amp;
+= (A+C)x^3+(B+D-\sqrt{2}A+\sqrt2C)x^2+(A+C-\sqrt2B+\sqrt2D)x+(B+D)
+</mrow>
+<intertext>From the coefficient of <m>x^3</m>, we see <m>C=-A</m>.</intertext><mrow>
+2x^2&amp;= (B+D-2\sqrt{2}A)x^2+(-\sqrt2B+\sqrt2D)x+(B+D)
+</mrow>
+<intertext>From the constant term, we see <m>D=-B</m>.</intertext><mrow>
+2x^2&amp;= (-2\sqrt{2}A)x^2+(-2\sqrt2B)x
+</mrow>
+</md>
+From the coefficient of <m>x^2</m>, we see <m>-2\sqrt{2}A=2</m>, so <m>\textcolor{red}{A=-1/\sqrt{2}}</m>. Since <m>C=-A</m>, then  <m>\textcolor{red}{C = 1/\sqrt2}</m>.
+</p>
+
+<p>From the coefficient of <m>x</m>, we see  <m>\textcolor{red}{B=0}</m>. Since <m>D=-B</m>, also <m>\textcolor{red}{D=0}</m>.
+</p>
+
+<p><alert>Step 4: integration.</alert>
+<md>
+<mrow>
+ \int&amp;\frac{2x^2}{x^4+1}\dee{x}
+=\int\left(\frac{(\textcolor{red}{-1/\sqrt2}) x }{x^2+\sqrt2x+1}+\frac{(\textcolor{red}{1/\sqrt2})x}{x^2-\sqrt2x+1}\right)\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{\sqrt 2}\int\left(\frac{- x }{x^2+\sqrt2x+1}+\frac{x}{x^2-\sqrt2x+1}\right)\dee{x}
+</mrow>
+<intertext>To integrate, we want to break the fractions into two pieces each: one we can integrate with a substitution <m>u=x^2\pm\sqrt2x+1</m> , <m>\dee{u} =\big( 2x\pm \sqrt{2}\big)\dee{x}</m> (shown in blue), and one that looks like the derivative of arctangent (shown in red). </intertext><mrow>
+&amp;=\frac{1}{\sqrt 2}\int\left(\frac{\textcolor{blue}{- x -\frac{\sqrt 2}{2}} +\textcolor{red}{\frac{\sqrt2}{2}}}{x^2+\sqrt2x+1}+\frac{\textcolor{blue}{x-\frac{\sqrt2}{2}}+\textcolor{red}{\frac{\sqrt2}{2}}}{x^2-\sqrt2x+1}\right)\dee{x}
+</mrow><mrow>&amp;=\frac{1}{\sqrt 2}
+\int\left(\textcolor{blue}{\frac{-\frac{1}{2}(2 x +{\sqrt 2})}{x^2+\sqrt2x+1}} +\textcolor{red}{\frac{\frac{\sqrt2}{2}}{x^2+\sqrt2x+1}}+\textcolor{blue}{\frac{\frac{1}{2}(2x-\sqrt2)}{x^2-\sqrt2x+1}}+\textcolor{red}{\frac{\frac{\sqrt2}{2}}{x^2-\sqrt2x+1}}\right)\dee{x}
+</mrow><mrow>&amp;=\frac{1}{\sqrt 2}\Bigg(\textcolor{blue}{ -\frac{1}{2}\log\left| x^2+\sqrt2x+1\right|}
++\textcolor{red}{\int\frac{\frac{\sqrt2}{2}}{x^2+\sqrt2x+1}\dee{x}}
+</mrow><mrow>
+&amp;\qquad+
+\textcolor{blue}{\frac{1}{2}\log|x^2-\sqrt2x+1|} +\textcolor{red}{ \int \frac{\frac{\sqrt2}{2}}{x^2-\sqrt2x+1}\dee{x}}
+\Bigg)
+</mrow>
+<intertext>We use logarithm rules to compress our work. In order to evaluate the remaining integrals, we complete the squares of the denominators.</intertext><mrow>
+&amp;=\frac{1}{\sqrt 2}\Bigg(\textcolor{blue}{ \frac{1}{2}\log\left|\tfrac{x^2-\sqrt2x+1}{ x^2+\sqrt2x+1}\right|}
++\textcolor{red}{\int\frac{\frac{\sqrt2}{2}}{\left(x+\frac{1}{\sqrt2}\right)^2+\frac{1}{2}}\dee{x}}+ \textcolor{red}{\int \frac{\frac{\sqrt2}{2}}{\left(x-\frac{1}{\sqrt2}\right)^2+\frac{1}{2}}\dee{x}}
+\Bigg)
+</mrow><mrow>&amp;=\frac{1}{\sqrt 2}\Bigg( \textcolor{blue}{\frac{1}{2}\log\left|\tfrac{x^2-\sqrt2x+1}{ x^2+\sqrt2x+1}\right|}
++\textcolor{red}{\int\frac{{\sqrt2}}{\left(\sqrt{2}x+1\right)^2+1}\dee{x}}+
+\textcolor{red}{ \int \frac{{\sqrt2}}{\left(\sqrt{2}x-1\right)^2+1}\dee{x}}
+\Bigg)
+</mrow>
+<intertext>Now, we can either guess the antiderivatives of the remaining integrals, or use the substitutions <m>u=(\sqrt{2}x\pm1)</m>.</intertext><mrow>
+&amp;=\frac{1}{\sqrt 2}\Bigg( \textcolor{blue}{\frac{1}{2}\log\left|\tfrac{x^2-\sqrt2x+1}{ x^2+\sqrt2x+1}\right|}
++\textcolor{red}{\arctan\left(\sqrt{2}x+1\right)}+\textcolor{red}{ \arctan\left(\sqrt{2}x-1\right)}
+\Bigg)+C
+</mrow>
+</md>
+</p>
+
+<p><alert>Step 5: finishing touches.</alert></p>
+<p>
+Finally, we can put our work together. (Remember way back in Step 1, we used integration by parts.)
+<md>
+<mrow>
+\int&amp; \arctan(x^2)\dee{x} = x\arctan(x^2) - \int \frac{2x^2}{x^4-1}\dee{x}
+</mrow><mrow>
+&amp;= x\arctan(x^2) -
+\frac{1}{\sqrt 2}\Bigg( \frac{1}{2}\log\left|\tfrac{x^2-\sqrt2x+1}{ x^2+\sqrt2x+1}\right|
++\arctan\left(\sqrt{2}x+1\right)+ \arctan\left(\sqrt{2}x-1\right)
+\Bigg)+C
+</mrow>
+</md>
+</p>
+
+<p>Remark: although this integral calculation was longer than average, it didn't use any new ideas (except for the factoring of <m>x^4+1</m> mentioned in the hint). It's good exercise to apply familiar techniques in challenging situations, to deepen your mastery.
+</p></solution>
+</exercise></exercisegroup>
+
+</exercises>

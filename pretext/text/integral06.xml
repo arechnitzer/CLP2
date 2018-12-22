@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_int_volumes">
+<title>Volumes</title>
+<introduction>
+
+<p>
+Another simple
+	<fn>
+		Well <mdash/> arguably the idea isn't too complicated and is a  continuation of the idea used to compute areas in the previous section. In practice this  can be quite tricky as we shall see.
+	</fn>
+application of integration is computing volumes. We  use the same strategy as we used to express areas of regions in two  dimensions as integrals <mdash/> approximate the region by a union of small, simple pieces whose volume we can compute and then then take the limit as the <q>piece size</q> tends to zero.
+</p>
+
+<p>
+In many cases this will lead to <q>multivariable integrals</q> that are beyond our present  scope
+	<fn>
+		Typically such integrals (and more) are covered in a third calculus  course.
+	</fn>.
+But there are some special cases in which this leads to integrals that we  can handle. Here are some examples.
+</p>
+
+<example xml:id="eg_VOLa"><title>Cone</title>
+<p>
+Find the volume of the circular cone of height <m>h</m> and radius <m>r</m>.
+</p>
+
+<p>
+<alert>Solution:</alert> Here is a sketch of the cone.
+</p>
+
+<sidebyside width="33%">
+<image source="text/figs/cone"/>
+</sidebyside>
+
+<p>
+We have called the vertical axis <m>x</m>, just so that we end up with a <q><m>\dee{x}</m></q>
+integral.
+</p>
+
+<p>
+<ul>
+<li>
+<p>
+	In what follows we will slice the cone into thin horizontal <q>pancakes</q>. In order  to approximate the volume of those slices, we need to know the radius of the cone at a  height <m>x</m> above its point. Consider the cross sections shown in the following figure.
+</p>
+<sidebyside width="80%">
+<image source="text/figs/cone_adr1"/>
+</sidebyside>
+
+<p>
+	At full height <m>h</m>, the cone has radius <m>r</m>. If we cut the cone at height <m>x</m>, then by  similar triangles (see the figure on the right) the radius will be <m>\frac{x}{h}\cdot r</m>.
+</p>
+</li>
+<li>
+<p>
+	Now think of cutting the cone into <m>n</m> thin horizontal <q>pancakes</q>. Each such  pancake is approximately a squat cylinder of height <m>\De x=\frac{h}{n}</m>. This  is very similar to how we approximated the area under a curve by <m>n</m> tall thin  rectangles. Just as we approximated the area under the curve by summing these rectangles,  we can approximate the volume of the cone by summing the volumes of these cylinders. Here  is a side view of the cone and one of the cylinders.
+</p>
+
+<sidebyside width="90%">
+<image source="text/figs/cone_adr2"/>
+</sidebyside>
+</li>
+
+<li>
+<p>
+	We follow the method we used in Example<nbsp/><xref ref="eg_areabetween_riemann"/>, except that  our slices are now pancakes instead of rectangles.
+	<ul>
+	<li> Pick a natural number <m>n</m> (that we will later send to infinity), then </li>
+	<li> subdivide the cone into <m>n</m> thin pancakes, each of width <m>\De  x=\frac{h}{n}</m>. </li>
+	<li>
+		For each <m>i=1,2,\cdots,n</m>, pancake number <m>i</m> runs from  <m>x=x_{i-1}=(i-1)\cdot\De x</m> to <m>x=x_i=i\cdot\De x</m>, and we approximate its  volume by the volume of a squat cone. We pick a number <m>x_i^*</m> between <m>x_{i-1}</m> and  <m>x_i</m>  and approximate the pancake by a cylinder of height <m>\De x</m> and radius <m>\frac{x_i^*}{h}r</m>.
+	</li>
+	<li>
+		Thus the volume of pancake <m>i</m> is  approximately <m>\pi \left( \frac{x_i^*}{h}r\right)^2 \De x</m> (as shown in the figure above).
+		</li>
+	</ul>
+</p>
+</li>
+<li>
+	So the Riemann sum approximation of the volume is
+	<md>
+	<mrow>
+	  \text{Area} &amp;\approx \sum_{i=1}^n  \pi \left( \frac{x_i^*}{h}r\right)^2 \De x
+	</mrow>
+	</md>
+</li>
+<li>
+	By taking the limit as <m>n \to \infty</m> (i.e. taking the limit as the thickness of  the pancakes goes to zero), we convert the Riemann sum into a definite integral (see  Definition<nbsp/><xref ref="def_INTintegral"/>) and at the same time our approximation of the volume  becomes the exact volume:
+	<md>
+	<mrow>
+	\int_0^h \pi \Big(\frac{x}{h}r\Big)^2\dee{x}
+	</mrow>
+	</md>
+</li>
+</ul>
+Our life
+	<fn>At least the bits of it involving integrals.</fn>
+would be easier if  we could avoid all this formal work with Riemann sums every time we encounter a new  volume. So before we compute the above integral, let us redo the above calculation in a less formal manner.
+<ul>
+<li>
+<p>
+	Start again from the picture of the cone
+</p>
+<sidebyside width="33%">
+<image source="text/figs/cone"/>
+</sidebyside>
+
+<p>
+	and think of slicing it into thin pancakes, each of width <m>\dee{x}</m>.
+</p>
+
+<sidebyside widths="50% 33%" valign="middle">
+<image source="text/figs/coneX"/><image source="text/figs/coneT"/>
+</sidebyside>
+</li>
+
+<li>
+<p>
+	The pancake at height <m>x</m> above the point of the cone (which is the fraction  <m>\frac{x}{h}</m> of the total height of the cone) has
+	<ul>
+	<li> radius <m>\frac{x}{h}\cdot r</m> (the fraction <m>\frac{x}{h}</m> of the full radius, <m>r</m>) and so </li>
+	<li> cross-sectional area <m>\pi \big(\frac{x}{h}r\big)^2</m>, </li>
+	<li> thickness <m>\dee{x}</m> <mdash/> we have done something a little sneaky here, see the  discussion below. </li>
+	<li> volume <m>\pi \big(\frac{x}{h}r\big)^2\dee{x}</m> </li>
+	</ul>
+	As <m>x</m> runs from <m>0</m> to <m>h</m>, the total volume is
+	<md>
+	<mrow>
+	\int_0^h \pi \Big(\frac{x}{h}r\Big)^2\dee{x}
+	&amp;=\frac{\pi r^2}{h^2}\int_0^h x^2\dee{x}
+	</mrow><mrow>
+	&amp;=\frac{\pi r^2}{h^2} \bigg[\frac{x^3}{3}\bigg]_0^h
+	</mrow><mrow>
+	&amp;=\frac{1}{3}\pi r^2 h
+	</mrow>
+	</md>
+</p>
+</li>
+</ul>
+</p>
+
+<p>
+In this second computation we are using a time-saving trick. As we saw in  the formal computation above, what we really need to do is pick a natural number <m>n</m>,  slice the cone into <m>n</m> pancakes each of thickness <m>\De x = \frac{h}{n}</m> and then  take the limit as <m>n \to \infty</m>. This led to the Riemann sum
+<md>
+<mrow>
+  \sum_{i=1}^n \pi \left( \frac{x_i^*}{h} r \right)^2 \De x &amp;&amp; \text{which becomes}
+  \int_0^h \pi \left( \frac{x}{h} r \right)^2 \dee{x}
+</mrow>
+</md>
+So knowing that we will replace
+<md>
+<mrow>
+  \sum_{i=1}^n &amp;\longrightarrow \int_0^h
+</mrow><mrow>
+  x_i^* &amp;\longrightarrow x
+</mrow><mrow>
+  \De x &amp;\longrightarrow \dee{x}
+</mrow>
+</md>
+when we take the limit, we have just skipped the intermediate steps. While this is not  entirely rigorous, it can be made so, and does save us a lot of algebra.
+</p>
+</example>
+
+
+<example xml:id="eg_VOLs"><title>Sphere</title>
+<p>
+Find the volume of the sphere of radius <m>r</m>.
+</p>
+
+<p>
+<alert>Solution:</alert> We'll find the volume of the part of the sphere in the first octant
+	<fn>
+		The  first octant is the set of all points <m>(x,y,z)</m> with <m>x\ge 0</m>, <m>y\ge 0</m> and <m>z\ge 0</m>.
+	</fn>,
+sketched below. Then we'll multiply by <m>8</m>.
+</p>
+
+<p>
+<ul>
+<li>
+<p>
+	To compute the volume,
+</p>
+
+<sidebyside width="66%">
+<image source="text/figs/sphereSlice"/>
+</sidebyside>
+
+<p>
+	we slice it up into thin vertical <q>pancakes</q> (just as we did in the previous example).
+</p>
+</li>
+<li>
+<p>
+	Each pancake is one quarter of a thin circular disk. The pancake a distance <m>x</m>  from the <m>yz</m>-plane is shown in the sketch above. The radius of that pancake is the  distance from the dot shown in the figure to the <m>x</m>-axis, i.e. the <m>y</m>-coordinate of the dot. To get the coordinates of the dot, observe that
+	<ul>
+	<li> it lies the <m>xy</m>-plane, and so has <m>z</m>-coordinate zero, and that </li>
+	<li>
+		it also lies on the sphere, so that its coordinates obey  <m>x^2+y^2+z^2=r^2</m>. Since <m>z=0</m> and <m>y \gt 0</m>, <m>y=\sqrt{r^2-x^2}</m>.
+	</li>
+	</ul>
+</p>
+</li>
+<li>
+<p>
+	So the pancake at distance <m>x</m> from the <m>yz</m>-plane has
+	<ul>
+	<li>
+		thickness
+		<fn>
+			Yet again what we really do is pick a natural number <m>n</m>, slice the octant of the sphere into <m>n</m> pancakes each of thickness  <m>\De x=\frac{r}{n}</m> and then take the limit <m>n\rightarrow\infty</m>. In the integral <m>\De x</m> is replaced by <m>dx</m>. Knowing that this is what is going to happen, we again just skip a few steps.
+		</fn>
+		<m>dx</m> and
+	</li>
+	<li> radius <m>\sqrt{r^2-x^2}</m> </li>
+	<li> cross-sectional area <m>\frac{1}{4}\pi \big(\sqrt{r^2-x^2}\,\big)^2</m>  and hence </li>
+	<li> volume <m>\frac{\pi}{4} \big(r^2-x^2\big)\dee{x}</m> </li>
+	</ul>
+</p>
+</li>
+<li>
+	As <m>x</m> runs from <m>0</m> to <m>r</m>, the total volume of the part of the sphere in the first octant is
+	<md>
+	<mrow>
+	\int_0^r \frac{\pi}{4} \big(r^2-x^2\big)\dee{x}
+	=\frac{\pi}{4}\bigg[r^2x-\frac{x^3}{3}\bigg]_0^r
+	=\frac{1}{6}\pi r^3
+	</mrow>
+	</md>
+	and the total volume of the whole sphere is eight times that, which is <m>\frac{4}{3}\pi r^3</m>, as expected.
+</li>
+</ul>
+</p>
+</example>
+
+
+<example xml:id="eg_VOLe"><title>Revolving a region</title>
+<p>
+The region between the lines <m>y=3</m>, <m>y=5</m>, <m>x=0</m> and <m>x=4</m> is rotated around the line <m>y=2</m>. Find the volume of the region swept out.
+</p>
+
+<p>
+<alert>Solution:</alert> As with most of these problems, we should start by sketching the problem.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/revolveA"/>
+</sidebyside>
+
+<p>
+<ul>
+<li> Consider the region and slice it into thin vertical strips of width  <m>\dee{x}</m>. </li>
+<li>
+<p>
+	Now we are to rotate this region about the line <m>y=2</m>. Imagine looking  straight down the axis of rotation, <m>y=2</m>, end on. The symbol in the figure  above just to the right of the end the line <m>y=2</m> is supposed to represent your  eye
+	<fn>
+		Okay okay<ellipsis/> We missed the pupil. I'm sure there is a pun in  there somewhere.
+	</fn>.
+	Here is what you see as the rotation takes place.
+</p>
+<sidebyside width="50%">
+<image source="text/figs/revolveB"/>
+</sidebyside>
+</li>
+<li>
+<p>
+	Upon rotation about the line <m>y=2</m> our strip sweeps out a <q>washer</q>
+	<ul>
+	<li>
+		whose cross-section is a disk of radius <m>5-2=3</m> from which a disk of radius <m>3-2=1</m> has been removed so that it has a
+	</li>
+	<li>  cross-sectional area of <m>\pi 3^2 -\pi 1^2 = 8\pi</m> and a </li>
+	<li> thickness <m>\dee{x}</m> and hence a </li>
+	<li>  volume <m>8\pi\,\dee{x}</m>. </li>
+	</ul>
+</p>
+</li>
+<li>
+	As our leftmost strip is at <m>x=0</m> and our rightmost strip is at <m>x=4</m>, the total
+	<md>
+	<mrow>
+	\text{Volume} &amp;= \int _0^4 8\pi\,\dee{x} =(8\pi)(4) =32\pi
+	</mrow>
+	</md>
+</li>
+</ul>
+Notice that we could also reach this answer by writing the volume as the difference of two cylinders.
+<ul>
+<li>
+	The outer cylinder has radius <m>(5-2)</m> and length 4. This has volume
+	<md>
+	<mrow>
+	  V_{outer} &amp;= \pi r^2 \ell = \pi \cdot 3^2 \cdot 4 = 36\pi.
+	</mrow>
+	</md>
+</li>
+<li>
+	The inner cylinder has radius <m>(3-2)</m> and length 4. This has volume
+	<md>
+	<mrow>
+	  V_{inner} &amp;= \pi r^2 \ell = \pi \cdot 1^2 \cdot 4 = 4\pi.
+	</mrow>
+	</md>
+</li>
+<li>
+	The volume we want is the difference of these two, namely
+	<md>
+	<mrow>
+	  V &amp;= V_{outer} - V_{inner} = 32\pi.
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+</example>
+
+
+<p>
+Let us turn up the difficulty a little on this last example.
+</p>
+
+<example xml:id="eg_rot_xaxis"><title>Revolving again</title>
+<p>
+The region between the curve <m>y=\sqrt{x}</m>, and the lines <m>y=0</m>, <m>x=0</m> and <m>x=4</m> is rotated around the line <m>y=0</m>. Find the volume of the region swept out.
+</p>
+
+<p>
+<alert>Solution:</alert> We can approach this in much the same way as the previous example.
+<ul>
+<li>
+<p>
+	Consider the region and cut it into thin vertical strips of width <m>\dee{x}</m>.
+</p>
+
+<sidebyside width="75%">
+<image source="text/figs/rot_rootx1"/>
+</sidebyside>
+
+</li>
+<li>
+<p>
+	When we rotate the region about the line <m>y=0</m>, each strip sweeps out a thin  pancake
+	<ul>
+	<li>  whose cross-section is a disk of radius <m>\sqrt{x}</m> with a </li>
+	<li>  cross-sectional area of <m>\pi (\sqrt{x})^2 = \pi x</m> and a </li>
+	<li> thickness <m>\dee{x}</m> and hence a </li>
+	<li>  volume <m>\pi x \dee{x}</m>. </li>
+	</ul>
+</p>
+</li>
+<li>
+	As our leftmost strip is at <m>x=0</m> and our rightmost strip is at <m>x=4</m>, the total
+	<md>
+	<mrow>
+	\text{Volume} &amp;= \int _0^4 \pi x \dee{x} =\left[\frac{\pi}{2}x^2 \right]_0^4 =8\pi
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+</example>
+
+<p>
+In the last example we considered rotating a region around the <m>x</m>-axis. Let us do the
+same but rotating around the <m>y</m>-axis.
+</p>
+
+<example xml:id="eg_rot_yaxis"><title>Revolving yet again</title>
+<p>
+The region between the curve <m>y=\sqrt{x}</m>, and the lines <m>y=0</m>, <m>x=0</m> and <m>x=4</m> is rotated around the line <m>x=0</m>. Find the volume of the region swept out.
+</p>
+
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	We will cut the region into horizontal slices, so we should write <m>x</m> as a  function of <m>y</m>. That is, the region is bounded by <m>x=y^2</m>, <m>x=4</m>, <m>y=0</m> and <m>y=2</m>.
+</li>
+<li>
+<p>
+	Now slice the region into thin horizontal strips of width <m>\dee{y}</m>.
+</p>
+<sidebyside width="80%">
+<image source="text/figs/rot_rootx3"/>
+</sidebyside>
+</li>
+<li>
+<p>
+	When we rotate the region about the line <m>y=0</m>, each strip sweeps out a thin  washer
+	<ul>
+	<li> whose inner radius is <m>y^2</m> and outer radius is <m>4</m>, and </li>
+	<li> thickness is <m>\dee{y}</m> and hence </li>
+	<li> has volume <m>\pi(r_{out}^2 - r_{in}^2)\dee{y} = \pi(16-y^4)\dee{y}</m>. </li>
+	</ul>
+</p>
+</li>
+<li>
+	As our bottommost strip is at <m>y=0</m> and our topmost  strip is at <m>y=2</m>, the total
+	<md>
+	<mrow>
+	\text{Volume}
+	&amp;= \int _0^2 \pi(16-y^4) \dee{y}
+	=\left[16\pi y - \frac{\pi}{5}y^5 \right]_0^2
+	= 32\pi - \frac{32\pi}{5} = \frac{128\pi}{5}.
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+There is another way
+	<fn>
+		The method is not a core part of the course and should be  considered optional.
+	</fn>
+to do this one which we show at the end of this section.
+</p>
+
+<example xml:id="eg_VOLb"><title>Pyramid</title>
+<p>
+Find the volume of the pyramid which has height <m>h</m> and whose base is a square of side <m>b</m>.
+</p>
+
+<p>
+<alert>Solution:</alert> Here is a sketch of the part of the pyramid that is in the
+first octant; we display only this portion to make the diagrams simpler.
+</p>
+
+<sidebyside width="45%" valign="middle">
+<image source="text/figs/pyramid"/>
+<image source="text/figs/pyramidYZ"/>
+</sidebyside>
+
+<p>
+Note that this diagram shows only 1 quarter of the whole pyramid.
+</p>
+
+<p>
+<ul>
+<li>
+<p>
+	To compute its volume, we slice it up into thin horizontal <q>square pancakes</q>. A  typical pancake also appears in the sketch above.
+	<ul>
+	<li>
+		The pancake at height <m>z</m> is the fraction <m>\frac{h-z}{h}</m> of the distance from the  peak of the pyramid to its base.
+	</li>
+	<li>
+		So the <em>full</em> pancake
+		<fn>
+			Note that this is the full pancake, not just  the part in the first octant.
+		</fn>
+		at height <m>z</m> is a square of side <m>\frac{h-z}{h}b</m>. As a  check, note that when <m>z=h</m> the pancake has side  <m>\frac{h-h}{h}b=0</m>, and when <m>z=0</m> the  pancake has side  <m>\frac{h-0}{h}b=b</m>.
+	</li>
+	<li>
+		So the pancake has cross-sectional area <m>\big(\frac{h-z}{h}b\big)^2</m> and  thickness
+		<fn>
+			We are again using our Riemann sum avoiding trick.
+		</fn>
+		<m>\dee{z}</m> and  hence
+	</li>
+	<li> volume <m>\big(\frac{h-z}{h}b\big)^2\dee{z}</m>. </li>
+	</ul>
+</p>
+</li>
+<li>
+	The volume of the whole pyramid (not just the part of the pyramid in the first  octant) is
+	<md>
+	<mrow>
+	\int_0^h \Big(\frac{h-z}{h}b\Big)^2\dee{z}
+	&amp;=\frac{b^2}{h^2} \int_0^h (h-z)^2\dee{z}
+	</mrow>
+	<intertext>Now use the substitution rule with <m>t=(h-z), \dee{z}\to-\dee{t}</m></intertext>
+	<mrow>
+	&amp;=\frac{b^2}{h^2} \int_h^0 -t^2\dee{t}
+	</mrow><mrow>
+	&amp;=-\frac{b^2}{h^2}\bigg[\frac{t^3}{3}\bigg]_h^0
+	</mrow><mrow>
+	&amp;=-\frac{b^2}{h^2}\bigg[-\frac{h^3}{3}\bigg]
+	</mrow><mrow>
+	&amp;=\frac{1}{3} b^2h
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+</example>
+
+
+<p>
+Let's ramp up the difficulty a little.
+</p>
+<example xml:id="eg_VOLc"><title>Napkin Ring</title>
+<p>
+Suppose you make two napkin rings
+	<fn>
+		Handy things to have (when combined with cloth  napkins) if your parents are coming to dinner and you want to convince them that you are  <q>taking care of yourself</q>.
+	</fn>
+by drilling holes with different diameters through two  wooden balls. One ball has radius <m>r</m> and the other radius <m>R</m> with <m>r \lt R</m>. You  choose the diameter of the holes so that both napkin rings have the same  height, <m>2h</m>. See the
+figure below.
+</p>
+
+<sidebyside width="80%">
+<image source="text/figs/napkin"/>
+</sidebyside>
+
+<p>
+Which
+	<fn>
+		A good question to ask to distract your parents from the fact you are  serving frozen burittos.
+	</fn>
+ring has more wood in it?
+</p>
+
+<p>
+<alert>Solution:</alert> We'll compute the volume of the napkin ring with radius <m>R</m>. We can then obtain the volume of the napkin ring of radius <m>r</m>, by just replacing <m>R  \mapsto r</m> in the result.
+</p>
+
+<p>
+<ul>
+<li>
+<p>
+To compute the volume of the napkin ring of radius <m>R</m>, we slice it up into thin  horizontal <q>pancakes</q>. Here is a sketch of the part of the napkin ring in the first octant showing a typical  pancake.
+</p>
+
+<sidebyside width="66%">
+<image source="text/figs/napkinRing"/>
+</sidebyside>
+
+</li>
+<li>
+<p>
+	The coordinates of the two points marked in the <m>yz</m>-plane of that figure  are found by remembering that
+	<ul>
+	<li> the equation of the sphere is <m>x^2+y^2+z^2=R^2</m>. </li>
+	<li>
+		The two points have <m>y \gt 0</m> and are in the <m>yz</m>-plane, so that <m>x=0</m> for them. So <m>y=\sqrt{R^2-z^2}</m>.
+	</li>
+	<li>
+		In particular, at the top of the napkin ring <m>z=h</m>, so that <m>y=\sqrt{R^2-h^2}</m>.
+	</li>
+	</ul>
+</p>
+</li>
+<li>
+<p>
+	The pancake at height <m>z</m>, shown in the sketch, is a <q>washer</q> <mdash/> a circular disk  with a circular hole cut in its center.
+	<ul>
+	<li> The outer radius of the washer is <m>\sqrt{R^2-z^2}</m> and </li>
+	<li> the inner radius of the washer is <m>\sqrt{R^2-h^2}</m>. So the </li>
+	<li>  cross-sectional area of the washer is
+	<md>
+	<mrow>
+	\pi\big(\sqrt{R^2-z^2}\,\big)^2-\pi\big(\sqrt{R^2-h^2}\,\big)^2 =\pi(h^2-z^2)
+	</mrow>
+	</md>
+	</li>
+	</ul>
+</p>
+</li>
+<li>
+<p>
+	The pancake at height <m>z</m>
+	<ul>
+	<li> has thickness <m>dz</m> and </li>
+	<li> cross-sectional area <m>\pi(h^2-z^2)</m> and hence </li>
+	<li> volume <m>\pi(h^2-z^2)\dee{z}</m>. </li>
+	</ul>
+</p>
+</li>
+<li>
+	Since <m>z</m> runs from <m>-h</m> to <m>+h</m>, the total volume of wood in the napkin ring of radius <m>R</m> is
+	<md>
+	<mrow>
+	\int_{-h}^h \pi(h^2-z^2)\dee{z}
+	&amp;=\pi\Big[h^2z-\frac{z^3}{3}\Big]_{-h}^h
+	</mrow><mrow>
+	&amp;=\pi\Big[\Big(h^3-\frac{h^3}{3}\Big)
+			  -\Big((-h)^3-\frac{(-h)^3}{3}\Big)\Big]
+	</mrow><mrow>
+	&amp;=\pi\Big[\frac{2}{3}h^3-\frac{2}{3}\big(-h\big)^3\Big]
+	</mrow><mrow>
+	&amp;=\frac{4\pi}{3}h^3
+	</mrow>
+	</md>
+</li>
+</ul>
+This volume is independent of <m>R</m>. Hence the napkin ring of radius <m>r</m> contains precisely the same volume of wood as the napkin ring of radius <m>R</m>!
+</p>
+</example>
+
+
+<example xml:id="eg_VOLd"><title>Notch</title>
+<p>
+A <m>45^\circ</m> notch is cut to the centre of a cylindrical log having radius <m>20</m>cm. One plane face of the notch is perpendicular to the axis of the log. See the sketch below. What volume of wood was  removed?
+</p>
+
+<sidebyside width="30%" valign="middle">
+<image source="text/figs/notch2"/>
+   <image source="text/figs/notch4a"/>
+   <image source="text/figs/notch5a"/>
+</sidebyside>
+
+
+<p>
+<alert>Solution:</alert> We show two solutions to this problem which are of comparable difficulty. The  difference lies in the shape of the pancakes we use to slice up the volume. In solution<nbsp/>1  we cut rectangular pancakes parallel to the <m>yz</m>-plane and in solution<nbsp/>2 we slice  triangular pancakes parallel to the <m>xz</m>-plane.
+</p>
+
+<p><em>Solution 1:</em>
+<ul>
+<li>
+	Concentrate on the notch. Rotate it around so that the plane face lies in the  <m>xy</m>-plane.
+</li>
+<li>
+<p>
+	Then slice the notch into vertical rectangles (parallel to the <m>yz</m>-plane) as in  the figure on the left below.
+</p>
+
+<sidebyside width="40%" valign="middle">
+<image source="text/figs/notch2a"/>
+<image source="text/figs/notchXZa"/>
+</sidebyside>
+</li>
+
+<li>
+<p>
+	The cylindrical log had radius <m>20</m>cm. So the circular part of the boundary of the  base of the notch has equation <m>x^2+y^2=20^2</m>. (We're putting the origin of the  <m>xy</m>-plane at the centre of the circle.) If our coordinate system is such that <m>x</m> is  constant on each slice, then
+	<ul>
+	<li>
+		the base of the slice is the line segment from <m>(x,-y,0)</m> to <m>(x,+y,0)</m> where  <m>y=\sqrt{20^2-x^2}</m> so that
+	</li>
+	<li> the slice has width <m>2y=2\sqrt{20^2-x^2}</m> and </li>
+	<li>
+		height <m>x</m> (since the upper face of the notch is at <m>45^\circ</m> to the base <mdash/> see the side view sketched in the figure on the right above).
+	</li>
+	<li> So the slice has cross-sectional area <m>2x\sqrt{20^2-x^2}</m>. </li>
+	</ul>
+</p>
+</li>
+<li>
+	On the base of the notch <m>x</m> runs from <m>0</m> to <m>20</m> so the volume of the notch is
+	<md>
+	<mrow>
+	V&amp;=\int_0^{20}2x\sqrt{20^2-x^2}\dee{x}
+	</mrow>
+	<intertext>
+		Make the change of variables <m>u=20^2-x^2</m> (don't forget to change <m>\dee{x} \rightarrow -\frac{1}{2x}\dee{u}</m>):
+	</intertext>
+	<mrow>
+	V&amp;=\int_{20^2}^{0}-\sqrt{u}\,\dee{u}
+	</mrow><mrow>
+	&amp;=\left[-\frac{u^{3/2}}{3/2}\right]_{20^2}^0
+	</mrow><mrow>
+	&amp;= \frac{2}{3}20^3=\frac{16,000}{3}
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+<p><em>Solution 2:</em>
+<ul>
+<li>
+	Concentrate of the notch. Rotate it around so that its base   lies in the <m>xy</m>-plane with the skinny edge along the <m>y</m>-axis.
+</li>
+<li>
+<p>
+	Slice the notch into triangles parallel to the <m>xz</m>-plane as in the figure  on the left below. In the figure below, the triangle happens to lie in a plane  where <m>y</m> is negative.
+</p>
+<sidebyside width="40%" valign="middle">
+<image source="text/figs/notch3a"/>
+<image source="text/figs/notchXZb"/>
+</sidebyside>
+</li>
+<li>
+<p>
+	The cylindrical log had radius <m>20</m>cm. So the circular part of the boundary of the  base of the notch has equation <m>x^2+y^2=20^2</m>. Our coordinate system is such that <m>y</m> is  constant on each slice, so that
+	<ul>
+	<li>
+		the base of the triangle is the line segment from <m>(0,y,0)</m> to <m>(x,y,0)</m> where   <m>x=\sqrt{20^2-y^2}</m> so that
+	</li>
+	<li> the triangle has base <m>x=\sqrt{20^2-y^2}</m>  and </li>
+	<li>
+		height <m>x=\sqrt{20^2-y^2}</m> (since the upper face of the notch is at  <m>45^\circ</m> to the base <mdash/> see the side view sketched in the figure  on the right above).
+	</li>
+	<li> So the slice has cross-sectional area <m>\half\big(\sqrt{20^2-y^2}\big)^2</m>. </li>
+</ul>
+</p>
+</li>
+<li>
+	On the base of the notch <m>y</m> runs from <m>-20</m> to <m>20</m>,  so the volume of the notch is
+	<md>
+	<mrow>
+	V&amp;=\half\int_{-20}^{20}(20^2-y^2)\dee{y}
+	</mrow><mrow>
+	&amp;=\int_0^{20} (20^2-y^2)\dee{y}
+	</mrow><mrow>
+	&amp;=\Big[20^2y-\frac{y^3}{3}\Big]_0^{20}
+	</mrow><mrow>
+	&amp;=\frac{2}{3}20^3=\frac{16,000}{3}
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+</introduction>
+
+<subsection>
+<title>Optional <mdash/> Cylindrical shells</title>
+
+<p>
+Let us return to Example<nbsp/><xref ref="eg_rot_yaxis"/> in which we rotate a region around the  <m>y</m>-axis. Here we show another solution to this problem which is obtained by slicing the  region into vertical strips. When rotated about the <m>y</m>-axis, each such strip sweeps out  a thin cylindrical shell. Hence the name of this approach (and this subsection).
+</p>
+
+<example><title>Revolving yet again</title>
+<p>
+The region between the curve <m>y=\sqrt{x}</m>, and the lines <m>y=0</m>, <m>x=0</m> and <m>x=4</m> is rotated around the line <m>x=0</m>. Find the volume of the region swept out.
+</p>
+
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+<p>
+	Consider the region and cut it into thin vertical strips of width <m>\dee{x}</m>.
+</p>
+
+<sidebyside width="90%">
+<image source="text/figs/rot_rootx2"/>
+</sidebyside>
+</li>
+<li>
+<p>
+	When we rotate the region about the line <m>y=0</m>, each strip sweeps out a thin  cylindrical shell
+	<ul>
+	<li> whose radius is <m>x</m>, </li>
+	<li> height is <m>\sqrt{x}</m>, and </li>
+	<li> thickness is <m>\dee{x}</m> and hence </li>
+	<li>
+		has volume <m>2 \pi \times \text{radius} \times \text{height} \times \text{thickness}  = 2 \pi x^{3/2} \dee{x}</m>.
+	</li>
+	</ul>
+</p>
+</li>
+<li>
+	As our leftmost strip is at <m>x=0</m> and our rightmost strip is at <m>x=4</m>, the total
+	<md>
+	<mrow>
+	\text{Volume}
+	&amp;= \int _0^4 2\pi x^{3/2} \dee{x}
+	=\left[\frac{4\pi}{5} x^{5/2} \right]_0^4
+	= \frac{4\pi}{5}\cdot 32 = \frac{128\pi}{5}
+	</mrow>
+	</md>
+	which (thankfully) agrees with our previous computation.
+</li>
+</ul>
+</p>
+</example>
+
+</subsection>
+
+
+<xi:include href="../problems/prob_s1.6.xml" />
+
+
+</section>

@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_avg">
+<title>Averages</title>
+<introduction>
+
+<p>
+Another frequent
+	<fn>
+		Awful pun. The two main approaches to statistics are  frequentism and Bayesianism; the latter named after Bayes' Theorem which is, in turn,  named for Reverand Thomas Bayes. While this (both the approaches to statistics  and their history and naming) is a very interesting and quite  philosophical topic, it is beyond the scope of this course. The interested reader has  plenty of interesting reading here to interest them.
+	</fn>
+application of integration is  computing averages and other statistical quantities. We will not spend too much time on  this topic <mdash/> that is best left to a proper course in statistics <mdash/> however, we will  demonstrate the application of integration to the problem of computing averages.
+</p>
+
+<p>
+Let us start with the definition
+	<fn>
+		We are being a little loose here with the distinction between mean and average. To be  much more pedantic <mdash/> the average is the arithmetic mean. Other interesting <q>means</q> are  the geometric and harmonic means:
+		<md>
+		<mrow>
+		\text{arithmetic mean} &amp;= \frac{1}{n}\left( y_1 + y_2 + \cdots + y_n \right)
+		</mrow>
+		<mrow>
+		\text{geometric mean} &amp;= \left( y_1 \cdot y_2 \cdots y_n \right)^{\frac{1}{n}}
+		</mrow>
+		<mrow>
+		\text{harmonic mean} &amp;= \left[\frac{1}{n}\left(  \frac{1}{y_1} + \frac{1}{y_2} + \cdots \frac{1}{y_n}  \right)\right]^{-1}
+		</mrow>
+		</md>
+		All of these quantities, along with the median and mode, are ways to measure the typical  value of a set of numbers. They all have advantages and disadvantages <mdash/> another  interesting topic beyond the scope of this course, but plenty of fodder for the  interested reader and their favourite search engine. But let us put pedantry (and  beyond-the-scope-of-the-course-reading) aside and just use the terms average and mean  interchangably for our purposes here.
+	</fn>
+of the average of a finite set of numbers.
+</p>
+
+<definition xml:id="def_avg">
+<statement><p>
+The average (mean) of a set of <m>n</m> numbers <m>y_1</m>, <m>y_2</m>, <m>\cdots</m>, <m>y_n</m> is
+<md>
+<mrow>
+y_\ave =\bar y = \llt y\rgt =\frac{y_1+y_2+\cdots+y_n}{n}
+</mrow>
+</md>
+The notations <m>y_\ave</m>, <m>\bar y</m> and <m>\llt y\rgt</m> are all commonly used to represent the average.
+</p></statement>
+</definition>
+
+
+<p>
+Now suppose that we want to take the average of a function <m>f(x)</m> with <m>x</m> running  continuously from <m>a</m> to <m>b</m>. How do we even define what that means? A natural approach is  to
+<ul>
+<li>
+	select, for each natural number <m>n</m>, a sample of <m>n</m>, more or  less uniformly distributed, values of <m>x</m> between <m>a</m> and <m>b</m>,
+</li>
+<li>
+	take the average of the values of <m>f</m> at the selected points,
+</li>
+<li>
+	and then take the limit as <m>n</m> tends to infinity.
+</li>
+</ul>
+Unsurprisingly, this process looks very much like how we computed areas and volumes  previously. So let's get to it.
+<ul>
+<li>
+	First fix any natural number <m>n</m>.
+</li>
+<li>
+	Subdivide the interval <m>a\le x\le b</m> into <m>n</m> equal subintervals,  each of width <m>\De x=\frac{b-a}{n}</m>.
+</li>
+<li>
+	The subinterval number <m>i</m> runs from <m>x_{i-1}</m> to <m>x_i</m> with  <m>x_i=a+i\frac{b-a}{n}</m>.
+</li>
+<li>
+	Select, for each <m>1\le i\le n</m>, one value of <m>x</m> from subinterval number <m>i</m> and call it <m>x_i^*</m>.  So <m>x_{i-1}\le x_i^*\le x_i</m>.
+</li>
+<li>
+	The average value of <m>f</m> at the selected points is
+	<md>
+	<mrow>
+	\frac{1}{n}\sum_{i=1}^n f(x_i^*)
+	=&amp;\frac{1}{b-a}\sum_{i=1}^n f(x_i^*) \De x
+	&amp;\text{since $\De x=\frac{b-a}{n}$}
+	</mrow>
+	</md>
+	giving us a Riemann sum.
+</li>
+</ul>
+Now when we take the limit <m>n\rightarrow\infty</m> we get exactly <m>\frac{1}{b-a}\int_a^b f(x)\dee{x}</m>. That's why we define
+</p>
+
+<definition xml:id="def_AVaverage">
+<statement><p>
+Let <m>f(x)</m> be an integrable function defined on the interval  <m>a\le x\le b</m>. The average value of <m>f</m> on that interval is
+<md>
+<mrow>
+f_\ave=\bar f=\llt f\rgt =\frac{1}{b-a}\int_a^b f(x)\dee{x}
+</mrow>
+</md>
+</p></statement>
+</definition>
+
+
+<p>
+Consider the case when <m>f(x)</m> is positive. Then rewriting Definition<nbsp/><xref ref="def_AVaverage"/>  as
+</p>
+<sidebyside width="40%" valign="middle">
+<p><m> f_\ave\ (b-a) = \int_a^b f(x)\dee{x}</m></p>
+<image source="text/figs/areaAve"/>
+</sidebyside>
+<p>
+gives us a link between the average value and the area under the curve. The right-hand  side is the area of the region
+<md>
+<mrow>
+\big\{(x,y)\ \big|\ a\le x\le b,\ 0\le y\le f(x)\ \big\}
+</mrow>
+</md>
+while the left-hand side can be seen as the area of a rectangle of width <m>b-a</m>  and height <m>f_\ave</m>. Since these areas must be the same, we interpret <m>f_\ave</m> as  the height of the rectangle which has the same width and the same area as  <m>\big\{(x,y)\ \big|\ a\le x\le b,\ 0\le y\le f(x)\ \big\}</m>.
+</p>
+
+<p>
+Let us start with a couple of simple examples and then work our way up to harder ones.
+</p>
+
+<example><title>An easy warm-up</title>
+<p>
+ Let <m>f(x)= x</m> and <m>g(x)=x^2</m> and compute their average values  over <m>1 \leq x\leq 5</m>.
+</p>
+
+<p>
+<alert>Solution:</alert> We can just plug things into the definition.
+<md>
+<mrow>
+  f_\ave &amp;= \frac{1}{5-1}\int_1^5 x \dee{x}
+</mrow><mrow>
+  &amp;= \frac{1}{4} \bigg[ \frac{x^2}{2} \bigg]_1^5
+</mrow><mrow>
+  &amp;= \frac{1}{8} (25-1) = \frac{24}{8}
+</mrow><mrow>
+  &amp;= 3
+</mrow>
+</md>
+as we might expect. And then
+<md>
+<mrow>
+g_\ave &amp;= \frac{1}{5-1}\int_1^5 x^2 \dee{x}
+</mrow><mrow>
+  &amp;= \frac{1}{4} \bigg[ \frac{x^3}{3} \bigg]_1^5
+</mrow><mrow>
+  &amp;= \frac{1}{12} (125-1) = \frac{124}{12}
+</mrow><mrow>
+&amp;= 10\frac{1}{3}
+</mrow>
+</md>
+</p>
+</example>
+
+<p>
+Something a little more trigonometric
+</p>
+
+<example><title>Average of sine</title>
+<p>
+ Find the average value of <m>\sin(x)</m> over <m>0 \leq x \leq \frac{\pi}{2}</m>.
+</p>
+
+<p>
+<alert>Solution:</alert> Again, we just need the definition.
+<md>
+<mrow>
+  \text{average} &amp;= \frac{1}{\frac{\pi}{2} - 0} \int_0^{\frac{\pi}{2}} \sin(x) \dee{x}
+</mrow><mrow>
+&amp;= \frac{2}{\pi} \cdot \bigg[ -\cos(x) \bigg]_0^{\frac{\pi}{2}}
+</mrow><mrow>
+&amp;= \frac{2}{\pi} (-\cos(\frac{\pi}{2})+\cos(0))
+</mrow><mrow>
+&amp;= \frac{2}{\pi}.
+</mrow>
+</md>
+</p>
+</example>
+
+
+<p>
+We could keep going<ellipsis/> But better to do some more substantial examples.
+</p>
+
+<example xml:id="eg_AVvelocity"><title>Average velocity</title>
+<p>
+Let <m>x(t)</m> be the position at time <m>t</m> of a car moving along the <m>x</m>-axis. The velocity of the car at time <m>t</m> is the derivative <m>v(t)=x'(t)</m>. The average velocity of the car over the time interval <m>a\le t\le b</m> is
+<md>
+<mrow>
+v_\ave &amp;= \frac{1}{b-a}\int_a^b v(t)\dee{t}
+</mrow><mrow>
+&amp;=\frac{1}{b-a}\int_a^b x'(t)\dee{t}
+</mrow><mrow>
+&amp;=\frac{x(b)-x(a)}{b-a} &amp; \text{by the fundamental theorem of calculus.}
+</mrow>
+</md>
+The numerator in this formula is just the displacement (net distance travelled <mdash/> if  <m>x'(t)\ge 0</m>, it's the distance travelled) between time <m>a</m> and time <m>b</m> and the  denominator is just the time it took.
+</p>
+
+<p>
+Notice that this is exactly the formula we used way back at the start of your  <em>differential</em> calculus class to help introduce the idea of the derivative. Of  course this is a very circuitous way to get to this formula <mdash/> but it is reassuring that  we get the same answer.
+</p>
+</example>
+
+
+<p>
+A very physics example.
+</p>
+<example xml:id="eg_peakvsrms"><title>Peak vs RMS voltage</title>
+<p>
+When you plug a light bulb into a socket
+	<fn>
+		A normal household socket delivers  alternating current, rather than the direct current USB supplies. At the risk of yet  another <q>the interested reader</q> suggestion <mdash/> the how and why household plugs supply  AC current is another worthwhile and interesting digression from studying integration.  The interested reader should look up the <q>War of Currents</q>. The diligent and  interested reader should bookmark this, finish the section and come back to it later.
+	</fn>
+and turn it on, it is subjected to a voltage
+<md>
+<mrow>
+ V(t) &amp;= V_0\sin(\omega t-\delta)
+</mrow>
+</md>
+where
+<ul>
+<li> <m>V_0=170</m> volts, </li>
+<li> <m>\omega=2\pi\times 60</m> (which corresponds to <m>60</m> cycles per second
+	<fn>
+		Some  countries supply power at 50 cycles per second. Japan actually supplies both <mdash/> 50  cycles in the east of the country and 60 in the west.
+	</fn>)
+	and
+</li>
+<li>
+	the constant <m>\delta</m> is an (unimportant) phase. It just shifts the time  at which the voltage is zero
+</li>
+</ul>
+The voltage <m>V_0</m> is the <q>peak voltage</q> <mdash/> the maximum value the voltage takes over  time. More typically we quote the <q>root mean square</q> voltage
+	<fn>
+		This example was  written in North America where the standard voltage supplied to homes is 120 volts. Most  of the rest of the world supplies homes with 240 volts. The main reason for this  difference is the development of the light bulb. The USA electrified earlier when the best  voltage for bulb technology was 110 volts. As time went on, bulb technology improved and  countries that electrified later took advantage of this (and the cheaper transmission  costs that come with higher voltage) and standardised at 240 volts. So many digressions in this section!
+	</fn>
+(or RMS-voltage). In this example we explain the difference, but to  simplify the calculations, let us simplify the voltage function and just use
+<md>
+<mrow>
+  V(t) &amp;= V_0 \sin(t)
+</mrow>
+</md>
+</p>
+
+<p>
+Since the voltage is a sine-function, it takes both positive and negative values. If we  take its simple average over 1 period then we get
+<md>
+<mrow>
+  V_\ave &amp;= \frac{1}{2\pi-0} \int_0^{2\pi} V_0 \sin(t) \dee{t}
+</mrow><mrow>
+  &amp;= \frac{V_0}{2\pi}\bigg[ - \cos(t)\bigg]_0^{2\pi}
+</mrow><mrow>
+  &amp;= \frac{V_0}{2\pi}\left( -\cos(2\pi) + \cos 0\right) = \frac{V_0}{2\pi}(-1+1)
+</mrow><mrow>
+  &amp;= 0
+</mrow>
+</md>
+This is clearly not a good indication of the typical voltage.
+</p>
+
+<p>
+What we actually want here is a measure of how far the voltage is from zero. Now we could  do this by taking the average of <m>|V(t)|</m>, but this is a little harder to work with.  Instead we take the average of the square
+	<fn>
+		For a finite  set of numbers one can compute the <q>quadratic mean</q> which is another way to generalise  the notion of the average:
+		<me>
+		\text{quadratic mean}
+		= \sqrt{\frac{1}{n}\left(y_1^2 + y_2^2 + \cdots + y_n^2 \right) }
+		</me>
+	</fn>
+of the voltage (so it is always positive) and then take the square root at the end. That is
+<md>
+<mrow>
+  V_\mathrm{rms}
+  &amp;= \sqrt{\frac{1}{2\pi-0} \int_0^{2\pi} V(t)^2 \dee{t}}
+</mrow><mrow>
+  &amp;= \sqrt{\frac{1}{2\pi} \int_0^{2\pi} V_0^2 \sin^2(t) \dee{t}}
+</mrow><mrow>
+  &amp;= \sqrt{\frac{V_0^2}{2\pi} \int_0^{2\pi} \sin^2(t) \dee{t}}
+</mrow>
+</md>
+This is called the <q>root mean square</q> voltage.
+</p>
+
+<p>
+Though we do know how to integrate sine and cosine, we don't (yet) know how to integrate their squares. A quick look at double-angle formulas
+	<fn>
+		A quick glance at  Appendix<nbsp/><xref ref="sec_must_deriv"/> will refresh your memory.
+	</fn>
+gives us a way to eliminate the  square:
+<md>
+<mrow>
+  \cos(2\theta) =1-2\sin^2\theta \implies \sin^2\theta=\frac{1-\cos(2\theta)}{2}
+</mrow>
+</md>
+Using this we manipulate our integrand a little more:
+<md>
+<mrow>
+V_\mathrm{rms} &amp;= \sqrt{\frac{V_0^2}{2\pi} \int_0^{2\pi}  \frac{1}{2}(1-\cos(2t)) \dee{t}}
+</mrow><mrow>
+&amp;= \sqrt{ \frac{V_0^2}{4\pi} \bigg[t - \frac{1}{2}\sin(2t)  \bigg]_0^{2\pi} }
+</mrow><mrow>
+&amp;= \sqrt{ \frac{V_0^2}{4\pi} \left(2\pi - \frac{1}{2}\sin(4\pi) - 0 + \frac{1}{2}\sin(0) \right) }
+</mrow><mrow>
+&amp;= \sqrt{ \frac{V_0^2}{4\pi} \cdot 2\pi }
+</mrow><mrow>
+&amp;= \frac{V_0}{\sqrt{2}}
+</mrow>
+</md>
+So if the peak voltage is 170 volts then the RMS voltage is <m>\frac{170}{\sqrt{2}}\approx  120.2</m>.
+</p>
+</example>
+
+<p>
+Continuing this very physics example:
+</p>
+<example xml:id="eg_AVpower"><title>Peak vs RMS voltage <mdash/> continued</title>
+<p>
+Let us take our same light bulb with voltage (after it is plugged in) given by
+<md>
+<mrow>
+ V(t) &amp;= V_0\sin(\omega t-\delta)
+</mrow>
+</md>
+where
+<ul>
+<li> <m>V_0</m> is the peak voltage, </li>
+<li> <m>\omega=2\pi\times 60</m>, and </li>
+<li> the constant <m>\delta</m> is an (unimportant) phase. </li>
+</ul>
+If the light bulb is <q>100 watts</q>, then what is its resistance?
+</p>
+
+<p>
+To answer this question we need the following facts from physics.
+<ul>
+<li>
+	If the light bulb has resistance <m>R</m> ohms, this causes, by Ohm's law, a current of
+	<md>
+	<mrow>
+		  I(t) &amp;= \frac{1}{R} V(t) &amp;
+	</mrow>
+	</md>
+	(amps) to flow through the light bulb.
+</li>
+<li>
+	The current <m>I</m> is the number of units of charge moving through the bulb per unit time.
+</li>
+<li>
+	The voltage is the energy required to move one unit of charge through the bulb.
+</li>
+<li>
+	The power is the energy used by the bulb per unit time and is measured in watts.
+</li>
+</ul>
+So the power is the product of the current times the voltage and, so
+<me>
+P(t)=I(t)V(t)
+=\frac{V(t)^2}{R}
+=\frac{V_0^2}{R}\sin^2(\omega t-\delta)
+</me>
+The average power used over the time interval <m>a\le t\le b</m> is
+<md>
+<mrow>
+P_\ave &amp;= \frac{1}{b-a}\int_a^b P(t)\dee{t}
+        = \frac{V_0^2}{R(b-a)}\int_a^b \sin^2(\omega t-\delta)\dee{t}
+</mrow>
+</md>
+Notice that this is almost exactly the form we had in the previous example when computing  the root mean square voltage.
+</p>
+
+<p>
+Again we simplify the integrand using the identity
+<me>
+\cos(2\theta) =1-2\sin^2\theta \implies \sin^2\theta=\frac{1-\cos(2\theta)}{2}
+</me>
+So
+<md>
+<mrow>
+P_\ave &amp;= \frac{1}{b-a}\int_a^b P(t)\dee{t}
+  = \frac{V_0^2}{2R(b-a)}\int_a^b \big[1-\cos(2\omega t-2\delta)\big]\dee{t}
+</mrow><mrow>
+&amp;=\frac{V_0^2}{2R(b-a)}\bigg[t-\frac{\sin(2\omega t-2\delta)}{2\omega}\bigg]_a^b
+</mrow><mrow>
+&amp;=\frac{V_0^2}{2R(b-a)}\bigg[b-a-\frac{\sin(2\omega b-2\delta)}{2\omega}
+  +\frac{\sin(2\omega a-2\delta)}{2\omega}\bigg]
+</mrow><mrow>
+&amp;=\frac{V_0^2}{2R}
+   -\frac{V_0^2}{4\omega R(b-a)}\big[\sin(2\omega b-2\delta)-\sin(2\omega a-2\delta)\big]
+</mrow>
+</md>
+In the limit as the length of the time interval <m>b-a</m> tends to infinity, this converges to <m>\frac{V_0^2}{2R}</m>. The resistance <m>R</m> of a <q>100 watt bulb</q>  obeys
+<md>
+<mrow>
+\frac{V_0^2}{2R} &amp;=100 &amp; \text{so that} &amp;&amp; R &amp;= \frac{V_0^2}{200}.
+</mrow>
+</md>
+We finish this example off with two side remarks.
+<ul>
+<li>
+	If we translate the peak voltage to the root mean square voltage using
+	<md>
+	<mrow>
+	  V_0 &amp;= V_\mathrm{rms} \cdot \sqrt{2}
+	</mrow>
+	</md>
+	then we have
+	<md>
+	<mrow>
+	  P &amp;= \frac{V^2_{\mathrm{rms}}}{R}
+	</mrow>
+	</md>
+</li>
+<li>
+	If we were using direct voltage rather than alternating current then the  computation is  much simpler. The voltage and current are constants, so
+	<md>
+	<mrow>
+	  P &amp;= V \cdot I &amp; \text{but $I = V/R$ by Ohm's law}
+	</mrow><mrow>
+	  &amp;= \frac{V^2}{R}
+	</mrow>
+	</md>
+	So if we have a direct current giving voltage equal to the root mean square voltage, then  we would expend the same power.
+</li>
+</ul>
+</p>
+
+</example>
+</introduction>
+
+<subsection>
+<title>Optional <mdash/> Return to the mean value theorem</title>
+
+<p>
+One last application of Definition<nbsp/><xref ref="def_AVaverage"/>. The following theorem can be  thought of as an analogue of the mean-value theorem (which was covered in your  differential calculus class) but for integrals. The theorem says that a  continuous function has to take its average value exactly somewhere. For example, if you  went for a drive along the <m>x</m>-axis and you were at <m>x(a)</m> at time <m>a</m> and at <m>x(b)</m> at  time <m>b</m>, then your velocity <m>x'(t)</m> had to be exactly your average velocity <m>\frac{x(b)-x(a)}{b-a}</m> at some time <m>t</m> between <m>a</m> and <m>b</m>. In particular, if your average velocity was greater than the speed limit, you were definitely speeding at some point during the trip. This is, of course, no great surprise.
+</p>
+
+<theorem xml:id="thm_AVmvt"><title>Mean Value Theorem for Integrals</title>
+<statement><p>
+Let <m>f(x)</m> be a continuous function on the interval <m>a\le x\le b</m>. Then there is some <m>c</m> obeying <m>a\le c \le b</m> such that
+<md>
+<mrow>
+\frac{1}{b-a}\int_a^b f(x)\dee{x}=f(c) \qquad\text{or}\qquad \int_a^b f(x)\dee{x} = f(c)\,(b-a)
+</mrow>
+</md>
+</p></statement>
+</theorem>
+
+<p>
+Here is why the theorem is true. Let <m>M</m> and <m>m</m> be the largest and smallest values, respectively, that <m>f(x)</m> takes for <m>x</m> between <m>a</m> and <m>b</m>. Then <m>m\le f(x)\le M</m> for all <m>a\le x\le b</m>, so that
+	<fn>
+		The symbol  <m>\iff</m> is read <q>if and only if</q>. This is used in mathematics to  express the logical equivalence of two statements. To be more precise,  the statement <m>P \iff Q</m> tells us that <m>P</m> is true whenever <m>Q</m> is true  and <m>Q</m> is true whenever <m>P</m> is true.
+	</fn>
+<md>
+<mrow>
+m(b-a)\le\int_a^b f(x)\dee{x}\le M(b-a)\qquad\iff\qquad m\le \frac{1}{b-a}\int_a^b f(x)\dee{x} \le M
+</mrow>
+</md>
+As <m>x</m> runs from <m>a</m> to <m>b</m>  the continuous function <m>f(x)</m> takes all values  between <m>m</m> and <m>M</m> including, in particular, <m>\frac{1}{b-a}\int_a^b f(x)</m>.
+</p>
+</subsection>
+
+
+<xi:include href="../problems/prob_s2.2.xml" />
+
+
+</section>

@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_intbyparts">
+<title>Integration by parts</title>
+<introduction></introduction>
+
+<subsection><title>Integration by parts</title>
+<p>
+The fundamental theorem of calculus tells us that it is very easy to integrate a  derivative. In particular, we know that
+<md>
+<mrow>
+  \int \diff{}{x}\left( F(x) \right) \dee{x} &amp;= F(x)+C
+</mrow>
+</md>
+We can exploit this in order to develop another rule for integration <mdash/> in particular a  rule to help us integrate products of simpler function such as
+<md>
+<mrow>
+  \int x e^x \dee{x}
+</mrow>
+</md>
+In so doing we will arrive at a method called <q>integration by parts</q>.
+</p>
+
+<p>
+To do this we start with the product rule and integrate. Recall that the  product rule says
+<md>
+<mrow>
+\diff{}{x} u(x)v(x) = u'(x)\,v(x)+u(x)\,v'(x)
+</mrow>
+</md>
+Integrating this gives
+<md>
+<mrow>
+\int \big[u'(x)\,v(x)+u(x)\,v'(x)\big]\dee{x}
+&amp;=\big[\text{a function whose derivative is $u'v+uv'$}\big] + C
+</mrow><mrow>
+&amp;=u(x)v(x) +C
+</mrow>
+</md>
+Now this, by itself, is not terribly useful. In order to apply it we need to have a  function whose integrand is a sum of products that is in exactly this form <m>u'(x)v(x) +  u(x)v'(x)</m>. This is far too specialised.
+</p>
+
+<p>
+However if we tease this apart a little:
+<md>
+<mrow>
+\int \big[ u'(x)\,v(x) + u(x)\,v'(x) \big]\dee{x}
+         &amp;=  \int u'(x)\,v(x) \,\dee{x}
+           +\int u(x)\,v'(x) \,\dee{x}
+</mrow>
+<intertext>Bring one of the integrals to the left-hand side</intertext>
+<mrow>
+  u(x) v(x) - \int u'(x)\,v(x) \dee{x}
+  &amp;= \int u(x)\,v'(x)\dee{x}
+</mrow>
+<intertext>Swap left and right sides</intertext>
+<mrow>
+\int u(x)\,v'(x)\dee{x}
+ &amp;= u(x) v(x) - \int u'(x)\,v(x) \dee{x}
+</mrow>
+</md>
+In this form we take the integral of one product and express it in terms of the integral  of a different product. If we express it like that, it doesn't seem too useful. However,  if the second integral is easier, then this process helps us.
+</p>
+
+<p>
+Let us do a simple example before explaining this more generally.
+</p>
+
+<example xml:id="eg_PRTSxex"><title><m>\int xe^x \dee{x}</m></title>
+<p>
+Compute the integral <m>\ds \int xe^x \dee{x}</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	We start by taking the equation above
+	<md>
+	<mrow>
+	 \int u(x)\,v'(x)\dee{x}
+	 &amp;= u(x) v(x) - \int u'(x)\,v(x) \dee{x}
+	</mrow>
+	</md>
+</li>
+<li>
+	Now set <m>u(x)=x</m> and <m>v'(x)=e^x</m>. How did we know how to make this choice? We will  explain some strategies later. For now, let us just accept this choice and keep going.
+</li>
+<li>
+	In order to use the formula we need to know <m>u'(x)</m> and <m>v(x)</m>. In this case it is  quite straightforward: <m>u'(x)=1</m> and <m>v(x)=e^x</m>.
+</li>
+<li>
+	Plug everything into the formula:
+	<md>
+	<mrow>
+	  \int x e^x \dee{x} &amp;= x e^x - \int e^x \dee{x}
+	</mrow>
+	<intertext>
+		So our original more difficult integral has been turned into a question of  computing an easy one.
+	</intertext>
+	<mrow>
+	&amp;= x e^x - e^x +C
+	</mrow>
+	</md>
+</li>
+<li>
+	We can check our answer by differentiating:
+	<md>
+	<mrow>
+	  \diff{}{x} \left(x e^x - e^x +C \right)
+	  &amp;= \underbrace{x e^x + 1 \cdot e^x}_{\text{by product rule}} - e^x + 0
+	</mrow><mrow>
+	  &amp;= x e^x &amp; \text{as required.}
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+The process we have used in the above example is called <q>integration by parts</q>. When  our integrand is a product we try to write it as <m>u(x) v'(x)</m> <mdash/> we need to choose one  factor to be <m>u(x)</m> and the other to be <m>v'(x)</m>. We then compute <m>u'(x)</m> and <m>v(x)</m> and  then apply the following theorem:
+</p>
+
+<theorem xml:id="thm_PRTSintbyparts"><title>Integration by parts</title>
+<statement><p>
+Let <m>u(x)</m> and <m>v(x)</m> be continuously differentiable. Then
+<md>
+<mrow>
+\int u(x)\,v'(x)\dee{x} = u(x)\,v(x)-\int v(x)\,u'(x)\dee{x}
+</mrow>
+</md>
+If we write <m>dv</m> for <m>v'(x)\dee{x}</m> and <m>du</m> for <m>u'(x)\dee{x}</m> (as the substitution rule  suggests), then the formula becomes
+<md>
+<mrow>
+\int u\dee{v}= u\,v-\int v\dee{u}
+</mrow>
+</md>
+The application of this formula is known as integration by parts.
+</p>
+
+<p>
+The corresponding statement for definite integrals is
+<md>
+<mrow>
+\int_a^b u(x)\,v'(x)\dee{x} = u(b)\,v(b)-u(a)\,v(a)-\int_a^b v(x)\,u'(x)\dee{x}
+</mrow>
+</md>
+</p></statement>
+</theorem>
+
+
+<p>
+Integration by parts is not as easy to apply as the product rule for derivatives. This is  because it relies on us
+<ol label="1">
+<li> judiciously choosing <m>u(x)</m> and <m>v'(x)</m>, then </li>
+<li>
+	computing <m>u'(x)</m> and <m>v(x)</m> <mdash/> which requires us to  antidifferentiate <m>v'(x)</m>, and finally
+</li>
+<li> that the integral <m>\int u'(x) v(x)\dee{x}</m> is easier than the integral we started  with. </li>
+</ol>
+</p>
+
+<p>
+Notice that any antiderivative of <m>v'(x)</m> will do. All antiderivatives of  <m>v'(x)</m> are of the form <m>v(x)+A</m> with <m>A</m> a constant. Putting this into the  integration by parts formula gives
+<md>
+<mrow>
+  \int u(x) v'(x)\dee{x} &amp;= u(x) \left( v(x)+A \right) - \int u'(x)\left(  v(x)+A\right) \dee{x}
+</mrow><mrow>
+  &amp;= u(x)v(x) + A u(x) - \int u'(x) v(x) \dee{x}- \underbrace{A \int u'(x)  \dee{x}}_{= A u(x) + C}
+</mrow><mrow>
+  &amp;= u(x)v(x) - \int u'(x) v(x)\dee{x}  + C
+</mrow>
+</md>
+So that constant <m>A</m> will always cancel out.
+</p>
+
+<p>
+In most applications (but not all) our integrand will be a product of two factors so we  have two choices for <m>u(x)</m> and <m>v'(x)</m>. Typically one of these choices will be <q>good</q>  (in that it results in a simpler integral) while the other will be <q>bad</q> (we cannot  antidifferentiate our choice of <m>v'(x)</m> or the resulting integral is harder). Let us  illustrate what we mean by returning to our previous example.
+</p>
+
+<example><title><m>\int xe^x \dee{x}</m> <mdash/> again</title>
+<p>
+Our integrand is the product of two factors
+<md>
+<mrow>
+  x &amp;&amp; \text{and} &amp;&amp; e^x
+</mrow>
+</md>
+This gives us two obvious choices of <m>u</m> and <m>v'</m>:
+<md>
+<mrow>
+  u(x)&amp;=x &amp; v'(x)&amp;=e^x
+</mrow><mrow>
+    \text{ or}
+</mrow><mrow>
+  u(x)&amp;=e^x &amp; v'(x)&amp;=x
+</mrow>
+</md>
+We should explore both choices:
+<ol>
+<li>
+	If take <m>u(x)=x</m> and <m>v'(x)=e^x</m>. We then quickly compute
+	<md>
+	<mrow>
+	  u'(x)&amp;=1 &amp;\text{and} &amp;&amp; v(x)=e^x
+	 </mrow>
+	</md>
+	which means we will need to integrate (in the right-hand side of the integration by  parts formula)
+	<md>
+	<mrow>
+	  \int u'(x) v(x) \dee{x} &amp;= \int 1 \cdot e^x \dee{x}
+	</mrow>
+	</md>
+	which looks straightforward. This is a good indication that this is the right choice of <m>u(x)</m> and <m>v'(x)</m>.
+</li>
+<li>
+	But before we do that, we should also explore the other choice, namely <m>u(x)=e^x</m>  and <m>v'(x)=x</m>. This implies that
+	<md>
+	<mrow>
+	  u'(x)&amp;= e^x &amp;\text{and}&amp;&amp; v(x)&amp;= \frac{1}{2}x^2
+	</mrow>
+	</md>
+	which means we need to integrate
+	<md>
+	<mrow>
+	  \int u'(x) v(x) \dee{x} &amp;= \int \frac{1}{2}x^2 \cdot e^x \dee{x}.
+	</mrow>
+	</md>
+	This is at least as hard as the integral we started with. Hence we should try the first  choice.
+</li>
+</ol>
+With our choice made, we integrate by parts to get
+<md>
+<mrow>
+  \int xe^x \dee{x} &amp;= xe^x - \int e^x \dee{x}
+</mrow><mrow>
+  &amp;= xe^x - e^x +C.
+</mrow>
+</md>
+The above reasoning is a very typical workflow when using integration by  parts.
+</p>
+</example>
+
+<p>
+Integration by parts is often used
+<ul>
+<li>
+	to eliminate factors of <m>x</m> from an integrand like <m>xe^x</m> by using that  <m>\diff{}{x}x=1</m> and
+</li>
+<li>
+	to eliminate a <m>\log x</m> from an integrand by using that <m>\diff{}{x}\log x=\frac{1}{x}</m> and
+</li>
+<li>
+	to eliminate inverse trig functions, like <m>\arctan x</m>, from an integrand by using that, for example, <m>\diff{}{x}\arctan x=\frac{1}{1+x^2}</m>.
+</li>
+</ul>
+</p>
+
+<example><title><m>\int x\sin x\dee{x}</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+<p>
+	Again we have a product of two factors giving us two possible choices.
+	<ol label="1">
+	<li>
+		If we choose <m>u(x)=x</m> and <m>v'(x)=\sin x</m>, then we get
+		<md>
+		<mrow>
+		  u'(x) &amp;=1 &amp;\text{and} &amp;&amp; v(x) &amp;= -\cos x
+		</mrow>
+		</md>
+		which is looking promising.
+	</li>
+	<li>
+		On the other hand if we choose <m>u(x)=\sin x</m> and <m>v'(x)=x</m>, then we have
+		<md>
+		<mrow>
+		  u'(x)&amp;=\cos x &amp;\text{and} &amp;&amp; v(x) &amp;= \frac{1}{2}x^2
+		</mrow>
+		</md>
+		which is looking worse <mdash/> we'd need to integrate <m>\int \frac{1}{2}x^2 \cos x \dee{x}</m>.
+	</li>
+	</ol>
+</p>
+</li>
+<li>
+	So we stick with the first choice. Plugging <m>u(x)=x</m>, <m>v(x)=-\cos x</m>  into  integration by parts gives us
+	<md>
+	<mrow>
+	  \int x \sin x \dee{x} &amp;= -x\cos x  - \int 1 \cdot (-\cos x) \dee{x}
+	</mrow><mrow>
+	  &amp;= -x\cos x + \sin x + C
+	</mrow>
+	</md>
+</li>
+<li>
+	Again we can check our answer by differentiating:
+	<md>
+	<mrow>
+	  \diff{}{x}\left( -x\cos x + \sin x + C \right)
+	  &amp;= -\cos x + x\sin x + \cos x + 0
+	</mrow><mrow>
+	  &amp;= x \sin x \checkmark
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+<p>
+Once we have practised this a bit we do not really need to write as much. Let us solve it  again, but showing only what we need to.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li> We use integration by parts to solve the integral. </li>
+<li>
+	Set <m>u(x)=x</m> and <m>v'(x)=\sin x</m>. Then <m>u'(x)=1</m> and <m>v(x)=-\cos x</m>, and
+	<md>
+	<mrow>
+	  \int x \sin x \dee{x} &amp;= -x\cos x + \int \cos x \dee{x}
+	</mrow><mrow>
+	  &amp;= -x\cos x + \sin x + C.
+	</mrow>
+</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+It is pretty standard practice to reduce the notation even further in these  problems. As noted above, many people write the integration by parts formula as
+<md>
+<mrow>
+  \int u\dee{v} &amp;= uv - \int v \dee{u}
+</mrow>
+</md>
+where <m>\dee{u}, \dee{v}</m> are shorthand for <m>u'(x)\dee{x}, v'(x)\dee{x}</m>. Let us  write up the previous example using this notation.
+</p>
+
+<example xml:id="eg_PRTSxsinx"><title><m>\int x\sin x\dee{x}</m> yet again</title>
+<p>
+<alert>Solution:</alert>
+Using integration by parts, we set <m>u=x</m> and <m>\dee{v}=\sin x\dee{x}</m>. This makes  <m>\dee{u}= 1\dee{x}</m> and <m>v=-\cos x</m>. Consequently
+<md>
+<mrow>
+  \int x \sin x \dee{x} &amp;= \int u\dee{v}
+</mrow><mrow>
+  &amp;= uv - \int v\dee{u}
+</mrow><mrow>
+  &amp;= -x\cos x + \int \cos x \dee{x}
+</mrow><mrow>
+  &amp;= -x \cos x +\sin x + C
+</mrow>
+</md>
+You can see that this is a very neat way to write up these problems and we will  continue using this shorthand in the examples that follow below.
+</p>
+
+</example>
+
+
+<p>
+We can also use integration by parts to eliminate higher powers of <m>x</m>. We just  need to apply the method more than once.
+</p>
+
+<example xml:id="eg_PRTSxtwoex"><title><m>\int x^2 e^x \dee{x}</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	Let <m>u=x^2</m> and <m>\dee{v}=e^x\dee{x}</m>. This then gives  <m>\dee{u}=2x\dee{x}</m> and <m>v=e^x</m>, and
+	<md>
+	<mrow>
+	  \int x^2 e^x \dee{x} &amp;= x^2 e^x - \int 2x e^x \dee{x}
+	</mrow>
+	</md>
+</li>
+<li>
+	So we have reduced the problem of computing the original integral to one of  integrating <m>2xe^x</m>. We know how to do this <mdash/> just integrate by parts again:
+	<md>
+	<mrow>
+	  \int x^2 e^x \dee{x} &amp;= x^2 e^x - \int 2x e^x \dee{x}
+	&amp; \text{set $u=2x, \dee{v}=e^x\dee{x}$}
+	</mrow><mrow>
+	  &amp;= x^2 e^x - \left( 2xe^x - \int 2 e^x \dee{x} \right)
+	&amp; \text{since $\dee{u}=2\dee{x}, v=e^x$}
+	</mrow><mrow>
+	  &amp;= x^2 e^x - 2xe^x + 2e^x + C
+	</mrow>
+	</md>
+</li>
+<li>
+	We can, if needed, check our answer by differentiating:
+	<md>
+	<mrow>
+	  \diff{}{x} \left( x^2 e^x - 2xe^x + 2e^x + C \right)
+	  &amp;= \left( x^2 e^x + 2xe^x \right) - \left(2x e^x + 2e^x \right) + 2e^x + 0
+	</mrow><mrow>
+	  &amp;= x^2 e^x \checkmark
+	</mrow>
+	</md>
+</li>
+</ul>
+A similar iterated application of integration by parts will work for integrals
+<md>
+<mrow>
+  \int P(x) \left(Ae^{ax} + B\sin(bx) + C\cos(cx) \right) \dee{x}
+</mrow>
+</md>
+where <m>P(x)</m> is a polynomial and <m>A,B,C,a,b,c</m> are constants.
+</p>
+</example>
+
+
+<p>
+Now let us look at integrands containing logarithms. We don't know the antiderivative of  <m>\log x</m>, but we can eliminate <m>\log x</m> from an integrand by using integration by parts  with <m>u=\log x</m>. Remember <m>\log x = \log_e x = \ln x</m>.
+</p>
+
+<example xml:id="eg_PRTSxlnx"><title><m>\int x\log x\dee{x}</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+<p>
+	We have two choices for <m>u</m> and <m>\dee{v}</m>.
+	<ol label="1">
+	<li>
+		Set <m>u=x</m> and <m>\dee{v}=\log x\dee{x}</m>. This gives <m>\dee{u}=\dee{x}</m> but  <m>v</m> is hard to compute <mdash/> we haven't done it yet
+			<fn>We will soon.</fn>.
+		Before we go further along this path, we should look to see what happens with the other choice.
+	</li>
+	<li>
+		Set <m>u=\log x</m> and <m>\dee{v}=x\dee{x}</m>. This gives  <m>\dee{u}=\frac{1}{x}\dee{x}</m> and <m>v=\frac{1}{2}x^2</m>, and we have to integrate
+		<md>
+		<mrow>
+		  \int v\, \dee{u} &amp;= \int \frac{1}{x} \cdot \frac{1}{2}x^2 \dee{x}
+		</mrow>
+		</md>
+		which is easy.
+	</li>
+	</ol>
+</p>
+</li>
+<li>
+	So we proceed with the second choice.
+	<md>
+	<mrow>
+	  \int x \log x \dee{x}
+	  &amp;= \frac{1}{2}x^2 \log x - \int \frac{1}{2} x \dee{x}
+	</mrow><mrow>
+	  &amp;= \frac{1}{2}x^2 \log x - \frac{1}{4}x^2 +C
+	</mrow>
+	</md>
+</li>
+<li>
+	We can check our answer quickly:
+	<md>
+	<mrow>
+	\diff{}{x} \Big(\frac{x^2}{2} \ln x -\frac{x^2}{4} +C\Big)
+	&amp;= x\,\ln x + \frac{x^2}{2}\,\frac{1}{x} -\frac{x}{2}+0
+	=x\,\ln x
+	</mrow>
+	</md>
+</li>
+</ul>
+</p></example>
+
+
+<example xml:id="eg_PRTSlnx"><title><m>\int \log x\dee{x}</m></title>
+<p>
+It is not immediately obvious that one should use integration by parts to  compute the integral
+<md>
+<mrow>
+  \int \log x \dee{x}
+</mrow>
+</md>
+since the integrand is not a product. But we should persevere <mdash/> indeed this  is a situation where our shorter notation helps to clarify how to proceed.
+</p>
+
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	In the previous example we saw that we could remove the factor <m>\log x</m> by  setting <m>u=\log x</m> and using integration by parts. Let us try repeating  this. When we make this choice, we are then forced to take <m>\dee{v}=\dee{x}</m>  <mdash/> that is we choose <m>v'(x)=1</m>. Once we have made this sneaky move everything  follows quite directly.
+</li>
+<li>
+	We then have <m>\dee{u} = \frac{1}{x}\dee{x}</m> and <m>v = x</m>, and the  integration by parts formula gives us
+	<md>
+	<mrow>
+	  \int \log x \dee{x}
+	  &amp;= x \log x - \int \frac{1}{x} \cdot x \dee{x}
+	</mrow><mrow>
+	  &amp;= x\log x - \int 1 \dee{x}
+	</mrow><mrow>
+	  &amp;= x \log x - x + C
+	</mrow>
+	</md>
+</li>
+<li>
+	As always, it is a good idea to check our result by verifying that the derivative of the answer really is the integrand.
+	<md>
+	<mrow>
+	\diff{}{x} \big(x\ln x-x +C\big) &amp;= \ln x + x\,\frac{1}{x} -1+0 =\ln x
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+</example>
+
+
+<p>
+The same method works almost exactly to compute the antiderivatives of  <m>\arcsin(x)</m> and <m>\arctan(x)</m>:
+</p>
+
+<example xml:id="eg_invtan"><title><m>\int \arctan(x)\dee{x}</m> and <m>\int \arcsin(x)\dee{x}</m></title>
+<p>
+Compute the antiderivatives of the inverse sine and inverse tangent functions.
+</p>
+
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	Again neither of these integrands are products, but that is no  impediment. In both cases we set <m>\dee{v}=\dee{x}</m> (ie <m>v'(x)=1</m>) and choose <m>v(x)=x</m>.
+</li>
+<li>
+	For inverse tan we choose <m>u=\arctan(x)</m>, so  <m>\dee{u}=\frac{1}{1+x^2}\dee{x}</m>:
+	<md>
+	<mrow>
+	  \int \arctan(x) \dee{x}
+	&amp;= x \arctan(x) - \int x \cdot \frac{1}{1+x^2} \dee{x}
+	</mrow>
+	<intertext>now use substitution rule with <m>w(x)=1+x^2, w'(x)=2x</m></intertext>
+	<mrow>
+	&amp;= x \arctan(x) - \int \frac{w'(x)}{2} \cdot \frac{1}{w} \dee{x}
+	</mrow><mrow>
+	  &amp;= x \arctan(x) - \frac{1}{2} \int \frac{1}{w} \dee{w}
+	</mrow><mrow>
+	  &amp;= x \arctan(x) - \frac{1}{2}\log |w| + C
+	</mrow><mrow>
+	  &amp;= x \arctan(x) - \frac{1}{2} \log|1+x^2| + C \qquad \text{but $1+x^2 \gt 0$, so}
+	</mrow><mrow>
+	  &amp;= x \arctan(x) - \frac{1}{2} \log(1+x^2) + C
+	</mrow>
+	</md>
+</li>
+<li>
+	Similarly for inverse sine we choose <m>u=\arcsin(x)</m> so <m>\dee{u} =  \frac{1}{\sqrt{1-x^2}}\dee{x}</m>:
+	<md>
+	<mrow>
+	  \int \arcsin(x) \dee{x}
+	&amp;= x \arcsin(x) - \int \frac{x}{\sqrt{1-x^2}} \dee{x}
+	</mrow>
+	<intertext>Now use substitution rule with <m>w(x)=1-x^2, w'(x)=-2x</m></intertext>
+	<mrow>
+	&amp;= x \arcsin(x) - \int \frac{-w'(x)}{2} \cdot w^{-1/2} \dee{x}
+	</mrow><mrow>
+	&amp;= x\arcsin(x) + \frac{1}{2} \int w^{-1/2} \dee{w}
+	</mrow><mrow>
+	&amp;= x \arcsin(x) + \frac{1}{2} \cdot 2 w^{1/2} + C
+	</mrow><mrow>
+	&amp;= x\arcsin(x) + \sqrt{1-x^2} + C
+	</mrow>
+	</md>
+</li>
+<li>
+	Both can be checked quite quickly by differentitating <mdash/> but we leave  that as an exercise for the reader.
+</li>
+</ul>
+</p>
+
+</example>
+
+
+<p>
+There are many other examples we could do, but we'll finish with a tricky one.
+</p>
+
+<example xml:id="eg_circularint"><title><m>\int e^x \sin x\dee{x}</m></title>
+<p>
+<alert>Solution:</alert> Let us attempt this one a little naively and then we'll come back and do  it more carefully (and successfully).
+<ul>
+<li>
+<p>
+	We can choose either <m>u=e^x, \dee{v}=\sin x\dee{x}</m> or the other way  around.
+	<ol>
+	<li>
+		Let <m>u=e^x, \dee{v}=\sin x\dee{x}</m>. Then <m>\dee{u}=e^x\dee{x}</m> and  <m>v=-\cos x</m>. This gives
+		<md>
+		<mrow>
+		  \int e^x \sin x &amp;= -e^x\cos x + \int e^x \cos x \dee{x}
+		</mrow>
+		</md>
+		So we are left with an integrand that is very similar to the one  we started with. What about the other choice?
+	</li>
+	<li>
+		Let <m>u=\sin x, \dee{v}=e^x\dee{x}</m>. Then <m>\dee{u}=\cos x\dee{x}</m> and  <m>v= e^x</m>. This gives
+		<md>
+		<mrow>
+		  \int e^x \sin x &amp;= e^x\sin x - \int e^x \cos x \dee{x}
+		</mrow>
+		</md>
+		So we are again left with an integrand that is very similar to the one  we started with.
+	</li>
+	</ol>
+</p>
+</li>
+<li>
+	How do we proceed? <mdash/> It turns out to be easier if you do both <m>\int  e^x\sin x\dee{x}</m> and <m>\int e^x \cos x\dee{x}</m> simultaneously. We do so in the  next example.
+</li>
+</ul>
+</p></example>
+
+
+<example xml:id="eg_PRTSexsinx"><title><m>\int_a^b e^x\sin x\dee{x}</m> and <m>\int_a^b e^x\cos x\dee{x}</m></title>
+<p>
+This time we're going to do the two integrals
+<md>
+<mrow>
+I_1&amp;=\int_a^b e^x\sin x\dee{x}
+&amp;
+I_2 &amp;=\int_a^b e^x\cos x\dee{x}
+</mrow>
+</md>
+at more or less the same time.
+</p>
+
+<p>
+<ul>
+<li>
+	First
+	<md>
+	<mrow>
+	I_1=\int_a^b e^x\sin x\dee{x}
+	&amp;=\int_a^b u \dee{v} \qquad
+	</mrow>
+	<intertext>Choose <m>u=e^x, \dee{v} = \sin x\dee{x}</m>, so <m>v = -\cos x, \dee{u}= e^x\dee{x}</m></intertext>
+	<mrow>
+	&amp;=\Big[-e^x\cos x\Big]_a^b +\int_a^b e^x\cos x\dee{x}
+	</mrow>
+	</md>
+	We have not found <m>I_1</m> but we have related it to <m>I_2</m>.
+	<md>
+	<mrow>
+		I_1&amp;=\Big[-e^x\cos x\Big]_a^b +I_2
+	</mrow>
+	</md>
+</li>
+<li>
+	Now start over with <m>I_2</m>.
+	<md>
+	<mrow>
+	I_2=\int_a^b e^x\cos x\dee{x}
+	&amp;=\int_a^b u\dee{v}
+	</mrow>
+	<intertext> Choose <m>u=e^x, \dee{v} = \cos x\dee{x}</m>, so <m>v = \sin x, \dee{u}= e^x\dee{x}</m> </intertext>
+	<mrow>
+	&amp;=\Big[e^x\sin x\Big]_a^b -\int_a^b e^x\sin x\dee{x}
+	</mrow>
+	</md>
+	Once again, we have not found <m>I_2</m> but we have related it back to <m>I_1</m>.
+	<md>
+	<mrow>
+	I_2&amp;=\Big[e^x\sin x\Big]_a^b -I_1
+	</mrow>
+	</md>
+</li>
+<li>
+	So summarising, we have
+	<md>
+	<mrow>
+	I_1&amp;=\Big[-e^x\cos x\Big]_a^b +I_2
+	&amp; I_2&amp;=\Big[e^x\sin x\Big]_a^b -I_1
+	</mrow>
+	</md>
+</li>
+<li>
+	So now, substitute the expression for <m>I_2</m> from the second equation into the first  equation to get
+	<md>
+	<mrow>
+	I_1 &amp;=\Big[-e^x\cos x +e^x\sin x\Big]_a^b -I_1
+	&amp; \text{which implies}&amp;&amp;
+	I_1&amp;=\frac{1}{2}\Big[e^x\big(\sin x-\cos x\big)\Big]_a^b
+	</mrow>
+	</md>
+	If we substitute the other way around we get
+	<md>
+	<mrow>
+	I_2 &amp;=\Big[e^x\sin x +e^x\cos x\Big]_a^b -I_2
+	&amp; \text{which implies}&amp;&amp;
+	I_2&amp;=\frac{1}{2}\Big[e^x\big(\sin x+\cos x\big)\Big]_a^b
+	</mrow>
+	</md>
+	That is,
+	<md>
+	<mrow>
+	\int_a^b e^x\sin x\dee{x}=
+	\frac{1}{2}\Big[e^x\big(\sin x-\cos x\big)\Big]_a^b
+	\qquad
+	\int_a^b e^x\cos x\dee{x}=
+	\frac{1}{2}\Big[e^x\big(\sin x+\cos x\big)\Big]_a^b
+	</mrow>
+	</md>
+</li>
+<li>
+	This also says, for example,  that <m>\frac{1}{2}e^x\big(\sin x-\cos x\big)</m> is an antiderivative  of <m>e^x\sin x</m> so that
+	<md>
+	<mrow>
+	\int e^x\sin x\dee{x}=\frac{1}{2}e^x\big(\sin x-\cos x\big)+C
+	</mrow>
+	</md>
+</li>
+<li>
+	Note that we can always check whether or not this is correct. It is  correct if and only if the derivative of the right hand side is <m>e^x\sin x</m>.  Here goes. By the product rule
+	<md>
+	<mrow>
+	\diff{}{x}\Big[\frac{1}{2}e^x\big(\sin x-\cos x\big)+C\Big]
+	&amp;=\frac{1}{2}\Big[e^x\big(\sin x-\cos x\big)+e^x\big(\cos x+\sin x\big)\Big]
+	=e^x\sin x
+	</mrow>
+	</md>
+	which is the desired derivative.
+</li>
+<li>
+	There is another way to find <m>\int e^x\sin x\dee{x}</m> and <m>\int e^x\cos x\dee{x}</m> that, in contrast to the above computations,  doesn't involve any trickery. But it does require the use of complex  numbers and so is beyond the scope of this course. The secret is to use that <m>\sin x =\frac{e^{ix}-e^{-ix}}{2i}</m> and <m>\cos x =\frac{e^{ix}+e^{-ix}}{2}</m>, where <m>i</m> is the square root of <m>-1</m> of the complex number system.
+</li>
+</ul>
+</p>
+</example>
+
+</subsection>
+
+
+<xi:include href="../problems/prob_s1.7.xml" />
+
+</section>

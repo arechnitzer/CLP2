@@ -1,0 +1,1916 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<exercises>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise>
+<statement><p>
+Consider a right circular cone.
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0)node[thin, gray, shape=ellipse, minimum width=3cm, minimum height=1cm, draw, fill=black, fill opacity=0.1] {};
+\draw (-1.5,0)--(0,3)--(1.5,0);
+\filldraw[draw=blue, left color=blue!50!black, right color=white, opacity=0.3] (-1.5,0)--(0,3)--(1.5,0) arc(0:-180:1.5cm and 0.5cm);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+What shape are horizontal cross-sections? Are the vertical cross-sections the same?
+</p></statement>
+<hint><p>
+The horizontal cross-sections were discussed in Example<nbsp/><xref ref="eg_VOLa"/>.
+</p></hint>
+<answer><p>
+The horizontal cross-sections are circles, but the vertical cross-sections are not.
+</p></answer>
+<solution><p>
+If we take a horizontal slice of a cone, we get a circle. If we take a vertical cross-section, the base is flat (it's a chord on the circular base of the cone), so we know right away it isn't a circle. Indeed, if we slice down through the very centre, we get a triangle. (Other vertical slices have a curvy top, corresponding to  a class of curves known as hyperbolas.)
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Two potters start with a block of clay <m>h</m> units tall, and identical square cookie cutters. They form columns by pushing the square cookie cutter straight down over the clay, so that its cross-section is the same square as the cookie cutter. Potter A pushes their cookie cutter down while their clay block is sitting motionless on a table; Potter B pushes their cookie cutter down while their clay block is rotating on a potter's wheel, so their column looks twisted. Which column has greater volume?
+</p>
+
+<sidebyside width="25%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick] (-1.5,-3) --(-0,-3.5)--(1.5,-3)--(1.5,3)--(0,2.5)--(-1.5,3)--cycle;
+\draw[thick] (-1.5,3)--(0,3.5)--(1.5,3) (0,2.5)--(0,-3.5);
+\fill[bottom color=black, top color=white, fill opacity=0.2] (-1.5,3)--(0,2.5)--(0,-3.5)--(-1.5,-3)--cycle;
+\fill[bottom color=blue, top color=white, fill opacity=0.2] (1.5,3)--(0,2.5)--(0,-3.5)--(1.5,-3)--cycle;
+ \draw (0,-4.5) node {Column A};
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick] (-1.5,-3)--(0,-3.5)--(1.5,-3);
+\draw[thick] plot[domain=-1.57:1.57]({-1.5*sin(\x r)},1.91*\x);
+\draw[thick] (-1.5,3)--(0,2.5)--(1.5,3)--(0,3.5)--cycle;
+\draw[thick] plot[domain=-2.1:0, yshift=2.5cm]({-1.25*sin(\x r)},1.91*\x);
+\draw[thick] plot[domain=.6:1.57]({1.5*sin(\x r)},1.91*\x);
+\draw[thick] plot[domain=-1.57:-.8]({1.5*sin(\x r)},1.91*\x);
+\draw[thick] plot[domain=-.75:1.57, yshift=-.5cm]({-1.25*cos(\x r)},-1.91*\x);
+\fill[bottom color=black, top color=white, fill opacity=0.5] (0,-3.5)-- plot[domain=-.8:-1.57]({1.5*sin(\x r)},1.91*\x)  plot[domain= .6:1.57, yshift=-.5cm]({-1.25*cos(\x r)},-1.91*\x);
+\fill[bottom color=red, top color=white, fill opacity=0.2] (0,2.5) plot[domain=-2.1:0, yshift=2.5cm]({-1.25*sin(\x r)},1.91*\x)--
+plot[domain=1.57:-.8]({-1.5*sin(\x r)},1.91*\x)--cycle;
+\fill[bottom color=blue, top color=white, fill opacity=0.2] (0,-3.5) --(1.5,-3)
+ plot[domain=-1.57:.6]({-1.5*sin(\x r)},1.91*\x)--
+plot[domain=-.75:1.57, yshift=-.5cm]({-1.25*cos(\x r)},-1.91*\x);
+\fill[bottom color=green!50!blue, top color=white, fill opacity=0.2] (0,2.5) --(1.5,3)
+ plot[domain=.6:1.57]({1.5*sin(\x r)},1.91*\x)--(0,2.5)--
+ cycle;
+ \draw (0,-4.5) node {Column B};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</statement>
+
+<hint><p>
+What are the dimensions of the cross-sections?
+</p></hint>
+<answer><p>
+The columns have the same volume.
+</p></answer>
+<solution><p>
+The columns have the same volume. We can see this by chopping up the columns into horizontal cross-sections. Each cross-section has the same area as the cookie cutter, <m>A</m>, and height <m>\dee{y}</m>. Then in both cases, the volume of the column is
+<me>
+\int_{0}^h A \dee{y}  = hA \mbox{ cubic units}
+</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>R</m> be the region bounded above by the graph of <m>y=f(x)</m> shown below and bounded below by the <m>x</m>-axis, from <m>x=0</m> to <m>x=6</m>. Sketch the washers that are formed by rotating <m>R</m> about the <m>y</m>-axis.
+In your sketch, label the all radii in terms of <m>y</m>, and label the thickness.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{7}{1}{4}
+\draw[ultra thick, blue] (0,0)--(1,1)--(2,0)--(4,3)--(6,0);
+\draw[blue](6,1) node  [right]{$y=f(x)$};
+\foreach \x in {2,1,4,6}{\YExcoord{\x}{\x}}
+\foreach \x in {1,3}{\YEycoord{\x}{\x}}
+\draw[dashed] (1,.2)|-(.2,1) (4,.2)|-(.2,3);
+\filldraw[blue, opacity=0.1] (0,0)--(1,1)--(2,0)--(4,3)--(6,0)--cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+There are two different kinds of washers.
+</p></hint>
+<answer>
+<p>
+<ul>
+<li>
+<p>
+Washers when <m>\mathbf{1 \lt y \le 6}</m>:
+If <m>y \gt 1</m>, then our washer has inner radius <m>2+\frac{2}{3}y</m>, outer radius <m>6-\frac{2}{3}y</m>, and height <m>\dee{y}</m>.
+</p><sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw node[shape=ellipse, minimum width=6cm, minimum height=3cm, fill=red, fill opacity=0.1]{};
+\draw node[shape=ellipse, minimum width=3cm, minimum height=1cm, fill=white]{};
+\draw node[shape=ellipse, minimum width=3cm, minimum height=1cm, draw]{};
+\draw node[shape=ellipse, minimum width=6cm, minimum height=3cm, draw]{};
+\draw (-3,0)--(-3,-.2) arc(180:360:3cm and 1.5cm)--(3,0);
+\draw (0,-.15)+(174:1.5cm and .5cm)arc(174:6:1.5cm and .5cm);
+\draw (3.5,-.2)-|(3.75,0)--(3.5,0);
+\draw[dashed] (0,-3)--(0,-1.7) (0,-.5)--(0,4) node[above]{$y$};
+\draw node[vertex]{};
+\draw (4,-0.1) node[right]{thickness: $\dee{y}$};
+\draw[decorate, decoration={brace, amplitude=10pt}] (0,-2)--(-3,-2) node[midway, yshift=-.75cm]{$R = 6-\frac{2}{3}y$};
+\draw[dashed] (-3,0)--(-3,-2);
+\draw[decorate, decoration={brace, amplitude=10pt}] (0,2)--(1.5,2) node[midway, yshift=.75cm, xshift=5mm]{$r = 2+\frac{2}{3}y$};
+\draw[dashed] (1.5,2)--(1.5,0);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li>
+<p>
+Washers when <m>\mathbf{0\le y  \lt 1}</m>:
+When <m>0 \le y  \lt  1</m>, we have a <q>double washer,</q> two concentric rings. The inner washer has inner radius <m>r_1=y</m> and outer radius <m>R_1=2-y</m>. The outer washer has inner radius <m>r_2=2+\frac{2}{3}y</m> and outer radius <m>R_2=6-\frac{2}{3}y</m>. The thickness of the washers is <m>\dee{y}</m>.
+</p>
+
+<sidebyside>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[red] node[shape=ellipse, minimum width=15cm, minimum height=9cm, fill=red, fill opacity=0.1]{};
+\draw[red] node[shape=ellipse, minimum width=9cm, minimum height=5cm, fill=white]{};
+\draw[blue] node[shape=ellipse, minimum width=6cm, minimum height=3cm, fill=blue, fill opacity=0.1]{};
+\draw[blue] node[shape=ellipse, minimum width=3cm, minimum height=1cm, fill=white]{};
+\draw[blue] node[shape=ellipse, minimum width=3cm, minimum height=1cm, draw]{};
+\draw[blue] node[shape=ellipse, minimum width=6cm, minimum height=3cm, draw]{};
+\draw[red] node[shape=ellipse, minimum width=9cm, minimum height=5cm, draw]{};
+\draw[red] node[shape=ellipse, minimum width=15cm, minimum height=9cm, draw]{};
+\draw[blue] (-3,0)--(-3,-.2) arc(180:360:3cm and 1.5cm)--(3,0);
+\draw[blue] (0,-.15)+(174:1.5cm and .5cm)arc(174:6:1.5cm and .5cm);
+\draw[red] (0,-.15)+(174:4.5cm and 2.5cm)arc(174:6:4.5cm and 2.5cm);
+\draw[red] (-7.5,0)--(-7.5,-.2) arc(180:360:7.5cm and 4.5cm)--(7.5,0);
+\draw (3.5,-.2)-|(3.75,0)--(3.5,0);
+\draw[dashed] (0,-5)--(0,-4.7)  (0,-2.5)--(0,-1.7) (0,-.5)--(0,6) node[above]{$y$};
+\draw node[vertex]{};
+\draw (4,-0.1) node[right]{thickness: $\dee{y}$};
+\draw[blue, decorate, decoration={brace, amplitude=10pt}] (3,-1.75)--(0,-1.75) node[midway, yshift=-1.cm]{$R_1 = 2-y$};
+\draw[dashed, blue] (3,0)--(3,-1.75);
+\draw[red, decorate, decoration={brace, amplitude=10pt}] (0,-5)--(-7.5,-5) node[midway, yshift=-.75cm]{$R_2 = 6-\frac{2}{3}y$};
+\draw[dashed, red] (-7.5,0)--(-7.5,-5);
+\draw[blue, decorate, decoration={brace, amplitude=10pt}] (0,1)--(1.5,1) node[midway, yshift=.75cm, xshift=5mm]{$r_1 = y$};
+\draw[dashed, blue] (1.5,1)--(1.5,0);
+\draw[red, decorate, decoration={brace, amplitude=10pt}] (-4.5,3)--(0,3) node[midway, yshift=.75cm, xshift=5mm]{$r_2 = 2+\frac{2}{3}y$};
+\draw[dashed, red] (-4.5,3)--(-4.5,0);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+</ul>
+</p></answer>
+<solution><p>
+Notice <m>f(x)</m> is a piecewise linear function, so we can find explicit equations for each of its pieces from the graph. The radii will be determined by the <m>x</m>-values, so below we give the <m>x</m>-values as functions of <m>y</m>.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{7}{1}{4}
+\draw[ultra thick, blue] (0,0)--(1,1)--(2,0)--(4,3)--(6,0);
+\draw[blue](6,1) node  [right]{$y=f(x)$};
+\foreach \x in {2,1,4,6}{\YExcoord{\x}{\x}}
+\foreach \x in {1,3}{\YEycoord{\x}{\x}}
+\draw[dashed] (1,.2)|-(.2,1) (4,.2)|-(.2,3);
+\filldraw[blue, opacity=0.1] (0,0)--(1,1)--(2,0)--(4,3)--(6,0)--cycle;
+\draw[decorate, decoration={brace, amplitude=5pt}] (.9,-.75)--(0,-.75);
+\draw (.5,-1) node[rotate=90, left]{$x=y$};
+\draw[decorate, decoration={brace, amplitude=5pt}] (2,-.75)--(1.1,-.75);
+\draw (1.5,-1) node[rotate=90, left]{$x=2-y$};
+\draw[decorate, decoration={brace, amplitude=7pt}] (3.9,-.75)--(2.1,-.75);
+\draw (3,-1) node[rotate=90, left]{$x=2+\frac{2}{3}y$};
+\draw[decorate, decoration={brace, amplitude=7pt}] (6,-.75)--(4.1,-.75);
+\draw (5,-1) node[rotate=90, left]{$x=6-\frac{2}{3}y$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+If we imagine rotating the region from the picture about the <m>y</m>-axis, there will be two kinds of washers formed: when <m>y \lt 1</m>, we have a <q>double washer,</q> two concentric rings. When <m>y \gt 1</m>, we have a single ring.
+</p>
+
+<p><ul>
+<li>
+<p>
+Washers when <m>\mathbf{1 \lt y \le 6}</m>:
+If <m>y \gt 1</m>, then our washer has inner radius <m>2+\frac{2}{3}y</m>, outer radius <m>6-\frac{2}{3}y</m>, and height <m>\dee{y}</m>.
+</p><sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw node[shape=ellipse, minimum width=6cm, minimum height=3cm, fill=red, fill opacity=0.1]{};
+\draw node[shape=ellipse, minimum width=3cm, minimum height=1cm, fill=white]{};
+\draw node[shape=ellipse, minimum width=3cm, minimum height=1cm, draw]{};
+\draw node[shape=ellipse, minimum width=6cm, minimum height=3cm, draw]{};
+\draw (-3,0)--(-3,-.2) arc(180:360:3cm and 1.5cm)--(3,0);
+\draw (0,-.15)+(174:1.5cm and .5cm)arc(174:6:1.5cm and .5cm);
+\draw (3.5,-.2)-|(3.75,0)--(3.5,0);
+\draw[dashed] (0,-3)--(0,-1.7) (0,-.5)--(0,4) node[above]{$y$};
+\draw node[vertex]{};
+\draw (4,-0.1) node[right]{thickness: $\dee{y}$};
+\draw[decorate, decoration={brace, amplitude=10pt}] (0,-2)--(-3,-2) node[midway, yshift=-.75cm]{$R = 6-\frac{2}{3}y$};
+\draw[dashed] (-3,0)--(-3,-2);
+\draw[decorate, decoration={brace, amplitude=10pt}] (0,2)--(1.5,2) node[midway, yshift=.75cm, xshift=5mm]{$r = 2+\frac{2}{3}y$};
+\draw[dashed] (1.5,2)--(1.5,0);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li>
+<p>
+Washers when <m>\mathbf{0\le y  \lt 1}</m>:
+When <m>0 \le y  \lt  1</m>, we have a <q>double washer,</q> two concentric rings corresponding to the two <q>humps</q> in the function.  The inner washer has inner radius <m>r_1=y</m> and outer radius <m>R_1=2-y</m>. The outer washer has inner radius <m>r_2=2+\frac{2}{3}y</m> and outer radius <m>R_2=6-\frac{2}{3}y</m>. The thickness of the washers is <m>\dee{y}</m>.
+</p>
+
+<sidebyside>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[red] node[shape=ellipse, minimum width=15cm, minimum height=9cm, fill=red, fill opacity=0.1]{};
+\draw[red] node[shape=ellipse, minimum width=9cm, minimum height=5cm, fill=white]{};
+\draw[blue] node[shape=ellipse, minimum width=6cm, minimum height=3cm, fill=blue, fill opacity=0.1]{};
+\draw[blue] node[shape=ellipse, minimum width=3cm, minimum height=1cm, fill=white]{};
+\draw[blue] node[shape=ellipse, minimum width=3cm, minimum height=1cm, draw]{};
+\draw[blue] node[shape=ellipse, minimum width=6cm, minimum height=3cm, draw]{};
+\draw[red] node[shape=ellipse, minimum width=9cm, minimum height=5cm, draw]{};
+\draw[red] node[shape=ellipse, minimum width=15cm, minimum height=9cm, draw]{};
+\draw[blue] (-3,0)--(-3,-.2) arc(180:360:3cm and 1.5cm)--(3,0);
+\draw[blue] (0,-.15)+(174:1.5cm and .5cm)arc(174:6:1.5cm and .5cm);
+\draw[red] (0,-.15)+(174:4.5cm and 2.5cm)arc(174:6:4.5cm and 2.5cm);
+\draw[red] (-7.5,0)--(-7.5,-.2) arc(180:360:7.5cm and 4.5cm)--(7.5,0);
+\draw (3.5,-.2)-|(3.75,0)--(3.5,0);
+\draw[dashed] (0,-5)--(0,-4.7)  (0,-2.5)--(0,-1.7) (0,-.5)--(0,6) node[above]{$y$};
+\draw node[vertex]{};
+\draw (4,-0.1) node[right]{thickness: $\dee{y}$};
+\draw[blue, decorate, decoration={brace, amplitude=10pt}] (3,-1.75)--(0,-1.75) node[midway, yshift=-1.cm]{$R_1 = 2-y$};
+\draw[dashed, blue] (3,0)--(3,-1.75);
+\draw[red, decorate, decoration={brace, amplitude=10pt}] (0,-5)--(-7.5,-5) node[midway, yshift=-.75cm]{$R_2 = 6-\frac{2}{3}y$};
+\draw[dashed, red] (-7.5,0)--(-7.5,-5);
+\draw[blue, decorate, decoration={brace, amplitude=10pt}] (0,1)--(1.5,1) node[midway, yshift=.75cm, xshift=5mm]{$r_1 = y$};
+\draw[dashed, blue] (1.5,1)--(1.5,0);
+\draw[red, decorate, decoration={brace, amplitude=10pt}] (-4.5,3)--(0,3) node[midway, yshift=.75cm, xshift=5mm]{$r_2 = 2+\frac{2}{3}y$};
+\draw[dashed, red] (-4.5,3)--(-4.5,0);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2000D</fromexam></title>
+<statement><p>
+Write down definite integrals that represent the following quantities.
+<em>Do not evaluate the integrals explicitly.</em>
+<ol label="a">
+<li>
+The volume of the solid obtained by rotating  around the <m>x</m>--axis the
+region between the <m>x</m>--axis and <m>y=\sqrt{x}\, e^{x^2}</m> for <m>0\le x\le 3</m>.
+</li>
+<li>
+The volume of the solid obtained by revolving the
+region bounded by the curves <m>y=x^2</m> and <m>y=x+2</m> about the line <m>x=3</m>.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+Draw sketches. The mechanically easiest way to answer part (b) uses the method of cylindrical shells, which is in the optional section <xref ref="sec_int_volumes"/>. The method of washers also works, but requires  you to have more patience and also to have a good idea what the specified region looks like.  Look at your sketch
+very careful when identifying the ends of your horizontal strips.
+</p></hint>
+
+<answer><p> (a)
+<m>\pi\displaystyle\int_{0}^{3} xe^{2x^2}\dee{x}</m>
+</p>
+
+<p> (b)
+<m>\displaystyle\int _0^1  \pi\big[\big(3+\sqrt{y}\big)^2-\big(3-\sqrt{y}\big)^2\big]\dee{y}
++\displaystyle\int _ 1^4  \pi\big[\big(5-y\big)^2-\big(3-\sqrt{y}\big)^2\big]\dee{y}</m>
+</p>
+
+</answer>
+
+<solution><p> (a)
+When the strip shown in the figure
+</p>
+
+<sidebyside width="33%">
+<image source="problems/figs/OE00D_3b"/>
+</sidebyside>
+<p> is rotated about the <m>x</m>--axis, it  forms a thin disk of radius <m>\sqrt{x}e^{x^2}</m>  and thickness <m>\dee{x}</m> and hence of cross sectional area <m>\pi xe^{2x^2}</m> and volume <m>\pi xe^{2x^2}\,\dee{x}</m> So the volume of the solid is
+<md>
+<mrow>
+\pi\int_{0}^{3} xe^{2x^2}\dee{x}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+The curves intersect at <m>(-1,1)</m> and <m>(2,4)</m>.
+</p>
+
+<sidebyside width="75%">
+<image source="problems/figs/OE00D_3e"/>
+</sidebyside>
+<p>
+We'll use horizontal washers as in Example  <xref ref="eg_rot_yaxis"/>.
+<ul>
+<li> We use thin horizontal  strips of width <m>\dee{y}</m> as in the figure  above. </li>
+<li>
+<p>
+When we rotate about the line <m>x=3</m>, each strip  sweeps out a thin washer
+<ul>
+<li>
+whose inner radius is <m>r_{in}=3-\sqrt{y}</m>, and
+</li>
+<li>
+whose outer radius is <m>r_{out}=3-(y-2)=5-y</m> when <m>y\ge 1</m>
+(see the red strip in the figure on the right above),  and
+whose outer radius is <m>r_{out}= 3-(-\sqrt{y})=3+\sqrt{y}</m> when <m>y\le 1</m>
+(see the blue strip in the figure on the right above) and
+</li>
+<li>
+whose thickness is <m>\dee{y}</m> and hence
+</li>
+<li>
+whose volume is
+<m>\pi(r_{out}^2 - r_{in}^2)\dee{y}
+       = \pi\big[\big(5-y\big)^2-\big(3-\sqrt{y}\big)^2\big]\dee{y}</m>
+when <m>y\ge 1</m> and  whose volume is
+<m>\pi(r_{out}^2 - r_{in}^2)\dee{y}
+    =\pi\big[\big(3+\sqrt{y}\big)^2-\big(3-\sqrt{y}\big)^2\big]\dee{y}</m>
+when <m>y\le 1</m> and
+</li>
+</ul>
+</p>
+</li>
+<li> As our bottommost strip is at <m>y=0</m> and our topmost
+strip is at <m>y=4</m>, the total volume is
+<md>
+<mrow>
+\int _0^1  \pi\big[\big(3+\sqrt{y}\big)^2-\big(3-\sqrt{y}\big)^2\big]\dee{y}
++\int _ 1^4  \pi\big[\big(5-y\big)^2-\big(3-\sqrt{y}\big)^2\big]\dee{y}
+</mrow>
+</md>
+</li>
+</ul>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2001A,M121 2001A</fromexam></title>
+<statement><p>
+Write down definite integrals that represent the following quantities.
+<em>Do not evaluate the integrals explicitly.</em>
+<ol label="a">
+<li>
+The volume of the solid obtained by rotating the finite plane
+region bounded by the curves <m>y=1-x^2</m> and <m>y=4-4x^2</m> about the line <m>y=-1</m>.
+</li>
+<li>
+The volume of the solid obtained by rotating the finite plane
+region bounded by the curve <m>y=x^2-1</m> and the line <m>y=0</m> about the line <m>x=5</m>.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+Draw sketchs.
+</p></hint>
+
+<answer><p> (a)
+<m>\displaystyle\int_{-1}^{1}\pi\big[{(5-4x^2)}^2-{(2-x^2)}^2\big]\,\dee{x}</m>
+</p><p>
+ (b)
+<m>\displaystyle\int _{-1}^0   \pi\big[\big(5+\sqrt{y+1}\big)^2-\big(5-\sqrt{y+1}\big)^2\big]\,\dee{y}</m>
+</p>
+
+</answer>
+
+<solution><p> (a)
+The curves intersect at <m>(1,0)</m> and <m>(-1,0)</m>. When the strip shown in the
+figure
+</p>
+<sidebyside width="50%">
+<image source="problems/figs/OE01A_2b"/>
+</sidebyside>
+<p>
+is rotated about the line <m>y=-1</m>, it forms a thin washer with:
+<ul>
+<li> inner radius  <m>(1-x^2)-(-1)=2-x^2</m>, </li>
+<li> outer radius <m>(4-4x^2)-(-1)=5-4x^2</m>  and </li>
+<li> thickness <m>\dee{x}\ </m>; so, it has </li>
+<li>  cross sectional area <m>\pi\big[{(5-4x^2)}^2-{(2-x^2)}^2\big]</m> and </li>
+<li> volume <m>\pi\big[{(5-4x^2)}^2-({2-x^2)}^2\big]\,\dee{x}</m>. </li>
+</ul>
+</p>
+
+<p> So the volume of the solid is
+<md>
+<mrow>
+\int_{-1}^{1}\pi\big[{(5-4x^2)}^2-{(2-x^2)}^2\big]\,\dee{x}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+The curve <m>y=x^2-1</m> intersects <m>y=0</m> at <m>(1,0)</m> and <m>(-1,0)</m>.
+</p>
+
+<sidebyside width="66%">
+<image source="problems/figs/OE01A_2c"/>
+</sidebyside>
+<p>
+We'll use horizontal washers.
+ <ul>
+<li> We use thin horizontal  strips of height <m>\dee{y}</m> as in the figure  above. </li>
+<li>
+<p>
+When we rotate about the line <m>x=5</m>, each strip sweeps out a thin washer
+<ul>
+<li>
+whose inner radius is <m>r_{in}=5-\sqrt{y+1}</m>, and
+</li>
+<li>
+whose outer radius is <m>r_{out}= 5-(-\sqrt{y+1})=5+\sqrt{y+1}</m> and
+</li>
+<li>
+whose thickness is <m>\dee{y}</m> and hence
+</li>
+<li>
+whose volume is
+<m>\pi(r_{out}^2 - r_{in}^2)\,\dee{y}
+       = \pi\big[\big(5+\sqrt{y+1}\big)^2-\big(5-\sqrt{y+1}\big)^2\big]\,\dee{y}</m>
+</li>
+</ul>
+</p>
+</li>
+<li> As our topmost strip is at <m>y=0</m> and our bottommost
+strip is at <m>y=-1</m> (when <m>x=0</m>), the total volume is
+<md>
+<mrow>
+\int _{-1}^0   \pi\left[\big(5+\sqrt{y+1}\big)^2-\big(5-\sqrt{y+1}\big)^2\right]\,\dee{y}
+</mrow>
+</md>
+</li>
+</ul>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2001D</fromexam></title>
+<statement><p>
+Write down a definite integral that represents the volume of the solid
+obtained by rotating  around the line <m>y=-1</m> the region between the
+curves <m>y=x^2</m> and <m>y=8-x^2</m>.
+<em>Do not evaluate the integrals explicitly.</em>
+</p></statement>
+
+<hint><p>
+Draw a sketch.
+</p></hint>
+
+<answer><p>
+<m>\pi\displaystyle\int_{-2}^{2}\big[{(9-x^2)}^2-{(x^2+1)}^2\big]\dee{x}</m>
+</p></answer>
+
+<solution><p>
+The curves intersect at <m>(-2,4)</m> and <m>(2,4)</m>. When the strip
+shown in the figure
+</p>
+<sidebyside width="50%">
+<image source="problems/figs/OE01D_3b"/>
+</sidebyside>
+<p>
+is rotated about the line <m>y=-1</m>, it forms
+a thin washer (punctured disc) of
+<ul>
+<li>
+inner radius <m>x^2+1</m>,
+</li>
+<li>
+outer radius <m>9-x^2</m>  and
+</li>
+<li> thickness <m>\dee{x}</m> and hence of
+</li>
+<li>
+cross sectional area <m>\pi\big[{(9-x^2)}^2-{(x^2+1)}^2\big]</m> and
+</li>
+<li>
+volume <m>\pi\big[{(9-x^2)}^2-{(x^2+1)}^2\big]\,\dee{x}</m>.
+</li>
+</ul>
+</p>
+
+<p> So the volume of the solid is
+<md>
+<mrow>
+\pi\int_{-2}^{2}\big[{(9-x^2)}^2-{(x^2+1)}^2\big]\dee{x}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+A tetrahedron is a three-dimensional shape with four faces, each of which is an equilateral triangle. (You might have seen this shape as a 4-sided die; think of a pyramid with a triangular base.) Using the methods from this section, calculate the volume of a tetrahedron with side-length <m>\ell</m>. You may assume without proof that the height of a tetrahedron with side-length <m>\ell</m> is <m>\sqrt{\frac{2}{3}}\ell</m>.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0) coordinate(a0);
+\draw (3,0) coordinate(a1);
+\draw (2,-.75) coordinate(a2);
+\draw (1.8,2.) coordinate(a3);
+\draw[dashed, gray] (a0)--(a1);
+\draw[fill, fill opacity=0.3] (a2)--(a3)--(a1)--cycle;
+\draw[fill, fill opacity=0.1] (a0)--(a3)--(a2)--cycle;
+\draw[decorate, decoration={brace, amplitude=10pt}] (-.2,0.2)--(1.6,2.2) node[midway, above left, xshift=-7pt]{$\ell$};
+\draw[decorate, decoration={brace, amplitude=10pt, mirror}] (3.5,0)--(3.5,2) node[midway,  right, xshift=7pt]{$\sqrt{\frac{2}{3}}\ell$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+If you take horizontal slices (parallel to one face), they will all be equilateral triangles.
+</p>
+
+<p>Be careful not to confuse the height of a <em>triangle</em> with the height of the tetrahedron.
+</p></hint>
+<answer><p>
+<m>\dfrac{\sqrt{2}}{12}\ell^3</m>
+</p></answer>
+<solution><p>
+We'll make horizontal slices, parallel to one of the faces of the tetrahedron. Then our slices will be equilateral triangles, of varying sizes.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0) coordinate(a0);
+\draw (3,0) coordinate(a1);
+\draw (2,-.75) coordinate(a2);
+\draw (1.8,2.) coordinate(a3);
+\filldraw[fill opacity=0.5] (0.9,1)--(2.4,1)--(1.9,0.625)--cycle;
+\filldraw[fill opacity=0.2] (0.9,1)--(0.9,0.8)--(1.9,0.425)--(2.4,.8)--(2.4,1)--cycle;
+\draw[dashed, gray] (a0)--(a1);
+\draw[fill, fill opacity=0.3] (a2)--(a3)--(a1)--cycle;
+\draw[fill, fill opacity=0.1] (a0)--(a3)--(a2)--cycle;
+\draw[decorate, decoration={brace, amplitude=10pt}] (-.2,0.2)--(1.6,2.2) node[midway, above left, xshift=-7pt]{$\ell$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+For the sake of ease, as in Example <xref ref="eg_VOLa"/>, we picture the tetrahedron perched on a tip, one base horizontal on top.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3}{3}{1}{5}
+\fill[fill opacity=0.1] (-1.84,2.8)--(0,3.3)--(1.84,2.8)--cycle;
+\draw[thick](-1.2,3.8)-- (-2.5,3.8)--(0,0)--(2.5,3.8)--(-.2,3.8);
+\YEycoord{3}{y}
+\YEycoord{4.08}{\sqrt{\frac{2}{3}}\ell}
+\YExcoord{2.5}{\frac{\ell}{2}}
+\YExcoord{-2.5}{-\frac{\ell}{2}}
+\draw (-2.5,3.8)-- (0,4.5)--(2.5,3.8);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Notice our slice forms the horizontal top of a smaller tetrahedron. The horizontal top of the full tetrahedron has side length <m>\ell</m>, which is
+             <m>\sqrt{\frac{3}{2}}</m> times the height of the full tetrahedron. Our slice
+             is the horizontal top of a tetrahedron of height <m>y</m> and so has side length  <m>\sqrt{\frac{3}{2}}y</m>. An equilateral triangle with side length <m>L</m> has base <m>L</m> and height
+              <m>\frac{\sqrt{3}}{2}L</m>, and hence area <m>\frac{\sqrt{3}}{4}L^2</m>.
+             So, the area of our slice with side length <m>\sqrt{\frac{3}{2}}y</m> is
+<me>
+A = \frac{\sqrt{3}}{4}\left(\sqrt{\frac{3}{2}}y\right)^2 = \frac{3\sqrt{3}}{8}y^2</me>
+</p>
+
+<p>So, the volume of a tetrahedron with side length <m>\ell</m> is:
+<md>
+<mrow>
+\mbox{Volume}&amp;=\int_0^{\sqrt{\frac{2}{3}}\ell}\frac{3\sqrt{3}}{8}y^2\dee{y}
+</mrow><mrow>
+&amp;=\frac{\sqrt{3}}{8}\cdot \left(\sqrt{\frac{2}{3}}\ell\right)^3=\frac{\sqrt{2}}{12}\ell^3
+</mrow>
+</md>
+</p>
+
+<p><em>You were given the height of a tetrahedron, but for completeness we calculate it here.</em>
+</p>
+
+<p>Draw a line starting at one tip, and dropping straight down to the middle of the opposite face. It forms a right triangle with one edge of the tetrahedron, and a line from the middle of the face to the corner.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}[scale=1.5]
+\draw (0,0) coordinate(a0);
+\draw (3,0) coordinate(a1);
+\draw (2,-.75) coordinate(a2);
+\draw (1.8,2.) coordinate(a3);
+\draw[dashed, gray] (a0)--(a1);
+\draw[fill, fill opacity=0.3] (a2)--(a3)--(a1)--cycle;
+\draw[fill, fill opacity=0.1] (a0)--(a3)--(a2)--cycle;
+\draw[decorate, decoration={brace, amplitude=10pt}] (-.2,0.2)--(1.6,2.2) node[midway, above left, xshift=-7pt]{$\ell$};
+\draw[thick, densely dotted] (1.8,2)--(1.7,-.3)--(a0);
+\draw(1.7,-.3) node[vertex, label=below:$c$]{};
+\draw (a0) node[left]{$A$};
+\draw (a1) node[right]{$C$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+We know the length of the hypotenuse of this right triangle (it's <m>\ell</m>), so if we know the length of its base (labeled <m>Ac</m> in the diagram), we can figure out its third side, the height of our tetrahedron. Note by using the Pythagorean theorem, we see that the height of an equilateral triangle with edge length <m>\ell</m> is <m>\sqrt{\frac{3}{2}}\ell</m>.
+</p>
+
+<p>Here is a sketch of the base of the pyramid:
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw node[vertex]{};
+\foreach \x in {0,1,2}{
+	\draw (0,0) + (30+120*\x:3cm) node[vertex](v\x){};}
+\draw (v1) node[left]{$A$};
+\draw (v0) node[right]{$C$};
+\draw (v0)--(v1)--(v2)--(v0);
+\draw (v0)--(v2) coordinate[midway, label=right:{$B$}](m0){};
+\draw (v1)--(v0) coordinate[midway, label=above:{$b$}](m2){};
+\draw (v1)--(m0);
+\draw (0,0)--(m2);
+\draw  node[below]{$c$};
+\draw  (-1,-1.5) node[below]{$\ell$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The triangles <m>ABC</m> and <m>Abc</m> are similar (since <m>b</m> and <m>B</m> are right angles, and also <m>A</m> has the same angle in both). Therefore,
+<md>
+<mrow>
+\frac{{Ac}}{{Ab}}&amp;=\frac{{AC}}{{AB}}
+</mrow><mrow>
+\frac{Ac}{\ell/2}&amp;=\frac{\ell}{\sqrt{3}\ell/2}
+</mrow><mrow>
+Ac&amp;=\frac{1}{\sqrt{3}}\ell
+</mrow>
+</md>
+</p>
+
+<p>With this in our pocket, we can find the height of the tetrahedron: <m>\sqrt{\ell^2 - \left(\frac{1}{\sqrt{3}}\ell\right)^2} =\sqrt{\frac{2}{3}}\ell</m>.
+</p>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise purpose="RQS"><title><fromexam>2016Q3</fromexam></title>
+<statement><p>
+Let <m>a \gt 0</m> be a constant. Let <m>R</m> be the finite region bounded by the
+graph of <m>y=1+\sqrt{x}e^{x^2}</m>, the line <m>y=1</m>, and the line <m>x=a</m>. Using
+vertical slices, find the volume generated when <m>R</m> is rotated about the line <m>y=1</m>.
+</p></statement>
+
+<hint><p>
+Sketch the region.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\frac{\pi}{4}\Big(e^{2a^2}-1\Big)</m>
+</p></answer>
+
+<solution><p>
+Let <m>f(x)=1+\sqrt{x}e^{x^2}</m>.
+On the vertical slice a distance <m>x</m> from the <m>y</m>-axis,
+sketched in the figure below, <m>y</m> runs from <m>1</m> to <m>f(x)</m>. Upon rotation
+about the line <m>y=1</m>, this thin slice sweeps out a thin disk of thickness
+<m>\dee{x}</m> and radius <m>f(x)-1</m> and hence of volume <m>\pi[f(x)-1]^2\,\dee{x}</m>.
+The full volume generated (for any fixed <m>a \gt 0</m>) is
+<md>
+<mrow>
+\int_0^a\pi[f(x)-1]^2\,\dee{x}
+=\pi\int_0^axe^{2x^2}\,\dee{x}.
+</mrow>
+</md>
+Using the substitution <m>u=2x^2</m>, so that <m>\dee{u}=4x\,\dee{x}</m>:
+<md>
+<mrow>
+\text{Volume} = \pi\int_0^{2a^2}e^u\,\frac{\dee{u}}{4}
+=\frac{\pi}{4}e^u\Big|_0^{2a^2}
+=\frac{\pi}{4}\Big(e^{2a^2}-1\Big)
+</mrow>
+</md>
+</p>
+<sidebyside width="33%">
+<image source="problems/figs/OQ16_3_4b"/>
+</sidebyside>
+
+<p>
+Remark: we spent a good deal of time last semester developing highly accurate but time-consuming methods for sketching common functions. For the purposes of questions like this, we don't need a detailed picture of a function--broad outlines suffice. Notice that <m>\sqrt{x}  \gt  0</m> whenever <m>x \gt 0</m>, and <m>e^{x^2} \gt 0</m> for all <m>x</m>. Therefore, <m>\sqrt{x}e^{x^2}</m> is nonnegative over its entire domain, and so the graph <m>y=1+\sqrt{x}e^{x^2}</m> is always the top function, above the bottom function <m>y=1</m>. That is the only information we needed to perform our calculation.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2014A</fromexam></title>
+<statement><p>
+Find the volume of the solid generated by rotating the finite
+region bounded by <m>y = 1/x</m> and <m>3x + 3y = 10</m> about the <m>x</m>--axis.
+</p></statement>
+
+<hint><p>
+Sketch the region first.
+</p></hint>
+
+<answer><p>
+<m>\pi\left[\dfrac{38}{3}-\dfrac{514}{3^4}\right] = \pi\dfrac{512}{81}</m>
+</p></answer>
+
+<solution>
+
+<p>The curves <m>y=1/x</m> and <m>3x+3y=10</m>, i.e. <m>y =\frac{10}{3}-x</m> intersect
+when
+<md>
+<mrow>
+\frac{1}{x} = \frac{10}{3}-x
+&amp;\iff 3 = 10x-3x^2
+\iff 3x^2-10x+3=0
+</mrow><mrow>
+&amp;\iff(3x-1)(x-3)=0
+</mrow><mrow>
+&amp;\iff x=3\,,\,\frac{1}{3}
+</mrow>
+</md>
+</p>
+
+
+<sidebyside width="33%">
+<image source="problems/figs/OE14A_3"/>
+</sidebyside>
+<p>
+When the region is rotated about the <m>x</m>--axis, the vertical strip
+in the figure above sweeps out a washer with thickness <m>\dee{x}</m>,
+outer radius <m>T(x)=\frac{10}{3}-x</m> and inner radius <m>B(x)=\frac{1}{x}</m>.
+This washer has volume
+<me>
+\pi\big(T(x)^2- B(x)^2\big)\,\dee{x}
+= \pi\Big(\frac{100}{9}-\frac{20}{3}x+x^2-\frac{1}{x^2}\Big)\,\dee{x}
+</me>
+Hence the volume of the solid is
+<md>
+<mrow>
+\pi\int_{1/3}^3\Big(\frac{100}{9}-\frac{20}{3}x+x^2-\frac{1}{x^2}\Big)\,\dee{x}
+&amp;=\pi\Big[\frac{100x}{9}-\frac{10}{3}x^2+\frac{1}{3}x^3
+              +\frac{1}{x}\Big]_{1/3}^3
+</mrow><mrow>
+&amp;=\pi\Big[\frac{38}{3}-\frac{514}{3^4}\Big] = \pi\frac{512}{81}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2015A</fromexam></title>
+<statement><p>
+ Let <m>R</m> be the region inside the circle <m>x^2 + (y-2)^2=1</m>. Let <m>S</m> be the solid obtained by rotating <m>R</m> about the <m>x</m>-axis.
+<ol label="a">
+<li>
+ Write down an integral representing the volume of <m>S</m>.
+</li>
+<li>
+Evaluate the integral you wrote down in part (a).
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+You can save yourself quite a bit of work by interpreting the integral
+as the  area of a known geometric figure.
+</p></hint>
+
+<answer><p> (a)
+<m>8\pi\int_{-1}^1\sqrt{1-x^2}\,\dee{x}</m>
+</p><p>
+(b) <m> 4\pi^2</m>
+</p></answer>
+
+<solution><p> (a)
+The top and the bottom of the circle have equations
+<m>y=T(x)=2+\sqrt{1-x^2}</m> and <m>y=B(x) = 2-\sqrt{1-x^2}</m>, respectively.
+</p>
+
+<sidebyside width="33%">
+<image source="problems/figs/OE15A_10"/>
+</sidebyside>
+
+<p>
+When <m>R</m> is rotated about the <m>x</m>--axis, the vertical strip of
+<m>R</m> in the figure above sweeps out a washer with thickness <m>\dee{x}</m>,
+outer radius <m>T(x)</m> and inner radius <m>B(x)</m>. This washer has
+volume
+<me>
+\pi\big(T(x)^2- B(x)^2\big)\,\dee{x}
+= \pi\big(T(x)+ B(x)\big)\big(T(x)- B(x)\big)\,\dee{x}
+= \pi\times 4\times 2\sqrt{1-x^2}\,\dee{x}
+</me>
+Hence the volume of the solid is
+<me>
+8\pi\int_{-1}^1\sqrt{1-x^2}\,\dee{x}
+</me>
+</p>
+
+<p> (b)
+Since <m>y=\sqrt{1-x^2}</m> is equivalent to <m>x^2+y^2=1</m>, <m>y\ge 0</m>,
+the integral is <m>8\pi</m> times the area of the upper half
+of the circle <m>x^2+y^2=1</m> and hence is
+<m>8\pi\times \frac{1}{2}\pi 1^2 = 4\pi^2</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>1996D</fromexam></title>
+<statement><p>
+ The region <m>R</m> is the portion of the first quadrant which
+is below the parabola <m>y^2=8x</m> and above the hyperbola <m>y^2-x^2=15</m>.
+<ol label="a">
+<li>
+Sketch the region <m>R</m>.
+</li>
+<li>
+Find the volume of the solid obtained by revolving <m>R</m> about the <m>x</m> axis.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_VOLe"/>.
+</p></hint>
+
+<answer><p> (a)
+The region <m>R</m> is the region
+between the blue and red curves, with <m>3\le x\le 5</m>,  in the figures below.
+</p>
+
+<sidebyside width="33%">
+<image source="problems/figs/graphE1"/>
+<image source="problems/figs/graphE1b"/>
+</sidebyside>
+<p>
+(b) <m>\frac{4}{3}\pi\approx 4.19</m>
+</p></answer>
+
+<solution><p> (a)
+The two curves intersect when <m>x</m> obeys <m>8x=x^2+15</m>
+or <m>x^2-8x+15=(x-5)(x-3)=0</m>. The points of intersection, in the first quadrant,
+are <m>(3,\sqrt{24})</m> and <m>(5, \sqrt{40})</m>. The region <m>R</m> is the region
+between the blue and red curves, with <m>3\le x\le 5</m>,  in the figures below.
+</p>
+
+<sidebyside width="33%">
+<image source="problems/figs/graphE1"/>
+<image source="problems/figs/graphE1b"/>
+</sidebyside>
+
+<p>
+(b) The part of the solid with <m>x</m> coordinate between <m>x</m> and <m>x+\dee{x}</m>
+is a <q>washer</q> shaped region with inner radius <m>\sqrt{x^2+15}</m>, outer
+radius <m>\sqrt{8x}</m> and thickness <m>\dee{x}</m>. The surface area of the washer is
+<m>\pi(\sqrt{8x})^2 -\pi(\sqrt{x^2+15})^2=\pi(8x-x^2-15)</m> and its volume is
+<m>\pi(8x-x^2-15)\,\dee{x}</m>. The total volume is
+<md>
+<mrow>
+\int_3^5 \pi(8x-x^2-15)\,\dee{x}
+&amp;=\pi\Big[4x^2-\frac{1}{3}x^3-15 x\Big]_3^5
+=\pi\Big[100-\frac{125}{3}-75-36+9+45\Big]
+</mrow><mrow>
+&amp;=\frac{4}{3}\pi\approx 4.19
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>1996D</fromexam></title>
+<statement><p>
+ The region <m>R</m> is bounded by <m>y=\log x</m>, <m>y=0</m>, <m>x=1</m> and <m>x=2</m>.
+(Recall that we are using <m>\log x</m> to denote the logarithm of <m>x</m> with
+base <m>e</m>. In other courses it is often denoted <m>\log x</m>.)
+<ol label="a">
+<li>
+Sketch the region <m>R</m>.
+</li>
+<li>
+Find the volume of the solid obtained by revolving this region  about the <m>y</m> axis.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_rot_yaxis"/>.
+</p></hint>
+
+<answer><p> (a)
+The region <m>R</m> is sketched below.
+</p>
+
+<sidebyside width="50%">
+<image source="problems/figs/graphE2l"/>
+</sidebyside>
+<p>
+ (b) <m>\pi\Big[4\log 2 - \frac{3}{2}\Big] \approx 3.998</m>
+</p></answer>
+
+<solution><p> (a)
+The region <m>R</m> is sketched in the figure on the left below. (The bound <m>y=0</m> renders the bound <m>x=1</m> unnecessary, since the graph <m>y=\log x</m> hits the <m>x</m>-axis when <m>x=1</m>.)
+</p>
+
+<sidebyside width="40%">
+<image source="problems/figs/graphE2l"/>
+<image source="problems/figs/graphE2r"/>
+</sidebyside>
+<p>
+(b)
+We'll use horizontal washers as in Example  <xref ref="eg_rot_yaxis"/>.
+ <ul>
+<li> We cut <m>R</m> into thin horizontal  strips of height <m>\dee{y}</m> as in
+the figure on the right above.
+</li>
+<li>
+<p>
+When we rotate <m>R</m> about the <m>y</m>--axis, i.e. about the line <m>x=0</m>,
+each strip sweeps out a thin washer
+<ul>
+<li> whose inner radius is <m>r_{in}= e^y</m> and outer radius is <m>r_{out}=2</m>, and
+</li>
+<li> whose thickness is <m>\dee{y}</m> and hence
+</li>
+<li> whose volume <m>\pi(r_{out}^2 - r_{in}^2)\dee{y} = \pi\big(4-e^{2y}\big)\dee{y}</m>.
+</li>
+</ul>
+</p>
+</li>
+<li> As our bottommost strip is at <m>y=0</m> and our topmost
+strip is at <m>y=\log 2</m> (since at the top <m>x=2</m> and <m>x=e^y</m>), the total
+<md>
+<mrow>
+\text{Volume}
+&amp;= \int _0^{\log 2} \pi\big(4-e^{2y}\big)\dee{y}
+=\pi\big[4y -e^{2y}/2\big]_0^{\log 2}
+=\pi\Big[4\log 2 - 2 +\frac{1}{2}\Big]
+</mrow><mrow>
+&amp;=\pi\Big[4\log 2 - \frac{3}{2}\Big]
+</mrow>
+</md>
+Using a calculator, we see this is approximately <m>3.998</m>.
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q3</fromexam></title>
+<statement><p>
+The finite region between the curves <m>y = \cos(\frac x2)</m>
+and <m>y = x^2 - \pi^2</m> is rotated about the line <m>y=-{\pi^2}</m>.
+Using vertical slices (disks and/or washers), find the volume of
+the resulting solid.
+</p></statement>
+
+<hint><p>
+Sketch the region. To find where the curves intersect, look at where
+<m>\cos(\frac x2)</m> and <m>x^2 - \pi^2</m>  both have roots.
+</p></hint>
+
+<answer><p>
+ <m>\pi^2 + 8\pi^3 + \frac{8\pi^6}{5}</m>
+</p></answer>
+
+<solution><p>
+Here is a sketch of the curves <m>y = \cos(\frac x2)</m> and <m>y = x^2 - \pi^2</m>.
+</p>
+
+<sidebyside width="33%">
+<image source="problems/figs/OQ16_3_4"/>
+</sidebyside>
+<p>
+By inspection, the curves meet at <m>x = \pm {\pi}</m> where both <m>\cos(\frac x2)</m>  and
+<m>x^2 - \pi^2</m> take the value zero.
+We'll use vertical washers as specified in the question.
+ <ul>
+<li> We cut the specified region into thin vertical strips of
+width <m>\dee{x}</m> as in the figure above.
+</li>
+<li>
+<p>When we rotate about the line <m>y=-\pi^2</m>,  each strip sweeps out a thin washer
+<ul>
+<li> whose inner radius is <m>r_{in}= (x^2 - {\pi^2} ) - ( {-} {\pi^2} )=x^2</m>
+and outer radius is <m>r_{out}=\cos(\frac x2) - ( {-} {\pi^2})
+=\cos(\frac x2) +\pi^2 </m>, and
+</li>
+<li> whose thickness is <m>\dee{x}</m> and hence
+</li>
+<li> whose volume
+    <m>\pi(r_{out}^2 - r_{in}^2)\dee{x}
+        =  \pi\big( {(\cos(\frac x2) +\pi^2)}^2 - {(x^2)}^2\big)\dee{x}</m>.
+</li>
+</ul>
+</p>
+</li>
+<li> As our leftmost strip is at <m>x=-\pi</m> and our rightmost
+strip is at <m>x=\pi</m>,
+</li>
+</ul>
+the total volume is
+<md>
+<mrow>
+  &amp;\pi \int_{-\pi}^{\pi}
+         \left(  \cos^2 (\tfrac x2) +2{\pi^2}\cos (\tfrac x2) +{\pi^4} -x^4\right)\,\dee{x}
+</mrow><mrow>
+ &amp; = \pi \int_{-\pi}^{\pi}
+         \left(\frac{1+\cos(x)}{2} +2{\pi^2}\cos (\tfrac x2) +{\pi^4} -x^4\right)\,\dee{x}
+         </mrow>
+<intertext>Because the integrand is even,</intertext><mrow>
+ &amp; = 2\pi \int_0^{\pi}
+         \left(\frac{1+\cos(x)}{2} +2{\pi^2}\cos (\tfrac x2) +{\pi^4} -x^4\right)\,\dee{x}
+</mrow><mrow>
+ &amp; = {2\pi \left[ \frac{1}{2}x + \frac{1}{2}\sin(x)
+          + 4{\pi^2}\sin (\tfrac x2)  +{\pi^4} x -\frac{1}{5}x^5   \right]} _0^\pi
+</mrow><mrow>
+ &amp; = 2\pi \left[\frac{\pi}{2} + 0 + 4{\pi^2} +{\pi^5} - \frac{\pi^5}{5} \right]
+</mrow><mrow>
+ &amp; = {\pi^2} + 8\pi^3 + \frac{8\pi^6}{5}
+</mrow>
+</md>
+We used the fact that the integrand is an even function and the interval of integration <m>[-\pi, \pi]</m> is symmetric, but one can also compute directly.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>1997D</fromexam></title>
+<statement><p>
+The solid <m>V</m> is 2 meters high and has square horizontal
+cross sections. The length of the side of the square cross section at height
+<m>x</m> meters above the base is <m>\frac{2}{1+x}</m> m. Find the volume
+of this solid.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_VOLb"/>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{8}{3}</m>
+</p></answer>
+
+<solution><p>
+As in Example <xref ref="eg_VOLb"/>, we slice <m>V</m>  into thin horizontal <q>square pancakes</q>.
+</p>
+
+<p><ul>
+<li> We are told that the pancake at height <m>x</m> is a square
+of side <m>\frac{2}{1+x}</m> and so
+</li>
+<li> has cross-sectional area <m>\big(\frac{2}{1+x}\big)^2</m> and
+thickness <m>\dee{x}</m> and hence
+</li>
+<li> has volume <m>\big(\frac{2}{1+x}\big)^2\dee{x}</m>.
+</li>
+</ul>
+ Hence the volume of <m>V</m> is
+<me>
+\int_0^2{\Big[\frac{2}{1+x}\Big]}^2\,\dee{x}
+=\int_1^3\frac{4}{u^2}\,\dee{u}
+=4\frac{u^{-1}}{-1}\bigg|_1^3
+=-4\Big[\frac{1}{3}-1\Big]
+=\frac{8}{3}
+</me>
+We made the change of variables <m>u=1+x</m>, <m>\dee{u}=\dee{x}</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1998A</fromexam></title>
+<statement><p>
+Consider a solid whose base is the finite portion of the
+<m>xy</m>--plane bounded by the curves <m>y=x^2</m> and <m>y=8-x^2</m>. The cross--sections
+perpendicular to the <m>x</m>--axis are squares with one side in the <m>xy</m>--plane.
+Compute the volume of this solid.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_VOLb"/>. Imagine cross-sections with shadow parallel to the <m>y</m>-axis, sticking straight out of the <m>xy</m>-plane.
+</p></hint>
+
+<answer><p>
+ <m>\dfrac{256\times 8}{15}=136.5\dot3</m>
+</p></answer>
+
+<solution><p>
+Here is a sketch of the base region.
+</p>
+<sidebyside width="33%">
+<image source="problems/figs/graphE98A_7"/>
+</sidebyside>
+<p>
+Consider the thin vertical cross--section resting on the heavy red
+line in the figure above. It has thickness <m>\dee{x}</m>. Its face is a square
+whose side runs from <m>y=x^2</m> to <m>y=8-x^2</m>, a distance of <m>8-2x^2</m>. So the
+face has area <m>{(8-2x^2)}^2</m> and the slice has volume <m>{(8-2x^2)}^2\,\dee{x}</m>. The two
+curves cross when <m>x^2=8-x^2</m>, i.e. when <m>x^2=4</m> or <m>x=\pm 2</m>. So <m>x</m> runs
+from <m>-2</m> to <m>2</m> and the total volume is
+<md>
+<mrow>
+\int_{-2}^{2}{(8-2x^2)}^2\,\dee{x}&amp;=2\int_0^2 4{(4-x^2)}^2\,\dee{x}
+=8\int_0^2\big[16-8x^2+x^4\big]\,\dee{x}\cr
+&amp;=8\Big[16\times 2-\frac{8}{3}2^3+\frac{1}{5}2^5\Big]
+=\frac{256\times 8}{15}=136.5\dot3
+</mrow>
+</md>
+In the first simplification step, we used the fact that our integrand was even, but we also could have finished our computation without this step.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2001D</fromexam></title>
+<statement><p>
+A frustrum of a right circular cone (as shown below) has
+height <m>h</m>. Its base is a circular disc with radius <m>4</m> and its top is
+a circular disc with radius <m>2</m>. Calculate the volume of the frustrum.
+</p>
+<sidebyside width="40%">
+<image source="problems/figs/OE01D_4b"/>
+</sidebyside>
+</statement>
+
+<hint><p>
+See Example <xref ref="eg_VOLa"/>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{28}{3}\pi h</m>
+</p></answer>
+
+<solution><p>
+Slice the frustrum into horizontal discs. When the disc is a distance
+<m>t</m> from the top of the frustrum it has radius <m>2+2t/h</m>. Note that as <m>t</m>
+runs from <m>0</m> (the top of the frustrum) to <m>t=h</m> (the bottom of the frustrum)
+the radius <m>2+2t/h</m> increases linearly from <m>2</m> to <m>4</m>.
+</p>
+<sidebyside width="40%">
+<image source="problems/figs/OE01D_4"/>
+</sidebyside>
+<p>
+Thus the disk has volume <m>\pi \big(2+2t/h\big)^2 \dee{t}</m>. The total volume of the
+frustrum is
+<md>
+<mrow>
+\pi\int_0^h \big(2+2t/h\big)^2 \dee{t}
+=4\pi\int_0^h \big(1+t/h\big)^2 \dee{t}
+=4\pi\left[\frac{(1+t/h)^3}{3/h}\right]_0^h
+=\frac{4}{3}\pi h\times 7
+=\frac{28}{3}\pi h
+</mrow>
+</md>
+</p>
+
+<p>Remark: we could also solve this problem using the formula for the volume of a cone. Using similar triangles, the frustrum in question is shaped like a right circular cone of height <m>2h</m> and base radius 4 (and hence of volume <m>\dfrac{1}{3}\pi(4^2)(2h)</m>), but missing its top, which is a right circular cone of height <m>h</m> and base radius <m>2</m> (and hence volume <m>\dfrac{1}{3}\pi(2^2)h</m>). So, the volume of the frustrum is <m>\dfrac{1}{3}\pi(4^2)(2h) - \dfrac{1}{3}\pi(2^2)h = \dfrac{28}{3}\pi h</m>.
+</p></solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><application/></title><introduction/>
+
+
+<exercise>
+<statement><p>
+The shape of the earth is often approximated by an oblate spheroid, rather than a sphere. An <em>oblate spheroid</em> is formed by rotating an ellipse about its <em>minor axis</em> (its shortest diameter).
+<ol label="a">
+<li> Find the volume of the oblate spheroid obtained by rotating the upper (positive) half of the ellipse <m>(ax)^2+(by)^2=1</m> about the <m>x</m>-axis, where <m>a</m> and <m>b</m> are positive constants with <m>a \geq b</m>.
+</li>
+<li> Suppose
+<fn><url href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html">Earth Fact Sheet</url>, NASA, accessed 2 July 2017</fn> the earth has radius at the equator of 6378.137  km, and radius at the poles of 6356.752 km. If we model the earth as an oblate spheroid formed by rotating the upper half of the ellipse <m>(ax)^2+(by)^2=1</m> about the <m>x</m>-axis, what are <m>a</m> and <m>b</m>?
+</li>
+<li> What is the volume of this model of the earth? (Use a calculator.)
+</li>
+<li> Suppose we had calculated the volume of the earth by modelling it as a sphere with radius <m>6378.137</m> km. What would our absolute and relative errors be, compared to our oblate spheroid calculation?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+(a) Don't be put off by phrases like <q>rotating an ellipse about its minor axis.</q> This is the same kind of volume you've been calculating all section.
+</p>
+<p>
+(b) Hopefully, you sketched the ellipse in part (a). What was its smallest radius? Its largest? These correspond to the polar and equitorial radii, respectively.
+</p>
+<p>
+(c) Combine your answers from (a) and (b).
+</p>
+<p>
+(d) Remember that the absolute error is the absolute difference of your two results--that is, you subtract them and take the absolute value. The relative error is the absolute error divided by the actual value (which we're taking, for our purposes, to be your answer from (c)). When you take the relative error, lots of terms will cancel, so it's easiest to not use a calculator till the end.
+</p></hint>
+<answer><p>
+<ul>
+<li>
+(a) <m>\dfrac{4\pi}{3b^2a}</m> cubic units,
+</li>
+<li>
+(b) <m>a = \dfrac{1}{6356.752}</m> and <m>b=\dfrac{1}{6378.137}</m>,
+</li>
+<li>
+(c) Approximately <m> 1.08321\times 10^{12}  \mathrm{km}^3</m>,  or
+<m> 1.08321\times 10^{21}  \mathrm{m}^3</m>,
+</li>
+<li>
+(d) Absolute error is about <m>3.64\times 10^{9}  \mathrm{km}^3</m>, and relative error is about
+<m>0.00336</m>, or <m>0.336\%</m>.
+</li>
+</ul>
+</p></answer>
+<solution><p>
+(a)
+</p>
+
+<p>We'll want to start by graphing the upper half of the ellipse <m>(ax)^2+(by)^2=1</m>. Its intercepts will be enough to get us an idea: <m>(0,\frac{1}{b})</m> and <m>(\pm\frac{1}{a},0)</m>:
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3.5}{3.5}{1}{4.25}
+\YExcoord{3}{\frac{1}{a}}
+\YExcoord{-3}{-\frac{1}{a}}
+\draw (.2,4)--(-1,4) node[left]{$\frac{1}{b}$};
+\draw[thick, blue] plot[domain=-3:3, samples=100](\x,{4*sqrt(1-(\x/3)^2)});
+\draw[blue] (3,3) node[right]{$y=\frac{1}{b}\sqrt{1-(ax)^2}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+We note a few things at the outset: first, since <m>a \geq b</m>, then <m>\frac{1}{a} \leq \frac{1}{b}</m>, so indeed the <m>x</m>-axis is the minor axis. That is, we're rotating about the proper axis to create an oblate spheroid.
+</p>
+
+<p>Second, if we solve our equation for <m>y</m>, we get <m>y=\frac{1}{b}\sqrt{1-(ax)^2}</m>. (Since we only want the upper half of the ellipse, we only need to consider the positive square root.)
+</p>
+
+<p>Now, we have a standard volume-of-revolution problem. We make vertical slices, of width <m>\dee{x}</m> and height <m>y=\frac{1}{b}\sqrt{1-(ax)^2}</m>. When we rotate these slices about the <m>x</m>-axis, they form thin disks of volume <m>\pi\left[\frac{1}{b}\sqrt{1-(ax)^2}\right]^2\dee{x}</m>. Since <m>x</m> runs from <m>-\frac{1}{a}</m> to <m>\frac{1}{a}</m>, the volume of our oblate spheroid is:
+<md>
+<mrow>
+\mbox{Volume}&amp;=\int_{-\frac{1}{a}}^{\frac{1}{a}} \pi \left[\frac{1}{b}\sqrt{1-(ax)^2}\right]^2\dee{x}
+</mrow><mrow>
+&amp;=\frac{\pi}{b^2}\int_{-\frac{1}{a}}^{\frac{1}{a}} 1-(ax)^2\dee{x}
+</mrow><mrow>
+&amp;=\frac{2\pi}{b^2}\int_{0}^{\frac{1}{a}} 1-(ax)^2\dee{x}&amp;\mbox{(even function)}
+</mrow><mrow>
+&amp;=\frac{2\pi}{b^2}\left[x - \frac{a^2x^3}{3}\right]_{0}^{\frac{1}{a}}
+</mrow><mrow>
+&amp;=\frac{2\pi}{b^2}\left[\frac{1}{a} - \frac{1}{3a} \right] = \frac{4\pi}{3b^2a}
+</mrow>
+</md>
+</p>
+
+<p>(b) As we saw in the sketch from part (a), the shortest radius of the ellipse is <m>\frac{1}{a}</m>, while the largest is <m>\frac{1}{b}</m>. So, <m>\frac{1}{a} = 6356.752</m>, and <m>\frac{1}{b} = 6378.137</m>. That is, <m>a = \dfrac{1}{6356.752}</m> and <m>b=\dfrac{1}{6378.137}</m>.
+</p>
+
+<p>Note <m>a \geq b</m>, as specified in part (a).
+</p>
+
+<p>(c) Combining our answers from (a) and (b), the volume of an oblate spheroid with approximately the same dimensions as the earth is:
+<md>
+<mrow>
+\frac{4\pi}{3b^2a} &amp;= \frac{4\pi}{3}\left(\frac{1}{b}\right)^2\left(\frac{1}{a}\right)
+</mrow><mrow>
+&amp;=\frac{4\pi}{3}\left(6378.137\right)^2\left(6356.752\right)
+</mrow><mrow>
+&amp;\approx 1.08321\times 10^{12} \quad\mathrm{km}^3
+</mrow><mrow>
+&amp;\approx 1.08321\times 10^{21} \quad\mathrm{m}^3
+</mrow>
+</md>
+</p>
+
+<p>(d) A sphere of radius 6378.137 has volume
+<md>
+<mrow>
+&amp;\dfrac{4}{3}\pi\left(6378.137\right)^3
+</mrow>
+<intertext>So, our absolute error is:</intertext><mrow>
+&amp;\left|\frac{4\pi}{3}\left(6378.137\right)^2\left(6356.752\right) - \dfrac{4}{3}\pi\left(6378.137\right)^3 \right|
+</mrow><mrow>
+=&amp;\frac{4\pi}{3}\left(6378.137\right)^2\big|6356.752 - 6378.137\big|
+</mrow><mrow>
+=&amp;\frac{4\pi}{3}\left(6378.137\right)^2(21.385)
+</mrow><mrow>
+\approx&amp; 3.64 \times 10^{9} \mathrm{km}^3
+</mrow>
+<intertext>And our relative error is:</intertext><mrow>
+\frac{\mbox{abs error}}{\mbox{actual value}}&amp;=\frac{\frac{4\pi}{3}\left(6378.137\right)^2\big|6356.752 - 6378.137\big|}{\frac{4\pi}{3}\left(6378.137\right)^2\left(6356.752\right)}
+</mrow><mrow>
+&amp;=\frac{\big|6356.752 - 6378.137\big|}{6356.752}
+</mrow><mrow>
+&amp;=\frac{6378.137}{6356.752}-1
+</mrow><mrow>
+&amp;\approx  0.00336
+</mrow>
+</md>
+That is, about <m>0.336\%</m>, or about one-third of one percent.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Let <m>R</m> be the bounded region that lies between the curve
+<m>y = 4 - (x - 1)^2</m> and the line <m>y = x + 1</m>.
+<ol label="a">
+<li>
+Sketch <m>R</m> and find its area.
+</li>
+<li>
+Write down a definite integral giving the volume of the region
+obtained by rotating <m>R</m> about the line <m>y = 5</m>. <em>Do not evaluate
+this integral.</em>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+To find the points of intersection, set <m>4-(x-1)^2=x+1</m>.
+</p></hint>
+
+<answer><p> (a)
+<m>\dfrac{9}{2}</m>
+(b)
+<m>
+\pi\displaystyle\int_{-1}^2
+   \big[{\big(4-x\big)}^2-{\big(1+(x-1)^2\big)}^2\big]\,\dee{x}
+</m>
+</p></answer>
+
+<solution><p> (a)
+The curve  <m>y = 4 - (x - 1)^2</m> is an <q>upside down parabola</q>
+and line <m>y = x + 1</m> has slope 1. They intersect at points <m>(x,y)</m> which
+satisfy both <m>y=x+1</m> and <m>y=4-(x-1)^2</m>. That is, when <m>x</m> obeys
+<md>
+<mrow>
+x+1&amp;=4-(x-1)^2
+</mrow><mrow>
+ x+1 &amp;= 4 -x^2+2x-1
+</mrow><mrow>
+ x^2-x-2&amp;=0
+</mrow><mrow>
+ (x-2)(x+1)&amp;=0
+</mrow><mrow>
+ x&amp;=-1 \quad\mbox{or}\quad x=2
+</mrow>
+</md>
+Thus the intersection points are <m>(-1,0)</m> and <m>(2,3)</m>.
+Here is a sketch of <m>R</m>:
+</p>
+
+<sidebyside width="33%">
+<image source="problems/figs/OE12A_2a"/>
+</sidebyside>
+<p>
+The red strip in the sketch above runs from <m>y=x+1</m>  to <m>y=4-(x-1)^2</m>
+and so has area <m>[4-(x-1)^2 -(x+1)]\,\dee{x} = [2+x-x^2]\,\dee{x}</m>.
+All together <m>R</m> has
+<md>
+<mrow>
+\text{Area}
+&amp;= \int_{-1}^2 \big[2+x-x^2\big]\dee{x}
+</mrow><mrow>
+&amp;=\bigg[2x+\frac{x^2}{2}-\frac{x^3}{3}\bigg]_{-1}^2
+</mrow><mrow>
+&amp;=6+\frac{3}{2}-\frac{9}{3}=\frac{9}{2}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+We'll use vertical washers as in Example  <xref ref="eg_VOLe"/>. Note that the highest point achieved by <m>y=4-(x-1)^2</m> is <m>y=4</m>, so rotating around the line <m>y=5</m> causes no unexpected problems.
+</p>
+
+<sidebyside width="40%">
+<image source="problems/figs/OE12A_2b"/>
+</sidebyside>
+<p>
+<ul>
+<li> We cut <m>R</m> into thin vertical strips of width <m>\dee{x}</m> like the red
+strip in the figure  above.
+</li>
+<li>
+<p>When we rotate <m>R</m> about the horizontal line <m>y=5</m>,  each  strip  sweeps out a thin washer
+<ul>
+<li>
+whose inner radius is <m>r_{in}=5-[4-(x-1)^2]=1+(x-1)^2</m>, and
+</li>
+<li>
+whose outer radius is <m>r_{out}= 5-[x+1]=4-x</m> and
+</li>
+<li>
+whose thickness is <m>\dee{x}</m> and hence
+</li>
+<li>
+whose volume is
+<m>\pi\big[r_{out}^2-r_{in}^2\big]\,\dee{x}
+=\pi\big[{\big(4-x\big)}^2-{\big(1+(x-1)^2\big)}^2\big]\,\dee{x}</m>
+</li>
+</ul>
+</p>
+</li>
+<li> As our leftmost strip is at <m>x=-1</m> and our rightmost
+strip is at <m>x=2</m>, the total
+<md>
+<mrow>
+{\rm Volume} &amp;= \pi\int_{-1}^2
+   \big[{\big(4-x\big)}^2-{\big(1+(x-1)^2\big)}^2\big]\,\dee{x}
+</mrow>
+</md>
+</li>
+</ul>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M121 1999A</fromexam></title>
+<statement><p>
+ Let <m>\cR=\big\{(x,y)\ :\ (x-1)^2+y^2\le 1\text{
+and } x^2+(y-1)^2\le 1\ \big\}</m>.
+<ol label="a">
+<li>
+Sketch <m>\cR</m> and find its area.
+</li>
+<li>
+ If <m>\cR</m> rotates around the <m>y</m>--axis, what volume is generated?
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+You can somewhat simplify your calculations in part (a) (but not part (b)) by using the fact that <m>\cR</m> is symmetric about the line <m>y=x</m>.
+</p>
+
+<p>When you're solving an equation for <m>x</m>, be careful about your signs: <m>x-1</m> is negative.
+</p></hint>
+
+<answer><p> (a)
+<m>\dfrac{\pi}{2}-1</m>
+(b)
+<m>\dfrac{\pi^2}{2}-\pi\approx 1.793</m>
+</p></answer>
+
+<solution><p> (a)
+The curves  <m>(x-1)^2+y^2 = 1</m> and  <m>x^2+(y-1)^2 = 1</m>
+are circles of radius <m>1</m> centered on <m>(1,0)</m> and <m>(0,1)</m> respectively.
+Both circles pass through <m>(0,0)</m> and <m>(1,1)</m>. They are sketched below.
+</p>
+
+<sidebyside width="66%">
+<image source="problems/figs/E121_99D_8a"/>
+</sidebyside>
+<p> The region <m>\cR</m> is symmetric about the line <m>y=x</m>, so the area
+of <m>\cR</m> is twice the area of the part of <m>\cR</m> to the left of the line <m>y=x</m>.
+The red strip in the sketch above runs from  the edge of the lower circle to <m>x=y</m>.
+So, given a value of <m>y</m> in <m>[0,1]</m>, we need to find the corresponding value of <m>x</m> along the circle. We solve <m>(x-1)^2+y^2=1</m> for <m>x</m>, keeping in mind that <m>0 \leq x\leq 1</m>:
+<md>
+<mrow>
+(x-1)^2+y^2&amp;=1
+</mrow><mrow>
+(x-1)^2&amp;=1-y^2
+</mrow><mrow>
+|x-1|&amp;=\sqrt{1-y^2}
+</mrow><mrow>
+1-x&amp;=\sqrt{1-y^2}
+</mrow><mrow>
+x&amp;=1-\sqrt{1-y^2}
+</mrow>
+<intertext>Now, we calculate:</intertext><mrow>
+\text{Area}
+&amp;= 2\int_0^1 \big[y-\big(1-\sqrt{1-y^2}\big)\big]\dee{y}
+</mrow><mrow>
+&amp;=2\left\{ \int_0^1 y-1\dee{y} + \int_0^1 \sqrt{1-y^2}\dee{y} \right\}
+</mrow><mrow>
+&amp;=2\Big\{\Big[\frac{y^2}{2}-y\Big]_0^1 +\int_0^1\sqrt{1-y^2}\dee{y}\Big\}
+</mrow><mrow>
+&amp;=\frac{\pi}{2}-1
+</mrow>
+</md>
+Here the integral  <m>\int_0^1\sqrt{1-y^2}\dee{y}</m> was evaluated simply as the area
+of one quarter of a cicular disk of radius <m>1</m>. It can also be evaluated by substituting
+<m>y=\sin\theta</m>, a technique we'll learn more about in Section<nbsp/><xref ref="sec_trigsub"/>.
+</p>
+
+<p> (b)
+We'll use horizontal washers as in Example  <xref ref="eg_rot_yaxis"/>.
+ <ul>
+<li> We cut <m>\cR</m> into thin horizontal  strips of width <m>\dee{y}</m> like the blue
+strip in the figure  above.
+</li>
+<li>
+<p>
+When we rotate <m>\cR</m> about the <m>y</m>--axis,  each strip  sweeps out a thin washer
+<ul>
+<li>
+whose inner radius is <m>r_{in}=1-\sqrt{1-y^2}</m>, and
+</li>
+<li>
+whose outer radius is <m>r_{out}= \sqrt{1-(y-1)^2}</m> and
+</li>
+<li>
+whose thickness is <m>\dee{y}</m> and hence
+</li>
+<li>
+whose volume is
+<md>
+<mrow>
+&amp;\pi\big[{\big(\sqrt{1-(y-1)^2}\big)}^2-{\big(1-\sqrt{1-y^2}\,\big)}^2\big]\,\dee{y}
+</mrow><mrow>
+=&amp;\pi \big[  1 - (y-1)^2       -1 + 2\sqrt{1-y^2} - (1-y^2)   \big]
+</mrow><mrow>
+=&amp;2\pi\big[\sqrt{1-y^2}+y-1\big]\,\dee{y}</mrow>
+</md>
+</li>
+</ul>
+</p>
+</li>
+<li> As our bottommost strip is at <m>y=0</m> and our topmost
+strip is at <m>y=1</m>, the total
+<md>
+<mrow>
+{\rm Volume} &amp;= 2\pi\int_{0}^1\big[\sqrt{1-y^2}+y-1\big]\dee{y}
+= 2\pi\Big[\frac{\pi}{4}+\frac{1}{2}-1\Big]
+</mrow><mrow>
+&amp;=\frac{\pi^2}{2}-\pi\approx 1.793
+</mrow>
+</md>
+Here, we again used that <m>\int_{0}^1 \sqrt{1-y^2}\ dy</m> is the area of a quarter
+circle of radius one, and we used a calculator to approximate the final answer.
+</li>
+</ul>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>1997A</fromexam></title>
+<statement><p>
+Let <m>\cR</m> be the plane region bounded by <m>x=0,\ x=1,\ y=0</m>
+and <m>y=c\sqrt{1+x^2}</m>, where <m>c</m> is a positive constant.
+<ol label="a">
+<li>
+Find the volume <m>V_1</m> of the solid obtained by revolving
+<m>\cR</m> about the <m>x</m>--axis.
+</li>
+<li>
+Find the volume <m>V_2</m> of the solid obtained by revolving
+<m>\cR</m> about the <m>y</m>--axis.
+</li>
+<li>
+ If <m>V_1=V_2</m>, what is the value of <m>c</m>?
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+The mechanically easiest way to answer part (b) uses the method of cylindrical
+shells, which we have not covered.  The method of washers also works, but requires  you have enough patience and also
+to have a good idea what <m>\cR</m> looks like. So it is crucial to first sketch <m>\cR</m>.
+Then be very careful in identifying the left end of your horizontal strips.
+</p></hint>
+
+<answer><p> (a)
+<m>V_1=\dfrac{4}{3}\pi c^2</m>
+(b)
+<m>V_2 =\dfrac{\pi\,c}{3}\big[4\sqrt{2}-2 \big] </m>
+(c)
+<m>c=0\text{ or }c=\sqrt{2}-\frac{1}{2}</m>
+</p></answer>
+
+<solution><p>
+Before we start, it will be useful to have a reasonable sketch of the graph <m>y=c\sqrt{1+x^2}</m> over the interval <m>[0,1]</m>. Its endpoints are <m>(0,c)</m> and <m>(1,c\sqrt{2})</m>. The function is entirely above the <m>x</m>-axis, which we need to know for part (a). For part (b), we need to know whether it is always increasing or not: when we're drawing horizontal strips, we need to know their endpoints, and if the function has <q>humps,</q> the right endpoint will not be simply the line <m>x=1</m>.
+</p>
+
+<p>If you're comfortable noticing that <m>1+x^2</m> increases as <m>x</m> increases because we only consider nonnegative values of <m>x</m>, then you can also be confident that <m>\sqrt{1+x^2}</m> is simply increasing. Alternately, we can consider the derivative:
+<md>
+<mrow>
+\diff{}{x}\left\{c\sqrt{1+x^2}\right\}&amp;=c\cdot \dfrac{1}{2\sqrt{1+x^2}}\cdot 2x = \dfrac{cx}{\sqrt{1+x^2}}
+</mrow>
+</md>
+Since we only consider positive values of <m>x</m>, this derivative is never negative, so the function is never decreasing. This gives us the following basic sketch:
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{3}{.5}{3}
+\YExcoord{2.5}{1}
+\YEycoord{1}{c}
+\draw[thick] (0,1)--(2.75,2) ;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The figures in the solution below use a slightly more detailed rendering of our function, but so much accuracy is not necessary.
+</p>
+
+<p>(a)
+Let <m>\cV_1</m> be the solid obtained by revolving
+<m>\cR</m> about the <m>x</m>--axis. The portion of <m>\cV_1</m> with <m>x</m>--coordinate
+between <m>x</m> and <m>x+\dee{x}</m> is obtained by rotating the red vertical strip in
+the figure on the left below about the <m>x</m>--axis.
+That portion is a disk of radius <m>c\sqrt{1+x^2}</m> and thickness
+<m>\dee{x}</m>. The volume of this disk is <m>\pi(c\sqrt{1+x^2})^2\dee{x}=\pi c^2 (1+x^2)\,\dee{x}</m>.
+So the total volume of <m>\cV_1</m> is
+<md>
+<mrow>
+V_1=\int_0^1 \pi c^2 (1+x^2)\,\dee{x}
+=\pi c^2\Big[x+\frac{x^3}{3}\Big]_0^1
+=\frac{4}{3}\pi c^2
+</mrow>
+</md>
+</p>
+
+<sidebyside width="40%">
+<image source="problems/figs/graphE97_4l"/>
+<image source="problems/figs/graphE97_4r"/>
+</sidebyside>
+<p>(b)
+We'll use horizontal washers as in Example  <xref ref="eg_rot_yaxis"/>.
+ <ul>
+<li> We cut <m>\cR</m> into thin horizontal  strips of width <m>\dee{y}</m> as in
+the figure on the right above.
+</li>
+<li>
+<p>When we rotate <m>\cR</m> about the <m>y</m>--axis, i.e. about the line <m>x=0</m>, each strip  sweeps out a thin washer
+<ul>
+<li>
+whose outer radius is <m>r_{out}=1</m>, and
+</li>
+<li>
+whose inner radius is <m>r_{in}= \sqrt{\frac{y^2}{c^2}-1}</m> when <m>y\ge c\sqrt{1+0^2}=c</m>
+(see the red strip in the figure on the right above),  and
+whose inner radius is <m>r_{in}= 0</m> when <m>y\le c</m>
+(see the blue strip in the figure on the right above) and
+</li>
+<li>
+whose thickness is <m>\dee{y}</m> and hence
+</li>
+<li>
+whose volume is
+<m>\pi(r_{out}^2 - r_{in}^2)\dee{y} = \pi\big(2-\frac{y^2}{c^2}\big)\dee{y}</m>
+when <m>y\ge c</m> and  whose volume is
+<m>\pi(r_{out}^2 - r_{in}^2)\dee{y} = \pi\,\dee{y}</m>
+when <m>y\le c</m> and
+</li>
+</ul>
+</p>
+</li>
+<li> As our bottommost strip is at <m>y=0</m> and our topmost
+strip is at <m>y=\sqrt{2}\,c</m> (since at the top <m>x=1</m> and <m>y= c\sqrt{1+x^2}</m>), the total
+<md>
+<mrow>
+V_2
+&amp;= \int _c^{\sqrt{2}\,c}  \pi\Big(2-\frac{y^2}{c^2}\Big)\dee{y}
++\int _ 0^c \pi\,\dee{y}
+</mrow><mrow>
+&amp;=\pi{\Big[2y -\frac{y^3}{3c^2}\Big]}_c^{\sqrt{2}\,c} +\pi c
+</mrow><mrow>
+&amp;=\pi\,c\Big[\frac{4\sqrt{2}}{3}-\frac{5}{3} \Big]+\pi c
+</mrow>
+<mrow>
+&amp;=\frac{\pi\,c}{3}\big[4\sqrt{2}-2 \big]
+</mrow>
+</md>
+</li>
+</ul>
+</p>
+
+<p> (c)
+We have <m>V_1=V_2</m> if and only if
+<md>
+<mrow>
+\frac{4}{3}\pi c^2&amp;=\frac{\pi\,c}{3}\big[4\sqrt{2}-2 \big]
+</mrow><mrow>
+4c^2&amp;=c\left(4\sqrt{2}-2\right)
+</mrow><mrow>
+4c^2-c\left(4\sqrt{2}-2\right)&amp;=0
+</mrow><mrow>
+4c\left(c - \left(\sqrt{2}-\frac{1}{2}\right)\right)&amp;=0
+</mrow><mrow>
+c=0 \quad\mbox{or}\quad c&amp;=\sqrt{2}-\frac{1}{2}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2013A</fromexam></title>
+<statement><p>
+The graph below shows the region between
+<m>y = 4 + \pi \sin x</m> and <m>y = 4 + 2\pi - 2x</m>.
+</p>
+
+<sidebyside width="66%">
+<image source="problems/figs/OE13A_4a"/>
+</sidebyside>
+<p> The region is rotated about the line <m>y = -1</m>.
+Express in terms of definite integrals the volume of the resulting
+solid. Do not evaluate the integrals.
+</p></statement>
+
+<hint><p>
+Note that the curves cross. The area of this
+region was found in Problem <xref ref="prob_s1_5q5"/> of Section<nbsp/><xref ref="sec_area"/>.
+It would be useful to review that problem.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\int_{\pi/2}^\pi \pi\big[(5 + \pi \sin x)^2-(5 + 2\pi - 2x)^2\big]\dee{x}
+   +\displaystyle\int^{3\pi/2}_\pi \pi\big[(5 + 2\pi - 2x)^2-(5 + \pi \sin x)^2\big]\
+            \dee{x}</m>
+</p></answer>
+
+<solution><p>
+We will compute the volume by rotating thin vertical strips as in
+the sketch
+</p>
+<sidebyside width="66%">
+<image source="problems/figs/OE13A_4"/>
+</sidebyside>
+<p>
+about the line <m>y=-1</m> to generate thin washers.
+We need to know when the line <m>y = 4 + 2\pi - 2x</m> intersects the curve
+<m>y = 4 + \pi \sin x</m>. Looking at the graph, it appears to be at <m>\frac{\pi}{2}</m>, <m>\pi</m>, and <m>\frac{3\pi}{2}</m>. By plugging in these values of <m>x</m> to both functions, we see they are indeed the points of intersection.
+</p>
+
+<p><ul>
+<li>
+When <m>\frac{\pi}{2} \le x \le \pi</m>, the top of the strip is at
+<m>y = 4 + \pi \sin x</m> and the bottom of the strip is at <m>y = 4 + 2\pi - 2x</m>.
+When the strip is rotated, we get a thin washer with
+outer radius <m>R_1(x)= 1+ 4 + \pi \sin x=5 + \pi \sin x </m> and inner radius
+<m>r_1(x) = 1+4 + 2\pi - 2x=5 + 2\pi - 2x</m>.
+</li>
+<li>
+When <m>\pi \le x \le \frac{3\pi}{2}</m>, the top of the strip is at
+<m>y = 4 + 2\pi - 2x</m> and the bottom of the strip is at <m>y = 4 + \pi \sin x</m>.
+When the strip is rotated, we get a thin washer with outer radius
+<m>R_2(x) = 1+4 + 2\pi - 2x=5 + 2\pi - 2x</m> and inner radius
+<m>r_2(x) = 1+ 4 + \pi \sin x=5 + \pi \sin x</m>.
+</li>
+</ul>
+So, the total
+<md>
+<mrow>
+\hbox{Volume}
+&amp;= \int_{\pi/2}^\pi \pi\big[R_1(x)^2-r_1(x)^2\big]\dee{x}
+   +\int^{3\pi/2}_\pi \pi\big[R_2(x)^2-r_2(x)^2\big]\dee{x}
+</mrow><mrow>
+&amp;= \int_{\pi/2}^\pi \pi\big[(5 + \pi \sin x)^2-(5 + 2\pi - 2x)^2\big]\dee{x}
+</mrow><mrow> &amp;
+   +\int^{3\pi/2}_\pi \pi\big[(5 + 2\pi - 2x)^2-(5 + \pi \sin x)^2\big]\
+            \dee{x}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_6_density" purpose="RQS">
+<statement>
+<p>On a particular, highly homogeneous
+<fn>This is clearly a simplified model: air density changes all the time, and depends on lots of complicated factors aside from altitude. However, the equation we're using is not so far off from an idealized model of the earth's atmosphere, taken from <url href="http://www.indiana.edu/~geog109/topics/10_Forces%26Winds/GasPressWeb/PressGasLaws.html">Pressure and the Gas Laws</url> by H.P. Schmid, accessed 3 July 2017.</fn> planet, we observe that the density of the atmosphere <m>h</m> kilometres above the surface is given by the equation <m>\rho(h) = c2^{-h/6}\quad \frac{\mathrm{kg}}{\mathrm{m^3}}</m>, where <m>c</m> is the density on the planet's surface.
+<ol label="a">
+<li> What is the mass of the atmosphere contained in a vertical column with radius one metre,  sixty kilometres high?
+</li>
+<li> What height should a column be to contain <m>\dfrac{3000c\pi}{\log 2}</m> kilograms of air?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+You can use ideas from this section to answer the question. If you take a very thin slice of the column, the density is almost constant, so you can find the mass. Then you can add up all your little slices. It's the same idea as volume, only applied to mass.
+</p>
+
+<p>Do be careful about units: in the problem statement, some are given in metres, others in kilometres.
+</p>
+
+<p>If you're having a hard time with the antiderivative, try writing the exponential function with base <m>e</m>. Remember <m>2 = e^{\log 2}</m>.
+</p></hint>
+<answer><p>
+(a) <m>\dfrac{6000c\pi}{\log 2}\left(1-\dfrac{1}{2^{10}}\right)</m>, which is close to
+<m>\dfrac{6000c\pi}{\log 2}</m>.
+</p>
+
+<p>(b) 6km: that is, there is roughly the same mass of air in the lowest 6 km of the column as there is in the remaining 54 km.
+</p></answer>
+<solution><p>
+(a)
+</p>
+
+<p>We use the same ideas for volume, and apply them to mass. We want to take slices of the column, approximate their mass, then add them up. To reconcile our units, let <m>k=1000h</m>, so <m>k</m> is the height in metres. Then the density of air at height <m>k</m> is <m>c2^{-k/6000}  \frac{\mathrm{kg}}{\mathrm{m}^3}</m>.
+</p>
+
+<p>A horizontal slice of the column is a circular disk with height <m>\dee{k}</m> and radius <m>1</m> m. So, its volume is <m>\pi  \dee{k} \mathrm{m^3}</m>. What we're interested in, though, is its mass. At height <m>k</m>, its mass is
+<md>
+<mrow>
+(\mathrm{volume})\times (\mathrm{density})&amp;=\left(\pi  \dee{k}  \mathrm{m^3}\right)\times \left(c2^{-k/6000} \frac{\mathrm{kg}}{\mathrm{m^3}}\right)
+</mrow><mrow>
+&amp;=c\pi2^{-k/6000} \dee{k}\quad\mathrm{kg}
+</mrow>
+<intertext>Since <m>k</m> runs from 0 to <m>60,000</m>, the total mass is given by</intertext><mrow>
+\int_0^{60000} c\pi2^{-k/6000} \dee{k}&amp;=c\pi\int_0^{60000} 2^{-k/6000} \dee{k}
+</mrow>
+<intertext>To facilitate integration, we can write our exponential function in terms of <m>e</m>, then use the substitution <m>u=-\frac{k}{6000}\log 2</m>, <m>\dee{u} = -\frac{1}{6000}\log 2 \dee{k}</m>.
+</intertext><mrow>
+&amp;=c\pi\int_0^{60000}\left(e^{\log 2}\right)^{-k/6000}\dee{k}
+</mrow><mrow>
+&amp;=c\pi\int_0^{60000}e^{-\tfrac{k}{6000}\log 2}\dee{k}
+</mrow><mrow>
+&amp;=-\frac{6000c\pi}{\log 2}\int_0^{-10\log 2}e^{u}\dee{u}
+</mrow><mrow>
+&amp;=\frac{6000c\pi}{\log 2}\int_{-10\log 2}^0e^{u}\dee{u}
+</mrow><mrow>
+&amp;=\frac{6000c\pi}{\log 2}\left(1-\frac{1}{2^{10}}\right)
+</mrow>
+</md>
+We note this is fairly close to <m>\dfrac{6000c\pi}{\log 2}</m>.
+</p>
+
+<p>We also remark that this is a demonstration of the usefulness of integrals. We wanted to know how much of <em>something</em> there was, but the amount of that something was different everywhere: more in some places, less in others. Integration allowed us to account for this gradient. You've seen this behaviour exploited to find distances travelled, areas, volumes, and now mass. In your studies, you will doubtless learn to use it to find still more  quantities, and we will discuss other applications in Chapter<nbsp/><xref ref="chap_int_app"/>.
+</p>
+
+<p>(b) We want to find the value of <m>k</m> that gives a mass of <m>\dfrac{3000c\pi}{\log 2}</m>. By following our reasoning above, the mass of air in the column from the ground to height <m>k</m> is
+<md>
+<mrow>
+\frac{6000c\pi}{\log 2}\left(1-\frac{1}{2^{k/6000}}\right)&amp;
+</mrow>
+<intertext>So, we set this equal to the mass we want, and solve for <m>k</m>.</intertext><mrow>
+\frac{6000c\pi}{\log 2}\left(1-\frac{1}{2^{k/6000}}\right)&amp;=\frac{3000c\pi}{\log 2}
+</mrow><mrow>
+2\left(1-\frac{1}{2^{k/6000}}\right)&amp;=1
+</mrow><mrow>
+1&amp;=\frac{2}{2^{k/6000}}
+</mrow><mrow>
+2^{k/6000}&amp;=2^1
+</mrow><mrow>
+k&amp;=6000
+</mrow><mrow>
+h&amp;=6
+</mrow>
+</md>
+</p>
+
+<p>This means that there is roughly the same mass of air in the lowest 6 km of the column as there is in the remaining 54 km.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+A right circular cone with base radius <m>r</m> and height <m>h</m> is sliced vertically, as shown in the picture below. The cut is made so that the slice makes a chord across the circle sweeping out an angle of <m>\frac{\pi}{2}</m> radians.
+ Find the volume of the red piece.
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0)node[shape=ellipse, minimum width=3cm, minimum height=1cm, draw] {};
+\draw (-1.5,0)--(0,3)--(1.5,0);
+\draw[dashed] (0,0)--(0,3) node[midway, left]{$h$};
+\draw[dashed] (0,0)--(-1.5,0) node[midway, below]{$r$};
+\draw[thick, fill=red, fill opacity=0.1] (-60:1.5cm and .5cm) arc (-60:60:1.5cm and .5cm) ;
+\filldraw[red, thick, left color=red!70!black, right color=white, fill, fill opacity=0.2] (.75,1.5)--(.75,-.4)arc (-60:0:1.5cm and .5cm) --cycle;
+\draw (0,-1) node{sliced cone};
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0) node[shape=circle, minimum size=3cm, draw]{};
+\draw[dashed] (0,0)--(-1.5,0) node[below, midway]{$r$};
+\draw[red, fill=red, fill opacity=0.2] (0,0) + (45:1.5cm) arc (45:-45:1.5cm)--cycle;
+\draw (0,-2.) node{sliced base};
+\draw[dashed] (1.06,1.06)--(0,0)--(1.06,-1.06);
+\draw (.35,.35) arc(45:-45:.5cm) node[above right]{$\frac{\pi}{2}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</statement>
+<hint><p>
+You'll want to use horizontal cross sections, like Example<nbsp/><xref ref="eg_VOLa"/>. Then the area of your slice can be calculated as a section of a circle, minus a triangle.
+</p></hint>
+<answer><p>
+<m> \dfrac{r^2h}{3}\left(\dfrac{\pi}{4}-\dfrac{1}{2}\right)</m>
+</p></answer>
+<solution><p>
+As in Example<nbsp/><xref ref="eg_VOLa"/>, we take horizontal slices. If the radius of a slice is <m>s</m>, then its area can be calculated as one-quarter of the circle of radius <m>s</m>, minus the right triangle with base and height both <m>s</m>. So, <me>
+A = \frac{1}{4}\left(\pi s^2\right) - \frac{1}{2} s^2 = s^2\left(\frac{\pi}{4}-\frac{1}{2}\right).</me>
+</p>
+
+<p>As we climb up the cone, the radius of our slices changes. As in the text, let's assume that the base of the cone sits at <m>y=h</m>, and the tip is at <m>y=0</m>. Then we use similar triangles to conclude that at height <m>y</m>, the radius of the cone is <m>s=\left(\frac{r}{h}\right)y</m>.
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{4}{1}{5}
+\YEycoord{2}{y}
+\YEycoord{4}{h}
+\YExcoord{3}{r}
+\draw (0,0)--(3,4)--(0,4);
+\fill[fill opacity=0.1] (0,0)--(1.5,2)--(0,2)--cycle;
+\draw (0,2)--(1.5,2);
+\draw (.75,2.25) node{$s$};
+\draw (5,3) node{$\dfrac{s}{y}=\dfrac{r}{h}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+<p>
+So:
+<ul>
+<li> Our slices run from <m>y=0</m> to <m>y=h</m>,
+</li>
+<li> at height <m>y</m>, the area of our slice is <m>\left(\frac{r}{h}\cdot y\right)^2\left(\frac{\pi}{4}-\frac{1}{2}\right) = y^2\left(\frac{r}{h}\right)^2\left(\frac{\pi}{4}-\frac{1}{2}\right)</m>,
+</li>
+<li> and the height of our slice is <m>\dee{y}</m>.
+</li>
+</ul>
+So, the volume of our piece of cone is:
+<md>
+<mrow>
+\mbox{Volume}&amp;=\int_0^h y^2\left(\frac{r}{h}\right)^2\left(\frac{\pi}{4}-\frac{1}{2}\right)\dee{y}
+</mrow><mrow>
+&amp;=\left(\frac{r}{h}\right)^2\left(\frac{\pi}{4}-\frac{1}{2}\right)\int_0^h y^2\dee{y}
+</mrow><mrow>&amp;=
+\left(\frac{r}{h}\right)^2\left(\frac{\pi}{4}-\frac{1}{2}\right)\frac{1}{3}h^3
+</mrow><mrow>
+&amp;= \frac{r^2h}{3}\left(\frac{\pi}{4}-\frac{1}{2}\right)
+</mrow>
+</md>
+</p></solution>
+</exercise></exercisegroup>
+
+</exercises>

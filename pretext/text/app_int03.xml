@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_com">
+<title>Centre of Mass and Torque</title>
+<introduction></introduction>
+
+<subsection>
+<title>Centre of Mass</title>
+
+<p>
+If you support a body at its center of mass (in a uniform gravitational field) it balances perfectly. That's the definition of the center of mass of the body.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/seesaw3"/>
+</sidebyside>
+
+<p>
+If the body consists of a finite number of masses <m>m_1</m>, <m>\cdots</m>, <m>m_n</m> attached to an infinitely strong, weightless (idealized) rod with mass number <m>i</m> attached at position <m>x_i</m>, then the center of mass is at the (weighted) average value of <m>x</m>:
+<fact xml:id="eq_weightedrod"><title>Centre of mass (discrete masses)</title>
+<statement><p>
+<me>
+\bar x =\frac{\sum_{i=1}^n m_ix_i}{\sum_{i=1}^n m_i}
+</me>
+</p></statement>
+</fact>
+The denominator <m>m=\sum_{i=1}^n m_i</m> is the total mass of the body.
+</p>
+
+<p>
+This formula for the center of mass is derived in the following (optional) section. See equation<nbsp/>(<xref ref="eq_TRQfulcrum"/>).
+</p>
+
+<p>
+For many (but certainly not all) purposes an (extended rigid) body acts like  a point particle located at its center of mass. For example it is very common to treat the Earth as a point particle. Here is a more detailed example in which we think of a body as being made up of a number of component parts and compute the center of mass of the body as a whole by using the center of masses of the component parts. Suppose that we have a dumbbell  which consists of
+<ul>
+<li>
+	a left end made up of particles of masses <m>m_{l,1}</m>, <m>\cdots</m>, <m>m_{l,3}</m> located at <m>x_{l,1}</m>, <m>\cdots</m>, <m>x_{l,3}</m> and
+</li>
+<li>
+	a right end made up of particles of masses <m>m_{r,1}</m>, <m>\cdots</m>, <m>m_{r,4}</m> located at <m>x_{r,1}</m>, <m>\cdots</m>, <m>x_{r,4}</m> and
+</li>
+<li>
+	an infinitely strong, weightless (idealized) rod joining all of the particles.
+</li>
+</ul>
+Then the mass and center of mass of the left end are
+<me>
+M_l=m_{l,1}+\cdots +m_{l,3}\qquad \bar X_l = \frac{m_{l,1}x_{l,1}+\cdots +m_{l,3}x_{l,3}}{M_l}
+</me>
+and the mass and center of mass of the right end are
+<me>
+M_r=m_{r,1}+\cdots +m_{r,4}\qquad \bar X_r = \frac{m_{r,1}x_{r,1}+\cdots +m_{r,4}x_{r,4}}{M_r}
+</me>
+The mass and center of mass of the entire dumbbell are
+<md>
+<mrow>
+M&amp;= m_{l,1}+\cdots +m_{l,3}\  +\  m_{r,1}+\cdots +m_{r,4}
+</mrow><mrow>
+ &amp;= M_l+M_r
+</mrow><mrow>
+\bar x &amp;=\frac{m_{l,1}x_{l,1}+\cdots +m_{l,3}x_{l,3}\ +\
+              m_{r,1}x_{r,1}+\cdots +m_{r,4}x_{r,4}}{M}
+</mrow><mrow>
+       &amp;=\frac{M_l \bar X_l + M_r \bar X_r}{M_r+M_l}
+</mrow>
+</md>
+So we can compute the center of mass of the entire dumbbell by treating it as being made up of two point particles, one of mass <m>M_l</m> located at the centre of mass of the left end, and one of mass <m>M_r</m> located at the center of mass of the right end.
+</p>
+
+<example xml:id="eg_TRQcomWork"><title>Work and Centre of Mass</title>
+<p>
+Here is another example in which an extended body acts like a point particle located at its centre of mass. Imagine that there are a finite number of masses <m>m_1,\cdots,m_n</m> arrayed along a (vertical) <m>z</m>-axis with mass  number <m>i</m> attached at height <m>z_i</m>. Note  that the total mass of the array is <m>M=\sum_{i=1}^n m_i</m> and that the centre of mass of the array is at height
+<md>
+<mrow>
+\bar z =\frac{\sum_{i=1}^n m_iz_i}{\sum_{i=1}^n m_i}
+       =\frac{1}{M} \sum_{i=1}^n m_iz_i
+</mrow>
+</md>
+Now suppose that we lift all of the masses, against gravity, to height <m>Z</m>.  So after the lift there is a total mass <m>M</m> located at height <m>Z</m>.  The <m>i^{\rm th}</m> mass is subject to a downward gravitational force of <m>m_i g</m>. So to lift the <m>i^{\rm th}</m> mass we need to apply a compensating  upward force of <m>m_ig</m> through a distance of <m>Z-z_i</m>. This takes work  <m>m_i g (Z-z_i)</m>. So the total  work required to lift all <m>n</m> masses is
+<md>
+<mrow>
+\text{Work} &amp;= \sum_{i=1}^n  m_i g (Z-z_i)
+</mrow><mrow>
+            &amp;= g Z \sum_{i=1}^n  m_i  -g \sum_{i=1}^n  m_i z_i
+</mrow><mrow>
+            &amp;= g Z M - g M \bar z
+</mrow><mrow>
+            &amp; =Mg(Z-\bar z)
+</mrow>
+</md>
+</p>
+<sidebyside width="15%">
+<image source="text/figs/array"/>
+</sidebyside>
+<p>
+So the work required to lift the array of <m>n</m> particles is identical to the work required to lift a single particle, whose mass, <m>M</m>, is  the total mass of the array, from height <m>\bar z</m>, the centre of mass  of the array, to height <m>Z</m>.
+</p>
+</example>
+
+<example xml:id="eg_TRQcomWorkB"><title>Example <xref ref="eg_TRQcomWork"/>, continued</title>
+<p>
+Imagine, as in Example <xref ref="eg_TRQcomWork"/>, that there are a finite number of masses <m>m_1,\cdots,m_n</m> arrayed along a (vertical) <m>z</m>-axis with mass  number <m>i</m> attached at height <m>z_i</m>. Again, the total mass and centre of  mass of the array are
+<me>
+M=\sum_{i=1}^n m_i \qquad
+\bar z =\frac{\sum_{i=1}^n m_iz_i}{\sum_{i=1}^n m_i}
+       =\frac{1}{M} \sum_{i=1}^n m_iz_i
+</me>
+Now suppose that we lift, for each <m>1\le i\le n</m>, mass number <m>i</m>,  against gravity, from its initial height <m>z_i</m> to a final height <m>Z_i</m>.  So after the lift we have a new array of masses with total mass and  centre of  mass
+<me>
+M=\sum_{i=1}^n m_i \qquad
+\bar Z =\frac{\sum_{i=1}^n m_iZ_i}{\sum_{i=1}^n m_i}
+       =\frac{1}{M} \sum_{i=1}^n m_iZ_i
+</me>
+To lift the <m>i^{\rm th}</m> mass took work <m>m_i g (Z_i-z_i)</m>. So the total  work required to lift all <m>n</m> masses was
+<md>
+<mrow>
+\text{Work} &amp;= \sum_{i=1}^n  m_i g (Z_i-z_i)
+</mrow><mrow>
+            &amp;= g  \sum_{i=1}^n  m_i Z_i  -g \sum_{i=1}^n  m_i z_i
+</mrow><mrow>
+            &amp;= g M \bar Z - g M \bar z =Mg(\bar Z-\bar z)
+</mrow>
+</md>
+So the work required to lift the array of <m>n</m> particles  is identical to the work required to lift a single particle, whose mass, <m>M</m>, is  the total mass of the array, from height <m>\bar z</m>, the intial centre of mass  of the array, to height <m>\bar Z</m>, the final centre of mass of the array.
+</p>
+</example>
+
+<p>
+Now we'll extend the above ideas to cover more general classes of bodies.   If the body consists of mass distributed continuously along a straight line, say with mass density <m>\rho(x)</m>kg/m and with <m>x</m> running from <m>a</m> to <m>b</m>, rather than consisting of a finite number of point masses, the formula for the center of mass becomes
+<fact xml:id="eq_TRQvariabledensityrod"><title>Centre of mass (continuous mass)</title>
+<statement><p>
+<me>\bar x = \frac{\int_a^b x\ \rho(x)\,\dee{x}}{\int_a^b \rho(x)\,\dee{x}}</me>
+</p></statement>
+</fact>
+Think of <m>\rho(x)\,\dee{x}</m> as the mass of the <q>almost point particle</q> between <m>x</m> and <m>x+\dee{x}</m>.
+</p>
+
+<p>
+If the body is a two dimensional object, like a metal plate, lying in  the <m>xy</m>-plane, its center of mass is a point <m>(\bar x,\bar y)</m> with <m>\bar x</m> being the (weighted) average value of the <m>x</m>-coordinate over the body and <m>\bar y</m> being the (weighted) average value of the  <m>y</m>-coordinate over the body. To be concrete, suppose the body fills the region
+<me>
+\big\{\ (x,y)\ \big|\ a\le x\le b,\ B(x)\le y\le T(x)\ \big\}
+</me>
+in the <m>xy</m>-plane. For simplicity, we will assume that the density  of the body is a constant, say <m>\rho</m>. When the density is constant, the center of mass is also called the <em>centroid</em> and is thought of as the geometric center of the body.
+</p>
+
+<p>
+To find the centroid of the body, we use the use our standard <q>slicing</q> strategy. We slice the body into thin vertical strips, as illustrated in the figure below.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/centroidGen"/>
+</sidebyside>
+
+<p>
+Here is a detailed description of a generic strip.
+<ul>
+<li> The strip has width <m>\dee{x}</m>. </li>
+<li>
+	Each point of the strip has essentially the same <m>x</m>-coordinate. Call it <m>x</m>.
+</li>
+<li>
+	The top of the strip is at <m>y=T(x)</m> and the bottom of the strip is at <m>y=B(x)</m>.
+</li>
+<li>
+<p>
+	So the strip has
+	<ul>
+	<li> height <m>T(x)-B(x)</m> </li>
+	<li> area <m>[T(x)-B(x)]\,\dee{x}</m> </li>
+	<li> mass <m>\rho[T(x)-B(x)]\,\dee{x}</m> </li>
+	<li> centroid, i.e. middle point, <m>\big(x\,,\,\frac{B(x)+T(x)}{2}\big)</m>. </li>
+	</ul>
+</p>
+</li>
+</ul>
+In computing the centroid of the entire body, we may treat each strip as a single particle of mass <m>\rho[T(x)-B(x)]\,\dee{x}</m> located at  <m>\big(x\,,\,\frac{B(x)+T(x)}{2}\big)</m>. So:
+<fact xml:id="eq_TRQcentroid"><title>Centroid of object with constant denisty</title>
+<statement><p>
+The mass of the entire body bounded by curves <m>T(x)</m> above and <m>B(x)</m> below is
+<md>
+<mrow>
+M&amp;= \rho\int_a^b [T(x)-B(x)]\,\dee{x} =\rho A
+\tag{a}
+</mrow>
+<intertext>
+	where <m>A=\int_a^b [T(x)-B(x)]\,\dee{x}</m> is the area of the region. The coordinates of the centroid are
+</intertext>
+<mrow>
+\bar x
+        &amp;= \frac{\int_a^b x\ \overbrace{\rho[T(x)-B(x)]\,\dee{x}}
+                     ^{\mathrm{mass\ of\ slice}}}
+                {M }
+        &amp;&amp;= \frac{\int_a^b x [T(x)-B(x)]\,\dee{x}}{A}
+\tag{b}
+</mrow>
+<mrow>
+\bar y
+       &amp;= \frac{\int_a^b\!\!\!\!\overbrace{\tfrac{B(x)+T(x)}{2}}
+                     ^{\mathrm{average}\ y\ \mathrm{on\ slice}}\!\!
+                 \overbrace{\rho[T(x)-B(x)]\,\dee{x}}
+                     ^{\mathrm{mass\ of\ slice}}}
+          {M }\
+       &amp;&amp;= \frac{\int_a^b\, [T(x)^2-B(x)^2]\,\dee{x}}{2A}
+\tag{c}
+</mrow>
+</md>
+</p></statement>
+</fact>
+We can of course also slice up the body using horizontal slices.
+</p>
+
+
+<sidebyside width="50%">
+<image source="text/figs/centroidY"/>
+</sidebyside>
+
+<p>
+If the body has constant density <m>\rho</m> and fills the region
+<me>
+\big\{\ (x,y)\ \big|\ L(y)\le x\le R(y),\ c\le y\le d\ \big\}
+</me>
+then the same computation as above gives:
+
+<fact  xml:id="eq_TRQcentroidy"><title>Centroid of object with constant density</title>
+<statement><p>
+The mass of the entire body bounded by curves <m>L(y)</m> to the left and <m>R(y)</m> to the right is
+<md>
+<mrow>
+M&amp;= \rho\int_c^d [R(y)-L(y)]\,\dee{y} =\rho A
+\tag{a}
+</mrow>
+<intertext>
+	where <m>A=\int_c^d [R(y)-L(y)]\,\dee{y}</m> is the area of the region, and gives the coordinates of the centroid to be
+</intertext><mrow>
+\bar x
+       &amp;= \frac{\int_c^d\!\!\!\!\overbrace{\tfrac{R(y)+L(y)}{2}}
+                            ^{\mathrm{average}\ x\ \mathrm{on\ slice}}\!\!
+                         \overbrace{\rho[R(y)-L(y)]\,\dee{y}}
+                             ^{\mathrm{mass\ of\ slice}}}
+                             {M } \
+       &amp;&amp;= \frac{\int_c^d\, [R(y)^2-L(y)^2]\,\dee{y}}{2A}
+\tag{b}
+</mrow>
+<mrow>
+\bar y
+       &amp;= \frac{\int_c^d y\ \overbrace{\rho[R(y)-L(y)]\,\dee{y}}
+                               ^{\mathrm{mass\ of\ slice}}}
+                                   {M }
+       &amp;&amp;= \frac{\int_c^d y [R(y)-L(y)]\,\dee{y}}{A}
+\tag{c}
+</mrow>
+</md>
+</p></statement>
+</fact>
+</p>
+
+<example xml:id="eq_TRQcentroidA"><title>Centroid of a quarter ellipse</title>
+<p>
+Find the <m>x</m>-coordinate of the centroid (centre of gravity) of the plane region <m>R</m> that lies in the first quadrant <m>x\ge 0, \ y\ge 0</m> and inside the ellipse <m>4x^2+9y^2=36</m>. (The area bounded by the ellipse <m>\frac{x^2}{a^2}+\frac{y^2}{b^2}=1</m> is <m>\pi ab</m> square units.)
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/centroidQuarterEllipse"/>
+</sidebyside>
+
+<p>
+<alert>Solution:</alert>
+In standard form <m>4x^2+9y^2=36</m> is <m>\frac{x^2}{9}+\frac{y^2}{4}=1</m>. So, on <m>R</m>, <m>x</m> runs from <m>0</m> to <m>3</m> and <m>R</m> has area <m>A=\frac{1}{4}\pi\times 3\times 2=\frac{3}{2}\pi</m>. For each fixed <m>x</m>, between <m>0</m> and <m>3</m>, <m>y</m> runs from <m>0</m> to <m>2\sqrt{1-\frac{x^2}{9}}</m>. So, applying (<xref ref="eq_TRQcentroid"/>.b) with <m>a=0</m>, <m>b=3</m>,  <m>T(x)=2\sqrt{1-\frac{x^2}{9}}</m> and <m>B(x)=0</m>,
+<me>
+\bar x =\frac{1}{A}\int_0^3 x\,T(x)\,\dee{x}
+=\frac{1}{A}\int_0^3 x\,2\sqrt{1-\frac{x^2}{9}}\,\dee{x}
+=\frac{4}{3\pi}\int_0^3 x\sqrt{1-\frac{x^2}{9}}\,\dee{x}
+</me>
+Sub in <m>u=1-\frac{x^2}{9}</m>, <m>du=-\frac{2}{9}x\,\dee{x}</m>.
+<me>
+\bar x
+=-\frac{9}{2}\frac{4}{3\pi}\int_1^0 \sqrt{u}\,du
+=-\frac{9}{2}\frac{4}{3\pi}\Big[\frac{u^{3/2}}{3/2}\Big]_1^0
+=-\frac{9}{2}\frac{4}{3\pi}\Big[-\frac{2}{3}\Big]
+=\frac{4}{\pi}
+</me>
+</p>
+</example>
+
+<example xml:id="eg_TRQcentroidBa"><title>Centroid of a quarter disk</title>
+<p>
+  Find the centroid of the quarter circular disk <m>x\ge 0</m>, <m>y\ge 0</m>, <m>x^2+y^2\le r^2</m>.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/centroidQuarterCircle"/>
+</sidebyside>
+
+<p>
+<alert>Solution:</alert>
+By symmetry, <m>\bar x=\bar y</m>. The area of the quarter disk is <m>A=\frac{1}{4}\pi r^2</m>. By (<xref ref="eq_TRQcentroid"/>.b) with <m>a=0</m>, <m>b=r</m>,  <m>T(x)=\sqrt{r^2-x^2}</m> and <m>B(x)=0</m>,
+<me>
+\bar x = \frac{1}{A}\int_0^r x\sqrt{r^2-x^2}\,\dee{x}
+</me>
+To evaluate the integral, sub in <m>u=r^2-x^2</m>, <m>du=-2x\,\dee{x}</m>.
+<me>
+\int_0^r x\sqrt{r^2-x^2}\,\dee{x} = \int_{r^2}^0 \sqrt{u}\,\frac{du}{-2}
+= -\frac{1}{2}\Big[\frac{u^{3/2}}{3/2}\Big]^0_{r^2}
+= \frac{r^3}{3}
+\tag{*}
+</me>
+So
+<me>
+\bar x
+= \frac{4}{\pi r^2}\Big[\frac{r^3}{3}\Big]
+=\frac{4r}{3\pi}
+</me>
+</p>
+
+<p>
+As we observed above, we should have <m>\bar x=\bar y</m>. But, just for practice, let's compute <m>\bar y</m> by the integral formula (<xref ref="eq_TRQcentroid"/>.c), again with <m>a=0</m>, <m>b=r</m>, <m>T(x)=\sqrt{r^2-x^2}</m> and <m>B(x)=0</m>,
+<md>
+<mrow>
+\bar y &amp; =  \frac{1}{2A}\int_0^r \big(\sqrt{r^2-x^2}\big)^2\,\dee{x}\
+ &amp;&amp;=  \frac{2}{\pi r^2}\int_0^r \big(r^2-x^2\big)\,\dee{x}
+</mrow>
+<mrow>
+ &amp;=  \frac{2}{\pi r^2}\Big[r^2x-\frac{x^3}{3}\Big]_0^r
+ &amp;&amp;=  \frac{2}{\pi r^2}\frac{2r^3}{3} \\
+ &amp;=\frac{4r}{3\pi}
+</mrow>
+</md>
+as expected.
+</p>
+</example>
+
+<example xml:id="eg_TRQcentroidBaa"><title>Centroid of a half disc</title>
+<p>
+  Find the centroid of the half circular disk <m>y\ge 0</m>, <m>x^2+y^2\le r^2</m>.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/centroidHalfCircle"/>
+</sidebyside>
+
+<p>
+<alert>Solution:</alert>
+Once again, we have a symmetry <mdash/>- namely the half disk is symmetric about the <m>y</m>-axis. So the centroid lies on the <m>y</m>-axis and <m>\bar x=0</m>.  The area of the half disk is <m>A=\frac{1}{2}\pi r^2</m>.  By (<xref ref="eq_TRQcentroid"/>.c), with <m>a=-r</m>, <m>b=r</m>, <m>T(x)=\sqrt{r^2-x^2}</m> and <m>B(x)=0</m>,
+<md>
+<mrow>
+\bar y &amp; =  \frac{1}{2A}\int_{-r}^r \big(\sqrt{r^2-x^2}\big)^2\,\dee{x}\
+ &amp;=  \frac{1}{\pi r^2}\int_{-r}^r \big(r^2-x^2\big)\,\dee{x} \\
+ &amp;=  \frac{2}{\pi r^2}\int_0^r \big(r^2-x^2\big)\,\dee{x}
+&amp; \text{since the integrand is even}
+</mrow>
+<mrow>
+ &amp;=  \frac{2}{\pi r^2}\Big[r^2x-\frac{x^3}{3}\Big]_0^r  \\
+ &amp;=\frac{4r}{3\pi}
+</mrow>
+</md>
+</p>
+</example>
+
+<example xml:id="eg_TRQcentroidBb"><title>Another centroid</title>
+<p>
+Find the centroid of the region <m>R</m> in the diagram.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/PSIVc"/>
+</sidebyside>
+
+<p><alert>Solution:</alert>
+By symmetry, <m>\bar x=\bar y</m>. The region <m>R</m> is a <m>2\times 2</m> square with one quarter of a circle of radius <m>1</m> removed and so has area <m>2\times 2-\frac{1}{4}\pi=\frac{16-\pi}{4}</m>. The top of <m>R</m> is <m>y=T(x)=2</m>. The bottom is <m>y=B(x)</m> with  <m>B(x)\!=\!\sqrt{1-x^2}</m> when <m>0\le x\le 1</m> and <m>B(x)\!=\!0</m>  when <m>1\le x\le 2</m>. So
+<md>
+<mrow>
+\bar y = \bar x &amp;=\frac{1}{A}\bigg[\int_0^1x[2-\sqrt{1-x^2}]\,\dee{x}
+              +\int_1^2x[2-0]\,\dee{x}\bigg]\cr
+&amp;=\frac{4}{16-\pi}\bigg[x^2\big|_0^1
+            +x^2\big|_1^2-\int_0^1x\sqrt{1-x^2}\,\dee{x}\bigg]
+</mrow>
+<intertext>Now we can make use of the starred equation in Example<nbsp/><xref ref="eg_TRQcentroidBa"/> with <m>r=1</m> to obtain</intertext>
+<mrow>
+&amp;=\frac{4}{16-\pi}\Big[4-\frac{1}{3}\Big]
+</mrow><mrow>
+&amp;=\frac{44}{48-3\pi}
+</mrow>
+</md>
+</p>
+</example>
+
+<example xml:id="eg_TRQcentroidC"><title>Centroid of a triangle and its medians</title>
+<p>
+Prove that the centroid of any triangle is located at the point of intersection of the medians. A median of a triangle is a line segment joining a vertex to the midpoint of the opposite side.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/medianA"/>
+</sidebyside>
+
+<p>
+<alert>Solution:</alert>
+Choose a coordinate system so that the vertices of the triangle are located at <m>(a,0)</m>, <m>(0,b)</m> and <m>(c,0)</m>. (In the figure below, <m>a</m> is negative.)
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/median"/>
+</sidebyside>
+
+<p>
+The line joining <m>(a,0)</m> and <m>(0,b)</m> has equation <m>bx+ay=ab</m>. (Check that <m>(a,0)</m> and <m>(0,b)</m> both really are on this line.) The line joining <m>(c,0)</m> and <m>(0,b)</m> has equation <m>bx+cy=bc</m>. (Check that <m>(c,0)</m> and <m>(0,b)</m> both really are on this line.) Hence for each fixed <m>y</m> between <m>0</m> and <m>b</m>, <m>x</m> runs from  <m>a-\frac{a}{b}y</m> to <m>c-\frac{c}{b}y</m>.
+</p>
+
+<p>
+We'll use horizontal strips to compute <m>\bar x</m> and <m>\bar y</m>. We could just apply equation<nbsp/>(<xref ref="eq_TRQcentroidy"/>) with <m>c=0</m>, <m>d=b</m>, <m>R(y)= \frac{c}{b}(b-y)</m> (which is gotten by solving <m>bx+cy=bc</m> for <m>x</m>) and <m>L(y)= \frac{a}{b}(b-y)</m> (which is gotten by solving <m>bx+ay=ab</m> for <m>x</m>).
+</p>
+
+<p>
+But rather than memorizing or looking up those formulae, we'll derive them for this example. So consider a thin strip at height <m>y</m> as illustrated in the figure above.
+<ul>
+<li>
+	The strip has length
+	<me>
+	\ell(y)=\Big[\frac{c}{b}(b-y)-\frac{a}{b}(b-y)\Big]=\frac{c-a}{b}(b-y)
+	</me>
+</li>
+<li>
+	The strip has width <m>\dee{y}</m>.
+</li>
+<li>
+	On this strip, <m>y</m> has average value <m>y</m>.
+</li>
+<li>
+	On this strip, <m>x</m> has average value <m>\frac{1}{2}\big[\frac{a}{b}(b-y)+\frac{c}{b}(b-y)\big]=\frac{a+c}{2b}(b-y)</m>.
+</li>
+</ul>
+As the area of the triangle is <m>A=\half (c-a)b</m>,
+<md>
+<mrow>
+\bar y&amp;=\frac{1}{A}\int_0^b y\ \ell(y)\dee{y}
+=\frac{2}{(c-a)b}\int_0^b y\frac{c-a}{b}(b-y)\dee{y}
+</mrow>
+<mrow>
+&amp;=\frac{2}{b^2}\int_0^b (by-y^2)\dee{y}
+=\frac{2}{b^2}\Big(b\frac{b^2}{2}-\frac{b^3}{3}\Big)
+</mrow><mrow>
+&amp;=\frac{2}{b^2}\frac{b^3}{6}=\frac{b}{3}
+</mrow><mrow>
+\bar x&amp;=\frac{1}{A}\int_0^b \frac{a+c}{2b}(b-y)\ \ell(y)\dee{y}
+=\frac{2}{(c-a)b}\int_0^b \frac{a+c}{2b}(b-y)\frac{c-a}{b}(b-y)\dee{y}
+</mrow>
+<mrow>
+&amp; =\frac{a+c}{b^3}\int_0^b (y-b)^2\dee{y}
+</mrow><mrow>
+&amp;=\frac{a+c}{b^3}\Big[\frac{1}{3}(y-b)^3\Big]_0^b
+=\frac{a+c}{b^3}\ \frac{b^3}{3}
+=\frac{a+c}{3}
+</mrow>
+</md>
+We have found that the centroid of the triangle is at <m>(\bar x,\bar y)=\big(\frac{a+c}{3},\frac{b}{3}\big)</m>. We shall now show that this point lies on all three medians.
+<ul>
+<li>
+	One vertex is at <m>(a,0)</m>. The opposite side runs from <m>(0,b)</m> and <m>(c,0)</m> and so has midpoint <m>\half(c,b)</m>. The line from <m>(a,0)</m> to <m>\half(c,b)</m> has slope <m>\frac{b/2}{c/2-a}=\frac{b}{c-2a}</m>  and so has equation <m>y=\frac{b}{c-2a}(x-a)</m>. As  <m>\frac{b}{c-2a}(\bar x-a) =\frac{b}{c-2a}\big(\frac{a+c}{3}-a\big) =\frac{1}{3}\frac{b}{c-2a}(c+a-3a) =\frac{b}{3} =\bar y</m>, the centroid does indeed lie on this median. In this computation we have implicitly assumed that <m>c\ne 2a</m> so that the denominator <m>c-2a\ne 0</m>. In the event that <m>c=2a</m>, the median runs from <m>(a,0)</m> to <m>\big(a,\frac{b}{2}\big)</m> and so has equation <m>x=a</m>. When <m>c=2a</m> we also have <m>\bar x=\frac{a+c}{3}=a</m>, so that the centroid still lies on the median.
+</li>
+<li>
+	Another vertex is at <m>(c,0)</m>. The opposite side runs from <m>(a,0)</m> and <m>(0,b)</m> and so has midpoint <m>\half(a,b)</m>. The line from <m>(c,0)</m> to <m>\half(a,b)</m> has slope <m>\frac{b/2}{a/2-c}=\frac{b}{a-2c}</m>  and so has equation <m>y=\frac{b}{a-2c}(x-c)</m>. As  <m>\frac{b}{a-2c}(\bar x-c) =\frac{b}{a-2c}\big(\frac{a+c}{3}-c\big) =\frac{1}{3}\frac{b}{a-2c}(a+c-3c) =\frac{b}{3} =\bar y</m>, the centroid does indeed lie on this median. In this computation we have implicitly assumed that <m>a\ne 2c</m> so that the denominator <m>a-2c\ne 0</m>. In the event that <m>a=2c</m>, the median runs from <m>(c,0)</m> to <m>\big(c,\frac{b}{2}\big)</m> and so has equation <m>x=c</m>. When <m>a=2c</m> we also have <m>\bar x=\frac{a+c}{3}=c</m>, so that the centroid still lies on the median.
+</li>
+<li>
+	The third vertex is at <m>(0,b)</m>. The opposite side runs from <m>(a,0)</m> and <m>(c,0)</m> and so has midpoint <m>\big(\frac{a+c}{2},0\big)</m>.  The line from <m>(0,b)</m> to <m>\big(\frac{a+c}{2},0\big)</m> has slope  <m>\frac{-b}{(a+c)/2}=-\frac{2b}{a+c}</m>  and so has equation <m>y=b-\frac{2b}{a+c}x</m>. As  <m>b-\frac{2b}{a+c}\bar x =b-\frac{2b}{a+c}\frac{a+c}{3} =\frac{b}{3} =\bar y</m>, the centroid does indeed lie on this median. This time, we have implicitly assumed that <m>a+c\ne 0</m>. In the event that <m>a+c=0</m>, the median runs from <m>(0,b)</m> to <m>(0,0)</m> and so has equation <m>x=0</m>. When <m>a+c=0</m> we also have <m>\bar x=\frac{a+c}{3}=0</m>, so that the centroid still lies on the median.
+</li>
+</ul>
+</p>
+
+</example>
+</subsection>
+
+<subsection><title>Optional <mdash/> Torque</title>
+
+<p>
+Newton's law of motion says that the position <m>x(t)</m>  of a single particle moving under the influence of a force <m>F</m> obeys <m>mx''(t)=F</m>. Similarly, the positions <m>x_i(t)</m>,  <m>1\le i\le n</m>, of a set of particles moving under the influence of forces <m>F_i</m> obey <m>mx_i''(t)=F_i</m>, <m>1\le i\le n</m>. Often systems of  interest consist of some small number of rigid bodies. Suppose that  we are interested in the motion of a single rigid body, say a piece  of wood. The piece of wood is made up of a huge number of atoms.  So the system of equations determining the motion of all of the  individual atoms in the piece of wood is huge. On the other hand,  because the piece of wood is rigid, its configuration is completely  determined by the position of, for example, its centre of mass and  its orientation. (Rather than get into what is precisely meant by  <q>orientation</q>, let's just say that it is certainly determined by,  for example, the positions of a few of the corners of the piece of wood).  It is  possible to extract from the  huge system of equations that determine  the motion of all of the individual atoms, a small system of equations  that determine the motion of the centre of mass and the orientation.  We can avoid some vector analysis, that is beyond the scope of this  course, by assuming that our rigid body is moving in two rather than  three dimensions.
+</p>
+
+<p>
+So, imagine a piece of wood moving in the <m>xy</m>-plane.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/seesaw"/>
+</sidebyside>
+
+<p>
+Furthermore, imagine that the piece of wood consists of a huge number of particles joined by a huge number of weightless but very strong steel rods. The steel rod joining particle number one to particle number two just represents a force acting between particles number one and two. Suppose that
+<ul>
+<li>
+	there are <m>n</m> particles, with particle number <m>i</m> having mass <m>m_i</m>
+</li>
+<li>
+	at time <m>t</m>, particle number <m>i</m> has <m>x</m>-coordinate  <m>x_i(t)</m> and <m>y</m>-coordinate <m>y_i(t)</m>
+</li>
+<li>
+	at time <m>t</m>,  the external force (gravity and the like) acting on particle number <m>i</m> has <m>x</m>-coordinate  <m>H_i(t)</m> and <m>y</m>-coordinate <m>V_i(t)</m>. Here <m>H</m> stands for horizontal and <m>V</m> stands for vertical.
+</li>
+<li>
+	at time <m>t</m>, the force acting on particle number <m>i</m>, due to the steel rod joining particle number <m>i</m> to particle number <m>j</m> has <m>x</m>-coordinate <m>H_{i,j}(t)</m> and <m>y</m>-coordinate <m>V_{i,j}(t)</m>. If there is no steel rod joining particles number <m>i</m> and <m>j</m>, just set <m>H_{i,j}(t)=V_{i,j}(t)=0</m>. In particular, <m>H_{i,i}(t)=V_{i,i}(t)=0</m>.
+</li>
+</ul>
+The only assumptions that we shall make about the steel rod forces are
+<dl>
+<li>
+<title>(A1)</title>
+<p>
+	for each <m>i\ne j</m>, <m>H_{i,j}(t)=-H_{j,i}(t)</m> and <m>V_{i,j}(t)=-V_{j,i}(t)</m>. In words, the steel rod joining particles <m>i</m> and <m>j</m> applies equal and opposite forces to particles <m>i</m> and <m>j</m>.
+</p>
+</li>
+<li>
+<title>(A2)</title>
+<p>
+	for each <m>i\ne j</m>, there is a function <m>M_{i,j}(t)</m> such that <m>H_{i,j}(t)=M_{i,j}(t)\big[x_i(t)-x_j(t)\big]</m> and <m>V_{i,j}(t)=M_{i,j}(t)\big[y_i(t)-y_j(t)\big]</m>. In words, the force due to the rod joining particles <m>i</m> and <m>j</m> acts parallel to the line joining particles <m>i</m> and <m>j</m>. For (A1) to be true, we need  <m>M_{i,j}(t)=M_{j,i}(t)</m>.
+</p>
+</li>
+</dl>
+</p>
+
+<p>
+Newton's law of motion, applied to particle number <m>i</m>,  now tells us that
+<md>
+<mrow>
+m_i x''_i(t)&amp;= H_i(t)+\sum_{j=1}^n H_{i,j}(t)\tag{$X_i$}
+</mrow>
+<mrow>
+m_i y''_i(t)&amp;= V_i(t)+\sum_{j=1}^n V_{i,j}(t)\tag{$Y_i$}
+</mrow>
+</md>
+Adding up all of the equations <m>(X_i)</m>, for  <m>i=1,\ 2,\ 3,\ \cdots,\ n</m> and adding up all of the equations <m>(Y_i)</m>,  for <m>i=1,\ 2,\ 3,\ \cdots,\ n</m> gives
+<md>
+<mrow>
+\sum_{i=1}^n m_i x''_i(t)&amp;= \sum_{i=1}^n H_i(t)+\sum_{1\le i,j\le n} H_{i,j}(t)
+      \tag{$\Sigma_iX_i$}
+</mrow>
+<mrow>
+\sum_{i=1}^n m_i y''_i(t)&amp;= \sum_{i=1}^n V_i(t)+\sum_{1\le i,j\le n} V_{i,j}(t)
+      \tag{$\Sigma_iY_i$}
+</mrow>
+</md>
+The sum <m>\sum_{1\le i,j\le n} H_{i,j}(t)</m> contains <m>H_{1,2}(t)</m> exactly once and it also contains <m>H_{2,1}(t)</m> exactly once and these two terms cancel exactly, by assumption (A1). In this way, all terms in  <m>\sum_{1\le i,j\le n} H_{i,j}(t)</m> with <m>i\ne j</m> exactly cancel. All terms with <m>i=j</m> are assumed to be zero. So <m>\sum_{1\le i,j\le n} H_{i,j}(t)=0</m>. Similarly,  <m>\sum_{1\le i,j\le n} V_{i,j}(t)=0</m>, so the equations <m>(\Sigma_iX_i)</m> and <m>(\Sigma_iY_i)</m> simplify to
+<md>
+<mrow>
+\sum_{i=1}^n m_i x''_i(t)&amp;= \sum_{i=1}^n H_i(t)
+              \tag{$\Sigma_iX_i$}
+</mrow>
+<mrow>
+\sum_{i=1}^n m_i y''_i(t)&amp;= \sum_{i=1}^n V_i(t)
+     \tag{$\Sigma_iY_i$}
+</mrow>
+</md>
+Denote by
+<me>
+M=\sum\limits_{i=1}^n m_i
+</me>
+the total mass of the system, by
+<me>
+X(t)=\frac{1}{M}\sum\limits_{i=1}^n m_ix_i(t)\qquad \text{and}\qquad
+Y(t)=\frac{1}{M}\sum\limits_{i=1}^n m_iy_i(t)
+</me>
+the <m>x</m>- and <m>y</m>-coordinates of the centre of mass of the system  at time <m>t</m> and by
+<me>
+H(t)=\sum\limits_{i=1}^n H_i(t) \qquad\text{ and }\qquad
+V(t)=\sum\limits_{i=1}^n V_i(t)
+</me>
+the <m>x</m>- and <m>y</m>-coordinates of the total external force acting on the system at time <m>t</m>. In this notation, the equations  <m>(\Sigma_iX_i)</m> and <m>(\Sigma_iY_i)</m> are
+<fact xml:id="eq_TRQcofmeqn"><title>Rectilinear motion of centre of mass</title>
+<statement><p>
+<me>
+MX''(t)=H(t)\qquad MY''(t)=V(t)
+</me>
+</p></statement>
+</fact>
+So the centre of mass of the system moves just like a single particle of mass <m>M</m> subject to the total external force.
+</p>
+
+<p>
+Now multiply equation <m>(Y_i)</m> by <m>x_i(t)</m>, subtract from it  equation <m>(X_i)</m> multiplied by <m>y_i(t)</m>, and sum over <m>i</m>. This gives the equation <m>{\sum_i\big[x_i(t)\,(Y_i)-y_i(t)\,(X_i)\big]}</m>:
+<md>
+<mrow>
+\sum_{i=1}^n m_i\big[x_i(t)y''_i(t)-y_i(t)x''_i(t)\big]
+&amp; = \sum_{i=1}^n \big[x_i(t)V_i(t)-y_i(t)H_i(t)\big]
+</mrow>
+<mrow>
+&amp; \qquad +\sum_{1\le i,j\le n} \big[x_i(t)V_{i,j}(t)-y_i(t)H_{i,j}(t)\big]
+</mrow>
+</md>
+By the assumption (A2)
+<md>
+<mrow>
+x_1(t)V_{1,2}(t)-y_1(t)H_{1,2}(t) &amp;=x_1(t)M_{1,2}(t)\big[y_1(t)-y_2(t)\big] -y_1(t)M_{1,2}(t)\big[x_1(t)-x_2(t)\big]
+</mrow><mrow>
+&amp;=M_{1,2}(t)\big[y_1(t)x_2(t)-x_1(t)y_2(t)\big]
+</mrow><mrow>
+x_2(t)V_{2,1}(t)-y_2(t)H_{2,1}(t)
+&amp;=x_2(t)M_{2,1}(t)\big[y_2(t)-y_1(t)\big] -y_2(t)M_{2,1}(t)\big[x_2(t)-x_1(t)\big]
+</mrow><mrow>
+&amp;=M_{2,1}(t)\big[-y_1(t)x_2(t)+x_1(t)y_2(t)\big]
+</mrow><mrow>
+&amp;=M_{1,2}(t)\big[-y_1(t)x_2(t)+x_1(t)y_2(t)\big]
+</mrow>
+</md>
+So the <m>i=1</m>, <m>j=2</m> term in <m>\sum_{1\le i,j\le n}  \big[x_i(t)V_{i,j}(t)-y_i(t)H_{i,j}(t)\big]</m> exactly cancels the <m>i=2</m>, <m>j=1</m> term.  In this way all of the terms in <m>\sum_{1\le i,j\le n}  \big[x_i(t)V_{i,j}(t)-y_i(t)H_{i,j}(t)\big]</m> with <m>i\ne j</m> cancel. Each term with <m>i=j</m> is exactly zero. So <m>\sum_{1\le i,j\le n} \big[x_i(t)V_{i,j}(t)-y_i(t)H_{i,j}(t)\big]=0</m> and
+<me>
+\sum_{i=1}^n m_i\big[x_i(t)y''_i(t)-y_i(t)x''_i(t)\big] = \sum_{i=1}^n \big[x_i(t)V_i(t)-y_i(t)H_i(t)\big]
+</me>
+Define
+<md>
+<mrow>
+L(t)&amp;= \sum_{i=1}^n m_i\big[x_i(t)y'_i(t)-y_i(t)x'_i(t)\big]
+</mrow><mrow>
+T(t)&amp;=\sum_{i=1}^n \big[x_i(t)V_i(t)-y_i(t)H_i(t)\big]
+</mrow>
+</md>
+In this notation
+<fact xml:id="eq_TRQrotmoteqn"><title>Rotational motion of centre of mass</title>
+<statement><p>
+<me>
+\diff{}{t} L(t)=T(t)
+</me>
+</p></statement>
+</fact>
+<ul>
+<li>
+	Equation<nbsp/>(<xref ref="eq_TRQrotmoteqn"/>) plays the role of Newton's law of  motion for rotational motion.
+</li>
+<li>
+	<m>T(t)</m> is called the torque and plays the role of <q>rotational force</q>.
+</li>
+<li>
+<p>
+	<m>L(t)</m> is called the angular momentum (about the origin) and is a measure  of the rate at which the piece of wood  is rotating.
+	<ul>
+	<li>
+	<p>
+		For example, if a particle of mass <m>m</m> is traveling in a  circle of radius <m>r</m>, centred on the origin, at <m>\omega</m> radians per unit time,  then <m>x(t)=r\cos(\omega t)</m>,  <m>y(t)=r\sin(\omega t)</m> and
+		<md>
+		<mrow>
+		m\big[x(t)y'(t)-y(t)x'(t)\big]
+		&amp;= m \big[r\cos(\omega t)\ r\omega\cos(\omega t)
+			   -r\sin(\omega t)\ \big(-r\omega\sin(\omega t)\big)\big]
+		</mrow><mrow>
+		&amp;=m r^2\ \omega
+		</mrow>
+		</md>
+		is proportional to <m>\omega</m>, which is the rate of rotation about the origin.
+	</p>
+	<sidebyside width="50%">
+	<image source="text/figs/circularMotion"/>
+	</sidebyside>
+	</li>
+	</ul>
+</p>
+</li>
+</ul>
+In any event, in order for the piece of wood to remain stationary, that is to have <m>x_i(t)</m> and <m>y_i(t)</m> be constant for all  <m>1\le i\le n</m>, we need to have
+<me>
+X''(y)=Y''(t)=L(t)=0
+</me>
+and then  equations<nbsp/>(<xref ref="eq_TRQcofmeqn"/>) and<nbsp/>(<xref ref="eq_TRQrotmoteqn"/>) force
+<me>
+H(t)=V(t)=T(t)=0
+</me>
+</p>
+
+<p>
+Now suppose that the piece of wood is a seesaw that is long and thin and  is lying on the <m>x</m>-axis, supported on a fulcrum at <m>x=p</m>. Then every <m>y_i=0</m> and the torque simplifies to  <m>T(t)=\sum_{i=1}^n x_i(t)V_i(t)</m>. The forces consist of
+<ul>
+<li>
+	gravity, <m>m_ig</m>, acting downwards on particle number <m>i</m>, for each   <m>1\le i\le n</m> and the
+</li>
+<li>
+<p>
+	force <m>F</m> imposed by the fulcrum that is pushing straight up on the particle  at <m>x=p</m>.
+</p>
+<sidebyside width="66%">
+<image source="text/figs/seesaw2"/>
+</sidebyside>
+</li>
+</ul>
+So
+<ul>
+<li>
+	The net vertical force is <m>V(t)=F-\sum\limits_{i=1}^n m_ig =F-Mg</m>. If the seesaw is to remain stationary, this must be zero so that <m>F=Mg</m>.
+</li>
+<li>
+	The total torque (about the origin) is
+	<me>
+	T=Fp-\sum_{i=1}^n m_ig x_i
+	=Mgp-\sum_{i=1}^n m_ig x_i
+	</me>
+	If the seesaw is to remain stationary, this must also be zero and the fulcrum must be placed at
+	<fact xml:id="eq_TRQfulcrum"><title>Placement of fulcrum</title>
+	<statement><p>
+	<me>
+	p=\frac{1}{M}\sum_{i=1}^n m_i x_i
+	</me>
+	</p></statement>
+	</fact>
+	which is the centre of mass of the piece of wood.
+</li>
+</ul>
+</p>
+</subsection>
+
+
+<xi:include href="../problems/prob_s2.3.xml" />
+
+
+</section>

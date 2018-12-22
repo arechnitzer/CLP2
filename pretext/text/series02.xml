@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Series</title>
+<introduction></introduction>
+
+<subsection><title>Series</title>
+
+<p>
+A series is a sum
+<md>
+<mrow>
+a_1+a_2+a_3+\cdots+a_n+\cdots
+</mrow>
+</md>
+of infinitely many terms. In summation notation, it is written
+<md>
+<mrow>
+\sum_{n=1}^\infty a_n
+</mrow>
+</md>
+You already have a lot of experience with series, though you might  not realise it. When you write a number using its decimal expansion  you are really expressing it as a series. Perhaps the simplest example  of this is the decimal expansion of <m>\frac{1}{3}</m>:
+<md>
+<mrow>
+ \frac{1}{3} &amp;= 0.3333\cdots
+</mrow>
+</md>
+Recall that the expansion written in this way actually means
+<md>
+<mrow>
+0.333333\cdots &amp;= \frac{3}{10}+\frac{3}{100}+\frac{3}{1000}+\frac{3}{10000}+\cdots =\sum_{n=1}^\infty\frac{3}{10^n}
+</mrow>
+</md>
+The summation index <m>n</m> is of course a dummy index. You can use any symbol you like (within reason) for the summation index.
+<me>
+\sum_{n=1}^\infty\frac{3}{10^n}
+=\sum_{i=1}^\infty\frac{3}{10^i}
+=\sum_{j=1}^\infty\frac{3}{10^j}
+=\sum_{\ell=1}^\infty\frac{3}{10^\ell}
+</me>
+A series can be expressed using summation notation in many different ways. For example the following expressions all represent the same series:
+<md>
+<mrow>
+\sum_{n=1}^\infty\frac{3}{10^n}
+ &amp;= \overbrace{\frac{3}{10}}^{n=1}
+    +\overbrace{\frac{3}{100}}^{n=2}
+    +\overbrace{\frac{3}{1000}}^{n=3}+\cdots
+</mrow><mrow>
+\sum_{j=2}^\infty\frac{3}{10^{j-1}}
+ &amp;= \overbrace{\frac{3}{10}}^{j=2}
+    +\overbrace{\frac{3}{100}}^{j=3}
+    +\overbrace{\frac{3}{1000}}^{j=4}+\cdots
+</mrow><mrow>
+\sum_{\ell=0}^\infty\frac{3}{10^{\ell+1}}
+ &amp;= \overbrace{\frac{3}{10}}^{\ell=0}
+    +\overbrace{\frac{3}{100}}^{\ell=1}
+    +\overbrace{\frac{3}{1000}}^{\ell=3}+\cdots
+</mrow><mrow>
+\frac{3}{10}+\sum_{n=2}^\infty\frac{3}{10^n}
+ &amp;= \frac{3}{10}
+    +\overbrace{\frac{3}{100}}^{n=2}
+    +\overbrace{\frac{3}{1000}}^{n=3}+\cdots
+</mrow>
+</md>
+We can get from  the first line to the second line by substituting <m>n=j-1</m> <mdash/>  don't forget to also change the limits of summation (so that <m>n=1</m> becomes  <m>j-1=1</m> which is rewritten as <m>j=2</m>).  To get from the first line to the  third line, substitute <m>n=\ell+1</m> everywhere, including in the limits of summation (so that <m>n=1</m> becomes <m>\ell+1=1</m>  which is rewritten as <m>\ell=0</m>).
+</p>
+
+<p>
+Whenever you are in doubt as to what series a summation notation expression represents, it is a good habit to write out the first few terms, just as  we did above.
+</p>
+
+<p>
+Of course, at this point, it is not clear whether the sum of infinitely  many terms adds up to a finite number or not. In order to make sense  of this we will recast the problem in terms of the convergence of  sequences (hence the discussion of the previous section). Before we  proceed more formally let us illustrate the basic idea with a few  simple examples.
+</p>
+
+<example xml:id="eg_SRprelimSumA"><title><m>\ds \sum_{n=1}^\infty\frac{3}{10^n}</m></title>
+<p>
+As we have just seen above the series <m>\sum_{n=1}^\infty\frac{3}{10^n}</m> is
+<me>
+\sum_{n=1}^\infty\frac{3}{10^n}
+ = \overbrace{\frac{3}{10}}^{n=1}
+    +\overbrace{\frac{3}{100}}^{n=2}
+    +\overbrace{\frac{3}{1000}}^{n=3}+\cdots
+</me>
+Notice that the <m>n^{\mathrm th}</m> term in that sum is
+<me>
+3\times 10^{-n} = 0.\!\!\overbrace{00\cdots 0}^{n-1\ \mathrm{zeroes}}\!3
+</me>
+So the sum of the first <m>5</m>, <m>10</m>, <m>15</m> and <m>20</m> terms in that series are
+<md>
+<mrow>
+\sum_{n=1}^5\frac{3}{10^n} &amp;= 0.33333 &amp;
+\sum_{n=1}^{10}\frac{3}{10^n} &amp;= 0.3333333333
+</mrow><mrow>
+\sum_{n=1}^{15}\frac{3}{10^n} &amp;= 0.333333333333333 &amp;
+\sum_{n=1}^{20}\frac{3}{10^n} &amp;= 0.33333333333333333333
+</mrow>
+</md>
+It sure looks like that, as we add more and more terms, we get closer and closer to <m>0.\dot 3=\frac{1}{3}</m>. So it is very reasonable
+	<fn>
+		Of course we are free to define  the series to be whatever we want. The hard part is  defining it to be something that makes sense and doesn't lead to contradictions. We'll get to a more systematic definition shortly.
+	</fn>
+to define <m>\sum_{n=1}^\infty\frac{3}{10^n}</m> to be <m>\frac{1}{3}</m>.
+</p>
+</example>
+
+<example xml:id="eg_SRprelimSumB"><title><m>\ds \sum_{n=1}^\infty 1</m> and <m>\sum_{n=1}^\infty (-1)^n</m></title>
+<p>
+Every term in the series <m>\sum_{n=1}^\infty 1</m> is exactly <m>1</m>. So the sum of the first <m>N</m> terms is exactly <m>N</m>. As we  add more and more terms this grows unboundedly. So it is very reasonable to say that the series  <m>\sum_{n=1}^\infty 1</m>  diverges.
+</p>
+
+<p>The series
+<me>
+\sum_{n=1}^\infty (-1)^n
+=\overbrace{(-1)}^{n=1}
+ +\overbrace{1}^{n=2}
+ +\overbrace{(-1)}^{n=3}
+ +\overbrace{1}^{n=4}
+ +\overbrace{(-1)}^{n=5}+\cdots
+</me>
+So the sum of the first <m>N</m> terms is <m>0</m> if <m>N</m> is even and <m>-1</m> if <m>N</m> is odd. As we add more and more terms from the  series, the sum alternates between <m>0</m> and <m>-1</m> for ever and ever. So the sum of all infinitely many terms does not make  any sense and it is again reasonable to say that the series  <m>\sum_{n=1}^\infty(-1)^n</m> diverges.
+</p>
+</example>
+
+<p>
+In the above examples we have tried to understand the series by examining  the sum of the first few terms and then extrapolating as  we add in more and more terms. That is, we tried to sneak up on the  infinite sum by looking at the limit of (partial) sums of the first few terms. This approach can be made into a more formal rigorous definition.  More precisely, to define what is meant by the infinite sum  <m>\sum_{n=1}^\infty a_n</m>, we approximate it by the sum of its first  <m>N</m> terms and then take the limit as <m>N</m> tends to infinity.
+</p>
+
+<definition xml:id="def_SRseries">
+<statement><p>
+The <m>N^{\rm th}</m> partial sum of the series <m>\sum_{n=1}^\infty a_n</m> is the sum of its first <m>N</m> terms
+<md>
+<mrow>
+S_N=\sum_{n=1}^N a_n.
+</mrow>
+</md>
+The partial sums form a sequence <m>\big\{S_N\big\}_{N=1}^\infty</m>.  If this sequence of partial sums converges <m>S_N \to S</m> as  <m>N\rightarrow\infty</m>  then we say that the series <m>\sum_{n=1}^\infty a_n</m>  converges to <m>S</m> and we write
+<me>
+\sum_{n=1}^\infty a_n=S
+</me>
+If the sequence of partial sums diverges, we say that the series diverges.
+</p></statement>
+</definition>
+
+
+<example xml:id="eg_SRgeom"><title>Geometric Series</title>
+<p>
+Let <m>a</m> and <m>r</m> be any two fixed real numbers with <m>a\ne 0</m>. The series
+<me>
+a + ar + ar^2 + \cdots + ar^n + \cdots = \sum_{n=0}^\infty ar^n
+</me>
+is called the geometric series with first term <m>a</m> and ratio <m>r</m>.
+</p>
+
+<p>
+Notice that we have chosen to start the summation index at <m>n=0</m>.  That's fine. The first
+	<fn>
+		It is actually quite common in computer  science to think of <m>0</m> as the first integer. In that context, the set of natural numbers is defined to contain <m>0</m>:
+		<me>
+			\mathbb{N} = \left\{0,1,2,\cdots \right\}
+		</me>
+	while the notation
+	<md>
+	<mrow>
+	  \mathbb{Z}^+ &amp;= \left\{1,2,3,\cdots \right\}
+	</mrow>
+	</md>
+	is used to denote the (strictly) positive integers. Remember that in  this text, as is more standard in mathematics, we  define the set of natural numbers to be the set of (strictly)  positive integers.</fn>
+term is the <m>n=0</m> term, which is <m>ar^0=a</m>. The  second term is the <m>n=1</m> term, which is <m>ar^1=ar</m>. And so on.  We could have also written the series <m>\sum_{n=1}^\infty ar^{n-1}</m>. That's exactly the same series <mdash/> the first term is  <m>ar^{n-1}\big|_{n=1}=ar^{1-1}=a</m>, the second term is <m>ar^{n-1}\big|_{n=2}=ar^{2-1}=ar</m>, and so on
+	<fn>
+		This  reminds the authors of the paradox of Hilbert's hotel. The hotel  with an infinite number of rooms is completely full, but can always  accommodate one more guest. The interested reader should use their  favourite search engine to find more information on this.
+	</fn>.
+Regardless of  how we write the geometric series, <m>a</m> is the first term and <m>r</m> is the  ratio between successive terms.
+</p>
+
+<p>
+Geometric series have the extremely useful property that there is a very simple formula for their partial sums. Denote the partial sum by
+<md>
+<mrow>
+S_N &amp;= \sum_{n=0}^Nar^n = a + ar + ar^2 + \cdots + ar^N.
+</mrow>
+<intertext>
+	The secret to evaluating this sum is to see what happens when we multiply it <m>r</m>:
+</intertext>
+<mrow>
+rS_N &amp;= r\big(a + ar + ar^2 + \cdots + ar^N\big)
+</mrow><mrow>
+     &amp; = ar + ar^2 + ar^3 + \cdots + ar^{N+1}
+</mrow>
+</md>
+Notice that this is almost the same
+	<fn>
+		One can find similar properties  of other special series, that allow us, with some work,  to cancel many terms in the partial sums. We will shortly see  a good example of this. The interested reader should look up  <q>creative telescoping</q> to see how this idea might be used more generally, though it is somewhat beyond this course.
+	</fn>
+as <m>S_N</m>. The only differences are that the first term, <m>a</m>, is missing and one additional term, <m>ar^{N+1}</m>, has been tacked  on the end. So
+<md>
+<mrow>
+S_N &amp;= a + ar + ar^2 + \cdots + ar^N
+</mrow><mrow>
+r S_N &amp;= \phantom{ar +} ar + ar^2 + \cdots + ar^N + ar^{N+1}
+</mrow>
+<intertext>
+	Hence taking the difference of these expressions cancels almost all the terms:
+</intertext>
+<mrow>
+(1-r) S_N &amp;= a - ar ^{N+1}  = a (1-r^{N+1})
+</mrow>
+<intertext>
+	Provided <m>r\neq 1</m> we can divide both side by <m>1-r</m> to isolate <m>S_N</m>:
+</intertext>
+<mrow>
+S_N &amp;= a \cdot \frac{1-r^{N+1}}{1-r}.
+</mrow>
+</md>
+On the other hand, if <m>r=1</m>, then
+<md>
+<mrow>
+  S_N &amp;= \underbrace{a + a +\cdots + a}_{N+1 \text{ terms}} = a (N+1)
+</mrow>
+</md>
+So in summary:
+<me xml:id="eq_partialgeomsum">
+S_N = \begin{cases}
+      a\frac{1-r^{N+1}}{1-r} &amp; \text{if $r\ne 1$} \\
+      a(N+1) &amp; \text{if $r=1$}
+     \end{cases}
+</me>
+</p>
+
+<p>
+Now that we have this expression we can determine whether or not the  series converges. If <m>|r| \lt 1</m>, then <m>r^{N+1}</m>  tends to zero as <m>N\rightarrow\infty</m>, so that <m>S_N</m>  converges to <m>\frac{1}{1-r}</m> as <m>N\rightarrow\infty</m> and
+<me  xml:id="eq_geomsum">
+\sum_{n=0}^\infty ar^n = \frac{a}{1-r}
+\text{provided $|r| \lt 1$}.
+</me>
+On the other hand if <m>|r|\ge 1</m>, <m>S_N</m> diverges.
+To understand this divergence, consider the following 4 cases:
+<ul>
+<li>
+	If <m>r \gt 1</m>, then <m>r^N</m> grows to <m>\infty</m> as <m>N\rightarrow\infty</m>.
+</li>
+<li>
+	If <m>r \lt -1</m>, then the magnitude of <m>r^N</m> grows to <m>\infty</m>, and the sign of <m>r^N</m> oscillates between <m>+</m> and <m>-</m>,  as <m>N\rightarrow\infty</m>.
+</li>
+<li>
+	If <m>r=+1</m>, then <m>N+1</m> grows to <m>\infty</m> as <m>N\rightarrow\infty</m>.
+</li>
+<li>
+	If <m>r=-1</m>, then <m>r^N</m> just oscillates between <m>+1</m> and <m>-1</m> as <m>N\rightarrow\infty</m>.
+</li>
+</ul>
+In each case the sequence of partial sums does not converge and so the series does not converge.
+</p>
+</example>
+<p>
+We should summarise the results in the previous example in a lemma.
+</p>
+
+<lemma xml:id="lem_geomsum"><title>Geometric series</title>
+<statement>
+<p>Let <m>a</m> and <m>r</m> be real numbers and let <m>N \geq 0</m> be an integer then
+<me>
+\sum_{n=0}^N ar^n = \begin{cases}
+      a\dfrac{1-r^{N+1}}{1-r} &amp; \text{if $r\ne 1$} \\
+      a(N+1) &amp; \text{if $r=1$}
+     \end{cases}.
+</me>
+Further, if <m>|r|\lt1 </m> then
+<me>
+\sum_{n=0}^\infty ar^n = \dfrac{a}{1-r}.
+</me>
+
+</p>
+</statement>
+</lemma>
+
+
+<p>
+Now that we know how to handle geometric series let's return to Example<nbsp/><xref ref="eg_SRprelimSumA"/>.
+</p>
+<example xml:id="eg_SRgeomB"><title>Decimal Expansions</title>
+<p>
+The decimal expansion
+<me>
+0.3333\cdots
+=\frac{3}{10}+\frac{3}{100}+\frac{3}{1000}+\frac{3}{10000}+\cdots
+=\sum_{n=1}^\infty\frac{3}{10^n}
+</me>
+is a geometric series with the first term <m>a=\frac{3}{10}</m> and the ratio <m>r=\frac{1}{10}</m>. So, by Lemma<nbsp/><xref ref="lem_geomsum"/>,
+<me>
+0.3333\cdots
+=\sum_{n=1}^\infty\frac{3}{10^n}
+=\frac{\frac{3}{10}}{1-\frac{1}{10}}
+=\frac{\frac{3}{10}}{\frac{9}{10}}
+=\frac{1}{3}
+</me>
+just as we would have expected.
+</p>
+
+<p>We can push this idea further. Consider the repeating decimal expansion:
+<me>
+0.16161616\cdots
+=\frac{16}{100}+\frac{16}{10000}+\frac{16}{1000000}+\cdots
+</me>
+This is another geometric series with the first term <m>a=\frac{16}{100}</m>  and the ratio <m>r=\frac{1}{100}</m>. So, by Lemma<nbsp/><xref ref="lem_geomsum"/>,
+<me>
+0.16161616\cdots
+=\sum_{n=1}^\infty\frac{16}{100^n}
+=\frac{\frac{16}{100}}{1-\frac{1}{100}}
+=\frac{\frac{16}{100}}{\frac{99}{100}}
+=\frac{16}{99}
+</me>
+again, as expected. In this way any periodic decimal expansion converges to a ratio of two integers <mdash/> that is, to a rational number
+	<fn>
+		We  have included a (more) formal proof of this fact in the optional §<xref ref="sec_RatIrr"/>  at the end of this chapter. Proving that a repeating decimal expansion  gives a rational number isn't too hard. Proving the converse <mdash/> that  every rational number has a repeating decimal expansion is a  little tricker, but we also do that in the same optional section.
+	</fn>.
+</p>
+
+<p>
+Here is another more complicated example.
+<md>
+<mrow>
+0.1234343434\cdots
+&amp;=\frac{12}{100}+\frac{34}{10000}+\frac{34}{1000000}+\cdots
+</mrow><mrow>
+&amp;=\frac{12}{100}+\sum_{n=2}^\infty\frac{34}{100^n}
+</mrow>
+<intertext>Now apply Lemma <xref ref="lem_geomsum"/> with <m>a=\frac{34}{100^2}</m>  and <m> r=\frac{1}{100}</m>
+</intertext>
+<mrow>
+&amp;=\frac{12}{100}+\frac{34}{10000}\frac{1}{1-\frac{1}{100}}
+</mrow>
+<mrow>
+&amp;=\frac{12}{100}+\frac{34}{10000}\frac{100}{99}
+</mrow><mrow>
+&amp;=\frac{1222}{9900}
+</mrow>
+</md>
+</p>
+
+</example>
+
+<p>
+Typically, it is quite difficult to write down a neat closed form  expression for the partial sums of a series.  Geometric series are very notable exceptions to this. Another  family of series for which we can write down partial sums  is called <q>telescoping series</q>. These series have the desirable  property that many of the terms in the sum cancel  each other out rendering the partial sums quite simple.
+</p>
+
+<example xml:id="eg_SRtelecope"><title>Telescoping Series</title>
+<p>
+In this example, we are going to study the series  <m>\sum_{n=1}^\infty\frac{1}{n(n+1)}</m>. This is a rather artificial series
+	<fn>
+		Well<ellipsis/> this sort of series does  show up when you start to look at the Maclaurin polynomial of functions like <m>(1-x)\log(1-x)</m>. So it is not <em>totally</em> artificial. At any rate,  it illustrates the basic idea of telescoping very nicely, and the  idea of <q>creative telescoping</q> turns out to be extremely useful in the  study of series <mdash/> though it is well beyond the scope of this course.
+	</fn>
+that has been rigged to illustrate a phenomenon call  <q>telescoping</q>. Notice that the <m>n^{\rm th}</m> term can be rewritten as
+<md>
+<mrow>
+\frac{1}{n(n+1)}= \frac{1}{n}-\frac{1}{n+1}
+</mrow>
+<intertext>and so we have</intertext>
+<mrow>
+a_n &amp;= b_n - b_{n+1} &amp; \text{where } b_n &amp;= \frac{1}{n}.
+</mrow>
+</md>
+Because of this we get big cancellations when we add terms together. This allows us to get a simple formula for the partial sums of this series.
+<md>
+<mrow>
+S_N&amp;= \frac{1}{1\cdot 2} + \frac{1}{2\cdot 3} + \frac{1}{3\cdot 4} +
+          \cdots + \frac{1}{N\cdot (N+1)}
+</mrow><mrow>
+&amp;= \Big(\frac{1}{1}-\frac{1}{2}\Big)
+  + \Big(\frac{1}{2}-\frac{1}{3}\Big)
+  + \Big(\frac{1}{3}-\frac{1}{4}\Big) +
+          \cdots + \Big(\frac{1}{N}-\frac{1}{N+1}\Big)
+</mrow>
+</md>
+The second term of each bracket exactly cancels the first term of the following bracket. So the sum <q>telescopes</q> leaving just
+<me>
+S_N  = 1-\frac{1}{N+1}
+</me>
+and we can now easily compute
+<me>
+\sum_{n=1}^\infty\frac{1}{n(n+1)}
+=\lim_{N\rightarrow\infty} S_N
+=\lim_{N\rightarrow\infty}\Big( 1-\frac{1}{N+1}\Big)
+=1
+</me>
+</p>
+</example>
+
+<p>More generally, if we can write
+<md>
+<mrow>
+  a_n &amp;= b_n - b_{n+1}
+</mrow>
+<intertext>
+for some other known sequence <m>b_n</m>, then the series telescopes  and we can compute partial sums using
+</intertext>
+<mrow>
+\sum_{n=1}^N a_n
+&amp;=
+\sum_{n=1}^N (b_n - b_{n+1})
+</mrow><mrow>
+&amp;=
+\sum_{n=1}^N b_n - \sum_{n=1}^N b_{n+1}
+</mrow><mrow>
+&amp;= b_1 - b_{N+1}.
+</mrow>
+<intertext>and hence</intertext>
+<mrow>
+  \sum_{n=1}^\infty a_n
+  &amp;= b_1 - \lim_{N\to\infty} b_{N+1}
+</mrow>
+</md>
+provided this limit exists.Often <m>\lim\limits_{N\to\infty} b_{N+1}=0</m> and then <m>\sum\limits_{n=1}^\infty a_n =b_1</m>. But this does not always happen. Here is an example.
+</p>
+
+<example xml:id="eg_SRtelecopeB"><title>A Divergent Telescoping Series</title>
+<p>
+In this example, we are going to study the series  <m>\sum\limits_{n=1}^\infty\log\big(1+\frac{1}{n}\big)</m>.  Let's start by just writing out the first few terms.
+<md alignment="alignat">
+<mrow>
+\sum_{n=1}^\infty\log\Big(1+\frac{1}{n}\Big)
+&amp;=\overbrace{\log\Big(1+\frac{1}{1}\Big)}^{n=1}&amp;&amp;
+ +\overbrace{\log\Big(1+\frac{1}{2}\Big)}^{n=2}&amp;&amp;
+ +\overbrace{\log\Big(1+\frac{1}{3}\Big)}^{n=3}&amp;&amp;
+ +\overbrace{\log\Big(1+\frac{1}{4}\Big)}^{n=4} +\cdots
+ </mrow>
+ <mrow>
+&amp;=\log(2)&amp;&amp;+\log\Big(\frac{3}{2}\Big)&amp;&amp; +\log\Big(\frac{4}{3}\Big)&amp;&amp;
+    +\log\Big(\frac{5}{4}\Big) + \cdots
+</mrow>
+</md>
+This is pretty suggestive since
+<md>
+<mrow>
+\log(2)+\log\Big(\frac{3}{2}\Big) +\log\Big(\frac{4}{3}\Big)
++\log\Big(\frac{5}{4}\Big)
+=\log\Big(2\times\frac{3}{2}\times\frac{4}{3}\times \frac{5}{4}\Big)
+=\log(5)
+</mrow>
+</md>
+So let's try using this idea to compute the partial sum <m>S_N</m>:
+<md>
+<mrow>
+S_N&amp;=\sum_{n=1}^N\log\Big(1+\frac{1}{n}\Big)
+</mrow>
+<mrow>
+&amp;=\overbrace{\log\Big(1+\frac{1}{1}\Big)}^{n=1}
+ +\overbrace{\log\Big(1+\frac{1}{2}\Big)}^{n=2}
+ +\overbrace{\log\Big(1+\frac{1}{3}\Big)}^{n=3} + \cdots
+ +\overbrace{\log\Big(1+\frac{1}{N-1}\Big)}^{n=N-1}
+ +\overbrace{\log\Big(1+\frac{1}{N}\Big)}^{n=N}
+ </mrow>
+ <mrow>
+&amp;=\log(2) + \log\Big(\frac{3}{2}\Big)  +\log\Big(\frac{4}{3}\Big)
+    +\cdots+ \log\Big(\frac{N}{N-1}\Big) + \log\Big(\frac{N+1}{N}\Big)
+    </mrow>
+    <mrow>
+&amp;=\log\Big(2\times\frac{3}{2}\times\frac{4}{3}\times \cdots
+   \times \frac{N}{N-1}\times \frac{N+1}{N}\Big)
+</mrow>
+<mrow>
+   &amp;=\log(N+1)
+</mrow>
+</md>
+Uh oh!
+<md>
+<mrow>
+\lim_{N\rightarrow\infty} S_N
+=\lim_{N\rightarrow\infty}\log(N+1)
+=+\infty
+</mrow>
+</md>
+This telecoscoping series diverges! There is an important lesson here. Telescoping series <em>can diverge</em>. They do not always converge to <m>b_1</m>.
+</p>
+</example>
+
+<p>
+As was the case for limits, differentiation and antidifferentiation,  we can compute more complicated series in  terms of simpler ones by understanding how series interact  with the usual operations of arithmetic. It is, perhaps,  not so surprising that there are simple rules for addition and subtraction  of series and for multiplication of a series by a constant. Unfortunately  there are no simple general rules for computing products or ratios of series.
+</p>
+
+<theorem xml:id="thm_SRseriesarith"><title>Arithmetic of series</title>
+<statement><p>
+Let <m>A</m>, <m>B</m> and <m>C</m> be real numbers and let the two series <m>\sum_{n=1}^\infty a_n</m> and  <m>\sum_{n=1}^\infty b_n</m> converge to <m>S</m> and <m>T</m> respectively. That is, assume that
+<md>
+<mrow>
+  \sum_{n=1}^\infty a_n&amp;=S &amp; \sum_{n=1}^\infty b_n &amp;=T
+</mrow>
+</md>
+  Then the following hold.
+<ol label="a">
+<li>
+	<m>\ds \sum_{n=1}^\infty \big[a_n+b_n\big] = S+T\qquad</m>and  <m>\qquad\ds \sum_{n=1}^\infty \big[a_n-b_n\big] = S-T</m>
+</li>
+<li>
+	<m>\ds \sum_{n=1}^\infty C a_n = C S</m>.
+</li>
+</ol>
+</p></statement>
+</theorem>
+
+
+<example xml:id="eg_SRseriesarith"><title><m>\sum_{n=1}^\infty\Big( \frac{1}{7^n}+\frac{2}{n(n+1)}\Big)</m></title>
+<p>
+As a simple example of how we use the arithmetic of series Theorem <xref ref="thm_SRseriesarith"/>, consider
+<me>
+\sum_{n=1}^\infty\Big[\frac{1}{7^n}+\frac{2}{n(n+1)}\Big]
+</me>
+We recognize that we know how to compute parts of this sum. We know that
+<me>
+\sum_{n=1}^\infty\frac{1}{7^n}=\frac{\frac{1}{7}}{1-\frac{1}{7}}
+=\frac{1}{6}
+</me>
+because it is a geometric series (Example<nbsp/><xref ref="eg_SRgeom"/> and Lemma<nbsp/><xref ref="lem_geomsum"/>) with first term <m>a=\frac{1}{7}</m> and ratio <m>r=\frac{1}{7}</m>. And we know that
+<me>
+\sum_{n=1}^\infty\frac{1}{n(n+1)} =1
+</me>
+by Example <xref ref="eg_SRtelecope"/>. We can now use Theorem <xref ref="thm_SRseriesarith"/> to build the specified <q>complicated</q> series out of these two <q>simple</q> pieces.
+<md>
+<mrow>
+\sum_{n=1}^\infty\Big[\frac{1}{7^n}+\frac{2}{n(n+1)}\Big]
+&amp;=\sum_{n=1}^\infty \frac{1}{7^n}
+   +\sum_{n=1}^\infty\frac{2}{n(n+1)}
+ &amp; \text{by Theorem }<xref ref="thm_SRseriesarith"/>\text{(a)}
+</mrow><mrow>
+&amp;= \sum_{n=1}^\infty\frac{1}{7^n}
+  +2 \sum_{n=1}^\infty \frac{1}{n(n+1)}
+ &amp; \text{by Theorem }<xref ref="thm_SRseriesarith"/>\text{(b)}
+</mrow><mrow>
+&amp;=\frac{1}{6}+2\cdot 1 =\frac{13}{6}
+</mrow>
+</md>
+</p>
+</example>
+
+</subsection>
+
+
+<xi:include href="../problems/prob_s3.2.xml" />
+
+
+</section>

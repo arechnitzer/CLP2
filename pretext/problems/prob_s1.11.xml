@@ -1,0 +1,2361 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<exercises>
+<introduction>
+<p>
+Recall that we are using <m>\log x</m> to denote the logarithm of <m>x</m> with
+base <m>e</m>. In other courses it is often denoted <m>\ln x</m>.
+</p>
+</introduction>
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose we approximate an object to have volume <m>1.5 \mathrm{m}^3</m>, when its exact volume is <m>1.387 \mathrm{m}^3</m>. Give the relative error, absolute error, and percent error of our approximation.
+</p></statement>
+<hint><p>
+The absolute error is  the difference of the two values; the relative error is the absolute error divided by the exact value; the percent error is one hundred times the relative error.
+</p></hint>
+<answer><p>
+Relative error: <m>\approx 0.08147</m>; absolute error: <m>0.113</m>; percent error: <m>\approx 8.147\%</m>.
+</p></answer>
+<solution><p>
+The absolute error is the difference between the two values:
+<me>
+|1.387-1.5| = 0.113</me>
+</p>
+
+<p>The relative error is the absolute error divided by the exact value:
+<me>
+\frac{0.113}{1.387}\approx 0.08147</me>
+</p>
+
+<p>The percent error is 100 times the relative error:
+<me>
+\approx 8.147\%</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Consider approximating <m>\displaystyle\int_2^{10} f(x) \dee{x}</m>, where <m>f(x)</m> is the function in the graph below.
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1.25}{7.25}{1.25}{3.25}
+\draw[dotted] (-1,-1) grid[step=0.5] (7,3);
+\YExcoord{1}{2}
+\YExcoord{5}{10}
+\draw[thick, blue] plot[domain=-1:7, samples=50](\x,{.25*\x* sin(\x r)+1.5});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+<ol label="a">
+<li> Draw the rectangles associated with the midpoint rule approximation and <m>n=4</m>.
+</li>
+<li> Draw the trapezoids associated with the trapezoidal rule approximation and <m>n=4</m>.
+</li>
+</ol>
+You don't have to give an approximation.
+</p></statement>
+<hint><p>
+You should have four rectangles in one drawing, and four trapezoids in another.
+</p></hint>
+<answer><p>
+Midpoint rule:
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1.25}{7.25}{1.25}{3.25}
+\draw[dotted] (-1,-1) grid[step=0.5] (7,3);
+\YExcoord{1}{2}
+\YExcoord{5}{10}
+\draw[thick, blue] plot[domain=-1:7, samples=50](\x,{.25*\x* sin(\x r)+1.5});
+\draw[thick, black, fill=red, fill opacity=0.5] (1,0) rectangle (2,1.87)
+(2,0) rectangle (3,1.87)
+(3,0) rectangle (4,1.19)
+(4,0) rectangle (5,0.4);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Trapezoidal rule:
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1.25}{7.25}{1.25}{3.25}
+\draw[dotted] (-1,-1) grid[step=0.5] (7,3);
+\YExcoord{1}{2}
+\YExcoord{5}{10}
+\draw[thick, blue] plot[domain=-1:7, samples=50](\x,{.25*\x* sin(\x r)+1.5});
+\filldraw[thick, black, fill=red, fill opacity=0.5]
+(1,0)--(1,1.71)--(2,1.95)|-cycle
+(2,0)--(2,1.95)--(3,1.61)|-cycle
+(3,0)--(3,1.61)--(4,0.74)|-cycle
+(4,0)--(4,0.74)--(5,0.3)|-cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></answer>
+<solution><p>
+Midpoint rule:
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1.25}{7.25}{1.25}{3.25}
+\draw[dotted] (-1,-1) grid[step=0.5] (7,3);
+\YExcoord{1}{2}
+\YExcoord{5}{10}
+\draw[thick, blue] plot[domain=-1:7, samples=50](\x,{.25*\x* sin(\x r)+1.5});
+\draw[thick, black, fill=red, fill opacity=0.5] (1,0) rectangle (2,1.87)
+(2,0) rectangle (3,1.87)
+(3,0) rectangle (4,1.19)
+(4,0) rectangle (5,0.4);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Trapezoidal rule:
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1.25}{7.25}{1.25}{3.25}
+\draw[dotted] (-1,-1) grid[step=0.5] (7,3);
+\YExcoord{1}{2}
+\YExcoord{5}{10}
+\draw[thick, blue] plot[domain=-1:7, samples=50](\x,{.25*\x* sin(\x r)+1.5});
+\filldraw[thick, black, fill=red, fill opacity=0.5]
+(1,0)--(1,1.71)--(2,1.95)|-cycle
+(2,0)--(2,1.95)--(3,1.61)|-cycle
+(3,0)--(3,1.61)--(4,0.74)|-cycle
+(4,0)--(4,0.74)--(5,0.3)|-cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Let <m>f(x) = -\dfrac{1}{12}x^4+\dfrac{7}{6}x^3-3x^2</m>.
+<ol label="a">
+<li> Find a reasonable value <m>M</m> such that <m>|f''(x)| \leq M</m> for all <m>1 \leq x \leq 6</m>.
+</li>
+<li> Find a reasonable value <m>L</m> such that <m>|f^{(4)}(x)| \leq L</m> for all <m>1 \leq x \leq 6</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Sketch the second derivative--it's quadratic.
+</p></hint>
+<answer><p> <m>M=6.25</m>, <m>L=2</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<p>
+Differentiating, we find <m>f''(x) = -x^2+7x-6</m>. Since <m>f''(x)</m> is quadratic, we have a pretty good idea of what it looks like.
+<ul>
+<li> It factors as <m>f(x)  = -(x-6)(x-1)</m>, so its two roots are at <m>x=6</m> and <m>x=1</m>.
+</li>
+<li> The <q>flat part</q> of the parabola is at <m>x=3.5</m> (since this is exactly half way  between <m>x=1</m> and <m>x=6</m>; alternately, we can check that <m>f'''(3.5)=0</m>).
+</li>
+<li>
+ Since the coefficient of <m>x^2</m> is negative, <m>f(x)</m> is increasing from <m>-\infty</m> to <m>3.5</m>, then decreasing from <m>3.5</m> to <m>\infty</m>.
+</li>
+</ul>
+ Therefore, over the interval <m>[1,6]</m>, the largest positive value of <m>f''(x)</m> occurs when <m>x=3.5</m>, and this is <m>f''(3.5) = -(3.5-6)(3.5-1)=6.25</m>.
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{3.5}{2.5}{2.5}
+\draw[thick, blue] plot[domain=0:7, samples=50](\x/2,{(-\x*\x+7*\x-6)/3}) node[above right]{$y=f''(x)$};
+\YExcoord{.5}{1}
+\YExcoord{3}{6}
+\YEycoord{2.125}{6.25}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+So, we take <m>M=6.25</m>.
+</p>
+</li>
+<li>
+We differentiate further to find <m>f^{(4)}(x)=-2</m>. This is constant everywhere, so we take <m>L=|-2|=2</m>.
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_11_approxM">
+<statement><p>
+Let <m>f(x) = x\sin x+2\cos x</m>.
+ Find a reasonable value <m>M</m> such that <m>|f''(x)| \leq M</m> for all <m>-3 \leq x \leq 2</m>.
+</p></statement>
+<hint><p>
+You don't have to find the actual, exact maximum the second derivative achieves--you only have to give a reasonable <q>ceiling</q> that it never breaks through.
+</p></hint>
+<answer><p>
+One reasonable answer is <m>M=3</m>.
+</p></answer>
+<solution><p>
+Let's start by differentiating.
+<md>
+<mrow>
+f(x)&amp;=x\sin x +2\cos x
+</mrow><mrow>
+f'(x)&amp;=x\cos x + \sin x - 2\sin x =x\cos x - \sin x
+</mrow><mrow>
+f''(x)&amp;=-x\sin x + \cos x -\cos x = -x\sin x
+</mrow>
+</md>
+For any value of <m>x</m>, <m>|\sin x| \leq 1</m>. When <m>-3 \leq x \leq 2</m>, then <m>|x| \leq 3</m>. So, it is true (and not unreasonably sloppy) that
+<me>
+f''(x) \leq 3</me>
+</p>
+
+<p>whenever <m>x</m> is in the interval <m>[-3,2]</m>. So, we can take <m>M=3</m>.
+</p>
+
+<p>Note that <m>|f''(x)|</m> is actually <em>smaller</em> than 3 whenever <m>x</m> is in the interval <m>[-3,2]</m>, because when <m>x=-3</m>, <m>\sin x \neq 1</m>. In fact, since 3 is pretty close to <m>\pi</m>, <m>\sin 3</m> is pretty small. (The actual maximum value of <m>|f''(x)|</m> when <m>-3\leq x\leq 2</m> is about 1.8.) However, we find  parameters like <m>M</m> for the purpose of computing error bounds. There is often not much to be gained from taking the time to find the actual maximum of a function, so we content ourselves with reasonable upper bounds.
+Question<nbsp/><xref ref="prob_s1_11_exactM" text="local"/> has a further investigation of <q>sloppy</q> bounds like this.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_11_approxerror1" purpose="RQS">
+<statement><p>
+Consider the quantity <m>A=\displaystyle\int_{-\pi}^{\pi} \cos x \dee{x}</m>.
+<ol label="a">
+<li> Find the upper bound on the error using Simpson's rule with <m>n=4</m> to approximate <m>A</m> using Theorem<nbsp/><xref ref="thm_num_int_err"/> in the text.
+</li>
+<li> Find the Simpson's rule approximation of <m>A</m> using <m>n=4</m>.
+</li>
+<li> What is the (actual) absolute error in the Simpson's rule approximation of <m>A</m> with <m>n=4</m>?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+To compute the upper bound on the error, find an upper bound on the fourth derivative of cosine, then use Theorem<nbsp/><xref ref="thm_num_int_err"/> in the text.
+</p>
+
+<p>To find the actual error, you need to find the actual value of <m>A</m>.
+</p></hint>
+<answer><p>
+(a) <m>\dfrac{\pi^5}{180\cdot8}</m>
+</p>
+<p>
+(b) <m>0</m>
+</p>
+<p>
+   (c) <m>0</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<p>
+Let <m>f(x) = \cos x</m>. Then <m>f^{(4)}(x)=\cos x</m>, so <m>|f^{(4)}(x)| \leq 1</m> when <m>-\pi \leq x \leq \pi</m>. So, using <m>L=1</m>, we find the upper bound of the error using Simpson's rule with <m>n=4</m> is:
+<me>
+\frac{L(b-a)^5}{180 n^4} = \frac{(2\pi)^5}{180\cdot 4^4} = \frac{\pi^5}{180\cdot8}\approx 0.2</me>
+</p>
+
+<p>The error bound comes from Theorem<nbsp/><xref ref="thm_num_int_err"/> in the text.
+We used a calculator to find the approximate decimal value.
+</p>
+</li>
+<li>
+We use the general form of Simpson's rule (Equation<nbsp/><xref ref="eq_SIMPrule"/> in the text) with <m>\Delta x = \frac{b-a}{n}=\frac{2\pi}{4} = \frac{\pi}{2}</m>.
+<md>
+<mrow>
+A&amp; \approx \frac{\Delta x}{3}\left(f(x_0) + 4f(x_1)+2f(x_2)+4f(x_3)+f(x_4)\right)
+</mrow><mrow>&amp;=\frac{\pi/2}{3}\left(f(-\pi) + 4f(\tfrac{-\pi}{2})+2f(0)+4f(\tfrac{\pi}{2})+f(\pi)\right)\\
+&amp;= \frac{\pi}{6}\left(-1 + 4(0)+2(1)+4(0)-1\right)=0
+</mrow>
+</md>
+</li>
+<li>
+To find the actual error in our approximation, we compare the approximation from (b) to the exact value of <m>A</m>. In fact, <m>A=0</m>: this is a fact you've probably seen before by considering the symmetry of cosine, but it's easy enough to calculate:
+<me>
+A = \int_{-\pi}^{\pi} \cos x \dee{x}= \sin \pi - \sin (-\pi) = 0
+</me>
+So, our approximation was exactly the same as our exact value. The absolute error is 0.
+</li>
+</ol>
+Remark: the purpose of this question was to remind you that the error bounds we calculate are not (usually) the same as the actual error. Often our approximations are better than we give them credit for. In normal circumstances, we would be approximating an integral precisely to avoid evaluating it exactly, so we wouldn't find our exact error. The bound is a quick way of ensuring that our approximation is not <em>too</em> far off.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Give a function <m>f(x)</m> such that:
+<ul>
+<li> <m>f''(x) \leq 3</m> for every <m>x</m> in <m>[0,1]</m>, and
+</li>
+<li>  the error using the trapezoidal rule approximating <m>\displaystyle\int_0^1 f(x) \dee{x}</m> with <m>n=2</m> intervals is exactly <m>\dfrac{1}{16}</m>.
+</li>
+</ul>
+</p></statement>
+<hint><p>
+Find a function with <m>f''(x)=3</m> for all <m>x</m> in <m>[0,1]</m>.
+</p></hint>
+<answer><p>
+Possible answers: <m>f(x) = \dfrac{3}{2}x^2+Cx+D</m> for any constants <m>C</m>, <m>D</m>.
+</p></answer>
+<solution><p>
+Using Theorem<nbsp/><xref ref="thm_num_int_err"/> in the text, the error using the trapezoidal rule as described is <em>at most</em>
+<me>
+\dfrac{M(b-a)^3}{12\cdot n^2} = \dfrac{M}{48} \leq \frac{3}{48}=\frac{1}{16}.</me>
+ So, we're really being asked to find a function with the maximum possible error using the trapezoidal rule, given its second derivative.
+</p>
+
+<p>With that in mind, our function should have the largest second derivative possible: let's set <m>f''(x)=3</m> for every <m>x</m>. Then:
+<md>
+<mrow>
+&amp;&amp;f''(x)&amp;=3
+</mrow><mrow>
+&amp;&amp;f'(x)&amp;=3x+C
+</mrow><mrow>
+&amp;&amp;f(x)&amp;=\frac{3}{2}x^2+Cx+D
+</mrow>
+<intertext>for some constants <m>C</m> and <m>D</m>. Now we can find the exact and approximate values of <m>\displaystyle\int_0^1 f(x) \dee{x}</m>.
+</intertext><mrow>
+&amp;\mbox{Exact:}&amp;\int_0^1 f(x) \dee{x}&amp;=\int_0^1 \left(\frac{3}{2}x^2+Cx+D\right) \dee{x}
+</mrow><mrow>
+&amp;&amp;&amp;=\left[\frac{1}{2}x^3+\frac{C}{2}x^2+Dx\right]_0^1
+</mrow><mrow>
+&amp;&amp;&amp;=\textcolor{blue}{\frac{1}{2}+\frac{C}{2}+D}
+</mrow><mrow>
+&amp;\mbox{Approximate:}&amp;\int_0^1 f(x) \dee{x}&amp;\approx \Delta x \left[\frac{1}{2}f(0)+f(\tfrac{1}{2})+\frac{1}{2}f(1)\right]
+</mrow><mrow>
+&amp;&amp;&amp;=\frac{1}{2}\left[\frac{1}{2}(D)+\left(\frac{3}{8}+\frac{C}{2}+D\right)+\frac{1}{2}\left(\frac{3}{2}+C+D\right)\right]
+</mrow><mrow>
+&amp;&amp;&amp;=\frac{1}{2}\left[\frac{9}{8}+C+2D\right]
+</mrow><mrow>
+&amp;&amp;&amp;=\textcolor{red}{\frac{9}{16}+\frac{C}{2}+D}
+</mrow>
+</md>
+So, the absolute error associated with the trapezoidal approximation is:
+<me>
+\left|\left(\textcolor{blue}{\frac{1}{2}+\frac{C}{2}+D}\right)  - \left(\textcolor{red}{\frac{9}{16}+\frac{C}{2}+D}\right) \right| = \frac{1}{16}</me>
+</p>
+
+<p>So, for any constants <m>C</m> and <m>D</m>, <m>f(x) = \frac{3}{2}x^2+Cx+D</m> has the desired error.
+</p>
+
+<p>Remark: contrast this question with Question<nbsp/><xref ref="prob_s1_11_approxerror1" text="local"/>. In this problem, our absolute error was exactly as bad as the bound predicted, but sometimes it is much  better. The thing to remember is that, in general, we <em>don't know</em> our  absolute error. We only guarantee that it's not any worse than some worst-case-scenario bound.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_11_mom">
+<statement><p>
+Suppose my mother is under 100 years old, and I am under 200 years old.
+<fn>We're going somewhere with this.</fn>
+ Who is older?
+</p></statement>
+<hint><p>
+You're allowed to use common sense for this one.
+</p></hint>
+<answer><p>
+my mother
+</p></answer>
+<solution><p>
+Under any reasonable assumptions
+<fn>Anyone caught trying to come up with a scenario in which I am older than my mother will be sent to maximum security grad school.</fn>
+, my mother is older than I am.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+<ol label="a">
+<li> True or False: for fixed positive constants <m>M</m>, <m>n</m>, <m>a</m>, and <m>b</m>, with <m>b \gt a</m>,<me>
+\dfrac{M}{24}\dfrac{(b-a)^3}{n^2}\leq \dfrac{M}{12}\dfrac{(b-a)^3}{n^2}</me>
+</li>
+<li> True or False: for a function <m>f(x)</m> and fixed constants <m>n</m>, <m>a</m>, and <m>b</m>, with <m>b \gt a</m>, the <m>n</m>-interval midpoint approximation of <m>\displaystyle\int_a^b f(x) \dee{x}</m> is more accurate than the <m>n</m>-interval trapezoidal approximation.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+For part (b), consider Question<nbsp/><xref ref="prob_s1_11_mom" text="local"/>.
+</p></hint>
+<answer><p>
+(a) true </p>
+<p>
+   (b) false
+</p></answer>
+<solution><p>
+(a) Since both expressions are positive, and <m>\frac{1}{24} \leq \frac{1}{12}</m>, the inequality is true.
+</p>
+
+<p> (b) False. The reasoning is the same as in Question<nbsp/><xref ref="prob_s1_11_mom" text="local"/>. The <em>error bound</em> given by Theorem<nbsp/><xref ref="thm_num_int_err"/> is always better for the trapezoid rule, but this doesn't necessarily mean the <em>error</em> is better.
+</p>
+
+<p>To see how the trapezoid approximation could be better than the corresponding midpoint approximation in some cases, consider the function <m>f(x)</m> sketched below.
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{4}{1}{3}
+\YExcoord{1}{a}
+\YExcoord{2}{}
+\YExcoord{3}{b}
+\draw[thick, blue, rounded corners] (0,.1)--(1.9,.3)--(1.95,3) arc(180:360:.4mm)-- (2.1,.3)--(4,.1);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The trapezoidal approximation of <m>\displaystyle\int_a^b f(x) \dee{x}</m> with <m>n=1</m> misses the thin spike, and gives a mild underapproximation. By contrast, the midpoint approximation with <m>n=1</m> takes the spike as the height of the entire region, giving a vast overapproximation.
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick, red, fill=red, fill opacity=0.2] (1,.2) rectangle (3,0);
+\YEaaxis{1}{4}{1}{3}
+\YExcoord{1}{a}
+\YExcoord{2}{}
+\YExcoord{3}{b}
+\draw[thick, blue, rounded corners] (0,.1)--(1.9,.3)--(1.95,3) arc(180:360:.4mm)-- (2.1,.3)--(4,.1);
+\draw[red] (1,.2) node[vertex]{};
+\draw[red] (3,.2) node[vertex]{};
+\draw (2,-1) node {trapezoidal};
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[red, thick, fill=red, fill opacity=0.2] (1,3) rectangle (3,0);
+\YEaaxis{1}{4}{1}{3}
+\YExcoord{1}{a}
+\YExcoord{2}{}
+\YExcoord{3}{b}
+\draw[thick, blue, rounded corners] (0,.1)--(1.9,.3)--(1.95,3) arc(180:360:.4mm)-- (2.1,.3)--(4,.1);
+\draw[red] (2,3) node[vertex]{};
+\draw (2,-1) node {midpoint};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2015A</fromexam></title>
+<statement><p>
+Decide whether the following statement is true or false.
+If false, provide a counterexample. If true, provide a brief justification.
+</p>
+
+<textblue>
+<blockquote>
+<p>
+When <m>f(x)</m> is positive and concave up, any trapezoidal rule approximation for <m>\displaystyle\int_{a}^{b} f(x) \,\dee{x}</m> will be an upper estimate for <m>\displaystyle\int_{a}^{b} f(x) \,\dee{x}</m>.
+</p>
+</blockquote>
+</textblue>
+</statement>
+
+<hint><p>
+Draw a sketch.
+</p></hint>
+
+<answer><p>
+True. Because <m>f(x)</m> is positive and concave up,
+the graph of <m>f(x)</m> is always below the top edges of the trapezoids
+used in the trapezoidal rule.
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3}{3}{1}{3}
+\draw[thick, blue] plot[domain=-3:3](\x,{\x*\x/4+.5}) node[right]{$y=f(x)$};
+\draw[red] (-1,.75) node[vertex](a){};
+\draw[red] (2,1.5) node[vertex](b){};
+\filldraw[red, thick, fill opacity=0.1] (-1,.75)|-(2,0)--(2,1.5)--(-1,.75);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></answer>
+
+<solution><p>
+True. Because <m>f(x)</m> is positive and concave up,
+the graph of <m>f(x)</m> is always below the top edges of the trapezoids
+used in the trapezoidal rule.
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3}{3}{1}{3}
+\draw[thick, blue] plot[domain=-3:3](\x,{\x*\x/4+.5}) node[right]{$y=f(x)$};
+\draw[red] (-1,.75) node[vertex](a){};
+\draw[red] (2,1.5) node[vertex](b){};
+\filldraw[red, thick, fill opacity=0.1] (-1,.75)|-(2,0)--(2,1.5)--(-1,.75);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Give a polynomial <m>f(x)</m> with the property that
+ the Simpson's rule approximation of <m>\displaystyle\int_a^b f(x) \dee{x}</m> is exact for all <m>a</m>, <m>b</m>, and <m>n</m>.
+</p></statement>
+<hint><p>
+The error bound for the approximation is given in Theorem<nbsp/><xref ref="thm_num_int_err"/> in the text. You want this bound to be zero.
+</p></hint>
+<answer><p>
+Any polynomial of degree at most 3 will do. For example, <m>f(x)=5x^3-27</m>, or <m>f(x)=x^2</m>.
+</p></answer>
+<solution><p>
+According to Theorem<nbsp/><xref ref="thm_num_int_err"/>  in the text, the error associated with the Simpson's rule approximation is no more than <m>\dfrac{L}{180}\dfrac{(b-a)^5}{n^4}</m>, where <m>L</m> is a constant such that <m>|f^{(4)}(x)| \leq L</m> for all <m>x</m> in <m>[a,b]</m>. If <m>L=0</m>, then the error is no more than 0 regardless of <m>a</m>, <m>b</m>, or <m>n</m>--that is, the approximation is exact.
+</p>
+
+<p>Any polynomial <m>f(x)</m> of degree at most 3 has <m>f^{(4)}(x)=0</m> for all <m>x</m>. So, any polynomial of degree at most 3 is an acceptable answer. For example, <m>f(x)=5x^3-27</m>, or <m>f(x)=x^2</m>.
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<introduction><p>Questions
+<xref ref="prob_s1_11_int1" text="local"/> and <xref ref="prob_s1_11_int2" text="local"/>
+ask you to approximate a given integral  using the formulas in Equations<nbsp/><xref ref="eq_MPrule"/>, <xref ref="eq_TRPrule"/>, and <xref ref="eq_SIMPrule"/> in the text.</p></introduction>
+
+<exercise xml:id="prob_s1_11_int1" purpose="RQS">
+<statement><p>
+Write out all three approximations of <m>\displaystyle\int_0^{30} \frac{1}{x^3+1} \dee{x}</m> with <m>n=6</m>. (That is: midpoint, trapezoidal, and Simpson's.) You do not need to simplify your answers.
+</p></statement>
+<hint><p>
+Follow the formulas in Equations<nbsp/><xref ref="eq_MPrule"/>,
+<xref ref="eq_TRPrule"/>, and <xref ref="eq_SIMPrule"/> in the text.
+</p></hint>
+<answer>
+
+<p>Midpoint:
+<me>
+\displaystyle
+\int_0^{30} \frac{1}{x^3+1}\,\dee{x}\approx\left[\tfrac{1}{\left(2.5\right)^3+1}
++\tfrac{1}{\left(7.5\right)^3+1}
++\tfrac{1}{\left(12.5\right)^3+1}
++\tfrac{1}{\left(17.5\right)^3+1}
++\tfrac{1}{\left(22.5\right)^3+1}
++\tfrac{1}{\left(27.5\right)^3+1}
+\right]5
+</me>
+</p>
+
+<p>Trapezoidal:
+<me>
+\displaystyle\int_0^{30} \frac{1}{x^3+1}\,\dee{x}
+\approx\left[
+\frac{1/2}{0^3+1}+
+\frac{1}{5^3+1}+
+\frac{1}{10^3+1}+
+\frac{1}{15^3+1}+
+\frac{1}{20^3+1}+
+\frac{1}{25^3+1}+
+\frac{1/2}{30^3+1}
+\right]5
+</me>
+</p>
+
+<p>Simpson's:
+<me>
+\displaystyle\int_0^{30} \frac{1}{x^3+1}\,\dee{x}\approx
+\Big[\frac{1}{{0}^3+2}\!+\frac{4}{{5}^3+1}\!+\frac{2}{{10}^3+1}\!+\frac{4}{{15}^3+1}\!+\frac{2}{{20}^3+1}\!+\frac{4}{{25}^3+1}\!+ \frac{1}{{30}^3+1}\Big]\frac{5}{3}
+</me>
+</p></answer>
+<solution><p>
+<ul>
+<li> For all three approximations, <m>\Delta x = \dfrac{b-a}{n}=\dfrac{30-0}{6}=5</m>.
+</li>
+<li><p>
+For the trapezoidal rule and Simpson's rule, the <m>x</m>-values where we evaluate <m>\dfrac{1}{x^3+1}</m> start at <m>x=a=0</m> and move up by <m>\Delta x = 5</m>:  <m>x_0=0</m>, <m>x_1=5</m>,
+ <m>x_2=10</m>, <m>x_3=15</m>,
+  <m>x_4=20</m>, <m>x_5=25</m>, and <m>x_6=30</m>.
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}[scale=1.8]
+  \draw[ \lt - \gt , thick] (-1,0)--(7,0);
+  \foreach \x in {0,...,6}{
+  	\MULTIPLY{\x}{5}{\l}
+	\YExcoord{\x}{\atp{\l}{x_{\x}}}}
+  \end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li><p>
+For the midpoint rule, the <m>x</m>-values where we evaluate <m>\dfrac{1}{x^3+1}</m> start at <m>x=2.5 = \frac{x_0+x_1}{2}</m> and move up by <m>\Delta x = 5</m>:  <m>\bar x_1=2.5</m>, <m>\bar x_2=7.5</m>,
+ <m>\bar x_3=12.5</m>, <m>\bar x_4=17.5</m>,
+  <m>\bar x_5=22.5</m>, and <m>\bar x_6=27.5</m>.
+</p>
+
+<sidebyside width="90%">
+<image><latex-image><![CDATA[\begin{tikzpicture}[scale=1.8]
+  \draw[ \lt - \gt , thick] (-1,0)--(7,0);
+  \foreach \x in {0,...,6}{
+  	\MULTIPLY{\x}{5}{\l}
+	\color{gray}
+	\YExcoord{\x}{\atp{\l}{x_{\x}}}
+	\ADD{\x}{.5}{\y};
+	\ADD{\l}{2.5}{\m}}
+  \foreach \x in {1,...,6}{
+  	\MULTIPLY{\x}{5}{\l}
+	\SUBTRACT{\x}{.5}{\y};
+	\SUBTRACT{\l}{2.5}{\m}
+	\color{red}
+	\YExcoord{\y}{\atp{\m}{\bar x_{\x}}}}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li>  Following Equation<nbsp/><xref ref="eq_MPrule"/>,
+the midpoint rule approximation is:
+<md>
+<mrow>
+\int_0^{30} \frac{1}{x^3+1}\,\dee{x}&amp;\approx\Big[f(\bar x_1)+f(\bar x_2)+\cdots
++f(\bar x_n)\Big]\De x
+</mrow><mrow>
+&amp;=\left[\tfrac{1}{\left(2.5\right)^3+1}
++\tfrac{1}{\left(7.5\right)^3+1}
++\tfrac{1}{\left(12.5\right)^3+1}
++\tfrac{1}{\left(17.5\right)^3+1}
++\tfrac{1}{\left(22.5\right)^3+1}
++\tfrac{1}{\left(27.5\right)^3+1}
+\right]5
+</mrow>
+</md>
+</li>
+<li>
+  Following Equation<nbsp/><xref ref="eq_TRPrule"/>, the trapezoidal rule approximation is:
+<md>
+<mrow>
+\int_0^{30} \frac{1}{x^3+1}\,\dee{x}
+&amp;\approx\Big[\half f(x_0)+f(x_1)+f(x_2)+\cdots+ f(x_{n-1})+\half f(x_n)\Big]\De x
+</mrow><mrow>
+&amp;=\left[
+\frac{1/2}{0^3+1}+
+\frac{1}{5^3+1}+
+\frac{1}{10^3+1}+
+\frac{1}{15^3+1}+
+\frac{1}{20^3+1}+
+\frac{1}{25^3+1}+
+\frac{1/2}{30^3+1}
+\right]5
+</mrow>
+</md>
+</li>
+<li> Following Equation<nbsp/><xref ref="eq_SIMPrule"/>, the Simpson's rule approximation is:
+<md>
+<mrow>
+\int_0^{30} \frac{1}{x^3+1}\,\dee{x}
+&amp;\approx\Big[f(x_0)\!+4f(x_1)\!+2f(x_2)\!+4f(x_3)\!+2f(x_4)\!+4f(x_{5})\!+ f(x_6)\Big]\tfrac{\De x}{3}
+</mrow><mrow>
+&amp;=\Big[\frac{1}{{0}^3+2}\!+\frac{4}{{5}^3+1}\!+\frac{2}{{10}^3+1}\!+\frac{4}{{15}^3+1}\!+\frac{2}{{20}^3+1}\!+\frac{4}{{25}^3+1}\!+ \frac{1}{{30}^3+1}\Big]\frac{5}{3}
+</mrow>
+</md>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_11_int2"><title><fromexam>M121 2012A</fromexam></title>
+<statement><p>
+Find the midpoint rule approximation to <m>\displaystyle\int_0^\pi \sin x\dee{x}</m>
+with <m>n = 3</m>.
+</p></statement>
+
+<hint><p>
+See Section<nbsp/><xref ref="sec_midpointRule"/>. You should be able to simplify your answer to an exact value (in terms of <m>\pi</m>).
+</p></hint>
+
+<answer><p>
+<m>\dfrac{2\pi}{3}</m>
+</p></answer>
+
+<solution><p>
+By Equation<nbsp/><xref ref="eq_MPrule"/>, the midpoint rule approximation
+to <m>\int_a^b f(x)\dee{x}</m> with <m>n=3</m> is
+<md>
+<mrow>
+\int_a^b f(x)\,\dee{x}\approx\big[f(\bar x_1)+f(\bar x_2)+f(\bar x_3)\big]\De x
+</mrow>
+</md>
+where <m>\De x = \tfrac{b-a}{3}</m> and
+<md>
+<mrow>
+x_0&amp;=a&amp;\quad
+x_1&amp;=a+\De x&amp;\quad
+x_2&amp;=a+2\De x&amp;\quad
+x_3&amp;=b
+</mrow><mrow>
+&amp; &amp;
+\bar x_1&amp;=\tfrac{x_0+x_1}{2}&amp;
+\bar x_2&amp;=\tfrac{x_1+x_2}{2}&amp;
+\bar x_3&amp;=\tfrac{x_2+x_3}{2}
+</mrow>
+</md>
+For this problem, <m>a=0</m>, <m>b=\pi</m> and <m>f(x) = \sin x</m>, so that
+<m>\De x = \tfrac{\pi}{3}</m>  and
+<md>
+<mrow>
+x_0&amp;=0&amp;\quad
+x_1&amp;=\tfrac{\pi}{3}&amp;\quad
+x_2&amp;=\tfrac{2\pi}{3}&amp;\quad
+x_3&amp;=\pi
+</mrow><mrow>
+&amp; &amp;
+\bar x_1&amp;=\tfrac{\pi}{6}&amp;
+\bar x_2&amp;=\tfrac{\pi}{2}&amp;
+\bar x_3&amp;=\tfrac{5\pi}{6}
+</mrow>
+</md>
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}[scale=1.8]
+  \draw[ \lt - \gt , thick] (-1,0)--(7,0);
+	\YExcoord{0}{\atp{0}{x_{0}}}
+	\YExcoord{6}{\atp{\pi}{x_{3}}}
+	\YExcoord{2}{\atp{\pi/3}{x_{1}}}
+	\YExcoord{4}{\atp{2\pi/3}{x_{2}}}
+\color{red}
+	\YExcoord{1}{\atp{\pi/6}{\bar x_{1}}}
+	\YExcoord{3}{\atp{\pi/2}{\bar x_{2}}}
+	\YExcoord{5}{\atp{5\pi/6}{\bar x_{3}}}
+  \end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+  Therefore,
+<md>
+<mrow>
+\int_0^\pi \sin x\dee{x}
+&amp;\approx\left[\sin\frac{\pi}{6}
+            +\sin \frac{\pi}{2}
+            +\sin \frac{5\pi}{6}\right]\frac{\pi}{3}
+=\left[\frac{1}{2}
+            +1
+            +\frac{1}{2}\right]\frac{\pi}{3}
+=\frac{2\pi}{3}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<introduction><p>Questions<nbsp/><xref ref="prob_s1_11_tableproblem1" text="local"/> though <xref ref="prob_s1_11_tableproblem3" text="local"/>  ask you to approximate a quantity based on observed data.</p></introduction>
+
+
+<exercise xml:id="prob_s1_11_tableproblem1"><title><fromexam>1997D</fromexam></title>
+<statement><p>
+The solid <m>V</m> is 40 cm high and the horizontal cross sections
+are circular disks. The table below gives the diameters of the cross sections
+in centimeters at 10 cm intervals. Use the trapezoidal rule to estimate
+the volume of <m>V</m>.
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" bottom="minor" top="minor">
+<row>
+<cell>height</cell><cell>0</cell><cell>10</cell><cell>20</cell><cell>30</cell><cell>40  </cell>
+</row><row>
+<cell>diameter</cell><cell>24</cell><cell>16</cell><cell>10</cell><cell>6</cell><cell>4 </cell>
+</row>
+</tabular>
+</sidebyside>
+</statement>
+
+<hint><p>
+See Section<nbsp/><xref ref="sec_trapRule"/>.
+To set up the volume integral, see Example <xref ref="eg_VOLb"/>. Note the dimensions given for the cross sections are diameters, not radii.
+</p></hint>
+
+<answer><p>
+<m>1720\pi\approx 5403.5\ {\rm cm}^3</m>
+</p></answer>
+
+<solution><p>
+Let <m>f(x)</m> denote the diameter at height <m>x</m>.
+As in Example <xref ref="eg_VOLb"/>, we slice <m>V</m>  into thin horizontal <q>pancakes</q>, which in
+this case are circular.
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw plot[domain=0:4]({(\x*\x+\x+4)/6} ,4-\x);
+\draw plot[domain=0:4]({1-(\x*\x+\x+4)/6} ,4-\x);
+\draw (.6667,4) arc(0:360:1.667mm and 0.666 mm);
+\draw (-3,0) arc (180:360:35mm and 7mm);
+\draw[dashed] (-2.95,0) arc (170:10:35mm and 7mm);
+\draw (.5,3) node[shape=ellipse, minimum width=1cm, minimum height=2mm, fill, fill opacity=0.2, draw]{};
+\filldraw[fill opacity=0.3] (0,3)--(0,2.8) arc (180:360: .5cm and 2mm)--(1,3) arc (0:-180: .5cm and 2mm);
+\draw (-1,2.95) node[left]{$\dee{x}$};
+\draw (-.7,2.8)-|(-.9,3.0) --(-.7,3.0);
+\draw[|-|] (0,2.25)--(1,2.25) node[midway, below]{$f(x)$};
+\draw[help lines,  \lt - \gt ] (-4,-.5)--(-4,4.5) node[above]{$x$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+<ul>
+<li> We are told that the pancake at height <m>x</m> is a circular disk
+of diameter <m>f(x)</m> and so
+</li>
+<li> has cross-sectional area <m>\pi\big(\frac{f(x)}{2}\big)^2</m> and
+thickness <m>\dee{x}</m> and hence
+</li>
+<li> has volume <m>\pi\big(\frac{f(x)}{2}\big)^2\dee{x}</m>.
+</li>
+</ul>
+</p>
+
+<p> Hence the volume of <m>V</m> is
+<md>
+<mrow>
+\int_0^{40}\pi\Big{[\frac{f(x)}{2}\Big]}^2\,\dee{x}
+&amp;\approx \frac{\pi}{4}10\Big[\half f(0)^2+f(10)^2+f(20)^2+f(30)^2+\half
+f(40)^2\Big]
+</mrow><mrow>
+&amp;=\frac{\pi}{4}10\Big[\half 24^2+16^2+10^2+6^2+\half 4^2\Big]
+</mrow><mrow>
+&amp;=688\times 2.5\pi
+=1720\pi\approx 5403.5
+</mrow>
+</md>
+where we have approximated the integral using the trapezoidal rule with <m>\De
+x=10</m>, and used a calculator to get a decimal approximation.
+</p>
+
+</solution>
+</exercise>
+
+<exercise xml:id="prob_s1_11tableproblem2"><title><fromexam>1996D</fromexam></title>
+<statement><p>
+A <m>6</m> metre long cedar log has cross sections that are approximately
+circular. The diameters of the log, measured at one metre intervals, are
+given below:
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" bottom="minor" top="minor">
+<row>
+<cell>metres from left end of log</cell> <cell>0</cell><cell>1</cell><cell>2</cell><cell>3</cell><cell>4</cell><cell>5</cell><cell>6  </cell>
+</row><row>
+<cell>diameter in metres </cell> <cell>1.2</cell><cell>1</cell><cell>0.8</cell><cell>0.8</cell><cell>1</cell><cell>1</cell><cell>1.2 </cell>
+</row>
+</tabular>
+</sidebyside>
+
+<p>
+Use Simpson's Rule to estimate the volume of the log.
+</p>
+
+</statement>
+
+<hint><p>
+See Section <xref ref="sec_Simpson"/> and compare to Question<nbsp/><xref ref="prob_s1_11_tableproblem1"/>. Note the table gives diameters, not radii.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\frac{\pi}{12}(16.72)\approx4.377\ {\rm m}^3</m>
+</p></answer>
+
+<solution><p>
+ Let <m>f(x)</m> be the diameter a distance <m>x</m> from the left end of
+the log.
+If we slice our log into thin disks, the disks <m>x</m> metres from the left end of the log has
+<ul>
+<li> radius <m>\frac{f(x)}{2}</m>,
+</li>
+<li> width <m>\dee{x}</m>, and so
+</li>
+<li> volume <m>\pi\left(\frac{f(x)}{2}\right)^2 \dee{x}=\frac{\pi}{4}f(x)^2 \dee{x}</m>.
+</li>
+</ul>
+</p>
+
+<sidebyside width="80%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw plot[domain=0:3.14]({3*\x},{-sin(\x r)/3});
+\draw plot[domain=0:3.14]({3*\x},{-2+sin(\x r)/3});
+\draw(0,-2) arc(270:90: 2.5mm and 1cm);
+\draw[dashed](0,-2) arc(270:-270: 2.5mm and 1cm);
+\draw (9.42,-1) node[shape=ellipse, minimum height=2cm, minimum width=5mm, draw]{};
+\draw[] (4.71,-1) node[shape=ellipse, minimum height=1.33cm, minimum width=4mm, draw, fill, fill opacity=0.1]{};
+\filldraw[fill opacity=0.3] (4.71,-.33) -- (4.51,-.33 )arc (90:270:2mm and 6.67mm) --(4.71,-1.67)
+arc (270:90:2mm and 6.67mm) ;
+\draw[ \lt - \gt , help lines] (-1,-3)--(11,-3) node[right]{$x$};
+\draw[|-|] (3.5,-.4)--(3.5,-1.6) node[midway, left]{$f(x)$};
+\draw[|-|] (4.5,0)--(4.7,0) node[above, midway]{$\dee{x}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Using Simpson's Rule with <m>\De
+x=1</m>,
+the volume
+of the log is:
+<md>
+<mrow>
+V=\int_0^6 \frac{\pi}{4}f(x)^2\,\dee{x}
+&amp;\approx\frac{\pi}{4}\frac{1}{3}
+\Big[f(0)^2+4f(1)^2+2f(2)^2+4f(3)^2+2f(4)^2+4f(5)^2+f(6)^2\Big]
+</mrow><mrow>
+&amp;=\frac{\pi}{12}
+\Big[1.2^2+4(1)^2+2(0.8)^2+4(0.8)^2+2(1)^2+4(1)^2+1.2^2\Big]
+</mrow><mrow>
+&amp;=\frac{\pi}{12}(16.72)
+</mrow><mrow>
+&amp;\approx4.377\ {\rm m}^3
+</mrow>
+</md>
+where we used a calculator to approximate the decimal value.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1998A</fromexam></title>
+<statement><p>
+ The circumference of an 8 metre high tree at different heights
+above the ground is given in the table below. Assume that all horizontal
+cross--sections of the tree are circular disks.
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" bottom="minor" top="minor">
+<row>
+<cell> height (metres) </cell><cell>0</cell><cell>2</cell><cell>4</cell><cell>6</cell><cell>8  </cell>
+</row><row>
+<cell>circumference (metres) </cell><cell>1.2</cell><cell>1.1</cell><cell>1.3</cell><cell>0.9</cell><cell>0.2</cell>
+</row>
+</tabular>
+</sidebyside>
+
+
+<p> Use Simpson's rule to approximate the volume of the tree.
+</p></statement>
+
+<hint><p>
+See §<xref ref="sec_Simpson"/>.
+To set up the volume integral, see Example <xref ref="eg_VOLb"/>, or Question<nbsp/><xref ref="prob_s1_11tableproblem2" text="local"/>.
+</p>
+
+<p>Note that the table gives the circumference, not radius, of the tree at a given height.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{12.94}{6\pi}
+\approx0.6865\ {\rm m}^3</m>
+</p></answer>
+
+<solution><p>
+At height <m>x</m> metres, let the circumference of the tree be <m>c(x)</m>.
+The corresponding
+radius is <m>\dfrac{c(x)}{2\pi}</m>, so the corresponding cross--sectional area
+is <m>\pi\left(\dfrac{c(x)}{2\pi}\right)^2=\dfrac{c(x)^2}{4\pi}</m>.
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick, rounded corners](3,0)--(2.75,2)--(3.25,4)--(2.25,6)--(.5,8);
+\draw[thick, rounded corners](-3,0)--(-2.75,2)--(-3.25,4)--(-2.25,6)--(-.5,8);
+\draw (0,8) node[shape=ellipse, minimum width = 1cm, minimum height=1mm, draw]{};
+\draw (-3,0) arc (180:360:3cm and 3mm);
+\draw (0,6) node[shape=ellipse, minimum width = 4.5cm, minimum height=5.5mm, draw, fill, fill opacity=0.2]{};
+\draw (-2.25,6)--(-2.25,5.5) arc (180:360:2.25cm and 2.75mm) --(2.25,6);
+\draw[|-|] (-2.75,6)--(-2.75,5.5) node[midway, left]{$\dee{x}$};
+\draw[  \lt - \gt ] (0,3.5)+(135:2.25cm) arc(135:405: 2.25cm and 2.75mm) node[midway, below]{$c(x)$};
+\draw[help lines,  \lt - \gt ] (-4,-.5) --(-4,9) node[above]{$x$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The height of a very thin cross--sectional  disk is <m>\dee{x}</m>, so the
+volume of a cross-sectional disk is <m>\dfrac{c(x)^2}{4\pi} \dee{x}</m>.
+Therefore,
+total volume of the tree is:
+<md>
+<mrow>
+\int_0^8 \frac{c(x)^2}{4\pi}\,\dee{x}
+&amp;\approx \frac{1}{4\pi}\frac{2}{3}\Big[c(0)^2+4c(2)^2+2c(4)^2+4c(6)^2+c(8)^2\Big]\cr
+&amp;=\frac{1}{6\pi}\Big[1.2^2+4(1.1)^2+2(1.3)^2+4(0.9)^2+0.2^2\Big]
+</mrow><mrow>
+&amp;=\frac{12.94}{6\pi}
+\approx0.6865
+</mrow>
+</md>
+where we used Simpson's rule with <m>\De x = 2</m> and <m>n=4</m> to approximate the value of the integral based on the values of <m>c(x)</m> given in  the table.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2001A</fromexam></title>
+<statement><p>
+By measuring the areas enclosed by contours on a topographic map, a geologist
+determines the cross sectional areas <m>A</m> in <m>\mathrm{m}^2</m> of a <m>60</m> m high
+hill. The table below gives the cross sectional area <m>A(h)</m> at various
+heights <m>h</m>. The volume of the hill is <m>V=\int_0^{60} A(h)\,\dee{h}</m>.
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" bottom="minor" top="minor">
+<row>
+<cell><m>h</m> </cell><cell>0</cell><cell>10</cell><cell>20</cell><cell>30</cell><cell>40</cell><cell>50</cell><cell>60  </cell>
+</row><row>
+<cell><m>A</m> </cell><cell>10,200</cell><cell>9,200</cell><cell>8,000</cell><cell>7,100</cell><cell>4,500</cell><cell>2,400</cell><cell>100</cell>
+</row>
+</tabular>
+</sidebyside>
+
+
+<p><ol label="a">
+<li>
+If the geologist uses the Trapezoidal Rule to estimate the
+volume of the hill, what will be their estimate, to the nearest 1,000<m>\mathrm{m}^3</m>?
+</li>
+<li>
+What will be the geologist's estimate of the volume of the
+hill if they use Simpson's Rule instead of the Trapezoidal Rule?
+</li>
+</ol>
+</p></statement>
+
+<answer><p>
+(a) 363,500
+</p>
+<p>
+  (b) 367,000
+</p></answer>
+
+<solution><p>
+For both approximations, <m>\De x = 10</m> and <m>n=6</m>.
+</p>
+
+<p> (a)
+The Trapezoidal Rule gives
+<md>
+<mrow>
+V&amp;=\int_0^{60} A(h)\,\dee{h}
+\approx 10\Big[\half A(0)+A(10)+A(20)+A(30)+A(40)+A(50)+\half A(60)\Big]
+</mrow><mrow>
+&amp;=\text{363,500}
+</mrow>
+</md>
+</p>
+
+<p>  (b)
+Simpson's Rule gives
+<md>
+<mrow>
+V&amp;=\int_0^{60} A(h)\,\dee{h}
+\approx \frac{10}{3}\Big[A(0)+4A(10)+2A(20)+4A(30)+2A(40)+4A(50)+A(60)\Big]
+</mrow><mrow>
+&amp;=\text{367,000}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise xml:id="prob_s1_11_tableproblem3" purpose="RQS"><title><fromexam>2013A</fromexam></title>
+<statement><p>
+The graph below applies to both parts (a) and (b).
+</p>
+
+<sidebyside width="75%">
+<image source="problems/figs/OE13A_1"/>
+</sidebyside>
+
+<p>
+<ol label="a">
+<li>
+Use the Trapezoidal Rule, with <m>n = 4</m>, to estimate
+the area under the graph between <m>x = 2</m> and <m>x = 6</m>.
+Simplify your answer completely.
+</li>
+<li>
+Use Simpson's Rule, with <m>n = 4</m>, to estimate the
+area under the graph between <m>x = 2</m> and <m>x = 6</m>.
+</li>
+</ol>
+</p></statement>
+
+<answer><p>
+(a) <m>\dfrac{49}{2}</m>
+</p>
+<p>
+   (b) <m>\dfrac{77}{3}</m>
+</p></answer>
+
+<solution><p>
+Call the curve in the graph <m>y=f(x)</m>. It looks like
+<md>
+<mrow>
+f(2)=3 \qquad
+f(3)=8 \qquad
+f(4)=7 \qquad
+f(5)=6 \qquad
+f(6)=4
+</mrow>
+</md>
+</p>
+
+<p>We're estimating <m>\int_2^6 f(x) \dee{x}</m> with <m>n=4</m>, so <m>\De x = \frac{6-2}{4}=1</m>.
+</p>
+
+<p> (a)
+The trapezoidal rule gives
+<md>
+<mrow>
+T_4=\left[\frac{3}{2}+ 8+7+ 6+\frac{4}{2}\right]\times 1=\frac{49}{2}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+Simpson's rule gives
+<md>
+<mrow>
+S_4=\frac{1}{3}\big[3+4\times 8+2\times 7+4\times 6+4\big]\times 1
+=\frac{77}{3}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+
+<introduction><p>In Questions<nbsp/><xref ref="prob_s_1_11_error1" text="local"/> through <xref ref="prob_s_1_11_error2" text="local"/>, we practice finding error bounds for our approximations.</p></introduction>
+
+<exercise xml:id="prob_s_1_11_error1"><title><fromexam>2016Q4</fromexam></title>
+<statement><p>
+The integral <m>\displaystyle\int_{-1}^{1} \sin(x^2) \, \dee{x}</m> is estimated using the Midpoint
+Rule with <m>1000</m> intervals.  Show that the absolute error in this approximation is at most
+<m>2\cdot 10^{-6}</m>.
+</p>
+
+<p>You may use the fact that when approximating <m>\int_a^b f(x) \, \dee{x}</m> with the
+Midpoint Rule using <m>n</m> points, the absolute value
+of the error is at most <m>M(b-a)^3/24n^2</m> when <m>\left|f''(x)\right|\leq M</m>
+for all <m>x\in[a,b]</m>.
+</p></statement>
+
+<hint><p>
+The main step is to find an appropriate value of <m>M</m>. It is <em>not necessary</em> to
+find the smallest possible <m>M</m>.
+</p></hint>
+
+<answer><p>
+Let <m>f(x) = \sin(x^2)</m>.  Then <m>f'(x) = 2x \cos(x^2)</m> and
+<me>f''(x) = 2\cos(x^2) - 4x^2\sin(x^2).</me>
+Since <m>|x^2|\le1</m> when <m>|x|\leq 1</m>, and <m>\left|\sin\theta\right|\le1</m> and <m>\left|\cos\theta\right|\leq 1</m> for all <m>\theta</m>,
+we have
+<md>
+<mrow>
+\left|2\cos(x^2) - 4x^2\sin(x^2)\right|
+\le 2|\cos(x^2)| +  4x^2|\sin(x^2)|
+\le 2\times 1 +4\times 1\times 1
+= 2+4 = 6
+</mrow>
+</md>
+We can therefore choose <m>M=6</m>, and it follows that the error is at most <md>
+<mrow>
+\frac{M[b-a]^3}{24n^2}
+\le \frac{6\cdot [1-(-1)]^3}{24 \cdot 1000^2}
+= \frac{2}{10^6}  = 2\cdot 10^{-6}
+</mrow>
+</md></p></answer>
+
+<solution><p>
+Let <m>f(x) = \sin(x^2)</m>.  Then <m>f'(x) = 2x \cos(x^2)</m> and
+<me>f''(x) = 2\cos(x^2) - 4x^2\sin(x^2).</me>
+Since <m>|x^2|\le1</m> when <m>|x|\leq 1</m>, and <m>\left|\sin\theta\right|\le1</m> and <m>\left|\cos\theta\right|\leq 1</m> for all <m>\theta</m>,
+we have
+<md>
+<mrow>
+\left|2\cos(x^2) - 4x^2\sin(x^2)\right|
+\le 2|\cos(x^2)| +  4x^2|\sin(x^2)|
+\le 2\times 1 +4\times 1\times 1
+= 2+4 = 6
+</mrow>
+</md>
+We can therefore choose <m>M=6</m>, and it follows that the error is at most <md>
+<mrow>
+\frac{M[b-a]^3}{24n^2}
+\le \frac{6\cdot [1-(-1)]^3}{24 \cdot 1000^2}
+= \frac{2}{10^6}  = 2\cdot 10^{-6}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q4</fromexam></title>
+<statement><p>
+The total error using the midpoint rule with <m>n</m> subintervals to
+approximate the integral of <m>f(x)</m> over <m>[a,b]</m> is bounded by
+<m>\dfrac{M (b-a)^3}{(24n^2)}</m>, if <m>|f''(x)| \le M</m> for all  <m>a \le x \le b</m>.
+</p>
+
+<p>Using this bound, if the integral <m>\displaystyle\int_{-2}^{1} 2x^4 \,\dee{x}</m> is approximated using the midpoint rule with <m>60</m> subintervals, what is the largest possible error between the approximation <m>M_{60}</m> and the true value of the integral?
+</p></statement>
+
+<hint><p>
+The main step is to find <m>M</m>. This question is unusual in that its
+wording requires you to find the smallest possible allowed <m>M</m>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{3}{100}</m>
+</p></answer>
+
+<solution><p>
+Setting <m>f(x) = 2 x^4</m> and <m>b-a = 1-(-2)=3</m>, we compute <m>f''(x) = 24x^2</m>.
+The largest value of <m>24x^2</m> on the interval <m>[-2,1]</m> occurs at <m>x=-2</m>,
+so we can take <m>M = 24\cdot(-2)^2=96</m>. Thus the total error for the midpoint rule with <m>n=60</m> points is bounded by
+<md>
+<mrow>
+\frac{M (b-a)^3}{24n^2}  = \frac{96 \times 3^3}{24 \times 60 \times 60} = \frac{3}{100}
+</mrow>
+</md>
+</p>
+
+<p>That is: we are guaranteed our absolute error is certainly no more
+<fn>This is what the error bound always tells us.</fn>
+ than <m>\frac{3}{100}</m>, and using the bound stated in the problem we cannot give a better guarantee.
+(The second part of the previous sentence comes from the fact that we used the smallest possible <m>M</m>: if we had used a larger value of <m>M</m>, we would still have some true statement about the error, for example <q>the error is no more than <m>\frac{5}{100}</m>,</q> but it would not be the
+<em>best</em> true statement we could make.)
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016A</fromexam></title>
+<statement><p>
+Both parts of this question concern the integral <m>I = \displaystyle\int_{0}^{2} (x-3)^5\,\dee{x}</m>.
+<ol label="a">
+<li>
+Write down the Simpson's Rule approximation to <m>I</m> with <m>n=6</m>.
+Leave your answer in calculator-ready form.
+</li>
+<li>
+Which method of approximating <m>I</m> results in a smaller error bound:
+the Midpoint Rule with <m>n=100</m> intervals, or Simpson's Rule with <m>n=10</m>
+intervals?  You may use the formulas
+<md>
+<mrow>
+|E_M| \le \frac{M(b-a)^3}{24n^2} \qquad\text{and}\qquad |E_S| \le \frac{L(b-a)^5}{180n^4},
+</mrow>
+</md>
+where <m>M</m> is an upper bound for <m>|f''(x)|</m> and <m>L</m> is an upper bound for <m>|f^{(4)}(x)|</m>, and <m>E_M</m> and <m>E_S</m> are the absolute errors arising from the midpoint rule and Simpson's rule, respectively.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+The main steps in part (b) are to find the smallest possible values of
+<m>M</m> and <m>L</m>.
+</p></hint>
+
+<answer><p>
+(a) <m>\dfrac{1/3}3 \Big( (-3)^5 + 4\Big( \frac13-3 \Big)^5 + 2\Big( \frac23-3 \Big)^5 + 4(-2)^5 + 2\Big( \frac43-3 \Big)^5 + 4\Big( \frac53-3 \Big)^5 + (-1)^5 \Big)</m>
+</p>
+
+<p>  (b)
+Simpson's Rule results in a smaller error bound.
+</p></answer>
+
+<solution><p> (a)
+Since <m>a=0</m>, <m>b=2</m> and <m>n=6</m>, we have
+   <m>\Delta x=\frac{b-a}{n}=\frac{2-0}6 = \frac{1}{3}</m>,
+and so <m>x_0=0</m>, <m>x_1=\frac{1}{3}</m>, <m>x_2=\frac{2}{3}</m>, <m>x_3=1</m>,
+<m>x_4=\frac{4}{3}</m>, <m>x_5=\frac{5}{3}</m>, and <m>x_6=2</m>. Since Simpson's
+Rule with <m>n=6</m> in general is
+<md>
+<mrow>
+\frac{\Delta x}3 \big[ f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + 2f(x_4) + 4f(x_5) + f(x_6) \big],
+</mrow>
+</md>
+the desired approximation is
+<md>
+<mrow>
+\frac{1/3}3 \bigg( (-3)^5 + 4\Big( \frac13-3 \Big)^5 + 2\Big( \frac23-3 \Big)^5 + 4(-2)^5 + 2\Big( \frac43-3 \Big)^5 + 4\Big( \frac53-3 \Big)^5 + (-1)^5 \bigg)
+</mrow>
+</md>
+</p>
+
+<p>  (b)
+Here <m>f(x) = (x-3)^5</m>, which has derivatives
+<md>
+<mrow>
+f'(x) &amp;= 5(x-3)^4 &amp; f''(x) &amp;= 20(x-3)^3
+</mrow><mrow>
+f^{(3)}(x) &amp;= 60(x-3)^2 &amp; f^{(4)}(x) &amp;= 120(x-3).
+</mrow>
+</md>
+For <m>0\le x\le 2</m>, <m>(x-3)</m> runs from <m>-3</m> to <m>-1</m>, so the maximum
+absolute values are found at <m>x=0</m>, giving
+<m>M= 20\cdot|0-3|^3=540</m> and <m>L=120\cdot|0-3|=360</m>. Consequently, for
+the Midpoint Rule with <m>n=100</m>,
+<md>
+<mrow>
+|E_M| \le \frac{M(b-a)^3}{24n^2} = \frac{540 \times 2^3}{24 \times 10^4} = \frac{180}{10^4};
+</mrow>
+</md>
+whereas for Simpson's Rule with <m>n=10</m>,
+<md>
+<mrow>
+|E_S| \le \frac{360 \times 2^5 }{180 \times 10^4}  = \frac{64}{10^4}.
+</mrow>
+</md>
+Since <m>64 \lt 180</m>, Simpson's Rule results in a smaller error bound.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2013A</fromexam></title>
+<statement><p>
+Find a bound for the error in approximating
+<m>\displaystyle\int_1^5 \frac{1}{x}\,\dee{x}</m> using Simpson's rule with <m>n = 4</m>.
+Do not write down the Simpson's rule approximation <m>S_4</m>.
+</p>
+
+<p>In general the error in approximating
+<m>\int_a^b f(x)\dee{x}</m> using Simpson's rule with <m>n</m>
+steps is bounded by <m>\dfrac{L(b-a)}{180}(\De x)^4</m> where <m>\De x=\dfrac{b-a}{n}</m>
+and <m>L\ge |f^{(4)}(x)|</m> for all <m>a\le x\le b</m>.
+</p></statement>
+
+<hint><p>
+As usual, the biggest part of this problem is finding <m>L</m>. Don't be thrown off by the error bound being given slightly differently from Theorem<nbsp/><xref ref="thm_num_int_err"/> in the text: these expressions are equivalent, since <m>\De x = \frac{b-a}{n}</m>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{8}{15}</m>
+</p></answer>
+
+<solution><p>
+In general the error in approximating
+<m>\int_a^b f(x)\dee{x}</m> using Simpson's rule with <m>n</m>
+steps is bounded by <m>\frac{L(b-a)}{180}(\De x)^4</m> where <m>\De x=\frac{b-a}{n}</m>
+and <m>L\ge |f^{(4)}(x)|</m> for all <m>a\le x\le b</m>. In this case, <m>a=1</m>, <m>b=5</m>,
+<m>n=4</m> and <m>f(x)=\frac{1}{x}</m>. We need to find <m>L</m>, so we differentiate.
+</p>
+
+<p><md>
+<mrow>
+f'(x)=-\frac{1}{x^2}\qquad
+f''(x)=\frac{2}{x^3}\qquad
+f^{(3)}(x)=-\frac{6}{x^4}\qquad
+f^{(4)}(x)=\frac{24}{x^5}
+</mrow>
+</md>
+and
+<md>
+<mrow>
+\big|f^{(4)}(x)\big|\le 24\text{ for all }x\ge 1
+</mrow>
+</md>
+So we may take <m>L=24</m> and <m>\De x=\frac{5-1}{4}=1</m>, which leads to
+<md>
+<mrow>
+|\text{Error }|\le \frac{24(5-1)}{180}(1)^4=\frac{24}{45}=\frac{8}{15}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M105 2012A</fromexam></title>
+<statement><p>
+Find a bound for the error in approximating
+<me>
+\int_0^1 \big(e^{-2x}+3x^3\big)\,\dee{x}
+</me>
+using Simpson's rule with <m>n = 6</m>.
+Do not write down the Simpson's rule approximation <m>S_n</m>.
+</p>
+
+<p>In general, the error in approximating
+<m>\int_a^b f(x)\dee{x}</m> using Simpson's rule with <m>n</m>
+steps is bounded by <m>\dfrac{ L(b-a)}{180}(\De x)^4</m> where <m>\De x=\dfrac{b-a}{n}</m>
+and <m>L\ge |f^{(4)}(x)|</m> for all <m>a\le x\le b</m>.
+</p></statement>
+
+<hint><p>
+The function <m>e^{-2x} = \dfrac{1}{e^{2x}}</m> is positive and decreasing, so its maximum occurs when <m>x</m> is as small as possible.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\frac{1}{180\times 3^4}
+  =\frac{1}{14580}</m>
+</p></answer>
+
+<solution><p>
+In general, the error in approximating
+<m>\int_a^b f(x)\dee{x}</m> using Simpson's rule with <m>n</m>
+steps is bounded by <m>\displaystyle\frac{L(b-a)}{180}(\De x)^4</m> where <m>\De x=\dfrac{b-a}{n}</m>
+and <m>L\ge |f^{(4)}(x)|</m> for all <m>a\le x\le b</m>. In this case, <m>a=0</m>, <m>b=1</m>,
+<m>n=6</m> and <m>f(x)=e^{-2x}+3x^3</m>. We need to find <m>L</m>, so we differentiate.
+<md>
+<mrow>
+f'(x)=-2e^{-2x}+9x^2\qquad
+f''(x)=4e^{-2x}+18x\qquad
+f^{(3)}(x)=-8e^{-2x}+18\qquad
+f^{(4)}(x)= 16 e^{-2x}
+</mrow>
+</md>
+Since <m>e^{-2x} = \dfrac{1}{e^{2x}}</m>, we see <m>f^{(4)}(x)</m> is a positive, decreasing function. So, its maximum occurs when <m>x</m> is as small as possible. In the interval <m>[0,1]</m>, that means <m>x=0</m>.
+<md>
+<mrow>
+\big|f^{(4)}(x)\big|\le f(0)=16\text{ for all }x\ge 0
+</mrow>
+</md>
+So, we  take <m>L=16</m> and <m>\De x=\frac{1-0}{6}=\frac{1}{6}</m>.
+<md>
+<mrow>
+|\text{Error }|\le \frac{L(b-a)}{180}(\De x)^4=\frac{16(1-0)}{180}(1/6)^4
+   =\frac{16}{180\times 6^4}
+   =\frac{1}{180\times 3^4}
+  =\frac{1}{14580}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Let <m>I=\displaystyle\int_1^2 (1/x)\,\dee{x}</m>.
+</p>
+
+<p><ol label="a">
+<li>
+Write down the trapezoidal approximation <m>T_4</m> for <m>I</m>.
+<em>You do not need to simplify your answer.</em>
+</li>
+<li>
+Write down the Simpson's approximation <m>S_4</m> for <m>I</m>.
+<em>You do not need to simplify your answer.</em>
+</li>
+<li>
+Without computing <m>I</m>, find an upper bound for <m>|I - S_4|</m>.
+You may use the fact that if <m>\big|f^{(4)}(x)\big|\le L</m>
+on the interval <m>[a, b]</m>, then the error in using <m>S_n</m> to approximate
+<m>\int_a^b f(x)\,\dee{x}</m> has absolute value less than or equal to
+<m>L(b-a)^5/180n^4</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Since <m>\dfrac{1}{x^5}</m> is a decreasing function when <m>x \gt 0</m>, look for its maximum value when <m>x</m> is as small as possible.
+</p></hint>
+
+<answer><p>
+(a)  <m>\displaystyle T_4
+=\frac{1}{4}\left[\left(\frac{1}{2}\times 1\right)+\frac{4}{5}+\frac{2}{3}+ \frac{4}{7}+\left(\frac{1}{2}\times\frac{1}{2}\right)\right]</m>,
+</p>
+
+<p>
+(b) <m>\displaystyle S_4
+=\frac{1}{12}\left[1+\left(4\times\frac{4}{5}\right)+\left(2\times \frac{2}{3}\right)+\left(4\times \frac{4}{7}\right)+\frac{1}{2}\right]</m>
+</p>
+
+<p>
+(c) <m>\displaystyle\Big|I -S_4\Big|
+                \le \frac{24}{180\times 4^4}=\frac{3}{5760}</m>
+</p>
+
+</answer>
+
+<solution><p>
+For both approximations, <m>a=1</m>, <m>b=2</m>, <m>n=4</m>, <m>f(x)=\frac{1}{x}</m> and <m>\De x=\frac{b-a}{n}=\frac{1}{4}</m>.
+</p>
+
+<p>Then <m>x_0 = 1</m>, <m>x_1=\frac{5}{4}</m>, <m>x_2 = \frac{3}{2}</m>, <m>x_3=\frac{7}{4}</m>, and <m>x_4=2</m>.
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+  \draw[ \lt - \gt , thick] (-1,0)--(9,0);
+	\YExcoord{0}{\atp{1}{x_{0}}}
+	\YExcoord{2}{\atp{5/4}{x_{1}}}
+	\YExcoord{4}{\atp{3/2}{x_{2}}}
+	\YExcoord{6}{\atp{7/4}{x_{3}}}
+	\YExcoord{8}{\atp{2}{x_{4}}}
+  \end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+(a)
+<md>
+<mrow>
+T_4&amp;=&amp;\De x&amp;\left[\frac{1}{2}f(x_0)+f(x_1)+f(x_2)+f(x_3)+\frac{1}{2}f(x_4)\right]
+</mrow><mrow>
+&amp;=&amp;\De x&amp;\left[\frac{1}{2}f(1)+f(5/4)+f(3/2)+f(7/4)+\frac{1}{2}f(2)\right]
+</mrow><mrow>
+&amp;=&amp;\frac{1}{4}&amp;\left[\left(\frac{1}{2}\times 1\right)+\frac{4}{5}+\frac{2}{3}+ \frac{4}{7}+\left(\frac{1}{2}\times\frac{1}{2}\right)\right]
+</mrow>
+</md>
+</p>
+
+<p>  (b)
+<md>
+<mrow>
+S_4&amp;=\frac{\De x}{3}\big[f(x_0)+4f(x_1)+2f(x_2)+4f(x_3)+f(x_4)\big]
+</mrow><mrow>
+&amp;=\frac{\De x}{3}\big[f(1)+4f(5/4)+2f(3/2)+4f(7/4)+f(2)\big]
+</mrow><mrow>
+&amp;=\frac{1}{12}\left[1+\left(4\times\frac{4}{5}\right)+\left(2\times \frac{2}{3}\right)+\left(4\times \frac{4}{7}\right)+\frac{1}{2}\right]
+</mrow>
+</md>
+</p>
+
+<p>  (c)
+In this case, <m>a=1</m>, <m>b=2</m>,
+<m>n=4</m> and <m>f(x)=\frac{1}{x}</m>. We need to find <m>L</m>, so we differentiate.
+<md>
+<mrow>
+f'(x)=-\frac{1}{x^2}\qquad
+f''(x)=\frac{2}{x^3}\qquad
+f^{(3)}(x)=-\frac{6}{x^4}\qquad
+f^{(4)}(x)=\frac{24}{x^5}
+</mrow>
+</md>
+So,
+<md>
+<mrow>
+\big|f^{(4)}(x)\big|\le 24\text{ for all }x\text{ in the interval } [1,2]
+</mrow>
+</md>
+We take <m>L=24</m>.
+<md>
+<mrow>
+|\text{Error }|\le \frac{L(b-a)^5}{180\times n^4}
+\le \frac{24(2-1)^5}{180\times 4^4}=\frac{24}{180\times 4^4}=\frac{3}{5760}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise xml:id="prob_s_1_11_error2"><title><fromexam>M121 2000A</fromexam></title>
+<statement><p>
+A function <m>s(x)</m> satisfies <m>s(0)=1.00664</m>, <m>s(2)=1.00543</m>,
+<m>s(4)=1.00435</m>, <m>s(6)=1.00331</m>, <m>s(8)=1.00233</m>. Also, it is known to satisfy
+<m>\big|s^{(k)}(x)\big|\le \dfrac{k}{1000}</m> for <m>0\le x\le 8</m> and all positive
+integers <m>k</m>.
+</p>
+
+<p><ol label="a">
+<li>
+Find the best Trapezoidal Rule and Simpson's Rule approximations
+that you can for <m>\displaystyle I=\int_0^8 s(x)\dee{x}</m>.
+</li>
+<li>
+Determine the maximum possible sizes of errors in the approximations
+you gave in part (a). Recall that if a function <m>f(x)</m> satisfies
+<m>\big|f^{(k)}(x)\big|\le K_k</m> on <m>[a,b]</m>, then
+<me>
+\bigg|\int_a^b f(x)\dee{x} -T_n\bigg|\le \frac{K_2(b-a)^3}{12n^2}
+\quad\hbox{and}\quad
+\bigg|\int_a^b f(x)\dee{x} -S_n\bigg|\le \frac{K_4(b-a)^5}{180n^4}
+</me>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+The <q>best ... approximations that you can</q> means using the maximum number of intervals, given the information available.
+</p>
+
+<p>The final sentence in part (b) is just a re-statement of the error bounds we're familiar with from Theorem<nbsp/><xref ref="thm_num_int_err"/> in the text. The information <m>\big|s^{(k)}(x)\big|\le \dfrac{k}{1000}</m> gives you values of <m>M</m> and <m>L</m> when you set <m>k=2</m> and <m>k=4</m>, respectively.
+</p></hint>
+
+<answer><p>
+(a)  <m>T_4=8.03515</m>, <m>S_4\approx 8.03509</m>
+</p>
+
+<p>
+(b)
+<me>\displaystyle\Big|\int_a^b f(x)\ dx -T_n\Big|
+                \le \frac{2}{1000}\frac{8^3}{12(4)^2} \le0.00533</me>
+<me>\displaystyle\Big|\int_a^b f(x)\ dx -S_n\Big|
+                 \le   \frac{4}{1000}\frac{8^5}{180(4)^4}\le0.00284</me>
+</p>
+
+</answer>
+
+<solution><p>
+Set <m>a=0</m> and <m>b=8</m>. Since we have information about <m>s(x)</m> when <m>x</m> is 0, 2, 4, 6, and 8, we set  <m>\De x=\frac{b-a}{n}=2</m>, so <m>n=4</m>. (Recall with the trapezoid rule and Simpson's rule, <m>n=4</m> intervals actually uses the value of the function at 5 points.)
+</p>
+
+<p>We could perform the trapezoidal approximations with fewer intervals, for example <m>n=2</m>, but this would involve ignoring some of the points we're given. Since the question asks for the best estimation we can give, we use <m>n=4</m> intervals and no fewer.
+<ol label="a">
+<li>
+<p><md>
+<mrow>
+T_4&amp;={\De x}\left[\frac{1}{2}s(0)+s(2)+s(4)+s(6)+\frac{1}{2}s(8)\right]
+</mrow><mrow>
+&amp;=2\left[\frac{1.00664}{2}+1.00543+ 1.00435+1.00331+ \frac{1.00233}{2}\right]
+</mrow><mrow>
+&amp;=8.03515
+</mrow><mrow>
+S_4&amp;=\frac{\De x}{3}\big[s(0)+4s(2)+2s(4)+4s(6)+s(8)\big]
+</mrow><mrow>
+&amp;=\frac{2}{3}\big[1.00664+4\times 1.00543+2\times 1.00435+4\times1.00331+ 1.00233\big]
+</mrow><mrow>
+&amp;\approx 8.03509
+</mrow>
+</md>
+</p>
+</li>
+<li>
+<p>
+The information <m>\big|s^{(k)}(x)\big|\le \dfrac{k}{1000}</m>, with <m>k=2</m>, tells us <m>|s''(x)|\leq \frac{2}{1000}</m> for all <m>x</m> in the interval <m>[0,8]</m>. So, we take <m>K_2</m> (also called <m>M</m> in your text) to be <m>\frac{2}{1000}</m>.
+</p>
+
+<p>Then the absolute error associated with our trapezoid rule approximation is at most
+<md>
+<mrow>
+\bigg|\int_a^b f(x)\ dx -T_n\bigg|&amp;\le \frac{K_2(b-a)^3}{12n^2}
+&amp;&amp;\le \frac{2}{1000}\cdot\frac{8^3}{12(4)^2}
+&amp;\le 0.00533
+</mrow>
+</md>
+</p>
+
+<p>For <m>k=4</m>, we see <m>|s^{(4)}(x)|\leq \frac{4}{1000}</m> for all <m>x</m> in the interval <m>[0,8]</m>. So, we take <m>K_4</m> (also called <m>L</m> in your text) to be <m>\frac{4}{1000}</m>.
+</p>
+
+<p>Then the absolute error associated with our Simpson's rule approximation is at most
+<md>
+<mrow>
+\bigg|\int_a^b f(x)\ dx -S_n\bigg|&amp;\le \frac{K_4(b-a)^5}{180n^4}
+&amp;&amp;\le \frac{4}{1000}\cdot\frac{8^5}{180(4)^4}
+&amp;\le0.00284
+</mrow>
+</md>
+</p>
+</li>
+</ol>
+</p>
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2014A</fromexam></title>
+<statement><p>
+Consider the trapezoidal rule for making numerical approximations to
+<m>\displaystyle\int_a^b f(x)\dee{x}</m>. The error for the trapezoidal rule satisfies
+<m>|E_T| \le \dfrac{ M(b - a)^3}{12n^2}</m> , where <m>|f''(x)| \le M</m>
+for <m>a \le x \le b</m>. If <m>-2  \lt  f''(x)  \lt  0</m> for <m>1 \le x \le 4</m>,
+find a value of <m>n</m> to guarantee the trapezoidal rule will give
+an approximation for <m>\displaystyle\int_1^4 f(x)\dee{x}</m> with absolute error,
+<m>|E_T|</m>, less than <m>0.001</m>.
+</p></statement>
+
+<hint><p>
+Set the error bound to be less than <m>0.001</m>, then solve for <m>n</m>.
+</p></hint>
+
+<answer><p>
+Any  <m>n\ge 68</m> works.
+</p></answer>
+
+<solution><p>
+ In this case, <m>a=1</m>, <m>b=4</m>. Since <m>-2 \leq f''(x) \leq 0</m>  over the relevant interval,  we take <m>M=2</m>. (Remember <m>M</m> is an upper bound on <m>|f''(x)|</m>, not <m>f''(x)</m>.) So we need <m>n</m>
+to obey
+<md>
+<mrow>
+\frac{ 2(4 - 1)^3}{12n^2} \le 0.001
+\iff n^2\ge \frac{2(3)^3}{12} 1000 =\frac{27000}{6}=\frac{9000}{2}=4500
+</mrow>
+</md>
+One obvious allowed <m>n</m> is <m>100</m>. Since <m>\sqrt{4500} \approx 67.01</m>, and <m>n</m> has to be a whole number,
+any  <m>n\ge 68</m> works.
+</p></solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise><title><fromexam>1996A</fromexam></title>
+<statement><p>
+ A swimming pool has the shape shown in the figure below.
+The vertical cross--sections of the pool are semi--circular disks. The
+distances in feet across the pool are given in the figure at 2--foot intervals along
+the sixteen--foot length of the pool. Use Simpson's Rule to estimate the
+volume of the pool.
+</p>
+
+<sidebyside width="66%">
+<image source="problems/figs/pool"/>
+</sidebyside>
+></statement>
+
+<hint><p>
+See Section <xref ref="sec_Simpson"/>.
+To set up the volume integral, see Example <xref ref="eg_VOLs"/>.
+</p>
+
+<p>Since the cross-sections of the pool are semi-circular disks, a section that is <m>d</m> metres across will have area <m>\frac{1}{2}\pi\left(\frac{d}{2}\right)^2</m> square feet.  Based on the drawing, you may assume the very ends of the pool have distance 0 feet across.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{472}{3}\approx 494 \ {\rm ft}^3</m>
+</p></answer>
+
+<solution><p>
+ Denote by <m>f(x)</m> the width of the pool  <m>x</m> feet
+from the left-hand end. From the sketch, <m>f(0)=0</m>, <m>f(2)=10</m>, <m>f(4)=12</m>, <m>f(6)=10</m>,
+<m>f(8)=8</m>, <m>f(10)=6</m>, <m>f(12)=8</m>, <m>f(14)=10</m> and <m>f(16)=0</m>.
+</p>
+
+<p>A cross-section of the pool <m>x</m> feet from the left end is half of a circular disk with diameter <m>f(x)</m> (so, radius <m>\frac{f(x)}{2}</m>) and thickness <m>\dee{x}</m>. So, the volume of
+the part of the pool with <m>x</m>--coordinate running from <m>x</m> to (<m>x+\dee{x}</m>) is
+<m>\half\pi\big(\frac{f(x)}{2}\big)^2\,\dee{x} = \frac{\pi}{8}[f(x)]^2\,\dee{x}</m>.
+</p>
+
+<p>The total volume is given by the following integral.
+<md>
+<mrow>
+V&amp;=\frac{\pi}{8}\int_0^{16}f(x)^2\,\dee{x}\cr
+&amp;\approx\frac{\pi}{8}\cdot\frac{\De x}{3}
+\Big[f(0)^2+4f(2)^2+2f(4)^2+4f(6)^2+2f(8)^2
++4f(10)^2+2f(12)^2+4f(14)^2\!+f(16)^2\Big]\cr
+&amp;=\frac{\pi}{8}\cdot\frac{2}{3}
+\Big[0+4(10)^2+2(12)^2+4(10)^2+2(8)^2
++4(6)^2+2(8)^2+4(10)^2+0\Big]\cr
+&amp;=\frac{472}{3}\pi\approx 494 \ {\rm ft}^3
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2002A,M121 2002A</fromexam></title>
+<statement><p>
+A piece of wire 1m long with radius 1mm is made in such
+a way that the density varies in its cross--section, but is radially symmetric
+(that is, the local density <m>g(r)</m> in <m>{\rm kg/m^3}</m> depends only on the
+distance <m>r</m> in mm from the centre of the wire). Take as given that the
+total mass <m>W</m> of the wire in kg is given by
+<md>
+<mrow>
+W=2\pi 10^{-6}\int_0^1 rg(r)\,\dee{r}
+</mrow>
+</md>
+Data from the manufacturer is given below:
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" bottom="minor" top="minor">
+<row>
+<cell><m>r</m> </cell><cell>0</cell><cell>1/4</cell><cell>1/2</cell><cell>3/4</cell><cell>1 </cell>
+</row><row>
+<cell><m>g(r)</m> </cell><cell>8051</cell><cell>8100</cell><cell>8144</cell><cell>8170</cell><cell>8190</cell>
+</row>
+</tabular>
+</sidebyside>
+
+<p><ol label="a">
+<li>
+Find the best Trapezoidal Rule approximation that you
+can for <m>W</m> based on the data in the table.
+</li>
+<li>
+Suppose that it is known that <m>|g'(r)| \lt 200</m> and
+<m>|g''(r)| \lt 150</m> for all values of <m>r</m>. Determine the maximum possible size
+of the error in the approximation you gave in part (a). Recall that if
+a function <m>f(x)</m> satisfies <m>|f''(x)|\le M</m> on <m>[a,b]</m>, then
+<md>
+<mrow>
+|I-T_n|\le\frac{M(b-a)^3}{12n^2}
+</mrow>
+</md>
+where <m>I=\int_a^b f(x)\,\dee{x}</m> and <m>T_n</m> is the Trapezoidal Rule approximation
+to <m>I</m> using <m>n</m> subintervals.
+</li>
+</ol>
+</p>
+</statement>
+<hint><p>
+See Example <xref ref="eg_MidpointErr2"/>.
+</p>
+
+<p>Don't get caught up in the interpretation of the integral. It's nice to see how integrals can be used, but for this problem, you're still just approximating the integral given, and bounding the error.
+</p>
+
+<p>When you find the second derivative to bound your error, pay attention to the difference between the integrand and <m>g(r)</m>.
+</p></hint>
+
+<answer><p>
+(a) <m>0.025635</m>
+</p>
+<p>
+  (b) <m>1.8\times 10^{-5}</m>
+</p></answer>
+
+<solution><p>
+(a)
+ The Trapezoidal Rule with <m>n=4</m>, <m>a=0</m>, <m>b=1</m>, and <m>\De x = \frac{1}{4}</m> gives:
+<md>
+<mrow>
+W=2\pi 10^{-6}\int_0^1 rg(r)\,\dee{r}
+&amp;\approx 2\pi 10^{-6}\De x\left[\frac{1}{2}x_0g(x_0)+x_1g(x_1)+x_2g(x_2)+x_3g(x_3)+ \frac{1}{2}x_4g(x_4)\right]
+</mrow><mrow>
+&amp;=2\pi 10^{-6}\ \frac{1}{4}
+\Big[\frac{1}{2} 0g(0)+\frac{1}{4}g\Big(\frac{1}{4}\Big)
++\frac{1}{2}g\Big(\frac{1}{2}\Big)+\frac{3}{4}g\Big(\frac{3}{4}\Big)
++\frac{1}{2} g(1)\Big]
+</mrow><mrow>
+&amp;=\pi 10^{-6}\ \frac{1}{2}
+\Big[\frac{8100}{4}
++\frac{8144}{2}+\frac{3\cdot 8170}{4}
++\frac{8190}{2} \Big]
+</mrow><mrow>
+&amp; = \frac{32639\pi}{4\cdot 10^6}\approx 0.025635
+</mrow>
+</md>
+</p>
+
+<p>  (b)
+Using the product rule, the integrand <m>f(r)=2\pi 10^{-6} rg(r)</m> obeys
+<md>
+<mrow>
+f''(r)=2\pi 10^{-6} \diff{}{r}\big[g(r)+ rg'(r)\big]
+=2\pi 10^{-6} \big[2g'(r)+ rg''(r)\big]
+</mrow>
+</md>
+and hence, for <m>0\le r\le 1</m>,
+<md>
+<mrow>
+\big|f''(r)\big|\le 2\pi 10^{-6} \big[2\times200 + 1\times 150\big]
+=1.1\pi 10^{-3}
+</mrow>
+</md>
+So,
+<md>
+<mrow>
+|\text{Error}|\le \frac{1.1\pi 10^{-3}(1-0)^3}{12(4)^2}
+\le1.8\times 10^{-5}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>1997A</fromexam></title>
+<statement><p>
+Simpson's rule can be used to approximate <m>\log 2</m>,
+since <m>\displaystyle\log 2=\int_1^2\frac{1}{x}\,\dee{x}</m>.
+<ol label="a">
+<li>
+Use Simpson's rule with 6 subintervals to approximate <m>\log 2</m>.
+</li>
+<li>
+<p>
+How many subintervals are required in order to guarantee
+that the absolute error is less than <m>0.00001</m>?
+</p>
+
+<p>   Note that if <m>E_n</m> is the error using <m>n</m> subintervals, then
+<m>|E_n|\le\dfrac{L(b-a)^5}{180n^4}</m> where <m>L</m> is the maximum absolute value
+of the fourth derivative of the function being integrated and <m>a</m> and <m>b</m>
+are the end points of the interval.
+</p>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_SimpsonErr"/>. You'll want to use a calculator for the approximation in (a), and for finding the appropriate number of intervals in (b). Remember that Simpson's rule requires an even number of intervals.
+</p></hint>
+
+<answer><p> (a)
+<m>\approx 0.6931698</m>
+</p><p>
+(b) <m>n\ge 12</m> with <m>n</m> even
+</p>
+
+</answer>
+
+<solution><p> (a)
+Let <m>f(x)=\frac{1}{x}</m>, <m>a=1</m>, <m>b=2</m> and
+<m>\De x=\frac{b-a}{6}=\frac{1}{6}</m>. Using Simpson's rule:
+<md>
+<mrow>
+\int_1^2\frac{1}{x}\dee{x}
+&amp;\approx \frac{\De x}{3}\Big[
+f(1)+4f\Big(\frac{7}{6}\Big)+2f\Big(\frac{8}{6}\Big)
++4f\Big(\frac{9}{6}\Big)+2f\Big(\frac{10}{6}\Big)
++4f\Big(\frac{11}{6}\Big)+f(2)\Big]
+</mrow><mrow>
+&amp;= \frac{1}{18}\Big[
+1+\frac{24}{7}+\frac{12}{8}+\frac{24}{9}+\frac{12}{10}+\frac{24}{11}
++\frac{1}{2}\Big]\approx 0.6931698
+</mrow>
+</md>
+</p>
+
+<p>  (b)
+The integrand is <m>f(x)=\frac{1}{x}</m>. The first four derivatives
+of <m>f(x)</m> are:
+<me>
+f'(x)=-\frac{1}{x^2}, \qquad f''(x)=\frac{2}{x^3}, \qquad
+f^{(3)}(x)=-\frac{6}{x^4}, \qquad f^{(4)}(x)=\frac{24}{x^5}</me>
+ On the interval
+<m>1\le x\le 2</m>, the fourth derivative is never bigger in magnitude than
+<m>L=24</m>.
+<md>
+<mrow>
+|E_n|&amp;\le\frac{L(b-a)^5}{180n^4}
+=\frac{24(2-1)^5}{180n^4}
+=\frac{4}{30n^4}
+</mrow>
+<intertext>So, we want an even number <m>n</m> such that</intertext><mrow>
+\frac{4}{30n^4} &amp;\leq 0.00001 = \frac{1}{10^5}
+</mrow><mrow>
+n^4 &amp; \geq \frac{40000}{3}
+</mrow><mrow>
+n&amp;\geq \sqrt[4]{\frac{40000}{3}}\approx 10.7
+</mrow>
+</md>
+So, any even number greater than or equal to 12 will do.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1997D</fromexam></title>
+<statement><p>
+Let <m>I={\displaystyle\int_0^2}\cos(x^2)\dee{x}</m> and
+let <m>S_n</m> be the Simpson's rule approximation to <m>I</m> using <m>n</m> subintervals.
+<ol label="a">
+<li>
+Estimate the maximum absolute error in using <m>S_8</m> to approximate <m>I</m>.
+</li>
+<li>
+How large should <m>n</m> be in order to ensure that <m>|I-S_n|\le 0.0001</m>?
+</li>
+</ol>
+   Note: The graph of <m>f''''(x)</m>, where <m>f(x)=\cos(x^2)</m>,
+is shown below. The absolute error in the Simpson's rule approximation
+is bounded by <m>\dfrac{L(b-a)^5}{180n^4}</m> when <m>|f''''(x)|\le L</m> on the
+interval <m>[a,b]</m>.
+</p>
+<sidebyside width="50%">
+<image source="problems/figs/graphE97D_11"/>
+</sidebyside>
+</statement>
+
+<hint><p>
+See Example <xref ref="eg_SimpsonErr"/>.
+</p>
+
+<p>Rather than calculating the fourth derivative of the integrand, use the graph to find the largest absolute value it attains over our interval.
+</p></hint>
+
+<answer><p> (a)
+<m>0.01345</m>
+</p>
+<p>
+  (b) <m>n\ge 28</m> with <m>n</m> even
+</p>
+
+</answer>
+
+<solution><p> (a)
+From the figure, we see that the magnitude of <m>|f''''(x)|</m>
+never exceeds 310 for <m>0\le x\le 2</m>. So, the absolute error is bounded by
+<md>
+<mrow>
+\frac{310(2-0)^5}{180\times 8^4}\le 0.01345
+</mrow>
+</md>
+</p>
+
+<p>  (b)
+We want to choose <m>n</m> such that:
+<md>
+<mrow>
+\frac{310(2-0)^5}{180\times n^4}&amp;\le 10^{-4}
+</mrow><mrow>
+n^4&amp;\ge \frac{310\times 2^5}{180}10^4
+</mrow><mrow>
+n&amp;\ge 10\root 4 \of {\frac{310\times 32}{180}}\approx27.2
+</mrow>
+</md>
+For Simpson's rule, <m>n</m> must be even, so any even integer obeying
+<m>n\ge28</m> will guarantee us the requisite accuracy.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2000D</fromexam></title>
+<statement><p>
+Define a function <m>f(x)</m> and an integral <m>I</m> by
+<md>
+<mrow>
+f(x)=\int_0^{x^2}\sin(\sqrt{t})\,\dee{t},\qquad I=\int_0^1 f(t)\,\dee{t}
+</mrow>
+</md>
+Estimate how many subdivisions are needed to calculate <m>I</m> to five decimal
+places of accuracy using the trapezoidal rule.
+</p>
+
+<p>   Note that if <m>E_n</m> is the error using <m>n</m> subintervals, then
+<m>|E_n|\le\dfrac{M(b-a)^3}{12n^2\vphantom{\frac{1}{2}}}</m>, where <m>M</m> is the maximum absolute value
+of the second derivative of the function being integrated and <m>a</m> and <m>b</m>
+are the limits of integration.
+</p>
+
+</statement>
+
+<hint><p>
+See Example <xref ref="eg_MidpointErr2"/>.
+</p>
+
+<p>You'll have to differentiate <m>f(x)</m>. To that end, you may also want to review the fundamental theorem of calculus
+and, in particular, Example <xref ref="eg_INTftocB"/>.
+</p>
+
+<p>You don't have to find the best possible value for <m>M</m>. A reasonable upper bound on <m>|f''(x)|</m> will do.
+</p>
+
+<p>To have five decimal places of accuracy, your error must be less than 0.000005. This ensures that, if you round your approximation to five decimal places, they will all be correct.
+</p></hint>
+
+<answer><p>
+<m>n\ge 259</m>
+</p></answer>
+
+<solution><p>
+Let <m>g(x)=\displaystyle\int_0^x\sin(\sqrt{t})\,\dee{t}</m>. By the Fundamental Theorem of Calculus Part 1,
+<m>g'(x)= \sin(\sqrt{x})</m>. By its definition, <m>f(x)=g(x^2)</m>, so we use the chain rule to differentiate <m>f(x)</m>.
+<md>
+<mrow>
+f'(x)=2xg'(x^2)=2x\sin x\qquad\qquad
+f''(x)=2\sin x+2x\cos x
+</mrow>
+</md>
+Since <m>|\sin x|,|\cos x|\le 1</m>, we have
+ <m>|f''(x)|\le 2+2|x|</m> and, for <m>0\le t\le 1</m>, <m>|f''(t)|\le 4</m>. When the
+trapezoidal rule with <m>n</m> subintervals is applied, the resulting error <m>E_n</m> obeys
+<md>
+<mrow>
+E_n&amp;\le\frac{4(1-0)^3}{12n^2}=\frac{1}{3n^2}
+</mrow>
+<intertext>We want an integer <m>n</m> such that </intertext><mrow>
+\frac{1}{3n^2}&amp;\le 0.000005
+</mrow><mrow>
+n^2&amp;\ge \frac{4}{12\times 0.000005}
+</mrow><mrow>
+n&amp;\ge\sqrt{ \frac{1}{3\times 0.000005}} \approx258.2
+</mrow>
+</md>
+Any integer <m>n \geq 259</m> will do.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_11_exactM">
+<statement>
+<p>Let <m>f(x)</m> be a function
+<fn>
+	For example, <m>f(x)=\frac{1}{6}x^3-\frac{1}{2}x^2+(1+x)\log|x+1|</m> will do, but you don't need to know what <m>f(x)</m> is for this problem.</fn>
+with <m>f''(x) = \dfrac{x^2}{x+1}</m>.
+</p>
+
+<p><ol label="a">
+<li> Show that <m>|f''(x)| \leq 1</m> whenever <m>x</m> is in the interval <m>[0,1]</m>.
+</li>
+<li> Find the maximum value of <m>|f''(x)|</m> over the interval <m>[0,1]</m>.
+</li>
+<li> Assuming <m>M=1</m>, how many intervals should you use to approximate <m>\displaystyle\int_{0}^{1}f(x) \dee{x}</m> to within <m>10^{-5}</m>?
+</li>
+<li> Using the value of  <m>M</m> you found in (b), how many intervals should you use to approximate <m>\displaystyle\int_0^1 f(x) \dee{x}</m> to within <m>10^{-5}</m>?
+</li>
+</ol>
+</p>
+
+</statement>
+<hint><p>
+To find the maximum value of <m>|f''(x)|</m>, check its critical points and endpoints.
+</p></hint>
+<answer><p>
+(a) When <m>0 \leq x \leq1</m>, then <m>x^2 \leq 1</m> and <m>x+1 \geq 1</m>, so
+<me>|f''(x)| = \dfrac{x^2}{|x+1|}\leq \dfrac{1}{1}=1.</me>.
+</p><p>
+(b) <m>\dfrac{1}{2}</m>
+</p><p>
+(c) <m>n \geq 65</m>
+</p><p>
+(d) <m>n \geq 46</m>
+</p></answer>
+<solution>
+
+<p><ol label="a">
+<li> When <m>0 \leq x \leq1</m>, then <m>x^2 \leq 1</m> and <m>x+1 \geq 1</m>, so <m>|f''(x)| = \dfrac{x^2}{|x+1|}\leq \dfrac{1}{1}=1</m>.
+</li>
+<li>
+<p>
+To find the maximum value of a function over a closed interval, we test the function's values at the endpoints of the interval and at its critical points inside the interval. The critical points are where the function's derivative is zero or does not exist.
+</p>
+
+<p>The function we're trying to maximize is <m>|f''(x)| = \frac{x^2}{|x+1|} = \frac{x^2}{x+1}=f''(x)</m> (since our interval only contains nonnegative numbers). So, the critical points occur when <m>f'''(x) = 0</m> or does not exist. We find <m>f'''(x)</m> Using the quotient rule.
+<md>
+<mrow>
+f'''(x)&amp;=\frac{(x+1)(2x)-x^2}{(x+1)^2}=\frac{x^2+2x}{(x+1)^2}
+</mrow><mrow>
+0&amp;=\frac{x(x+2)}{x+1}
+</mrow><mrow>
+0&amp;=x \quad\mbox{or}\quad x=-1\quad\mbox{or}\quad x=-2
+</mrow>
+</md>
+The only critical point in <m>[0,1]</m> is <m>x=0</m>. So, the extrema of <m>f''(x)</m> over <m>[0,1]</m> will occur at its endpoints. Indeed, since <m>f'''(x) \geq 0</m> for all <m>x</m> in <m>[0,1]</m>, <m>f''(x)</m> is increasing over this interval, so its maximum occurs at <m>x=1</m>. That is,
+<me>
+|f''(x)|\leq f''(1)=\frac{1}{2}</me>
+</p>
+</li>
+<li> The absolute  error using the midpoint rule is at most <m>\dfrac{M(b-a)^3}{24n^2}</m>. Using <m>M=1</m>, if we want this to be no more than <m>10^{-5}</m>, we find an acceptable value of <m>n</m> with the following calculation:
+<md>
+<mrow>
+\dfrac{M(b-a)^3}{24n^2}&amp;\leq 10^{-5}
+</mrow><mrow>
+\dfrac{1}{24n^2}&amp;\leq 10^{-5}&amp;(b-a=1,\,M=1)
+</mrow><mrow>
+\frac{10^5}{24} &amp; \leq n^2
+</mrow><mrow>
+n &amp; \geq 65
+</mrow>
+</md>
+</li>
+<li> The absolute  error using the midpoint rule is at most <m>\dfrac{M(b-a)^3}{24n^2}</m>. Using <m>M=\frac{1}{2}</m>, if we want this to be no more than <m>10^{-5}</m>, we find an acceptable value of <m>n</m> with the following calculation:
+<md>
+<mrow>
+\dfrac{M(b-a)^3}{24n^2}&amp;\leq 10^{-5}
+</mrow><mrow>
+\dfrac{1}{48n^2}&amp;\leq 10^{-5}&amp;(b-a=1,\,M=\frac{1}{2})
+</mrow><mrow>
+\frac{10^5}{48} &amp; \leq n^2
+</mrow><mrow>
+n &amp; \geq 46
+</mrow>
+</md>
+</li>
+</ol>
+Remark: how accurate you want to be in these calculations depends a lot on your circumstances. Imagine, for instance, that you were finding <m>M</m> by hand, using this to find <m>n</m> by hand, then programming a computer to evaluate the approximation. For a simple integral like this, the difference between computing time for 65 intervals versus 46 is likely to be miniscule. So, there's not much to be gained by the extra work in (b). However, if your original sloppy <m>M</m> gave you something like <m>n=1000000</m>, you might want to put some time into improving it, to shorten computation time. Moreover, if you were finding the approximation by hand, the difference between adding 46 terms and adding 65 terms would be considerable, and you would probably want to put in the effort up front to find the most accurate <m>M</m> possible.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Approximate the function <m>\log x</m> with a rational function by approximating the integral <m>\displaystyle\int_1^{x\vphantom{\frac{1}{2}}} \frac{1}{t} \dee{t}</m> using Simpson's rule. Your rational function <m>f(x)</m>  should approximate <m>\log x</m> with an error of not more than 0.1 for any <m>x</m> in the interval <m>[1,3]</m>.
+</p></statement>
+<hint><p>
+In using Simpson's rule to approximate <m>\displaystyle\int_1^{x\vphantom{\frac{1}{2}}} \frac{1}{t} \dee{t}</m> with <m>n</m> intervals, <m>a=1</m>, <m>b=x</m>, and <m>\De x = \dfrac{x-1}{n}</m>.
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{x-1}{12}\left[1+\frac{16}{x+3}+\frac{4}{x+1}+\frac{16}{3x+1}+\frac{1}{x}\right]</m>
+</p></answer>
+<solution><p>
+Before we can take our Simpson's rule approximation of <m>\displaystyle\int_1^x \dfrac{1}{t} \dee{t}</m>, we need to know how many intervals to use. That means we need to bound our error, which means we need to bound <m>\ddiff{4}{}{t}\left\{\frac{1}{t}\right\}</m>.
+<md>
+<mrow>
+\diff{}{t}\left\{\frac{1}{t}\right\}&amp;=-\frac{1}{t^2}&amp;
+\ddiff{2}{}{t}\left\{\frac{1}{t}\right\}&amp;=\frac{2}{t^3}
+</mrow><mrow>
+\ddiff{3}{}{t}\left\{\frac{1}{t}\right\}&amp;=-\frac{6}{t^4}&amp;
+\ddiff{4}{}{t}\left\{\frac{1}{t}\right\}&amp;=\frac{24}{t^5}
+</mrow>
+</md>
+So, over the interval <m>[1,3]</m>, <m>\displaystyle\left|\ddiff{4}{}{t}\left\{\frac{1}{t}\right\}\right| \leq 24</m>.
+</p>
+
+<p>Now, we can find an appropriate <m>n</m> to ensure our error will be be less than 0.1 for any <m>x</m> in <m>[1,3]</m>:
+<md>
+<mrow>
+\frac{L(b-a)^5}{180 n^4}&amp; \lt 0 .1
+</mrow><mrow>\frac{24(x-1)^5}{180 n^4}&amp; \lt  \frac{1}{10}
+</mrow><mrow>n^4 &amp; \gt  \frac{24\cdot (x-1)^5}{18}
+</mrow>
+<intertext>Because <m>x-1 \leq 2</m> for every <m>x</m> in <m>[1,3]</m>, if <m>n^4  \gt  \dfrac{24\cdot 2^5}{18}</m>, then <m>n^4  \gt  \dfrac{24\cdot (x-1)^5}{18}</m> for every allowed <m>x</m>.
+</intertext><mrow>
+n^4&amp; \gt   \frac{24\cdot 2^5}{18}= \frac{128}{3}
+</mrow><mrow>
+n&amp; \gt \sqrt[4]{\frac{128}{3}}\approx  2.6
+</mrow>
+</md>
+Since <m>n</m> must be even, <m>n=4</m> is enough intervals to guarantee our error is not too high for any <m>x</m> in <m>[1,3]</m>. Now we find our Simpson's rule approximation with <m>n=4</m>, <m>a=1</m>, <m>b=x</m>,  and <m>\Delta x = \dfrac{x-1}{4}</m>. The points where we evaluate <m>\frac{1}{t}</m> are:
+<md>
+<mrow>
+x_0 =&amp; 1 &amp; x_1&amp;=1+ \frac{x-1}{4}&amp; x_2&amp;=1+2\cdot\frac{x-1}{4}&amp; x_3&amp;=1+3\cdot\frac{x-1}{4}&amp; x_4&amp;=1+4\cdot\frac{x-1}{4}
+</mrow><mrow>
+&amp;  &amp; &amp;=\frac{x+3}{4}&amp; &amp;=\frac{x+1}{2}&amp;&amp;=\frac{3x+1}{4}&amp; &amp;=x
+</mrow>
+</md>
+</p>
+
+<sidebyside>
+<image><latex-image><![CDATA[\begin{tikzpicture}[scale=1.8]
+  \draw[ \lt - \gt , thick] (-.5,0)--(8.5,0);
+	\YExcoord{0}{\atp{1}{x_{0}}}
+	\YExcoord{2}{\atp{\frac{x+3}{4}}{x_{1}}}
+	\YExcoord{4}{\atp{\frac{x+1}{2}}{x_{2}}}
+	\YExcoord{6}{\atp{\frac{3x+1}{4}}{x_{3}}}
+	\YExcoord{8}{\atp{x}{x_{3}}}
+  \end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+  <md>
+<mrow>
+\log x=\int_1^x \frac{1}{t} \dee{t}&amp;\approx \frac{\De x}{3}\left[\frac{1}{x_0}+\frac{4}{x_1}+\frac{2}{x_2}+\frac{4}{x_3}+\frac{1}{x_4}\right]
+</mrow><mrow>
+&amp;=\frac{x-1}{12}\left[1+\frac{16}{x+3}+\frac{4}{x+1}+\frac{16}{3x+1}+\frac{1}{x}\right]
+</mrow><mrow>
+&amp;=f(x)
+</mrow>
+</md>
+</p>
+
+<p>Below is a graph of our approximation <m>f(x)</m> and natural logarithm on the same axes. The natural logarithm function is shown red and dashed, while our approximating function is solid blue. Our approximation appears to be quite accurate for small, positive values of <m>x</m>.
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{11}{2}{6.5}
+\draw[ultra thick, blue] plot[domain=.4:10.5, samples=100](\x,{2*(\x-1)/12*(1+16/(\x+3)+4/(\x+1)+16/(3*\x+1)+1/\x)}) node[above]{$y=f(x)$};
+\draw[ultra thick, dashed, red] plot[domain=.4:10.5, samples=100](\x,{2*(ln \x)}) node[below]{$y=\log x$};
+\foreach \x in {2,4,6,8,10}
+	{\YExcoord{\x}{\x}}
+\foreach \x in {1,2,3}
+	{\YEycoord{2*\x}{\x}}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Using an approximation of the area under the curve <m>\dfrac{1}{x^2+1}</m>, show that the constant <m>\arctan2</m> is in the interval <m>\left[\dfrac{\pi}{4}+0.321,\, \dfrac{\pi}{4}+0.323\right]</m>.
+</p>
+
+<p>You may assume use without proof that <m>\displaystyle\ddiff{4}{}{x}\left\{\frac{1}{1+x^2}\right\} = \dfrac{24(5x^4-10x^2+1)}{(x^2+1)^5}</m>. You may use a calculator, but only to add, subtract, multiply, and divide.
+</p></statement>
+<hint><p>
+<ul>
+<li> <m>\int_1^2 \frac{1}{1+x^2} \dee{x} = \arctan(2) - \frac{\pi}{4}</m>, so
+<m>\arctan(2) = \frac{\pi}{4}+\int_1^2 \frac{1}{1+x^2} \dee{x}</m>
+</li>
+<li> If an approximation <m>A</m> of the integral <m> \int_1^2 \frac{1}{1+x^2} \dee{x}</m> has error at most <m>\varepsilon</m>, then <m>A-\varepsilon \leq \int_1^2 \frac{1}{1+x^2} \dee{x} \leq A+\varepsilon</m>.
+</li>
+<li> Looking at our target interval will tell you how small <m>\varepsilon</m> needs to be, which in turn will tell you how many intervals you need to use.
+</li>
+<li> You can show, by considering the numerator and denominator separately, that <m>|f^{(4)}(x)| \leq 30.75</m> for every <m>x</m> in <m>[1,2]</m>.
+</li>
+<li> If you use Simpson's rule to approximate <m>\int_1^2 \frac{1}{1+x^2} \dee{x}</m>, you won't need very many intervals to get the requisite accuracy.
+</li>
+</ul>
+</p></hint>
+<answer>
+<p>Note: for more detail, see the solutions.</p>
+
+
+<p>First, we use Simpson's rule with <m>n=4</m>  to approximate <m>\int_1^2 \frac{1}{1+x^2}\,\dee{x}</m>. The choice of this method (what we're approximating, why <m>n=4</m>, etc.) is explained in the solutions--here, we only show that it works.
+<me>
+\int_1^2 \frac{1}{1+x^2}\,\dee{x} \approx\frac{1}{12}\left[
+\frac{1}{2} + \frac{64}{41}+\frac{8}{13}+\frac{64}{65}+\frac{1}{5}
+\right]\approx 0.321748 </me>
+</p>
+
+<p>For ease of notation, define <m>A=0.321748</m>.
+</p>
+
+<p>Now, we bound the error associated with this approximation. Define <m>N(x) = 24(5x^4-10x^2+1)</m> and <m>D(x) = (x^2+1)^5</m>, so <m>N(x)/D(x)</m> gives the fourth derivative of <m>\frac{1}{1+x^2}</m>. When <m>1 \le x \le 2</m>, <m>|N(x)| \le N(2)=984</m> (because <m>N(x)</m> is increasing over that interval) and <m>|D(x)| \geq D(1) = 2^5</m> (because <m>D(x)</m> is also increasing over that interval), so <m>\left| \ddiff{4}{}{x}\left\{\frac{1}{1+x^2}\right\}\right| = \left| \frac{N(x)}{D(x)}\right| \leq \frac{984}{2^5}=30.75</m>. Now we find the error bound for Simpson's rule with <m>L=30.75</m>, <m>b=2</m>, <m>a=1</m>, and <m>n=4</m>.
+<me>
+\left| \int_1^2 \frac{1}{1+x^2}\,\dee{x} - A\right| =|\text{error}| \leq \frac{L(b-a)^5}{180\cdot n^4}\
+=\frac{30.75}{180\cdot 4^4} \lt 0.00067</me>
+</p>
+
+<p>So,
+<md>
+<mrow>
+-0.00067 &amp;&amp; \lt &amp;&amp;  \int_1^2 \frac{1}{1+x^2}\,\dee{x} - A &amp;&amp; \lt &amp;&amp; 0.00067
+</mrow><mrow>
+A-0.0067 &amp;&amp; \lt &amp;&amp;  \int_1^2 \frac{1}{1+x^2}\,\dee{x}  &amp;&amp; \lt &amp;&amp; A+0.00067
+</mrow><mrow>
+A-0.00067 &amp;&amp; \lt &amp;&amp; \arctan(2)-\arctan(1) &amp;&amp; \lt &amp;&amp; A+0.00067
+</mrow><mrow>
+A-0.00067 &amp;&amp; \lt &amp;&amp; \arctan(2)-\frac{\pi}{4} &amp;&amp; \lt &amp;&amp; A+0.00067
+</mrow><mrow>
+\frac{\pi}{4}+A-0.00067 &amp;&amp; \lt &amp;&amp; \arctan(2) &amp;&amp; \lt &amp;&amp;\frac{\pi}{4}+ A+0.00067
+</mrow><mrow>
+\frac{\pi}{4}+0.321748-0.00067 &amp;&amp; \lt &amp;&amp; \arctan(2) &amp;&amp; \lt &amp;&amp;\frac{\pi}{4}+0.321748+0.00067
+</mrow><mrow>
+\frac{\pi}{4}+0.321078 &amp;&amp; \lt &amp;&amp; \arctan(2) &amp;&amp; \lt &amp;&amp;\frac{\pi}{4}+0.322418
+</mrow><mrow>
+\frac{\pi}{4}+0.321 &amp;&amp; \lt &amp;&amp; \arctan(2) &amp;&amp; \lt &amp;&amp;\frac{\pi}{4}+0.323
+</mrow>
+</md>
+This was the desired bound.
+</p></answer>
+<solution><p>
+First, we want a strategy for approximating <m>\arctan 2</m>. Our hints are that involves integrating <m>\dfrac{1}{1+x^2}</m>, which is the antiderivative of arctangent, and the number <m>\dfrac{\pi}{4}</m>, which is the same as <m>\arctan(1)</m>. With that in mind:
+<md>
+<mrow>
+\int_1^2 \frac{1}{1+x^2} \dee{x}&amp; = \arctan(2) - \arctan(1) = \arctan(2) - \frac{\pi}{4}
+</mrow><mrow>
+\text{So, }\qquad \arctan(2) &amp;= \frac{\pi}{4} + \int_1^2 \frac{1}{1+x^2} \dee{x}\tag{$*$}
+</mrow>
+<intertext>We won't know the value of the integral exactly, but we'll have an approximation <m>A</m> bounded by some positive error bound <m>\varepsilon</m>. Then,</intertext><mrow>
+ - \varepsilon &amp;\leq \left(\int_1^2 \frac{1}{1+x^2} \dee{x} - A\right) \leq \varepsilon
+</mrow><mrow>
+A - \varepsilon &amp;\leq \left(\int_1^2 \frac{1}{1+x^2} \dee{x}\right) \leq A + \varepsilon
+</mrow><mrow>
+ \text{So, from ($*$), }\qquad \frac{\pi}{4}+A-\varepsilon&amp; \leq \arctan(2) \leq \frac{\pi}{4}+A+\varepsilon
+</mrow>
+</md>
+</p>
+
+<p>Which approximation should we use? We're given the fourth derivative of <m>\dfrac{1}{1+x^2}</m>, which is the derivative we need for Simpson's rule.  Simpson's rule  is also usually quite efficient, and we're very interested in not adding up dozens of terms, so we  choose Simpson's rule.
+</p>
+
+<p>Now that we've chosen Simpson's rule, we should decide how many intervals to use.
+In order to bound our error, we need to find a bound for the fourth derivative. To that end, define <m>N(x) = 24(5x^4-10x^2+1)</m>. Then <m>N'(x) = 24(20x^3-20x)= 480x(x^2-1)</m>, which is positive over the interval <m>[1,2]</m>. So, <m>N(x) \leq N(2)=24(5\cdot 2^4 - 10\cdot 2^2+1)=984</m> when <m>1 \leq x \leq 2</m>. Furthermore, let <m>D(x)=(x^2+1)^5</m>. If  <m>1 \leq x \leq 2</m>, then <m>D(x) \geq 2^5</m>. Now we can find   a reasonable value of <m>L</m>:
+<md>
+<mrow>
+|f^{(4)}(x)|&amp;=\left|\frac{25(5x^4-10x^2+1)}{(x^2+1)^5}\right| =
+\left|\frac{N(x)}{D(x)}\right| \leq \frac{984}{2^5} = \frac{123}{4} = 30.75
+</mrow>
+</md>
+So, we take <m>L=30.75</m>.
+</p>
+
+<p> We want <m>\left[\dfrac{\pi}{4}+A-\varepsilon ,\, \dfrac{\pi}{4}+A+\varepsilon \right]</m> to look something like <m>\left[\dfrac{\pi}{4}+0.321,\, \dfrac{\pi}{4}+0.323\right]</m>. Note <m>\varepsilon</m> is half the length of the first interval. Half the length of the second interval is <m>0.001 = \frac{1}{1000}</m>. So, we want a value of <m>\varepsilon</m> that is no larger than this. Now we can find our <m>n</m>:
+ <md>
+<mrow>
+\dfrac{L(b-a)^5}{180\cdot n^4} &amp;\leq \frac{1}{1000}
+</mrow><mrow>
+\dfrac{30.75}{180\cdot n^4} &amp;\leq \frac{1}{1000}
+</mrow><mrow>
+n^4 &amp; \geq \frac{30.75\times 1000}{180}
+</mrow><mrow>
+n &amp; \geq \sqrt[4]{\frac{30750}{180}}\approx 3.62
+ </mrow>
+</md>
+</p>
+
+<p> So, we choose <m>n=4</m>), and are guaranteed that the absolute error in our approximation will be no more than <m>\dfrac{30.75}{180\cdot 4^4}  \lt  0.00067</m>.
+</p>
+
+<p>Since <m>n=4</m>, then <m>\De x = \dfrac{b-a}{n}=\dfrac{1}{4}</m>, so:
+<me>
+x_0 = 1 \qquad x_1=\frac{5}{4} \qquad x_2 = \frac{3}{2} \qquad x_3 = \frac{7}{4} \qquad x_4=2</me>
+</p>
+
+<p>Now we can find our Simpson's rule approximation <m>A</m>:
+<md>
+<mrow>
+\int_0^1 \frac{1}{1+x^2} \dee{x}&amp;\approx \frac{\De x}{3}\big[
+f(x_0) + 4f(x_1)+2f(x_2)+4f(x_3)+f(x_4)
+\big]
+</mrow><mrow>
+&amp;=\frac{1/4}{3}\big[
+f(1) + 4f(5/4)+2f(3/2)+4f(7/4)+f(2)
+\big]
+</mrow><mrow>
+&amp;=\frac{1}{12}\left[
+\frac{1}{1+1} + \frac{4}{25/16+1}+\frac{2}{9/4+1}+\frac{4}{49/16+1}+\frac{1}{4+1}
+\right]
+</mrow><mrow>
+&amp;=\frac{1}{12}\left[
+\frac{1}{2} + \frac{4\cdot 16}{25+16}+\frac{2\cdot 4}{9+4}+\frac{4\cdot 16}{49+16}+\frac{1}{5}
+\right]
+</mrow><mrow>
+&amp;=\frac{1}{12}\left[
+\frac{1}{2} + \frac{64}{41}+\frac{8}{13}+\frac{64}{65}+\frac{1}{5}
+\right]
+</mrow><mrow>
+&amp;\approx 0.321748=A
+</mrow>
+</md>
+</p>
+
+<p>As we saw before, the error associated with this approximation is at most <m> \dfrac{30.75}{180\cdot 4^4}  \lt  0.00067=\varepsilon</m>. So,
+<md>
+<mrow>
+&amp;A-\varepsilon \quad&amp;&amp;\leq\quad &amp;&amp; \int_1^2\frac{1}{1+x^2} \dee{x}   &amp;\leq \quad &amp;A+\varepsilon&amp;
+</mrow><mrow>
+\Rightarrow\qquad&amp;0.321748 - 0.00067 \quad&amp;&amp;\leq\quad &amp;&amp; \int_1^2\frac{1}{1+x^2} \dee{x}  \quad &amp;\leq \quad &amp;0.321748 + 0.00067&amp;
+</mrow><mrow>
+\Rightarrow\qquad&amp;0.321078 &amp;&amp;\leq\quad &amp; &amp;\int_1^2\frac{1}{1+x^2} \dee{x}\quad   &amp;\leq \quad &amp;0.322418&amp;
+</mrow><mrow>
+\Rightarrow\qquad&amp;0.321 &amp;&amp;\leq\quad  &amp;&amp;\int_1^2\frac{1}{1+x^2} \dee{x}\quad   &amp;\leq \quad &amp;0.323&amp;
+</mrow><mrow>
+\Rightarrow\qquad&amp;\frac{\pi}{4}+0.321 &amp;&amp; \leq\quad  &amp;&amp;\int_1^2\frac{1}{1+x^2} \dee{x}+\frac{\pi}{4}\quad   &amp;\leq \quad &amp;\frac{\pi}{4}+0.323&amp;
+</mrow><mrow>
+\Rightarrow\qquad&amp;\frac{\pi}{4}+0.321 &amp;&amp; \leq\quad &amp;&amp;\arctan(2)   &amp;\leq \quad &amp;\frac{\pi}{4}+0.323&amp;
+</mrow>
+</md>
+</p>
+
+<p>This is precisely what we wanted to show.
+</p></solution>
+</exercise></exercisegroup>
+
+</exercises>

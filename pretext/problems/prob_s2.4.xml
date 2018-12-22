@@ -1,0 +1,3031 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<exercises>
+
+<introduction>
+<p>
+Recall that we are using <m>\log x</m> to denote the logarithm of <m>x</m> with
+base <m>e</m>. In other courses it is often denoted <m>\ln x</m>.
+</p>
+</introduction>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise purpose="RQS">
+<statement><p>
+Below are pairs of functions <m>y=f(x)</m> and differential equations. For each pair, decide whether the function is a solution of the differential equation.
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell></cell><cell><alert>function</alert></cell><cell><alert>differential equation</alert></cell>
+</row><row>
+<cell>
+(a)</cell><cell><m>y=5(e^x-3x^2-6x-6)</m></cell><cell><m>\displaystyle \diff{y}{x}=y+15x^2</m></cell>
+</row><row>
+<cell>(b) </cell><cell> <m>y=\dfrac{-2}{x^2+1}</m></cell><cell><m>y'(x)=xy^2</m></cell>
+</row><row>
+<cell>(c)</cell><cell><m>y=x^{3/2}+x</m></cell><cell><m>\displaystyle\left(\diff{y}{x}\right)^2 + \diff{y}{x}=y</m></cell>
+</row>
+</tabular>
+</sidebyside>
+</statement>
+<hint><p>
+You don't need to solve the differential equation from scratch, only verify whether the given function <m>y=f(x)</m> makes it true. Find <m>\diff{y}{x}</m> and plug it into the differential equation.
+</p></hint>
+<answer><p>
+(a) yes
+</p><p>
+ (b) yes
+</p><p>
+ (c) no
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> If <m>y=5(e^x-3x^2-6x-6)</m>, then <m>\diff{y}{x} = 5(e^x-6x-6)</m>. Let's see whether this is equal to <m>y+15x^2</m>:
+<md>
+<mrow>
+y+15x^2&amp;=5(e^x-3x^2-6x-6)+15x^2
+</mrow><mrow>
+&amp;=5(e^x-3x^2-6x-6+3x^2)
+</mrow><mrow>
+&amp;=5(e^x-6x-6)
+</mrow><mrow>
+&amp;=\diff{y}{x}
+</mrow>
+</md>
+So, <m>y=5(e^x-3x^2-6x-6)</m> is indeed a solution to the differential equation <m>\diff{y}{x}=y+15x^2</m>.
+</li>
+<li> If <m>y=\dfrac{-2}{x^2+1}</m>, then  <m>\diff{y}{x} = \dfrac{4x}{(x+1)^2}</m>. Let's see whether this is equal to <m>xy^2</m>:
+<md>
+<mrow>
+xy^2&amp;=x\left(\frac{-2}{x^2+1}\right)^2
+</mrow><mrow>
+&amp;=\frac{4x}{(x^2+1)^2}
+</mrow><mrow>
+&amp;=\diff{y}{x}
+</mrow>
+</md>
+So, <m>y=\dfrac{-2}{x^2+1}</m> is indeed a solution to the differential equation <m>\diff{y}{x}=yx^2</m>.
+</li>
+<li> If <m>y=x^{3/2}+x</m>, then  <m>\diff{y}{x} = \frac{3}{2}\sqrt{x}+1</m>.
+<md>
+<mrow>
+\left(\diff{y}{x}\right)^2+\diff{y}{x}&amp;=\left(\frac{3}{2}\sqrt{x}+1\right)^2+\frac{3}{2}\sqrt{x}+1
+</mrow><mrow>
+&amp;=\frac{9}{4}x+\frac{9}{2}\sqrt{x}+2
+</mrow><mrow>
+&amp;\neq \diff{y}{x}
+</mrow>
+</md>
+So, <m>y=x^{3/2}+x</m> is not a solution to the differential equation <m>\left(\diff{y}{x}\right)^2+\diff{y}{x}=y</m>.
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Following Definition<nbsp/><xref ref="def_SDEsepdiffeq"/>, a separable differential equation has the form
+<me>
+\diff{y}{x}(x) = f(x)\ g\big(y(x)\big).</me>
+</p>
+
+<p>Show that each of the following equations can be written in this form, identifying <m>f(x)</m> and <m>g(y)</m>.
+<ol label="a">
+<li> <m>3y\diff{y}{x}=x\sin y</m>
+</li>
+<li> <m>\diff{y}{x} = e^{x+y}</m>
+</li>
+<li>  <m>\diff{y}{x}+1=x</m>
+</li>
+<li> <m>\left(\diff{y}{x}\right)^2-2x\diff{y}{x}+x^2=0</m>
+</li>
+</ol>
+</p></statement>
+<hint><p>
+For (d), note the equation given is quadratic in the variable <m>\diff{y}{x}</m>.
+</p></hint>
+<answer><p>
+<ol label="a">
+<li> One possible answer: <m>f(x)=x</m>, <m>g(y)=\dfrac{\sin y}{3y}</m>.
+</li>
+<li> One possible answer:  <m>f(x) = e^x</m>, <m>g(y) = e^y</m>.
+</li>
+<li> One possible answer:  <m>f(x) = x+1</m>, <m>g(y) = 1</m>.
+</li>
+<li> The given equation is equivalent to the equation <m>\diff{y}{x}=x</m>, which fits the form of a separable equation with <m>f(x)=x</m>, <m>g(y)=1</m>.
+</li>
+</ol>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> <m>3y\diff{y}{x}=x\sin y</m> can be written as <m>\diff{y}{x} = x\left(\frac{\sin y}{3y}\right)</m>, which fits the form of a separable equation with <m>f(x)=x</m>, <m>g(y) = \frac{\sin y}{3y}</m>.
+</li>
+<li> <m>\diff{y}{x} = e^{x+y} = e^xe^y</m>
+which fits the form of a separable equation using <m>f(x) = e^x</m>, <m>g(y) = e^y</m>.
+</li>
+<li>  <m>\diff{y}{x}+1=x</m> can be written as <m>\diff{y}{x} = (x-1)</m>, which fits the form of a separable equation using <m>f(x)=x+1</m>, <m>g(y)=1</m>. (We can solve it by simply antidifferentiating.)
+</li>
+<li> Notice the left side of the equation <m>\left(\diff{y}{x}\right)^2-2x\diff{y}{x}+x^2=0</m> is a perfect square. So, this equation is equivalent to <m>\left(\diff{y}{x}-x\right)^2=0</m>, that is, <m>\diff{y}{x}=x</m>. This has the form of a separable equation with <m>f(x)=x</m>, <m>g(y)=1</m>.
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose we have the following functions:
+<ul>
+<li> <m>y</m> is a differentiable function of <m>x</m>
+</li>
+<li> <m>f</m> is a function of <m>x</m>, with <m>\int f(x)\,\dee{x}=F(x)</m>
+</li>
+<li> <m>g</m> is a nonzero function of <m>y</m>, with <m>\int \frac{1}{g(y)} \,\dee{y}=G(y)=G(y(x))</m>.
+</li>
+</ul>
+</p>
+
+<p>In the work below, we set up a solution to the separable differential equation
+<me>
+\diff{y}{x}=f(x)g(y)=f(x)g(y(x)))
+</me>
+without using the mnemonic of Equation<nbsp/><xref ref="eq_SDEbasicSln"/>.
+</p>
+
+<p>By deleting some portion of our work, we can create the solution as it would look using the mnemonic. What portion can be deleted?
+</p>
+
+<p>Remark: the purpose of this exercise is to illuminate what, exactly, the mnemonic is a shortcut for. Despite its peculiar look, it agrees with what we already know about integration.
+</p>
+
+<blockquote>
+<textblue>
+<p>
+<md>
+<mrow>
+\diff{y}{x}&amp;=f(x)g(y(x))
+</mrow>
+<intertext>Since <m>g(y(x))</m> is a nonzero function, we can divide both sides by it.</intertext><mrow>
+\frac{1}{g(y(x))}\cdot\diff{y}{x}&amp;=f(x)
+</mrow>
+<intertext>If these functions of <m>x</m> are the same, then they have the same antiderivative with respect to <m>x</m>.</intertext><mrow>
+\int \frac{1}{g(y(x))}\cdot\diff{y}{x}\,\dee{x}&amp;=\int f(x)\,\dee{x}
+</mrow>
+<intertext>The left integral is in the correct form for a change of variables to <m>y</m>. To make this easier to see, we'll use a <m>u</m>-substitution, since it's a little more familiar than a <m>y</m>-substitution. If <m>u=y</m>, then <m>\diff{u}{x}=\diff{y}{x}</m>, so <m>\dee{u}=\diff{y}{x}\dee{x}</m>.
+</intertext><mrow>
+\int\frac{1}{g(u)}\,\dee{u}&amp;=\int f(x)\,\dee{x}
+</mrow>
+<intertext>Since <m>u</m> was just the same as <m>y</m>, again for cosmetic reasons, we can swap it back. (Formally, you could have skipped the step above--we just included it to be extra clear that we're not using any integration techniques we haven't seen before.)</intertext><mrow>
+\int\frac{1}{g(y)}\,\dee{y}&amp;=\int f(x)\,\dee{x}
+</mrow>
+<intertext>We're given the antiderivatives in question.</intertext><mrow>
+G(y)+C_1&amp;=F(x)+C_2
+</mrow><mrow>
+G(y)&amp;=F(x)+(C_2-C_1)
+</mrow>
+<intertext>where <m>C_1</m> and <m>C_2</m> are arbitrary constants. Then also <m>C_2-C_1</m> is an arbitrary constant, so we might as well call it <m>C</m>.</intertext><mrow>
+G(y)&amp;=F(x)+C
+</mrow>
+</md>
+</p>
+</textblue>
+</blockquote>
+</statement>
+<hint><p>
+The step <m>\displaystyle\int \frac{1}{g(y)}\,\dee{y} = \int f(x)\,\dee{x}</m> shows up whether we're using our mnemonic or not.
+</p></hint>
+<answer><p>
+The mnemonic allows us to skip from the separable differential equation we want to solve (very first line) to the equation
+<me>
+\int \frac{1}{g(y)}\,\dee{y}=\int f(x)\,\dee{x}</me>
+</p>
+
+</answer>
+<solution><p>
+The mnemonic allows us to skip from the separable differential equation we want to solve (very first line) to the equation
+<me>
+\int \frac{1}{g(y)}\,\dee{y}=\int f(x)\,\dee{x}</me>
+</p>
+
+<p>So, the mnemonic is just a shortcut for the substitution we performed to get this point.
+</p>
+
+<p>We also generally skip the explanation about <m>C_1</m> and <m>C_2</m> being replaced with <m>C</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose <m>y=f(x)</m> is a solution to the differential equation <m>\diff{y}{x}=xy</m>.
+</p>
+
+<p>True or false: <m>f(x)+C</m> is also a solution, for any constant <m>C</m>.
+</p></statement>
+<hint><p>
+Note <m>\diff{}{x}\{f(x)\} = \diff{}{x}\{f(x)+C\}</m>. Plug in <m>y=f(x)+C</m> to the equation
+ <m>\diff{y}{x}=xy</m> to see whether it makes the equation is true.
+</p></hint>
+<answer><p>
+false
+</p></answer>
+<solution><p>
+To say <m>y=f(x)+C</m> is a solution to the differential equation means:
+<md>
+<mrow>
+\diff{}{x}\{f(x)+C\}&amp;=x(f(x)+C)
+</mrow>
+<intertext>Since <m>y=f(x)</m> is a solution, we know <m>\diff{}{x}\{f(x)\}=xf(x)</m>. Also, <m>\diff{}{x}\{f(x)+C\}=\diff{}{x}\{f(x)\}</m>. So, <m>\diff{}{x}\{f(x)+C\}=xf(x)</m>.
+</intertext>
+<mrow>
+xf(x)&amp;=x(f(x)+C)
+</mrow><mrow>
+0&amp;=xC
+</mrow>
+</md>
+Our equation should hold for all <m>x</m> in our domain, and for the derivative to <m>y</m> with respect to <m>x</m> to make sense, our domain should not be a single point. So, there is some <m>x</m> in our domain such that <m>x \neq 0</m>. Therefore, the  <m>C</m> <em>must be zero</em>. So, <m>f(x)+C</m> is <em>not</em> a solution to the differential equation for any constant <m>C</m>.
+</p>
+
+<p>When we're finding a general antiderivative, we add <q><m>+C</m></q> at the end. When we're finding a general solution to a differential equation, the <q><m>+C</m></q> gets added when we antidifferentiate--we don't add another one at the end of our work.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose a function <m>y=f(x)</m> satisfies <m>|y| = Cx</m>, for some constant <m>C \gt 0</m>.
+<ol label="a">
+<li> What is the largest possible domain of <m>f(x)</m>, given the information at hand?
+</li>
+<li>
+<p>
+Give an example of function <m>y=f(x)</m>  with the following properties, or show that none exists:
+<ul>
+<li> <m>|y| = Cx</m>,
+</li>
+<li> <m>\diff{y}{x}</m> exists for all <m>x \gt 0</m>, and
+</li>
+<li> <m>y \gt 0</m> for some values of <m>x</m>, and <m>y \lt 0</m> for others.
+</li>
+</ul>
+</p>
+</li>
+</ol>
+</p></statement>
+<hint><p>
+If a function is differentiable at a point, it is also continuous at that point.
+</p></hint>
+<answer><p>
+(a) <m>[0,\infty)</m>
+</p><p>
+(b) No such function exists. If <m>|f(x)|=Cx</m> and <m>f(x)</m> switches from <m>f(x)=Cx</m> to <m>f(x)=-Cx</m> at some point, then that point is a jump discontinuity. Where <m>f(x)</m> contains a discontinuity, <m>\diff{y}{x}</m> does not exist.
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> Since <m>|y| \geq 0</m> no matter what <m>y</m> is, we see <m>Cx \ge 0</m> for all <m>x</m> in the domain of <m>f(x)</m>. Since <m>C</m> is positive, that means the domain of <m>f(x)</m> only includes nonnegative numbers. So, the largest possible domain of <m>f(x)</m> is <m>[0,\infty)</m>.
+</li>
+<li>
+<p>
+None exists.
+</p>
+
+<p>The graph of <m>Cx</m> is given below for some positive constant <m>C</m>, also with the graph of <m>-Cx</m>. If <m>y=f(x)</m> were sometimes the top function, and other times the bottom function, then there would be a jump discontinuity where it switched. Then the derivative of <m>f(x)</m> would not exist, violating the second property.
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{3.5}{2.5}{2.5}
+\draw[very thick, blue] (0,0)--(3,2) node[right]{$y=Cx$};
+\draw[very thick, red] (0,0)--(3,-2) node[right]{$y=-Cx$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+<p>A tiny technical note is that it's possible that <m>f(x)=Cx</m> when <m>x=0</m> and <m>f(x)=-Cx</m> when <m>x \gt 0</m> (or vice-versa). This would not introduce a jump discontinuity, but it also does not satisfy that <m>f(x) \gt 0</m> for some values of <m>x</m>.
+</p>
+</li>
+</ol>
+Remark: in several instances below, solving a differential equation will lead us to conclude something like <m>|y|=g(x)</m>. In these cases, we choose either <m>y=g(x)</m>, or <m>y=-g(x)</m>, but not <m>y=\pm g(x)</m> (which is not a function) or that <m>y</m> is sometimes <m>g(x)</m>, and other times <m>-g(x)</m>. The reasoning above somewhat explains this choice: if <m>y</m> were sometimes positive and sometimes negative, then <m>\diff{y}{x}</m> would not exist at the values of <m>x</m> where the sign of <m>y</m> switches, unless that switch occurrs at a root of <m>g(x)</m>. Since that's a pretty specific occurrence, we usually feel safe ignoring it to avoid getting bogged down in technical details.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Express the following sentence
+<fn>The sentence is paraphrased from
+the Pharmakokinetics website of  Université de Lausanne, <url href="https://sepia.unil.ch/pharmacology/index.php?id=94">
+Elimination Kinetics</url>. The half-life of morphine is given on <url href="https://sepia.unil.ch/pharmacology/index.php?id=85">the same website</url>.
+Accessed 12 August 2017.</fn> as a differential equation. You don't have to solve the equation.
+</p>
+
+<blockquote>
+<textblue>
+<p>About 0.3 percent of the total quantity of morphine in the bloodstream is eliminated every minute.
+</p>
+</textblue>
+</blockquote>
+</statement>
+<hint><p>
+Let <m>Q(t)</m> be the quantity of morphine in a patient's bloodstream at time <m>t</m>, where <m>t</m> is measured in minutes.
+</p>
+
+<p>Using the definition of a derivative,
+<me>
+\diff{Q}{t}=\lim_{h \to 0}\frac{Q(t+h)-Q(t)}{h}\approx \frac{Q(t+1)-Q(t)}{1}</me>
+</p>
+
+<p>So, <m>\diff{Q}{t}</m> is roughly the change in the amount of morphine in one minute, from <m>t</m> to <m>t+1</m>.
+</p></hint>
+<answer><p>
+<m>\displaystyle \diff{Q}{t}=-0.003Q(t)</m>
+</p></answer>
+<solution><p>
+Let <m>Q(t)</m> be the quantity of morphine in a patient's bloodstream at time <m>t</m>, where <m>t</m> is measured in minutes.
+</p>
+
+<p>Using the definition of a derivative,
+<me>
+\diff{Q}{t}=\lim_{h \to 0}\frac{Q(t+h)-Q(t)}{h}\approx \frac{Q(t+1)-Q(t)}{1}</me>
+</p>
+
+<p>So, <m>\diff{Q}{t}</m> is roughly the change in the amount of morphine in one minute, from <m>t</m> to <m>t+1</m>.
+</p>
+
+<p>The sentence tells us that the change in the amount of morphine in one minute is about <m>-0.003Q</m>, where <m>Q</m> is the quantity in the bloodstream. That is:
+<me>
+\diff{Q}{t}=-0.003Q(t)</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose a particular change is occurring in a language, from an old form to a new form.
+<fn>
+An example is the change in German from <q>wollt</q> to <q>wollst</q> for the second-person conjugation of the verb <q>wollen.</q> This example is provided by the site Laws in Quantitative Linguistics, <url href="http://lql.uni-trier.de/index.php/Change_in_language">Change in Language</url>, accessed 18 August 2017.</fn>
+ Let <m>p(t)</m> be the proportion (measured as a number between 0, meaning none, and 1, meaning all) of the time that speakers use the new form. Piotrowski's law
+<fn>Piotrowski's law is paraphrased from the page <url href="http://www.glottopedia.org/index.php/Piotrowski-Gesetz" >Piotrowski-Gesetz</url> on Glottopedia, accessed 18 August 2017. According to this source, the law was based on work by the married couple R. G. Piotrowski and A. A. Piotrowskaja, later generalized by G. Altmann.
+</fn> predicts the following.
+</p>
+
+<blockquote>
+<textblue>
+<p>
+Use of the new form over time spreads at a rate that is proportional to the product of the proportion of the new form and the proportion of the old form.
+</p>
+</textblue>
+</blockquote>
+
+<p>Express this as a differential equation. You do not need to solve the differential equation.
+</p></statement>
+<hint><p>
+If <m>p(t)</m> is the proportion of the new form, then <m>1-p(t)</m> is the proportion of the old form.
+</p>
+
+<p>When we say two quantities are proportional, we mean that one is a constant multiple of the other.
+</p></hint>
+<answer><p>
+<m>\diff{p}{t}=\alpha p(t)\big(1-p(t)\big)</m>, for some constant <m>\alpha</m>.
+</p></answer>
+<solution><p>
+If <m>p(t)</m> is the proportion of times speakers use the new form, measured between 0 and 1, then <m>1-p(t)</m> is the proportion of times speakers use the old form.
+</p>
+
+<p>The law, then, states that <m>\diff{p}{t}</m> is proportional to <m>p(t)\times \big(1-p(t)\big)</m>. When we say two quantities are proportional, we mean that one is a constant multiple of the other. So, the law says
+<me>
+\diff{p}{t}=\alpha p(t)\big(1-p(t)\big)</me>
+</p>
+
+<p>for some constant <m>\alpha</m>.
+</p>
+
+<p>Remark: it follows from this model that, when a new form is either very rare or entirely ubiquitous, the rate of change of its adoption is small. This makes sense: if the new form is used all the time (<m>p(t)\approx 1</m>), there's nobody left to convert; if the new form is almost never used (<m>p(t)\approx 0</m>) then people don't know about it, so they won't pick it up.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS" xml:id="prob_s2_4_field">
+<statement><p>
+Consider the differential equation <m>y'=\frac{y}{2}-1</m>.
+<ol label="a">
+<li> When <m>y=0</m>, what is <m>y'</m>?
+</li>
+<li> When <m>y=2</m>, what is <m>y'</m>?
+</li>
+<li> When <m>y=3</m>, what is <m>y'</m>?
+</li>
+<li xml:id="prob_s2_4_fieldd"> On the axes below, interpret the marks we have made, and use them to sketch a possible solution to the differential equation.
+</li>
+</ol>
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\y}{2}{\M}
+	\SUBTRACT{\M}{1}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+The red marks show the slope <m>y(x)</m> would have at a point <em>if</em> it crosses that point. So, pick a value of <m>y(0)</m>; based on the red marks, you can see how fast <m>y(x)</m> is increasing or decreasing at that point, which leads you roughly to a value of <m>y(1)</m>; again, the red marks tell you how fast <m>y(x)</m> is increasing or decreasing, which leads you to a value of <m>y(2)</m>, etc (unless you're already off the graph).
+</p></hint>
+<answer><p>
+(a) <m>-1</m>
+</p><p>
+ (b) <m>0</m>
+</p><p>
+ (c) <m>0.5</m>
+</p><p>
+(d) Two possible answers are shown below:
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\y}{2}{\M}
+	\SUBTRACT{\M}{1}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue} \draw[thick] plot[domain=0:2](\x,{-2*(exp(\x/2))+2});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+<p>
+</p>
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\y}{2}{\M}
+	\SUBTRACT{\M}{1}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue} \draw[thick] plot[domain=0:1](\x,{(exp(\x/2))+2});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Another possible answer is the constant function <m>y=2</m>.
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> When <m>y=0</m>, <m>y'=\frac{0}{2}-1=-1</m>.
+</li>
+<li> When <m>y=2</m>, <m>y'=\frac{2}{2}-1=0</m>.
+</li>
+<li> When <m>y=3</m>, <m>y'=\frac{3}{2}-1=0.5</m>.
+</li>
+<li>
+<p>
+The small red lines have varying slopes. The red lines on points with <m>y</m>-coordinate 2 have slopes of  <m>0</m>; this matches <m>y'</m> when <m>y=0</m>, as we saw above.
+The red lines on points with <m>y</m>-coordinate 0 have slopes of approximately <m>-1</m>;
+again, this matches what we found for <m>y'</m> when <m>y=0</m>.
+</p>
+
+<p>The red lines correspond to a tiny section of <m>y(x)</m>, <em>if</em> <m>y(x)</m> passes through that point. So, we can sketch a possible curve <m>y(x)</m> satisfying the equation by starting somewhere, then following the slopes.
+</p>
+
+<p>For example, suppose we start at the origin.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\y}{2}{\M}
+	\SUBTRACT{\M}{1}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue} \draw[- \gt ] (0,0) node[vertex]{}--(.5,-.5);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Then our function is decreasing at that point, which leads us to a coordinate where (as we see from the red marks) the function is decreasing slightly faster.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\y}{2}{\M}
+	\SUBTRACT{\M}{1}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue} \draw[- \gt ] (0,0) node[vertex]{}--(.5,-.5);
+ \draw[- \gt ] (.75,-.75) node[vertex]{}--(1.25,-1.5);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Following the red marks leads us down even further, so our function <m>y(x)</m> might look something like this:
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\y}{2}{\M}
+	\SUBTRACT{\M}{1}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue} \draw[thick] plot[domain=0:2](\x,{-2*(exp(\x/2))+2});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+However, we didn't have to start at the origin. Suppose <m>y(0)=3</m>. Then at <m>x=0</m>, <m>y</m> is increasing, with slope <m>\frac{1}{2}</m>.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\y}{2}{\M}
+	\SUBTRACT{\M}{1}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue} \draw[- \gt ] (0,3) node[vertex]{}--(.5,3.25);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Our red marks run out that high up, but we now <m>y'=\frac{1}{2}y-1</m>, so <m>y'</m> increases as <m>y</m> increases. That means our function keeps getting steeper and steeper, possibly something like this:
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\y}{2}{\M}
+	\SUBTRACT{\M}{1}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue} \draw[thick] plot[domain=0:1](\x,{(exp(\x/2))+2});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+If <m>y(0)=2</m>, we see another possible curve is the constant function <m>y(x)=2</m>.
+</p>
+</li>
+</ol>
+Remark: from Theorem<nbsp/><xref ref="thm_linearODE"/>, we see the solutions to the equation <m>y'=\frac{1}{2}y-1 = \frac{1}{2}(y-2)</m> are of the form <m>y(x)=Ce^{x/2}+2</m> for some constant <m>C</m>. Check that the curves you're sketching look exponential.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Consider the differential equation <m>y'=y-\frac{x}{2}</m>.
+<ol label="a">
+<li> If <m>y(1)=0</m>, what is <m>y'(1)</m>?
+</li>
+<li> If <m>y(1)=2</m>, what is <m>y'(1)</m>?
+</li>
+<li> If <m>y(1)=-2</m>, what is <m>y'(1)</m>?
+</li>
+<li> Draw a sketch similar to that of Question<nbsp/><xref ref="prob_s2_4_field" text="local"/>(<xref ref="prob_s2_4_fieldd" text="local"/>)
+showing the derivatives of <m>y</m> at the points with integer values for <m>x</m> in <m>[0,6]</m> and <m>y</m> in <m>[-3,3]</m>.
+</li>
+<li> Sketch a possible graph of <m>y</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+To draw the sketch similar to Question<nbsp/><xref ref="prob_s2_4_field" text="local"/>(<xref ref="prob_s2_4_fieldd" text="local"/>), don't actually calculate every single slope; find a few (for instance, where the slope is zero, or where it's negative), and use a pattern (for instance, the slope increases as <m>y</m> increases) to approximate most of the points.
+</p></hint>
+<answer><p>
+(a) <m>-\dfrac{1}{2}</m>
+</p><p>
+(b) <m>\dfrac{3}{2}</m>
+</p><p>
+(c) <m>-\dfrac{5}{2}</m>
+</p><p>
+(d) Your sketch should look something like this:
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\x}{2}{\m}
+	\SUBTRACT{\y}{\m}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+(e) There are lots of possible answers. Several are shown below.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\x}{2}{\m}
+	\SUBTRACT{\y}{\m}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue}
+\draw[thick] plot[domain=0:2.25](\x,{-0.5*exp(\x)+\x/2+0.5});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\x}{2}{\m}
+	\SUBTRACT{\y}{\m}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue}
+\draw[thick] plot[domain=0:1.25](\x,{0.5*exp(\x)+\x/2+0.5});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\x}{2}{\m}
+	\SUBTRACT{\y}{\m}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue}
+\draw[thick] plot[domain=0:6](\x,{-0.00124*exp(\x)+\x/2+0.5});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\x}{2}{\m}
+	\SUBTRACT{\y}{\m}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue}
+\draw[thick] plot[domain=0:6](\x,{-0.0161*exp(\x)+\x/2+0.5});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></answer>
+<solution><p>
+<ol label="a">
+<li> If <m>y(1)=0</m>, then <m>y'(1)=0-\frac{1}{2}=-\frac{1}{2}</m>.
+</li>
+<li> If <m>y(1)=2</m>, then <m>y'(1)=2-\frac{1}{2}=\frac{3}{2}</m>.
+</li>
+<li> If <m>y(1)=-2</m>, then <m>y'(1)=-2-\frac{1}{2}=-\frac{5}{2}</m>.
+</li>
+<li>
+<p>
+There are <m>7 \times 7 = 49</m> points on the grid; we don't want to make 49 separate calculations. Let's find some shortcuts.
+<ul>
+<li> If <m>y'(x)=0</m>, then <m>y=\frac{x}{2}</m>, which applies to the points <m>(0,0)</m>, <m>(2,1)</m>, <m>(4,2)</m> and <m>(6,3)</m>. These are the orange dots in the sketch below.
+</li>
+<li> If <m>y'(x)=1</m>, then <m>y=1+\frac{x}{2}</m>, which applies to the points <m>(0,1)</m>, <m>(2,2)</m>, and <m>(4,3)</m>. (Note these are exactly 1 unit above the points with <m>y'=0</m>.)
+These are the red dots in the sketch below.
+</li>
+<li> If <m>y'(x)=-1</m>, then <m>y=-1+\frac{x}{2}</m>, which applies to the points <m>(0,-1)</m>, <m>(2,-2)</m>, and <m>(4,-3)</m>. (Note these are exactly 1 unit below the points with <m>y'=0</m>.)
+These are the yellow dots in the sketch below.
+</li>
+<li> If <m>x</m> increases and <m>y</m> stays the same, <m>y</m> decreases.
+</li>
+<li> If <m>y</m> increases and <m>x</m> stays the same, <m>y</m> increases.
+</li>
+<li> If we draw a straight line of slope <m>\dfrac{1}{2}</m> on our sketch, for every point on that line, our mark has the same slope: for instance, the points where we draw a mark with slope 0 are <m>(0,0)</m>, <m>(2,1)</m>, and <m>(4,2)</m>, and these all lie on the line <m>f(x)=\frac{x}{2}</m>.
+</li>
+</ul>
+This is enough to give us a pretty good sketch. The points whose slopes we found explicitly have dots; the rest can be sketched as either steeper or less steep than what's near them.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\x}{2}{\m}
+	\SUBTRACT{\y}{\m}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\foreach \x/\y in {0/1,2/2,4/3}{
+	\draw[red] (\x,\y) node[vertex]{};}
+\foreach \x/\y in {0/0,2/1,4/2,6/3}{
+	\draw[red!40!yellow] (\x,\y) node[vertex]{};}
+\foreach \x/\y in {0/-1,2/0,4/1}{
+	\draw[yellow] (\x,\y) node[vertex]{};}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li>
+<p>
+To sketch a possible graph of <m>y(x)</m>, we choose a point <m>(x,y(x))</m>, then follow the red lines.
+</p>
+
+<p>For example, if we suppose that <m>y(4)=2</m>, then near <m>(4,2),</m> the lines tell us <m>y(x)</m> is fairly flat; and it is increasing to the left of <m>x=4</m>, and decreasing to the right.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\x}{2}{\m}
+	\SUBTRACT{\y}{\m}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue}
+\draw (4,2) node[vertex]{};
+\draw[- \gt ] (4,2)--(3.5,2)--(3,1.75);
+\draw[- \gt ] (4,2)--(4.5,2)--(5,1.75);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Following the red lines a little farther in each direction brings us somewhere like this:
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\x}{2}{\m}
+	\SUBTRACT{\y}{\m}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue}
+\draw (4,2) node[vertex]{};
+\draw[- \gt ] (4,2)--(3.5,2)--(2.5,1.5)--(2,1.375);
+\draw[- \gt ] (4,2)--(4.5,2)--(5,1.75)--(5.5,1.25);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Extending yet further, we might sketch something like the following:
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\x}{2}{\m}
+	\SUBTRACT{\y}{\m}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue}
+\draw[thick] plot[domain=0:6](\x,{-0.01*exp(\x)+\x/2+0.5});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+By choosing another point <m>(x,y(x))</m> to be on the curve, we might find other potential curves. Some examples are shown below.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (3,4) node{Passing through $(0,0)$:};
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\x}{2}{\m}
+	\SUBTRACT{\y}{\m}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue}
+\draw[thick] plot[domain=0:2.25](\x,{-0.5*exp(\x)+\x/2+0.5});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (3,4) node{Passing through $(0,1)$:};
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\x}{2}{\m}
+	\SUBTRACT{\y}{\m}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue}
+\draw[thick] plot[domain=0:1.25](\x,{0.5*exp(\x)+\x/2+0.5});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (3,4) node{Passing through $(6,3)$:};
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\x}{2}{\m}
+	\SUBTRACT{\y}{\m}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue}
+\draw[thick] plot[domain=0:6](\x,{-0.00124*exp(\x)+\x/2+0.5});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (3,4) node{Passing through $(6,-3)$:};
+\YEaaxis{.5}{6.5}{3.5}{3.5}
+\draw[dotted, gray] (0,-3) grid (6,3);
+\YExcoord{1}{1}
+\YEycoord{1}{1}
+\foreach \x in {0,...,6}{
+	\foreach \y in {-3,...,3}{
+	\DIVIDE{\x}{2}{\m}
+	\SUBTRACT{\y}{\m}{\m}
+		\draw[rotate around={{atan(\m)}:(\x,\y)},red] (\x-.25,\y)--(\x+.25,\y);}}
+\color{blue}
+\draw[thick] plot[domain=0:6](\x,{-0.0161*exp(\x)+\x/2+0.5});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+</ol>
+</p>
+
+<p>Remark: the differential equation <m>y'=y-\frac{x}{2}</m> is not separable, so we haven't talked about how to solve it. The solutions have the form <m>y(x)=Ce^{x}+\frac{x+1}{2}</m>. You can verify that these functions satisfy <m>y'=y-\frac{x}{2}</m>.
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise purpose="RQS"><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+Find the solution to the separable initial value problem:
+<md>
+<mrow>
+\diff{y}{x} &amp;= \frac{2x}{e^y},  &amp; y(0) = \log 2
+</mrow>
+</md>
+Express your solution explicitly as <m>y = y(x)</m>.
+</p></statement>
+
+<hint><p>
+Start by multiplying both sides of the equation by <m>e^y</m> and <m>\dee{x}</m>, pretending that <m>\diff{y}{x}</m> is a fraction, according to our mnemonic.
+</p></hint>
+
+<answer><p>
+<m>y = \log(x^2+2)</m>
+</p></answer>
+
+<solution><p>
+Rearranging, we have:
+<md>
+<mrow>
+e^y\,\dee{y} &amp;= 2x\,\dee{x}.
+</mrow>
+<intertext>
+Integrating both sides: </intertext><mrow>
+\int e^y\,\dee{y} &amp;= \int 2x\,\dee{x}
+</mrow><mrow>
+e^y &amp;= x^2+C
+</mrow>
+<intertext>Since <m>y=\log2</m> when <m>x=0</m>, we have</intertext><mrow>
+e^{\log 2} &amp;= 0^2+C
+</mrow><mrow>
+2 &amp;= C,
+</mrow>
+<intertext>and therefore</intertext><mrow>
+e^{y} &amp;= x^2+2
+</mrow><mrow>
+y &amp;= \log(x^2+2)
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M121 2002A</fromexam></title>
+<statement><p>
+Find the solution <m>y(x)</m> of
+<m>\displaystyle\diff{y}{x}=\frac{xy}{x^2+1}, \quad y(0)=3</m>.
+</p></statement>
+
+<hint><p>
+You need to solve for your function <m>y(x)</m> explicitly. Be careful with absolute values: if <m>|y|=F</m>, then <m>y=F</m> or <m>y=-F</m>. However, <m>y=\pm F</m> <em>is not a function</em>. You have to choose one: <m>y=F</m> or <m>y=-F</m>.
+</p></hint>
+
+<answer><p>
+<m>y(x)=3\sqrt{1+x^2}</m>
+</p></answer>
+
+<solution><p>
+Using separation of variables:
+<md>
+<mrow>
+\diff{y}{x}&amp;=\frac{xy}{x^2+1}
+</mrow><mrow>
+\frac{\dee{y}}{y}&amp;=\frac{x}{x^2+1}\dee{x}
+</mrow><mrow>
+\int\frac{\dee{y}}{y}&amp;=\int\frac{x}{x^2+1}\dee{x}
+</mrow><mrow>
+\log |y| &amp;= \frac{1}{2}\log(1+x^2)+C
+</mrow>
+<intertext>
+To satisfy <m>y(0)=3</m>, we need <m>\log 3 = \frac{1}{2}\log(1+0)+C</m>, so
+<m>C=\log 3</m>. Thus:
+</intertext><mrow>
+\log |y| &amp;= \frac{1}{2}\log(1+x^2)+\log 3
+</mrow><mrow>
+&amp;=\log\sqrt{1+x^2}+\log 3
+</mrow><mrow>&amp;=\log 3\sqrt{1+x^2}
+</mrow>
+<intertext>So,</intertext><mrow>
+|y|&amp;=3\sqrt{1+x^2}
+</mrow>
+<intertext>We are told to find a functon <m>y(x)</m>. So far, we have two possible functions from the work above: maybe <m>y=3\sqrt{1+x^2}</m>, and maybe <m>y=-3\sqrt{1+x^2}</m>. It's important to note that <m>y=\pm3\sqrt{1+x^2}</m> is not a function: for an equation to represent a function, for every input in the domain, there must only be one output. That is, functions pass the vertical line test. (See the CLP-I text for a definition of the vertical line test and a formal definition of a function.) So, we need to decide whether our function is <m>y=3\sqrt{1+x^2}</m> or <m>y=-3\sqrt{1+x^2}</m>. Since <m>y(0)=3</m>, we conclude
+</intertext><mrow>
+y(x)&amp;=3\sqrt{1+x^2}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2015A</fromexam></title>
+<statement><p>
+ Solve the differential equation <m>y'(t)=e^{\frac{y}{3}}\cos t</m>.
+You should express the solution <m>y(t)</m> in terms of <m>t</m> explicitly.
+</p></statement>
+
+<hint><p>
+If your answer doesn't quite look like the answer given, try manipulating it with logarithm rules: <m>\log a + \log b = \log(ab)</m>, and <m>a\log b = \log(b^a)</m>.
+</p></hint>
+
+<answer><p>
+<m>y(t)=3\log\left(\dfrac{-3}{C+\sin t}\right)</m>
+</p></answer>
+
+<solution><p>
+The given differential equation is separable and we solve it accordingly.
+<md>
+<mrow>
+y'&amp;=e^{\frac{y}{3}}\cos t
+</mrow><mrow>
+e^{-y/3}\dee{y}&amp;=\cos t\,\dee{t}
+</mrow><mrow>
+\int e^{-y/3}\dee{y}&amp;=\int\cos t\,\dee{t}
+</mrow><mrow>
+-3e^{-y/3}&amp;=\sin t +C
+</mrow><mrow>
+\frac{1}{e^{y/3}}&amp;=\frac{\sin t +C}{-3}
+</mrow><mrow>
+e^{y/3} &amp;=\frac{-3}{C+\sin t}
+</mrow><mrow>
+\frac{y}{3}&amp;=\log\left(\frac{-3}{C+\sin t}\right)
+</mrow><mrow>y(t)&amp;=3\log\left(\frac{-3}{C+\sin t}\right)
+</mrow>
+</md>
+for any constant <m>C</m>.
+</p>
+
+<p> Since the domain of logarithm is <m>(0,\infty)</m>, the solution only exists when <m>C+\sin t \lt 0</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2000D</fromexam></title>
+<statement><p>
+ Solve the differential equation
+<me>
+\diff{y}{x} = x e^{x^2-\log(y^2)}
+</me>
+</p></statement>
+
+<hint><p>
+Simplify the equation.
+</p></hint>
+
+<answer><p>
+<m>y=\root{3}\of{\frac{3}{2} e^{x^2}+C}</m>.
+</p></answer>
+
+<solution><p>
+The given differential equation is separable and we solve it accordingly.
+<md>
+<mrow>
+\diff{y}{x} &amp;= x e^{x^2-\log(y^2)} =\frac{x e^{x^2}}{y^2}
+</mrow><mrow>
+y^2\dee{y}&amp;=x e^{x^2}\,\dee{x}
+</mrow><mrow>
+\int y^2\dee{y}&amp;=\int x e^{x^2}\,\dee{x}
+</mrow>
+<intertext>We can guess the antiderivative of <m>xe^{x^2}</m>, or use the substitution <m>u=x^2</m>, <m>\dee{u}=2x\dee{x}</m>.
+</intertext><mrow>
+\frac{y^3}{3}&amp;=\frac{1}{2} e^{x^2}+C'
+</mrow><mrow>
+y^3&amp;=\frac{3}{2} e^{x^2}+3C'
+</mrow>
+<intertext>Since <m>C'</m> can be any constant in <m>(-\infty,\infty)</m>, then also  <m>3C'</m> can be any constant in <m>(-\infty,\infty)</m>, so we replace <m>3C'</m> with the arbitrary constant <m>C</m>.</intertext><mrow>
+y^3&amp;=\frac{3}{2} e^{x^2}+C
+</mrow><mrow>y&amp;=\root{3}\of{\frac{3}{2} e^{x^2}+C}
+</mrow>
+</md>
+for any constant <m>C</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2000D</fromexam></title>
+<statement><p>
+ Let <m>y=y(x)</m>. Find the general solution of the differential
+equation <m>y'=xe^y</m>.
+</p></statement>
+
+<hint><p>
+Be careful with the arbitrary constant.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle y=-\log\left(C-\frac{x^2}{2}\right)</m>
+</p><p>
+The solution only exists for <m>C-\frac{x^2}{2} \gt 0</m>,
+i.e. <m>C \gt 0</m> and the function has domain <m>\left\{x:|x| \lt \sqrt{2C}\right\}</m>.
+</p></answer>
+
+<solution><p>
+The given differential equation is separable and we solve it accordingly.
+<md>
+<mrow>
+\diff{y}{x}&amp;=xe^y
+</mrow><mrow>
+\frac{\dee{y}}{e^y}&amp;=x\,\dee{x}
+</mrow><mrow>
+\int\frac{\dee{y}}{e^y}&amp;=\int x\,\dee{x}
+</mrow><mrow>
+-e^{-y}&amp;=\frac{1}{2} x^2+C
+</mrow><mrow>
+e^{-y}&amp;=-\frac{1}{2} x^2-C
+</mrow>
+<intertext>Since <m>C</m> can be any constant in <m>(-\infty,\infty)</m>, then also  <m>-C</m> can be any constant in <m>(-\infty,\infty)</m>, so we write <m>C</m> instead of <m>-C</m>.</intertext><mrow>
+e^{-y}&amp;=C-\frac{1}{2} x^2
+</mrow><mrow>-y&amp;=\log\left(C-\frac{x^2}{2}\right)
+</mrow><mrow>y&amp;=-\log\left(C-\frac{x^2}{2}\right)
+</mrow>
+</md>
+for any constant <m>C</m>.
+</p>
+
+<p>The solution only exists for <m>C-\frac{x^2}{2} \gt 0</m>. For this to happen, we need
+ <m>C \gt 0</m>, and then the domain of the function is those values <m>x</m> for which <m>|x| \lt \sqrt{2C}</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+Find the solution to the differential equation <m>\displaystyle\frac{y y'}{e^x -2x} = \frac{1}{y}</m> that satisfies <m>y(0) = 3</m>. Solve completely for <m>y</m> as a function of <m>x</m>.
+</p></statement>
+
+<hint><p>
+Start by cross-multiplying.
+</p></hint>
+
+<answer><p>
+<m>y = (3e^x -3x^2+ 24)^{1/3}</m>
+</p></answer>
+
+<solution><p>
+The given differential equation is separable and we solve it accordingly.
+Cross--multiplying, we rewrite the equation as
+<md>
+<mrow>
+y^2 \diff{y}{x} &amp;= e^x -2x
+</mrow><mrow>
+y^2 \,\dee{y} &amp;= (e^x - 2x ) \,\dee{x}.
+</mrow>
+<intertext>
+Integrating both sides, we find</intertext><mrow>
+\int y^2 \,\dee{y} &amp;=\int (e^x - 2x ) \,\dee{x}
+</mrow><mrow>
+ \frac{1}{3}y^3 &amp;= e^x - x^2 + C
+</mrow>
+<intertext>Setting <m>x = 0</m> and <m>y = 3</m>, we find <m>\frac{1}{3}3^3=e^0-0^2+C</m>
+and hence <m>C=8</m>.
+</intertext><mrow>
+\frac{1}{3}y^3 &amp;= e^x - x^2 + 8
+</mrow><mrow>
+y &amp;= (3e^x -3x^2+ 24)^{1/3}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+Find the function <m>y=f(x)</m> that satisfies
+<md>
+<mrow>
+\diff{y}{x} = -xy^3 \qquad\text{and}\qquad f(0)=-\frac{1}{4}
+</mrow>
+</md>
+</p></statement>
+
+<hint><p>
+Be careful about signs. If <m>y^2=F</m>, then possibly <m>y=\sqrt{F}</m>, and possibly <m>y=-\sqrt{F}</m>. However, <m>y=\pm\sqrt{F}</m> is not a function.
+</p></hint>
+
+<answer><p>
+<m>y=f(x) = -\dfrac{1}{\sqrt{x^2+16}}</m>
+</p></answer>
+
+<solution><p>
+This is a separable differential equation that we
+solve in the usual way.
+<md>
+<mrow>
+\diff{y}{x} &amp;= -xy^3
+</mrow><mrow>
+- \frac{\dee{y}}{y^3} &amp;=  x\dee{x}
+</mrow><mrow>
+\int -\frac{\dee{y}}{y^3} &amp;= \int x\dee{x}
+</mrow><mrow>
+- \frac{y^{-2}}{-2} &amp;= \frac{x^2}{2}+C
+</mrow><mrow>
+ y^{-2}&amp;=x^2+2C. \tag{$*$}
+</mrow>
+<intertext>To have <m>y=-\frac{1}{4}</m> when <m>x=0</m>, we must choose <m>C</m> to obey
+</intertext><mrow>
+{\Big(-\frac{1}{4} \Big)}^{-2}&amp; =0 +2C
+</mrow><mrow>
+16&amp;= 2C
+</mrow>
+<intertext>So, from (<m>*</m>),</intertext><mrow>
+ y^{-2}&amp;=x^2+2C =x^2+16
+</mrow><mrow>
+ y^2&amp;=\frac{1}{x^2+16}
+ </mrow>
+<intertext>Now, we have two potential candidates for <m>y(x)</m>:</intertext><mrow>
+ y&amp;=\frac{1}{\sqrt{x^2+16}}\qquad\text{OR}\qquad y=-\frac{1}{\sqrt{x^2+16}}
+ </mrow>
+<intertext>We know <m>y=-\frac14</m> when <m>x=0</m>. The only function above that fits this is </intertext><mrow>
+ y&amp;=-\frac{1}{\sqrt{x^2+16}}
+ </mrow>
+</md>
+So, <m>f(x) = -\dfrac{1}{\sqrt{x^2+16}}</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016A</fromexam></title>
+<statement><p>
+Find the function <m>y=y(x)</m> that satisfies <m>y(1)=4</m> and
+<me>
+  \diff{y}{x} = \frac{15x^2 + 4x + 3}{y}
+</me>
+</p></statement>
+
+<hint><p>
+Be careful about signs.
+</p></hint>
+
+<answer><p>
+<m>y =  \sqrt{10x^3 + 4x^2 + 6x - 4}</m>
+</p></answer>
+
+<solution><p>
+This is a separable differential equation that we
+solve in the usual way. Cross-multiplying and integrating,
+<md>
+<mrow>
+   y\,\dee{y} &amp;= (15x^2 + 4x + 3) \,\dee{x}
+</mrow><mrow>
+  \int y\,\dee{y} &amp;= \int (15x^2 + 4x + 3) \,\dee{x}
+</mrow><mrow>
+  \frac{y^2}{2} &amp;= 5x^3 + 2x^2 + 3x + C.
+</mrow>
+<intertext>Plugging in <m>x=1</m> and <m>y=4</m> gives
+<m>
+\frac{4^2}{2} = 5+2+3+C,
+</m>
+and so <m>C=-2</m>. Therefore
+</intertext><mrow>
+  \frac{y^2}{2} &amp;= 5x^3 + 2x^2 + 3x - 2
+</mrow><mrow>
+ y^2 &amp;= 10x^3 + 4x^2 + 6x - 4
+ </mrow>
+<intertext>This leaves us with two possible functions for <m>y</m>:</intertext><mrow>
+  y =  \sqrt{10x^3 + 4x^2 + 6x - 4} &amp;\qquad\text{OR}\qquad   y = - \sqrt{10x^3 + 4x^2 + 6x - 4}
+  </mrow>
+<intertext>When <m>x=1</m>, <m>y=4</m>. This only fits the first equation, so</intertext><mrow>
+    y &amp;=  \sqrt{10x^3 + 4x^2 + 6x - 4}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2002A</fromexam></title>
+<statement><p>
+ Find the solution <m>y(x)</m> of <m>y'=x^3y</m> with <m>y(0)=1</m>.
+</p></statement>
+
+<hint><p>
+Be careful about signs. If <m>\log|y|=F</m>, then <m>|y|=e^F</m>. Since you should give your answer as an explicit function <m>y(x)</m>, you need to decide whether <m>y=e^F</m> or <m>y=-e^F</m>.
+</p></hint>
+
+<answer><p>
+<m>y(x) =  e^{x^4/4}</m>
+</p></answer>
+
+<solution><p>
+The given differential equation is separable and we solve it accordingly.
+<md>
+<mrow>
+\diff{y}{x}&amp;=x^3y
+</mrow><mrow>\frac{\dee{y}}{y}&amp;=x^3\,\dee{x}\\
+\int\frac{\dee{y}}{y}&amp;=\int x^3\,\dee{x}
+</mrow><mrow>
+\log|y|&amp;=\frac{x^4}{4}+C
+</mrow><mrow>
+|y|&amp;=e^{x^4/4+C}=e^{x^4/4}e^C
+</mrow>
+<intertext>We are told that <m>y=1</m> when <m>x=0</m>. That is, <m>1=e^0e^C</m>, so <m>e^C=1</m>. That is, <m>C=0</m>.</intertext><mrow>
+|y|&amp;=e^{x^4/4}
+</mrow>
+<intertext>This leaves us with two potential functions:</intertext><mrow>
+y=e^{x^4/4}&amp;\qquad\text{OR}\qquad y=-e^{x^4/4}
+</mrow>
+<intertext>The first is always positive, and the second is always negative. Since <m>y=1</m> (a positive number) when <m>x=0</m>, we see</intertext><mrow>
+y&amp;=e^{x^4/4}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2014A</fromexam></title>
+<statement><p>
+Find the solution of the differential equation
+<me>
+x\diff{y}{x} + y = y^2
+</me>
+that satisfies <m>y(1) = -1</m>.
+</p></statement>
+
+<hint><p>
+Move the <m>y</m> from the left hand side to the right hand side, then use partial fractions to integrate.
+</p>
+
+<p>Be careful about the signs. Remember that we need <m>y=-1</m> when
+<m>x=1</m>. So, to figure out how to deal with absolute values, you may assume that for values of <m>x</m> in the domain, and values of <m>y</m> in the range, <m>x</m> is near 1 and <m>y</m> is near <m>-1</m>.
+</p></hint>
+
+<answer><p>
+<m>y=\frac{1}{1-2x}</m>
+</p></answer>
+
+<solution><p>
+This is a separable differential equation, even if it doesn't quite look like it.
+First move the <m>y</m> from the left hand side to the right hand side.
+<md>
+<mrow>
+x\diff{y}{x}+y&amp;=y^2
+</mrow><mrow>
+ x\diff{y}{x} &amp;=y^2-y =y(y-1)
+</mrow><mrow>
+ \frac{\dee{y}}{y(y-1)} &amp;=\frac{\dee{x}}{x}
+ </mrow>
+<intertext>Using the method of partial fractions, we see <m>\frac{1}{y(y-1)} = \frac{1}{y-1}-\frac{1}{y}.</m>
+</intertext><mrow>
+\left(\frac{1}{y-1}-\frac{1}{y}\right)\,\dee{y} &amp;=\frac{\dee{x}}{x}
+</mrow><mrow>
+\int\left(\frac{1}{y-1}-\frac{1}{y}\right)\,\dee{y} &amp;=\int\frac{\dee{x}}{x}
+</mrow><mrow>
+\log|y-1|-\log|y| &amp;=\log |x| + C
+</mrow><mrow>
+ \log\frac{|y-1|}{|y|}&amp;=\log|x|+C \tag{$*$}
+</mrow>
+<intertext>To determine <m>C</m> we set <m>x=1</m> and <m>y=-1</m>.
+</intertext><mrow>
+\log\frac{|-2|}{|-1|}&amp;=\log|1|+C
+</mrow><mrow>
+\log 2&amp;=C
+</mrow>
+<intertext>Returning to (<m>*</m>),</intertext><mrow>
+ \log\frac{|y-1|}{|y|}&amp;=\log|x|+\log 2
+</mrow><mrow>
+ \log\left|\frac{y-1}{y}\right|&amp;=\log|2x|
+</mrow><mrow>
+  \left|\frac{y-1}{y}\right|&amp;=|2x|
+</mrow>
+<intertext>Since <m>y=-1</m> when <m>x=1</m>, we know the domain of our function includes 1  and its range includes <m>-1</m>.
+For <m>x</m> near 1 and <m>y</m> near <m>-1</m>, both <m>x</m> and <m>\frac{y-1}{y}</m>
+are positive and we may drop the absolute value signs.
+</intertext><mrow>
+\frac{y-1}{y}&amp;=2x
+</mrow><mrow>
+y-1&amp;=2xy
+</mrow><mrow>
+y-2xy&amp;=1
+</mrow><mrow>
+y(1-2x)&amp;=1
+</mrow><mrow>
+y&amp;=\frac{1}{1-2x}
+</mrow>
+</md>
+</p>
+
+<p>As a check, we compute:
+<md>
+<mrow>
+x\diff{y}{x}+y&amp;=x\diff{}{x}\left\{\frac{1}{1-2x}\right\}+y
+</mrow><mrow>
+&amp;=x\frac{2}{(1-2x)^2}+\frac{1}{1-2x}
+</mrow><mrow>
+&amp;=\frac{2x+(1-2x)}{(1-2x)^2}
+</mrow><mrow>
+&amp;=\frac{1}{(1-2x)^2}
+</mrow><mrow>
+&amp;=y^2
+</mrow>
+<intertext>So, our differential equation is satisfied. Furthermore:</intertext><mrow>
+y(1)&amp;=\frac{1}{1-2\times 1}=-1
+</mrow>
+</md>
+as desired. This confirms our solution is correct.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2012A</fromexam></title>
+<statement><p>
+A function <m>f(x)</m> is always positive, has  <m>f(0)=e</m> and satisfies <m>f'(x) = x\,f(x)</m> for all <m>x</m>.
+Find this function.
+</p></statement>
+
+<hint><p>
+The unknown function <m>f(x)</m> satisfies an equation that involves the derivative of <m>f</m>.
+</p></hint>
+
+<answer><p>
+<m>f(x) = e\cdot e^{x^2/2}</m>
+</p></answer>
+
+<solution><p>
+The unknown function <m>f(x)</m> satisfies an equation that involves the derivative of <m>f</m>. That means we're in differential equation territory.
+Specifically,
+we are told that <m>y=f(x)</m> obeys the separable differential equation
+<m>\diff{y}{x}=xy</m>.
+<md>
+<mrow>
+\diff{y}{x} &amp;= xy
+</mrow><mrow>
+ \frac{\dee{y}}{y} &amp;= x\,\dee{x}
+</mrow><mrow>
+ \int  \frac{\dee{y}}{y} &amp;= \int x\, \dee{x}
+</mrow><mrow>
+ \log|y| &amp;=\frac{x^2}{2} + C
+</mrow>
+<intertext>To determine <m>C</m> we set <m>x=0</m> and <m>y=e</m>.</intertext><mrow>
+\log e &amp;=\frac{0^2}{2}+ C
+</mrow><mrow>
+1&amp;= C
+</mrow>
+<intertext>So, the solution is </intertext><mrow>
+\log|y|&amp;= \frac{x^2}{2} + 1
+</mrow>
+<intertext>We are told that <m>y=f(x) \gt 0</m>, so may drop the absolute value signs.</intertext><mrow>
+\log y &amp;= \frac{x^2}{2}+1
+</mrow><mrow>
+y&amp;=e^{1+\frac{1}{2}x^2}=e\cdot e^{x^2/2}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2013A</fromexam></title>
+<statement><p>
+Solve the following initial value problem:
+<md>
+<mrow>
+\diff{y}{x} =\frac{1}{(x^2+x)y}\qquad y(1)=2
+</mrow>
+</md>
+</p></statement>
+
+<hint><p>
+Try guessing the partial fractions expansion  of <m>\dfrac{1}{x(x+1)}</m>.
+</p>
+
+<p>Since <m>x=1</m> is in the domain and <m>x=0</m> is not, you may assume <m>x \gt 0</m> for all <m>x</m> in the domain.
+</p></hint>
+
+<answer><p>  <m>y(x)=\sqrt{4+2\log\frac{2x}{x+1}}</m>.
+Note that, to satisfy <m>y(1)=2</m>, we need the positive square root.
+</p></answer>
+
+<solution><p>
+This is a separable differential equation.
+<md>
+<mrow>
+\diff{y}{x} &amp;=\frac{1}{(x^2+x)y}
+</mrow><mrow>
+ y\,\dee{y} &amp;=\frac{\dee{x}}{x(x+1)}
+ </mrow>
+<intertext>Using partial fractions decomposition, we find <m>\frac{1}{x(x+1)} = \frac{1}{x}-\frac{1}{x+1}</m>.
+</intertext><mrow>
+ y\,\dee{y} &amp;=\left(\frac{1}{x}-\frac{1}{x+1}\right)\,\dee{x}
+</mrow><mrow>
+\int y\,\dee{y} &amp;=\int\left(\frac{1}{x}-\frac{1}{x+1}\right)\,\dee{x}
+</mrow><mrow>
+\frac{y^2}{2}&amp;=\log|x|-\log|x+1|+C = \log\left| \frac{x}{x+1}\right|+C
+</mrow>
+<intertext>To satisfy the initial condition <m>y(1)=2</m> we must choose <m>C</m> to obey</intertext><mrow>
+\frac{2^2}{2} &amp;= \log\left|\frac{1}{1+1}\right|+C
+</mrow><mrow>
+2&amp;=\log\frac12+C
+</mrow><mrow>
+ C&amp;=2-\log\frac{1}{2}
+</mrow>
+<intertext>So,</intertext><mrow>
+\frac{y^2}{2}&amp;= \log\left| \frac{x}{x+1}\right|+2-\log\frac{1}{2}
+</mrow><mrow>
+y^2&amp;= 2\log\left| \frac{x}{x+1}\right|+4-2\log\frac{1}{2}
+</mrow>
+<intertext>Note <m>x=1</m> is in the domain of our function (the problem states <m>y(1)=2</m>), but <m>x=0</m> is <em>not</em> in the domain of our function (since <m>\log 0</m> doesn't exist--there are other restrictions on the domain as well, but this is the one we care about right now). So, we assume the domain of the function is an interval containing <m>x=1</m> but not <m>x=0</m>. Then <m>\frac{x}{x+1}</m> is positive, so we can drop the absolute values.
+</intertext><mrow>
+y^2&amp;= 2\log \frac{x}{x+1}+4-2\log\frac{1}{2}
+</mrow>
+<intertext>This leaves two options for <m>y(x)</m>: the positive or negative square root of the right hand side above. Since <m>y(1)=1</m>, which is positive, we must choose the positive square root.</intertext><mrow>
+y(x)&amp;=\sqrt{2\Big(\log\frac{x}{x+1}-\log\frac{1}{2}+2\Big)}
+</mrow><mrow>
+&amp;=\sqrt{4+2\log\frac{2x}{x+1}}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2015A</fromexam></title>
+<statement><p>
+Find the solution of the differential equation
+     <m>\displaystyle \frac{1+\sqrt{y^2-4}}{\tan x} y' = \frac{\sec x}y</m>
+that satisfies <m>y(0)=2</m>. You don't have to solve for <m>y</m> in terms of<nbsp/><m>x</m>.
+</p></statement>
+
+<hint><p>
+<m>\displaystyle\diff{}{x}\{\sec x\} = \sec x \tan x</m>
+</p></hint>
+
+<answer><p>
+<m>\displaystyle y^2+\frac{2}{3}(y^2-4)^{3/2}=2\sec x +2</m>
+</p></answer>
+
+<solution><p>
+This is a separable differential equation.
+<md>
+<mrow>
+\frac{1+\sqrt{y^2-4}}{\tan x}\diff{y}{x} &amp;= \frac{\sec x}y
+</mrow><mrow>
+ y\big[1+\sqrt{y^2-4}\big]\dee{y} &amp;= \sec x\ \tan  x\dee{x}
+</mrow><mrow>
+ \int  y\big[1+\sqrt{y^2-4}\big]\dee{y} &amp;= \int \sec x\ \tan  x\dee{x}
+</mrow>
+<intertext>For the integral on the left, we use the substitution <m>u={y^2-4}</m>, <m>\frac12\dee{u}=y\,\dee{y}</m>.
+</intertext><mrow>
+\frac{1}{2}\int \big(1+\sqrt{u}\big)\,\dee{u}&amp;=\sec x +C
+</mrow><mrow>\frac{1}{2} \left(u+\frac{2}{3}u^{3/2}\right)&amp;=\sec x +C
+</mrow><mrow>\frac{1}{2} \left(y^2-4+\frac{2}{3}(y^2-4)^{3/2}\right)&amp;=\sec x +C
+</mrow><mrow> y^2+\frac{2}{3}(y^2-4)^{3/2}&amp;=2\sec x +2C+4
+</mrow>
+<intertext>To find <m>C</m> we set <m>x=0</m> and <m>y=2</m>.</intertext><mrow>
+4+\frac{2}{3}\sqrt{4-4}^3&amp;=2\sec (0)+2C+4
+</mrow><mrow>
+4&amp;=2+2C+4
+</mrow><mrow>
+2&amp;=2C+4
+</mrow>
+<intertext>So,</intertext><mrow>
+ y^2+\frac{2}{3}(y^2-4)^{3/2}&amp;=2\sec x +2
+ </mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>1996A</fromexam></title>
+<statement><p>
+The fish population in a lake is attacked by a disease at
+time <m>t=0</m>, with the result that the size <m>P(t)</m> of the population at time
+<m>t\ge 0</m> satisfies
+<md>
+<mrow>
+\diff{P}{t}=-k\sqrt{P}
+</mrow>
+</md>
+where <m>k</m> is a positive constant. If there were initially 90,000 fish in
+the lake and 40,000 were left after 6 weeks, when will the fish population
+be reduced to 10,000?
+</p></statement>
+
+<hint><p>
+The general solution to the differential equation will contain the constant
+<m>k</m> and one other constant. They are determined by the data given in the
+question.
+</p></hint>
+
+<answer><p>
+<m>12\text{ weeks}</m>
+</p></answer>
+
+<solution><p>
+The given differential equation is separable and we solve it accordingly.
+<md>
+<mrow>
+\diff{P}{t}&amp;=-k\sqrt{P}
+</mrow><mrow>
+\frac{\dee{P}}{\sqrt{P}}&amp;=-k\,\dee{t}
+</mrow><mrow>
+\int\frac{\dee{P}}{\sqrt{P}}&amp;=\int-k\,\dee{t}
+</mrow><mrow>
+2\sqrt{P}&amp;=-kt+C
+</mrow>
+<intertext>At <m>t=0</m>, <m>P=90,000</m> so </intertext><mrow>
+2\sqrt{90,000}&amp;=-k\times 0+C
+</mrow><mrow>
+C&amp;=2\times 300=600
+</mrow>
+<intertext>Therefore,</intertext><mrow>
+2\sqrt{P}&amp;=-kt+600\tag{$*$}
+</mrow>
+<intertext>Now, we find <m>k</m>. Let <m>t</m> be measured in weeks. Then when <m>t=6</m>, <m>P=40,000</m>.</intertext><mrow>
+2\sqrt{40,000}&amp;=-6k+600
+</mrow><mrow>
+2\cdot 200&amp;=-6k+600
+</mrow><mrow>
+ k&amp;=\frac{200}{6} = \frac{100}{3}
+ </mrow>
+<intertext>Substituting our value of <m>k</m> into (<m>*</m>):</intertext><mrow>
+ 2\sqrt{P}&amp;=-\frac{100}{3}t+600
+ </mrow>
+<intertext>To find when the population will be 10,000, we set <m>P=10,000</m> and solve for <m>t</m>.</intertext><mrow>
+ 2\sqrt{10,000}&amp;=-\frac{100}{3}t+600
+</mrow><mrow>
+  2\cdot 100&amp;=-\frac{100}{3}t+600
+</mrow><mrow>
+\frac{100}{3}t&amp;=400
+</mrow><mrow>
+t&amp;=12
+</mrow>
+</md>
+Since we measured <m>t</m> in weeks when we found <m>k</m>, we see that in 12 weeks the population will decrease to 10,000 individuals.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1996A</fromexam></title>
+<statement><p>
+ An object of mass <m>m</m> is projected straight upward at time
+<m>t=0</m> with initial speed <m>v_0</m>. While it is going up, the only forces acting
+on it are gravity (assumed constant) and a drag force proportional to the
+square of the object's speed <m>v(t)</m>. It follows that the differential
+equation of motion is
+<md>
+<mrow>
+m\diff{v}{t}=-(mg+kv^2)
+</mrow>
+</md>
+where <m>g</m> and <m>k</m> are positive constants. At what time does the object
+reach its highest point?
+</p></statement>
+
+<hint><p>
+<ul>
+<li> When you're solving the differential equation, you should have an integral that you can massage to look something like arctangent.
+</li>
+<li> What is the velocity of the object at its highest point?
+</li>
+<li> Your final answer will
+depend on the (unspecified) constants <m>v_0</m>, <m>m</m>, <m>g</m> and <m>k</m>.
+</li>
+</ul>
+</p></hint>
+
+<answer><p>
+<m>t=\displaystyle\sqrt{\frac{m}{kg}}\arctan \left(\sqrt{\frac{k}{mg}}\,v_0\right)</m>
+</p></answer>
+
+<solution><p>
+The given differential equation is separable and we solve it accordingly.
+<md>
+<mrow>
+m\diff{v}{t}&amp;=-(mg+kv^2)
+</mrow><mrow>
+\frac{m}{mg+kv^2}\,\dee{v}&amp;=-\dee{t}
+</mrow><mrow>
+\int\frac{m}{mg+kv^2}\,\dee{v}&amp;=\int-\dee{t}
+</mrow>
+<intertext>The left integral looks something like the antiderivative of arctangent. Let's factor out that <m>mg</m> from the denominator.</intertext><mrow>
+\frac{1}{mg}\int\frac{m}{1+\frac{k}{mg}v^2}\,\dee{v}&amp;=-t+C
+</mrow><mrow>
+\frac{1}{g}\int\frac{1}{1+\left(\sqrt{\frac{k}{mg}}v\right)^2}\,\dee{v}&amp;=-t+C
+</mrow>
+<intertext>Now it looks even more like the derivative of arctangent. We can guess the antiderivative from here, or use the substitution <m>u=\sqrt{\frac{k}{mg}}v</m>, <m>\dee{u}=\frac{k}{mg}\,\dee{v}</m>.
+</intertext><mrow>
+\frac{1}{g}\sqrt{\frac{mg}{k}}\arctan\left(\sqrt{\frac{k}{mg}}v\right)&amp;=-t+C
+</mrow><mrow>
+\sqrt{\frac{m}{gk}}\arctan\left(\sqrt{\frac{k}{mg}}v\right)&amp;=-t+C\tag{$*$}
+</mrow>
+<intertext>At <m>t=0</m>, <m>v=v_0</m>, so: </intertext><mrow>
+\sqrt{\frac{m}{gk}}\arctan\left(\sqrt{\frac{k}{mg}}v_0\right)&amp;=C
+</mrow>
+<intertext>Plug <m>C</m> into <m>(*)</m>.</intertext><mrow>
+\sqrt{\frac{m}{gk}}\arctan\left(\sqrt{\frac{k}{mg}}v\right)&amp;=\sqrt{\frac{m}{gk}}\arctan\left(\sqrt{\frac{k}{mg}}v_0\right)-t
+</mrow>
+<intertext>
+At its highest point, the object has velocity <m>v=0</m>. This happens when <m>t</m> obeys:</intertext><mrow>
+\sqrt{\frac{m}{gk}}\arctan\left(\sqrt{\frac{k}{mg}}0\right)&amp;=\sqrt{\frac{m}{gk}}\arctan\left(\sqrt{\frac{k}{mg}}v_0\right)-t
+</mrow><mrow>
+0&amp;=\sqrt{\frac{m}{gk}}\arctan\left(\sqrt{\frac{k}{mg}}v_0\right)-t
+</mrow><mrow>
+t&amp;=\sqrt{\frac{m}{gk}}\arctan\left(\sqrt{\frac{k}{mg}}v_0\right)
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>1996D</fromexam></title>
+<statement><p>
+ A motor boat is traveling with a velocity of 40 ft/sec when
+its motor shuts off at time <m>t=0</m>. Thereafter, its deceleration due to
+water resistance is given by
+<md>
+<mrow>
+   \diff{v}{t}=-k\,v^2
+</mrow>
+</md>
+where <m>k</m> is a positive constant. After 10 seconds, the boat's velocity
+is 20 ft/sec.
+<ol label="a">
+<li>
+What is the value of <m>k</m>?
+</li>
+<li>
+When will the boat's velocity be 5 ft/sec?
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+The general solution to the differential equation will contain the constant
+<m>k</m> and one other constant. They are determined by the data given in the
+question.
+</p></hint>
+
+<answer><p>
+(a) <m>k=\frac{1}{400}</m>
+</p><p>
+ (b)
+<m>t=70\mathrm{sec}</m>
+</p>
+
+</answer>
+
+<solution><p> (a)
+The given differential equation is separable and we solve it accordingly.
+<md>
+<mrow>
+\diff{v}{t}&amp;=-k\,v^2
+</mrow><mrow>
+-\frac{\dee{v}}{v^2}&amp;=k\,\dee{t}
+</mrow><mrow>
+\int- \frac{\dee{v}}{v^2}&amp;=\int k\,\dee{t}
+</mrow><mrow>
+\frac{1}{v}&amp;=kt+C
+</mrow>
+<intertext>At <m>t=0</m>, <m>v=40</m> so </intertext><mrow>
+\frac{1}{40}&amp;=k\times 0+ C
+</mrow><mrow>
+C&amp;=\frac{1}{40}
+</mrow>
+<intertext>Therefore,</intertext><mrow>
+v(t)&amp;=\frac{1}{kt+C}=\frac{1}{kt+1/40}=\frac{40}{40kt+1}\tag{$*$}
+</mrow>
+<intertext>The constant of proportionality <m>k</m> is determined by</intertext><mrow>
+v(10)&amp;=20
+</mrow><mrow>
+ 20&amp;=\frac{40}{40k\times 10+1}
+</mrow><mrow>
+ \frac{1}{2}&amp;=\frac{1}{400k+1}
+</mrow><mrow>
+ 400k+1&amp;=2
+</mrow><mrow>
+ k&amp;=\frac{1}{400}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+Subbing in the value of <m>k</m> to <m>(*)</m>,
+<md>
+<mrow>
+v(t)&amp;=\frac{40}{40kt+1}=\frac{40}{t/10+1}
+</mrow>
+<intertext>We want to know the value of <m>t</m> that gives <m>v(t)=5</m>.</intertext><mrow>
+5&amp;=\frac{40}{t/10+1}
+</mrow><mrow>
+ \frac{t}{10}+1&amp;=8
+</mrow><mrow>
+ t&amp;=70\text{ sec}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS" xml:id="prob_s2_4_chemical"><title><fromexam>M121 2000A</fromexam></title>
+<statement><p>
+  Consider the initial value problem <m>\diff{x}{t}= k(3-x)(2-x)</m>,
+<m>x(0)=1</m>, where <m>k</m> is a positive constant. (This kind of problem occurs
+in the analysis of certain chemical reactions.)
+</p>
+
+<p><ol label="a">
+<li>
+Solve the initial value problem. That is, find <m>x</m> as a
+function of <m>t</m>.
+</li>
+<li>
+What value will <m>x(t)</m> approach as <m>t</m> approaches <m>+\infty</m>.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+The method of partial fractions will help you integrate.
+</p>
+
+<p>To solve <m>\frac{x-a}{x-b}=Y</m> for <m>x</m>, move the terms containing <m>x</m> out of the denominator, then gather them on one side of the equals sign and factor out the <m>x</m>.
+<md>
+<mrow>
+\frac{\textcolor{red}{x}-a}{\textcolor{red}{x}-b}&amp;=Y
+</mrow><mrow>
+\textcolor{red}{x}-a&amp;=Y(\textcolor{red}{x}-b)=Y\textcolor{red}{x}-Yb
+</mrow><mrow>
+\textcolor{red}{x}-Y\textcolor{red}{x}&amp;=a-Yb
+</mrow><mrow>
+\textcolor{red}{x}(1-Y)&amp;=a-Yb
+</mrow><mrow>
+\textcolor{red}{x}=\frac{a-Yb}{1-Y}
+</mrow>
+</md>
+</p>
+
+<p>To find the limit, you can avoid  l'Hôpital's rule using some clever algebra--but you can also just use  l'Hôpital's rule.
+</p></hint>
+
+<answer><p>
+(a)
+ <m>x(t)=\dfrac{3-4e^{kt}}{1-2e^{kt}}</m>
+</p><p>
+ (b)
+As <m>t\rightarrow\infty</m>, <m>x\rightarrow 2</m>.
+</p>
+
+</answer>
+
+<solution><p> (a)
+The given differential equation is separable and we solve it accordingly.
+<md>
+<mrow>
+\diff{x}{t}&amp;= k(3-x)(2-x)
+</mrow><mrow>
+\frac{\dee{x}}{(x-2)(x-3)}&amp;= k\dee{t}
+</mrow>
+<intertext>Using the method of partial fractions, we find <m>\frac{1}{(x-2)(x-3)}=\frac{1}{x-3}-\frac{1}{x-2}</m>.
+</intertext><mrow>
+ \int\Big[\frac{1}{x-3}-\frac{1}{x-2}\Big]\dee{x}&amp;= \int k\dee{t}
+</mrow><mrow>
+\log|x-3|-\log|x-2|&amp;=kt+C
+</mrow><mrow>
+\log\left|\frac{x-3}{x-2}\right|&amp;=kt+C
+</mrow><mrow>
+\left|\frac{x-3}{x-2}\right|&amp;=e^{kt+C}=e^{kt}e^C
+</mrow><mrow>
+ \frac{x-3}{x-2}&amp;=De^{kt}
+</mrow>
+<intertext>
+where <m>D=\pm e^C</m>. When <m>t=0</m>, <m>x=1</m>, forcing</intertext><mrow>
+\frac{1-3}{1-2}&amp;=De^{0}
+</mrow><mrow>
+D&amp;=2
+</mrow>
+<intertext>Hence</intertext><mrow>
+\frac{x-3}{x-2}&amp;=2e^{kt}
+</mrow><mrow>
+ x-3&amp;=2e^{kt}(x-2)
+</mrow><mrow>
+ x-2e^{kt}x&amp;=3-4e^{kt}
+</mrow><mrow>
+ x(t)&amp;=\frac{3-4e^{kt}}{1-2e^{kt}}
+</mrow>
+</md>
+ (b) To evaluate the limit, we could use l'Hôpital's rule, but we could also just multiply the numerator and denominator by <m>e^{-kt}</m>. Note <m>\lim\limits_{t \to \infty} e^{-tk}=0</m>.
+<md>
+<mrow>
+\lim_{t\rightarrow\infty}x(t)
+&amp;=\lim_{t\rightarrow\infty}\underbrace{\frac{3-4e^{kt}}{1-2e^{kt}}}_{\atp{\mathrm{num}\to-\infty}{\mathrm{den}\to-\infty}}
+=\lim_{t \to \infty} \frac{3-4e^{kt}}{1-2e^{kt}}\cdot\frac{e^{-kt}}{e^{-kt}}
+=\lim_{t\rightarrow\infty}\frac{3e^{-kt}-4}{e^{-kt}-2}
+=\frac{0-4}{0-2}
+=2
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1997D</fromexam></title>
+<statement><p>
+ The quantity <m>P=P(t)</m>, which is a function of time <m>t</m>,
+satisfies the differential equation
+<md>
+<mrow>
+\diff{P}{t}=4P-P^2
+</mrow>
+</md>
+and the initial condition <m>P(0)=2</m>.
+</p>
+
+<p><ol label="a">
+<li>
+Solve this equation for <m>P(t)</m>.
+</li>
+<li>
+What is <m>P</m> when <m>t=0.5</m>? What is the limiting value of <m>P</m>
+as <m>t</m> becomes large?
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+Be careful about signs.
+</p>
+
+<p>Part (a) has some algebraic similarities to Question<nbsp/><xref ref="prob_s2_4_chemical" text="local"/>.
+</p></hint>
+
+<answer><p>
+(a)
+ <m>P=\dfrac{4}{1+e^{-4t}}</m>
+</p><p>
+ (b)
+ At <m>t=\dfrac{1}{2}</m>, <m>P\approx 3.523</m>.
+As <m>t\rightarrow\infty</m>, <m>P\rightarrow 4</m>.
+</p>
+
+</answer>
+
+<solution><p> (a)
+The given differential equation is separable and we solve it accordingly.
+<md>
+<mrow>
+\diff{P}{t}&amp;=4P-P^2
+</mrow><mrow>
+ \frac{\dee{P}}{4P-P^2}&amp;=\dee{t}
+</mrow><mrow>
+ \frac{\dee{P}}{P(4-P)}&amp;=\dee{t}
+ </mrow>
+<intertext>Using the method of partial fractions, we see <m>\frac{1}{P(4-P)}=\frac{1/4}{P} + \frac{1/4}{4-P}</m>.
+</intertext><mrow>
+ \frac{1}{4}\Big[\frac{1}{P}+\frac{1}{4-P}\Big]\dee{P}&amp;=\dee{t}
+</mrow><mrow>
+\int \frac{1}{4}\Big[\frac{1}{P}+\frac{1}{4-P}\Big]\dee{P}&amp;=\int\dee{t}
+</mrow><mrow>
+ \frac{1}{4}\big[\log|P|-\log|4-P|\Big]&amp;=t+C
+</mrow>
+<intertext>When <m>t=0</m>, <m>P=2</m>, so <m>\frac{1}{4}\big[\log|2|-\log|2|\big]=C\implies C=0</m>.
+So,
+</intertext><mrow>
+\frac{1}{4}\log\Big|\frac{P}{4-P}\Big|&amp;=t
+</mrow>
+<intertext>
+At time <m>t=0</m>, <m>\frac{P}{4-P}=1 \gt 0</m>. The ratio may not change sign at any
+finite time, because this could only happen if at some finite time <m>P</m>
+took either the value 0 or the value 4. But at this time
+<m>t=\frac{1}{4}\log\big|\frac{P}{4-P}\big|</m> would have to be infinite.
+So <m>\frac{P}{4-P} \gt 0</m> for all time and:
+</intertext><mrow>
+\frac{1}{4}\log \frac{P}{4-P} &amp;=t
+</mrow><mrow>
+ \log \frac{P}{4-P} &amp;=4t
+</mrow><mrow>
+ \frac{P}{4-P} &amp;=e^{4t}
+</mrow><mrow>
+ P&amp;=(4-P)e^{4t}
+</mrow><mrow>
+ P+Pe^{4t}&amp;=4e^{4t}
+</mrow><mrow>
+ P&amp;=\frac{4e^{4t}}{1+e^{4t}}=\frac{4}{1+e^{-4t}}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+At <m>t=\frac{1}{2}</m>, <m>P=\frac{4}{1+e^{-2}}\approx 3.523</m>.
+</p>
+
+<p><me>
+\lim_{t \to \infty} P(t)=\lim_{t \to \infty}\frac{4}{1+e^{-4t}} = \frac{4}{1+0}=4</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>1998A</fromexam></title>
+<statement><p>
+ An object moving in a fluid has an initial velocity <m>v</m>
+of 400 m/min. The velocity is decreasing at a rate proportional to the
+square of the velocity. After 1 minute the velocity is 200 m/min.
+</p>
+
+<p><ol label="a">
+<li>
+Give a differential equation for the velocity <m>v=v(t)</m> where
+<m>t</m> is time.
+</li>
+<li>
+Solve this differential equation.
+</li>
+<li>
+ When will the object be moving at 50 m/min?
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+The general solution to the differential equation will contain a constant
+of proportionality and one other constant. They are determined by the
+data given in the question.
+</p>
+
+</hint>
+
+<answer><p>
+(a)
+<m>\displaystyle \diff{v}{t}=-kv^2</m>
+</p><p>
+ (b)
+ <m>\displaystyle v=\frac{400}{t+1}</m>
+</p><p>
+ (c)
+<m>t=7</m>
+</p>
+
+</answer>
+
+<solution><p>
+<ol label="a">
+<li> The rate of change of speed at time <m>t</m> is <m>-kv(t)^2</m> for
+some constant of proportionality <m>k</m> (to be determined--but we assume it is positive, since the speed is decreasing). So <m>v(t)</m> obeys
+the differential equation <m>\diff{v}{t}=-kv^2</m> .
+</li>
+<li> The equation <m>\diff{v}{t}=-kv^2</m> is a separable
+differential equation, which we can solve in the usual way.
+<md>
+<mrow>
+\diff{v}{t}&amp;=-kv^2
+</mrow><mrow>
+\frac{\dee{v}}{-v^2}&amp;=k\dee{t}
+</mrow><mrow>
+\int -\frac{\dee{v}}{v^2} &amp;=\int k\dee{t}
+</mrow><mrow>
+ \frac{1}{v}&amp;=kt+C
+</mrow>
+<intertext>At time <m>t=0</m>, <m>v=400</m>, so <m>C=\frac{1}{400}</m>. Then:
+</intertext><mrow>
+\frac{1}{v}&amp;=kt+\frac{1}{400}\tag{$*$}
+</mrow>
+<intertext>At time <m>t=1</m>, <m>v=200</m>, so </intertext><mrow>
+\frac{1}{200}&amp;=k+\frac{1}{400}
+</mrow><mrow>
+  k&amp;=\frac{1}{400}
+  </mrow>
+<intertext>Therefore, from (<m>*</m>),</intertext><mrow>
+\frac{1}{v}&amp;=\frac{t}{400}+\frac{1}{400} = \frac{t+1}{400}
+</mrow><mrow>
+v&amp;=\frac{400}{t+1}
+</mrow>
+</md>
+</li>
+<li>
+To find when the speed is 50, we set <m>v=50</m> in the equation from (b) and solve for <m>t</m>.
+<md>
+<mrow>
+50&amp;=\frac{400}{t+1}
+</mrow><mrow>
+50(t+1)&amp;=400
+</mrow><mrow>
+t+1&amp;=8
+</mrow><mrow>
+t&amp;=7
+</mrow>
+</md>
+</li>
+</ol>
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise><title><fromexam>1997A</fromexam></title>
+<statement><p>
+ An investor places some money in a mutual fund where the
+interest is compounded continuously and where the interest rate fluctuates
+between <m>4\%</m> and <m>8\%</m>. Assume that the amount of money <m>B=B(t)</m> in the
+account in dollars after <m>t</m> years satisfies the differential equation
+<md>
+<mrow>
+\diff{B}{t}=\big(0.06+0.02\sin t\big)B
+</mrow>
+</md>
+</p>
+
+<p><ol label="a">
+<li>
+Solve this differential equation for <m>B</m> as a function of
+<m>t</m>.
+</li>
+<li>
+If the initial investment is <m>\$1000</m>, what will the balance
+be at the end of two years?
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+You do not need to know anything about investing or continuous compounding
+ to do this problem. You are given the differential equation explicitly. The
+whole first sentence  is just window dressing.
+</p></hint>
+
+<answer><p>
+(a)
+<m>B(t)=C\,e^{0.06 t-0.02\cos t}</m> with the arbitrary constant <m>C\ge 0</m>.
+</p><p>
+ (b)
+<m>\$1159.89</m>
+</p></answer>
+
+<solution><p> (a)
+The given differential equation is separable and we solve it accordingly.
+<md>
+<mrow>
+\diff{B}{t}&amp;=(0.06+0.02\sin t)B
+</mrow><mrow>
+\frac{\dee{B}}{B}&amp;=(0.06+0.02\sin t)\,\dee{t}
+</mrow><mrow>
+\int \frac{\dee{B}}{B}&amp;=\int (0.06+0.02\sin t)\,\dee{t}
+</mrow><mrow>
+\log |B(t)|&amp;= 0.06 t-0.02\cos t +C'
+</mrow>
+<intertext>Since <m>B(t)</m> is our bank account balance and we're not withdrawing money, <m>B(t)</m> is positive, so we can drop the absolute value signs.</intertext><mrow>
+\log B(t)&amp;= 0.06 t-0.02\cos t +C'
+</mrow><mrow>
+ B(t)&amp;= e^{0.06 t-0.02\cos t}e^{C'}
+</mrow><mrow>
+B(t)&amp;=Ce^{0.06 t-0.02\cos t}
+</mrow>
+</md>
+for arbitrary constants <m>C'</m> and <m>C=e^{C'}\ge 0</m>.
+</p>
+
+<p>Remark: the function
+<m>B(t)=0</m> obeys the differential equation so that <m>C=0</m> is allowed, even
+though it is not of the form <m>C=e^{C'}</m>. This seeming discrepancy arose because, in our very first step of part (a), we divided both sides of the differential equation by <m>B</m>, which is only allowable if <m>B\neq 0</m>. So, in this step, we implicitly assumed <m>B</m> was nonzero.
+</p>
+
+<p> (b)
+We are told that <m>B(0)=1000</m>. This allows us to find <m>C</m>.
+<md>
+<mrow>
+1000=B(0)&amp;=Ce^{0-0.02\cos 0}=Ce^{-0.02}
+</mrow><mrow>
+C&amp;=1000e^{0.02}
+</mrow>
+<intertext>So, when <m>t=2</m>,</intertext><mrow>
+B(2)&amp;=\underbrace{\vphantom{p}1000e^{0.02}}_{C} e^{0.06\times 2-0.02\cos 2}=\$1159.89
+</mrow>
+</md>
+rounded to the nearest cent.
+</p>
+
+<p>Note that <m>\cos 2</m> is the cosine of 2 radians, <m>\cos 2 \approx -0.416</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M105 2014A</fromexam></title>
+<statement><p>
+An endowment is an investment account in which the balance ideally
+remains constant and withdrawals are made on the interest earned
+by the account. Such an account may be modeled by the initial value
+problem <m>B'(t) = aB - m</m> for <m>t \ge 0</m>, with <m>B(0) = B_0</m> . The
+constant <m>a</m> reflects the annual interest rate, <m>m</m> is the annual
+rate of withdrawal, and <m>B_0</m> is the initial balance in the account.
+</p>
+
+<p><ol label="a">
+<li>
+Solve the initial value problem with <m>a = 0.02</m> and <m>B(0) = B_0 = \$30,000</m>.
+Note that your answer depends on the constant <m>m</m>.
+</li>
+<li>
+If <m>a = 0.02</m> and <m>B(0) = B_0 = \$30,000</m>, what is the annual
+withdrawal rate <m>m</m> that ensures a constant balance in the account?
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+Again, you do not need to know anything about investing
+ to do this problem. You are given the differential equation explicitly.
+</p></hint>
+
+<answer><p>
+(a) <m>B(t) = \left\{30000-50m\right\} e^{t/50} + 50m</m>
+</p><p>
+ (b) <m>\$600</m>
+</p></answer>
+
+<solution><p> (a)
+The given differential equation is separable and we could solve it
+accordingly. In fact we have already done so. If we rewrite the equation in the
+form
+<md>
+<mrow>
+\diff{B}{t} = a\Big(B-\frac{m}{a}\Big)
+</mrow>
+</md>
+it is of the form covered by Theorem <xref ref="thm_linearODE"/>. So that theorem tells us that the solution is
+<md>
+<mrow>
+B(t) = \left(B(0)-\frac{m}{a}\right) e^{at} + \frac{m}{a}
+</mrow>
+</md>
+In this problem we are told that <m>a=0.02=\frac{1}{50}</m>, so
+<md>
+<mrow>
+B(t) = \left\{B(0)-50m\right\} e^{t/50} + 50m
+= \left\{30000-50m\right\} e^{t/50} + 50m
+</mrow>
+</md>
+</p>
+
+<p> (b)
+The solution of part (a) is independent of time if and only if
+<m>30000-50m=0</m>. So we need
+<md>
+<mrow>
+m= \frac{30000}{50} = \$600
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M121 1999A</fromexam></title>
+<statement><p>
+A certain continuous function <m>y=y(x)</m> satisfies the integral
+equation
+<men>
+y(x)=3+\int_0^x\big(y(t)^2-3y(t)+2\big)\sin t \dee{t} \tag{$*$}
+</men>
+for all <m>x</m> in some open interval containing <m>0</m>. Find <m>y(x)</m> and the largest
+interval for which <m>(*)</m> holds.
+</p></statement>
+
+<hint><p>
+Differentiate the given integral equation. Plugging in <m>x=0</m> gives you <m>y(0)</m>.
+</p></hint>
+
+<answer><p>
+<m>y(x)=\dfrac{4-e^{1-\cos x}}{2-e^{1-\cos x}}</m>.
+The largest allowed interval is
+<me>
+-\arccos(1-\log 2) \lt x \lt \arccos(1-\log 2)
+</me>
+or, roughly, <m> - 1.259  \lt  x  \lt    1.259</m>.
+</p></answer>
+
+<solution><p>
+What we're given is an equation relating <m>y</m> to the integral of a function of <m>y</m>. What we know how to solve is an equation relating the <em>derivative</em> of <m>y</m> to a function of <m>y</m>. We can create this by differentiating the given integral equation.
+By the Fundamental Theorem of Calculus, part 1:
+<me>
+y'(x)=\diff{}{x}\left\{\int_0^x\big(y(t)^2-3y(t)+2\big)\sin t\dee{t}\right\}
+=\big(y(x)^2-3y(x)+2\big)\sin x
+</me>
+So <m>y(x)</m> satisfies the differential equation <m>y'=\big(y^2-3y+2\big)\sin x
+=(y-2)(y-1)\sin x</m>
+and the initial equation <m>y(0)=3</m> (just substitute <m>x=0</m> into <m>(*)</m>).
+For <m>y\ne 1,2</m>:
+<md>
+<mrow>
+\diff{y}{x}&amp;=(y-2)(y-1)\sin x
+</mrow><mrow>
+  \frac{\dee{y}}{(y-2)(y-1)}&amp;=\sin x\dee{x}
+</mrow><mrow>\int  \frac{\dee{y}}{(y-2)(y-1)}&amp;=\int \sin x\dee{x}
+  </mrow>
+<intertext>Using the method of partial fractions, we see <m>\frac{1}{(y-2)(y-1)}=\frac{1}{y-2}-\frac{1}{y-1}</m>.
+</intertext><mrow>
+ \int\Big[\frac{1}{y-2}-\frac{1}{y-1}\Big]\dee{y}&amp;=\int\sin x\dee{x}
+</mrow><mrow>
+ \log|y-2|-\log|y-1|&amp;=-\cos x+c
+</mrow><mrow>
+ \log\left|\frac{y-2}{y-1}\right|&amp;=-\cos x+c
+</mrow><mrow>
+ \left|\frac{y-2}{y-1}\right|&amp;= e^{c-\cos x}
+ </mrow>
+<intertext>The condition <m>y(0)=3</m> forces <m>\big|\frac{3-2}{3-1}\big|= e^{c-1}</m> or
+<m>e^c=\frac{1}{2} e</m>, hence
+</intertext><mrow>
+\left|\frac{y-2}{y-1}\right|&amp;=\frac{1}{2} e^{1-\cos x}
+</mrow>
+</md>
+Observe that, when <m>x=0</m>, <m>\frac{y-2}{y-1}=\frac{1}{2} \gt 0</m>. Furthermore
+<m>\frac{1}{2} e^{1-\cos x}</m>, and hence <m>\big|\frac{y-2}{y-1}\big|</m>,
+ can never take the value zero. As <m>y(x)</m> varies continuously with <m>x</m>,
+<m>y(x)</m> must remain larger than 2. Consquently, <m>\frac{y-2}{y-1}</m> remains
+positive and we may  drop the absolute value signs. Hence
+<md>
+<mrow>
+\frac{y-2}{y-1}=\frac{1}{2} e^{1-\cos x}
+</mrow>
+<intertext>
+Solving for <m>y</m>,</intertext><mrow>
+\frac{y-2}{y-1}&amp;=\frac{1}{2} e^{1-\cos x}
+</mrow><mrow>
+ 2(y-2)&amp;=e^{1-\cos x}(y-1)
+</mrow><mrow>
+  2y-4&amp;=ye^{1-\cos x}-e^{1-\cos x}
+</mrow><mrow>
+ y\big(2-e^{1-\cos x}\big)&amp;=4-e^{1-\cos x}
+</mrow><mrow>
+ y&amp;=\frac{4-e^{1-\cos x}}{2-e^{1-\cos x}}
+</mrow>
+</md>
+</p>
+
+<p>To avoid division by zero in the last step, we need
+<md>
+<mrow>
+ e^{1-\cos x}&amp;\neq2
+ </mrow><mrow>
+ 1-\cos x&amp;\neq \log 2
+ </mrow><mrow>
+ \cos x&amp;\neq 1-\log 2
+ </mrow>
+ </md>
+</p>
+
+<p>Let <m>L=1-\log 2</m>, for brevity, and note that <m>L \gt 0</m>. (This can be seen by observing <m>2 \lt e</m>, so, <m>\log 2 \lt \log e = 1</m>, hence <m>1-\log 2 \gt 0</m>.)
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[help lines,  \lt - \gt ] (-6.5,0)--(6.5,0)
+node[right]{$x$};
+\draw[help lines,  \lt - \gt ] (0,-2)--(0,2.25) node[above]{$Y$};
+\color{red}
+\YEycoord{0.62}{L}
+\YExcoord{2.52}{\arccos(L)}
+\YExcoord{-2.52}{-\arccos(L)}
+\draw[dashed] (-6,.62)--(-1,.62) (.5,.62)--(6,.62);
+\draw[thick, blue]plot[domain=-3:3, samples=100]({2*\x},{2*cos(\x r)}) node[right]{$Y=\cos x$};
+\draw (2.52,0.61) node[vertex]{};
+\draw (-2.52,0.61) node[vertex]{};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+We know <m>x=0</m> is in the domain of our function, but the points  <m>x=\pm \arccos(L) = \pm\arccos(1-\log 2)</m> are <em>not</em>.
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[ \lt - \gt , help lines] (-6,0)--(6,0) node[right]{$x$};
+\YExcoord{-1}{0}
+\draw [ \lt -] (-1,-.75) --(-1,-1.5) node[below]{in domain};
+\color{red}
+\YExcoord{3}{\arccos(1-\log 2)}
+\draw [ \lt -] (3,-.75) --(3,-1.5) node[below]{not in domain};
+\YExcoord{-5}{-\arccos(1-\log 2)}
+\draw [ \lt -] (-5,-.85) --(-5,-1.5) node[below]{not in domain};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Therefore, the largest interval for which our answer makes sense is <me>
+-\arccos(1-\log 2)) \gt x \gt \arccos(1-\log 2)</me>
+</p>
+
+<p>or approximately <m> - 1.259  \lt  x  \lt    1.259</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M121 2001A</fromexam></title>
+<statement><p>
+A cylindrical water tank, of radius 3 meters and height 6 meters,
+is full of water when its bottom is punctured. Water drains out
+through a hole of radius 1 centimeter. If
+<ul>
+<li>
+<m>h(t)</m> is the height of the water in the tank at time <m>t</m> (in
+meters) and
+</li>
+<li>
+<m>v(t)</m> is the velocity of the escaping water  at time <m>t</m> (in
+meters per second) then
+</li>
+<li>
+Torricelli's law states that <m>v(t)=\sqrt{2gh(t)}</m> where <m>g=9.8\
+{\rm m/sec^2}</m>. Determine how long it takes for the tank to empty.
+</li>
+</ul>
+</p></statement>
+
+<hint><p>
+Suppose that in a very short time interval <m>\dee{t}</m>, the height
+of water in the tank changes by <m>\dee{h}</m> (which is negative).
+Express in two different ways the volume of water that has escaped
+during this time interval. Equating the two gives the needed differential
+equation.
+</p>
+
+<p>As the water escapes, it forms a cylinder of radius 1 cm.
+</p></hint>
+
+<answer><p>
+<m>180,000 \sqrt{\frac{3}{g}}\approx 99,591\text{ sec}
+                           \approx 27.66\text{ hr}</m>
+</p></answer>
+
+<solution><p>
+Suppose that in a very short time interval <m>\dee{t}</m>, the height
+of water in the tank changes by <m>\dee{h}</m> (which is negative).
+Then in this time interval the amount of the water in the tank decreases
+by <m>\dee{V}=-\pi(3)^2\dee{h}</m>.
+This must be the same as the amount of water that flows through the hole
+in this time interval. The water flowing through the hole makes a cylinder of radius 1 cm (that is, 0.01 m) with length <m>v(t)\dee{t}</m>, the distance the water moves out of the hole in <m>\dee{t}</m> seconds. So, the amount of water leaving the hole over the time interval <m>\dee{t}</m> is  <m>\pi(0.01)^2 v(t)\,\dee{t}
+=\pi(0.01)^2 \sqrt{2gh(t)}\,\dee{t}</m>.
+</p><sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+</p>
+
+<p>\draw[] (-2,3) arc(180:0:2cm and 5mm);
+\draw (0,0) node[shape=ellipse, minimum width=4cm, minimum height=1cm, draw,fill=blue, fill opacity=0.1]{};
+\draw (-2,3)--(-2,0) arc (180:360:2cm and 5mm)--(2,3);
+</p>
+
+<p>\fill[white] (.25,0) arc (0:180:.25 cm and .625mm)--(-.25,-2)
+arc (180:360:.25 cm and .625mm)--(.25,0);
+\draw[fill=blue, fill opacity=0.3] (.25,0) arc (0:180:.25 cm and .625mm)--(-.25,-2)
+arc (180:360:.25 cm and .625mm)--(.25,0);
+\draw[fill=blue, fill opacity=0.1] (-2,1.75) arc (180:0:2 cm and 5mm)--(2,0)
+arc (0:180:2 cm and 5mm)--(-2,1.75);
+\draw (-2,1.5)arc (180:0:2 cm and 5mm);
+\draw[|-|] (2.2,1.5)--(2.2,1.8) node[midway,right] {$\dee{h}$};
+\fill[white, fill opacity=0.5]  (-2,1.5) arc(180:0:2cm and 5mm)--(2,1.8) arc (0:180:2cm and 5mm);
+\draw[decorate, decoration={brace, amplitude=7pt}] (1,0)--(1,-2) node[midway,right, xshift=3mm] {$\dee{V}$};
+</p>
+
+<p>\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>This gives us a separable differential equation. Recall <m>g</m> is a constant.
+<md>
+<mrow>
+-\pi(3)^2\dee{h}&amp;=\pi(0.01)^2 \sqrt{2gh(t)}\,\dee{t}
+</mrow><mrow>
+\frac{\dee{h}}{\sqrt{h}}&amp;=-{\Big(\frac{0.01}{3}\Big)}^{\!2} \sqrt{2g}\,\dee{t}\cr
+\int\frac{\dee{h}}{\sqrt{h}}&amp;=\int-{\Big(\frac{0.01}{3}\Big)}^{\!2} \sqrt{2g}\,\dee{t}\cr
+ 2\sqrt{h}&amp;=-{\Big(\frac{0.01}{3}\Big)}^{\!2} \sqrt{2g}\,t+C
+</mrow>
+<intertext>At time <m>0</m>, the height is <m>6</m>, so <m>C=2\sqrt{6}</m> and
+</intertext><mrow>
+2\sqrt{h}&amp;=-{\Big(\frac{0.01}{3}\Big)}^{\!2} \sqrt{2g}\,t+2\sqrt{6}
+</mrow>
+<intertext>We want to know when the height of the water in the tank is 0.</intertext><mrow>
+0&amp;=-\Big(\frac{0.01}{3}\Big)^{\!2} \sqrt{2g}\,t+2\sqrt{6}
+</mrow><mrow>
+\Big(\frac{0.01}{3}\Big)^{\!2} \sqrt{2g}\,t&amp;=2\sqrt{6}
+</mrow><mrow>
+t&amp;=\frac{2\sqrt6}{\Big(\frac{0.01}{3}\Big)^{\!2} \sqrt{2g}}
+</mrow><mrow>
+ &amp;=2{\Big(\frac{3}{0.01}\Big)}^{\!2} \sqrt{\frac{3}{g}}
+</mrow><mrow>
+&amp;=180,000 \sqrt{\frac{3}{g}}\approx 99,591\text{ sec}
+                           \approx 27.66\text{ hr}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2000D</fromexam></title>
+<statement><p>
+A spherical tank of radius 6 feet is full of mercury when
+a circular hole of radius 1 inch is opened in the bottom. How long will
+it take for all of the mercury to drain from the tank?
+</p>
+
+<p> Use the value
+<m>g=32\ {\rm feet}/{\rm sec}^2</m>.
+Also use Torricelli's law, which states when the height of mercury in the tank
+is <m>h</m>, the speed of the mercury escaping from the tank is <m>v=\sqrt{2gh}</m>.
+</p></statement>
+
+<hint><p>
+Sketch the mercury in the tank at time <m>t</m>,  when it has height <m>h</m>,
+and also at time <m>t+\dee{t}</m>, when it has height <m>h+\dee{h}</m> (with <m>\dee{h} \lt 0</m>).
+The difference between those two volumes is the volume of (essentially)
+a disk of thickness <m>-\dee{h}</m>. Figure out the radius and then the volume
+of that disk. This volume has to be the same as the volume of mercury that
+left through the hole in the bottom of the sphere, which runs out in the shape of a cylinder. Toricelli's law tells
+you what the length of that cylinder is, and from there you can find its volume. Setting the two volumes equal to each other gives
+the differential equation that determines <m>h(t)</m>.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle t=\frac{4\times 144}{15} \sqrt{\frac{12^5}{2g}}
+   \approx 2,394\,\text{sec }\approx 0.665\, \text{hr}</m>
+</p></answer>
+
+<solution><p>
+Suppose that at time <m>t</m>, the mercury in the tank has height <m>h</m>, which is
+between 0 and 12 feet.
+</p>
+
+<sidebyside width="33%">
+<image source="problems/figs/OE00D_4"/>
+</sidebyside>
+
+<p>
+At that time, the top surface of the mercury
+forms a circular disk of radius <m>\sqrt{6^2-(h-6)^2}</m>. (We found this by applying the Pythagorean Theorem to the triangle in the diagram above. In the diagram, <m>h</m> is shown as being larger than 6, but the same equation holds for all <m>h</m> in <m>[0,12]</m>.)
+Now suppose that in a very short time interval <m>\dee{t}</m>, the height
+of mercury in the tank changes by <m>\dee{h}</m> (which is negative). Then in this
+time interval the amount of the mercury in the tank decreases by
+<m>-\pi\big(\sqrt{6^2-(h-6)^2}\ \big)^2\dee{h}</m>. (That's the volume of the
+red disk in the figure above.) This must be the same as the amount of mercury
+that flows through the hole in this time interval. The  mercury comes out of the hole as a cylinder. Its radius is the radius of the hole, <m>\frac{1}{12}</m> foot, and its length is the distance the mercury travels in <m>\dee{t}</m> seconds, <m>v(t)\dee{t}</m> feet. So, the volume of escaped mercury is
+ <m>\pi\big(\frac{1}{12}\big)^2 v\,\dee{t}
+=\pi\big(\frac{1}{12}\big)^2 \sqrt{2gh}\,\dee{t}</m>.
+This gives us a separable differential equation.
+<md>
+<mrow>
+-\pi{\big(\sqrt{6^2-(h-6)^2}\ \big)}^2\dee{h}
+    &amp;=\pi\Big(\frac{1}{12}\Big)^2 \sqrt{2gh}\,\dee{t}
+</mrow><mrow>
+-{\big({36-(h^2-12h+36)}\ \big)}\dee{h}
+    &amp;=\Big(\frac{1}{12}\Big)^2 \sqrt{2gh}\,\dee{t}
+</mrow><mrow>
+\big(h^2-12h\big)\dee{h}
+    &amp;=\frac{1}{144} \sqrt{2g}\sqrt{h}\,\dee{t}\cr
+ \big(h^{3/2}-12h^{1/2}\big)\dee{h}&amp;=\frac{1}{144} \sqrt{2g}\,\dee{t}\cr
+\int \big(h^{3/2}-12h^{1/2}\big)\dee{h}&amp;=\int\frac{1}{144} \sqrt{2g}\,\dee{t}\cr
+ \frac{h^{5/2}}{5/2}-12\frac{h^{3/2}}{3/2}&amp;=\frac{1}{144} \sqrt{2g}\,t+C
+</mrow>
+<intertext>At time <m>0</m>, the height is <m>12</m>, so <m>C=\frac{12^{5/2}}{5/2}-12\frac{12^{3/2}}{3/2}
+=12^{5/2}\big(\frac{2}{5}-\frac{2}{3}\big)
+=-\frac{4}{15}12^{5/2}</m>, which yields
+</intertext><mrow>
+\frac{h^{5/2}}{5/2}-12\frac{h^{3/2}}{3/2}&amp;=\frac{1}{144} \sqrt{2g}\,t
+-\frac{4}{15}12^{5/2}
+</mrow>
+<intertext>We want to find the time <m>t</m> when the height is <m>h=0</m>.</intertext><mrow>
+0&amp;=\frac{1}{144} \sqrt{2g}\,t-\frac{4}{15}12^{5/2}
+</mrow><mrow>
+\frac{1}{144} \sqrt{2g}\,t&amp;=\frac{4}{15}12^{5/2}
+</mrow><mrow>
+ t&amp;=\frac{4\times 144}{15} \sqrt{\frac{12^5}{2g}}
+</mrow><mrow>
+&amp;=38.4 \sqrt{\frac{124416}{g}}\approx 2,394\,\text{sec }\approx 0.665\, \text{hr}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2001A</fromexam></title>
+<statement><p>
+Consider the equation
+<md>
+<mrow>
+f(x)=3+\int_0^x\big(f(t)-1\big)\big(f(t)-2\big)\dee{t}
+</mrow>
+</md>
+<ol label="a">
+<li>
+ What is <m>f(0)</m>?
+</li>
+<li>
+Find the differential equation satisfied by <m>f(x)</m>.
+</li>
+<li>
+Solve the initial value problem determined in (a) and (b).
+</li>
+</ol>
+</p>
+
+</statement>
+
+<hint><p>
+The fundamental theorem of calculus will be useful in part (b).
+</p></hint>
+
+<answer><p>
+(a) <m>3</m>
+</p><p>
+ (b)   <m>y'=(y-1)(y-2)</m>
+</p><p>
+ (c)  <m>f(x)=\dfrac{4-e^x}{2-e^x}</m>
+</p></answer>
+
+<solution><p> (a)
+Setting <m>x=0</m> gives
+<md>
+<mrow>
+f(0)=3+\int_0^0\big(f(t)-1\big)\big(f(t)-2\big)\dee{t}= 3
+</mrow>
+</md>
+</p>
+
+<p> (b) By the Fundamental Theorem of Calculus part 1,
+<md>
+<mrow>
+f'(x)=\diff{}{x}\int_0^x\big(f(t)-1\big)\big(f(t)-2\big)\dee{t}
+=\big(f(x)-1\big)\big(f(x)-2\big)
+</mrow>
+</md>
+Thus <m>y=f(x)</m> obeys  the differential equation <m>y'=(y-1)(y-2)</m>.
+</p>
+
+<p> (c) If <m>y\ne 1,2</m>,
+<md>
+<mrow>
+\diff{y}{x}&amp;=(y-1)(y-2)
+</mrow><mrow>
+\frac{\dee{y}}{(y-1)(y-2)}&amp;=\dee{x}
+</mrow><mrow>
+\int\frac{\dee{y}}{(y-1)(y-2)}&amp;=\int\dee{x}
+</mrow>
+<intertext>Using the method of partial fractions,</intertext><mrow>
+\int\left(\frac{1}{y-2}-\frac{1}{y-1}\right)\dee{y}&amp;=\int \dee{x}
+</mrow><mrow>
+ \log|y-2|-\log|y-1|&amp;=x+C
+</mrow><mrow>
+  \log\left|\frac{y-2}{y-1}\right|&amp;=x+C
+</mrow>
+<intertext>
+Observe that <m>\diff{y}{x}=(y-1)(y-2) \gt 0</m> for all <m>y\ge 2</m>. That is, <m>f(x)</m>
+is increasing at all <m>x</m> for which <m>f(x) \gt 2</m>. As <m>f(0)=3</m>, <m>f(x)</m> increases
+for all <m>x\ge 0</m>, and <m>f(x)\ge 3</m> for all <m>x\ge 0</m>. So we may drop the absolute
+value signs.
+</intertext><mrow>
+\log\frac{f(x)-2}{f(x)-1}&amp;=x+C
+</mrow><mrow>
+\frac{f(x)-2}{f(x)-1}&amp;=e^Ce^x
+</mrow>
+<intertext>
+At <m>x=0</m>, <m>\frac{f(x)-2}{f(x)-1}=\frac{1}{2}</m> so <m>e^C=\frac{1}{2}</m>.
+</intertext><mrow>
+\frac{f(x)-2}{f(x)-1}&amp;=\frac{1}{2} e^x
+</mrow><mrow>
+ 2f(x)-4&amp;=[f(x)-1]e^x
+</mrow><mrow>
+[2-e^x]f(x)&amp;=4-e^x
+</mrow><mrow>
+  f(x)&amp;=\frac{4-e^x}{2-e^x}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2002A</fromexam></title>
+<statement><p>
+A tank 2 m tall is to be made with circular cross--sections
+with radius <m>r=y^p</m>. Here <m>y</m> measures the vertical distance from
+the bottom of the tank and <m>p</m> is a positive constant to be
+determined. You may assume that when the tank drains, it obeys
+Torricelli's law, that is
+<md>
+<mrow>
+A(y)\diff{y}{t}=-c\sqrt{y}
+</mrow>
+</md>
+for some constant <m>c</m> where <m>A(y)</m> is the cross--sectional area of the
+tank at height <m>y</m>. It is desired that the tank be constructed so
+that the top half
+(<m>y=2</m> to <m>y=1</m>) takes exactly the same amount of time to drain as the
+bottom half (<m>y=1</m> to <m>y=0</m>). Determine the value of <m>p</m> so that the tank
+has this property. <em>Note:</em> it is not possible or necessary to find
+<m>c</m> for this question.
+</p>
+</statement>
+
+<hint><p>
+For any <m>p \gt 0</m>, determine first <m>y(t)</m> (in terms of <m>p</m> and <m>c</m>) and then the times (also depending on <m>p</m> and <m>c</m>) at which
+<m>y=2</m>, <m>y=1</m> and <m>y=0</m>. The condition that <q>the top half
+takes exactly the same amount of time to drain as the
+bottom half</q> then gives an equation that determines <m>p</m>.
+</p></hint>
+
+<answer><p>
+<m>p=\frac{1}{4}</m>
+</p></answer>
+
+<solution><p>
+Suppose that at time <m>t</m> (measured in hours starting at, say, noon),
+the water in the tank has height <m>y</m>, which is
+between 0 and 2 metres. At that time, the top surface of the water
+forms a circular disk of radius <m>r=y^p</m> and area <m>A(y)=\pi y^{2p}</m>.
+Thus, by Torricelli's law,
+<md>
+<mrow>
+\pi y^{2p}\diff{y}{t}&amp;=-c\sqrt{y}
+</mrow><mrow>
+-\frac{\pi}{c}\cdot y^{2p-{1\over 2}}\dee{y}&amp;=\,\dee{t}
+</mrow><mrow>
+\int-\frac{\pi}{c}\cdot y^{2p-{1\over 2}}\dee{y}&amp;=\,\int \dee{t}
+</mrow><mrow>
+ -\frac{\pi}{c}\cdot\frac{y^{2p+{1\over 2}}}{2p+{1\over 2}}+d &amp;=t
+</mrow>
+<intertext>for some constant <m>d</m>. At time <m>t=0</m>, the height is <m>y=2</m>, so
+<m>d=\displaystyle\frac{\pi}{c}\cdot\frac{2^{2p+{1\over 2}}}{2p+{1\over 2}}</m>.
+</intertext>
+<mrow>
+t&amp;=\frac{\pi}{c}\bigg(\frac{2^{2p+{1\over 2}}}{2p+{1\over 2}}
+-\frac{y^{2p+{1\over 2}}}{2p+{1\over 2}}\bigg)
+</mrow><mrow>
+&amp;=\frac{\pi}{c(2p+\frac12)}\left(2^{2p+\frac12}-y^{2p+\frac12}\right)
+</mrow>
+</md>
+The time at which the height is <m>1</m> is obtained by subbing <m>y=1</m> into this
+formula. The time at which the height is <m>0</m> is obtained by subbing <m>y=0</m>
+into this formula. Thus the condition that the top half
+(<m>y=2</m> to <m>y=1</m>) takes exactly the same amount of time to drain as the
+bottom half (<m>y=1</m> to <m>y=0</m>) is:
+<md>
+<mrow>
+t(2)-t(1)&amp;=t(1)-t(0)
+</mrow><mrow>
+0-t(1)&amp;=t(1)-t(0)
+</mrow><mrow>
+t(0)&amp;=2t(1)
+</mrow><mrow>
+\frac{\pi}{c(2p+\frac12)}\left(2^{2p+\frac12}-0^{2p+\frac12}\right)&amp;=
+2\frac{\pi}{c(2p+\frac12)}\left(2^{2p+\frac12}-1^{2p+\frac12}\right)
+</mrow><mrow>
+2^{2p+\frac12}&amp;=
+2\left(2^{2p+\frac12}-1\right)
+</mrow><mrow>
+2^{2p+\frac12}&amp;=
+2\cdot 2^{2p+\frac12}-2
+</mrow><mrow>
+2&amp;=2^{2p+\frac12}
+</mrow><mrow>
+1&amp;=2p+\frac12
+</mrow><mrow>
+p&amp;=\frac14
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose <m>f(t)</m> is a continuous, differentiable function and the root mean square of <m>f(t)</m> on <m>[a,x]</m> is equal to the average of <m>f(t)</m> on <m>[a,x]</m> for all <m>x</m>. That is,
+<me>
+\frac{1}{x-a}\int_a^xf(t)\,\dee(t)=\sqrt{\frac{1}{x-a}\int_a^x f^2(t)\,\dee{t}}\tag{$*$}
+</me>
+You may assume <m>x \gt a</m>.
+</p>
+
+<p><ol label="a">
+<li> Guess a function <m>f(t)</m> for which the average of <m>f(t)</m> is the same as the root mean square of <m>f(t)</m> on any interval.
+</li>
+<li> Differentiate both sides of the given equation.
+</li>
+<li> Simplify your answer from (b) by using Equation<nbsp/>(<m>*</m>) to replace all terms containing <m>\int_a^x f^2(t)\,\dee{t}</m> with terms containing <m>\int_a^x f(t)\,\dee{t}</m>.
+</li>
+<li> Let <m>Y(x) = \int_a^x f(t)\,\dee{t}</m>, so the equation from (c) becomes a differential equation. Find all functions that satisfy it.
+</li>
+<li> What is <m>f(t)</m>?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+For (a), think of a very simple function.
+</p>
+
+<p>The equation in the question statement is equivalent to the equation
+<me>
+\frac{1}{\sqrt{x-a}}\int_a^xf(t)\,\dee(t)=\sqrt{\int_a^x f^2(t)\,\dee{t}}</me>
+</p>
+
+<p>which is, in some cases, easier to use.
+</p>
+
+<p>For (d), you'll want to let <m>Y(x)=\int_a^x f(t)\,\dee{t}</m>, and use the quadratic equation. </p></hint>
+<answer><p>
+<ol label="a">
+<li> One possible answer: <m>f(t)=0</m>
+</li>
+<li> <m>\displaystyle \frac{1}{\sqrt{x-a}}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]
+=\frac{f^2(x)}{2\sqrt{\int_a^xf^2(t)\,\dee{t}}}</m>
+</li>
+<li> <m>\displaystyle \frac{2}{x-a}\int_a^x f(t)\,\dee{t}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]=f^2(x)</m>
+</li>
+<li> <m>Y(x) = D(x-a)</m>, where <m>D</m> is any constant
+</li>
+<li> <m>f(t)=D</m>, for any nonnegative constant <m>D</m>
+</li>
+</ol>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> If we let <m>f(t)=0</m> for all <m>t</m>, then its average over any interval is 0, as is its root mean square.
+</li>
+<li>
+Let's start by simplifying the given equation.
+<mdn>
+<mrow number="no">
+\frac{1}{x-a}\int_a^x f(t)\,\dee{t}&amp;=\sqrt{\frac{1}{x-a}\int_a^x f^2(t)\,\dee{t}}
+</mrow>
+<mrow xml:id="prob_s2_4_eq_simplified">
+\frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}&amp;=\sqrt{\int_a^x f^2(t)\,\dee{t}}
+</mrow>
+<mrow xml:id="prob_s2_4_eq_diffbothsides">
+\color{red}{\diff{}{x}\left\{\frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}\right\}}
+&amp;=\color{blue}{\diff{}{x}\left\{\sqrt{\int_a^x f^2(t)\,\dee{t}}\right\}}
+</mrow>
+</mdn>
+For the derivative on the left, we use the product rule and the Fundamental Theorem of Calculus, part 1.
+<md>
+<mrow>
+\color{red}{\diff{}{x}\left\{\frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}\right\}}
+&amp;=\diff{}{x}\left\{\frac{1}{\sqrt{x-a}}\right\}\int_a^x f(t)\,\dee{t} + \frac{1}{\sqrt{x-a}}\cdot\diff{}{x}\left\{\int_a^x f(t)\,\dee{t}\right\}
+</mrow><mrow>
+&amp;=-\frac{1}{2\sqrt{x-a}^3}\int_a^x f(t)\,\dee{t} + \frac{f(x)}{\sqrt{x-a}}
+</mrow><mrow>
+&amp;=\color{red}{
+\frac{1}{\sqrt{x-a}}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]}
+</mrow>
+<intertext>For the derivative on the right in Equation<nbsp/><xref ref="prob_s2_4_eq_diffbothsides"/> we use the chain rule and the Fundamental Theorem of Calculus  part 1
+</intertext>
+<mrow>
+\color{blue}{
+\diff{}{x}\left\{\sqrt{\int_a^x f^2(t)\,\dee{t}}\right\}
+}&amp;=\frac{1}{2}\left(\int_a^x f^2(t)\,\dee{t}\right)^{-\frac12}\cdot\diff{}{x}\left\{\int_a^x f^2(t)\,\dee{t}\right\}
+</mrow><mrow>
+&amp;=\color{blue}{\frac{f^2(x)}{2\sqrt{\int_a^xf^2(t)\,\dee{t}}}}
+</mrow>
+</md>
+So, Equation<nbsp/>(<xref ref="prob_s2_4_eq_diffbothsides"/>) yields the following:
+
+<men xml:id="prob_s2_4_b">
+\color{red}{
+\frac{1}{\sqrt{x-a}}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]}
+=\color{blue}{ \frac{f^2(x)}{2\sqrt{\int_a^xf^2(t)\,\dee{t}}}}
+</men>
+</li>
+<li>
+From Equation<nbsp/>(<xref ref="prob_s2_4_eq_simplified"/>), <m>\sqrt{\int_a^x f^2(t)\,\dee{t}} = \frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}</m>.
+<md>
+<mrow>
+\frac{1}{\sqrt{x-a}}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]&amp;=\frac{f^2(x)}{2\frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}}
+</mrow><mrow>
+\frac{2}{x-a}\int_a^x f(t)\,\dee{t}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]&amp;=f^2(x)
+</mrow>
+</md>
+</li>
+<li>
+<p>
+Now what we have is a differential equation, although it might not look like it. Let <m>Y = \int_a^x f(t)\,\dee{t}</m>. Then <m>\diff{Y}{x} = f(x)</m>.
+<mdn>
+<mrow xml:id="prob_s2_4_eq_diffeq">
+\frac{2}{x-a}Y\left[\diff{Y}{x} - \frac{1}{2(x-a)}Y\right]&amp;=\left(\diff{Y}{x}\right)^2
+</mrow>
+<intertext>We're used to solving differential equations of the form <m>\diff{Y}{x}=</m>(something). So, let's manipulate our equation until it has this form.
+</intertext>
+<mrow number="no"> \left(\diff{Y}{x}\right)^2-\left(\frac{2Y}{x-a}\right)\left(\diff{Y}{x}\right)+\left(\frac{Y}{x-a}\right)^2&amp;=0
+</mrow>
+</mdn>
+This is a quadratic equation, with variable <m>\diff{Y}{x}</m>. Its solutions are:
+<mdn>
+<mrow number="no">
+\diff{Y}{x}&amp;=\frac{\left(\frac{2Y}{x-a}\right)\pm\sqrt{\left(\frac{2Y}{x-a}\right)^2-4\cdot\left(\frac{Y}{x-a}\right)^2}}{2}
+</mrow>
+<mrow number="no">
+&amp;=\frac{\frac{2Y}{x-a}\pm 0}{2}
+</mrow>
+<mrow number="no">
+&amp;=\frac{Y}{x-a}
+</mrow>
+<intertext>This gives us the separable differential equation</intertext>
+<mrow number="no">
+\diff{Y}{x}&amp;=\frac{Y}{x-a}
+</mrow>
+<mrow xml:id="prob_s2_4_eq_diffeqdivide">
+\frac{\dee{Y}}{Y}&amp;=\frac{\dee{x}}{x-a}
+</mrow>
+<mrow number="no">
+\int\frac{\dee{Y}}{Y}&amp;=\int\frac{\dee{x}}{x-a}
+</mrow>
+<mrow number="no">
+\log|Y|&amp;=\log|x-a|+C
+</mrow>
+<mrow number="no">
+|Y|&amp;=e^{\log(x-a)+C} = (x-a)e^C
+</mrow>
+<mrow number="no">
+Y&amp;=D(x-a)
+</mrow>
+</mdn>
+where <m>D</m> is some constant, <m>e^C</m> or <m>-e^C</m>. Note this covers all real constants except <m>D=0</m>. If <m>D=0</m>, then <m>Y(x)=0</m> for all <m>x</m>. This function also satisfies Equation<nbsp/>(<xref ref="prob_s2_4_eq_diffeq"/>), so indeed,
+<men xml:id="prob_s2_4_eq_d">
+Y(x)=D(x-a)
+</men>
+for <em>any</em> constant <m>D</m> is the family of equations satisfying our differential equation.
+</p>
+
+<p>Remark: the reason we <q>lost</q> the solution <m>Y(x)=0</m> is that in Equation<nbsp/>(<xref ref="prob_s2_4_eq_diffeqdivide"/>), we divided by <m>Y</m>, thus tacitly assuming it was not identically 0.
+</p>
+</li>
+<li>
+<p>
+Remember <m>Y=\int_a^x f(t)\,\dee{t}</m>. So, Equation<nbsp/>(<xref ref="prob_s2_4_eq_d"/>) tells us:
+<md>
+<mrow>
+\int_a^x f(t)\,\dee{t}&amp;=D(x-a)
+</mrow><mrow>
+\diff{}{x}\left\{\int_a^x f(t)\,\dee{t}\right\}&amp;=\diff{}{x}\{D(x-a)\}
+</mrow><mrow>
+f(x)&amp;=D
+</mrow>
+</md>
+We should check that this function works.
+<md>
+<mrow>
+f_{\text{avg}} &amp;= \frac{1}{x-a}\int_a^x D\,\dee{t} = \frac{1}{x-a}\Big[Dt\Big]_{t=a}^{t=x} = \frac{Dx-Da}{x-a}=D
+</mrow><mrow>
+f_{\text{RMS}} &amp;= \sqrt{\frac{1}{x-a}\int_a^x D^2\,\dee{t}}
+=\sqrt{\frac{1}{x-a}\Big[D^2x\Big]_{t=a}^{t=x}}=\sqrt{\frac{D^2x-D^2a}{x-a}}=\sqrt{D^2}=|D|
+</mrow>
+</md>
+So, <m>f(x)=D</m> works only if <m>D</m> is nonnegative.
+</p>
+
+<p>That is: the only functions whose average matches their root square mean over every interval are constant, nonnegative functions.
+</p>
+
+<p>Remark: it was step (c) where we introduced the erroneous answer <m>f(x)=D</m>, <m>D \lt 0</m> to our solution. In Equation<nbsp/>(<xref ref="prob_s2_4_b"/>), <m>f(x)=D</m> is not a solution if <m>D \lt 0</m>:
+<md>
+<mrow>
+\frac{1}{\sqrt{x-a}}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]&amp;=\frac{f^2(x)}{2\sqrt{\int_a^x f^2(t)\,\dee{t}}}
+</mrow><mrow>
+\frac{1}{\sqrt{x-a}}\left[D - \frac{1}{2(x-a)}\int_a^x D\,\dee{t}\right]&amp;=\frac{D^2}{2\sqrt{\int_a^x D^2\,\dee{t}}}
+</mrow><mrow>
+\frac{1}{\sqrt{x-a}}\left[D - \frac{1}{2(x-a)}D(x-a)\right]&amp;=\frac{D^2}{2\sqrt{ D^2(x-a)}}
+</mrow><mrow>
+\frac{1}{\sqrt{x-a}}\left[\frac{1}{2}D \right]&amp;=\frac{D^2}{2|D|\sqrt{x-a}}
+</mrow><mrow>
+D&amp;=\frac{D^2}{|D|}=|D|
+</mrow>
+</md>
+</p>
+
+<p>In (c), we replace <m>\sqrt{\int_a^x f^2(t)\,\dee{t}}</m>, which cannot be negative, with <m>\frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}</m>, which could be negative if <m>f(t)=D \lt 0</m>. Indeed, if <m>f(t)=D</m>, then
+<m>\sqrt{\int_a^x f^2(t)\,\dee{t}}  = |D|\sqrt{x-a}</m>, while
+<m>\frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}=D\sqrt{x-a}</m>.
+It is at this point that negative functions creep into our solution.
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Find the function  <m>y(x)</m> such that
+<me>
+\ddiff{2}{y}{x}=\frac{2}{y^3}\cdot\diff{y}{x}</me>
+</p>
+
+<p>and if <m>x=-\frac{1}{16}\log 3</m>, then <m>y=1</m> and <m>\diff{y}{x}=3</m>.
+</p>
+
+<p>You do not need to solve for <m>y</m> explicitly.
+</p></statement>
+<hint><p>
+Start by antidifferentiating both sides of the equation with respect to <m>x</m>.
+</p></hint>
+<answer><p>
+<m>\displaystyle x=\frac{1}{4}\left(y-1+\frac{1}{4}\log\left|\frac{2y-1}{2y+1}\right|\right)
+</m>
+</p></answer>
+<solution><p>
+We start by antidifferentiating both sides with respect to <m>x</m>.
+<md>
+<mrow>
+\int \left(\ddiff{2}{y}{x}\right)\,\dee{x}&amp;=\int\left(\frac{2}{y^3}\cdot\diff{y}{x}\right)\,\dee{x}
+</mrow>
+<intertext>The right integral is in exactly the form we would use for a change of variables (substitution) to <m>y</m>.</intertext><mrow>
+\diff{y}{x}&amp;=\int\left(\frac{2}{y^3}\right)\,\dee{y} = -\frac{1}{y^2}+C
+</mrow>
+<intertext>When <m>y=1</m>, <m>\diff{y}{x}=3</m>.
+</intertext><mrow>
+3&amp; =-\frac{1}{1}+C
+</mrow><mrow>
+C&amp;=4
+</mrow>
+<intertext>So,</intertext><mrow>
+\diff{y}{x}&amp;=-\frac{1}{y^2}+4
+</mrow>
+<intertext>
+This is a separable differential equation.
+</intertext><mrow>
+\diff{y}{x}&amp;=\frac{4y^2-1}{y^2}
+</mrow><mrow>
+\frac{y^2}{4y^2-1}\,\dee{y}&amp;=\dee{x}
+</mrow><mrow>
+\int \frac{y^2}{4y^2-1}\,\dee{y}&amp;=\int \dee{x}\tag{$*$}
+</mrow>
+</md>
+We can evaluate the left integral with partial fractions, but because the numerator has the same degree as the denominator, we have to simplify first. We do this by inspection, but you can also use long division.
+<md>
+<mrow>
+ \frac{y^2}{4y^2-1}&amp;=\frac{\frac{1}{4}(4y^2-1)+\frac{1}{4}}{4y^2-1}
+</mrow><mrow>
+ &amp;=\frac{1}{4}\left(1+\frac{1}{4y^2-1}\right)
+</mrow><mrow>
+ &amp;=\frac{1}{4}\left(1+\frac{1}{(2y-1)(2y+1)}\right)
+</mrow><mrow>
+ &amp;=\frac{1}{4}\left(1+\frac{1/2}{2y-1}-\frac{1/2}{2y+1}\right)
+</mrow>
+</md>
+Now, we return to (<m>*</m>).
+<md>
+<mrow>
+\int \dee{x}&amp;=\int \frac{y^2}{4y^2-1}\,\dee{y}
+</mrow><mrow>
+&amp;= \int \frac{1}{4}\left(1+\frac{1/2}{2y-1}-\frac{1/2}{2y+1}\right)\,\dee{y}
+</mrow><mrow>
+&amp;= \frac{1}{4}\left(y+\frac{1}{4}\log|2y-1| - \frac{1}{4}\log|2y+1|\right)
+</mrow><mrow>
+&amp;= \frac{1}{4}\left(y+\frac{1}{4}\log\left|\frac{2y-1}{2y+1}\right|\right)
+</mrow><mrow>
+x+C&amp;=\frac{1}{4}\left(y+\frac{1}{4}\log\left|\frac{2y-1}{2y+1}\right|\right)
+</mrow>
+<intertext>When <m>x=-\frac{1}{16}\log 3</m>, <m>y=1</m>.
+</intertext><mrow>
+-\frac{1}{16}\log 3 +C &amp;=\frac{1}{4}\left(1+\frac14\log\left| \frac{2-1}{2+1}\right|\right) = \frac{1}{4}+\frac{1}{16}\log\frac{1}{3}
+</mrow><mrow>
+C&amp;=\frac{1}{4}
+</mrow>
+<intertext>So,</intertext><mrow>
+x+\frac{1}{4}&amp;=\frac{1}{4}\left(y+\frac{1}{4}\log\left|\frac{2y-1}{2y+1}\right|\right)
+</mrow><mrow>
+x&amp;=\frac{1}{4}\left(y-1+\frac{1}{4}\log\left|\frac{2y-1}{2y+1}\right|\right)
+</mrow>
+</md>
+We can check our answer by differentiating with respect to <m>x</m>.
+<md>
+<mrow>
+x&amp;=\frac{1}{4}\left(y-1+\frac{1}{4}\log\left|\frac{2y-1}{2y+1}\right|\right)
+</mrow><mrow>
+4x&amp;=y-1+\frac{1}{4}\log|2y-1| -\frac{1}{4}\log|2y+1|
+</mrow><mrow>
+\diff{}{x}\{4x\}&amp;=\diff{}{x}\left\{y-1+\frac{1}{4}\log|2y-1| -\frac{1}{4}\log|2y+1|\right\}
+</mrow><mrow>
+4&amp;=\diff{y}{x}+\frac{1}{4}\cdot\frac{2\diff{y}{x}}{2y-1} - \frac{1}{4}\cdot\frac{2\diff{y}{x}}{2y+1}
+</mrow><mrow>
+4&amp;=\diff{y}{x}\left(1+\frac{1/2}{2y-1} - \frac{1/2}{2y+1}\right) = \diff{y}{x}\left(\frac{4y^2}{4y^2-1}\right)
+</mrow><mrow>
+\diff{y}{x}&amp;=\frac{4y^2-1}{y^2}=4-\frac{1}{y^2} \tag{$**$}
+</mrow>
+<intertext>Differentiating with respect to <m>x</m> again, using the chain rule,</intertext><mrow>
+\ddiff{2}{y}{x}&amp;=\frac{2}{y^3}\cdot\diff{y}{x}
+</mrow>
+</md>
+This is exactly the differential equation we were meant to solve.
+</p></solution>
+</exercise></exercisegroup>
+
+</exercises>

@@ -1,0 +1,2149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Convergence Tests</title>
+<introduction>
+
+<p>
+It is very common to encounter series for which it is difficult, or even virtually impossible, to determine the sum exactly. Often you try to evaluate the sum approximately by truncating it, i.e. having the index run only up to some finite <m>N</m>, rather than infinity. But there is no point in doing so if the series diverges. So you like to at least know if the series converges or diverges. Furthermore you would also like to know what error is introduced when you approximate <m>\sum_{n=1}^\infty a_n</m> by the <q>truncated series</q> <m>\sum_{n=1}^Na_n</m>. That's called the truncation error. There are a number  of <q>convergence tests</q> to help you with this.
+</p>
+</introduction>
+
+<subsection>
+<title>The Divergence Test</title>
+
+<p>
+Our first test is very easy to apply, but it is also rarely useful.  It just allows us to quickly reject some <q>trivially divergent</q> series.  It is based on the observation that
+<ul>
+<li>
+	by definition, a series <m>\sum_{n=1}^\infty a_n</m>  converges to <m>S</m> when the partial sums <m>S_N=\sum_{n=1}^N a_n</m> converge  to  <m>S</m>.
+</li>
+<li>
+	Then, as <m>N\rightarrow\infty</m>, we have <m>S_N\rightarrow S</m> and, because <m>N-1\rightarrow\infty</m> too, we also have <m>S_{N-1}\rightarrow S</m>.
+</li>
+<li>
+	So <m>a_N=S_N-S_{N-1}\rightarrow S-S=0</m>.
+</li>
+</ul>
+This tells us that, if we already know that a given series <m>\sum a_n</m>  is convergent, then the <m>n^{\rm th}</m> term of the series, <m>a_n</m>, must converge to <m>0</m> as <m>n</m> tends to infinity. In this form,  the test is not so useful. However the contrapositive
+	<fn>
+		<p>
+		We have discussed the contrapositive a few times  in the CLP notes, but it doesn't hurt to discuss it again here (or for  the reader to quickly look up the relevant footnote in Section 1.3 of  the CLP-I notes).  At any rate, given a statement of the form <q>If A is true, then B is true</q>  the contrapositive is <q>If B is not true, then A is not true</q>.  The two statements in quotation marks are logically equivalent <mdash/>  if one is true, then so is the other. In the present context we have
+		</p>
+		<blockquote>
+		<p>
+		 If (<m>\sum a_n</m> converges)  then  (<m>a_n</m> converges to <m>0</m>).
+		</p></blockquote>
+		The contrapositive of this statement is then
+		<blockquote>
+		<p>
+		 If   (<m>a_n</m> does not converge to 0)  then
+		    (<m>\sum a_n</m> does not converge).
+		</p></blockquote>
+	</fn>
+of the statement is a useful test for <em>divergence</em>.
+</p>
+
+<theorem xml:id="thm_SRdivergenceTest"><title>Divergence Test</title>
+<statement><p>
+If the sequence <m>\big\{a_n\big\}_{n=1}^\infty</m> fails to converge to zero as <m>n\rightarrow\infty</m>, then the series <m>\sum_{n=1}^\infty a_n</m> diverges.
+</p></statement>
+</theorem>
+
+
+<example xml:id="eg_SRdivTest"><title>A simple divergence</title>
+<p>
+Let <m>a_n=\frac{n}{n+1}</m>. Then
+<me>
+\lim_{n\rightarrow\infty} a_n
+=\lim_{n\rightarrow\infty}\frac{n}{n+1}
+=\lim_{n\rightarrow\infty}\frac{1}{1+\frac{1}{n}}
+=1\ne 0
+</me>
+So the series <m>\sum_{n=1}^\infty \frac{n}{n+1}</m> diverges.
+</p>
+
+</example>
+
+<warning xml:id="wrn_SRdivTest">
+<statement><p>
+The divergence test is a <q>one way test</q>. It tells us that if <m>\lim_{n\rightarrow\infty}a_n</m> is nonzero, or fails to exist, then the series <m>\sum_{n=1}^\infty a_n</m> diverges. But it tells us <em>absolutely nothing</em> when <m>\lim_{n\rightarrow\infty}a_n=0</m>. In particular, it is perfectly possible for a series <m>\sum_{n=1}^\infty a_n</m> to <em>diverge</em> even  though  <m>\lim_{n\rightarrow\infty}a_n=0</m>. An example is <m>\sum_{n=1}^\infty \frac{1}{n}</m>. We'll show in Example <xref ref="eg_SRpTest"/>, below, that it diverges.
+</p></statement>
+</warning>
+
+<p>
+Now while convergence or divergence of series like  <m>\sum_{n=1}^\infty \frac{1}{n}</m> can be determined using some  clever tricks <mdash/> see the optional §<xref ref="sec_HarminicBasel"/> <mdash/>,  it would be much better of have methods that are more systematic and  rely less on being sneaky. Over the next subsections we will discuss  several methods for testing series for convergence.
+</p>
+
+<p>
+Note that while these tests will tell us whether or not a series  converges, they do not (except in rare cases) tell us what the  series adds up to. For example, the test we will  see in the next subsection tells us quite immediately that the series
+<md>
+<mrow>
+  \sum_{n=1}^\infty \frac{1}{n^3}
+</mrow>
+</md>
+converges. However it does not tell us its value
+	<fn>
+		This series  converges to Apéry's constant <m>1.2020569031\dots</m>. The constant is  named for Roger Apéry (1916<ndash/>1994) who proved that this number must be irrational. This number appears in many contexts including the following  cute fact <mdash/> the reciprocal of Apéry's constant gives the probability  that three positive integers, chosen at random, do not share  a common prime factor.
+	</fn>.
+</p>
+</subsection>
+
+<subsection>
+<title>The Integral Test</title>
+
+<p>
+In the integral test, we think of a series <m>\sum_{n=1}^\infty a_n</m>, that  we cannot evaluate explicitly, as the area of a union of rectangles, with <m>a_n</m> representing the area of a recatangle of width one and  height <m>a_n</m>. Then we compare that area with the area represented  by an integral, that we can evaluate explicitly, much as we did in  Theorem <xref ref="thm_IMPcomparison"/>, the comparison test for improper integrals. We'll start with a simple example,  to illustrate the idea. Then we'll move on to a formulation of the test in general.
+</p>
+
+<example xml:id="eg_firstIntTest"><title>Convergence of the harmonic series</title>
+<p>
+Visualise the terms of the harmonic series <m>\sum_{n=1}^\infty\frac{1}{n}</m> as a bargraph <mdash/> each term is a rectangle of  height <m>\frac{1}{n}</m> and width <m>1</m>. The limit of the series is then the limiting area of this union of rectangles. Consider the sketch on the left below.
+</p>
+<sidebyside width="80%">
+ <image source="text/figs/harmonic_int"/>
+</sidebyside>
+
+<p>
+It shows that the area of the shaded columns, <m>\sum_{n=1}^4\frac{1}{n}</m>, is bigger than the area under the curve <m>y=\frac{1}{x}</m> with  <m>1\le x\le 5</m>. That is
+<md>
+<mrow>
+  \sum_{n=1}^4 \frac{1}{n} &amp; \ge \int_1^5 \frac{1}{x}\dee{x}
+</mrow>
+</md>
+If we were to continue drawing the columns all the way out to infinity,  then we would have
+<md>
+<mrow>
+  \sum_{n=1}^\infty \frac{1}{n} &amp; \ge \int_1^\infty \frac{1}{x}\dee{x}
+</mrow>
+</md>
+We are able to compute this improper integral exactly:
+<md>
+<mrow>
+  \int_1^\infty \frac{1}{x} \dee{x} &amp;= \lim_{R \to \infty} \Big[ \log|x| \Big]_1^R = +\infty
+</mrow>
+</md>
+That is the area under the curve diverges to <m>+\infty</m> and so the area represented by the columns must also diverge to  <m>+\infty</m>.
+</p>
+
+<p>
+It should be clear that the above argument can be quite easily  generalised. For example the same argument holds  <em>mutatis mutandis</em>
+	<fn>
+		Latin for <q>Once the necessary changes  are made</q>. This phrase still gets used a little, but  these days mathematicians tend to write something equivalent in English. Indeed, English is pretty much the <em>lingua franca</em> for  mathematical publishing. <em>Quidquid erit.</em>
+	</fn>
+for the series
+<md>
+<mrow>
+  \sum_{n=1}^\infty \frac{1}{n^2}
+</mrow>
+</md>
+Indeed we see from the sketch on the right above that
+<md>
+<mrow>
+  \sum_{n=2}^N \frac{1}{n^2} &amp;\le \int_1^N \frac{1}{x^2}\dee{x}
+</mrow>
+</md>
+and hence
+<md>
+<mrow>
+  \sum_{n=2}^\infty \frac{1}{n^2} \leq \int_1^\infty \frac{1}{x^2}\dee{x}
+</mrow>
+</md>
+This last improper integral is easy to evaluate:
+<md>
+<mrow>
+  \int_2^\infty \frac{1}{x^2}\dee{x} &amp;= \lim_{R\to\infty} \left[ - \frac{1}{x} \right]_2^R
+</mrow><mrow>
+  &amp;= \lim_{R\to\infty} \left( \frac{1}{2} - \frac{1}{R} \right) = \frac{1}{2}
+</mrow>
+</md>
+Thus we know that
+<md>
+<mrow>
+  \sum_{n=1}^\infty \frac{1}{n^2} = 1+ \sum_{n=2}^\infty \frac{1}{n^2} \leq \frac{3}{2}.
+</mrow>
+</md>
+and so the series must converge.
+</p>
+</example>
+
+<p>
+The above arguments are formalised in the following theorem.
+</p>
+
+<theorem xml:id="thm_SRintegralTest"><title>The Integral Test</title>
+<statement><p>
+Let <m>N_0</m> be any natural number. If <m>f(x)</m> is a function which is defined  and continuous for all <m>x\ge N_0</m> and which obeys
+<ol label="i">
+<li> <m>f(x)\ge 0</m> for all <m>x\ge N_0</m> and </li>
+<li> <m>f(x)</m> decreases as <m>x</m> increases and </li>
+<li> <m>f(n)=a_n</m> for all  <m>n\ge N_0</m>. </li>
+</ol>
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/intTest"/>
+</sidebyside>
+<p>
+Then
+<me>
+\sum_{n=1}^\infty a_n\text{ converges }\iff \int_{N_0}^\infty f(x)\ dx\text{ converges}
+</me>
+Furthermore, when the series converges, the truncation error
+<me>
+\bigg|\sum_{n=1}^\infty a_n-\sum_{n=1}^N a_n\bigg|\le \int_N^\infty f(x)\ dx\qquad\text{for all $N\ge N_0$}
+</me>
+</p></statement>
+</theorem>
+
+<proof>
+<p>
+Let <m>I</m> be any fixed integer with <m>I \gt N_0</m>. Then
+<ul>
+<li>
+	<m>\sum_{n=1}^\infty a_n</m> converges if and only if  <m>\sum_{n=I}^\infty a_n</m> converges <mdash/> removing a fixed finite number of terms from a series cannot impact whether or not it converges.
+</li>
+<li>
+	Since <m>a_n\ge 0</m> for all <m>n\ge I \gt N_0</m>, the sequence of partial sums  <m>s_\ell=\sum_{n=I}^\ell a_n</m> obeys <m>s_{\ell+1} = s_\ell+a_{n+1} \ge s_\ell</m>. That is, <m>s_\ell</m> increases as <m>\ell</m> increases.
+</li>
+<li>
+	So <m>\big\{s_\ell\big\}</m> must either converge to some finite number or increase to infinity. That is, either <m>\sum_{n=I}^\infty a_n</m> converges to a finite number or it is <m>+\infty</m>.
+</li>
+</ul>
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/intTest3"/>
+</sidebyside>
+
+<p>
+Look at the figure above. The shaded area in the figure is  <m>\sum_{n=I}^\infty a_n</m> because
+<ul>
+<li>
+	the first shaded rectangle has height <m>a_I</m> and width <m>1</m>, and hence area <m>a_I</m> and
+</li>
+<li>
+	the second shaded rectangle has height <m>a_{I+1}</m> and width <m>1</m>, and hence area <m>a_{I+1}</m>, and so on
+</li>
+</ul>
+This shaded area is smaller than the area under the curve <m>y=f(x)</m> for  <m>I-1\le x \lt \infty</m>. So
+<me>
+\sum_{n=I}^\infty a_n \le \int_{I-1}^\infty f(x)\ dx
+</me>
+and, if the integral is finite, the sum <m>\sum_{n=I}^\infty a_n</m> is  finite too. Furthermore, the desired bound on the trunction error is just  the special case of this inequality with <m>I=N+1</m>:
+<md>
+<mrow>
+\sum_{n=1}^\infty a_n - \sum_{n=1}^N a_n =\sum_{n=N+1}^\infty a_n \le \int_N^\infty f(x)\ dx
+</mrow>
+</md>
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/intTest4"/>
+</sidebyside>
+
+<p>
+For the <q>divergence case</q> look at the figure above.  The (new) shaded area in the figure is again <m>\sum_{n=I}^\infty a_n</m>  because
+<ul>
+<li>
+	the first shaded rectangle has height <m>a_I</m> and width <m>1</m>, and hence area <m>a_I</m> and
+</li>
+<li>
+	the second shaded rectangle has height <m>a_{I+1}</m> and width <m>1</m>, and hence area <m>a_{I+1}</m>, and so on
+</li>
+</ul>
+This time the shaded area is larger than the area under the curve  <m>y=f(x)</m> for <m>I\le x \lt \infty</m>. So
+<me>
+\sum_{n=I}^\infty a_n \ge \int_I^\infty f(x)\ dx
+</me>
+and, if the integral is infinite, the sum <m>\sum_{n=I}^\infty a_n</m> is infinite too.
+</p>
+
+</proof>
+
+<p>
+Now that we have the integral test, it is straightforward to determine  for which values of <m>p</m> the series
+	<fn>
+		This series, viewed  as a function of <m>p</m>, is called the Riemannn zeta function, <m>\zeta(p)</m>,  or the Euler-Riemann zeta function. It is extremely important because  of its connections to prime numbers (among many other things). Indeed  Euler proved that
+		<me>
+		\zeta(p) = \sum_{n=1}^\infty \frac{1}{n^p}
+           = \prod_{\text{P prime}} \left(1 - {\rm P}^{-p} \right)^{-1}
+	   </me>
+	   Riemann showed the connections between the zeros of this function (over  complex numbers <m>p</m>) and the distribution of prime numbers. Arguably the  most famous unsolved problem in mathematics, the Riemann  hypothesis, concerns the locations of zeros of this function.
+   </fn>
+<md>
+<mrow>
+ \sum_{n=1}^\infty \frac{1}{n^p}
+</mrow>
+</md>
+converges.
+</p>
+
+<example xml:id="eg_SRpTest">
+<title>The <m>p</m> test:  <m>\sum\limits_{n=1}^\infty\frac{1}{n^p}</m></title>
+<p>
+Let <m>p \gt 0</m>. We'll now use the integral test to determine whether or not the series <m>\sum_{n=1}^\infty\frac{1}{n^p}</m> (which is sometimes called the <m>p</m>-series) converges.
+<ul>
+<li>
+	To do so, we need a function <m>f(x)</m> that obeys <m>f(n)=a_n=\frac{1}{n^p}</m> for all <m>n</m>  bigger than some <m>N_0</m>. Certainly <m>f(x)=\frac{1}{x^p}</m> obeys  <m>f(n)=\frac{1}{n^p}</m> for all <m>n\ge 1</m>. So let's pick this <m>f</m> and try <m>N_0=1</m>. (We can always increase <m>N_0</m> later if we need to.)
+</li>
+<li>
+<p>
+	This function also obeys the other two conditions of  Theorem <xref ref="thm_SRintegralTest"/>:
+	<ol label="i">
+	<li> <m>f(x) \gt 0</m> for all <m>x\ge N_0=1</m> and </li>
+	<li> <m>f(x)</m> decreases as <m>x</m> increases because <m>f'(x)=-p\frac{1}{x^{p+1}} \lt 0</m> for all <m>x\ge N_0=1</m>. </li>
+	</ol>
+</p>
+</li>
+<li>
+	So the integral test tells us that the series   <m>\sum_{n=1}^\infty\frac{1}{n^p}</m> converges if and only if the integral <m>\int_1^\infty\frac{dx}{x^p}</m> converges.
+</li>
+<li>
+	We have already seen, in Example <xref ref="eg_IMPp1"/>, that  the integral <m>\int_1^\infty\frac{dx}{x^p}</m> converges if and only if <m>p \gt 1</m>.
+</li>
+</ul>
+So we conclude that <m>\sum_{n=1}^\infty\frac{1}{n^p}</m> converges if and only if <m>p \gt 1</m>. This is sometimes called the <m>p</m>-test.
+<ul>
+<li>
+	In particular, the series <m>\sum_{n=1}^\infty\frac{1}{n}</m>, which is called the harmonic series, has <m>p=1</m> and so diverges.  As we add more and more terms of this series together, the terms we add,  namely <m>\frac{1}{n}</m>, get smaller and smaller and tend to zero, but they tend to zero so slowly that the full sum is still infinite.
+</li>
+<li>
+	On the other hand, the series <m>\sum_{n=1}^\infty\frac{1}{n^{1.000001}}</m> has <m>p = 1.000001 \gt 1</m> and so converges. This time as we add more and more  terms of this series together, the terms we add, namely  <m>\frac{1}{n^{1.000001}}</m>, tend to zero (just) fast enough that  the full sum is finite. Mind you, for this example, the convergence takes place very slowly <mdash/> you have to take a huge number of terms to get a decent approximation to the full sum. If we approximate <m>\sum_{n=1}^\infty\frac{1}{n^{1.000001}}</m> by the truncated series <m>\sum_{n=1}^N\frac{1}{n^{1.000001}}</m>, we make an error of at most
+<md>
+<mrow>
+\int_N^\infty \frac{dx}{x^{1.000001}}
+&amp; = \lim_{R\rightarrow\infty} \int_N^R \frac{dx}{x^{1.000001}}
+</mrow>
+<mrow>
+&amp; = \lim_{R\rightarrow\infty}- \frac{1}{0.000001}
+          \Big[\frac{1}{R^{0.000001}}-\frac{1}{N^{0.000001}}\Big]
+</mrow>
+<mrow>
+&amp; =\frac{10^6}{N^{0.000001}}
+</mrow>
+</md>
+This does tend to zero as <m>N\rightarrow\infty</m>, but really slowly.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+We now know that the dividing line between convergence and divergence  of <m>\sum_{n=1}^\infty\frac{1}{n^p}</m> occurs at <m>p=1</m>. We can dig  a little deeper and ask ourselves how much more quickly than  <m>\frac{1}{n}</m> the <m>n^{\rm th}</m> term  needs to shrink in order for the series to converge.  We know that for large <m>x</m>, the function <m>\log x</m> is smaller than  <m>x^a</m> for any positive <m>a</m> <mdash/> you can convince yourself of this with  a quick application of L'Hôpital's rule. So it is not unreasonable  to ask whether the series
+<md>
+<mrow>
+  \sum_{n=2}^\infty \frac{1}{n \log n}
+</mrow>
+</md>
+converges. Notice that we sum from <m>n=2</m> because when <m>n=1, n\log n=0</m>.  And we don't need to stop there
+	<fn>
+		We could go even further and see  what happens if we include powers of <m>\log(\log(n))</m> and other more  exotic slow growing functions.
+	</fn>.
+We can analyse the convergence of  this sum with any power of <m>\log n</m>.
+</p>
+
+<example xml:id="eg_SRlnpTest"><title><m>\sum\limits_{n=2}^\infty\frac{1}{n(\log n)^p}</m></title>
+<p>
+Let <m>p \gt 0</m>. We'll now use the integral test to determine whether or not the series <m>\sum\limits_{n=2}^\infty\frac{1}{n(\log n)^p}</m> converges.
+<ul>
+<li>
+	As in the last example, we start by choosing a function that obeys  <m>f(n)=a_n=\frac{1}{n(\log n)^p}</m> for all <m>n</m>  bigger than some <m>N_0</m>. Certainly <m>f(x)=\frac{1}{x(\log x)^p}</m> obeys  <m>f(n)=\frac{1}{n(\log n)^p}</m> for all <m>n\ge 2</m>. So let's use that <m>f</m> and try <m>N_0=2</m>.
+</li>
+<li>
+<p>
+	Now let's check the other two conditions of  Theorem <xref ref="thm_SRintegralTest"/>:
+	<ol label="i">
+	<li>
+		Both <m>x</m> and <m>\log x</m> are positive for all <m>x \gt 1</m>, so <m>f(x) \gt 0</m> for all <m>x\ge N_0=2</m>.
+	</li>
+	<li>
+		As <m>x</m> increases both <m>x</m> and <m>\log x</m> increase and so <m>x(\log x)^p</m>  increases and <m>f(x)</m> decreases.
+	</li>
+	</ol>
+</p>
+</li>
+<li>
+	So the integral test tells us that the series   <m>\sum\limits_{n=2}^\infty\frac{1}{n(\log n)^p}</m> converges if and only if  the integral <m>\int_2^\infty\frac{dx}{x (\log x)^p}</m> converges.
+</li>
+<li>
+	To test the convergence of the integral, we make the substitution <m>u=\log x</m>, <m>du=\frac{dx}{x}</m>.
+	<md>
+	<mrow>
+	\int_2^R \frac{dx}{x (\log x)^p}
+	=\int_{\log 2}^{\log R}\frac{du}{u^p}
+	</mrow>
+	</md>
+	We already know that the integral the integral <m>\int_1^\infty\frac{du}{u^p}</m>, and hence the integral <m>\int_2^R \frac{dx}{x (\log x)^p}</m>, converges if and  only if <m>p \gt 1</m>.
+</li>
+</ul>
+So we conclude that  <m>\sum\limits_{n=1}^\infty\frac{1}{n(\log n)^p}</m>  converges if and only if <m>p \gt 1</m>.
+</p>
+</example>
+</subsection>
+
+<subsection>
+<title>The Comparison Test</title>
+
+<p>
+Our next convergence test is the comparison test. It is much like  the comparison test for improper integrals (see Theorem <xref ref="thm_IMPcomparison"/>) and is true for much the same reasons.  The rough idea is quite simple. A sum of larger terms  must be bigger than a sum of smaller terms. So if we know the  big sum converges, then the small sum must converge too. On the other  hand, if we know the small sum diverges, then the big sum must also  diverge. Formalising this idea gives the following theorem.
+</p>
+
+<theorem xml:id="thm_SRcomparisonTest"><title>The Comparison Test</title>
+<statement><p>
+Let <m>N_0</m> be a natural number and let <m>K \gt 0</m>.
+<ol label="a">
+<li>
+	If <m>|a_n|\le K c_n</m> for all <m>n\ge N_0</m> and  <m>\sum\limits_{n=0}^\infty c_n</m> converges, then <m>\sum\limits_{n=0}^\infty a_n</m> converges.
+</li>
+<li>
+	If <m>a_n\ge K d_n\ge0 </m> for all <m>n\ge N_0</m> and  <m>\sum\limits_{n=0}^\infty d_n</m> diverges, then <m>\sum\limits_{n=0}^\infty a_n</m> diverges.
+</li>
+</ol>
+</p></statement>
+</theorem>
+
+
+<proof><title><q>Proof</q></title>
+<p>
+We will not prove this theorem here. We'll just observe that it is very  reasonable. That's why there are quotation marks around <q>Proof</q>. For an actual proof see the optional section <xref ref="sec_CompProof"/>.
+<ol label="a">
+<li>
+	If <m>\sum\limits_{n=0}^\infty c_n</m> converges to a finite number and if the terms in <m>\sum\limits_{n=0}^\infty a_n</m> are smaller than the terms in <m>\sum\limits_{n=0}^\infty c_n</m>, then it is no surprise that <m>\sum\limits_{n=0}^\infty a_n</m> converges too.
+</li>
+<li>
+	If <m>\sum\limits_{n=0}^\infty d_n</m> diverges (i.e. adds up to <m>\infty</m>)  and if the terms in <m>\sum\limits_{n=0}^\infty a_n</m> are larger than the terms in <m>\sum\limits_{n=0}^\infty d_n</m>, then of course <m>\sum\limits_{n=0}^\infty a_n</m> adds up to <m>\infty</m>, and so diverges, too.
+</li>
+</ol>
+</p>
+
+</proof>
+
+
+<p>
+The comparison test for series is also used in much the same way as is the comparison test for improper integrals. Of course, one needs a good  series to compare against, and often the series <m>\sum n^{-p}</m> (from Example<nbsp/><xref ref="eg_SRpTest"/>), for some <m>p \gt 0</m>, turns out to be just  what is needed.
+</p>
+
+<example xml:id="eg_SRcomparisonTestA"><title><m>\sum_{n=1}^\infty\frac{1}{n^2+2n+3}</m></title>
+<p>
+We could determine whether or not the series <m>\sum_{n=1}^\infty\frac{1}{n^2+2n+3}</m> converges by applying the integral test. But it is not worth the effort
+	<fn>
+		Go back and quickly scan Theorem<nbsp/><xref ref="thm_SRintegralTest"/>; to apply it we need to show that <m>\frac{1} {n^2+2n+3}</m> is  positive and decreasing (it is), and then  we need to integrate <m>\int \frac{1}{x^2+2x+3}\dee{x}</m>. To do that  we reread the notes on partial fractions, then rewrite <m>x^2+2x+3
+		= (x+1)^2+2</m> and so
+		<md>
+		<mrow>
+		  \int_1^\infty \frac{1}{x^2+2x+3}\dee{x}
+		  &amp;= \int_1^\infty \frac{1}{(x+1)^2+2}\dee{x} \cdots
+		</mrow>
+		</md>
+		and then arctangent appears,  etc etc. Urgh. Okay <mdash/> let's go  back to the text now and see how to avoid this.
+	</fn>.
+Whether or not any series converges is determined by the behaviour of the summand
+	<fn>
+		To understand this consider any series  <m>\sum_{n=1}^\infty a_n</m>. We can always cut such a series into  two parts <mdash/> pick some huge number like <m>10^6</m>. Then
+		<md>
+		<mrow>
+		\sum_{n=1}^\infty a_n &amp;= \sum_{n=1}^{10^6} a_n + \sum_{n=10^6+1}^\infty a_n
+		</mrow>
+		</md>
+		The first sum, though it could be humongous, is finite. So the left hand side, <m>\sum_{n=1}^\infty a_n</m>, is a well-defined finite number if and only if <m>\sum_{n=10^6+1}^\infty a_n</m>, is a well-defined  finite number. The convergence or divergence of the series is  determined by the second sum, which  only contains <m>a_n</m> for <q>large</q> <m>n</m>.
+	</fn>
+for very large <m>n</m>. So the first step in tackling such a problem is to develop some intuition about the behaviour of <m>a_n</m> when <m>n</m> is very large.
+<ul>
+<li>
+	<em>Step 1: Develop intuition.</em> In this case, when <m>n</m> is very large
+	<fn>
+		The symbol <q><m>\gg</m></q> means <q>much larger than</q>. Similarly, the symbol <q><m>\ll</m></q> neans <q>much  less than</q>. Good shorthand symbols can be quite expressive.
+	</fn>
+	<m>n^2\gg 2n \gg 3</m> so that  <m>\frac{1}{n^2+2n+3}\approx\frac{1}{n^2}</m>. We already know, from Example <xref ref="eg_SRpTest"/>, that  <m>\sum_{n=1}^\infty\frac{1}{n^p}</m> converges if and only if <m>p \gt 1</m>. So <m>\sum_{n=1}^\infty\frac{1}{n^2}</m>, which has <m>p=2</m>, converges, and  we would expect that <m>\sum_{n=1}^\infty\frac{1}{n^2+2n+3}</m> converges too.
+</li>
+<li>
+	<em>Step 2: Verify intuition.</em> We can use the comparison test to confirm that this is indeed the case. For any <m>n\ge 1</m>, <m>n^2+2n+3  \gt  n^2</m>, so that  <m>\frac{1}{n^2+2n+3}\le\frac{1}{n^2}</m>. So the comparison test,  Theorem <xref ref="thm_SRcomparisonTest"/>, with <m>a_n=\frac{1}{n^2+2n+3}</m> and <m>c_n=\frac{1}{n^2}</m>, tells us that <m>\sum_{n=1}^\infty\frac{1}{n^2+2x+3}</m> converges.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+Of course the previous example was <q>rigged</q> to give an easy application of the comparison test. It is often relatively easy, using arguments like  those in Example <xref ref="eg_SRcomparisonTestA"/>, to find a  <q>simple</q> series <m>\sum_{n=1}^\infty b_n</m> with <m>b_n</m> almost the same as <m>a_n</m> when <m>n</m> is large. However it is pretty rare that <m>a_n\le b_n</m>  for all <m>n</m>. It is much more common that <m>a_n\le K b_n</m>  for some constant <m>K</m>. This is enough to allow application of the  comparison test. Here is an example.
+</p>
+
+<example xml:id="eg_SRcomparisonTestB"><title><m>\sum_{n=1}^\infty\frac{n+\cos n}{n^3-1/3}</m></title>
+<p>
+As in the previous example, the first step is to develop some  intuition about the behaviour of <m>a_n</m> when <m>n</m> is very large.
+<ul>
+<li>
+<p>
+	<em>Step 1: Develop intuition.</em>  When <m>n</m> is very large,
+	<ul>
+		<li> <m>n\gg |\cos n|</m> so that  the numerator <m>n+\cos n\approx n</m>  and </li>
+		<li> <m>n^3 \gg \frac{1}{3}</m> so that the denominator  <m>n^3-\frac{1}{3}\approx n^3</m>. </li>
+	</ul>
+	So when <m>n</m> is very large
+	<me>
+	a_n=\frac{n+\cos n}{n^3-\frac{1}{3}}\approx\frac{n}{n^3}=\frac{1}{n^2}
+	</me>
+	We already know from Example <xref ref="eg_SRpTest"/>, with <m>p=2</m>, that <m>\sum_{n=1}^\infty\frac{1}{n^2}</m> converges, so we would expect that <m>\sum_{n=1}^\infty\frac{n+\cos n}{n^3-\frac{1}{3}}</m> converges too.
+</p>
+</li>
+<li>
+<p>
+	<em>Step 2: Verify intuition.</em>  We can use the comparison test to confirm that this is indeed the case. To do so we need to find a constant <m>K</m> such that  <m>|a_n|= \frac{|n+\cos n|}{n^3-1/3}=\frac{n+\cos n}{n^3-1/3}</m> is smaller than <m>\frac{K}{n^2}</m> for all <m>n</m>. A good way
+	<fn>
+		This is very similar to how we computed limits at infinity way way back near the  beginning of CLP-I.
+	</fn>
+	to do that is to factor the dominant term (in this case <m>n</m>) out of the  numerator and also factor the dominant term (in this case <m>n^3</m>) out of the denominator.
+	<me>
+	a_n=\frac{n+\cos n}{n^3-\frac{1}{3}}
+	=\frac{n}{n^3}\
+	   \frac{1+\frac{\cos n}{n}}{1-\frac{1}{3n^3}}
+	=\frac{1}{n^2}\
+	   \frac{1+\frac{\cos n}{n}}{1-\frac{1}{3n^3}}
+	</me>
+	So now we need to find a constant <m>K</m> such that  <m>\frac{1+\frac{(\cos n)}{n}}{1-\frac{1}{3n^3}}</m> is smaller than <m>K</m> for all <m>n\ge 1</m>.
+	<ul>
+	<li>
+	<p>
+		First consider the numerator <m>1+(\cos n)\frac{1}{n}</m>.  For all <m>n\ge 1</m>
+		<ul>
+		<li> <m>\frac{1}{n}\le 1</m> and </li>
+		<li> <m>|\cos n|\le 1</m> </li>
+		</ul>
+		So the numerator <m>1+(\cos n)\frac{1}{n}</m> is always smaller than <m>1+(1)\frac{1}{1}=2</m>.
+	</p>
+	</li>
+	<li>
+	<p>
+		Next consider the denominator <m>1-\frac{1}{3n^3}</m>.
+		<ul>
+		<li>   When <m>n\ge 1</m>, <m>\frac{1}{3n^3}</m> lies between <m>\frac{1}{3}</m> and <m>0</m> so that </li>
+		<li>  <m>1-\frac{1}{3n^3}</m> is between <m>\frac{2}{3}</m> and <m>1</m> and consequently </li>
+		<li>   <m>\frac{1}{1-\frac{1}{3n^3}}</m> is between <m>\frac{3}{2}</m> and <m>1</m>. </li>
+		</ul>
+	</p>
+	</li>
+	<li>
+		As the numerator <m>1+(\cos n)\frac{1}{n}</m> is always smaller  than <m>2</m> and <m>\frac{1}{1-\frac{1}{3n^3}}</m> is always smaller than <m>\frac{3}{2}</m>, the fraction
+		<me>
+			\frac{1+\frac{\cos n}{n}}{1-\frac{1}{3n^3}} \le 2\Big(\frac{3}{2}\Big) =3
+		</me>
+	</li>
+	</ul>
+	We now know that
+	<me>
+	|a_n| =\frac{1}{n^2}\  \frac{1+\frac{2}{n}}{1-\frac{1}{3n^3}} \le  \frac{3}{n^2}
+	</me>
+	and, since we know <m>\sum_{n=1}^\infty n^{-2}</m> converges,  the comparison test tells us that  <m>\sum_{n=1}^\infty\frac{n+\cos n}{n^3-1/3}</m> converges.
+</p>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+The last example was actually a relatively simple application of the comparison theorem <mdash/> finding a suitable constant  <m>K</m> can be <em>really</em> tedious
+	<fn>
+		Really, really tedious. And you thought some of those partial fractions  computations were bad <ellipsis/>
+	</fn>.
+Fortunately, there is a variant of the  comparison test that completely eliminates the need to explicitly find <m>K</m>.
+</p>
+
+<p>
+The idea behind this isn't too complicated. We have already seen  that the convergence or divergence of a series depends not on its  first few terms, but just on what happens when <m>n</m> is really large.  Consequently, if we can work out how  the series terms behave for  really big <m>n</m> then we can work out if the series converges.  So instead of comparing the terms of our series for all <m>n</m>, just  compare them when <m>n</m> is big.
+</p>
+
+<theorem xml:id="thm_SRlimitComparison"><title>Limit Comparison Theorem</title>
+<statement><p>
+Let <m>\sum_{n=1}^\infty a_n</m> and <m>\sum_{n=1}^\infty b_n</m> be two series with <m>b_n \gt 0</m> for all <m>n</m>. Assume that
+<me>
+\lim_{n\rightarrow\infty}\frac{a_n}{b_n}=L
+</me>
+exists.
+<ol label="a">
+<li> If <m>\sum_{n=1}^\infty b_n</m>  converges, then <m>\sum_{n=1}^\infty a_n</m> converges too. </li>
+<li> If <m>L\ne 0</m> and <m>\sum_{n=1}^\infty b_n</m>  diverges, then <m>\sum_{n=1}^\infty a_n</m> diverges too. </li>
+</ol>
+In particular, if <m>L\ne 0</m>, then <m>\sum_{n=1}^\infty a_n</m> converges if and only if <m>\sum_{n=1}^\infty b_n</m> converges.
+</p></statement>
+</theorem>
+
+
+<proof>
+<p>
+(a)  Because we are told that  <m> \lim_{n\rightarrow\infty}\frac{a_n}{b_n}=L </m>,  we know that,
+<ul>
+<li>
+	when <m>n</m> is large,  <m>\frac{a_n}{b_n}</m> is very close to <m>L</m>, so that <m>\Big|\frac{a_n}{b_n}\Big|</m> is very close to <m>|L|</m>.
+</li>
+<li>
+	In particular, there is some natural number <m>N_0</m> so that  <m>\Big|\frac{a_n}{b_n}\Big|\le |L|+1</m>, for all <m>n\ge N_0</m>, and hence
+</li>
+<li>
+	<m>|a_n|\le Kb_n</m> with <m>K=|L|+1</m>, for all <m>n\ge N_0</m>.
+</li>
+<li>
+	The comparison Theorem <xref ref="thm_SRcomparisonTest"/> now implies that <m>\sum_{n=1}^\infty a_n</m> converges.
+</li>
+</ul>
+</p>
+
+<p>
+(b) Let's suppose that <m>L \gt 0</m>. (If <m>L \lt 0</m>, just replace <m>a_n</m> with <m>-a_n</m>.) Because we are told that  <m> \lim_{n\rightarrow\infty}\frac{a_n}{b_n}=L </m>,  we know that,
+<ul>
+<li>
+	when <m>n</m> is large,  <m>\frac{a_n}{b_n}</m> is very close to <m>L</m>.
+</li>
+<li>
+	In particular, there is some natural number <m>N</m> so that  <m>\frac{a_n}{b_n}\ge \frac{L}{2}</m>, and hence
+</li>
+<li>
+	<m>a_n\ge Kb_n</m> with <m>K=\frac{L}{2} \gt 0</m>, for all <m>n\ge N</m>.
+</li>
+<li>
+	The comparison Theorem <xref ref="thm_SRcomparisonTest"/> now implies that <m>\sum_{n=1}^\infty a_n</m> diverges.
+</li>
+</ul>
+</p>
+</proof>
+
+<p>
+The next two examples illustrate how much of an improvement the above  theorem is over the straight comparison test (though of course, we  needed the comparison test to develop the limit comparison test).
+</p>
+
+<example xml:id="eg_SRlimCompA"><title><m>\sum_{n=1}^\infty\frac{\sqrt{n+1}}{n^2-2n+3}</m></title>
+<p>
+Set <m>a_n= \frac{\sqrt{n+1}}{n^2-2n+3}</m>.  We first try to develop some  intuition about the behaviour of <m>a_n</m> for large <m>n</m> and then we confirm that our intuition was correct.
+<ul>
+<li>
+	<em>Step 1: Develop intuition.</em>  When <m>n\gg 1</m>, the numerator <m>\sqrt{n+1}\approx \sqrt{n}</m>, and the denominator <m>n^2-2n+3\approx n^2</m> so that  <m>a_n\approx \frac{\sqrt{n}}{n^2}=\frac{1}{n^{3/2}}</m> and it looks like our series should converge by Example <xref ref="eg_SRpTest"/> with <m>p=\frac{3}{2}</m>.
+</li>
+<li>
+	<em>Step 2: Verify intuition.</em> To confirm our intuition we set <m>b_n=\frac{1}{n^{3/2}}</m> and compute the limit
+	<me>
+	\lim_{n\rightarrow\infty}\frac{a_n}{b_n}
+	=\lim_{n\rightarrow\infty}\frac{\frac{\sqrt{n+1}}{n^2-2n+3}}{\frac{1}{n^{3/2}}}
+	=\lim_{n\rightarrow\infty}\frac{n^{3/2}\sqrt{n+1}}{n^2-2n+3}
+	</me>
+	Again it is a good idea to factor the dominant term out of the numerator and the dominant term out of the denominator.
+	<me>
+	\lim_{n\rightarrow\infty}\frac{a_n}{b_n}
+	=\lim_{n\rightarrow\infty}\frac{n^2\sqrt{1+\frac{1}{n}}}
+					{n^2\big(1-\frac{2}{n}+\frac{3}{n^2}\big)}
+	=\lim_{n\rightarrow\infty}\frac{\sqrt{1+\frac{1}{n}}}
+			   {1-\frac{2}{n}+\frac{3}{n^2}}
+	=1
+	</me>
+	We already know that the series <m>\sum_{n=1}^\infty b_n =\sum_{n=1}^\infty\frac{1}{n^{3/2}}</m> converges by Example <xref ref="eg_SRpTest"/> with <m>p=\frac{3}{2}</m>. So our series converges by the limit comparison test, Theorem <xref ref="thm_SRlimitComparison"/>.
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_SRlimCompAbis"><title><m>\sum_{n=1}^\infty\frac{\sqrt{n+1}}{n^2-2n+3}</m>, again</title>
+<p>
+We can also try to deal with the series of Example <xref ref="eg_SRlimCompA"/>,  using the comparison test directly.  But that requires us to find <m>K</m> so that
+<md>
+<mrow>
+  \frac{\sqrt{n+1}}{n^2-2n+3} &amp; \leq \frac{K}{n^{3/2}}
+</mrow>
+</md>
+We might do this by examining the numerator and denominator separately:
+<ul>
+<li>
+	The numerator isn't too bad since for all <m>n \geq 1</m>:
+	<md>
+	<mrow>
+	  n+1 &amp;\leq 2n \qquad \text{and so}
+	</mrow><mrow>
+	  \sqrt{n+1} &amp;\leq \sqrt{2n}
+	</mrow>
+	</md>
+</li>
+<li>
+		The denominator is quite a bit more tricky, since we need a  <em>lower</em> bound, rather than an upper bound, and we cannot  just write  <m>|n^2-2n+3| \ge n^2</m>, which is false.  Instead we have to make a more careful argument. In particular,  we'd like to find <m>N_0</m> and <m>K'</m> so that <m>n^2-2n+3\ge  K'n^2</m>, i.e. <m>\frac{1}{n^2-2n+3}\le\frac{1}{K'n^2}</m> for all  <m>n \geq N_0</m>. For <m>n\ge 4</m>, we have <m>2n = \frac{1}{2} 4n\le \frac{1}{2}n\cdot n=\frac{1}{2}n^2</m>. So for  <m>n\ge 4</m>,
+	<md>
+	<mrow>
+	  n^2-2n+3 &amp; \geq n^2 -\frac{1}{2}n^2 + 3
+	\ge \frac{1}{2} n^2
+	</mrow>
+	</md>
+</li>
+</ul>
+Putting the numerator and denominator back together we have
+<md>
+<mrow>
+  \frac{\sqrt{n+1}}{n^2-2n+3} &amp; \leq \frac{\sqrt{2n}}{n^2/2}  = 2\sqrt{2}\frac{1}{n^{3/2}}
+  	\qquad\text{for all $n\ge 4$}
+</mrow>
+</md>
+and the comparison test then tells us that our series converges.  It is pretty clear that the approach of Example <xref ref="eg_SRlimCompA"/> was much more straightforward.
+</p>
+</example>
+</subsection>
+
+<subsection xml:id="sec_AST">
+<title>The Alternating Series Test</title>
+<p>
+When the signs of successive terms in a series alternate between <m>+</m> and <m>-</m>, like for example in  <m> \ 1-\frac{1}{2} +\frac{1}{3}-\frac{1}{4}+ \cdots\  </m>, the series is called an <em>alternating series</em>. More generally, the series
+<me>
+A_1-A_2+A_3-A_4+\cdots =\sum_{n=1}^\infty (-1)^{n-1} A_n
+</me>
+is alternating if every <m>A_n\ge 0</m>. Often (but not always) the terms in alternating series get successively smaller. That is, then <m>A_1\ge A_2 \ge A_3 \ge \cdots</m>. In this case:
+<ul>
+<li>
+	The first partial sum is <m>S_1=A_1</m>.
+</li>
+<li>
+	The second partial sum, <m>S_2=A_1-A_2</m>, is smaller than <m>S_1</m> by <m>A_2</m>.
+</li>
+<li>
+	The third partial sum, <m>S_3=S_2+A_3</m>, is bigger than <m>S_2</m> by <m>A_3</m>, but because <m>A_3\le A_2</m>, <m>S_3</m> remains smaller than <m>S_1</m>. See the figure below.
+</li>
+<li>
+	The fourth partial sum, <m>S_4=S_3-A_4</m>, is smaller than <m>S_3</m> by <m>A_4</m>, but because <m>A_4\le A_3</m>, <m>S_4</m> remains bigger than <m>S_2</m>. Again, see the figure below.
+</li>
+<li> And so on. </li>
+</ul>
+So the successive partial sums oscillate, but with ever decreasing amplitude. If, in addition, <m>A_n</m> tends to <m>0</m> as <m>n</m> tends to <m>\infty</m>, the amplitude of oscillation tends to zero and the sequence <m>S_1</m>, <m>S_2</m>, <m>S_3</m>, <m>\cdots</m> converges to some limit <m>S</m>.
+</p>
+
+<p>
+This is illustrated in the figure
+</p>
+
+<sidebyside width="80%">
+<image source="text/figs/altSeriesF"/>
+</sidebyside>
+
+<p>
+Here is a convergence test for alternating series that exploits this structure, and that is really easy to apply.
+</p>
+
+<theorem xml:id="thm_SRalternating"><title>Alternating Series Test</title>
+<statement><p>
+Let <m>\big\{A_n\big\}_{n=1}^\infty</m> be a sequence of real numbers that obeys
+<ol label="i">
+<li>
+	<m>A_n\ge 0</m> for all <m>n\ge 1</m> and
+</li>
+<li>
+	<m>A_{n+1}\le A_n</m>  for all <m>n\ge 1</m> (i.e. the  sequence is monotone decreasing) and
+</li>
+<li>
+	<m>\lim_{n\rightarrow\infty}A_n=0</m>.
+</li>
+</ol>
+Then
+<me>
+A_1-A_2+A_3-A_4+\cdots=\sum\limits_{n=1}^\infty (-1)^{n-1} A_n =S
+</me>
+converges and, for each natural number <m>N</m>,  <m>S-S_N</m> is between <m>0</m> and (the  first dropped term) <m>(-1)^N A_{N+1}</m>. Here <m>S_N</m> is, as previously, the <m>N^{\rm th}</m> partial sum <m>\sum\limits_{n=1}^N (-1)^{n-1} A_n</m>.
+</p></statement>
+</theorem>
+
+<proof><title><q>Proof</q></title>
+<p>
+We shall only give part of the proof here. For the rest of the proof see the optional section <xref ref="sec_CompProof"/>. We shall fix any natural number <m>N</m> and concentrate on the last statement, which gives a bound on the truncation error (which is the error introduced when you approximate the full series by the partial sum <m>S_N</m>)
+<md>
+<mrow>
+E_N &amp;= S-S_N= \sum_{n=N+1}^\infty (-1)^{n-1} A_n
+</mrow>
+<mrow>
+&amp; = (-1)^N\Big[A_{N+1}-A_{N+2} +A_{N+3}-A_{N+4}+\cdots\Big]
+</mrow>
+</md>
+This is of course another series. We're going to study the partial sums
+<me>
+S_{N,\ell} = \sum_{n=N+1}^\ell (-1)^{n-1} A_n = (-1)^N\sum_{m=1}^{\ell-N} (-1)^{m-1} A_{N+m}
+</me>
+for that series.
+<ul>
+<li>
+	If <m>\ell' \gt N+1</m>, with <m>\ell'-N</m> even,
+	<md>
+	<mrow>
+	(-1)^N S_{N,\ell'}&amp;=\overbrace{(A_{N+1}-A_{N+2})}^{\ge 0}
+					+\overbrace{(A_{N+3}-A_{N+4})}^{\ge 0}+\cdots
+					+\overbrace{(A_{\ell'-1}-A_{\ell'})}^{\ge 0}
+					\ge 0
+	</mrow>
+	<mrow></mrow>
+	<mrow>\text{and}</mrow>
+	<mrow>
+	(-1)^N S_{N,\ell'+1}&amp;=\overbrace{(-1)^N S_{N,\ell'}}^{\ge 0}
+							+\overbrace{A_{\ell'+1}}^{\ge 0}
+					   \ge 0
+	</mrow>
+	</md>
+	This tells us that <m>(-1)^N S_{N,\ell}\ge 0</m> for all <m>\ell \gt N+1</m>, both even and odd.
+</li>
+<li>
+	Similarly, if <m>\ell' \gt N+1</m>, with <m>\ell'-N</m> odd,
+	<md>
+	<mrow>
+	(-1)^N S_{N,\ell'}&amp;=A_{N+1}-(\overbrace{A_{N+2}-A_{N+3}}^{\ge 0})
+							 -(\overbrace{A_{N+4}-A_{N+5}}^{\ge 0})-\cdots
+							 -\overbrace{(A_{\ell'-1}-A_{\ell'})}^{\ge 0}
+				\le A_{N+1}
+	</mrow><mrow>
+	(-1)^NS_{N,\ell'+1}&amp;=\overbrace{(-1)^N S_{N,\ell'}}^{\le A_{N+1}}
+							  -\overbrace{A_{\ell'+1}}^{\ge 0}
+				   \le A_{N+1}
+	</mrow>
+	</md>
+	This tells us that <m>(-1)^N S_{N,\ell}\le A_{N+1}</m> for all  for all <m>\ell \gt N+1</m>, both even and odd.
+</li>
+</ul>
+So we now know that <m>S_{N,\ell}</m> lies between its first term, <m>(-1)^NA_{N+1}</m>, and <m>0</m> for all <m>\ell \gt N+1</m>. While we are not going to prove it here  (see the optional section <xref ref="sec_CompProof"/>), this implies that, since <m>A_{N+1}\rightarrow 0</m> as <m>N\rightarrow\infty</m>, the series converges and that
+<me>
+S-S_N=\lim_{\ell\rightarrow\infty} S_{N,\ell}
+</me>
+lies between <m>(-1)^NA_{N+1}</m> and <m>0</m>.
+</p>
+
+</proof>
+
+<example xml:id="eg_SRaltharmonic"><title>Convergence of the alternating harmonic series</title>
+<p>
+We have already seen, in Example <xref ref="eg_SRpTest"/>, that the harmonic series <m>\sum_{n=1}^\infty\frac{1}{n}</m> diverges. On the other hand, the  series <m>\sum_{n=1}^\infty(-1)^{n-1}\frac{1}{n}</m> converges by the alternating series test with <m>A_n=\frac{1}{n}</m>. Note that
+<ol label="i">
+<li>
+	<m>A_n=\frac{1}{n}\ge 0</m> for all <m>n\ge 1</m>, so that <m>\sum_{n=1}^\infty(-1)^{n-1}\frac{1}{n}</m> really is an alternating series,  and
+</li>
+<li>
+	<m>A_n=\frac{1}{n}</m> decreases as <m>n</m> increases,  and
+</li>
+<li>
+	<m>\lim\limits_{n\rightarrow\infty}A_n =\lim\limits_{n\rightarrow\infty}\frac{1}{n}=0</m>.
+</li>
+</ol>
+so that all of the hypotheses of the alternating series test, i.e. of Theorem <xref ref="thm_SRalternating"/>, are satisfied. We shall see, in Example<nbsp/><xref ref="eg_SRpsrepC"/>, that
+<md>
+<mrow>
+\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} &amp;= \log 2.
+</mrow>
+</md>
+</p>
+</example>
+
+<example xml:id="eg_SRaltharmonicB"><title><m>e</m></title>
+<p>
+You may already know that  <m> e^x=\sum_{n=0}^\infty\frac{x^n}{n!} </m>. In any event, we shall prove this in Example<nbsp/><xref ref="eg_expSeries"/>, below. In particular
+<md>
+<mrow>
+\frac{1}{e}=e^{-1} = \sum_{n=0}^\infty\frac{(-1)^n}{n!}
+ = 1 -\frac{1}{1!} +\frac{1}{2!} -\frac{1}{3!} +\frac{1}{4!}
+                     - \frac{1}{5!}+\cdots
+</mrow>
+</md>
+is an alternating series and satisfies all of the conditions of the alternating series test, Theorem<nbsp/><xref ref="thm_SRalternating"/>a:
+<ol label="i">
+<li>
+	The terms in the series alternate in sign.
+</li>
+<li>
+	The magnitude of the <m>n^{\rm th}</m> term in the series decreases monotonically as <m>n</m> increases.
+</li>
+<li>
+	The <m>n^{\rm th}</m> term in the series converges to zero as <m>n\rightarrow\infty</m>.
+</li>
+</ol>
+So the alternating series test guarantees that, if we approximate, for example,
+<md>
+<mrow>
+\frac{1}{e} \approx \frac{1}{2!}-\frac{1}{3!} +\frac{1}{4!}-\frac{1}{5!}+\frac{1}{6!}-\frac{1}{7!} +\frac{1}{8!}-\frac{1}{9!}
+</mrow>
+</md>
+then the error in this approximation lies between <m>0</m> and the next term in the series, which is <m>\frac{1}{10!}</m>. That is
+<md>
+<mrow>
+\frac{1}{2!}-\frac{1}{3!} +\frac{1}{4!}-\frac{1}{5!}+\frac{1}{6!}-\frac{1}{7!}
++\frac{1}{8!}-\frac{1}{9!} \le \frac{1}{e} \qquad\qquad\qquad\qquad
+</mrow>
+<mrow>
+\qquad\qquad\qquad\qquad \le \frac{1}{2!}-\frac{1}{3!} +\frac{1}{4!}-\frac{1}{5!}+\frac{1}{6!}-\frac{1}{7!}
++\frac{1}{8!}-\frac{1}{9!}+\frac{1}{10!}
+</mrow>
+</md>
+so that
+<md>
+<mrow>
+\frac{1}{
+\frac{1}{2!}-\frac{1}{3!} +\frac{1}{4!}-\frac{1}{5!}+\frac{1}{6!}-\frac{1}{7!}
++\frac{1}{8!}-\frac{1}{9!}+\frac{1}{10!}} \le e
+\qquad\qquad\qquad\qquad
+</mrow>
+<mrow>
+\qquad\qquad\qquad\qquad \le \frac{1}{
+\frac{1}{2!}-\frac{1}{3!} +\frac{1}{4!}-\frac{1}{5!}+\frac{1}{6!}-\frac{1}{7!}
++\frac{1}{8!}-\frac{1}{9!}}
+</mrow>
+</md>
+which, to seven decimal places says
+<md>
+<mrow>
+2.7182816 \le e\le  &amp;2.7182837
+</mrow>
+</md>
+(To seven decimal places <m>e=2.7182818</m>.)
+</p>
+
+<p>
+The alternating series test tells us that, for any natural number <m>N</m>, the error that we make when we approximate <m>\frac{1}{e}</m> by the partial sum <m>S_N= \sum_{n=0}^N\frac{(-1)^n}{n!}</m> has magnitude no larger than <m>\frac{1}{(N+1)!}</m>. This tends to zero spectacularly quickly as <m>N</m> increases, simply because <m>(N+1)!</m> increases spectacularly quickly as <m>N</m> increases
+	<fn>
+		The interested reader may wish to check out  <q>Stirling's approximation</q>, which says that <m>n!\approx \sqrt{2\pi n}\left(\frac {n}{e}\right)^{n}</m>.
+	</fn>.
+For example <m>20!\approx 2.4\times 10^{27}</m>.
+</p>
+</example>
+
+<example xml:id="eg_SRaltLog"><title>Computing <m>\log\frac{11}{10}</m></title>
+<p>
+We will shortly see, in Example <xref ref="eg_SRpsrepC"/>,  that if <m>-1 \lt x\le 1</m>, then
+<me>
+\log(1+x) = x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots = \sum_{n=1}^\infty (-1)^{n-1}\frac{x^n}{n}
+</me>
+Suppose that we have to compute <m>\log\frac{11}{10}</m> to within an accuracy of <m>10^{-12}</m>. Since <m>\frac{11}{10}=1+\frac{1}{10}</m>, we can get <m>\log\frac{11}{10}</m> by evaluating <m>\log(1+x)</m> at <m>x=\frac{1}{10}</m>, so that
+<md>
+<mrow>
+\log\frac{11}{10} &amp; = \log\Big(1+\frac{1}{10}\Big)
+          =\frac{1}{10}
+           -\frac{1}{2\times 10^2}
+           +\frac{1}{3\times 10^3}
+           -\frac{1}{4\times 10^4}+\cdots
+</mrow>
+<mrow>
+&amp; = \sum_{n=1}^\infty (-1)^{n-1}\frac{1}{n\times 10^n}
+</mrow>
+</md>
+By the alternating series test, this series converges. Also by the alternating series test, approximating <m>\log\frac{11}{10}</m> by throwing away all but the first <m>N</m> terms
+<md>
+<mrow>
+\log\frac{11}{10} &amp; \approx
+          \frac{1}{10}
+           -\frac{1}{2\times 10^2}
+           +\frac{1}{3\times 10^3}
+           -\frac{1}{4\times 10^4}+\cdots
+           +(-1)^{N-1}\frac{1}{N\times 10^N}
+</mrow>
+<mrow>
+&amp; = \sum_{n=1}^{N} (-1)^{n-1}\frac{1}{n\times 10^n}
+</mrow>
+</md>
+introduces an error whose magnitude is no more than the magnitude of the first term that we threw away.
+<me>
+\text{error} \le \frac{1}{(N+1)\times 10^{N+1}}
+</me>
+To achieve an error that is no more than <m>10^{-12}</m>, we have to choose <m>N</m> so  that
+<me>
+\frac{1}{(N+1)\times 10^{N+1}} \le 10^{-12}
+</me>
+The best way to do so is simply to guess <mdash/> we are not going to be able to manipulate the inequality  <m>\frac{1}{(N+1)\times 10^{N+1}} \le \frac{1}{10^{12}}</m> into the form <m>N\le \cdots</m>, and even if we could, it would not  be worth the effort. We need to choose <m>N</m> so that the denominator <m>(N+1)\times 10^{N+1}</m>  is at least <m>10^{12}</m>. That is easy, because the denominator contains the factor <m>10^{N+1}</m> which is at least <m>10^{12}</m> whenever <m>N+1\ge 12</m>, i.e. whenever <m>N\ge 11</m>. So we will achieve an error of less than <m>10^{-12}</m> if we choose <m>N=11</m>.
+<me>
+\frac{1}{(N+1)\times 10^{N+1}}\bigg|_{N=11} = \frac{1}{12\times 10^{12}} \lt  \frac{1}{10^{12}}
+</me>
+This is not the smallest possible choice of <m>N</m>, but in practice that just doesn't matter <mdash/> your computer is not going to care whether or not you ask it to compute a few extra terms. If you really need the smallest <m>N</m> that obeys  <m>\frac{1}{(N+1)\times 10^{N+1}} \le \frac{1}{10^{12}}</m>, you can next just try <m>N=10</m>, then <m>N=9</m>, and so on.
+<md>
+<mrow>
+\frac{1}{(N+1)\times 10^{N+1}}\bigg|_{N=11} &amp;= \frac{1}{12\times 10^{12}} \lt  \frac{1}{10^{12}}
+</mrow>
+<mrow>
+\frac{1}{(N+1)\times 10^{N+1}}\bigg|_{N=10} &amp;= \frac{1}{11\times 10^{11}} \lt  \frac{1}{10\times 10^{11}} = \frac{1}{10^{12}}
+</mrow>
+<mrow>
+\frac{1}{(N+1)\times 10^{N+1}}\bigg|_{N=9} &amp;= \frac{1}{10\times 10^{10}} = \frac{1}{10^{11}}  \gt  \frac{1}{10^{12}}
+</mrow>
+</md>
+So in this problem, the smallest acceptable <m>N=10</m>.
+</p>
+
+</example>
+</subsection>
+
+<subsection xml:id="sec_RatioTest">
+<title>The Ratio Test</title>
+
+<p>
+The idea behind the ratio test comes from a reexamination of the  geometric series. Recall that the geometric series
+<md>
+<mrow>
+  \sum_{n=0}^\infty a_n = \sum_{n=0}^\infty a r^n
+</mrow>
+</md>
+converges when <m>|r| \lt 1</m> and diverges otherwise. So the convergence of  this series is completely determined by the number <m>r</m>. This number  is just the ratio of successive terms <mdash/> that is <m>r = a_{n+1}/a_n</m>.
+</p>
+
+<p>
+In general the ratio of successive terms of a series,  <m>\frac{a_{n+1}}{a_n}</m>, is not constant, but depends on  <m>n</m>. However, as we have noted above, the convergence of a  series <m>\sum a_n</m> is determined by the behaviour of its  terms when <m>n</m> is large. In this way, the behaviour of this  ratio when <m>n</m> is small tells us nothing about the  convergence of the series, but the limit of the ratio as <m>n\to\infty</m> does. This is the basis of the ratio test.
+</p>
+
+<theorem xml:id="thm_SRratio"><title>Ratio Test</title>
+<statement><p>
+Let <m>N</m> be any positive integer and assume that <m>a_n\ne 0</m> for all <m>n\ge N</m>.
+<ol label="a">
+<li>
+	If <m>\lim\limits_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big| = L \lt 1</m>, then <m>\sum\limits_{n=1}^\infty a_n</m> converges.
+</li>
+<li>
+	If <m>\lim\limits_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big| = L \gt 1</m>, or <m>\lim\limits_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big| = +\infty</m>,  then <m>\sum\limits_{n=1}^\infty a_n</m> diverges.
+</li>
+</ol>
+</p></statement>
+</theorem>
+
+<warning>
+<statement><p>
+Beware that the ratio test provides absolutely no conclusion about the convergence or divergence of the series <m>\sum\limits_{n=1}^\infty a_n</m> if <m>\lim\limits_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big| =  1</m>. See Example <xref ref="eg_SRratioC"/>, below.
+</p></statement>
+</warning>
+
+<proof>
+<p>
+(a) Pick any number <m>R</m> obeying <m>L \lt R \lt 1</m>. We are assuming that  <m>\Big|\frac{a_{n+1}}{a_n}\Big|</m> approaches <m>L</m> as <m>n\rightarrow\infty</m>. In particular there must be some natural number <m>M</m> so that <m>\Big|\frac{a_{n+1}}{a_n}\Big|\le R</m> for all <m>n\ge M</m>. So  <m>|a_{n+1}|\le R|a_n|</m> for all <m>n\ge M</m>. In particular
+<md>
+<mrow>
+|a_{M+1}| &amp; \ \le\  R\,|a_M|
+</mrow>
+<mrow>
+|a_{M+2}| &amp; \ \le\  R\,|a_{M+1}| &amp; \le\  R^2 \,|a_M|
+</mrow>
+<mrow>
+|a_{M+3}| &amp; \ \le\  R\,|a_{M+2}| &amp; \le\  R^3 \,|a_M|
+</mrow>
+<mrow>
+&amp;\vdots
+</mrow>
+<mrow>
+|a_{M+\ell}| &amp;\le R^\ell \,|a_M|
+</mrow>
+</md>
+for all <m>\ell\ge 0</m>. The series <m>\sum_{\ell=0}^\infty  R^\ell \,|a_M|</m> is a geometric series with ratio <m>R</m> smaller than one in magnitude and so converges. Consequently, by the comparison test with <m>a_n</m> replaced by <m>A_\ell = a_{n+\ell}</m> and <m>c_n</m> replaced by <m>C_\ell= R^\ell \, |a_M|</m>, the series <m>\sum\limits_{\ell=1}^\infty a_{M+\ell} =\sum\limits_{n=M+1}^\infty a_n</m> converges. So the series  <m>\sum\limits_{n=1}^\infty a_n</m> converges too.
+</p>
+
+<p>
+(b) We are assuming that  <m>\Big|\frac{a_{n+1}}{a_n}\Big|</m> approaches <m>L \gt 1</m> as <m>n\rightarrow\infty</m>. In particular there must be some natural number <m>M \gt N</m> so that <m>\Big|\frac{a_{n+1}}{a_n}\Big|\ge 1</m> for all <m>n\ge M</m>. So  <m>|a_{n+1}|\ge |a_n|</m> for all <m>n\ge M</m>. That is, <m>|a_n|</m> increases as <m>n</m> increases as long as <m>n\ge M</m>. So <m>|a_n|\ge |a_M|</m> for all <m>n\ge M</m> and <m>a_n</m> cannot converge to zero as <m>n\rightarrow\infty</m>. So the series diverges by the divergence test.
+</p>
+
+</proof>
+
+<example xml:id="eg_SRratioA"><title><m>\sum_{n=0}^\infty a n x^{n-1}</m></title>
+<p>
+Fix any two nonzero real numbers <m>a</m> and <m>x</m>. We have already seen in Example<nbsp/><xref ref="eg_SRgeom"/> and Lemma<nbsp/><xref ref="lem_geomsum"/> <mdash/> we have just renamed <m>r</m> to <m>x</m> <mdash/> that the geometric series <m>\sum_{n=0}^\infty a x^n</m> converges when <m>|x| \lt 1</m> and diverges when <m>|x|\ge 1</m>. We are now going to consider a new series, constructed by differentiating
+	<fn>
+		We shall see later, in Theorem <xref ref="thm_SRpsops"/>, that the function  <m>\sum_{n=0}^\infty a n x^{n-1}</m> is indeed the derivative of the  function <m>\sum_{n=0}^\infty a x^n</m>. Of course, such a statement  only makes sense where these series converge <mdash/> how can you differentiate  a divergent series? (This is not an allusion to a popular series of dystopian novels.) Actually, there is quite a bit of interesting and useful  mathematics involving divergent series, but it is well beyond the scope  of this course.
+	</fn>
+each term in the geometric series  <m>\sum_{n=0}^\infty a x^n</m>. This new series is
+<me>
+	\sum_{n=0}^\infty a_n\qquad\text{with}\quad a_n = a\, n\, x^{n-1}
+</me>
+Let's apply the ratio test.
+<md>
+<mrow>
+\Big|\frac{a_{n+1}}{a_n}\Big|
+&amp;= \Big|\frac{a\, (n+1)\, x^n}{a\, n\, x^{n-1}}\Big|
+ = \frac{n+1}{n} |x|
+ = \Big(1+\frac{1}{n}\Big) |x|
+\rightarrow L=|x|\quad\text{as $n\rightarrow\infty$}
+</mrow>
+</md>
+The ratio test now tells us that the series <m>\sum_{n=0}^\infty a\, n\, x^{n-1}</m> converges if <m>|x| \lt 1</m> and diverges if <m>|x| \gt 1</m>. It says nothing about the cases <m>x=\pm 1</m>. But in both of those cases <m>a_n=a\,n\,(\pm 1)^n</m> does not converge to zero as <m>n\rightarrow\infty</m> and the series diverges by the divergence test.
+</p>
+</example>
+
+<p>
+Notice that in the above example, we had to apply another convergence  test in addition to the ratio test. This will be commonplace when we  reach power series and Taylor series <mdash/> the ratio test will tell us  something like
+</p>
+
+<blockquote>
+<p>
+ The series converges for <m>|x| \lt R</m> and diverges for <m>|x| \gt R</m>.
+</p>
+</blockquote>
+
+<p>
+Of course, we will still have to to determine what happens when <m>x=+R, -R</m>. To determine convergence or divergence in those cases we  will need to use one of the other tests we have seen.
+</p>
+
+<example xml:id="eg_SRratioB"><title><m>\sum_{n=0}^\infty \frac{a}{n+1} X^{n + 1}</m></title>
+<p>
+Once again, fix any two nonzero real numbers <m>a</m> and <m>X</m>. We again start with the geometric series <m>\sum_{n=0}^\infty a x^n</m> but this time we construct a new series by integrating
+	<fn>
+		We shall  also see later, in Theorem <xref ref="thm_SRpsops"/>, that the function  <m>\sum_{n=0}^\infty \frac{a}{n+1} x^{n + 1}</m> is indeed an antiderivative  of the function <m>\sum_{n=0}^\infty a x^n</m>.
+	</fn>
+each term, <m>a x^n</m>, from <m>x=0</m> to <m>x=X</m> giving <m>\frac{a}{n+1} X^{n + 1}</m>. The resulting new series is
+<me>
+\sum_{n=0}^\infty a_n\qquad\text{with }a_n = \frac{a}{n+1} X^{n + 1}
+</me>
+To apply the ratio test we need to compute
+<md>
+<mrow>
+\Big|\frac{a_{n+1}}{a_n}\Big|
+&amp;= \bigg|\frac{\frac{a}{n+2} X^{n + 2}}{\frac{a}{n+1} X^{n + 1}}\bigg|
+ = \frac{n+1}{n+2} |X|
+ = \frac{1+\frac{1}{n}}{1+\frac{2}{n}} |X|
+\rightarrow L=|X|\quad\text{as $n\rightarrow\infty$}
+</mrow>
+</md>
+The ratio test now tells us that the series  <m>\sum_{n=0}^\infty \frac{a}{n+1} X^{n + 1}</m> converges if <m>|X| \lt 1</m> and diverges if <m>|X| \gt 1</m>. It says nothing about the cases <m>X=\pm 1</m>.
+</p>
+
+<p>
+If <m>X=1</m>, the series reduces to
+<me>
+\sum_{n=0}^\infty \frac{a}{n+1} X^{n + 1}\bigg|_{X=1}
+=\sum_{n=0}^\infty \frac{a}{n+1}
+=a\sum_{m=1}^\infty \frac{1}{m}\qquad\text{with }m=n+1
+</me>
+which is just <m>a</m> times the harmonic series, which we know diverges, by Example <xref ref="eg_SRpTest"/>.
+</p>
+
+<p>
+If <m>X=-1</m>, the series reduces to
+<me>
+\sum_{n=0}^\infty \frac{a}{n+1} X^{n + 1}\bigg|_{X=-1} =\sum_{n=0}^\infty (-1)^{n+1}\frac{a}{n+1}
+</me>
+which converges by the alternating series test. See Example <xref ref="eg_SRaltharmonic"/>.
+</p>
+
+<p>
+In conclusion, the series <m>\sum_{n=0}^\infty \frac{a}{n+1} X^{n + 1}</m> converges if and only if <m>-1\le X \lt 1</m>.
+</p>
+</example>
+
+<p>
+The ratio test is often quite easy to apply, but one must always be  careful when the limit of the ratio is <m>1</m>. The next example  illustrates this.
+</p>
+
+<example xml:id="eg_SRratioC"><title><m>L=1</m></title>
+<p>
+In this example, we are going to see three different series that all have <m>\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big| = 1</m>. One is going to diverge and the other two are going to converge.
+</p>
+
+<p>
+<ul>
+<li>
+	The first series is the harmonic series
+	<me>
+	\sum_{n=1}^\infty a_n\qquad\text{with }a_n = \frac{1}{n}
+	</me>
+	We have already seen, in Example <xref ref="eg_SRpTest"/>, that this series diverges. It has
+	<me>
+	\Big|\frac{a_{n+1}}{a_n}\Big|
+	= \bigg|\frac{\frac{1}{n+1}}{\frac{1}{n}}\bigg|
+	 = \frac{n}{n+1}
+	 = \frac{1}{1+\frac{1}{n}}
+	\rightarrow L=1\quad\text{as $n\rightarrow\infty$}
+	</me>
+</li>
+<li>
+	The second series is the alternating harmonic series
+	<me>
+	\sum_{n=1}^\infty a_n\qquad\text{with }a_n = (-1)^{n-1}\frac{1}{n}
+	</me>
+	We have already seen, in Example <xref ref="eg_SRaltharmonic"/>, that this series converges. But it also has
+	<me>
+	\Big|\frac{a_{n+1}}{a_n}\Big|
+	= \bigg|\frac{(-1)^n\frac{1}{n+1}}{(-1)^{n-1}\frac{1}{n}}\bigg|
+	 = \frac{n}{n+1}
+	 = \frac{1}{1+\frac{1}{n}}
+	\rightarrow L=1\quad\text{as $n\rightarrow\infty$}
+	</me>
+</li>
+<li>
+	The third series is
+	<me>
+	\sum_{n=1}^\infty a_n\qquad\text{with }a_n = \frac{1}{n^2}
+	</me>
+	We have already seen, in Example <xref ref="eg_SRpTest"/> with <m>p=2</m>,  that this series converges. But it also has
+	<me>
+	\Big|\frac{a_{n+1}}{a_n}\Big|
+	= \bigg|\frac{\frac{1}{(n+1)^2}}{\frac{1}{n^2}}\bigg|
+	 = \frac{n^2}{(n+1)^2}
+	 = \frac{1}{(1+\frac{1}{n})^2}
+	\rightarrow L=1\quad\text{as $n\rightarrow\infty$}
+	</me>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+Let's do a somewhat artificial example that forces us to combine a few of the techniques we have seen.
+</p>
+
+<example xml:id="eg_ratioC"><title><m>\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n</m></title>
+<p>
+Again, the convergence of this series will depend on <m>X</m>.
+<ul>
+<li>
+	Let us start with the ratio test <mdash/> so we compute
+	<md>
+	<mrow>
+	  \left|\frac{a_{n+1}}{a_n}\right|
+	  &amp;= \left|\frac{(-3)^{n+1} \sqrt{n+2} (2n+5) X^{n+1} }{(-3)^n \sqrt{n+1} (2n+3) X^n} \right|
+	</mrow><mrow>
+	  &amp;= |-3| \cdot \frac{\sqrt{n+2}}{\sqrt{n+1}} \cdot \frac{2n+5}{2n+3} \cdot |X|
+	  </mrow>
+	<intertext>So in the limit as <m>n \to \infty</m> we are left with</intertext><mrow>
+	  \lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|
+	  &amp;= 3 |X|
+	</mrow>
+	</md>
+</li>
+<li>
+	The ratio test then tells us that if <m>3|X| \gt 1</m> the series diverges, while when <m>3|X| \lt 1</m> the series converges.
+</li>
+<li>
+	This leaves us with the cases <m>X=+\frac{1}{3}</m> and <m>-\frac{1}{3}</m>.
+</li>
+<li>
+	Setting <m>X=\frac{1}{3}</m> gives the series
+	<md>
+	<mrow>
+	\sum_{n=1}^\infty \frac{ (-1)^n \sqrt{n+1}}{2n+3}
+	</mrow>
+	</md>
+	The fact that the terms alternate here suggests that we use the alternating series test. That will show that this  series converges provided
+	<md>
+	<mrow>
+	  f(x) &amp;= \frac{\sqrt{x+1}}{2x+3}
+	</mrow>
+	</md>
+	is a decreasing function. To prove that, it suffices to show its derivative is negative when <m>x\geq 1</m>:
+	<md>
+	<mrow>
+	  f'(x) &amp;= \frac{(2x+3)\cdot \frac{1}{2} \cdot(x+1)^{-1/2} - 2\sqrt{x+1} }{(2x+3)^2}
+	</mrow><mrow>
+	  &amp;=\frac{(2x+3) - 4(x+1)  }{2 \sqrt{x+1} (2x+3)^2}
+	</mrow><mrow>
+	  &amp;= \frac{-2x-1}{2 \sqrt{x+1} (2x+3)^2}
+	</mrow>
+	</md>
+	So when <m>x \geq 1</m> this is negative and so <m>f(x)</m> is a decreasing function. Thus we can apply the alternating series  test to show that the series converges when <m>x=\frac{1}{3}</m>.
+</li>
+<li>
+	When <m>X = -\frac{1}{3}</m> the series becomes
+	<md>
+	<mrow>
+	\sum_{n=1}^\infty \frac{\sqrt{n+1}}{2n+3}.
+	</mrow>
+	</md>
+	Notice that when <m>n</m> is large, the summand is approximately  <m>\frac{\sqrt{n}}{2n}</m> which suggests that the series will diverge  by comparison with <m>\sum n^{-1/2}</m>. To formalise this, we can use the limit comparison theorem:
+	<md>
+	<mrow>
+	  \lim_{n \to \infty} \frac{\sqrt{n+1}}{2n+3}\  \frac{1}{ n^{-1/2} }
+	  &amp;=
+	  \lim_{n \to \infty} \frac{\sqrt{n} \cdot \sqrt{1+1/n}}{n(2+3/n)} \cdot n^{1/2}
+	</mrow><mrow>
+	  &amp;=
+	  \lim_{n \to \infty} \frac{n \cdot \sqrt{1+1/n}}{n(2+3/n)}
+	</mrow><mrow>
+	  &amp;= \frac{1}{2}
+	</mrow>
+	</md>
+	So since this ratio has a finite limit and the series <m>\sum n^{-1/2}</m> diverges, we know that our series also diverges.
+</li>
+</ul>
+So in summary the series converges when <m>-\frac{1}{3}  \lt  X \leq \frac{1}{3}</m> and diverges otherwise.
+</p>
+</example>
+</subsection>
+
+<subsection>
+<title>Convergence Test List</title>
+
+<p>
+We now have half a dozen convergence tests:
+<ul>
+<li>
+<p>
+	<em>Divergence Test</em>
+	<ul>
+	<li>
+		works well when the <m>n^{\mathrm{th}}</m> term in the series <em>fails</em> to converge to zero as <m>n</m> tends to infinity
+	</li>
+	</ul>
+</p>
+</li>
+<li>
+<p>
+	<em>Alternating Series Test</em>
+	<ul>
+	<li>
+		works well when successive terms in the series alternate in sign
+	</li>
+	<li>
+		don't forget to check that successive terms decrease in magnitude and tend to zero as <m>n</m>  tends to infinity
+	</li>
+	</ul>
+</p>
+</li>
+<li>
+<p>
+	<em>Integral Test</em>
+	<ul>
+	<li>
+		works well when, if you substitute <m>x</m> for <m>n</m> in the <m>n^{\mathrm{th}}</m> term you get a function, <m>f(x)</m>, that you can integrate
+	</li>
+	<li>
+		don't forget to check that <m>f(x)\ge 0</m> and that <m>f(x)</m> decreases as <m>x</m> increases
+	</li>
+	</ul>
+</p>
+</li>
+<li>
+<p>
+	<em>Ratio Test</em>
+	<ul>
+	<li>
+		works well when <m>\frac{a_{n+1}}{a_n}</m> simplifies enough that you can easily compute  <m>\lim\limits_{n\rightarrow\infty}\big|\frac{a_{n+1}}{a_n}\big|=L</m>
+	</li>
+	<li>
+		this often happens when <m>a_n</m> contains powers, like <m>7^n</m>, or factorials, like <m>n!</m>
+	</li>
+	<li>
+		don't forget that <m>L=1</m> tells you nothing about the convergence/divergence of the series
+	</li>
+	</ul>
+</p>
+</li>
+<li>
+<p>
+	<em>Comparison Test and Limit Comparison Test</em>
+	<ul>
+	<li>
+		works well when, for very large <m>n</m>, the <m>n^{\mathrm{th}}</m> term  <m>a_n</m> is approximately the same as a simpler term <m>b_n</m> (see Example <xref ref="eg_SRcomparisonTestB"/>) and it is easy to determine whether or not <m>\sum_{n=1}^\infty b_n</m> converges
+	</li>
+	<li>
+		don't forget to check that <m>b_n\ge 0</m>
+	</li>
+	<li>
+		usually the Limit Comparison Test is easier to apply than the Comparison Test
+	</li>
+	</ul>
+</p>
+</li>
+</ul>
+</p>
+
+</subsection>
+
+<subsection xml:id="sec_Stack">
+<title>Optional <mdash/> The Leaning Tower of Books</title>
+
+<p>
+Imagine that you are about to stack a bunch of identical books on a table. But you don't want to just stack them exactly vertically.  You want to built a <q>leaning tower of books</q> that overhangs the edge of the table as much as possible.
+</p>
+
+<sidebyside width="75%">
+<image source="text/figs/bookStack"/>
+</sidebyside>
+
+<p>
+How big an overhang can you get? The answer to that question, which we'll now
+derive, uses a series!
+<ul>
+<li>
+<p>
+Let's start by just putting book <hash/>1 on the table. It's the red book
+labelled <q><m>B_1</m></q> in the figure below.
+</p>
+<sidebyside width="75%">
+<image source="text/figs/bookStackV1"/>
+</sidebyside>
+
+<p>
+Use a horizontal <m>x</m>-axis with <m>x=0</m> corresponding to the right hand
+edge of the table. Imagine that we have placed book <hash/>1 so that its
+right hand edge overhangs the end of the table by a distance <m>x_1</m>.
+<ul>
+<li>
+In order for the book to not topple off of the table, we need its
+centre of mass to lie above the table. That is, we need the <m>x</m>-coordinate
+of the centre mass of <m>B_1</m>, which we shall denote <m>\bar X(B_1)</m>, to obey
+<me>
+\bar X(B_1) \le 0
+</me>
+Assuming that our books have uniform density and are of length
+<m>L</m>, <m>\bar X(B_1)</m> will be exactly half way between the right hand end of the
+book, which is at <m>x=x_1</m>, and the left hand end of the book, which is at
+<m>x=x_1-L</m>. So
+<me>
+\bar X(B_1) =\frac{1}{2} x_1+\frac{1}{2}(x_1-L)
+            = x_1-\frac{L}{2}
+</me>
+</li>
+</ul>
+Thus book <hash/>1 does not topple off of the table provided
+<me>
+x_1\le\frac{L}{2}
+</me>
+</p>
+</li>
+<li>
+<p>
+Now let's put books <hash/>1 and <hash/>2 on the table, with the right hand edge of
+book <hash/>1 at <m>x=x_1</m> and the right hand edge of book <hash/>2 at <m>x=x_2</m>, as in the figure below.
+</p>
+
+<sidebyside width="75%">
+<image source="text/figs/bookStackV2a"/>
+</sidebyside>
+
+
+<p>
+<ul>
+<li>
+In order for book <hash/>2 to not topple off of book <hash/>1, we need the
+centre of mass of book <hash/>2 to lie above book <hash/>1. That is, we need
+the <m>x</m>-coordinate of the centre mass of <m>B_2</m>, which is
+<m>\bar X(B_2)=x_2-\frac{L}{2}</m>, to obey
+<me>
+\bar X(B_2) \le x_1
+\iff
+x_2-\frac{L}{2} \le x_1
+\iff
+x_2\le x_1+\frac{L}{2}
+</me>
+</li>
+<li>
+<p>
+Assuming that book <hash/>2 does not topple off of book <hash/>1, we still
+need to arrange that the pair of books does not topple off of the table.
+Think of the pair of books as the combined red object in the figure
+</p>
+
+<sidebyside width="75%">
+<image source="text/figs/bookStackV2b"/>
+</sidebyside>
+
+<p>
+In order for the combined red object to not topple off of the table,
+we need the centre of mass of the combined red object to lie above
+the table. That is, we need the <m>x</m>-coordinate
+of the centre mass of the combined red object, which we shall denote
+<m>\bar X(B_1\cup B_2)</m>, to obey
+<me>
+\bar X(B_1\cup B_2) \le 0
+</me>
+The centre of mass of the combined red object is the weighted
+average
+<fn>
+	It might be a good idea to review the beginning of §<xref ref="sec_com"/> at this point.
+</fn>
+of the centres of mass of <m>B_1</m> and <m>B_2</m>.
+As <m>B_1</m> and <m>B_2</m> have the same weight,
+<md>
+<mrow>
+\bar X(B_1\cup B_2) &amp;= \frac{1}{2}\bar X(B_1) +\frac{1}{2}\bar X(B_2)
+    = \frac{1}{2}\Big(x_1-\frac{L}{2}\Big) +\frac{1}{2}\Big(x_2-\frac{L}{2}\Big)
+</mrow><mrow>
+&amp;= \frac{1}{2}(x_1+x_2) -\frac{L}{2}
+</mrow>
+</md>
+and the combined red object does not topple off of the table if
+<me>
+\bar X(B_1\cup B_2)
+=\frac{1}{2}(x_1+x_2) -\frac{L}{2} \le 0
+\iff
+x_1+x_2\le L
+</me>
+</p>
+</li>
+</ul>
+In conclusion, our two-book tower survives if
+<md>
+<mrow>
+x_2\le x_1+\frac{L}{2}\qquad\text{and}\qquad x_1+x_2\le L
+</mrow>
+</md>
+In particular we may choose <m>x_1</m> and <m>x_2</m> to satisfy
+<m>x_2 = x_1+\frac{L}{2}</m> and <m>x_1+x_2 = L</m>. Then, substituting
+<m>x_2 = x_1+\frac{L}{2}</m> into <m>x_1+x_2 = L</m> gives
+<me>
+x_1 + \Big(x_1+\frac{L}{2}\Big) = L
+\iff 2x_1 = \frac{L}{2}
+\iff x_1 = \frac{L}{2}\Big(\frac{1}{2}\Big),\quad
+     x_2 = \frac{L}{2}\Big(1+\frac{1}{2}\Big)
+</me>
+</p>
+</li>
+<li>
+<p>
+Before considering the general <q><m>n</m>-book tower</q>, let's now put  books <hash/>1, <hash/>2 and <hash/>3
+on the table, with the right hand edge of book <hash/>1 at <m>x=x_1</m>, the right hand edge of book <hash/>2 at  <m>x=x_2</m>, and the right  hand edge of book <hash/>3 at <m>x=x_3</m>, as in the figure below.
+</p>
+
+<sidebyside width="75%">
+<image source="text/figs/bookStackV3a"/>
+</sidebyside>
+
+<p>
+<ul>
+<li>
+In order for book <hash/>3 to not topple off of book <hash/>2, we need the
+centre of mass of book <hash/>3 to lie above book <hash/>2. That is, we need
+the <m>x</m>-coordinate of the centre mass of <m>B_3</m>, which is
+<m>\bar X(B_3)=x_3-\frac{L}{2}</m>, to obey
+<me>
+\bar X(B_3) \le x_2
+\iff
+x_3-\frac{L}{2} \le x_2
+\iff
+x_3\le x_2+\frac{L}{2}
+</me>
+</li>
+<li>
+<p>
+Assuming that book <hash/>3 does not topple off of book <hash/>2, we still
+need to arrange that the pair of books, book <hash/>2 plus book <hash/>3 (the
+red object in the figure below), does not topple off of book <hash/>1.
+</p>
+
+<sidebyside width="75%">
+<image source="text/figs/bookStackV3b"/>
+</sidebyside>
+
+<p>
+In order for this combined red object to not topple off of book <hash/>1,
+we need the <m>x</m>-coordinate of its centre mass, which we denote
+<m>\bar X(B_2\cup B_3)</m>, to obey
+<me>
+\bar X(B_2\cup B_3) \le x_1
+</me>
+The centre of mass of the combined red object is the weighted
+average  of the centre of masses of <m>B_2</m> and <m>B_3</m>.
+As <m>B_2</m> and <m>B_3</m> have the same weight,
+<md>
+<mrow>
+\bar X(B_2\cup B_3) &amp;= \frac{1}{2}\bar X(B_2) +\frac{1}{2}\bar X(B_3)
+    = \frac{1}{2}\Big(x_2-\frac{L}{2}\Big)
+      +\frac{1}{2}\Big(x_3-\frac{L}{2}\Big)
+</mrow><mrow>
+&amp;= \frac{1}{2}(x_2+x_3) -\frac{L}{2}
+</mrow>
+</md>
+and the combined red object does not topple off of book <hash/>1 if
+<me>
+\frac{1}{2}(x_2+x_3) -\frac{L}{2} \le x_1
+\iff
+x_2+x_3\le 2x_1+L
+</me>
+</p>
+</li>
+<li>
+<p>
+Assuming that book <hash/>3 does not topple off of book <hash/>2, and also
+that the combined book <hash/>2 plus book <hash/>3 does not topple off of book <hash/>1,
+we still need to arrange that the whole tower of books, book <hash/>1 plus
+book <hash/>2 plus book <hash/>3 (the red object in the figure below), does not
+topple off of the table.
+</p>
+
+<sidebyside width="75%">
+<image source="text/figs/bookStackV3c"/>
+</sidebyside>
+
+<p>
+In order for this combined red object to not topple off of the table,
+we need the <m>x</m>-coordinate of its centre mass, which we denote
+<m>\bar X(B_1\cup B_2\cup B_3)</m>, to obey
+<me>
+\bar X(B_1\cup B_2\cup B_3) \le 0
+</me>
+The centre of mass of the combined red object is the weighted
+average  of the centre of masses of <m>B_1</m> and <m>B_2</m> and <m>B_3</m>.
+As they all have the same weight,
+<md>
+<mrow>
+\bar X(B_1\cup B_2\cup B_3) &amp;= \frac{1}{3}\bar X(B_1) +\frac{1}{3}\bar X(B_2)
+                                +\frac{1}{3}\bar X(B_3)
+</mrow><mrow>
+  &amp;=  \frac{1}{3}\Big(x_1-\frac{L}{2}\Big)
+     +\frac{1}{3}\Big(x_2-\frac{L}{2}\Big)
+     +\frac{1}{3}\Big(x_3-\frac{L}{2}\Big)
+</mrow><mrow>
+&amp;= \frac{1}{3}(x_1+x_2+x_3) -\frac{L}{2}
+</mrow>
+</md>
+and the combined red object does not topple off of the table if
+<me>
+\frac{1}{3}(x_1+ x_2+x_3) -\frac{L}{2} \le 0
+\iff
+x_1+ x_2+x_3\le \frac{3L}{2}
+</me>
+</p>
+</li>
+</ul>
+In conclusion, our three-book tower survives if
+<md>
+<mrow>
+x_3\le x_2+\frac{L}{2}\qquad\text{and}\qquad x_2+x_3\le 2x_1 + L
+\qquad\text{and}\qquad x_1+ x_2+x_3\le \frac{3L}{2}
+</mrow>
+</md>
+In particular, we may choose <m>x_1</m>, <m>x_2</m> and <m>x_3</m> to satisfy
+<md>
+<mrow>
+x_1+ x_2+x_3&amp;= \frac{3L}{2}\qquad\text{and}
+</mrow><mrow>
+x_2+x_3&amp;= 2x_1 + L \qquad\text{and}
+</mrow><mrow>
+x_3 &amp;= \frac{L}{2} + x_2
+</mrow>
+</md>
+Substituting the second equation into the first gives
+<md>
+<mrow>
+3x_1 +L = \frac{3L}{2}
+\implies x_1 = \frac{L}{2}\Big(\frac{1}{3}\Big)
+</mrow>
+</md>
+Next substituting the third equation into the second, and then
+using the formula above for <m>x_1</m>, gives
+<md>
+<mrow>
+2x_2 +\frac{L}{2} = 2x_1+L = \frac{L}{3} + L
+\implies x_2 = \frac{L}{2}\Big(\frac{1}{2}+\frac{1}{3}\Big)
+</mrow>
+</md>
+and finally
+<md>
+<mrow>
+     x_3 = \frac{L}{2} + x_2
+         = \frac{L}{2}\Big(1+\frac{1}{2}+\frac{1}{3}\Big)
+</mrow>
+</md>
+</p>
+</li>
+<li>
+We are finally ready for the general <q><m>n</m>-book tower</q>.
+Stack <m>n</m> books on the table,
+with book <m>B_1</m> on the bottom and book <m>B_n</m> at the top, and
+with the right hand edge of book <hash/><m>j</m> at <m>x=x_j</m>. The same
+centre of mass considerations as above show that the tower survives
+if
+<md>
+<mrow>
+\bar X(B_n) &amp;\le x_{n-1} &amp;
+x_n-\frac{L}{2}&amp;\le x_{n-1}
+</mrow><mrow>
+\bar X(B_{n-1}\cup B_n) &amp;\le x_{n-2} &amp;
+\frac{1}{2}(x_{n-1}+x_n)-\frac{L}{2}&amp;\le x_{n-2}
+</mrow><mrow>
+&amp;\ \ \vdots &amp;\quad\vdots
+</mrow><mrow>
+\bar X(B_3\cup\cdots\cup B_n) &amp;\le x_2&amp;
+\frac{1}{n-2}(x_3+\cdots+x_n)-\frac{L}{2}&amp;\le x_2
+</mrow><mrow>
+\bar X(B_2\cup B_3\cup\cdots\cup B_n) &amp;\le x_1&amp;
+\frac{1}{n-1}(x_2+x_3+\cdots+x_n)-\frac{L}{2}&amp;\le x_1
+</mrow><mrow>
+\bar X(B_1\cup B_2\cup B_3\cup\cdots\cup B_n) &amp;\le 0 &amp;
+\frac{1}{n}(x_1+x_2+x_3+\cdots+x_n)-\frac{L}{2}&amp;\le 0
+</mrow>
+</md>
+In particular, we may choose the <m>x_j</m>'s to obey
+<md>
+<mrow>
+\frac{1}{n}(x_1+x_2+x_3+\cdots+x_n)&amp; = \frac{L}{2}
+</mrow><mrow>
+\frac{1}{n-1}(x_2+x_3+\cdots+x_n)&amp;= \frac{L}{2} + x_1
+</mrow><mrow>
+\frac{1}{n-2}(x_3+\cdots+x_n)&amp;= \frac{L}{2}  + x_2
+</mrow><mrow>
+&amp;\ \ \vdots &amp;\vdots&amp;
+</mrow><mrow>
+\frac{1}{2}(x_{n-1}+x_n)&amp;= \frac{L}{2} + x_{n-2}
+</mrow><mrow>
+x_n&amp;= \frac{L}{2} + x_{n-1}
+</mrow>
+</md>
+Substituting <m>x_2+x_3+\cdots+x_n=(n-1) x_1  +\frac{L}{2}(n-1)</m>
+from the second equation into the first
+equation gives
+<md>
+<mrow>
+\frac{1}{n}\Big\{\overbrace{x_1+(n-1) x_1}^{nx_1}
+                  +\frac{L}{2}(n-1)\Big\} = \frac{L}{2}
+&amp;\implies x_1 +\frac{L}{2}\Big(1-\frac{1}{n}\Big)
+           = \frac{L}{2}\Big(\frac{1}{2}\Big)
+</mrow><mrow>
+&amp;\implies x_1 = \frac{L}{2}\Big(\frac{1}{n}\Big)
+</mrow>
+</md>
+Substituting <m>x_3+\cdots+x_n=(n-2) x_2+\frac{L}{2}(n-2)</m> from the
+third equation into the second
+equation gives
+<md>
+<mrow>
+&amp;\frac{1}{n-1}\Big\{\overbrace{x_2+(n-2) x_2}^{(n-1)x_2}
+      +\frac{L}{2}(\overbrace{n-2}^{(n-1)-1})\Big\} = \frac{L}{2} +x_1
+=\frac{L}{2}\Big(1+\frac{1}{n}\Big)
+</mrow><mrow>
+&amp;\hskip1in\implies x_2 + \frac{L}{2}\Big(1-\frac{1}{n-1}\Big)
+    =\frac{L}{2}\Big(1+\frac{1}{n}\Big)
+</mrow><mrow>
+&amp;\hskip1in\implies x_2 = \frac{L}{2}\Big(\frac{1}{n-1}+\frac{1}{n}\Big)
+</mrow>
+</md>
+Just keep going. We end up with
+<md>
+<mrow>
+x_1 &amp;= \frac{L}{2}\Big(\frac{1}{n}\Big)
+</mrow><mrow>
+x_2 &amp;= \frac{L}{2}\Big(\frac{1}{n-1}+\frac{1}{n}\Big)
+</mrow><mrow>
+x_3 &amp;= \frac{L}{2}\Big(\frac{1}{n-2}+\frac{1}{n-1}+\frac{1}{n}\Big)
+</mrow><mrow>
+    &amp;\ \  \vdots
+</mrow><mrow>
+x_{n-2} &amp;= \frac{L}{2}\Big(\frac{1}{3}+\cdots+\frac{1}{n}\Big)
+</mrow><mrow>
+x_{n-1} &amp;= \frac{L}{2}\Big(\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}\Big)
+</mrow><mrow>
+x_n &amp;= \frac{L}{2}\Big(1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}\Big)
+</mrow>
+</md>
+Our overhang is <m>x_n = \frac{L}{2}\big(1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}\big)</m>.
+This is <m>\frac{L}{2}</m> times the <m>n^{\rm th}</m> partial sum of the
+harmonic series <m>\sum_{m=1}^\infty\frac{1}{m}</m>. As we saw in Example
+<xref ref="eg_SRpTest"/> (the <m>p</m> test), the harmonic series diverges.
+So, as <m>n</m> goes to infinity <m>1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}</m>
+also goes to infinity.
+We may make the overhang as large
+<fn>At least if our table is strong enough.</fn>
+ as we like!
+</li>
+</ul>
+</p>
+
+</subsection>
+
+
+<subsection xml:id="sec_RootTest"><title>Optional <mdash/> The Root Test</title>
+
+<p>
+There is another test that is very similar in spirit to the ratio test. It also comes from a reexamination of the  geometric series
+<md>
+<mrow>
+  \sum_{n=0}^\infty a_n = \sum_{n=0}^\infty a r^n
+</mrow>
+</md>
+The ratio test was based on the observation that <m>r</m>, which largely determines whether or not the series converges, could be found by  computing the ratio <m>r = a_{n+1}/a_n</m>. The root test is based on  the observation that <m>|r|</m> can also be determined by looking that  the <m>n^{\rm th}</m> root of the <m>n^{\rm th}</m> term with <m>n</m> very large:
+<me>
+\lim_{n\to\infty}\root{n}\of{\big|ar^n\big|}
+=|r|\lim_{n\to\infty}\root{n}\of{\big|a\big|}
+=|r|\qquad\text{if $a\ne 0$}
+</me>
+Of course, in general, the <m>n^{\rm th}</m> term is not exactly <m>ar^n</m>.  However, if for very large <m>n</m>, the <m>n^{\rm th}</m> term is  approximately proportional to <m>r^n</m>, with <m>|r|</m> given by the above limit, we would expect the series to converge when <m>|r| \lt 1</m> and diverge when <m>|r| \gt 1</m>. That is indeed the case.
+</p>
+
+<theorem xml:id="thm_SRroot"><title>Root Test</title>
+<statement><p>
+Assume that
+<me>
+L = \lim_{n\to\infty}\root{n}\of{\big|a_n\big|}
+</me>
+exists or is <m>+\infty</m>.
+<ol label="a">
+<li>
+	If <m>L \lt 1</m>, then <m>\sum\limits_{n=1}^\infty a_n</m> converges.
+</li>
+<li>
+	If <m>L \gt 1</m>, or <m>L=+\infty</m>,  then <m>\sum\limits_{n=1}^\infty a_n</m> diverges.
+</li>
+</ol>
+</p></statement>
+</theorem>
+
+<warning>
+<statement><p>
+Beware that the root test provides absolutely no conclusion about the convergence or divergence of the series <m>\sum\limits_{n=1}^\infty a_n</m> if <m>\lim\limits_{n\rightarrow\infty}\root{n}\of{\big|a_n\big|} =  1</m>.
+</p></statement>
+</warning>
+
+<proof>
+<p>
+(a) Pick any number <m>R</m> obeying <m>L \lt R \lt 1</m>. We are assuming that  <m>\root{n}\of{|a_n|}</m> approaches <m>L</m> as <m>n\rightarrow\infty</m>. In particular there must be some natural number <m>M</m> so that <m>\root{n}\of{|a_n|}\le R</m> for all <m>n\ge M</m>. So  <m>|a_n|\le R^n</m> for all <m>n\ge M</m> and the series  <m>\sum\limits_{n=1}^\infty a_n</m> converges by comparison to the geometric series <m>\sum\limits_{n=1}^\infty R^n</m>
+</p>
+
+<p>
+(b) We are assuming that  <m>\root{n}\of{|a_n|}</m> approaches <m>L \gt 1</m> (or grows unboundedly) as <m>n\rightarrow\infty</m>. In particular there must be some natural  number <m>M</m> so that <m>\root{n}\of{|a_n|}\ge 1</m> for all <m>n\ge M</m>.  So <m>|a_n|\ge 1</m> for all <m>n\ge M</m> and the series diverges by the  divergence test.
+</p>
+
+</proof>
+
+<example xml:id="eg_rootA"><title><m>\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n</m></title>
+<p>
+We have already used the ratio test, in Example <xref ref="eg_ratioC"/>, to show that this series converges when <m>|X| \lt \frac{1}{3}</m> and diverges  when <m>|X| \gt \frac{1}{3}</m>. We'll now use the root test to draw the  same conclusions.
+<ul>
+<li>
+	Write <m>a_n=  \frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n</m>.
+</li>
+<li>
+	We compute
+	 <md>
+	<mrow>
+	  \root{n}\of{|a_n|}
+	  &amp;= \root{n}\of{ \bigg|\frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n\bigg|}
+	</mrow><mrow>
+	  &amp;= 3 |X|\big(n+1\big)^{\frac{1}{2n}}  \big(2n+3)^{-\frac{1}{n}}
+	</mrow>
+	</md>
+</li>
+<li>
+	We'll now show that the limit of <m>\big(n+1\big)^{\frac{1}{2n}}</m> as <m>n\to\infty</m> is exactly <m>1</m>. To do, so we first compute the limit  of the logarithm.
+	<md>
+	<mrow>
+	\lim_{n\to\infty}\log \big(n+1\big)^{\frac{1}{2n}}
+	&amp;=\lim_{n\to\infty}\frac{\log \big(n+1\big)}{2n}
+	\qquad&amp;\text{now apply Theorem }<xref ref="thm_SRxlimtoanlim"/>
+	</mrow><mrow>
+	&amp;=\lim_{x\to\infty}\frac{\log \big(x+1\big)}{2x}
+	</mrow><mrow>
+	&amp;=\lim_{x\to\infty}\frac{\frac{1}{x+1}}{2} \qquad&amp;\text{by l'Hôpital}
+	</mrow><mrow>
+	&amp;=0
+	</mrow>
+	</md>
+	So
+	<md>
+	<mrow>
+	\lim_{n\to\infty}\big(n+1\big)^{\frac{1}{2n}}
+	=\lim_{n\to\infty}\exp\big\{\log \big(n+1\big)^{\frac{1}{2n}}\big\}
+	= e^0=1
+	</mrow>
+	</md>
+	An essentially identical computation also gives that  <m>\lim_{n\to\infty}\big(2n+3)^{-\frac{1}{n}} = e^0=1</m>.
+</li>
+<li>
+	So
+	<md>
+	<mrow>
+	\lim_{n\to\infty}\root{n}\of{|a_n|}
+	= 3 |X|
+	</mrow>
+	</md>
+</li>
+</ul>
+and the root test also tells us that if <m>3|X| \gt 1</m> the series diverges,  while when <m>3|X| \lt 1</m> the series converges.
+</p>
+</example>
+
+
+<p>
+We have done the last example once, in Example <xref ref="eg_ratioC"/>,  using the ratio test and once, in Example <xref ref="eg_rootA"/>, using the root test. It was clearly much easier to use the ratio test. Here is an example that is most easly handled by the root test.
+</p>
+
+<example xml:id="eg_rootB"><title> <m>\sum_{n=1}^\infty \big(\frac{n}{n+1}\big)^{n^2}</m> </title>
+<p>
+Write <m>a_n=  \big(\frac{n}{n+1}\big)^{n^2}</m>. Then
+<md>
+<mrow>
+\root{n}\of{|a_n|}
+  &amp;= \root{n}\of{ \Big(\frac{n}{n+1}\Big)^{n^2}}
+   = \Big(\frac{n}{n+1}\Big)^{n}
+   = \Big(1+\frac{1}{n}\Big)^{-n}
+</mrow>
+</md>
+Now we take the limit,
+<md>
+<mrow>
+\lim_{n\to\infty}\Big(1+\frac{1}{n}\Big)^{-n}
+&amp;=\lim_{X\to\infty}\Big(1+\frac{1}{X}\Big)^{-X}
+\qquad&amp;\text{by Theorem }<xref ref="thm_SRxlimtoanlim"/>
+</mrow><mrow>
+&amp;=\lim_{x\to 0}\big(1+x\big)^{-1/x}
+\qquad&amp;\text{where $x=\frac{1}{X}$}
+</mrow><mrow>
+&amp;= e^{-1}
+</mrow>
+</md>
+by Example 3.7.20 in the CLP-I notes with <m>a=-1</m>. As the limit is strictly smaller than <m>1</m>, the series  <m>\sum_{n=1}^\infty \big(\frac{n}{n+1}\big)^{n^2}</m> converges.
+</p>
+
+<p>
+To draw the same conclusion using the ratio test, one would have to show that the limit of
+<md>
+<mrow>
+\frac{a_{n+1}}{a_n}
+&amp;= \Big(\frac{n+1}{n+2}\Big)^{(n+1)^2}  \Big(\frac{n+1}{n}\Big)^{n^2}
+</mrow>
+</md>
+as <m>n\rightarrow\infty</m> is strictly smaller than 1. It's clearly  better to stick with the root test.
+</p>
+</example>
+</subsection>
+
+<subsection xml:id="sec_HarminicBasel">
+<title>Optional <mdash/> Harmonic and Basel Series</title>
+
+<subsubsection><title>The Harmonic Series</title>
+<p>
+The series
+<md>
+<mrow>
+  \sum_{n=1}^\infty \frac{1}{n}
+</mrow>
+</md>
+that appeared in Warning <xref ref="wrn_SRdivTest"/>, is called the Harmonic series
+	<fn>
+		The interested reader should use their favourite  search engine to read more on the link between this series and muscial harmonics. You can also find interesting links between the Harmonic series  and the so-called <q>jeep problem</q> and also the problem of stacking a  tower of dominoes to create an overhang that does not topple over.
+	</fn>,
+and its partial sums
+<md>
+<mrow>
+	H_N &amp;= \sum_{n=1}^N \frac{1}{n}
+</mrow>
+</md>
+are called the Harmonic numbers. Though these numbers have been studied  at least as far back as Pythagoras, the divergence of the series was  first proved in around 1350 by Nicholas Oresme (1320-5 <ndash/> 1382), though the  proof was lost for many years and rediscovered by Mengoli (1626<ndash/>1686)  and the Bernoulli brothers (Johann 1667<ndash/>1748 and Jacob 1655<ndash/>1705).
+</p>
+
+<p>
+Oresme's proof is beautiful and all the more remarkable that it was  produced more than 300 years before calculus was developed by Newton  and Leibnitz. It starts by grouping the terms of the harmonic series  carefully:
+<md>
+<mrow>
+  \sum_{n=1}^\infty \frac{1}{n}
+  &amp;= 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} + \cdots
+</mrow><mrow>
+  &amp;= 1 + \frac{1}{2}
+  + \left( \frac{1}{3} + \frac{1}{4} \right)
+  + \left( \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} \right)
+  + \left( \frac{1}{9} + \frac{1}{10} + \cdots + \frac{1}{15} + \frac{1}{16} \right)
+  + \cdots
+</mrow><mrow>
+  &amp; \lt  1 + \frac{1}{2}
+  + \left( \frac{1}{4} + \frac{1}{4} \right)
+  + \left( \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} \right)
+  + \left( \frac{1}{16} + \frac{1}{16} + \cdots + \frac{1}{16} + \frac{1}{16} \right)
+  + \cdots
+</mrow><mrow>
+  &amp;= 1 + \frac{1}{2} + \left( \frac{2}{4} \right) + \left( \frac{4}{8}  \right)
+       + \left( \frac{8}{16}  \right) + \cdots
+</mrow>
+</md>
+So one can see that this is <m>1 + \frac{1}{2} +\frac{1}{2}+\frac{1}{2} +\frac{1}{2} +\cdots</m> and so must diverge
+<fn>
+	The grouping argument can be generalised further and the interested reader should look up Cauchy's condensation test.
+</fn>.
+</p>
+
+<p>
+There are many variations on Oresme's proof <mdash/> for example, using groups of two or three. A rather different proof relies on the inequality
+<md>
+<mrow>
+  e^x  \gt  1 + x \qquad \text{ for $x  \gt  0$}
+</mrow>
+</md>
+which follows immediately from the Taylor series for <m>e^x</m> given in Theorem <xref ref="thm_SRimportantTaylorSeries"/>. From this we can  bound the exponential of the Harmonic numbers:
+<md>
+<mrow>
+  e^{H_n}
+  &amp;= e^{1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \cdots + \frac{1}{n}}
+</mrow><mrow>
+  &amp;= e^1 \cdot e^{1/2} \cdot e^{1/3} \cdot e^{1/4} \cdots e^{1/n}
+</mrow><mrow>
+  &amp; \gt  (1+1)\cdot(1+1/2)\cdot(1+1/3)\cdot(1+1/4)\cdots(1+1/n)
+</mrow><mrow>
+  &amp;= \frac{2}{1} \cdot \frac{3}{2} \cdot \frac{4}{3} \cdot \frac{5}{4} \cdots \frac{n+1}{n}
+</mrow><mrow>
+  &amp;= n+1
+</mrow>
+</md>
+Since <m>e^{H_n}</m> grows unboundedly with <m>n</m>, the harmonic series diverges.
+</p>
+</subsubsection>
+
+<subsubsection><title>The Basel Problem</title>
+
+<p>
+The problem of determing the exact value of the sum of the series
+<md>
+<mrow>
+  \sum_{n=1}^\infty \frac{1}{n^2}
+</mrow>
+</md>
+is called the Basel problem. The problem is named after the home town of Leonhard Euler, who solved it. One can use telescoping series to show that this series must converge.  Notice that
+<md>
+<mrow>
+  \frac{1}{n^2} &amp; \lt  \frac{1}{n(n-1)} = \frac{1}{n-1} - \frac{1}{n}
+</mrow>
+</md>
+Hence we can bound the partial sum:
+<md>
+<mrow>
+  S_k=\sum_{n=1}^k \frac{1}{n^2}
+  &amp;  \lt  1 + \sum_{n=2}^k \frac{1}{n(n-1)} &amp;&amp; \text{avoid dividing by $0$}
+</mrow><mrow>
+  &amp;= 1 + \sum_{n=2}^k \left(\frac{1}{n-1} - \frac{1}{n} \right) &amp;&amp;
+                   \text{which telescopes to}
+</mrow><mrow>
+  &amp;= 1 + 1 - \frac{1}{k}
+</mrow>
+</md>
+Thus, as <m>k</m> increases, the partial sum <m>S_k</m> increases  (the series is a sum of positive terms), but is always smaller  than <m>2</m>.  So the sequence of partial sums converges.
+</p>
+
+<p>
+Mengoli posed the problem of evaluating the series exactly in 1644  and it was solved <mdash/> not entirely rigorously <mdash/> by Euler in 1734.  A rigorous proof had to wait another 7 years. Euler used some extremely  cunning observations and manipulations of the sine function to show that
+<md>
+<mrow>
+  \sum_{n=1}^\infty \frac{1}{n^2} &amp;= \frac{\pi^2}{6}.
+</mrow>
+</md>
+He used the Maclaurin series
+<md>
+<mrow>
+  \sin x &amp;= 1 - \frac{x^3}{6} + \frac{x^5}{24} - \cdots
+</mrow>
+</md>
+and a product formula for sine
+<mdn>
+<mrow  xml:id="eqn_sinProdFormula" tag="star">
+\begin{split}
+  \sin x &amp;= x
+  \cdot \left(1 -\frac{x}{\pi} \right)
+  \cdot \left(1 + \frac{x}{\pi} \right)
+  \cdot \left(1 -\frac{x}{2\pi} \right)
+  \cdot \left(1 + \frac{x}{2\pi} \right)
+  \cdot \left(1 -\frac{x}{3\pi} \right)
+  \cdot \left(1 + \frac{x}{3\pi} \right)
+  \cdots\\
+  &amp;= x
+  \cdot \left(1 -\frac{x^2}{\pi} \right)
+  \cdot \left(1 - \frac{x^2}{4\pi} \right)
+  \cdot \left(1 -\frac{x^2}{9\pi} \right)
+  \cdots
+\end{split}
+</mrow>
+</mdn>
+Extracting the coefficient of <m>x^3</m> from both expansions gives the desired result. The proof of the product formula is well beyond the scope of  this course. But notice that at least the values of <m>x</m> which make the left hand side of <xref ref="eqn_sinProdFormula"/> zero, namely <m>x=n\pi</m> with <m>n</m>  integer, are exactly the same as the values of <m>x</m> which make the  right hand side of  <xref ref="eqn_sinProdFormula"/> zero
+	<fn>
+		Knowing that the left and right hand sides of <xref ref="eqn_sinProdFormula"/> are zero for the same values of <m>x</m> is far from the end of the story. Two functions <m>f(x)</m> and <m>g(x)</m> having the same zeros, need not be  equal. It is certainly possible that <m>f(x)=g(x)*A(x)</m> where <m>A(x)</m>  is a function that is nowhere zero. The interested reader should look up the Weierstrass factorisation theorem.
+	</fn>.
+</p>
+
+<p>
+This approach can also be used to compute <m>\sum_{n=1}^\infty n^{-2p}</m> for <m>p=1,2,3,\cdots</m> and show that they are rational  multiples
+	<fn>Search-engine your way to <q>Riemann zeta function</q>.</fn>
+of <m>\pi^{2p}</m>. The corresponding series of odd powers are significantly nastier and getting closed form expressions for  them remains a famous open problem.
+</p>
+</subsubsection>
+
+</subsection>
+
+<subsection xml:id="sec_CompProof">
+<title>Optional <mdash/> Some Proofs</title>
+
+<p>
+In this optional section we provide proofs of two convergence tests. We shall repeatedly use the fact that any sequence <m>a_1</m>, <m>a_2</m>, <m>a_3</m>,  <m>\cdots</m>, of real numbers which is increasing  (i.e. <m>a_{n+1}\ge a_n</m> for all <m>n</m>) and bounded (i.e. there is a constant <m>M</m> such that <m>a_n\le M</m> for all <m>n</m>) converges. We shall not prove this fact
+	<fn>
+		It is one way to state a property of the real number system  called <q>completeness</q>. The interested reader should use their  favourite search engine to look up <q>completeness of the real numbers</q>.
+	</fn>.
+</p>
+
+<p>
+We start with the comparison test, and then move on to the  alternating series test.
+</p>
+
+<theorem><title>The Comparison Test (stated again)</title>
+<statement><p>
+Let <m>N_0</m> be a natural number and let <m>K \gt 0</m>.
+<ol label="a">
+<li> If <m>|a_n|\le K c_n</m> for all <m>n\ge N_0</m> and
+<m>\sum\limits_{n=0}^\infty c_n</m> converges, then
+<m>\sum\limits_{n=0}^\infty a_n</m> converges.
+</li>
+<li> If <m>a_n\ge K d_n\ge0 </m> for all <m>n\ge N_0</m> and
+<m>\sum\limits_{n=0}^\infty d_n</m> diverges, then
+<m>\sum\limits_{n=0}^\infty a_n</m> diverges.
+</li>
+</ol>
+</p></statement>
+</theorem>
+
+<proof>
+<p>
+(a) By hypothesis <m>\sum_{n=0}^\infty c_n</m> converges. So it suffices to prove that <m>\sum_{n=0}^\infty [Kc_n-a_n]</m> converges, because then, by our Arithmetic of series  Theorem <xref ref="thm_SRseriesarith"/>,
+<me>
+\sum_{n=0}^\infty a_n = \sum_{n=0}^\infty K c_n -\sum_{n=0}^\infty [Kc_n-a_n]
+</me>
+will converge too. But for all <m>n\ge N_0</m>, <m>Kc_n-a_n\ge 0</m> so that, for all <m>N\ge N_0</m>, the partial sums
+<me>
+S_N = \sum_{n=0}^N [Kc_n-a_n]
+</me>
+increase with <m>N</m>, but never gets bigger than the finite number <m>\sum\limits_{n=0}^{N_0} [Kc_n-a_n]  + K \sum\limits_{n=N_0+1}^\infty  c_n</m>. So the partial sums <m>S_N</m> converge as <m>N\rightarrow\infty</m>.
+</p>
+
+<p>
+(b) For all <m>N \gt  N_0</m>, the partial sum
+<me>
+S_N = \sum_{n=0}^N a_n \ge \sum_{n=0}^{N_0} a_n + K\hskip-10pt\sum_{n=N_0+1}^N\hskip-10pt d_n
+</me>
+By hypothesis, <m>\sum_{n=N_0+1}^N d_n</m>, and hence <m>S_N</m>, grows without bound as  <m>N\rightarrow\infty</m>. So <m>S_N\rightarrow\infty</m>  as <m>N\rightarrow\infty</m>.
+</p>
+</proof>
+
+<theorem><title>Alternating Series Test (stated again)</title>
+<statement><p>
+Let <m>\big\{a_n\big\}_{n=1}^\infty</m> be a sequence of real numbers that obeys
+<ol label="i">
+<li>
+	<m>a_n\ge 0</m> for all <m>n\ge 1</m> and
+</li>
+<li>
+	<m>a_{n+1}\le a_n</m>  for all <m>n\ge 1</m> (i.e. the  sequence is monotone decreasing) and
+</li>
+<li>
+	<m>\lim_{n\rightarrow\infty}a_n=0</m>.
+</li>
+</ol>
+Then
+<me>
+	a_1-a_2+a_3-a_4+\cdots=\sum\limits_{n=1}^\infty (-1)^{n-1} a_n =S
+</me>
+converges and, for each natural number <m>N</m>,  <m>S-S_N</m> is between <m>0</m> and (the  first dropped term) <m>(-1)^N a_{N+1}</m>. Here <m>S_N</m> is, as previously, the <m>N^{\rm th}</m> partial sum <m>\sum\limits_{n=1}^N (-1)^{n-1} a_n</m>.
+</p></statement>
+</theorem>
+
+<proof>
+<p>
+Let <m>2n</m> be an even natural number. Then the <m>2n^{\rm th}</m> partial sum obeys
+<md>
+<mrow>
+S_{2n}&amp;=\overbrace{(a_1-a_2)}^{\ge 0}
+                +\overbrace{(a_3-a_4)}^{\ge 0}+\cdots
+                +\overbrace{(a_{2n-1}-a_{2n})}^{\ge 0}
+</mrow><mrow>
+&amp;\le\overbrace{(a_1-a_2)}^{\ge 0}
+                +\overbrace{(a_3-a_4)}^{\ge 0}+\cdots
+                +\overbrace{(a_{2n-1}-a_{2n})}^{\ge 0}
+                +\overbrace{(a_{2n+1}-a_{2n+2})}^{\ge 0}
+  =S_{2(n+1)}
+</mrow>
+</md>
+and
+<md>
+<mrow>
+S_{2n}&amp;=a_1-(\overbrace{a_2-a_3}^{\ge 0})
+                         -(\overbrace{a_4-a_5}^{\ge 0})-\cdots
+                         -\overbrace{(a_{2n-2}-a_{2n-1})}^{\ge 0}
+                         -\overbrace{a_{2n}}^{\ge 0}
+</mrow><mrow>
+      &amp;\le a_1
+</mrow>
+</md>
+So the sequence <m>S_2</m>, <m>S_4</m>, <m>S_6</m>, <m>\cdots</m> of even partial sums is a bounded, increasing sequence and hence converges to some real  number <m>S</m>. Since <m>S_{2n+1} = S_{2n} +a_{2n+1}</m> and <m>a_{2n+1}</m> converges zero as <m>n\rightarrow\infty</m>, the odd partial sums <m>S_{2n+1}</m> also converge to <m>S</m>. That <m>S-S_N</m> is between <m>0</m> and (the  first dropped term) <m>(-1)^N a_{N+1}</m> was already proved in §<xref ref="sec_AST"/>.
+</p>
+</proof>
+</subsection>
+
+
+
+<xi:include href="../problems/prob_s3.3.xml" />
+
+
+</section>

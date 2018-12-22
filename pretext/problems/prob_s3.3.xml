@@ -1,0 +1,2807 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<exercises>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise purpose="RQS">
+<statement><p>
+Select the series below that diverge by the divergence test.
+</p>
+
+<p>
+(A)<nbsp/> <m>\displaystyle\sum_{n=1}^\infty \frac{1}{n}</m>
+</p>
+<p>
+(B)<nbsp/> <m>\displaystyle\sum_{n=1}^\infty \frac{n^2}{n+1}</m>
+</p>
+<p>
+(C)<nbsp/><m>\displaystyle\sum_{n=1}^\infty \sin n</m>
+</p>
+<p>
+(D)<nbsp/> <m>\displaystyle\sum_{n=1}^\infty \sin (\pi n)</m>
+</p></statement>
+<hint><p>
+That is, which series have terms whose limit is not zero?
+</p></hint>
+<answer><p>
+(B), (C)
+</p></answer>
+<solution><p>
+<ol label="A">
+<li> <m>\displaystyle\lim_{n \to \infty}\frac{1}{n}=0</m>, so the divergence test is inconclusive. It's true that this series diverges, but we can't show it using the divergence test.
+</li>
+<li> <m>\displaystyle\lim_{n \to \infty}\frac{n^2}{n+1}=\infty</m>, which is not zero, so the divergence test tells us this series diverges.
+</li>
+<li> <m>\displaystyle\lim_{n \to \infty}\sin n</m> does not exist, so in particular it is not zero. Therefore, the divergence test tells us this series diverges.
+</li>
+<li> For all whole numbers <m>n</m>, <m>\sin(\pi n)=0</m>, so <m>\displaystyle\lim_{n \to \infty}\sin(\pi n)=0</m> and the divergence test is inconclusive.
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Select the series below whose terms satisfy the conditions to apply the integral test.
+</p>
+
+<p>
+(A)<nbsp/> <m>\displaystyle\sum_{n=1}^\infty \frac{1}{n}</m>
+</p>
+<p>
+(B)<nbsp/> <m>\displaystyle\sum_{n=1}^\infty \frac{n^2}{n+1}</m>
+</p>
+<p>(C)<nbsp/><m>\displaystyle\sum_{n=1}^\infty \sin n</m>
+</p>
+<p>
+(D)<nbsp/> <m>\displaystyle\sum_{n=1}^\infty \frac{\sin n+1}{n^2}</m>
+</p></statement>
+<hint><p>
+That is, if <m>f(x)</m> is a function with <m>f(n)=a_n</m> for all whole numbers <m>n</m>, is <m>f(x)</m> nonnegative and decreasing?
+</p></hint>
+<answer><p>
+(A)
+</p></answer>
+<solution><p>
+Let <m>f(x)</m> be a function with <m>f(n)=a_n</m> for all whole numbers <m>n</m>.
+In order to apply the integral test (Theorem <xref ref="thm_SRintegralTest"/>
+ in the CLP-II text) we need <m>f(x)</m> to be positive and decreasing for all sufficiently large values of <m>n</m>.
+<ol label="A">
+<li> <m>f(x) = \frac{1}{x}</m>, which is positive and decreasing for all <m>x \ge 1</m>, so the integral test does apply here.
+</li>
+<li> <m>f(x)=\frac{x^2}{x+1}</m>, which is not decreasing <mdash/> in fact, it goes to infinity. So, the integral test does not apply here. (The divergence test tells us the series diverges, though.)
+</li>
+<li> <m>f(x) = \sin x</m>, which is neither consistently positive nor consistently decreasing, so the integral test does not apply. (The divergence test tells us the series diverges, though.)
+</li>
+<li> <m>f(x)=\frac{\sin x+1}{x^2}</m> is positive for all whole numbers <m>n</m>. To determine whether it is decreasing, we consider its derivative.
+<md>
+<mrow>
+f'(x)&amp;=\frac{x^2(\cos x)-(\sin x+1)(2x)}{x^4}=\frac{x\cos x - 2\sin x -2}{x^3}
+</mrow>
+</md>
+This is sometimes positive, and sometimes negative. (For example, if <m>x=100\pi</m>, <m>f'(x) = \frac{100\pi-0-2}{(100\pi)^3} \gt 0</m>, but if <m>x=101\pi</m> then <m>f'(x)=\frac{101\pi(-1)-0-2}{(101\pi)^3} \lt 0</m>.) Then <m>f(x)</m> is not a decreasing function, so the integral test does not apply.
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s3_3_oldies">
+<statement><p>
+Suppose there is some threshold after which a person is considered old, and before which they are young.
+</p>
+
+<p>Let Olaf be an old person, and let Yuan be a young person.
+<ol label="a">
+<li> Suppose  I am older than Olaf. Am I old?
+</li>
+<li> Suppose  I am younger than Olaf. Am I old?
+</li>
+<li> Suppose  I am older than Yuan. Am I young?
+</li>
+<li> Suppose  I am younger than Yuan. Am I young?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+This isn't a trick. It's meant to give you intuition to the direct comparison test.
+</p></hint>
+<answer><p>
+(a) I am old  (b) not enough information to tell
+</p>
+<p>
+(c) not enough information to tell  (d) I am young
+</p></answer>
+<solution><p>
+(a) If Olaf is old, and I am <em>even older</em>, then I am old as well.
+</p>
+<p>
+(b) If Olaf is old, and I am {not as old}, then perhaps I am old as well (just slightly less so), or perhaps I am young. There is not enough information to tell.
+</p>
+<p>
+(c) If Yuan is young, and I am older, then perhaps I am much older and I am old, or perhaps I am only a little older, and I am young. There is not enough information to tell.
+</p>
+<p>
+(d) If Yuan is young, and I am <em>even younger</em>, then I must also be young.
+</p>
+
+<p>Another way to think about this is with a timeline of birthdates. People born before the threshold are old, and people born after it are young.
+</p>
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[ \lt - \gt , thick] (-5,0)--(5,0);
+\YExcoord{0}{\text{threshold}}
+\color{red}\YExcoord{3}{\text{Yuan}}
+\color{blue}\YExcoord{-3}{\text{Olaf}}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+<p>If I'm born before (older than) Olaf, I'm born before the threshold, so I'm old. If I'm born after (younger than) Yuan I'm born after the threshold, so I'm young.
+</p>
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[ \lt - \gt , thick] (-5,0)--(5,0);
+\YExcoord{0}{\text{threshold}}
+\color{red}\YExcoord{3}{\text{Yuan}}
+\draw[- \gt , thick] (3,-1)--(5,-1) node[midway, below]{definitely young};
+\color{blue}\YExcoord{-3}{\text{Olaf}}
+\draw[- \gt , thick] (-3,-1)--(-5,-1) node[midway, below]{definitely old};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>If I'm born after Olaf or before Yuan, I don't know which side of the threshold I'm on. I could be old or I could be young.
+</p>
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[ \lt - \gt , thick] (-5,0)--(5,0);
+\YExcoord{0}{\text{threshold}}
+\color{red}\YExcoord{3}{\text{Yuan}}
+\draw[decorate, decoration={brace, amplitude=10pt}] (0,1)--(3,1) node[midway, yshift=7mm]{older than Yuan};
+\color{blue}\YExcoord{-3}{}
+\draw[decorate, decoration={brace, amplitude=10pt}] (-5,1)--(0,1) node[midway, yshift=7mm]{also older than Yuan};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise xml:id="prob_s3_3_compareintuitive">
+<statement><p>
+Below are graphs of two sequences with positive terms.  Assume the sequences continue as shown. Fill in the table with conclusions that can be made from the direct comparison test, if any.
+</p>
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{6}{.5}{3}
+\draw (6.2,0) node[shape=circle, fill=white, minimum size=4mm]{$n$};
+\foreach \x in {1,...,11}
+	{\draw[red] (\x/2,3/\x) node[vertex]{};
+	\draw[blue] (\x/2,1/\x) node[vertex]{};}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell></cell>
+<cell> if <m>\sum a_n</m> converges </cell>
+<cell> if <m>\sum a_n</m> diverges </cell>
+</row>
+<row>
+<cell><textred>and if <m>\{a_n\}</m> is the red series </textred></cell>
+<cell><textblue>then <m>\sum b_n</m></textblue> <shortrule/></cell>
+<cell><textblue>then <m>\sum b_n</m></textblue> <shortrule/></cell>
+</row>
+<row>
+<cell>
+<textblue> and if <m>\{a_n\}</m> is the blue series </textblue></cell>
+<cell><textred>then <m>\sum b_n</m></textred> <shortrule/></cell>
+<cell><textred> then <m>\sum b_n</m></textred> <shortrule/></cell>
+</row>
+</tabular>
+</sidebyside>
+
+</statement>
+<hint><p>
+The comparison test is Theorem<nbsp/><xref ref="thm_SRcomparisonTest"/> in the CLP-II text. However, rather than trying to memorize which way the inequalities go in all cases, you can use the same reasoning as Question<nbsp/><xref ref="prob_s3_3_oldies" text="local"/>.
+</p></hint>
+<answer>
+
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell></cell>
+<cell> if <m>\sum a_n</m> converges </cell>
+<cell> if <m>\sum a_n</m> diverges</cell>
+</row>
+<row>
+<cell><textred>and if <m>\{a_n\}</m> is the red series</textred></cell>
+<cell><textblue> then <m>\sum b_n</m> CONVERGES</textblue></cell>
+<cell>inconclusive</cell>
+</row>
+<row>
+<cell><textblue>and if <m>\{a_n\}</m> is the blue series</textblue></cell>
+<cell>inconclusive</cell>
+<cell><textred>then <m>\sum b_n</m> DIVERGES</textred></cell>
+</row>
+</tabular>
+</sidebyside>
+
+
+</answer>
+
+<solution><p>
+The comparison test is Theorem<nbsp/><xref ref="thm_SRcomparisonTest"/> in the CLP-II text. However, rather than trying to memorize which way the inequalities go in all cases, we  use the same reasoning as Question<nbsp/><xref ref="prob_s3_3_oldies" text="local"/>.
+</p>
+
+<p>If a sequence has positive terms, it either converges, or it diverges to infinity, with the partial sums increasing and increasing without bound. If one sequence diverges, and the other sequence is larger, then the other sequence diverges <mdash/> just like being older than an old person makes you old.
+</p>
+
+<p>If <m>\sum a_n</m> converges, and <m>\{a_n\}</m> is the red (larger) series, then <m>\sum b_n</m> converges: it's smaller than a sequence that doesn't add up to infinity, so it too does not add up to infinity.
+</p>
+
+<p>If <m>\sum a_n</m> diverges, and <m>\{a_n\}</m> is the blue (smaller) series, then <m>\sum b_n</m> diverges: it's larger than a sequence that adds up to infinity, so it too adds up to infinity.
+</p>
+
+<p>In the other cases, we can't say anything. If <m>\{a_n\}</m> is the red (larger) series, and  <m>\sum a_n</m> diverges, then perhaps <m>\{b_n\}</m> behaves similarly to <m>\{a_n\}</m> and <m>\sum b_n</m> diverges, or perhaps <m>\{b_n\}</m> is much, much smaller than <m>\{a_n\}</m> and <m>\sum b_n</m> converges.
+</p>
+
+<p>Similarly, if <m>\{a_n\}</m> is the blue (smaller) series, and  <m>\sum a_n</m> converges, then perhaps <m>\{b_n\}</m> behaves similarly to <m>\{a_n\}</m> and <m>\sum b_n</m> converges, or perhaps <m>\{b_n\}</m> is much, much bigger than <m>\{a_n\}</m> and <m>\sum b_n</m> diverges.
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell></cell>
+<cell> if <m>\sum a_n</m> converges </cell>
+<cell> if <m>\sum a_n</m> diverges</cell>
+</row>
+<row>
+<cell><textred>and if <m>\{a_n\}</m> is the red series</textred></cell>
+<cell><textblue> then <m>\sum b_n</m> CONVERGES</textblue></cell>
+<cell>inconclusive</cell>
+</row>
+<row>
+<cell><textblue>and if <m>\{a_n\}</m> is the blue series</textblue></cell>
+<cell>inconclusive</cell>
+<cell><textred>then <m>\sum b_n</m> DIVERGES</textred></cell>
+</row>
+</tabular>
+</sidebyside>
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+For each pair of series below, decide whether the second series is a valid comparison series to determine the convergence of the first series, using the  <em>direct</em> comparison test and/or the <em>limit</em> comparison test.
+<ol label="a">
+<li>
+<m>\displaystyle\sum_{n=10}^{\infty} \frac{1}{n-1},</m> compared to the divergent series
+<m>\displaystyle\sum_{n=10}^{\infty} \frac{1}{n}.</m>
+</li>
+<li>
+<m>\displaystyle\sum_{n=1}^{\infty} \frac{\sin n}{n^2+1},</m> compared to the convergent series
+<m>\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^2}.</m>
+</li>
+<li>
+<m>\displaystyle\sum_{n=5}^{\infty} \frac{n^3+5n+1}{n^6-2},</m> compared to the convergent series
+<m>\displaystyle\sum_{n=5}^{\infty} \frac{1}{n^3}.</m>
+</li>
+<li>
+<m>\displaystyle\sum_{n=5}^{\infty} \frac{1}{\sqrt{n}},</m> compared to the divergent series
+<m>\displaystyle\sum_{n=5}^{\infty} \frac{1}{\sqrt[4]n}.</m>
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Think about Question<nbsp/><xref ref="prob_s3_3_compareintuitive" text="local"/> to remind yourself which way the inequalities have to go for direct comparison.
+</p>
+
+<p>Note that all the comparison series have positive terms, so we don't need to worry about that part of the limit comparison test.
+</p></hint>
+<answer><p>
+(a) both direct comparison and limit comparison  (b) direct comparison
+</p>
+<p>
+ (c) limit comparison  (d) neither
+</p></answer>
+<solution><p>
+(a) Since <m>\sum \frac{1}{n}</m> is divergent, we can only use it to prove series with <em>larger</em> terms are divergent. This is the case here, since <m>\frac{1}{n-1} \gt \frac{1}{n}</m>. So, the direct comparison test is valid.
+</p>
+
+<p>For the limit comparison test, we calculate:
+<md>
+<mrow>
+\lim_{n \to \infty}\frac{a_n}{b_n}&amp;=\lim_{n \to \infty}\frac{\frac{1}{n-1}}{\frac{1}{n}}=\lim_{n \to \infty}\frac{n}{1}
+</mrow>
+</md>
+Since the limit is a real number and not zero, also the limit comparison test is valid.
+</p>
+
+<p>(b) Since the series <m>\sum \frac{1}{n^2}</m> converges, we can only use the direct comparison test to show the convergence of a series if its terms have <em>smaller</em> absolute values. Indeed,
+<me>
+\left| \frac{\sin n}{n^2+1}\right|=\frac{|\sin n|}{n^2+1} \lt \frac{1}{n^2}</me>
+</p>
+
+<p>so the series are set for a direct comparison.
+</p>
+
+<p>To check whether a limit comparison will work, we compute:
+<md>
+<mrow>
+\lim_{n \to \infty}\frac{a_n}{b_n}&amp;=\lim_{n \to \infty} \frac{\frac{\sin n}{n^2+1}}{\frac{1}{n^2}} = \lim_{n \to \infty}\frac{n^2}{n^2+1}\sin n = \lim_{n \to \infty}(1)\sin n
+</mrow>
+</md>
+The limit does not exist, so the limit comparison test is not a valid test to compare these two series.
+</p>
+
+<p>(c) Since the series <m>\sum \frac{1}{n^3}</m> converges, we can only use the direct comparison test to conclude something about a series with <em>smaller</em> terms. However, <me>
+\frac{n^3+5n+1}{n^6-2} \gt \frac{n^3}{n^6}=\frac{1}{n^3}.</me>
+</p>
+
+<p>Therefore the direct comparison test does not apply to this pair of series.
+</p>
+
+<p>For the limit comparison test, we calculate:
+<md>
+<mrow>
+\lim_{n \to \infty}\frac{a_n}{b_n}&amp;=\lim_{n \to \infty}\frac{\frac{n^3+5n+1}{n^6-2}}{  \frac{1}{n^3}} = \lim_{n \to \infty}\frac{n^3+5n+1}{n^3-\frac{2}{n^3}}\left(\frac{\frac{1}{n^3}}{\frac{1}{n^3}}\right)
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}\frac{1+\frac{5}{n^2}+\frac{1}{n^3}}{1-\frac{2}{n^6}}=1
+</mrow>
+</md>
+Since the limit is a nonzero real number, we can use the limit comparison test to compare this pair of series.
+</p>
+
+<p>(d) Since the series <m>\sum \frac{1}{\sqrt[4]{n}}</m> diverges, we can only use the direct comparison test to show that a series with <em>larger</em> terms diverges. However,
+<me>
+\frac{1}{\sqrt{n}} \lt \frac{1}{\sqrt[4]{n}}</me>
+</p>
+
+<p>so the direct comparison test isn't valid with this pair of series.
+</p>
+
+<p>For the limit comparison test, we calculate:
+<md>
+<mrow>
+\lim_{n \to \infty}\frac{a_n}{b_n}&amp;=\lim_{n \to \infty}\frac{\frac{1}{\sqrt{n}}}{\frac{1}{\sqrt[4]{n}}}=\lim_{n \to \infty}\frac{1}{\sqrt[4]{n}}=0
+</mrow>
+</md>
+Since the limit is zero, the limit comparison test doesn't apply.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose <m>a_n</m> is a sequence with <m>\displaystyle\lim_{n \to \infty}a_n = \frac{1}{2}</m>. Does <m>\displaystyle\sum_{n=7}^\infty a_n</m> converge or diverge, or is it not possible to determine this from the information given? Why?
+</p></statement>
+<hint><p>
+The divergence test is Theorem<nbsp/><xref ref="thm_SRdivergenceTest"/> in the CLP-II text.
+</p></hint>
+<answer><p>
+It diverges by the divergence test, because <m>\displaystyle\lim_{n \to \infty}a_n \neq 0</m>.
+</p></answer>
+<solution><p>
+It diverges by the divergence test, because <m>\displaystyle\lim_{n \to \infty}a_n \neq 0</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+What flaw renders the following reasoning invalid?
+<blockquote>
+<textblue>
+<p>
+Q: Determine whether <m>\displaystyle\sum_{n=1}^\infty \dfrac{\sin n}{n}</m> converges or diverges.
+</p>
+<p>
+A: First, we will evaluate <m>\displaystyle\lim_{n \to \infty} \dfrac{\sin n}{n}</m>.
+<ul>
+<li> Note <m>\dfrac{-1}{n} \leq \dfrac{\sin n}{n} \leq \dfrac{1}{n}</m> for <m>n \ge 1</m>.
+</li>
+<li> Note also that <m>\displaystyle\lim_{n \to \infty}\frac{-1}{n}=\displaystyle\lim_{n \to \infty}\frac{1}{n}=0</m>.
+</li>
+<li> Therefore, by the Squeeze Theorem, <m>\displaystyle\lim_{n \to \infty} \dfrac{\sin n}{n}=0</m> as well.
+</li>
+</ul>
+So, by the divergence test, <m>\displaystyle\sum_{n=1}^\infty \dfrac{\sin n}{n}</m> converges.
+</p>
+</textblue>
+</blockquote>
+</p></statement>
+<hint><p>
+The limit is calculated correctly.
+</p></hint>
+<answer><p>
+We cannot use the divergence test to show that a series converges. It is inconclusive in this case.
+</p></answer>
+<solution><p>
+ The divergence test (Theorem<nbsp/><xref ref="thm_SRdivergenceTest"/> in the CLP-II text) is inconclusive when <m>\displaystyle\lim_{n \to \infty}a_n=0</m>. We cannot use the divergence test to show that a series converges.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+What flaw renders the following reasoning invalid?
+<blockquote>
+<textblue>
+<p>
+Q: Determine whether <m>\displaystyle\sum_{n=1}^\infty \left(\sin(\pi n)+2\right)</m> converges or diverges.
+</p>
+<p>
+A: We use the integral test. Let <m>f(x)=\sin(\pi x)+2</m>. Note <m>f(x)</m> is always positive, since <m>\sin(x)+2 \geq -1+2 =1</m>. Also, <m>f(x)</m> is continuous.
+<md>
+<mrow>
+\int_1^\infty [\sin(\pi x)+2] \dee{x} &amp;= \lim_{b \to \infty}\int_1^b [\sin(\pi x)+2 ] \dee{x}
+</mrow><mrow>
+&amp;=\lim_{b \to \infty} \left[\left.-\frac{1}{\pi}\cos(\pi x)+2x \right|_1^b\right]
+</mrow><mrow>
+&amp;=\lim_{b \to \infty}\left[ -\frac{1}{\pi}\cos(\pi b)+2b +\frac{1}{\pi}(-1)-2\right]
+</mrow><mrow>
+&amp;=\infty
+</mrow>
+</md>
+By the integral test, since the integral diverges, also <m>\displaystyle\sum_{n=1}^\infty\left(  \sin(\pi n)+2\right)</m> diverges.
+</p>
+</textblue>
+</blockquote>
+</p></statement>
+<hint><p>
+It is true that <m>f(x)</m> is positive. What else has to be true of <m>f(x)</m> for the integral test to apply?
+</p></hint>
+<answer><p>
+The integral test does not apply because <m>f(x)</m> is not decreasing.
+</p></answer>
+<solution><p>
+The integral test does not apply because <m>f(x)</m> is not decreasing.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+What flaw renders the following reasoning invalid?
+<blockquote>
+<textblue>
+<p>
+Q: Determine whether the series
+<m>\displaystyle\sum_{n=1}^\infty \dfrac{2^{n+1}n^2}{e^n+2n}</m>
+converges or diverges.
+</p>
+<p>
+A: We want to compare this series to the series <m>\displaystyle\sum_{n=1}^\infty \dfrac{2^{n+1}}{e^n}</m>. Note both this series and the series in the question have positive terms.
+</p>
+
+<p>First, we find that <m>\dfrac{2^{n+1}n^2}{e^n+2n}  \gt  \dfrac{2^{n+1}}{e^n}</m> when <m>n</m> is sufficiently large. The justification for this claim is as follows:
+<ul>
+<li> We note that <m>e^n(n^2-1) \gt n^2-1 \gt 2n</m> for <m>n</m> sufficiently large.
+</li>
+<li> Therefore, <m>e^n \cdot n^2  \gt  e^n+2n</m>
+</li>
+<li> Therefore, <m>2^{n+1}\cdot e^n \cdot n^2  \gt  2^{n+1}(e^n+2n)</m>
+</li>
+<li> Since <m>e^n+2n</m> and <m>e^n</m> are both expressions that work out to be positive for the values of <m>n</m> under consideration, we can divide both sides of the inequality by these terms without having to flip the inequality. So,
+<m>\dfrac{2^{n+1}n^2}{e^n+2n} \gt \dfrac{2^{n+1}}{e^n}</m>.
+</li>
+</ul>
+Now, we claim  <m>\displaystyle\sum_{n=1}^\infty \dfrac{2^{n+1}}{e^n}</m> converges.
+</p>
+<p>
+ Note  <m>\displaystyle\sum_{n=1}^\infty \dfrac{2^{n+1}}{e^n}= 2\displaystyle\sum_{n=1}^\infty \dfrac{2^{n}}{e^n}= 2\displaystyle\sum_{n=1}^\infty \left(\dfrac{2}{e}\right)^n</m>. This is a geometric series with <m>r=\frac{2}{e}</m>. Since <m>2/e  \lt 1</m>, the series converges.
+</p>
+
+<p> Now, by the Direct Comparison Test, we conclude that <m>\displaystyle\sum_{n=1}^\infty \dfrac{2^{n+1}n^2}{e^n+2n}</m> converges.
+ </p>
+ </textblue>
+ </blockquote>
+</p></statement>
+<hint><p>
+Refer to Question<nbsp/><xref ref="prob_s3_3_compareintuitive" text="local"/>.
+</p></hint>
+<answer><p>
+The inequality goes the wrong way, so the direct comparison test (with this comparison series) is inconclusive.
+</p></answer>
+<solution><p>
+The inequality goes the wrong way, so the direct comparison test (with this comparison series) is inconclusive.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Which of the series below are alternating?
+</p>
+
+<p>
+(A) <m>\displaystyle\sum_{n=1}^\infty \sin n</m>
+</p>
+<p>
+(B) <m>\displaystyle\sum_{n=1}^\infty \frac{\cos(\pi n)}{n^3}</m>
+</p>
+<p>
+(C) <m>\displaystyle\sum_{n=1}^\infty \frac{7}{(-n)^{2n}}</m>
+</p>
+<p>
+(D) <m>\displaystyle\sum_{n=1}^\infty \frac{(-2)^n}{3^{n+1}}</m>
+</p></statement>
+<hint><p>
+The definition of an alternating series is given in the start of Section<nbsp/><xref ref="sec_AST"/>
+ in the CLP-II text.
+</p></hint>
+<answer><p>
+(B), (D)
+</p></answer>
+<solution><p>
+Although the terms of (A) are sometimes negative and sometimes positive, they are not strictly alternating in a  positive-negative-positive-negative pattern. For instance, <m>\sin 1</m> and <m>\sin 2</m> are both postive. So, (A) is not an alternating series.
+</p>
+
+<p>When <m>n</m> is a whole number, <m>\cos(\pi n) = (-1)^n</m>, so (B) is alternating.
+</p>
+
+<p>Since the exponent of <m>(-n)</m> in (C) is even, the terms are always positive. Therefore (C) is not alternating.
+</p>
+
+<p>(D) is an alternating series.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Give an example of a convergent series for which the ratio test is inconclusive.
+</p></statement>
+<hint><p>
+For the ratio test to be inconclusive, <m>\lim\limits_{n \to \infty}\left|\dfrac{a_{n+1}}{a_n}\right|</m> should be 1 or nonexistent.
+</p></hint>
+<answer><p>
+One possible answer: <m>\displaystyle\sum_{n=1}^\infty \dfrac{1}{n^2}</m>.
+</p></answer>
+<solution><p>
+One possible answer: <m>\displaystyle\sum_{n=1}^\infty \dfrac{1}{n^2}</m>. This series converges (it's a <m>p</m>-series with <m>p=2 \gt 1</m>), but if we take the ratio of consecutive terms:
+<me>
+\lim_{n \to \infty}\frac{a_{n+1}}{a_n} = \lim_{n \to \infty}\frac{n^2}{(n+1)^2}=1</me>
+</p>
+
+<p>The limit of the ratio is 1, so the ratio test is inconclusive.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Imagine you're taking an exam, and you momentarily forget exactly how the inequality in the ratio test works. You remember there's a ratio, but you don't remember which term goes on top; you remember there's something about the limit being greater than or less than one, but you don't remember which way implies convergence.
+</p>
+
+<p> Explain why
+<me>
+\lim_{n \to \infty}\left|\frac{a_{n+1}}{a_{n}}\right| \gt 1</me>
+</p>
+
+<p>or, equivalently,
+<me>
+\lim_{n \to \infty}\left|\frac{a_n}{a_{n+1}}\right| \lt 1</me>
+</p>
+
+<p>should mean that the sum <m>\sum\limits_{n=1}^\infty a_n</m> <em>diverges</em> (rather than converging).
+</p></statement>
+<hint><p>
+By the divergence test, for a series <m>\sum a_n</m> to <em>converge</em>, we need <m>\lim\limits_{n \to \infty} a_n=0</m>. That is, the magnitude (absolute value) of the terms needs to be getting smaller.
+</p></hint>
+<answer><p>
+By the divergence test, for a series <m>\sum a_n</m> to <em>converge</em>, we need <m>\lim\limits_{n \to \infty} a_n=0</m>. That is, the magnitude (absolute value) of the terms needs to be getting smaller. If <m>\displaystyle\lim_{n \to \infty}\left|\frac{a_n}{a_{n+1}}\right| \lt 1</m> or (equivalently) <m>\displaystyle \lim_{n \to \infty}\left|\frac{a_{n+1}}{a_{n}}\right| \gt 1</m>, then <m>|a_{n+1}| \gt |a_n|</m> for sufficiently large <m>n</m>, so the terms are actually <em>growing</em> in magnitude. That means the series diverges, by the divergence test.
+</p></answer>
+<solution><p>
+By the divergence test, for a series <m>\sum a_n</m> to <em>converge</em>, we need <m>\lim\limits_{n \to \infty} a_n=0</m>. That is, the magnitude (absolute value) of the terms needs to be getting smaller. If <m>\displaystyle\lim_{n \to \infty}\left|\frac{a_n}{a_{n+1}}\right| \lt 1</m> or (equivalently) <m>\displaystyle \lim_{n \to \infty}\left|\frac{a_{n+1}}{a_{n}}\right| \gt 1</m>, then <m>|a_{n+1}| \gt |a_n|</m> for sufficiently large <m>n</m>, so the terms are actually <em>growing</em> in magnitude. That means the series diverges, by the divergence test.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Give an example of a series <m>\displaystyle\sum_{n=a}^\infty a_n</m>, with a function <m>f(x)</m> such that <m>f(n)=a_n</m> for all whole numbers <m>n</m>, such that:
+<ul>
+<li> <m>\displaystyle\int_a^\infty f(x)\,\dee{x}</m> diverges, while
+</li>
+<li> <m>\displaystyle\sum_{n=a}^\infty a_n</m> converges.
+</li>
+</ul>
+</p></statement>
+<hint><p>
+If <m>f(x)</m> is positive and decreasing, then the integral test tells you that the integral and the series either both increase or both decrease. So, in order to find an example with the properties required in the question, you need <m>f(x)</m> to <em>not</em> be both positive and decreasing.
+</p></hint>
+<answer><p>
+One possible answer: <m>f(x) = \sin(\pi x)</m>, <m>a_n=0</m> for every <m>n</m>.
+</p>
+
+<p>By the integral test, any answer will use a function <m>f(x)</m>  that is <em>not</em> both positive and decreasing.
+</p></answer>
+<solution><p>
+The terms of the series only see a small portion of the domain of the integral. We can try to think of a function <m>f(x)</m> that behaves <q>nicely</q> when <m>x</m> is a whole number (that is, it produces a sequence whose sum converges), but is more unruly when <m>x</m> is not a whole number.
+</p>
+
+<p>For example, suppose <m>f(x)=\sin(\pi x)</m>. Then <m>f(x)=0</m> for every integer <m>x</m>, but this is not representative of the function as a whole. Indeed, our corresponding series has terms <m>\{a_n\}=\{0,0,0,\ldots\}</m>.
+<ul>
+<li> <m>\displaystyle\int_{1}^\infty \sin(\pi x)\,\dee{x} = \lim_{R \to \infty} \left[-\frac{1}{\pi}\cos (\pi x)\right]_1^R = \lim_{R \to \infty}\Big[-\cos (\pi R)\Big]-\frac{1}{\pi}</m>
+ Since the limit does not exist, the integral diverges.
+</li>
+<li> <m>\displaystyle\sum_{n=1}^{\infty}\sin(\pi n) = \sum_{n=1}^\infty 0 = 0</m>. The series converges.
+</li>
+</ul></p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+Suppose that you want to use the Limit Comparison Test on the series
+<m> \displaystyle \sum_{n=0}^{\infty} a_n</m> where <m>\displaystyle a_n = \frac{2^n+n}{3^n+1}</m>.
+</p>
+<p>
+Write down a sequence <m>\{b_n\}</m> such that <m>\displaystyle \lim\limits_{n\to\infty} \frac{a_n}{b_n}</m>
+exists and is nonzero. (You don't have to carry out the Limit Comparison Test)
+</p></statement>
+
+<hint><p>
+Review  Theorem <xref ref="thm_SRlimitComparison"/> and  Example <xref ref="eg_SRlimCompA"/> in the CLP-II text.
+</p>
+
+</hint>
+
+<answer><p>
+One possible answer:
+<m>b_n=\displaystyle \frac{2^n}{3^n}</m>
+</p></answer>
+
+<solution><p>
+When <m>n</m> is very large, the term <m>2^n</m> dominates the numerator,
+and the term <m>3^n</m> dominates the denominator.  So when <m>n</m> is very large
+<m>a_n\approx   \frac{2^n}{3^n}</m>. Therefore we should  take <m>b_n=\displaystyle \frac{2^n}{3^n}</m>.
+Note that, with this choice of <m>b_n</m>,
+<md>
+<mrow>
+ \lim_{n\to\infty} \frac{a_n}{b_n}
+= \lim_{n\to\infty} \frac{2^n+n}{3^n+1}\ \frac{3^n}{2^n}
+= \lim_{n\to\infty} \frac{1+ n/2^{n}}{1+1/3^{n}}
+=1
+</mrow>
+</md>
+as desired.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2014D, 2016A</fromexam></title>
+<statement><p>
+Decide whether each of the following statements is true or false.
+If false, provide a counterexample. If true provide a brief justification.
+</p>
+
+<p><ol label="a">
+<li>
+If <m>\displaystyle\lim_{n\rightarrow\infty}a_n=0</m>,
+               then <m>\sum\limits_{n=1}^{\infty} a_n</m> converges.
+</li>
+<li>
+ If <m>\displaystyle\lim_{n\rightarrow\infty}a_n=0</m>,
+               then <m>\sum\limits_{n=1}^{\infty} (-1)^{n\mathstrut} a_n</m> converges.
+</li>
+<li>
+If <m>0\le a_n \le b_n</m> and <m>\sum\limits_{n=1}^{\infty} b_n</m> diverges,
+then <m>\sum\limits_{n=1}^{\infty} a_n</m> diverges.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+Don't jump to conclusions about properties of the <m>a_n</m>'s.
+</p></hint>
+
+<answer><p>
+(a) In general false. The harmonic series <m>\sum\limits_{n=1}^\infty\frac{1}{n}</m>
+provides a counterexample.
+</p>
+
+<p> (b)
+In general false. If <m>a_n =(-1)^n\frac{1}{n}</m>, then
+<m>\sum\limits_{n=1}^{\infty} (-1)^{n\mathstrut} a_n</m> is again the harmonic series
+<m>\sum_{n=1}\limits^\infty\frac{1}{n}</m>, which diverges.
+</p>
+
+<p> (c)
+In general false. Take, for example, <m>a_n=0</m> and <m>b_n=1</m>.
+</p>
+
+</answer>
+
+<solution><p> (a)
+In general false. The harmonic series <m>\sum\limits_{n=1}^\infty\frac{1}{n}</m>
+diverges by the <m>p</m>-test with <m>p=1</m>.
+</p>
+
+<p>
+(b)
+Be careful. You were not told that the <m>a_n</m>'s are positive. So this is false in general.
+If <m>a_n =(-1)^n\frac{1}{n}</m>, then
+<m>\sum\limits_{n=1}^{\infty} (-1)^{n\mathstrut} a_n</m> is again the harmonic series
+<m>\sum\limits_{n=1}^\infty\frac{1}{n}</m>, which diverges.
+</p>
+
+<p>
+(c)
+In general false. Take, for example, <m>a_n=0</m> and <m>b_n=1</m>.
+</p>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+Does the series <m>\displaystyle \sum_{n=2}^\infty \frac{n^2}{3n^2+\sqrt n}</m> converge?
+</p></statement>
+
+<hint><p>
+Always try the divergence test first (in your head).
+</p></hint>
+
+<answer><p>
+No. It diverges.
+</p></answer>
+
+<solution><p>
+First, we'll check the divergence test. It doesn't always work, but if it does, it's likely the easiest path.
+<md>
+<mrow>
+\lim_{n\to\infty} \frac{n^2}{3n^2+\sqrt n} \left(\frac{\frac{1}{n^2}}{\frac{1}{n^2}}\right)
+ =  \lim_{n\to\infty} \frac{1}{3+\frac{1}{n\sqrt n}}
+ = \frac{1}{3}
+ \neq 0
+</mrow>
+</md>
+Since the limit of the terms being added is not zero, the series diverges by the divergence test.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2014D</fromexam></title>
+<statement><p>
+Determine, with explanation, whether the series
+<m>\displaystyle \sum_{n=1}^\infty \frac{5^k}{4^k+3^k}</m> converges
+or diverges.
+</p></statement>
+
+<hint><p>
+Which test should you always try first (in your head)?
+</p></hint>
+
+<answer><p>
+It diverges.
+</p></answer>
+
+<solution><p>
+This precise question was asked on a 2014 final exam. Note that the
+<m>n^{\rm th}</m> term in the series is <m>a_n=\frac{5^k}{4^k+3^k}</m> and does
+<em>not</em> depend on <m>n</m>! There are two possibilities. Either this was
+intentional (and the instructor was being particularly nasty) or it was a
+typo and the intention was to have <m>a_n=\frac{5^n}{4^n+3^n}</m>. In both cases,
+the limit
+<md>
+<mrow>
+\lim_{n\to\infty} a_n
+&amp;=\lim_{n\to\infty} \frac{5^k}{4^k+3^k}
+ = \frac{5^k}{4^k+3^k}
+ \neq 0
+</mrow><mrow>
+\lim_{n\to\infty} a_n
+&amp;=\lim_{n\to\infty} \frac{5^n}{4^n+3^n}
+=\lim_{n\to\infty} \frac{(5/4)^n}{1+(3/4)^n}
+ = +\infty
+ \neq 0
+</mrow>
+</md>
+is nonzero,  so the series diverges by the divergence test.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+Determine whether the series
+<m>\displaystyle\sum_{n=0}^\infty\frac{1}{n+\frac{1}{2}}</m>
+is convergent or divergent. If it is convergent, find its value.
+</p></statement>
+
+<hint><p>
+Review the integral test, which is
+Theorem <xref ref="thm_SRintegralTest"/> in the CLP-II text.
+</p></hint>
+
+<answer><p>
+The series diverges.
+</p></answer>
+
+<solution><p>
+We usually check the divergence test first, to look for low-hanging fruit. The limit of the terms being added is zero:
+<me>
+\lim_{n \to \infty}\frac{1}{n+\frac{1}{2}}=0</me>
+</p>
+
+<p>so the divergence test is inconclusive. That is, we need to look harder.
+</p>
+
+<p>Next, we might consider a comparison test <mdash/> these can also provide us (if we're lucky) with an easy path. The terms we're adding look somewhat like <m>\frac{1}{n}</m>, but our terms are <em>smaller</em> than these terms, which form the terms of the <em>divergent</em> harmonic series. So, a direct comparison seems unlikely. Now we search for more exotic tests.
+</p>
+
+<p>Let <m>\displaystyle f(x) =\frac{1}{x+\frac{1}{2}}</m>.  Note <m>f(x)</m> is positive and decreases as <m>x</m> increases. So, by the integral test, which is  Theorem <xref ref="thm_SRintegralTest"/> in the CLP-II text, the given series converges if and only if the integral <m>\int_0^\infty\frac{1}{x+\frac{1}{2}} \,\dee{x}</m> converges.
+Since
+<md>
+<mrow>
+\int_0^\infty \frac{1}{x+\frac{1}{2}} \,\dee{x} =
+\lim_{R\rightarrow\infty} \int_0^R\frac{1}{x+\frac{1}{2}} \,\dee{x}
+&amp;=\lim_{R\rightarrow\infty} \bigg[ \log\Big(x+\frac{1}{2}\Big)\bigg]^{x=R}_{x=0}
+</mrow><mrow>
+&amp;=\lim_{R\to\infty} \bigg[ \log\Big(R+\frac{1}{2}\Big) - \log\frac12 \bigg]
+</mrow>
+</md>
+diverges, the series diverges.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Does the following series converge or diverge?
+<m>\displaystyle\sum_{k=1}^\infty\frac{1}{\sqrt{k}\sqrt{k+1}}</m>
+</p></statement>
+
+<hint><p>
+A comparison might be helpful <mdash/> try some algebraic manipulation to find a likely series to compare it to.
+</p></hint>
+
+<answer><p>
+It diverges.
+</p></answer>
+
+<solution><p>
+The terms of the series tend to 0, so we can't use the divergence test.
+</p>
+
+<p>To generate a guess about its convergence, we do the following:
+<me>
+\sum \frac{1}{\sqrt{k}\sqrt{k+1}}=\sum\frac{1}{\sqrt{k^2+k}} \approx \sum\frac{1}{\sqrt{k^2}}=\sum\frac{1}{k}</me>
+We guess that our series behaves like the harmonic series, and the harmonic series diverges (which can be demonstrated by <m>p</m>-test or integral test). So, we guess that our series diverges. However, in order to directly compare our series to the harmonic series and show our series diverges, our terms would have to be <em>bigger</em> than the terms in the harmonic series, and this is not the case. So, we use limit comparison.
+</p>
+
+<p><md>
+<mrow>
+\frac{\frac{1}{k}}{\frac{1}{\sqrt{k^2+k}}}&amp;=\frac{\sqrt{k^2+k}}{k}=\frac{\sqrt{k^2+k}}{\sqrt{k^2}}=
+\sqrt{\frac{k^2+k}{k^2}}=\sqrt{1+\frac{1}{k}},\mbox{ so}
+</mrow><mrow>
+\lim_{k \rightarrow \infty}\frac{\frac{1}{k}}{\frac{1}{\sqrt{k^2+k}}}&amp;=\lim_{k \rightarrow \infty}\sqrt{1+\frac{1}{k}}=1
+</mrow>
+</md>
+</p>
+
+<p>Since 1 is a real number greater than 0, by the Limit Comparison Test, <m>\sum \frac{1}{\sqrt{k}\sqrt{k+1}}</m>  diverges, like <m>\sum \frac{1}{k}</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate the following series, or show that it diverges:
+<m>\displaystyle\sum_{k=30}^\infty 3(1.001)^k</m>.
+</p></statement>
+
+<hint><p>
+This is a geometric series.
+</p></hint>
+
+<answer><p>
+This is a geometric series with <m>r=1.001</m>. Since <m>|r| \gt 1</m>, it is divergent.
+</p></answer>
+
+<solution><p>
+This is a geometric series with <m>r=1.001</m>. Since <m>|r| \gt 1</m>, it is divergent.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Evaluate the following series, or show that it diverges:
+<m>\displaystyle\sum_{n=3}^\infty \left(\frac{-1}{5}\right)^n</m>.
+</p></statement>
+
+<hint><p>
+Notice that the series is geometric, but it doesn't start at <m>n=0</m>.
+</p></hint>
+
+<answer><p>
+The series converges to <m>-\dfrac{1}{50}</m>.
+</p></answer>
+
+<solution><p>
+This is a geometric series with <m>r=\frac{-1}{5}</m>. Since <m>|r| \lt 1</m>, it is convergent.
+</p>
+
+<p>We want to use the formula <m>\sum_{n=0}^\infty r^n=\frac{1}{1-r}</m>, but our series does not start at 0, so we re-write it:
+<md>
+<mrow>
+\sum_{n=3}^\infty \left(\frac{-1}{5}\right)^n&amp;=
+\sum_{n=0}^\infty \left(\frac{-1}{5}\right)^n-
+\sum_{n=0}^2 \left(\frac{-1}{5}\right)^n
+=\frac{1}{1-(-1/5)} - \left(1-\frac{1}{5}+\frac{1}{25} \right)
+</mrow><mrow>
+&amp;=\frac{1}{6/5}-1+\frac{1}{5}-\frac{1}{25}
+=
+\frac{5}{6}+\frac{-25+5-1}{25}=-\frac{1}{150}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Does the following series converge or diverge?
+<m>\displaystyle\sum_{n=7}^\infty \sin(\pi n)</m>
+</p></statement>
+
+<hint><p>
+Note <m>n</m> only takes integer values: what's <m>\sin(\pi n)</m> when <m>n</m> is an integer?
+</p></hint>
+
+<answer><p>
+The series converges.
+</p></answer>
+
+<solution><p>
+For any integer <m>n</m>, <m>\sin(\pi n)=0</m>, so
+<m>\sum \sin(\pi n)=\sum 0 = 0</m>. So, this series converges.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Does the following series converge or diverge?
+<m>\displaystyle\sum_{n=7}^\infty\cos(\pi n)</m>
+</p></statement>
+
+<hint><p>
+Note <m>n</m> only takes integer values: what's <m>\cos(\pi n)</m> when <m>n</m> is an integer?
+</p></hint>
+
+<answer><p>
+It diverges.
+</p></answer>
+
+<solution><p>
+For any integer <m>n</m>, <m>\cos(\pi n)=\pm 1</m>, so
+<m>\lim\limits_{n \rightarrow \infty}\cos(\pi n) \neq 0</m>. By the divergence test, this series diverges.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Does the following series converge or diverge?
+<m>\displaystyle\sum_{k=1}^\infty \frac{e^k}{k!}</m>.
+</p></statement>
+
+<hint><p>
+What's the test that you should always think of when you see a factorial?
+</p></hint>
+
+<answer><p>
+The series converges.
+</p></answer>
+
+<solution><p>
+Factorials grow super fast. Like, wow, really fast. Even faster than exponentials. So the terms are going to zero, and the divergence test won't help us. Let's use ratio <mdash/> it's a good go-to test with factorials.
+<md>
+<mrow>
+\frac{a_{k+1}}{a_k}&amp;=\frac{\frac{e^{k+1}}{(k+1)!}}{\frac{e^k}{k!}}=\frac{e^{k+1}}{e^k}\cdot\frac{k!}{(k+1)!}
+=
+e\cdot\frac{k(k-1)\cdots(1)}{(k+1)(k)(k-1)\cdots(1)}=e\cdot\frac{1}{k+1}=\frac{e}{k+1}
+</mrow>
+<intertext>Since <m>e</m> is a constant,</intertext><mrow>
+\lim_{k \rightarrow \infty}\frac{a_{k+1}}{a_k}&amp;=\lim_{k \rightarrow \infty}\frac{e}{k+1}=0
+</mrow>
+</md>
+Since <m>0 \lt 1</m>, by the  ratio test, the series converges.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate the following series, or show that it diverges:
+<m>\displaystyle\sum_{k=0}^\infty\frac{2^k}{3^{k+2}}</m>.
+</p></statement>
+
+<hint><p>
+This is a geometric series, but you'll need to do a little algebra to figure out <m>r</m>.
+</p></hint>
+
+<answer><p>
+The series converges to <m>\dfrac{1}{3}</m>.
+</p></answer>
+
+<solution><p>
+This is close to being in the form of a geometric series. First, we should have our powers be <m>k</m>, not <m>k+2</m>, but we notice <m>3^{k+2}=3^k3^2=9\cdot3^2</m>, so:
+<md>
+<mrow>
+\sum_{k=0}^\infty\frac{2^k}{3^{k+2}}&amp;=\sum_{k=0}^\infty\frac{2^k}{9\cdot3^k}
+=\frac{1}{9}\sum_{k=0}^\infty\frac{2^k}{3^k}=\frac{1}{9}\sum_{k=0}^\infty\left(\frac{2}{3}\right)^k
+</mrow>
+<intertext>Now it looks like a geometric series with <m>r=\frac{2}{3}</m></intertext><mrow>
+&amp;=\frac{1}{9}\left(\frac{1}{1-(2/3)}\right)=\frac{1}{3}
+</mrow>
+</md>
+In conclusion: this (geometric) series is convergent, and its sum is <m>\dfrac{1}{3}</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Does the following series converge or diverge?
+<m>\displaystyle\sum_{n=1}^\infty\frac{n!n!}{(2n)!}</m>.
+</p></statement>
+
+<hint><p>
+Which test fits most often with factorials?
+</p></hint>
+
+<answer><p>
+The series converges.
+</p></answer>
+
+<solution><p>
+Usually with factorials, we want to use the divergence test or the ratio test. Since the terms are indeed tending towards zero, we are left with the ratio test.
+<md>
+<mrow>
+\frac{a_{n+1}}{a_n}&amp;=\frac{\frac{(n+1)!(n+1)!}{(2n+2)!}}{\frac{n!n!}{(2n)!}}=\frac{(n+1)!(n+1)!}{n!n!}\cdot\frac{(2n)!}{(2n+2)!}
+</mrow><mrow>
+&amp;=\tfrac{\textcolor{red}{(n+1)}{(n)}{(n-1)}\cdots{(1)}}{{n}{(n-1)}\cdots{(1)}}
+\cdot\tfrac{\textcolor{red}{(n+1)}{(n)}{(n-1)}\cdots{(1)}}{{n}{(n-1)}\cdots{(1)}}
+\cdot
+\tfrac{{(2n)}{(2n-1)}{(2n-2)}\cdots{(1)}}{\textcolor{red}{(2n+1)(2n+1)}{(2n)}{(2n-1)}{(2n-2)}\cdots{(1)}}
+</mrow><mrow>
+&amp;=(n+1)(n+1) \cdot \frac{1}{(2n+2)(2n+1)}\mbox{, so}
+</mrow><mrow>
+\lim_{n \rightarrow \infty}\frac{a_{n+1}}{a_n}&amp;=\lim_{n \rightarrow \infty}\frac{(n+1)(n+1)}{(2n+2)(2n+1)}
+=\lim_{n \rightarrow \infty}\frac{(n+1)(n+1)}{2(n+1)(2n+1)}
+=\lim_{n \rightarrow \infty}\frac{n+1}{4n+2}=\frac{1}{4}
+</mrow>
+</md>
+Since the limit is a number less than 1, the series converges by the ratio test.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Does the following series converge or diverge?
+<m>\displaystyle\sum_{n=1}^\infty\frac{n^2+1}{2n^4+n}</m>.
+</p></statement>
+
+<hint><p>
+Try finding a nice comparison.
+</p></hint>
+
+<answer><p>
+It converges.
+</p></answer>
+
+<solution><p>
+We want to make an estimation, when <m>n</m> gets big:
+<me>
+\frac{n^2+1}{2n^4+n} \approx \frac{n^2}{2n^4}=\frac{1}{2n^2}</me>
+</p>
+
+<p>Since <m>\sum \frac{1}{2n^2}</m> is a convergent series (by <m>p</m>-test, or integral test), we guess that our series is convergent as well. If we wanted to use comparison test, we should have to show <m>\frac{n^2+1}{2n^4+n} \lt \frac{1}{2n^2}</m>, which seems unpleasant, so let's use limit comparison.
+</p>
+
+<p><me>
+\lim_{n \rightarrow \infty}\frac{\frac{n^2+1}{2n^4+n}}{\frac{1}{2n^2}}=\lim_{n \rightarrow \infty}\frac{(n^2+1)2n^2}{2n^4+n}
+=\lim_{n \rightarrow \infty}\frac{2n^4+2n^2}{2n^4+n}\left(\frac{1/n^4}{1/n^4}\right)=\lim_{n \rightarrow \infty}\frac{2+\frac{2}{n^2}}{2+\frac{1}{n^3}}=1
+</me>
+</p>
+
+<p>Since the limit is a positive finite number, by the Limit Comparison Test, <m>\sum \frac{n^1+1}{2n^4+n}</m> does the same thing <m>\sum\frac{1}{2n^2}</m> does: it converges.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+Show that the series <m>\displaystyle\sum_{n=3}^\infty \frac{5}{n(\log n)^{3/2}}</m> converges.
+</p></statement>
+
+<hint><p>
+With the substitution <m>u=\log x</m>, the function <m>\dfrac{1}{x(\log x)^{3/2}}</m> is easily integrable.
+</p></hint>
+
+<answer><p>
+Let <m>\displaystyle f(x) = \frac{5}{x(\log x)^{3/2}}</m>.
+Then <m>f(x)</m> is positive and decreases as <m>x</m> increases.
+So the sum <m>\displaystyle\sum_3^{\infty} f(n)</m> and the
+integral <m>\displaystyle\int_3^\infty f(x) \,\dee{x}</m>
+either both converge or both diverge, by the integral test, which is
+Theorem <xref ref="thm_SRintegralTest"/> in the CLP-II text.
+For the integral, we use the substitution
+<m>u = \log x</m>, <m>\dee{u} = \frac{\dee{x}}{x}</m> to get
+<md>
+<mrow>
+\int_3^\infty \frac{5 \,\dee{x}}{x(\log x)^{3/2}} = \int_{\log 3}^\infty \frac{5 \,\dee{u}}{u^{3/2}}
+</mrow>
+</md>
+which converges by the <m>p</m>-test (which is
+Example <xref ref="eg_IMPp1"/> in the CLP-II text)
+with <m>p=\frac{3}{2}  \gt  1</m>.
+</p></answer>
+
+<solution><p>
+First, we rule out some of the easier tests. The limit of the terms being added is zero, so the divergence test is inconclusive. The terms being added are smaller than the terms of the (divergent) harmonic series, <m>\sum \frac{1}{n}</m>, so we can't directly compare these two series, and there isn't another obvious  series to compare ours to. However, the terms being added seem like a function we could integrate.
+</p>
+
+<p>Let <m>\displaystyle f(x) = \frac{5}{x(\log x)^{3/2}}</m>.
+Then <m>f(x)</m> is positive and decreases as <m>x</m> increases.
+So the sum <m>\displaystyle\sum_3^{\infty} f(n)</m> and the
+integral <m>\displaystyle\int_3^\infty f(x) \,\dee{x}</m>
+either both converge or both diverge, by the integral test, which is
+Theorem <xref ref="thm_SRintegralTest"/> in the CLP-II text.
+For the integral, we use the substitution
+<m>u = \log x</m>, <m>\dee{u} = \frac{\dee{x}}{x}</m> to get
+<md>
+<mrow>
+\int_3^\infty \frac{5 \,\dee{x}}{x(\log x)^{3/2}} = \int_{\log 3}^\infty \frac{5 \,\dee{u}}{u^{3/2}}
+</mrow>
+</md>
+which converges by the <m>p</m>-test (which is
+Example <xref ref="eg_IMPp1"/> in the CLP-II text)
+with <m>p=\frac{3}{2}  \gt  1</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2014A</fromexam></title>
+<statement><p>
+Find the values of <m>p</m> for which the series
+<m>\displaystyle{\sum_{n=2}^\infty \frac{1}{n(\log n)^p}}</m> converges.
+</p></statement>
+
+<hint><p>
+Combine the integral test with the results about <m>p</m>-series, Example<nbsp/><xref ref="eg_SRpTest"/>
+ in the CLP-II text.
+</p></hint>
+
+<answer><p>
+<m>p \gt 1</m>
+</p></answer>
+
+<solution><p>
+Let <m>f(x)=\frac{1}{x(\log x)^p}</m>. Then <m>f(x)</m> is positive for <m>n \ge 3</m>, and <m>f(x)</m> decreases as <m>x</m> increases. So, we can use the integral test,
+Theorem <xref ref="thm_SRintegralTest"/> in the CLP-II text.
+</p>
+
+<p><md>
+<mrow>
+\int_2^\infty\!\! \frac{1}{x(\log x)^p} \dee{x}
+&amp;=\lim_{R\rightarrow\infty}\int_2^R\!\! \frac{1}{(\log x)^p} \frac{\dee{x}}{x}
+=\lim_{R\rightarrow\infty}\int_{\log 2}^{\log R}\!\! \frac{1}{u^p} \dee{u}
+\quad\text{with <m>u=\log x</m>, <m>\dee{u}=\frac{\dee{x}}{x}</m>}
+</mrow>
+</md>
+Using the results about <m>p</m>-series, Example<nbsp/><xref ref="eg_SRpTest"/> in the CLP-II text,
+we know this integral converges if and only if <m>p \gt 1</m>, so the same is true for the
+series by the integral test.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016A</fromexam></title>
+<statement><p>
+Does <m>{\displaystyle\sum_{n=1}^\infty\frac{e^{-\sqrt{n}}}{\sqrt{n}}}</m> converge or diverge?
+</p></statement>
+
+<hint><p>
+Try the substitution <m>u=\sqrt{x}</m>.
+</p></hint>
+
+<answer><p>
+It converges.
+</p></answer>
+
+<solution><p>
+As usual, let's see whether the <q>easy</q> tests work. The terms we're adding converge to zero:
+<me>
+\lim_{n \to \infty}\frac{e^{-\sqrt{n}}}{\sqrt{n}}=\lim_{n \to \infty}\frac{1}{\sqrt{n}e^{\sqrt{n}}}=0 </me>
+</p>
+
+<p>so the divergence test is inconclusive. Our series isn't geometric, and it doesn't seem obvious how to compare it to a geometric series. However, the terms we're adding seem like they would make an integrable function.
+</p>
+
+<p>Set <m>f(x)=\frac{e^{-\sqrt{x}}}{\sqrt{x}}</m>. For <m>x\ge1</m>,
+this function is positive and decreasing (since it is the product of
+the two positive decreasing functions <m>e^{-\sqrt x}</m> and <m>\frac1{\sqrt x}</m>).
+We use the integral test with this function.
+Using the substitution <m>u=\sqrt x</m>, so that
+<m>\dee{u} = \frac1{2\sqrt x}\,\dee{x}</m>, we see that
+<md>
+<mrow>
+\int_1^\infty f(x)\,\dee{x}
+&amp;=\lim_{R\rightarrow\infty}\int_1^R \bigg( \frac{e^{-\sqrt{x}}}{\sqrt{x}}\,\dee{x} \bigg)
+</mrow>
+<mrow>
+&amp;=\lim_{R\rightarrow\infty} \bigg( \int_1^{\sqrt{R}} e^{-u}\cdot2\,\dee{u} \bigg)
+</mrow>
+<mrow>
+&amp;=\lim_{R\rightarrow\infty} \bigg( {-}2e^{-u}\Big|_1^{\sqrt{R}} \bigg)
+</mrow>
+<mrow>
+&amp;=\lim_{R\rightarrow\infty} \bigg( {-}2e^{-\sqrt R} + 2e^{-\sqrt1} \bigg)
+= 0 + 2e^{-1},
+</mrow>
+</md>
+and so this improper integral converges. By the integral test,
+the given series also converges.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q6</fromexam></title>
+<statement><p>
+Use the comparison test (not the limit comparison test) to show whether the series
+<me>
+\sum_{n=2}^{\infty} \frac{\sqrt{3 n^2 - 7}}{n^{3}}
+</me>
+converges or diverges.
+</p></statement>
+
+<hint><p>
+Review Example <xref ref="eg_SRcomparisonTestA"/> in the
+CLP-II text for developing intuition about comparisons, and Example<nbsp/><xref ref="eg_SRcomparisonTestB"/> for an example where finding an appropriate comparison series calls for some creativity.
+</p></hint>
+
+<answer><p>
+The series <m>\displaystyle \sum_{n=2}^{\infty} \frac{\sqrt{3}}{n^2}</m>
+converges by the <m>p</m>-test with <m>p=2</m>.
+</p>
+
+<p>Note that
+<md>
+<mrow>
+ 0 \lt  a_n = \frac{\sqrt{3 n^2 - 7}}{n^3}  \lt  \frac{\sqrt{3n^2}}{n^3} = \frac{\sqrt{3}}{n^2}
+</mrow>
+</md>
+for all <m>n\ge 2</m>. As the series <m>\sum\limits_{n=2}^\infty \frac{\sqrt3}{n^2}</m> converges,
+ the comparison test says that <m>\sum\limits_{n=2}^\infty  \frac{\sqrt{3 n^2 - 7}}{n^{3}}</m> converges too.
+</p></answer>
+
+<solution><p>
+We first develop some intuition. For very large <m>n</m>, <m>3n^2</m> dominates <m>7</m> so that
+<md>
+<mrow>
+\frac{\sqrt{3 n^2 - 7}}{n^3}
+\approx \frac{\sqrt{3 n^2}}{n^3}
+=\frac{\sqrt{3}}{n^2}
+</mrow>
+</md>
+The series <m>\displaystyle \sum_{n=2}^{\infty} \frac{1}{n^2}</m>
+converges by the <m>p</m>-test with <m>p=2</m>, so we expect the given series to converge too.
+</p>
+
+<p>To verify that  our intuition is correct, it suffices to observe that
+<md>
+<mrow>
+ 0 \lt  a_n = \frac{\sqrt{3 n^2 - 7}}{n^3}  \lt  \frac{\sqrt{3n^2}}{n^3} = \frac{\sqrt{3}}{n^2} =c_n
+</mrow>
+</md>
+for all <m>n\ge 2</m>. As the series <m>\sum\limits_{n=2}^\infty c_n</m> converges,
+ the comparison test says that <m>\sum\limits_{n=2}^\infty a_n</m> converges too.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2014A</fromexam></title>
+<statement><p>
+Determine whether the series
+<m>\displaystyle\sum_{k=1}^\infty\frac{ \root{3}\of{k^4+1} }
+                                    {\sqrt{k^5+9}}</m>
+converges.
+</p></statement>
+
+<hint><p>
+What does the summand look like when <m>k</m> is very large?
+</p></hint>
+
+<answer><p>
+The series converges.
+</p></answer>
+
+<solution><p>
+We first develop some intuition. For very large <m>k</m>,
+     <m>k^4</m> dominates <m>1</m> so that the numerator  <m>\root{3}\of{k^4+1}
+       \approx  \root{3}\of{k^4} = k^{4/3}</m>,
+ and <m>k^5</m> dominates 9 so that the denominator <m>\sqrt{k^5+9}
+       \approx \sqrt{k^5} = k^{5/2}</m> and the summand
+<md>
+<mrow>
+\frac{ \root{3}\of{k^4+1} }{\sqrt{k^5+9}}
+\approx \frac{k^{4/3}}{k^{5/2}}
+=\frac{1}{k^{7/6}}
+</mrow>
+</md>
+The series <m>\displaystyle \sum_{n=1}^{\infty} \frac{1}{k^{7/6}}</m>
+converges by the <m>p</m>-test with <m>p=\frac{7}{6} \gt 1</m>, so we expect the given series to converge too.
+</p>
+
+<p>To verify that  our intuition is correct,
+we apply the limit comparison test with
+<md>
+<mrow>
+a_k= \frac{ \root{3}\of{k^4+1} }{\sqrt{k^5+9}}
+               \quad\text{and}\quad
+           b_k= \frac{1}{k^{7/6}}=\frac{k^{4/3}}{k^{5/2}}
+</mrow>
+</md>
+which is valid since
+<me>
+\lim_{k\rightarrow\infty} \frac{a_k}{b_k}
+=\lim_{k\rightarrow\infty}\frac{ \root{3}\of{k^4+1}/k^{4/3}}
+                                  {\sqrt{k^5+9}/k^{5/2}}
+=\lim_{k\rightarrow\infty}\frac{ \root{3}\of{1+1/k^4} }{\sqrt{1+9/k^5}}
+=1
+</me>
+exists. Since the series <m>\sum\limits_{k=1}^\infty b_k</m> is
+a convergent <m>p</m>-series (with ratio <m>p=\frac{7}{6} \gt 1</m>),
+the given series converges.
+</p>
+
+<p>Note: to apply the direct comparison test with our chosen comparison series, we would need to show that
+<me>
+\frac{\sqrt[3]{k^4+1}}{\sqrt{k^5+9}} \leq \frac{1}{k^{7/6}}</me>
+</p>
+
+<p>for all <m>k</m> sufficiently large. However, this is not true: the opposite inequality holds when <m>k</m> is large.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016A</fromexam></title>
+<statement><p>
+Does <m>\displaystyle\sum_{n=1}^\infty\frac{n^4 2^{n/3}}{(2n+7)^4}</m>
+converge or diverge?
+</p></statement>
+
+<hint><p>
+What does the summand look like when <m>n</m> is very large?
+</p></hint>
+
+<answer><p>
+It diverges.
+</p></answer>
+
+<solution><p>
+<ul>
+<li><p>
+Solution 1:
+Let's see whether the divergence test works here.
+<me>
+\lim_{n\to\infty} \frac{n^4 2^{n/3}}{(2n+7)^4}\left(\frac{\frac{1}{n^4}}{\frac{1}{n^4}}\right) = \lim_{n\to\infty} \frac{2^{n/3}}{(2+7/n)^4} = \lim_{n\to\infty} \frac{2^{n/3}}{(2+0)^4} = \infty
+</me>
+</p>
+
+<p>The summands of our series do not converge to zero. By the divergence
+test, the series diverges.
+</p>
+</li>
+<li><p>
+Solution 2:
+Let's develop some intuition for a comparisn. For very large <m>n</m>, <m>2n</m> dominates
+<m>7</m> so that
+<md>
+<mrow>
+\frac{n^4 2^{n/3}}{(2n+7)^4}
+\approx \frac{n^4 2^{n/3}}{(2n)^4}
+=\frac{1}{16}2^{n/3}
+</mrow>
+</md>
+The series <m>\displaystyle \sum_{n=1}^{\infty} 2^{n/3}</m>
+is a geometric series with ratio <m>r=2^{1/3} \gt 1</m> and so diverges. (It also fails the divergence test.)
+We expect the given series to diverge too.
+</p>
+
+<p>To verify that  our intuition is correct,
+we apply the limit comparison test with
+<md>
+<mrow>
+a_n= \frac{n^4 2^{n/3}}{(2n+7)^4} \quad\text{and}\quad b_n= 2^{n/3}
+</mrow>
+</md>
+which is valid since
+<me>
+\lim_{n\rightarrow\infty} \frac{a_n}{b_n}
+=\lim_{n\rightarrow\infty}\frac{n^4}{(2n+7)^4}
+=\lim_{n\rightarrow\infty}\frac{1}{{(2+7/n)}^4}
+=\frac{1}{2^4}
+</me>
+exists and is nonzero. Since the series <m>\sum\limits_{n=1}^\infty b_n</m> is
+a divergent geometric series (with ratio <m>r=2^{1/3} \gt 1</m>),
+the given series diverges.
+
+</p>
+
+<p>(It is possible to use the plain comparison test as well.
+One needs  to show something like <m>a_n = \frac{n^4 2^{n/3}}{(2n+7)^4}
+\ge \frac{n^4 2^{n/3}}{(2n+7n)^4} = \frac{1}{9^4}b_n</m>.)
+</p>
+</li>
+<li><p>
+Solution 3:
+Alternately, one can apply the ratio test:
+<md>
+<mrow>
+\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
+&amp;= \lim_{n\to\infty} \bigg| \frac{(n+1)^42^{(n+1)/3}/(2(n+1)+7)^4}{n^42^{n/3}/(2n+7)^4} \bigg|
+</mrow><mrow>
+&amp;= \lim_{n\to\infty} \frac{(n+1)^4(2n+7)^4}{n^4(2n+9)^4}\  \frac{2^{(n+1)/3}}{2^{n/3}}
+</mrow><mrow>
+&amp;=\lim_{n\to\infty} \frac{(1+1/n)^4(2+7/n)^4}{(2+9/n)^4} \cdot2^{1/3}
+= 1\cdot2^{1/3}  \gt  1.
+</mrow>
+</md>
+Since the ratio of consecutive terms is greater than one, by the ratio test, the series diverges.
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2014A</fromexam></title>
+<statement><p>
+Determine, with explanation, whether each of the following series converge or diverge.
+</p>
+
+<p>
+<ol label="a">
+<li> <m>\displaystyle\sum_{n=1}^\infty\frac{1}{\sqrt{n^2+1}}</m>
+</li>
+<li> <m>\displaystyle\sum_{n=1}^\infty\frac{n\cos(n\pi)}{2^n}</m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+<m>\cos(n\pi)</m> is a sneaky way to write <m>(-1)^n</m>.
+</p></hint>
+
+<answer><p>
+(a) diverges (b) converges
+</p></answer>
+
+<solution><p>
+(a) For large <m>n</m>, <m>n^2\gg 1</m> and so
+<m>\sqrt{n^2+1}\approx \sqrt{n^2}= n</m>. This suggests that we apply the limit
+comparison test with <m>a_n=\frac{1}{\sqrt{n^2+1}}</m> and <m>b_n=\frac{1}{n}</m>.
+Since
+<me>
+\lim_{n\rightarrow\infty} \frac{a_n}{b_n}
+=\lim_{n\rightarrow\infty} \frac{1/\sqrt{n^2+1}}{1/n}
+=\lim_{n\rightarrow\infty} \frac{1}{\sqrt{1+1/n^2}}
+=1
+</me>
+and since <m>\sum\limits_{n=1}^\infty\frac{1}{n}</m> diverges, the given
+series diverges.
+</p>
+
+<p>
+(b) Since <m>\cos(n\pi)=(-1)^n</m>, the given series
+converges by the alternating series test.
+To check that <m>a_n=\frac{n}{2^n}</m> decreases to <m>0</m> as <m>n</m> tends
+to infinity, note that
+<me>
+\frac{a_{n+1}}{a_n} =\frac{(n+1)2^{-(n+1)}}{n2^{-n}}
+=\Big(1+\frac{1}{n}\Big)\frac{1}{2}
+</me>
+is smaller than <m>1</m> (so that <m>a_{n+1}\le a_n</m>) for all <m>n\ge 1</m>,
+and is smaller than <m>\frac{3}{4}</m> (so <m>a_{n+1}\le \frac{3}{4}a_n</m>)
+for all <m>n\ge 2</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2012A</fromexam></title>
+<statement><p>
+Determine whether the series
+<me>
+\sum_{k=1}^\infty\frac{k^4-2k^3+2}{k^5+k^2+k}
+</me>
+converges or diverges.
+</p></statement>
+
+<hint><p>
+What is the behaviour for large <m>k</m>?
+</p></hint>
+
+<answer><p>
+The series diverges.
+</p></answer>
+
+<solution><p>
+For large <m>k</m>, <m>k^4\gg 2k^3-2</m> and <m>k^5\gg k^2+k</m>
+so <me>
+\frac{k^4-2k^3+2}{k^5+k^2+k}\approx \frac{k^4}{k^5}
+=\frac{1}{k}.</me>
+</p>
+
+<p>This suggests that we apply the limit
+comparison test with <m>a_k=\frac{k^4-2k^3+2}{k^5+k^2+k}</m> and
+<m>b_k=\frac{1}{k}</m>.
+Since
+<md>
+<mrow>
+\lim_{k\rightarrow\infty} \frac{a_k}{b_k}
+&amp;=\lim_{k\rightarrow\infty} \frac{k^4-2k^3+2}{k^5+k^2+k}\cdot \frac{k}{1}
+=\lim_{k\rightarrow\infty} \frac{k^5-2k^4+k^2}{k^5+k^2+k}
+=\lim_{k\rightarrow\infty} \frac{1-2/k+1/k^3}{1+1/k^3+1/k^4}
+</mrow><mrow>
+&amp;=1
+</mrow>
+</md>
+and since <m>\sum\limits_{k=1}^\infty\frac{1}{k}</m> diverges  (by the <m>p</m>-test
+with <m>p=1</m>), the given series diverges.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2015A</fromexam></title>
+<statement><p>
+Determine whether each of the following series converge or diverge.
+</p>
+
+<p>
+<ol label="a">
+<li> <m>\displaystyle\sum_{n=2}^\infty\frac{n^2+n+1}{n^5-n}</m>
+</li>
+<li> <m>\displaystyle\sum_{m=1}^\infty\frac{3m+\sin\sqrt{m}}{m^2}</m>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+When <m>m</m> is large, <m>3m+\sin\sqrt{m}\approx 3m</m>.
+</p></hint>
+
+<answer><p>
+(a) converges (b) diverges
+</p></answer>
+
+<solution><p>
+(a) For large <m>n</m>, <m>n^2\gg n+1</m> and so the numerator <m>n^2+n+1\approx n^2</m>.
+For large <m>n</m>, <m>n^5\gg n</m> and so the denominator <m>n^5-n\approx n^5</m>.
+So, for large <m>n</m>, <me>
+\frac{n^2+n+1}{n^5-n}\approx \frac{n^2}{n^5}
+=\frac{1}{n^3}.</me>
+</p>
+
+<p>This suggests that we apply the limit
+comparison test with <m>a_n=\frac{n^2+n+1}{n^5-n}</m> and <m>b_n=\frac{1}{n^3}</m>.
+Since
+<md>
+<mrow>
+\lim_{n\rightarrow\infty} \frac{a_n}{b_n}
+&amp;=\lim_{n\rightarrow\infty} \frac{(n^2+n+1)/(n^5-n)}{1/n^3}
+=\lim_{n\rightarrow\infty} \frac{n^5+n^4+n^3}{n^5-n}
+=\lim_{n\rightarrow\infty} \frac{1+1/n+1/n^2}{1-1/n^4}
+</mrow><mrow>
+&amp;=1
+</mrow>
+</md>
+exists and is nonzero, and since <m>\sum\limits_{n=1}^\infty\frac{1}{n^3}</m> converges (by the <m>p</m>-test with <m>p=3 \gt 1</m>), the given series converges.
+</p>
+
+<p>
+(b) For large <m>m</m>, <m>3m\gg |\sin\sqrt{m}|</m> and
+so <me>
+\frac{3m+\sin\sqrt{m}}{m^2}\approx \frac{3m}{m^2}
+=\frac{3}{m}.</me>
+</p>
+
+<p>This suggests that we apply the limit
+comparison test with <m>a_m=\frac{3m+\sin\sqrt{m}}{m^2}</m> and
+<m>b_m=\frac{1}{m}</m>. (We could also use <m>b_m=\frac{3}{m}</m>.)
+Since
+<md>
+<mrow>
+\lim_{m\rightarrow\infty} \frac{a_m}{b_m}
+&amp;=\lim_{m\rightarrow\infty} \frac{(3m+\sin\sqrt{m})/m^2}{1/m}
+=\lim_{m\rightarrow\infty} \frac{3m+\sin\sqrt{m}}{m}
+=\lim_{m\rightarrow\infty} 3+\frac{\sin\sqrt{m}}{m}
+</mrow><mrow>
+&amp;=3
+</mrow>
+</md>
+exists and is nonzero, and since <m>\sum\limits_{m=1}^\infty\frac{1}{m}</m> diverges (by the <m>p</m>-test
+with <m>p=1</m>), the given series diverges.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate the following series, or show that it diverges:
+<m>\displaystyle\sum_{n=5}^\infty \frac{1}{e^n}</m>.
+</p></statement>
+
+<hint><p>
+This is a geometric series, but it doesn't start at <m>n=0</m>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{e^5-e^4}</m>
+</p></answer>
+
+<solution><p>
+<md>
+<mrow>
+\sum_{n=5}^\infty \frac{1}{e^n}&amp;=\sum_{n=5}^\infty \left(\frac{1}{e}\right)^n
+</mrow><mrow>
+&amp;=\sum_{n=0}^\infty \left(\frac{1}{e}\right)^n-\sum_{n=0}^4 \left(\frac{1}{e}\right)^n
+</mrow><mrow>
+&amp;=\dfrac{1}{1-\frac{1}{e}}-\dfrac{1-\left(\frac{1}{e}\right)^{5}}{1-\frac{1}{e}}
+</mrow><mrow>
+&amp;=\dfrac{\left(\frac{1}{e}\right)^5}{1-\frac{1}{e}}
+=\dfrac{1}{e^5\left(1-\frac{1}{e}\right)}
+</mrow><mrow>
+&amp;=\dfrac{1}{e^5-e^4}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+Determine whether the series
+<m>\displaystyle\sum_{n=2}^\infty\frac{6}{7^n}</m>
+is convergent or divergent. If it is convergent, find its value.
+</p></statement>
+
+<hint><p>
+The series is geometric.
+</p></hint>
+
+<answer><p>
+<m> \frac{1}{7}</m>
+</p></answer>
+
+<solution><p>
+This is a geometric series.
+<md>
+<mrow>
+\sum_{n=2}^\infty\frac{6}{7^n}&amp;=\sum_{n=0}^\infty\frac{6}{7^{n+2}}=
+\sum_{n=0}^\infty\frac{6}{7^2}\cdot\frac{1}{7^n}
+</mrow>
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text with
+<m>a=\frac{6}{7^2}</m> and <m>r=\frac{1}{7}</m>.</intertext>
+<mrow>
+&amp;=\frac{6}{7^2}\cdot\frac{1}{1-\frac17}=\frac{6}{42}=\frac17
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2013A</fromexam></title>
+<statement><p>
+Determine, with explanation, whether each of the following series converge or diverge.
+</p>
+
+<p><ol label="a">
+<li>
+<m>1+\frac{1}{3}+\frac{1}{5}+\frac{1}{7}+\frac{1}{9}+\cdots</m>.
+</li>
+<li>
+ <m>{\displaystyle\sum_{n=1}^\infty \frac{2n+1}{2^{2n+1}}}</m>
+</li>
+</ol>
+</p>
+
+</statement>
+
+<hint><p>
+The first series can be written as <m>\displaystyle\sum_{n=1}^\infty \frac{1}{2n-1}</m> .
+</p></hint>
+
+<answer><p>
+(a) diverges by limit comparison with the harmonic series
+</p>
+
+<p>
+(b)
+converges by the ratio test
+</p></answer>
+
+<solution><p> (a)
+<ul>
+<li><p>
+Solution 1:
+ The given series is
+<md>
+<mrow>
+1+\frac{1}{3}+\frac{1}{5}+\frac{1}{7}+\frac{1}{9}+\cdots
+=\sum_{n=1}^\infty  a_n  \text{ with <m>a_n=\frac{1}{2n-1}</m>}
+</mrow>
+</md>
+First we'll develop some intuition by observing that, for very large <m>n</m>,
+<m>a_n\approx \frac{1}{2n}</m>. We know that the series  <m>\sum\limits_{n=1}^\infty\frac{1}{n}</m>
+diverges by the <m>p</m>-test with <m>p=1</m>. So let's apply the limit comparison
+test with <m>b_n=\frac{1}{n}</m>. Since
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\frac{a_n}{b_n}
+=\lim_{n\rightarrow\infty}\frac{n}{2n-1}
+=\lim_{n\rightarrow\infty}\frac{1}{2-\frac{1}{n}}
+=\frac{1}{2}
+</mrow>
+</md>
+the series <m>\sum\limits_{n=1}^\infty  a_n</m> converges if and only if the
+series <m>\sum\limits_{n=1}^\infty  b_n</m>  converges. So the given series
+diverges.
+</p>
+</li>
+<li><p>
+Solution 2:
+ The series
+<md>
+<mrow>
+1+\frac{1}{3}+\frac{1}{5}+\frac{1}{7}+\frac{1}{9}+\cdots
+&amp;\ge \frac{1}{2}+\frac{1}{4}+\frac{1}{6}+\frac{1}{8}+\frac{1}{10}+\cdots
+</mrow><mrow>
+&amp;=\frac{1}{2}\Big(1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\cdots\Big)
+</mrow>
+</md>
+The series in the brackets is the harmonic series which
+we know diverges, by the <m>p</m>-test with <m>p=1</m>. So the series on the right
+hand side diverges. By the direct comparison test, the series on the left hand
+side diverges too.
+</p>
+</li>
+</ul>
+(b) We'll use the ratio test with <m>a_n=\dfrac{(2n+1)}{2^{2n+1}}</m>.
+Since
+<md>
+<mrow>
+\frac{a_{n+1}}{a_n}
+&amp;=\frac{(2n+3)}{2^{2n+3}}\frac{2^{2n+1}}{(2n+1)}
+=\frac{1}{4}\frac{(2n+3)}{(2n+1)}
+=\frac{1}{4}\frac{(2+3/n)}{(2+1/n)}
+\rightarrow \frac{1}{4} \lt 1\text{ as }n\rightarrow\infty
+</mrow>
+</md>
+the series converges.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2013A</fromexam></title>
+<statement><p>
+Determine, with explanation, whether each of the following series converges or diverges.
+</p>
+
+<p><ol label="a">
+<li>
+<m>{\displaystyle \sum_{k=2}^\infty \frac{\root{3}\of{k}}{k^2-k}}</m>.
+</li>
+<li>
+<m>{\displaystyle \sum_{k=1}^\infty \frac{k^{10}10^k(k!)^2}{(2k)!}}</m>.
+</li>
+<li>
+<m>{\displaystyle \sum_{k=3}^\infty \frac{1}{k(\log k) (\log\log k)}}</m>.
+</li>
+</ol>
+</p>
+
+</statement>
+
+<answer><p>
+(a) Converges by the limit comparison test with <m>b=\frac{1}{k^{5/3}}</m>.
+</p>
+
+<p>
+(b)
+Diverges by the ratio test.
+</p>
+
+<p>
+(c)
+Diverges by the integral test.
+</p></answer>
+
+<solution><p> (a)
+For very large <m>k</m>, <m>k\ll k^2</m> so that
+<me>
+a_n=\frac{\root{3}\of{k}}{k^2-k}\approx \frac{\root{3}\of{k}}{k^2}
+                                                           =\frac{1}{k^{5/3}}.</me>
+</p>
+
+<p>We apply the limit comparison test with <m>b_k=\frac{1}{k^{5/3}}</m>.
+Since
+<md>
+<mrow>
+\lim_{k\rightarrow\infty}\frac{a_k}{b_k}
+=\lim_{k\rightarrow\infty}\frac{\root{3}\of{k}/(k^2-k)}{1/k^{5/3}}
+=\lim_{k\rightarrow\infty}\frac{k^2}{k^2-k}
+=\lim_{k\rightarrow\infty}\frac{1}{1-1/k}
+=1
+</mrow>
+</md>
+exists and is nonzero, and <m>\sum\limits_{k=1}^\infty\frac{1}{k^{5/3}}</m> converges (by the <m>p</m>-test
+with  <m>p=\frac{5}{3} \gt 1</m>), the given series converges by the limit comparison test.
+</p>
+
+<p>
+(b)
+The <m>k^{\rm th}</m> term in this series is
+<m>a_k= \frac{k^{10}10^k(k!)^2}{(2k)!}</m>. Factorials often work well with the ratio test, because they simplify so nicely in quotients.
+<md>
+<mrow>
+\frac{a_{k+1}}{a_k}
+&amp;=\frac{(k+1)^{10}10^{k+1}((k+1)!)^2}{(2k+2)!}\cdot\frac{(2k)!}{k^{10}10^k(k!)^2}
+=10\Big(\frac{k+1}{k}\Big)^{10}\frac{(k+1)^2}{(2k+2)(2k+1)}
+</mrow><mrow>
+&amp;=10\Big(1+\frac{1}{k}\Big)^{10}\frac{(1+1/k)^2}{(2+2/k)(2+1/k)}
+</mrow>
+</md>
+As <m>k</m> tends to <m>\infty</m>, this converges to
+<m>10\times 1\times\frac{1}{2\times 2} \gt 1</m>. So the series diverges by the
+ratio test.
+</p>
+
+<p>
+(c)
+We'll use the integal test. The <m>k^{\rm th}</m> term in the series
+is <m>a_k=\frac{1}{k(\log k) (\log\log k)}=f(k)</m> with
+<m>f(x)=\frac{1}{x(\log x) (\log\log x)}</m>, which is continuous, positive and
+decreasing for <m>x\ge 3</m>.
+<md>
+<mrow>
+\int_3^\infty f(x)\ \dee{x}
+&amp;= \int_3^\infty \frac{\dee{x}}{x(\log x) (\log\log x)}
+   =\lim_{R\rightarrow\infty} \int_3^R \frac{\dee{x}}{x(\log x) (\log\log x)}
+</mrow>
+<mrow>
+&amp;=\lim_{R\rightarrow\infty} \int_{\log 3}^{\log R} \frac{\dee{y}}{y\log y}
+    &amp;\qquad\text{with }y=\log x,\ \dee{y}=\frac{\dee{x}}{x}
+</mrow>
+<mrow>
+&amp;= \lim_{R\rightarrow\infty}\int_{\log \log 3}^{\log \log R} \frac{\dee{t}}{t}
+    &amp; \qquad\text{with }t=\log y,\ \dee{t}=\frac{\dee{y}}{y}
+</mrow>
+<mrow>
+&amp;=\lim_{R \to \infty}\Big[\log t\Big]_{\log \log 3}^{\log\log R}=\infty
+</mrow>
+</md>
+Since the integral is divergent, the series is divergent as well by the integral test.
+</p>
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q6</fromexam></title>
+<statement><p>
+Determine whether the series
+<m>\displaystyle\sum_{n=1}^\infty\frac{n^3-4}{2n^5-6n}</m>
+is convergent or divergent.
+</p></statement>
+
+<hint><p>
+What does the summand look like when <m>n</m> is very large?
+</p></hint>
+
+<answer><p>
+It converges.
+</p></answer>
+
+<solution><p>
+For large <m>n</m>, the numerator <m>n^3-4\approx n^3</m> and the denominator
+<m>2n^5-6n\approx 2n^5</m>, so the <m>n</m>th term is approximately
+<m>\frac{n^3}{2n^5}=\frac{1}{2n^2}</m>. So we apply the limit comparison
+test with <m>a_n=\frac{n^3-4}{2n^5-6n}</m> and <m>b_n=\frac{1}{n^2}</m>. Since
+<me>
+\lim_{n\rightarrow\infty}\frac{a_n}{b_n}
+=\lim_{n\rightarrow\infty}\frac{(n^3-4)/(2n^5-6n)}{1/n^2}
+=\lim_{n\rightarrow\infty}\frac{1-\frac{4}{n^3}}{2-\frac{6}{n^4}}
+=\frac12
+</me>
+exists and is nonzero, the given series <m>\sum\limits_{n=1}^\infty a_n</m> converges if and only
+if the series <m>\sum\limits_{n=1}^\infty b_n</m> converges.
+Since the series <m>\sum\limits_{n=1}^\infty b_n
+=\sum\limits_{n=1}^\infty\frac{1}{n^2}</m>
+is a convergent <m>p</m>-series (with <m>p=2</m>), both series converge.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q6</fromexam></title>
+<statement><p>
+What is the smallest value of <m>N</m> such that the partial sum
+<m>
+\displaystyle\sum_{n=1}^N\frac{(-1)^n}{n\cdot 10^n}
+</m>
+approximates
+<m>
+\displaystyle\sum_{n=1}^\infty\frac{(-1)^n}{n\cdot 10^n}
+</m>
+within an accuracy of <m>10^{-6}</m>?
+</p></statement>
+
+<hint><p>
+Review the alternating series test, which is given in
+Theorem <xref ref="thm_SRalternating"/> in the
+CLP-II text.
+</p></hint>
+
+<answer><p>
+<m>N=5</m>
+</p></answer>
+
+<solution><p>
+By the alternating series test, the error introduced when we approximate
+the series
+<m>\displaystyle
+\sum_{n=1}^\infty\frac{(-1)^n}{n\cdot 10^n}
+</m>
+by
+<m>\displaystyle
+\sum_{n=1}^N\frac{(-1)^n}{n\cdot 10^n}
+</m>
+is at most the magnitude of the  first omitted term,
+<m>\displaystyle\frac1{(N+1) 10^{(N+1)}}</m>. By trial and error, we find that this expression becomes
+smaller than <m>10^{-6}</m> when <m>N+1\ge 6</m>. So the smallest
+allowable value is <m>N=5</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+It is known that <m>\displaystyle \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n^2} = \frac{\pi^2}{12}</m>
+(you don't have to show this).
+Find <m>N</m> so that <m>S_N</m>, the <m>N^{\rm th}</m> partial sum of the series, satisfies
+<m>| \frac{\pi^2}{12} - S_N | \le 10^{-6}</m>. Be sure to say why your method can be
+applied to this particular series.
+</p></statement>
+
+<hint><p>
+Review the alternating series test, which is given in
+Theorem <xref ref="thm_SRalternating"/> in the
+CLP-II text.
+</p></hint>
+
+<answer><p>
+<m>N\geq 999</m>
+</p></answer>
+
+<solution><p>
+The sequence <m>\{\frac{1}{n^2}\}</m> decreases to zero as <m>n</m> increases to infinity.
+So, by the alternating series error bound, which is given in
+Theorem <xref ref="thm_SRalternating"/> in the
+CLP-II text, <m>\frac{\pi^2}{12}-S_N</m> lies between zero and
+the first omitted term, <m> \frac{(-1)^{N}}{(N+1)^2}</m>.
+We therefore need <m>\frac{1}{(N+1)^2} \leq 10^{-6}</m>,
+which is equivalent to <m>N+1 \geq 10^3</m> and <m>N\geq 999</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2015A</fromexam></title>
+<statement><p>
+The series <m>\displaystyle \sum_{n=1}^\infty \frac{(-1)^{n+1}}{(2n+1)^2}</m> converges to some number<nbsp/><m>S</m> (you don't have to prove this). According to the Alternating Series Estimation Theorem, what is the smallest value of <m>n</m> for which the <m>n^{\rm th}</m>
+partial sum of the series is at most <m>\frac1{100}</m> away from <m>S</m>? For this value of <m>n</m>,
+write out the <m>n^{\rm th}</m> partial sum of the series.
+</p></statement>
+
+<hint><p>
+Review the alternating series test, which is given in
+Theorem <xref ref="thm_SRalternating"/> in the  CLP-II text.
+</p></hint>
+
+<answer><p>
+We need  <m>n=4</m> and then
+<m>
+   S_4= \frac{1}{3^2}-\frac{1}{5^2} +\frac{1}{7^2} -\frac{1}{9^2}
+</m>
+</p></answer>
+
+<solution><p>
+The  error introduced when we approximate <m>S</m> by the <m>n^{\rm th}</m> partial
+sum <m>S_n</m> lies between <m>0</m> and the first term dropped, which is
+<m>\frac{(-1)^{n+2}}{(2n+3)^2}</m>.
+So we need the smallest positive integer <m>n</m> obeying
+<md>
+<mrow>
+\frac{1}{(2n+3)^2} &amp;\le\frac{1}{100}
+</mrow><mrow> (2n+3)^2&amp;\ge 100
+</mrow><mrow> 2n+3&amp;\ge 10
+</mrow><mrow> n&amp;\ge\frac{7}{2}
+</mrow>
+</md>
+So we need  <m>n=4</m> and then
+<me>
+   S_4= \frac{1}{3^2}-\frac{1}{5^2} +\frac{1}{7^2} -\frac{1}{9^2}
+</me>
+</p>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise><title><fromexam>M121 2014A</fromexam></title>
+<statement><p>
+Determine, with explanation, whether the following series converge or diverge.
+</p>
+
+<p><ol label="a">
+<li><m>\displaystyle\sum_{n=1}^\infty\frac{n^n}{9^n n!}</m>
+</li>
+<li> <m>\displaystyle\sum_{n=1}^\infty\frac{1}{n^{\log n}}</m>
+</li>
+</ol>
+</p></statement>
+
+<answer><p>
+(a) converges  (b) converges
+</p></answer>
+
+<solution><p>
+(a)  There are plenty of powers/factorials. So let's try the ratio test
+with <m>a_n= \frac{n^n}{9^n n!}</m>.
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\frac{a_{n+1}}{a_n}
+&amp;=\lim_{n\rightarrow\infty}\frac{(n+1)^{n+1}}{9^{n+1}(n+1)!}\frac{9^nn!}{n^n}
+=\lim_{n\rightarrow\infty}\frac{(n+1)^{n+1}}{n^n\,9\,(n+1)}
+=\lim_{n\rightarrow\infty}\frac{(1+1/n)^n}{9}
+=\frac{e}{9}
+</mrow>
+</md>
+Here we have used that <m>\lim\limits_{n\rightarrow\infty}(1+1/n)^n=e</m>.
+See Example<nbsp/>3.7.20 in the CLP-I text,
+with <m>x=\frac{1}{n}</m> and <m>a=1</m>. As <m>e \lt 9</m>, our series converges.
+</p>
+
+<p>
+(b)  We know that the series <m>\sum_{n=1}^\infty \frac{1}{n^2}</m> converges,
+by the <m>p</m>-test with <m>p=2</m>, and also that <m>\log n \ge 2</m> for all <m>n\ge e^2</m>.
+So let's use the limit comparison test with <m>a_n=\frac{1}{n^{\log n}}</m> and
+<m>b_n=\frac{1}{n^2}</m>.
+<me>
+\lim_{n\rightarrow\infty}\frac{a_n}{b_n}
+=\lim_{n\rightarrow\infty}\frac{1}{n^{\log n}}\cdot\frac{n^2}{1}
+=\lim_{n\rightarrow\infty}\frac{1}{n^{\log n-2}}
+=0
+</me>
+So our series converges, by the limit comparison test.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2013A</fromexam></title>
+<statement><p>
+(a)
+Prove that <m>\displaystyle \int_2^\infty\frac{x+\sin x}{1+x^2}\ \dee{x}</m> diverges.
+</p>
+
+<p>
+(b)
+Explain why you <em>cannot</em> conclude that
+ <m>\displaystyle\sum\limits_{n=1}^\infty \frac{n+\sin n}{1+n^2}</m>
+diverges from part (a) and the Integral Test.
+</p>
+
+<p>
+(c)
+Determine, with explanation, whether
+<m>\displaystyle\sum\limits_{n=1}^\infty \frac{n+\sin n}{1+n^2}</m>
+converges or diverges.
+</p></statement>
+
+<hint><p>
+For part (a),  see Example <xref ref="eg_IMPp8"/> in the
+</p>
+
+<p>CLP-II text.
+</p>
+
+<p>
+
+For part (b), review  Theorem  <xref ref="thm_SRintegralTest"/> in the
+</p>
+
+<p>CLP-II text.
+</p>
+
+<p>
+For part (c),  see Example <xref ref="eg_SRlimCompA"/> in the
+</p>
+
+<p>CLP-II text.
+</p></hint>
+
+<answer><p>
+(a) See the solution.
+</p>
+
+<p>
+(b)
+<m>f(x)=\dfrac{x+\sin x}{1+x^2}</m> is not a decreasing function.
+</p>
+
+<p>
+(c)
+See the solution.
+</p>
+
+</answer>
+
+<solution><p> (a)
+<ul>
+<li><p>
+Solution 1:
+<ul>
+<li> Our first task is to identify the potential sources of impropriety for
+this integral.
+</li>
+<li> The domain of integration extends to <m>+\infty</m>. On the domain of
+integration the denominator is never zero so the integrand is continuous. Thus
+the only problem is at <m>+\infty</m>.
+</li>
+<li><p>
+Our second task is to develop some intuition about the behavior of  the integrand for very large <m>x</m>.  When <m>x</m> is very large:
+<ul>
+<li> <m>|\sin x|\le 1 \ll x</m>, so that the numerator <m>x+\sin x\approx x</m>, and
+</li>
+<li> <m>1 \ll x^2</m>, so that denominator <m>1+x^2\approx x^2</m>, and
+</li>
+<li> the integrand <m>\displaystyle\frac{x+\sin x}{1+x^2} \approx \frac{x}{x^2} =\frac{1}{x}</m>
+</li>
+</ul>
+</p>
+</li>
+<li>
+Now, since <m>\displaystyle\int_2^\infty\frac{\dee{x}}{x}</m> diverges,
+we would expect <m>\displaystyle\int_2^\infty\frac{x+\sin x}{1+x^2}\ \dee{x}</m> to diverge too.
+</li>
+<li> Our final task is to verify that our intuition is correct. To do so, we
+set
+<md>
+<mrow>
+f(x) &amp;= \frac{x+\sin x}{1+x^2} &amp;
+g(x) &amp;= \frac{1}{x}
+</mrow>
+</md>
+and compute
+<md>
+<mrow>
+\lim_{x\rightarrow\infty}\frac{f(x)}{g(x)}
+&amp;=\lim_{x\rightarrow\infty} \frac{x+\sin x}{1+x^2}\div\frac{1}{x}
+</mrow><mrow>
+&amp;=\lim_{x\rightarrow\infty} \frac{(1+\sin x/x)x}{(1/x^2+1)x^2}\times x
+</mrow><mrow>
+&amp;=\lim_{x\rightarrow\infty} \frac{1+\sin x/x}{1/x^2+1}
+</mrow><mrow>
+&amp;=1
+</mrow>
+</md>
+</li>
+<li>
+<p>
+Since <m>\displaystyle\int_2^\infty g(x)\ \dee{x} = \int_2^\infty\frac{\dee{x}}{x}</m>
+diverges, by Example  <xref ref="eg_IMPp1"/>  in the CLP-II text
+<fn>To change the lower limit of integration from <m>1</m> to <m>2</m>, just apply Theorem <xref ref="thm_IMPfiniteSHift"/>  in the  CLP-II text.
+</fn>,
+with <m>p=1</m>,
+Theorem  <xref ref="thm_IMPcomparisonLim"/>(b)  in the CLP-II text now tells us that <m>\displaystyle\int_2^\infty f(x)\ \dee{x}  = \int_2^\infty\frac{x+\sin x}{1+x^2}\ \dee{x}</m>  diverges too.
+</p>
+</li>
+</ul>
+</p>
+</li>
+<li>
+<p>
+Solution 2:
+Let's break up the integrand as <m>\dfrac{x+\sin x}{1+x^2} = \dfrac{x}{1+x^2}+\dfrac{\sin x}{1+x^2}</m>. First, we consider  the integral <m>\displaystyle \int_2^\infty\frac{\sin x}{1+x^2}\ \dee{x}</m>.
+<ul>
+<li>  <m>\displaystyle\frac{|\sin x|}{1+x^2}\le \frac{1}{1+x^2}</m>, so if we can show <m>\displaystyle\int \frac{1}{1+x^2}\,\dee{x}</m> converges, we can conclude that <m>\displaystyle\int\frac{|\sin x|}{1+x^2}\,\dee{x}</m> converges as well by the comparison test.
+</li>
+<li>  <m>\displaystyle\int_2^\infty\frac{1}{1+x^2}\ \dee{x}\le \int_2^\infty\frac{1}{x^2}\ \dee{x}</m>
+</li>
+<li>  <m>\displaystyle\ \int_2^\infty\frac{1}{x^2}\ \dee{x}</m>
+converges (by the <m>p</m>-test with <m>p=2</m>)
+</li>
+<li> So the integral <m>\displaystyle \int_2^\infty\frac{\sin x}{1+x^2}\ \dee{x}</m> converges by the comparison test, and hence
+</li>
+<li>  <m>\displaystyle \int_2^\infty\frac{\sin x}{1+x^2}\ \dee{x}</m> converges as well.
+</li>
+</ul>
+Therefore, <m>\displaystyle \int_2^\infty\frac{x+\sin x}{1+x^2}\ \dee{x}</m> converges if and only
+if <m>\displaystyle \int_2^\infty\frac{x}{1+x^2}\ \dee{x}</m> converges. But
+<md>
+<mrow>
+\int_2^\infty\frac{x}{1+x^2}\ \dee{x}
+=\lim_{r\rightarrow\infty}\int_2^r\frac{x}{1+x^2}\ \dee{x}
+=\lim_{r\rightarrow\infty}\Big[\half\log(1+x^2)\Big]_2^r=\infty
+</mrow>
+</md>
+diverges, so <m> \displaystyle\int_2^\infty\frac{x+\sin x}{1+x^2}\ \dee{x}</m>
+diverges.
+</p>
+</li>
+</ul>
+</p>
+
+<p>
+(b)
+The problem is that <m>f(x)=\dfrac{x+\sin x}{1+x^2}</m> is not
+a decreasing function. To see this, compute the derivative:
+<md>
+<mrow>
+f'(x)=\frac{(1+\cos x)(1+x^2)-(x+\sin x)(2x)}{{(1+x^2)}^2}
+=\frac{(\cos x-1)x^2-2x\sin x +1+\cos x}{{(1+x^2)}^2}
+</mrow>
+</md>
+If <m>x=2m\pi</m>, the numerator is <m>0-0+1+1 \gt 0</m>.
+</p>
+
+<p>Therefore, the integral test does not apply.
+</p>
+
+<p>
+(c)
+<ul>
+<li><p>
+Solution 1:
+Set <m>a_n=  \frac{n+\sin n}{1+n^2}</m>.  We first try to develop some
+intuition about the behaviour of <m>a_n</m> for large <m>n</m> and then we confirm
+that our intuition was correct.
+<ul>
+<li> <em>Step 1: Develop intuition.</em>
+When <m>n\gg 1</m>,
+the numerator <m>n+\sin n\approx n</m>, and the denominator
+<m>1+n^2\approx n^2</m> so that
+<m>a_n\approx \frac{n}{n^2}=\frac{1}{n}</m> and it looks like
+our series should diverge by the <m>p</m>-test (Example <xref ref="eg_SRpTest"/>
+in the CLP-II text) with <m>p=1</m>.
+</li>
+<li> <em>Step 2: Verify intuition.</em>
+To confirm our intuition we set <m>b_n=\frac{1}{n}</m> and
+compute the limit
+<me>
+\lim_{n\rightarrow\infty}\frac{a_n}{b_n}
+=\lim_{n\rightarrow\infty}\frac{ \frac{n+\sin n}{1+n^2} } {\frac{1}{n}}
+=\lim_{n\rightarrow\infty}\frac{n[n+\sin n]} {1+n^2}
+=\lim_{n\rightarrow\infty}\frac{1+\frac{\sin n}{n}} {\frac{1}{n^2}+1}
+=1
+</me>
+We already know that the series <m>\sum\limits_{n=1}^\infty b_n
+=\sum\limits_{n=1}^\infty\frac{1}{n}</m> diverges by the <m>p</m>-test with <m>p=1</m>.
+So our series diverges by the limit comparison test,
+Theorem <xref ref="thm_SRlimitComparison"/> in the CLP-II text.
+</li>
+</ul>
+</p>
+</li>
+<li><p>
+Solution 2:
+Since <m>\big|\frac{\sin n}{1+n^2}\big|\le\frac{1}{n^2}</m> and the
+series <m>\sum\limits_{n=1}^\infty \frac{1}{n^2}</m> converges by the <m>p</m>-test with <m>p=2</m>,
+the series <m>\sum\limits_{n=1}^\infty \frac{\sin n}{1+n^2}</m> converges. Hence
+<m>\sum\limits_{n=1}^\infty \frac{n+\sin n}{1+n^2}</m> converges if and only if
+the series <m>\sum\limits_{n=1}^\infty \frac{n}{1+n^2}</m> converges. Now
+<m>f(x)=\frac{x}{1+x^2}</m> is a continuous, positive, decreasing function
+on <m>[1,\infty)</m> since
+<md>
+<mrow>
+f'(x)=\frac{(1+x^2)-x(2x)}{{(1+x^2)}^2}
+=\frac{1-x^2}{{(1+x^2)}^2}
+</mrow>
+</md>
+is negative for all <m>x \gt 1</m>. We saw in part (a) that the integral
+<m>\int_2^\infty\frac{x}{1+x^2}\ \dee{x}</m> diverges. So the integral
+<m>\int_1^\infty\frac{x}{1+x^2}\ \dee{x}</m> diverges too and the sum
+<m>\sum\limits_{n=1}^\infty \frac{n}{1+n^2}</m> diverges by the integral test.
+So <m>\sum\limits_{n=1}^\infty \frac{n+\sin n}{1+n^2}</m> diverges.
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M121 1999A</fromexam></title>
+<statement><p>
+Show that <m>\displaystyle\sum\limits_{n=1}^\infty\frac{e^{-\sqrt{n}}}{\sqrt{n}}</m>
+converges and find an interval of length <m>0.05</m> or less that contains its
+exact value.
+</p></statement>
+
+<hint><p>
+The truncation error arising from the approximation <m>\displaystyle\sum_{n=1}^\infty \frac{e^{-\sqrt{n}}}{\sqrt n} \approx \sum_{n=1}^N \frac{e^{-\sqrt{n}}}{\sqrt n}</m> is precisely
+<m>E_N = \displaystyle\sum_{n=N+1}^\infty \frac{e^{-\sqrt{n}}}{\sqrt n}</m>. You'll want to find a bound on this sum using the integral test.
+</p>
+
+<p>A key observation is that, since <m>f(x) = \dfrac{e^{-\sqrt{x}}}{\sqrt{x}}</m> is decreasing, we can show that
+<me>
+ \frac{e^{-\sqrt{n}}}{\sqrt{n}} \leq \int_{n-1}^n \frac{e^{-\sqrt{x}}}{\sqrt{x}}\ \dee{x}</me>
+ for every <m>n \ge 1</m>.
+</p></hint>
+
+<answer><p>
+The sum is between 0.9035 and 0.9535.
+</p></answer>
+
+<solution><p>
+Note that <m>\dfrac{e^{-\sqrt{x}}}{\sqrt{x}}=\dfrac{1}{\sqrt{x}e^{\sqrt{x}}}</m> decreases as <m>x</m>
+increases. Hence, for every <m>n\ge 1</m>,
+<md>
+<mrow>
+\frac{e^{-\sqrt{x}}}{\sqrt{x}} &amp;\geq \frac{e^{\sqrt{n}}}{\sqrt{n}}&amp;\mbox{for <m>x</m> in the interval <m>[n-1,n]</m>}
+</mrow><mrow>
+\mbox{So,}\qquad\color{blue}{ \int_{n-1}^n \frac{e^{-\sqrt{x}}}{\sqrt{x}}\ \dee{x}}
+&amp;\geq\int_{n-1}^n \frac{e^{-\sqrt{n}}}{\sqrt{n}}\ \dee{x}
+</mrow><mrow>
+&amp;=\left[\frac{e^{-\sqrt{n}}}{\sqrt{n}}x\right]_{x=n-1}^{x=n}
+</mrow><mrow>
+&amp;=\color{red}{ \frac{e^{-\sqrt{n}}}{\sqrt{n}} }
+</mrow>
+</md>
+Then, for every <m>N\ge 1</m>,
+<md>
+<mrow>
+E_N&amp;=\sum_{n=N+1}^\infty\textcolor{red}{\frac{e^{-\sqrt{n}}}{\sqrt{n}}}
+\le \sum_{n=N+1}^\infty\textcolor{blue}{\int_{n-1}^n \frac{e^{-\sqrt{x}}}{\sqrt{x}}\ \dee{x}}
+</mrow><mrow>&amp;=\int_{N}^{N+1}\frac{e^{-\sqrt{x}}}{\sqrt{x}}\ \dee{x}
++\int_{N+1}^{N+2} \frac{e^{-\sqrt{x}}}{\sqrt{x}}\ \dee{x}+\cdots
+</mrow><mrow>
+&amp;=\int_{N}^\infty \frac{e^{-\sqrt{x}}}{\sqrt{x}}\ \dee{x}
+</mrow>
+</md>
+Substituting <m>y=\sqrt{x}</m>, <m>\dee{y}=\half\frac{\dee{x}}{\sqrt{x}}</m>,
+<md>
+<mrow>
+\int_{N}^\infty \frac{e^{-\sqrt{x}}}{\sqrt{x}}\ \dee{x}
+=2\int_{\sqrt{N}}^\infty e^{-y}\ \dee{y}
+=-2e^{-y}\Big|_{\sqrt{N}}^\infty
+=2e^{-\sqrt{N}}
+</mrow>
+</md>
+This shows that <m>\sum_{n=N+1}^\infty\frac{e^{-\sqrt{n}}}{\sqrt{n}}</m>
+converges and is between <m>0</m> and <m>2e^{-\sqrt{N}}</m>. Since
+<m>E_{14}=2e^{-\sqrt{14}}=0.047</m>, we may truncate the series at <m>n=14</m>.
+<md>
+<mrow>
+\sum_{n=1}^\infty\frac{e^{-\sqrt{n}}}{\sqrt{n}}
+&amp;=\sum_{n=1}^{14}\frac{e^{-\sqrt{n}}}{\sqrt{n}}+E_{14}
+</mrow><mrow>
+&amp;=\phantom{+}0.3679+0.1719+0.1021+0.0677+0.0478
+</mrow><mrow>
+&amp;\phantom{=}+0.0352+0.0268+0.0209+0.0166+0.0134
+</mrow><mrow>
+&amp;\phantom{=}+0.0109+0.0090+0.0075+0.0063+E_{14}
+</mrow><mrow>
+&amp;=0.9042+E_{14}
+</mrow>
+</md>
+The sum is between 0.9035 and 0.9535. (This even allows for
+a roundoff error of <m>0.00005</m> in each term as we were calculating the partial sum.)
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M121 2000A</fromexam></title>
+<statement><p>
+Suppose that the series <m>\displaystyle\sum\limits_{n=1}^\infty a_n</m>
+converges and that <m>1 \gt a_n\ge 0</m> for all <m>n</m>. Prove that the series
+<m>\displaystyle\sum\limits_{n=1}^\infty \frac{a_n}{1-a_n}</m> also converges.
+</p></statement>
+
+<hint><p>
+What does the fact that the series <m>\sum\limits_{n=0}^{\infty}a_n</m> converges
+guarantee about the behavior of <m>a_n</m> for large <m>n</m>?
+</p></hint>
+
+<answer><p>
+Since <m>\lim\limits_{n\to \infty} a_n=0</m>,  there must be some integer
+<m>N</m> such that <m>\half \gt a_n\ge 0</m> for all <m>n \gt N</m>.  Then, for <m>n \gt N</m>,
+<md>
+<mrow>
+\frac{a_n}{1-a_n} &amp;\leq \frac{a_n}{1-1/2}=2a_n
+</mrow>
+<intertext>From the information in the problem statement, we know</intertext><mrow>
+\sum_{n=N+1}^\infty 2a_n&amp;=2\sum_{n=N+1}^\infty  a_n\qquad\text{converges. }
+</mrow>
+<intertext>So, by the direct comparison test,</intertext><mrow>
+\sum_{n=N+1}^\infty\frac{a_n}{1-a_n}&amp;\qquad\text{converges as well. }
+</mrow>
+<intertext>Since the convergence of a series is not affected by its first <m>N</m> terms, as long as <m>N</m> is finite, we conclude</intertext><mrow>
+\sum_{n=1}^\infty\frac{a_n}{1-a_n}&amp;\qquad\text{converges.}
+</mrow>
+</md>
+</p></answer>
+
+<solution><p>
+Let's get some intuition to guide us through a proof.  Since <m>\sum\limits_{n=1}^\infty a_n</m>, converges <m>a_n</m> must converge
+to zero as <m>n\rightarrow\infty</m>. So, when <m>n</m> is quite large, <m>\frac{a_n}{1-a_n} \approx \frac{a_n}{1-0}=\frac{a_n}{1}</m>, and we know <m>\sum a_n</m> converges. So, we want to separate the <q>large</q> indices from a finite number of smaller ones.
+</p>
+
+<p>Since <m>\lim\limits_{n\to \infty} a_n=0</m>,  there must be
+<fn>We could have chosen any positive number strictly less than 1, not only <m>\frac12</m>.</fn>
+ some integer
+<m>N</m> such that <m>\half \gt a_n\ge 0</m> for all <m>n \gt N</m>.  Then, for <m>n \gt N</m>,
+<md>
+<mrow>
+\frac{a_n}{1-a_n} &amp;\leq \frac{a_n}{1-1/2}=2a_n
+</mrow>
+<intertext>From the information in the problem statement, we know</intertext><mrow>
+\sum_{n=N+1}^\infty 2a_n&amp;=2\sum_{n=N+1}^\infty  a_n\qquad\text{converges. }
+</mrow>
+<intertext>So, by the direct comparison test,</intertext><mrow>
+\sum_{n=N+1}^\infty\frac{a_n}{1-a_n}&amp;\qquad\text{converges as well. }
+</mrow>
+<intertext>Since the convergence of a series is not affected by its first <m>N</m> terms, as long as <m>N</m> is finite, we conclude</intertext><mrow>
+\sum_{n=1}^\infty\frac{a_n}{1-a_n}&amp;\qquad\text{converges.}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M105 2015A</fromexam></title>
+<statement><p>
+Suppose that the series <m>\sum\limits_{n=0}^{\infty}(1-a_n)</m> converges,
+where <m>a_n \gt 0</m> for <m>n=0,1,2,3,\cdots</m>. Determine whether the series
+<m>\sum\limits_{n=0}^\infty 2^n a_n</m> converges or diverges.
+</p></statement>
+
+<hint><p>
+What does the fact that the series <m>\sum\limits_{n=0}^{\infty}(1-a_n)</m> converges
+guarantee about the behavior of <m>a_n</m> for large <m>n</m>?
+</p></hint>
+
+<answer><p>
+It diverges.
+</p></answer>
+
+<solution><p>
+By the divergence test, the fact that <m>\sum\limits_{n=0}^{\infty}(1-a_n)</m>
+converges guarantees that <m>\lim\limits_{n\rightarrow\infty}(1-a_n)=0</m>,
+or equivalently, that <m>\lim\limits_{n\rightarrow\infty}a_n=1</m>.  So,
+by the divergence test, a second time, the fact that
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}2^n a_n = +\infty
+</mrow>
+</md>
+guarantees that <m>\sum\limits_{n=0}^\infty 2^n a_n</m> diverges
+too.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2014A</fromexam></title>
+<statement><p>
+Assume that the series
+<m>\displaystyle\sum_{n=1}^\infty\frac{na_n-2n+1}{n+1}</m>
+converges,  where <m>a_n  \gt  0</m> for <m>n = 1, 2, \cdots</m>.
+Is the following series
+<md>
+<mrow>
+-\log a_1 + \sum_{n=1}^\infty \log\Big(\frac{a_n}{a_{n+1}}\Big)
+</mrow>
+</md>
+convergent? If your answer is NO, justify your answer.
+If your answer is YES, evaluate the sum of the series
+<m>-\log a_1 + \sum\limits_{n=1}^\infty \log\big(\frac{a_n}{a_{n+1}}\big)</m>.
+</p></statement>
+
+<hint><p>
+What does the fact that the series
+<m>\displaystyle\sum_{n=1}^\infty\frac{na_n-2n+1}{n+1}</m> converges
+guarantee about the behavior of <m>a_n</m> for large <m>n</m>?
+</p></hint>
+
+<answer><p>
+It converges to <m>-\log 2 =\log\frac{1}{2}</m>,
+</p></answer>
+
+<solution><p>
+By the divergence test, the fact that
+<m>\displaystyle\sum_{n=1}^\infty\frac{na_n-2n+1}{n+1}</m>
+converges guarantees that
+<m>\lim\limits_{n\rightarrow\infty}\dfrac{na_n-2n+1}{n+1}=0</m>,
+or equivalently, that
+<md>
+<mrow>
+0=\lim_{n\rightarrow\infty}\frac{n}{n+1}a_n
+     -\lim_{n\rightarrow\infty}\frac{2n-1}{n+1}
+ =\lim_{n\rightarrow\infty}a_n -2
+\iff \lim_{n\rightarrow\infty}a_n = 2
+</mrow>
+</md>
+The series of interest can be written
+<m>-\log a_1 + \sum\limits_{n=1}^\infty \big[\log(a_n)-\log(a_{n+1})\big]</m>
+which looks like a telescoping  series. So we'll compute the partial
+sum
+<md>
+<mrow>
+S_N&amp;=-\log a_1 + \sum_{n=1}^N \big[\log(a_n)-\log(a_{n+1})\big]
+</mrow><mrow>
+&amp;=-\log a_1 + \big[\log(a_1)-\log(a_2)\big]
+           + \big[\log(a_2)-\log(a_3)\big]
+           + \cdots
+           + \big[\log(a_N)-\log(a_{N+1})\big]
+</mrow><mrow>
+&amp;=-\log(a_{N+1})
+</mrow>
+</md>
+and then take the limit <m>N\rightarrow\infty</m>
+<md>
+<mrow>
+-\log a_1 + \sum_{n=1}^\infty \big[\log(a_n)-\log(a_{n+1})\big]
+=\lim_{N\rightarrow\infty} S_N
+=- \lim_{N\rightarrow\infty} \log(a_{N+1})
+=-\log 2 =\log\frac{1}{2}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M121 2002A</fromexam></title>
+<statement><p>
+Prove that if <m>a_n\ge 0</m> for all <m>n</m> and if the series
+<m>\displaystyle\sum_{n=1}^\infty a_n</m> converges, then the series
+<m>\displaystyle\sum_{n=1}^\infty a^2_n</m> also converges.
+</p></statement>
+
+<hint><p>
+What does the fact that the series
+<m>\sum_{n=1}^\infty a_n</m> converges
+guarantee about the behavior of <m>a_n</m> for large <m>n</m>?
+When is <m>x^2\le x</m>?
+</p></hint>
+
+<answer><p>
+See the solution.
+</p></answer>
+
+<solution><p>
+ We are told that <m>\sum_{n=1}^\infty a_n</m> converges. Thus
+we must have that <m>\lim\limits_{n\rightarrow\infty}a_n=0</m>. In particular,
+there is an index <m>N</m> such that <m>0\le a_n\le 1</m> for all <m>n\ge N</m>. Then:
+<md>
+<mrow>
+0\leq a_n^2 &amp; \leq a_n\qquad\text{for <m>n \gt N</m>}
+</mrow>
+<intertext>By the direct comparison test,</intertext><mrow>
+\sum_{n=N+1}^\infty a_n^2&amp; \qquad\text{converges.}
+</mrow>
+<intertext>Since convergence doesn't depend on the first <m>N</m> terms of a series for any finite <m>N</m>,</intertext><mrow>
+\sum_{n=1}^\infty a_n^2&amp; \qquad\text{converges as well.}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+
+<introduction><p>A number of phenomena roughly follow a distribution called Zipf's law. We discuss some of these in Questions<nbsp/><xref ref="probs3_2_Zipf1" text="local"/> and <xref ref="probs3_2_Zipf2" text="local"/>.</p></introduction>
+
+<exercise xml:id="probs3_2_Zipf1">
+<statement><p>
+Suppose the frequency of word use in a language has the following pattern:
+<blockquote>
+<p>
+<textblue>
+The <m>n</m>-th most frequently used word accounts for <m>\dfrac{\alpha}{n}</m> percent of the total words used.
+</textblue>
+</p>
+</blockquote>
+So, in a text of 100 words, we expect the most frequently used word to appear <m>\alpha</m> times, while the second-most-frequently used word should appear about <m>\frac{\alpha}{2}</m> times, and so on.
+</p>
+
+<p>	If a text written in this language uses <m>20,000</m> distinct words, then the most commonly used word accounts for roughly what percentage of total words used?
+</p>
+
+</statement>
+<hint><p>
+	If we add together the frequencies of all the words, they should amount to 100<percent/>. We can approximate this sum using ideas from Example<nbsp/><xref ref="eg_firstIntTest"/> in the CLP-II text.
+</p></hint>
+<answer><p>
+	About 9<percent/> to 10<percent/>
+</p></answer>
+<solution><p>
+	The most-commonly used word makes up <m>\alpha</m> percent of all the words. So, we want to find <m>\alpha</m>.
+</p>
+
+<p>	If we add together the frequencies of all the words, they should amount to 100<percent/>. That is,
+	<me>
+\sum_{n=1}^{20,000} \frac{\alpha}{n}=100</me>
+</p>
+
+<p>	We can approximate the sum (with <m>\alpha</m> left as a parameter) using the ideas behind the integral test. (See Example<nbsp/><xref ref="eg_firstIntTest"/>.)
+	</p>
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+		\YEaaxis{.5}{6}{.5}{3}
+		\foreach \x in {1,...,4}{\YExcoord{\x}{\x}
+		\draw (\x,2/\x) node[vertex]{};
+		\draw[fill,fill opacity=0.1] (\x,2/\x) rectangle (\x+1,0);
+	}
+		\YEycoord{2}{\alpha}
+	\YExcoord{5}{5}
+	\draw[thick, blue] plot[domain=.67:5, smooth](\x,{2/\x})node[above right]{$f(x)=\frac{\alpha}{x}$};
+		\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+<p>
+As we see in the diagram above, <m>\displaystyle\sum_{n=1}^N \frac{\alpha}{n}</m> (which is the sum of the areas of the rectangles) is <em>greater</em> than <m>\displaystyle\int_1^{N+1}\frac{\alpha}{x}\dee{x}</m> (the area under the curve). That is,
+<me>
+\int_1^{N+1} \frac{\alpha}{x}\dee{x} \lt  \sum_{n=1}^N \frac{\alpha}{n}\,.</me>
+</p>
+
+<p>		Using the fact that our language's 20,000 words make up 100<percent/> of the words used, we can find a lower bound for <m>\alpha</m>.
+		<md>
+<mrow>
+		100&amp;= \sum_{n=1}^{20,000} \frac{\alpha}{n}
+		 \gt \int_1^{20,001} \frac{\alpha}{x}\dee{x}
+		=\Big[\alpha \log(x)\Big]_{1}^{20,001}
+		=\alpha\log(20,001)
+</mrow><mrow>
+		\alpha&amp; \lt \frac{100}{\log(20,001)}
+		</mrow>
+</md>
+	We can find an upper bound for <m>\alpha</m> in a similar manner.
+</p>
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+		\YEaaxis{.5}{6}{.5}{3}
+		\foreach \x in {1,...,4}{\YExcoord{\x}{\x}
+			\draw (\x,2/\x) node[vertex]{};
+			\draw[fill,fill opacity=0.1] (\x,2/\x) rectangle (\x-1,0);
+		}
+		\YEycoord{2}{\alpha}
+		\YExcoord{5}{5}
+		\draw[thick, blue] plot[domain=.67:5, smooth](\x,{2/\x})node[above right]{$f(x)=\frac{\alpha}{x}$};
+		\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+	From the diagram, we see <m>\displaystyle\sum_{n=2}^N \frac{\alpha}{n}</m> (which is the sum of the areas of the rectangles, excluding the first) is <em>less</em> than <m>\displaystyle\int_1^{N}\frac{\alpha}{x}\dee{x}</m>. (The reason for excluding the first rectangle is to avoid comparing our series to an integral that diverges.) That is,
+	<me>
+ \sum_{n=2}^N \frac{\alpha}{n} \lt  \int_1^{N} \frac{\alpha}{x}\dee{x}\,.</me>
+</p>
+
+<p>	Therefore,
+	<md>
+<mrow>
+	100&amp;= \sum_{n=1}^{20,000} \frac{\alpha}{n}= \alpha+\sum_{n=2}^{20,000} \frac{\alpha}{n}
+</mrow><mrow>
+	&amp; \lt \alpha+\int_1^{20,00} \frac{\alpha}{x}\dee{x}=\alpha+\alpha\log(20,000)=\alpha\big[1+\log(20,000)\big]
+</mrow><mrow>
+	\alpha&amp; \gt \frac{100}{1+\log(20,000)}
+	</mrow>
+</md>
+	Using a calculator, we see
+	<me>
+9.17  \lt  \alpha  \lt  10.01</me>
+</p>
+
+<p>	So, the most-commonly used word makes up about 9-10 percent of the total words.
+</p></solution>
+</exercise>
+
+<exercise xml:id="probs3_2_Zipf2">
+<statement><p>
+</p>
+
+<p>	Suppose the sizes of cities in a country adhere to the following pattern: if the largest city has population <m>\alpha</m>, then the <m>n</m>-th largest city has population <m>\frac{\alpha}{n}</m>.
+</p>
+
+<p>	If the largest city in this country has 2 million people, what do you expect the population of the entire country is? Make your answer accurate to within 1 million people.
+</p>
+
+</statement>
+<hint><p>
+	No city has fewer than one person, so we are approximating a finite sum <mdash/> not an infinite series. To get greater accuracy, use exact values for the first several terms in the sum, and use an integral to approximate the rest.
+</p></hint>
+<answer><p>
+	The total population is between 29,820,091 and 29,244,727 people.
+</p></answer>
+<solution><p>
+	Since no town has fewer than one person, the smallest town is the two-millionth town, with a single inhabitant. Therefore, there are 2 million towns, and the total population of the region is given by
+	<me>
+\sum_{n=1}^{2 \text{ mill}}\frac{2\text{ mill}}{n}=2\times 10^6 \sum_{n=1}^{2 \times 10^6}\frac{1}{n}
+</me>
+Generalizing our work in Question<nbsp/><xref ref="probs3_2_Zipf1" text="local"/>, we find the approximations:
+<me>
+\int_a^{b+1}\frac{1}{x}\dee{x} \lt \sum_{n=a}^b \frac{1}{n}  \lt  \int_{a-1}^{b}\frac{1}{x}\dee{x}
+</me>
+when <m>a \ge 2</m>.
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+		\YEaaxis{.5}{8.6}{.5}{3}
+		\YExcoord{2}{a-1}
+		\YExcoord{8}{b+1}
+		\YExcoord{3}{a}
+		\YExcoord{7}{b}
+		\foreach \x in {3,...,7}{\YExcoord{\x}{}
+			\draw (\x,2/\x) node[vertex]{};
+			\draw[fill,fill opacity=0.1] (\x,2/\x) rectangle (\x+1,0);
+		}
+		\YEycoord{2}{1}
+		\draw[thick, blue] plot[domain=.67:8, smooth](\x,{2/\x})node[above right]{$f(x)=\frac{1}{x}$};
+		\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+<p>
+<m>\int\limits_a^{b+1} \frac{1}{x}\dee{x} \lt \sum\limits_{n=a}^b \frac{1}{n}</m>
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+	\YEaaxis{.5}{8.6}{.5}{3}
+	\YExcoord{2}{a-1}
+	\YExcoord{8}{b+1}
+	\YExcoord{3}{a}
+	\YExcoord{7}{b}
+	\foreach \x in {3,...,7}{\YExcoord{\x}{}
+		\draw (\x,2/\x) node[vertex]{};
+		\draw[fill,fill opacity=0.1] (\x,2/\x) rectangle (\x-1,0);
+	}
+	\YEycoord{2}{1}
+	\draw[thick, blue] plot[domain=.67:8, smooth](\x,{2/\x})node[above right]{$f(x)=\frac{1}{x}$};
+	\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+<p> <m>\sum\limits_{n=a}^b \frac{1}{n} \lt \int\limits_{a-1}^{b}\frac{1}{x}\dee{x}</m>
+</p>
+
+<p>
+We want our error to be less than one million, so we need to choose a value of <m>a</m> such that:
+</p>
+
+<p>
+<md>
+<mrow>
+	\underbrace{2\times 10^6\int_{a-1}^{2\times 10^6} \frac{1}{x}\dee{x}}_{\text{upper bound}} -
+	\underbrace{2\times 10^6\int_{a}^{2\times 10^6+1} \frac{1}{x}\dee{x}}_{\text{lower bound}} &amp; \lt 10^6
+</mrow><mrow>
+\int_{a-1}^{2\times 10^6} \frac{1}{x}\dee{x} -
+	\int_{a}^{2\times 10^6+1} \frac{1}{x}\dee{x} &amp; \lt \frac{1}{2}
+</mrow><mrow>
+	\left[\log\left(2\times 10^6 \right)-\log(a-1)\right]-\left[\log\left(2\times 10^6+1 \right)-\log(a)\right]&amp; \lt \frac12
+</mrow><mrow>
+	\left[\log\left(2\times 10^6 \right)-\log\left(2\times 10^6+1 \right)\right]+\left[ \log(a)-\log(a-1)\right]&amp; \lt \frac12
+</mrow><mrow>
+	\log\left(\frac{2\times 10^6}{2\times 10^6+1} \right)+
+	\log\left(\frac{a}{a-1} \right)&amp; \lt \frac{1}{2}
+	</mrow>
+</md>
+	The first term is extremely close to 0, so we ignore it.
+	<md>
+<mrow>
+	\log\left(\frac{a}{a-1} \right)&amp; \lt \frac{1}{2}
+</mrow><mrow>
+	\frac{a}{a-1}&amp; \lt e^{1/2}=\sqrt{e}
+</mrow><mrow>
+	a&amp; \lt a\sqrt{e}-\sqrt{e}
+</mrow><mrow>
+	\sqrt{e}&amp; \lt a(\sqrt{e}-1)
+</mrow><mrow>
+	\frac{\sqrt{e}}{\sqrt{e}-1}&amp; \lt a
+	</mrow>
+</md>
+	Since <m>\dfrac{\sqrt{e}}{\sqrt{e}-1} \approx 2.5</m>, we use <m>a=3</m>. That is, we will approximate the value of <m>\displaystyle\sum_{n=3}^{2\times 10^6}\frac{1}{n}</m> using an integral. Then, we will use that approximation to estimate our total population.
+</p>
+
+<p>
+<md>
+<mrow>
+&amp;\int_3^{2\times 10^6+1}\frac{1}{x}\dee{x}&amp;&amp; \lt &amp;&amp;\sum_{n=3}^{2\times 10^6}\frac{1}{n} &amp;&amp; \lt &amp;&amp;\int_4^{2\times10^6}\frac{1}{x}\dee{x}
+</mrow>
+<mrow>
+&amp;\log\left(2\times 10^6+1\right)-\log(3) &amp;&amp; \lt &amp;&amp;\sum_{n=3}^{2\times 10^6}\frac{1}{n} &amp;&amp; \lt &amp;&amp;\log\left(2\times10^6\right)-\log(4)
+</mrow>
+<mrow>
+\textcolor{red}{1+\frac12}+&amp;\log\left(2\times 10^6+1\right)-\log(3) &amp;&amp; \lt &amp;&amp;\sum_{n=\textcolor{red}{1}}^{2\times 10^6}\frac{1}{n} &amp;&amp; \lt &amp;\textcolor{red}{1+\frac12}+&amp;\log\left(2\times10^6\right)-\log(4)
+</mrow>
+<mrow>
+\frac32+ &amp;\log\left(\frac{2\times 10^6+1}{3}\right) &amp;&amp; \lt &amp;&amp;\sum_{n=1}^{2\times 10^6}\frac{1}{n} &amp;&amp; \lt &amp;\frac32+&amp;6\log(10)-\log(2)
+</mrow>
+<mrow>
+\textcolor{red}{2\times10^6}\Big(\frac32+ &amp;\log\left(\tfrac{2}{3}\times 10^6+\tfrac{1}{3}\right)\Big) &amp;&amp; \lt &amp;&amp;\sum_{n=1}^{2\times 10^6}\frac{\textcolor{red}{2\times10^6}}{n} &amp;&amp; \lt &amp;\textcolor{red}{2\times10^6}\Big(\frac32+&amp;6\log\left(10\right)-\log(2)\Big)
+</mrow>
+<mrow>
+&amp;29,820,091&amp;&amp; \lt &amp;&amp;\text{population}&amp;&amp; \lt &amp;&amp;29,244,727
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise></exercisegroup>
+
+</exercises>

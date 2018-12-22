@@ -1,0 +1,1991 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_parfrac">
+<title>Partial Fractions</title>
+<introduction>
+
+<p>
+Partial fractions is the name given to a technique of integration that may be used to integrate any rational function
+	<fn>
+		Recall that a rational  function is the ratio of two polynomials.
+	</fn>.
+We already know how to integrate some simple  rational
+functions
+<md>
+<mrow>
+  \int \frac{1}{x}\dee{x} &amp;= \log|x|+C &amp;
+  \int \frac{1}{1+x^2} \dee{x} &amp;= \arctan(x) +C
+</mrow>
+</md>
+Combining these with the substitution rule, we can integrate similar but more complicated  rational functions:
+<md>
+<mrow>
+  \int \frac{1}{2x+3}\dee{x} &amp;= \frac{1}{2} \log|2x+3| +C &amp;
+  \int \frac{1}{3+4x^2}\dee{x} &amp;= \frac{1}{2\sqrt{3}} \arctan\left( \frac{2x}{\sqrt{3}}
+\right) +C
+</mrow>
+</md>
+By summing such terms together we can integrate yet more complicated forms
+<md>
+<mrow>
+  \int \left[ x + \frac{1}{x+1} + \frac{1}{x-1} \right]\dee{x}
+  &amp;= \frac{x^2}{2} + \log|x+1| + \log|x-1| +C
+</mrow>
+</md>
+However we are not (typically) presented with a rational function nicely decomposed into  neat little pieces. It is far more likely that the rational function will be written as  the ratio of two polynomials. For example:
+<md>
+<mrow>
+  \int \frac{x^3+x}{x^2-1}\dee{x}
+</mrow>
+</md>
+In this specific example it is not hard to confirm that
+<md>
+<mrow>
+x+\frac{1}{x+1} +\frac{1}{x-1}
+&amp;=\frac{x(x+1)(x-1) +(x-1) +(x+1)}{(x+1)(x-1)}
+=\frac{x^3+x}{x^2-1}
+</mrow>
+</md>
+and hence
+<md>
+<mrow>
+  \int \frac{x^3+x}{x^2-1}\dee{x}
+&amp;= \int \left[ x + \frac{1}{x+1} + \frac{1}{x-1} \right]\dee{x}
+</mrow><mrow>
+&amp;= \frac{x^2}{2} + \log|x+1| + \log|x-1| +C
+</mrow>
+</md>
+Of course going in this direction (from a sum of terms to a single rational function) is  straightforward. To be useful we need to understand how to do this in reverse:  decompose a given rational function into a sum of simpler pieces that we can integrate.
+</p>
+
+<p>
+Suppose that <m>N(x)</m> and <m>D(x)</m> are polynomials. The basic strategy is to write  <m>\frac{N(x)}{D(x)}</m> as a sum of very simple, easy to integrate rational functions, namely
+<ol label="1">
+<li>
+	polynomials <mdash/> we shall see below that these are needed when the degree
+	<fn>
+		The degree of a polynomial is the largest power of <m>x</m>. For example, the  degree of <m>2x^3+4x^2+6x+8</m> is three.
+	</fn>
+of <m>N(x)</m> is equal to or strictly bigger than the degree of  <m>D(x)</m>,  and
+</li>
+<li>
+	rational functions of the particularly simple form <m>\frac{A}{(ax+b)^n}</m> and
+</li>
+<li>
+	rational functions of the form <m>\frac{Ax+B}{(ax^2+bx+c)^m}</m>.
+</li>
+</ol>
+We already know how to integrate the first two forms, and we'll see how to integrate the  third form in the near future.
+</p>
+
+<p>
+To begin to explore this method of decomposition, let us go back to the example we just  saw
+<md>
+<mrow>
+x+\frac{1}{x+1} +\frac{1}{x-1}
+&amp;=\frac{x(x+1)(x-1) +(x-1) +(x+1)}{(x+1)(x-1)}
+=\frac{x^3+x}{x^2-1}
+</mrow>
+</md>
+The technique that we will use is based on two observations:
+<ol label="1">
+<li>
+	The denominators on the left-hand side of are the factors of the denominator  <m>x^2-1=(x-1)(x+1)</m> on the right-hand side.
+</li>
+<li>
+<p>
+	Use <m>P(x)</m> to denote the polynomial on the left hand side, and then use <m>N(x)</m> and  <m>D(x)</m> to denote the numerator and denominator of the right hand side. That is
+	<md>
+	<mrow>
+	  P(x)&amp;=x &amp; N(x)&amp;= x^3+x &amp; D(x)&amp;= x^2-1.
+	</mrow>
+	</md>
+	Then the degree of <m>N(x)</m> is the sum of the degrees of <m>P(x)</m> and <m>D(x)</m>. This is because  the highest degree term in <m>N(x)</m> is <m>x^3</m>, which comes from multiplying <m>P(x)</m> by <m>D(x)</m>,  as we see in
+	<md>
+	<mrow>
+		x + \frac{1}{x+1} + \frac{1}{x-1}
+	  &amp;=\frac{   \overbrace{x}^{P(x)}
+			  \overbrace{(x+1)(x-1)}^{D(x)}
+			  + (x-1) + (x+1)  }
+			  {(x+1)(x-1)}
+		=\frac{x^3+x}{x^2-1}
+	</mrow>
+	</md>
+</p>
+
+<p>
+	More generally, the presence of a polynomial on the left hand side is signalled on the right hand side by the fact that the degree of the numerator is at least as large as the degree of the denominator.
+</p>
+</li>
+</ol>
+</p>
+</introduction>
+
+<subsection><title>Partial fraction decomposition examples</title>
+
+<p>
+Rather than writing up the technique <mdash/> known as the partial fraction decomposition <mdash/>  in full generality, we will instead illustrate it through a sequence of examples.
+</p>
+
+<example xml:id="eg_PFa"><title><m>\int\frac{x-3}{x^2-3x+2}\dee{x}</m></title>
+<p>
+	In this example, we integrate <m>\frac{N(x)}{D(x)}=\frac{x-3}{x^2-3x+2}</m>.
+</p>
+
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	<em>Step 1.</em> We first check to see if a polynomial <m>P(x)</m> is needed. To do so,  we check to see if the degree of the numerator, <m>N(x)</m>, is strictly smaller than the  degree of the denominator <m>D(x)</m>.  In this example, the numerator, <m>x-3</m>, has degree one  and that is indeed strictly smaller than the degree of the denominator, <m>x^2-3x+2</m>, which  is two. In this case
+		<fn>
+			We will soon get to an example (Example<nbsp/><xref ref="eg_PFb"/> in  fact) in which the numerator degree is at least as large as the denominator degree <mdash/> in   that situation we have to extract a polynomial <m>P(x)</m> before we can move on to step 2.
+		</fn>
+	we  do not need to extract a polynomial <m>P(x)</m> and we move on to step 2.
+</li>
+<li>
+	<em>Step 2.</em>  The second step is to factor the denominator
+	<md>
+	<mrow>
+	x^2-3x+2&amp;=(x-1)(x-2)
+	</mrow>
+	</md>
+	In this example it is quite easy, but in future examples (and quite possibly in your  homework, quizzes and exam) you will have to work harder to factor the denominator. In  Appendix<nbsp/><xref ref="ap_roots"/> we have written up some simple tricks for factoring polynomials. We will illustrate them in Example<nbsp/><xref ref="eg_PFc"/> below.
+</li>
+<li>
+<p>
+	<em>Step 3.</em>  The third step is to write <m>\frac{x-3}{x^2-3x+2}</m> in the form
+	<md>
+	<mrow>
+	\frac{x-3}{x^2-3x+2} =\frac{A}{x-1}+\frac{B}{x-2}
+	</mrow>
+	</md>
+	for some constants <m>A</m> and <m>B</m>. More generally, if the denominator consists of <m>n</m>  different linear factors, then we decompose the ratio as
+	<md>
+	<mrow>
+	  \text{rational function} &amp;=
+	  \frac{A_1}{\text{linear factor 1}} +
+	  \frac{A_2}{\text{linear factor 2}} + \cdots +
+	  \frac{A_n}{\text{linear factor n}}
+	</mrow>
+	</md>
+	</p>
+
+	<p>To proceed we need to determine the values of the constants <m>A,\ B</m> and there are several  different methods to do so.  Here are two methods
+</p>
+</li>
+<li>
+<p>
+	<em>Step 3 <mdash/> Algebra Method.</em> This approach has the benefit of being  conceptually clearer and easier, but the downside is that it is more tedious.
+</p>
+
+<p>
+	To determine the values of the constants <m>A,\ B</m>, we put
+		<fn>
+			That is, we take the decomposed form and sum it back together.
+		</fn>
+	the right-hand side back over the common denominator <m>(x-1)(x-2)</m>.
+	<md>
+	<mrow>
+	\frac{x-3}{x^2-3x+2}
+	=\frac{A}{x-1}+\frac{B}{x-2}
+	=\frac{A(x-2)+B(x-1)}{(x-1)(x-2)}
+	</mrow>
+	</md>
+	The fraction on the far left is the same as the fraction on the far right if and only if their numerators are the same.
+	<md>
+	<mrow>
+	x-3&amp;=A(x-2)+B(x-1)
+	</mrow>
+	<intertext>
+		Write the right hand side as a polynomial in standard  form (i.e. collect up all <m>x</m> terms and all constant terms)
+	</intertext>
+	<mrow>
+	x-3&amp;=(A+B)x +(-2A-B)
+	</mrow>
+	</md>
+	For these two polynomials to be the same, the coefficient of <m>x</m> on the left hand side and the coefficient of <m>x</m> on the right hand side must be the same. Similarly the coefficients of <m>x^0</m> (i.e. the constant terms) must match. This gives us a system of two equations.
+	<md>
+	<mrow>
+	A+B&amp;=1 &amp; -2A-B&amp;=-3
+	</mrow>
+	</md>
+	in the two unknowns <m>A,B</m>. We can solve this system by
+	<ul>
+	<li>
+		using the first equation, namely <m>A+B=1</m>, to determine <m>A</m>  in terms of <m>B</m>:
+		<md>
+		<mrow>
+		A=1-B
+		</mrow>
+		</md>
+	</li>
+	<li>
+		Substituting this into the remaining equation eliminates the <m>A</m> from second equation, leaving one equation in the one unknown <m>B</m>, which can then be solved for <m>B</m>:
+		<md>
+		<mrow>
+		  -2A-B&amp;=-3 &amp; \text{substitute $A=1-B$}
+		</mrow><mrow>
+		  -2(1-B)-B&amp;=-3 &amp; \text{clean up}
+		</mrow><mrow>
+		  -2+B &amp;=-3 &amp; \text{so $B=-1$}
+		</mrow>
+		</md>
+	</li>
+	<li>
+		Once we know <m>B</m>, we can substitute it back into <m>A=1-B</m> to get <m>A</m>.
+		<md>
+		<mrow>
+		A=1-B=1-(-1)=2
+		</mrow>
+		</md>
+	</li>
+	</ul>
+	Hence
+	<md>
+	<mrow>
+	  \frac{x-3}{x^2-3x+2}
+	=\frac{2}{x-1}-\frac{1}{x-2}
+	</mrow>
+	</md>
+</p>
+</li>
+<li>
+<p>
+	<em>Step 3 <mdash/> Sneaky Method.</em> This takes a little more work to understand,  but it is more efficient than the algebra method.
+</p>
+
+<p>
+	We wish to find <m>A</m> and <m>B</m> for which
+	<md>
+	<mrow>
+	\frac{x-3}{(x-1)(x-2)}
+	=\frac{A}{x-1}+\frac{B}{x-2}
+	</mrow>
+	</md>
+	Note that the denominator on the left hand side has been written in factored form.
+	<ul>
+	<li>
+		To determine <m>A</m>, we multiply both sides of the equation by <m>A</m>'s denominator, which is <m>x-1</m>,
+		<md>
+		<mrow>
+		\frac{x-3}{x-2}
+		=A+\frac{(x-1)B}{x-2}
+		</mrow>
+		</md>
+		and then we completely eliminate <m>B</m> from the equation by evaluating at <m>x=1</m>. This value of <m>x</m> is chosen to make <m>x-1=0</m>.
+		<md>
+		<mrow>
+		\frac{x-3}{x-2}\bigg|_{x=1}
+		=A+\frac{(x-1)B}{x-2}\bigg|_{x=1}
+		\implies A = \frac{1-3}{1-2} = 2
+		</mrow>
+		</md>
+	</li>
+	<li>
+		To determine <m>B</m>, we multiply both sides of the equation by <m>B</m>'s denominator, which is <m>x-2</m>,
+		<md>
+		<mrow>
+		\frac{x-3}{x-1}
+		=\frac{(x-2)A}{x-1} + B
+		</mrow>
+		</md>
+		and then we completely eliminate <m>A</m> from the equation by evaluating at <m>x=2</m>. This value of <m>x</m> is chosen to make <m>x-2=0</m>.
+		<md>
+		<mrow>
+		\frac{x-3}{x-1}\bigg|_{x=2}
+		=\frac{(x-2)A}{x-1}\bigg|_{x=2} +B
+		\implies B = \frac{2-3}{2-1} = -1
+		</mrow>
+		</md>
+	</li>
+	</ul>
+	Hence we have (the thankfully consistent answer)
+	<md>
+	<mrow>
+	\frac{x-3}{x^2-3x+2} =\frac{2}{x-1}-\frac{1}{x-2}
+	</mrow>
+	</md>
+	Notice that no matter which method we use to find the constants we can easily check our  answer by summing the terms back together:
+	<md>
+	<mrow>
+	  \frac{2}{x-1}-\frac{1}{x-2}
+	&amp;= \frac{2(x-2)-(x-1)}{(x-2)(x-1)}
+	</mrow>
+	<mrow>
+	&amp; = \frac{2x-4-x+1}{x^2-3x+2}
+	= \frac{x-3}{x^2-3x+2} \checkmark
+	</mrow>
+	</md>
+</p>
+</li>
+
+<li>
+	<em>Step 4.</em>
+	 The final step is to integrate.
+	<md>
+	<mrow>
+	\int\frac{x-3}{x^2-3x+2}\dee{x}
+	&amp; =\int \frac{2}{x-1}\dee{x} +\int \frac{-1}{x-2}\dee{x}
+	</mrow>
+	<mrow>
+	&amp; =2\log|x-1|-\log|x-2|+C
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+	Perhaps the first thing that you notice is that this process takes quite a few steps
+	<fn>
+		Though, in fairness, we did step 3 twice <mdash/> and that is the most  tedious bit<ellipsis/> Actually <mdash/> sometimes factoring the denominator can be quite  challenging. We'll consider this issue in more detail shortly.
+	</fn>.
+However no single step  is all that complicated; it only takes practice. With that said, let's do another,  slightly more complicated, one.
+</p>
+
+<example xml:id="eg_PFb"><title><m>\int\frac{3x^3-8x^2+4x-1}{x^2-3x+2}\dee{x}</m></title>
+<p>
+In this example, we integrate <m>\frac{N(x)}{D(x)} =\frac{3x^3-8x^2+4x-1}{x^2-3x+2}</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+<p>
+	<em>Step 1.</em>  We first check to see if the degree of the numerator <m>N(x)</m> is  strictly smaller than the degree of the denominator <m>D(x)</m>. In this  example, the numerator, <m>3x^3-8x^2+4x-1</m>, has degree three and the  denominator, <m>x^2-3x+2</m>, has degree two. As <m>3\ge 2</m>, we have to implement the first step.
+</p>
+
+<p>
+	The goal of the first step is to write <m>\frac{N(x)}{D(x)}</m>  in the form
+	<md>
+	<mrow>
+	\frac{N(x)}{D(x)}=P(x)+\frac{R(x)}{D(x)}
+	</mrow>
+	</md>
+	with <m>P(x)</m> being a polynomial and <m>R(x)</m> being a polynomial of degree strictly smaller than the degree of <m>D(x)</m>. The right hand side is <m>\frac{P(x)D(x)+R(x)}{D(x)}</m>, so we have to express the numerator in the form <m>N(x)=P(x)D(x)+R(x)</m>, with <m>P(x)</m> and <m>R(x)</m> being polynomials and with the degree of <m>R</m> being strictly smaller than the degree of <m>D</m>.  <m>P(x)D(x)</m> is a sum of expressions of the form <m>ax^n D(x)</m>. We want to pull as many expressions of this form as possible out of the numerator <m>N(x)</m>, leaving only a low degree remainder <m>R(x)</m>.
+</p>
+
+<p>
+	We do this using long division <mdash/> the same long division you learned in school, but with  the base 10 replaced by <m>x</m>.
+</p>
+<p>
+	<ul>
+	<li>
+	<p>
+		We start by observing that to get from the highest degree  term in the denominator (<m>x^2</m>) to the highest degree term in the numerator (<m>3x^3</m>), we  have to multiply it by <m>3x</m>. So we write,
+	</p>
+	<sidebyside width="50%">
+		<image source="text/figs/longdiv2a"/>
+	</sidebyside>
+	<p>
+		In the above expression, the denominator is on the left, the numerator is on the right  and <m>3x</m> is written above the highest order term of the numerator. Always put lower powers of <m>x</m> to the right of higher powers of <m>x</m> <mdash/> this mirrors how you do long  division with numbers; lower powers of ten sit to the right of lower powers of ten.
+	</p>
+	</li>
+	<li>
+	<p>
+		Now we subtract <m>3x</m> times the denominator, <m>x^2-3x+2</m>, which is <m>3x^3-9x^2+6x</m>,  from the numerator.
+	</p>
+
+	<sidebyside width="66%">
+	<image source="text/figs/longdiv2b"/>
+	</sidebyside>
+	</li>
+	<li>
+	<p>
+		This has left a remainder of <m>x^2-2x-1</m>. To get from the highest degree term in the denominator (<m>x^2</m>) to the highest degree term in the remainder (<m>x^2</m>), we have to multiply by <m>1</m>. So we write,
+	</p>
+	<sidebyside width="50%">
+	<image source="text/figs/longdiv2c"/>
+	</sidebyside>
+	</li>
+	<li>
+	<p>
+		Now we subtract <m>1</m> times the denominator, <m>x^2-3x+2</m>, which is <m>x^2-3x+2</m>, from the remainder.
+	</p>
+	<sidebyside width="75%">
+	<image source="text/figs/longdiv2d"/>
+	</sidebyside>
+	</li>
+	<li>
+		This leaves a remainder of <m>x-3</m>. Because the remainder has degree <m>1</m>,  which is smaller than the degree of the denominator (being degree 2), we  stop.
+	</li>
+	<li>
+		In this example, when we subtracted <m>3x(x^2-3x+2)</m> and  <m>1(x^2-3x+2)</m> from <m>3x^3-8x^2+4x-1</m> we ended up with <m>x-3</m>. That is,
+		<md>
+		<mrow>
+		&amp;3x^3-8x^2+4x-1
+		\ -\ 3x(x^2-3x+2)
+		\ -\ 1(x^2-3x+2)
+		\ =\ x-3
+		</mrow>
+		</md>
+		or, collecting the two terms proportional to <m>(x^2-3x+2)</m>
+		<md>
+		<mrow>
+		3x^3-8x^2+4x-1 \ -\ (3x+1)(x^2-3x+2)
+		\ =\ x-3
+		</mrow>
+		</md>
+		Moving the <m>(3x+1)(x^2-3x+2)</m> to the right hand side and dividing the whole equation by <m>x^2-3x+2</m> gives
+		<md>
+		<mrow>
+		\frac{3x^3-8x^2+4x-1}{x^2-3x+2} \ =\ 3x+1\ +\ \frac{x-3}{x^2-3x+2}
+		</mrow>
+		</md>
+		And we can easily check this expression just by summing the two terms on the right-hand  side.
+	</li>
+	</ul>
+	We have written the integrand in the form <m>\frac{N(x)}{D(x)}=P(x)+\frac{R(x)}{D(x)},</m> with the degree of <m>R(x)</m> strictly smaller than the degree of <m>D(x)</m>, which is what we  wanted. Observe  that <m>R(x)</m> is the final remainder of the long division procedure and <m>P(x)</m> is at the top of the long division computation.
+	</p>
+</li>
+<li>
+<sidebyside width="90%">
+<image source="text/figs/longdiv2ee"/>
+</sidebyside>
+<p>
+	This is the end of Step 1. Oof! You should definitely practice this step.
+</p>
+</li>
+<li> <em>Step 2.</em>
+	The second step is to factor the denominator
+	<md>
+	<mrow>
+	x^2-3x+2=(x-1)(x-2)
+	</mrow>
+	</md>
+	We already did this in Example <xref ref="eg_PFa"/>.
+	</li>
+	<li> <em>Step 3.</em>
+	The third step is to write <m>\frac{x-3}{x^2-3x+2}</m>
+	in the form
+	<md>
+	<mrow>
+	\frac{x-3}{x^2-3x+2}
+	=\frac{A}{x-1}+\frac{B}{x-2}
+	</mrow>
+	</md>
+	for some constants <m>A</m> and <m>B</m>. We already did this in Example <xref ref="eg_PFa"/>. We found <m>A=2</m> and <m>B=-1</m>.
+</li>
+<li> <em>Step 4.</em>
+	 The final step is to integrate.
+	<md>
+	<mrow>
+	\int\frac{3x^3-8x^2+4x-1}{x^2-3x+2}\dee{x}
+	&amp;=\int\big[3x+1\big]\dee{x}
+	   + \int \frac{2}{x-1}\dee{x} +\int \frac{-1}{x-2}\dee{x}
+	</mrow><mrow>[0.1in]
+	&amp;=\frac{3}{2}x^2+x+ 2\log|x-1|-\log|x-2|+C
+	</mrow>
+	</md>
+</li>
+</ul>
+You can see that the integration step is quite quick <mdash/> almost all the work is in  preparing the integrand.
+</p>
+</example>
+
+
+<p>
+Here is a very solid example. It is quite long and the steps are involved. However please  persist. No single step is too difficult.
+</p>
+
+
+<example xml:id="eg_PFc"><title><m>\int\frac{x^4+5x^3+16x^2+26x+22}{x^3+3x^2+7x+5}\dee{x}</m></title>
+<p>
+In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{x^4+5x^3+16x^2+26x+22}{x^3+3x^2+7x+5}</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+<p>
+	<em>Step 1.</em>
+	Again, we start by comparing the degrees of the numerator and denominator. In this example, the numerator, <m>x^4+5x^3+16x^2+26x+22</m>, has degree four  and the denominator, <m>x^3+3x^2+7x+5</m>, has degree  three. As <m>4\ge 3</m>, we  must execute the first step, which is to write <m>\frac{N(x)}{D(x)}</m> in the  form
+	<md>
+	<mrow>
+	\frac{N(x)}{D(x)}=P(x)+\frac{R(x)}{D(x)}
+	</mrow>
+	</md>
+	with <m>P(x)</m> being a polynomial and <m>R(x)</m> being a polynomial of degree strictly smaller than the degree of <m>D(x)</m>. This step is accomplished by long division, just as we did in Example <xref ref="eg_PFc"/>. We'll go through  the whole process in detail again.
+</p>
+
+<p>
+	Actually <mdash/> before you read on ahead, please have a go at the long division. It is  good practice.
+</p>
+
+<p>
+	<ul>
+	<li>
+	<p>
+		We start by observing that to get from the highest degree term in the denominator  (<m>x^3</m>) to the highest degree term in the numerator (<m>x^4</m>), we have to multiply by <m>x</m>.  So we write,
+	</p>
+	<sidebyside width="60%">
+	<image source="text/figs/longdiv6a"/>
+	</sidebyside>
+	</li>
+	<li>
+	<p>
+		Now we subtract <m>x</m> times the denominator <m>x^3+3x^2+7x+5</m>, which is <m>x^4+3x^3+7x^2+5x</m>, from the numerator.
+	</p>
+	<sidebyside width="80%">
+	<image source="text/figs/longdiv6b"/>
+	</sidebyside>
+	</li>
+	<li>
+	<p>
+		The remainder was <m>2x^3+9x^2+21x+22</m>. To get from the highest degree term in the denominator (<m>x^3</m>) to the highest degree term in the remainder (<m>2x^3</m>), we have to multiply by <m>2</m>. So we write,
+	</p>
+	<sidebyside width="60%">
+		<image source="text/figs/longdiv6c"/>
+	</sidebyside>
+	</li>
+	<li>
+	<p>
+		Now we subtract <m>2</m> times the denominator <m>x^3+3x^2+7x+5</m>, which is <m>2x^3+6x^2+14x+10</m>, from the remainder.
+	</p>
+	<sidebyside width="80%">
+	<image source="text/figs/longdiv6"/>
+	</sidebyside>
+	</li>
+	<li>
+		This leaves a remainder of <m>3x^2+7x+12</m>. Because the remainder has degree <m>2</m>, which is smaller than the degree of the denominator, which is <m>3</m>, we stop.
+	</li>
+	<li>
+		In this example, when we subtracted <m>x(x^3+3x^2+7x+5)</m> and  <m>2(x^3+3x^2+7x+5)</m> from <m>x^4+5x^3+16x^2+26x+22</m> we ended up with <m>3x^2+7x+12</m>. That is,
+		<md>
+		<mrow>
+		&amp;x^4+5x^3+16x^2+26x+22
+		\ -\ x(x^3+3x^2+7x+5)
+		\ -\ 2(x^3+3x^2+7x+5)
+		</mrow><mrow>
+		&amp; =3x^2+7x+12
+		</mrow>
+		</md>
+		or, collecting the two terms proportional to <m>(x^3+3x^2+7x+5)</m> we get
+		<md>
+		<mrow>
+		x^4+5x^3+16x^2+26x+22
+		\ -\ (x+2)(x^3+3x^2+7x+5)
+		\ =\ 3x^2+7x+12
+		</mrow>
+		</md>
+		Moving the <m>(x+2)(x^3+3x^2+7x+5)</m> to the right hand side and dividing the
+		whole equation by <m>x^3+3x^2+7x+5</m> gives
+		<md>
+		<mrow>
+		\frac{x^4+5x^3+16x^2+26x+22}{x^3+3x^2+7x+5}
+		=x+2+\frac{3x^2+7x+12}{x^3+3x^2+7x+5}
+		</mrow>
+		</md>
+	</li>
+	</ul>
+</p>
+
+<p>
+	This is of the form  <m>\frac{N(x)}{D(x)}=P(x)+\frac{R(x)}{D(x)},</m> with the degree of <m>R(x)</m> strictly smaller than the degree of <m>D(x)</m>, which is what we wanted.  Observe, once again, that <m>R(x)</m> is the final remainder of the long  division procedure and <m>P(x)</m> is at the top of the long division computation.
+</p>
+<sidebyside width="75%">
+	<image source="text/figs/longdiv6d"/>
+</sidebyside>
+</li>
+<li>
+<p>
+	<em>Step 2.</em>
+	The second step is to factor the denominator <m>D(x)=x^3+3x^2+7x+5</m>. In the <q>real world</q> factorisation of polynomials is often very hard. Fortunately
+	<fn>
+		One does not typically think of mathematics assignments or exams  as nice kind places<ellipsis/> The polynomials that appear in the <q>real world</q> are not so  forgiving. Nature, red in tooth and claw <mdash/> to quote Tennyson inappropriately  (especially when this author doesn't know any other words from the poem).
+	</fn>,
+	this is not  the <q>real world</q> and there is a trick available to help us find this factorisation. The  reader should take some time to look at Appendix<nbsp/><xref ref="ap_roots"/> before proceeding.
+	<ul>
+	<li> The trick exploits the fact that most polynomials that appear in homework
+	assignments and on tests have integer coefficients and some integer roots. Any integer
+	root of a polynomial that has integer coefficients, like <m>D(x)=x^3+3x^2+7x+5</m>, must
+	divide the constant term of the polynomial exactly. Why this is true is
+	explained
+	<fn>
+		Appendix<nbsp/><xref ref="ap_roots"/> contains several simple tricks for factoring  polynomials. We recommend that you have a look at them.
+	</fn>
+	in Appendix<nbsp/><xref ref="ap_roots"/>.
+	</li>
+	<li>
+		So any integer root of <m>x^3+3x^2+7x+5</m> must divide <m>5</m> exactly. Thus the only  integers which can be roots of <m>D(x)</m> are <m>\pm 1</m> and <m>\pm 5</m>. Of course, not all of  these give roots of the polynomial <mdash/> in fact there is no guarantee that any of them  will be. We have to test each one.
+	</li>
+	<li>
+		To test if <m>+1</m> is a root, we sub <m>x=1</m> into <m>D(x)</m>:
+		<md>
+		<mrow>
+		D(1)=1^3+3(1)^2+7(1)+5=16
+		</mrow>
+		</md>
+		As <m>D(1)\ne 0</m>, <m>1</m> is not a root of <m>D(x)</m>.
+	</li>
+	<li>
+		To test if <m>-1</m> is a root, we sub it into <m>D(x)</m>:
+		<md>
+		<mrow>
+		D(-1)=(-1)^3+3(-1)^2+7(-1)+5=-1+3-7+5=0
+		</mrow>
+		</md>
+		As <m>D(-1)= 0</m>, <m>-1</m> is a root of <m>D(x)</m>. As <m>-1</m> is a root of <m>D(x)</m>,  <m>\big(x-(-1)\big)=(x+1)</m> must factor <m>D(x)</m> exactly. We can factor the <m>(x+1)</m> out of <m>D(x)=x^3+3x^2+7x+5</m> by long division once again.
+		</li>
+	<li>
+	<p>
+		Dividing <m>D(x)</m> by <m>(x+1)</m> gives:
+	</p>
+	<sidebyside width="66%">
+	<image source="text/figs/longdiv7"/>
+	</sidebyside>
+	<p>
+		This time, when we subtracted <m>x^2(x+1)</m> and <m>2x(x+1)</m> and <m>5(x+1)</m> from <m>x^3+3x^2+7x+5</m>  we ended up with <m>0</m> <mdash/> as we knew would happen, because we knew that <m>x+1</m> divides <m>x^3+3x^2+7x+5</m> exactly. Hence
+		<md>
+		<mrow>
+		x^3+3x^2+7x+5\ -\ x^2(x+1)\ -\ 2x(x+1)\ -\ 5(x+1)\ =\ 0
+		</mrow>
+		</md>
+		or
+		<md>
+		<mrow>
+		x^3+3x^2+7x+5\ =\ x^2(x+1)\ +\ 2x(x+1)\ +\ 5(x+1)
+		</mrow>
+		</md>
+		or
+		<md>
+		<mrow>
+		x^3+3x^2+7x+5=(x^2+2x+5)(x+1)
+		</mrow>
+		</md>
+	</p>
+	</li>
+	<li>
+		It isn't quite time to stop yet; we should attempt to factor the quadratic  factor, <m>x^2+2x+5</m>. We can use the quadratic formula
+		<fn>
+			To be precise, the quadratic equation <m>ax^2+bx+c=0</m> has solutions
+			<me>
+			x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}.
+			</me>
+			The term <m>b^2-4ac</m> is called the discriminant and it tells us about the number of  solutions. If the discriminant is positive then there are two real solutions. When it is  zero, there is a single solution. And if it is negative, there is no real solutions (you  need complex numbers to say more than this).
+		</fn>
+		to find the roots of <m>x^2+2x+5</m>:
+		<md>
+		<mrow>
+		\frac{-b\pm\sqrt{b^2-4ac}}{2a}=\frac{-2\pm\sqrt{4-20}}{2}
+		=\frac{-2\pm\sqrt{-16}}{2}
+		</mrow>
+		</md>
+		Since this expression contains the square root of a negative number the equation  <m>x^2+2x+5=0</m> has no real solutions; without the use of complex numbers, <m>x^2+2x+5</m> cannot  be factored.
+	</li>
+	</ul>
+	</p>
+<p>
+	We have reached the end of step 2. At this point we have
+	<md>
+	<mrow>
+	\frac{x^4+5x^3+16x^2+26x+22}{x^3+3x^2+7x+5}
+	=x+2+\frac{3x^2+7x+12}{(x+1)(x^2+2x+5)}
+	</mrow>
+	</md>
+</p>
+</li>
+<li>
+<p>
+	<em>Step 3.</em>
+	The third step is to write <m>\frac{3x^2+7x+12}{(x+1)(x^2+2x+5)}</m> in the form
+	<md>
+	<mrow>
+	\frac{3x^2+7x+12}{(x+1)(x^2+2x+5)} =\frac{A}{x+1}+\frac{Bx+C}{x^2+2x+5}
+	</mrow>
+	</md>
+	for some constants <m>A</m>, <m>B</m> and <m>C</m>.
+</p>
+
+<p>
+	Note that the numerator, <m>Bx+C</m> of the second term on the right hand side is not  just a constant. It is of degree one,  which is exactly one smaller than the degree  of the denominator, <m>x^2+2x+5</m>. More generally, if the denominator consists of  <m>n</m> different linear factors and <m>m</m> different quadratic factors, then we  decompose the ratio as
+	<md>
+	<mrow>
+	  \text{rational function}
+	  &amp;= \frac{A_1}{ \text{linear factor 1} }
+		+\frac{A_2}{ \text{linear factor 2} } +\cdots
+		+\frac{A_n}{ \text{linear factor n} }
+	</mrow><mrow>
+		&amp;\phantom{=} +
+		\frac{B_1x+C_1}{ \text{quadratic factor 1} }
+		+\frac{B_2x+C_2}{ \text{quadratic factor 2} } +\cdots
+		+\frac{B_mx+C_m}{ \text{quadratic factor m} }
+	</mrow>
+	</md>
+</p>
+
+<p>
+	To determine the values of the constants <m>A,\ B,\ C</m>, we put the right hand side back over the common denominator <m>(x+1)(x^2+2x+5)</m>.
+	<md>
+	<mrow>
+	\frac{3x^2+7x+12}{(x+1)(x^2+2x+5)}
+	&amp; =\frac{A}{x+1}+\frac{Bx+C}{x^2+2x+5}
+	</mrow>
+	<mrow>
+	&amp; =\frac{A(x^2+2x+5)+(Bx+C)(x+1)}{(x+1)(x^2+2x+5)}
+	</mrow>
+	</md>
+	The fraction on the far left is the same as the fraction on the far right if and only if their numerators are the same.
+	<md>
+	<mrow>
+	3x^2+7x+12=A(x^2+2x+5)+(Bx+C)(x+1)
+	</mrow>
+	</md>
+	Again, as in Example <xref ref="eg_PFa"/>, there are a couple of different ways to determine the values of <m>A</m>, <m>B</m> and <m>C</m> from this equation.
+</p>
+</li>
+<li>
+<p>
+	<em>Step 3 <mdash/> Algebra Method.</em>
+	The conceptually clearest procedure is to write the right hand side as a polynomial in standard form (i.e. collect up all <m>x^2</m> terms, all <m>x</m> terms and all constant terms)
+	<md>
+	<mrow>
+	3x^2+7x+12=(A+B)x^2+(2A+B+C)x+(5A+C)
+	</mrow>
+	</md>
+	For these two polynomials to be the same, the coefficient of <m>x^2</m> on the left hand side and the coefficient of <m>x^2</m> on the right hand side must be the same. Similarly the coefficients of <m>x^1</m> must match and the  coefficients of <m>x^0</m> must match.
+</p>
+
+<p>
+	This gives us a system of three equations
+	<md>
+	<mrow>
+	 A+B=3 &amp;&amp; 2A+B+C=7 &amp;&amp; 5A+C=12
+	</mrow>
+	</md>
+	in the three unknowns <m>A,B,C</m>. We can solve this system by
+	<ul>
+	<li>
+		using the first equation, namely <m>A+B=3</m>, to determine <m>A</m> in terms of  <m>B</m>: <m>\ \ A=3-B</m>.
+	</li>
+	<li>
+		Substituting this into the remaining two equations eliminates the <m>A</m>'s from these two equations, leaving two equations in the two unknowns <m>B</m> and <m>C</m>.
+		<md>
+		<mrow>
+		&amp; &amp; A&amp;=3-B\qquad &amp; 2A+B+C&amp;=7\qquad &amp; 5A+C&amp;=12
+		</mrow>
+		<mrow>
+		&amp;\Rightarrow\qquad &amp; &amp; &amp; 2(3-B)+B+C&amp;=7 &amp; 5(3-B)+C&amp;=12
+		</mrow>
+		<mrow>
+		&amp;\Rightarrow &amp; &amp; &amp; -B+C&amp;=1 &amp; -5B+C&amp;=-3
+		</mrow>
+		</md>
+	</li>
+	<li>
+	Now we can use the equation <m>-B+C=1</m>, to determine <m>B</m> in terms of <m>C</m>:
+	<m>B=C-1</m>.
+	</li>
+	<li>
+		Substituting this into the remaining equation eliminates the <m>B</m>'s leaving an equation in the one unknown <m>C</m>, which is easy to solve.
+		<md>
+		<mrow>
+		&amp; &amp; B&amp;=C-1\qquad &amp; -5B+C&amp;=-3
+		</mrow>
+		<mrow>
+		&amp;\Rightarrow\qquad &amp;  &amp;  &amp; -5(C-1)+C&amp;=-3
+		</mrow>
+		<mrow>
+		&amp;\Rightarrow &amp;  &amp;  &amp; -4C&amp;=-8
+		</mrow>
+		</md>
+	</li>
+	<li>
+		So <m>C=2</m>, and then <m>B=C-1=1</m>, and then <m>A=3-B=2</m>. Hence
+		<md>
+		<mrow>
+		\frac{3x^2+7x+12}{(x+1)(x^2+2x+5)}
+		=\frac{2}{x+1}+\frac{x+2}{x^2+2x+5}
+		</mrow>
+		</md>
+	</li>
+	</ul>
+</p>
+</li>
+<li>
+<p>
+	<em>Step 3 <mdash/> Sneaky Method.</em> While the above method is transparent, it is rather  tedious. It is arguably better to use the second, sneakier and more efficient, procedure.  In order for
+	<md>
+	<mrow>
+	3x^2+7x+12=A(x^2+2x+5)+(Bx+C)(x+1)
+	</mrow>
+	</md>
+	the equation must hold for all values of <m>x</m>.
+	<ul>
+	<li>
+		In particular, it must be true for <m>x=-1</m>. When <m>x=-1</m>, the factor <m>(x+1)</m>  multiplying <m>Bx+C</m> is exactly zero. So <m>B</m> and <m>C</m> disappear from the equation, leaving us with an easy equation to solve for <m>A</m>:
+		<md>
+		<mrow>
+		3x^2+7x+12\Big|_{x=-1}&amp; =\Big[A(x^2+2x+5)+(Bx+C)(x+1)\Big]_{x=-1}
+		</mrow>
+		<mrow>
+		&amp; \Longrightarrow 8=4A\Longrightarrow A=2
+		</mrow>
+		</md>
+	</li>
+	<li>
+		Sub this value of <m>A</m> back in and simplify.
+		<md>
+		<mrow>
+		3x^2+7x+12&amp;=2(x^2+2x+5)+(Bx+C)(x+1)
+		</mrow><mrow>
+		x^2+3x+2&amp;=(Bx+C)(x+1)
+		</mrow>
+		</md>
+		Since <m>(x+1)</m> is a factor on the right hand side, it must also be a factor on the left hand side.
+		<md>
+		<mrow>
+		(x+2)(x+1)=(Bx+C)(x+1)
+		</mrow>
+		<mrow>
+		\quad\Rightarrow\quad (x+2)=(Bx+C) \quad\Rightarrow\quad  B=1,\ C=2
+		</mrow>
+		</md>
+	</li>
+	</ul>
+	So again we find that
+	<md>
+	<mrow>
+	\frac{3x^2+7x+12}{(x+1)(x^2+2x+5)} =\frac{2}{x+1}+\frac{x+2}{x^2+2x+5} \checkmark
+	</mrow>
+	</md>
+</p>
+
+<p>
+	Thus our integrand can be written as
+	<md>
+	<mrow>
+	\frac{x^4+5x^3+16x^2+26x+22}{x^3+3x^2+7x+5} =x+2+\frac{2}{x+1}+\frac{x+2}{x^2+2x+5}.
+	</mrow>
+	</md>
+</p>
+</li>
+<li>
+<p>
+	<em>Step 4.</em> Now we can finally integrate! The first two pieces are easy.
+	<md>
+	<mrow>
+	\int (x+2)\dee{x} = \half x^2+2x
+	\qquad
+	\int \frac{2}{x+1}\dee{x} = 2\log|x+1|
+	</mrow>
+	</md>
+	(We're leaving the arbitrary constant to the end of the computation.)
+</p>
+
+<p>
+	The final piece is a little harder. The idea is to complete the square
+	<fn>
+		This same  idea arose in Section<nbsp/><xref ref="sec_trigsub"/>. Given a quadratic written as
+		<md>
+		<mrow>
+		Q(x) &amp;= ax^2+bx+c
+		</mrow>
+		</md>
+		rewrite it as
+		<md>
+		<mrow>
+		  Q(x) &amp;= a(x+d)^2+e.
+		</mrow>
+		</md>
+		We can determine <m>d</m> and <m>e</m> by expanding and comparing coefficients of <m>x</m>:
+		<md>
+		<mrow>
+		  ax^2+bx+c &amp;= a(x^2+2dx+d^2)+e = ax^2 + 2dax + (e+ad^2)
+		</mrow>
+		</md>
+		Hence <m>d=b/2a</m> and <m>e=c-ad^2</m>.
+	</fn>
+	in the denominator
+	<md>
+	<mrow>
+	\frac{x+2}{x^2+2x+5}= \frac{x+2}{(x+1)^2+4}
+	</mrow>
+	</md>
+	and then make a change of variables to make the fraction look like <m>\frac{ay+b}{y^2+1}</m>. In this case
+	<md>
+	<mrow>
+	\frac{x+2}{(x+1)^2+4}=\frac{1}{4}\frac{x+2}{(\frac{x+1}{2})^2+1}
+	</mrow>
+	</md>
+	so we make the change of variables <m>y=\frac{x+1}{2},\dee{y}=\frac{dx}{2},\ x=2y-1,\dee{x}=2\,dy</m>
+	<md>
+	<mrow>
+	\int \frac{x+2}{(x+1)^2+4}\dee{x}
+	&amp;=\frac{1}{4}\int \frac{x+2}{{(\frac{x+1}{2})}^2+1}\dee{x}
+	</mrow>
+	<mrow>
+	&amp;=\frac{1}{4}\int \frac{(2y-1)+2}{y^2+1}\,2\,dy
+	\ =\ \frac{1}{2}\int \frac{2y+1}{y^2+1}\,dy
+	</mrow>
+	<mrow>
+	&amp;=\int \frac{y}{y^2+1}\,dy + \frac{1}{2}\int \frac{1}{y^2+1}\,dy
+	</mrow>
+	</md>
+	Both integrals are easily evaluated, using the substitution <m>u=y^2+1</m>, <m>du=2y\,dy</m> for the first.
+	<md>
+	<mrow>
+	\int \frac{y}{y^2+1}\,dy
+	&amp;\ =\ \int \frac{1}{u}\frac{du}{2}
+	\ =\ \frac{1}{2}\log|u|=\frac{1}{2}\log(y^2+1)
+	</mrow>
+	<mrow>
+	&amp; =\ \frac{1}{2}\log\Big[\Big(\frac{x+1}{2}\Big)^2+1\Big]
+	</mrow>
+	<mrow>
+	\frac{1}{2}\int \frac{1}{y^2+1}\,dy
+	&amp;\ =\ \frac{1}{2}\arctan y
+	\ =\ \frac{1}{2}\arctan\Big(\frac{x+1}{2}\Big)
+	</mrow>
+	</md>
+	That's finally it. Putting all of the pieces together
+	<md>
+	<mrow>
+	\int\frac{x^4\!+\!5x^3\!+\!16x^2\!+\!26x+22}{x^3+3x^2+7x+5}\dee{x}
+	=\frac{1}{2} x^2\!+2x+2\log|x+1|
+	</mrow>
+	<mrow>
+		   +\frac{1}{2}\log\Big[\Big(\frac{x\!+\!1}{2}\Big)^2+1\Big]
+	+\frac{1}{2}\arctan\Big(\frac{x\!+\!1}{2}\Big)+C
+	</mrow>
+	</md>
+</p>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+The best thing after working through a few a nice long examples is to do another nice  long example <mdash/> it is excellent practice
+	<fn>
+		At the risk of quoting Nietzsche,  <q>That which does not kill us makes us stronger.</q> Though this author always preferred  the logically equivalent contrapositive <mdash/> <q>That which does not make us stronger will  kill us.</q> However no one is likely to be injured by practicing partial fractions or  looking up quotes on wikipedia. Its also a good excuse to remind yourself of what a  contrapositive is <mdash/> though we will likely look at them again when we get to  sequences and series.
+	</fn>.
+We recommend that the reader attempt the problem before reading  through our solution.
+</p>
+
+<example xml:id="eg_PFdd"><title><m>\int\frac{4x^3+23x^2+45x+27}{x^3+5x^2+8x+4}\dee{x}</m></title>
+<p>
+In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{4x^3+23x^2+45x+27}{x^3+5x^2+8x+4}</m>.
+</p>
+
+<p>
+<ul>
+<li>
+<p>
+	<em>Step 1.</em>
+	The degree of the numerator <m>N(x)</m> is equal to the degree of the denominator <m>D(x)</m>, so the first step  to write <m>\frac{N(x)}{D(x)}</m> in the form
+	<md>
+	<mrow>
+	\frac{N(x)}{D(x)}=P(x)+\frac{R(x)}{D(x)}
+	</mrow>
+	</md>
+	with <m>P(x)</m> being a polynomial (which should be of degree <m>0</m>, i.e. just a constant) and <m>R(x)</m> being a polynomial of degree strictly smaller than the degree of <m>D(x)</m>. By long division
+	</p>
+	<sidebyside width="66%">
+	<image source="text/figs/longdiv8a"/>
+	</sidebyside>
+<p>
+	so
+	<md>
+	<mrow>
+	\frac{4x^3+23x^2+45x+27}{x^3+5x^2+8x+4} =4+\frac{3x^2+13x+11}{x^3+5x^2+8x+4}
+	</mrow>
+	</md>
+</p>
+</li>
+<li>
+<p>
+	<em>Step 2.</em>
+	The second step is to factorise <m>D(x)=x^3+5x^2+8x+4</m>.
+	<ul>
+	<li>
+		To start, we'll try and guess an integer root.  Any integer root of <m>D(x)</m> must divide the constant term, <m>4</m>, exactly. Only <m>\pm 1,\ \pm2,\ \pm4</m> can be integer roots of  <m>x^3+5x^2+8x+4</m>.
+	</li>
+	<li>
+		We test to see if <m>\pm 1</m> are roots.
+		<md>
+		<mrow>
+		D(1)&amp;=(1)^3+5(1)^2+8(1)+4\ne 0&amp;&amp;\Rightarrow\quad\text{$x=1$ is not a root}
+		</mrow>
+		<mrow>
+		D(-1)&amp;=(-1)^3+5(-1)^2+8(-1)+4= 0\quad&amp;&amp;\Rightarrow
+                   \quad\text{$x=-1$ is  a root}
+	   </mrow>
+	   </md>
+	   So <m>(x+1)</m> must divide <m>x^3+5x^2+8x+4</m> exactly.
+	</li>
+	<li>
+	<p>
+   		By long division
+	</p>
+	<sidebyside width="40%">
+	<image source="text/figs/longdiv9"/>
+	</sidebyside>
+	<p>
+		so
+		<md>
+		<mrow>
+		x^3+5x^2+8x+4=(x+1)(x^2+4x+4)=(x+1)(x+2)(x+2)
+		</mrow>
+		</md>
+		</p>
+	</li>
+	<li>
+		Notice that we could have instead checked whether or not <m>\pm 2</m> are roots
+		<md>
+		<mrow>
+		D(2)&amp;=(2)^3+5(2)^2+8(2)+4\ne 0&amp;&amp;\Rightarrow\quad\text{$x=2$ is not a root}
+		</mrow>
+		<mrow>
+		D(-2)&amp;=(-2)^3+5(-2)^2+8(-2)+4= 0\quad&amp;&amp;\Rightarrow
+					   \quad\text{$x=-2$ is  a root}
+	   </mrow>
+	   </md>
+	   We now know that both <m>-1</m> and <m>-2</m> are roots of <m>x^3 + 5x^2 + 8x + 4</m> and hence both  <m>(x+1)</m> and <m>(x+2)</m> are factors of  <m>x^3 + 5x^2 + 8x + 4</m>. Because <m>x^3 + 5x^2 + 8x + 4</m>  is of degree three and the coefficient of <m>x^3</m> is <m>1</m>, we must have <m>x^3 + 5x^2 + 8x + 4  = (x+1)(x+2)(x+a)</m> for some constant <m>a</m>. Multiplying out the right hand side shows that  the constant term is <m>2a</m>. So <m>2a=4</m> and <m>a=2</m>.
+   </li>
+   </ul>
+   This is the end of step 2. We now know that
+	<md>
+	<mrow>
+	\frac{4x^3+23x^2+45x+27}{x^3+5x^2+8x+4}
+	\ =\ 4+\frac{3x^2+13x+11}{(x+1)(x+2)^2}
+	</mrow>
+	</md>
+</p>
+</li>
+<li>
+<p>
+	<em>Step 3.</em>
+	The third step is to write <m>\frac{3x^2+13x+11}{(x+1)(x+2)^2}</m> in the form
+	<md>
+	<mrow>
+	\frac{3x^2+13x+11}{(x+1)(x+2)^2} &amp;= \frac{A}{x+1}+\frac{B}{x+2}+\frac{C}{(x+2)^2}
+	</mrow>
+	</md>
+	for some constants <m>A</m>, <m>B</m> and <m>C</m>.
+	</p>
+
+<p>
+	Note that there are two terms on the right hand arising from the factor <m>(x+2)^2</m>. One  has denominator <m>(x+2)</m> and one has denominator <m>(x+2)^2</m>. More generally, for each factor <m>(x+a)^n</m> in the denominator of the rational function on the left hand side, we include
+	<md>
+	<mrow>
+	\frac{A_1}{x+a}
+	+ \frac{A_2}{(x+a)^2} +\cdots
+	+ \frac{A_n}{(x+a)^n}
+	</mrow>
+	</md>
+	in the partial fraction decomposition on the right hand side
+		<fn>
+			This is justified in  the (optional) subsection <q>Justification of the Partial Fraction Decompositions</q>  below.
+		</fn>.
+</p>
+
+<p>
+	To determine the values of the constants <m>A,\ B,\ C</m>, we put the right hand side back  over the common denominator <m>(x+1)(x+2)^2</m>.
+	<md>
+	<mrow>
+	\frac{3x^2+13x+11}{(x+1)(x+2)^2}
+	&amp;=\frac{A}{x+1}+\frac{B}{x+2}+\frac{C}{(x+2)^2}
+	</mrow><mrow>[0.1in]
+	&amp;=\frac{A(x+2)^2+B(x+1)(x+2)+C(x+1)}{(x+1)(x+2)^2}
+	</mrow>
+	</md>
+	The fraction on the far left is the same as the fraction on the far right if and only if their numerators are the same.
+	<md>
+	<mrow>
+	3x^2+13x+11=A(x+2)^2+B(x+1)(x+2)+C(x+1)
+	</mrow>
+	</md>
+	As in the previous examples, there are a couple of different ways  to determine the values of <m>A</m>, <m>B</m> and <m>C</m> from this equation.
+</p>
+</li>
+<li>
+<p>
+	<em>Step 3 <mdash/> Algebra Method.</em>
+	The conceptually clearest procedure is to write the right hand side as a polynomial in standard form (i.e. collect up all <m>x^2</m> terms, all <m>x</m>  terms and all constant terms)
+	<md>
+	<mrow>
+	3x^2+13x+11=(A+B)x^2 + (4A+3B+C)x +(4A+2B+C)
+	</mrow>
+	</md>
+	For these two polynomials to be the same, the coefficient of <m>x^2</m> on the left hand side and the coefficient of <m>x^2</m> on the right hand side must be the same. Similarly the coefficients of <m>x^1</m> and the coefficients of <m>x^0</m> (i.e. the constant terms) must match. This gives us a system of three equations,
+	<md>
+	<mrow>
+	A+B=3\qquad 4A+3B+C=13\qquad 4A+2B+C=11
+	</mrow>
+	</md>
+	in the three unknowns <m>A,B,C</m>. We can solve this system by
+	<ul>
+	<li>
+		using the first equation, namely <m>A+B=3</m>, to determine <m>A</m> in  terms of <m>B</m>: <m>\ \ A=3-B</m>.
+	</li>
+	<li>
+		Substituting this into the remaining equations eliminates the <m>A</m>,  leaving two equations in the two unknown <m>B,C</m>.
+		<md>
+		<mrow>
+		4(3-B)+3B+C=13\qquad 4(3-B)+2B+C=11
+		</mrow>
+		</md>
+		or
+		<md>
+		<mrow>
+		-B+C=1\qquad -2B+C=-1
+		</mrow>
+		</md>
+	</li>
+	<li>
+		We can now solve the first of these equations, namely <m>-B+C=1</m>, for  <m>B</m> in terms of <m>C</m>, giving <m>B=C-1</m>.
+	</li>
+	<li>
+		Substituting this into the last equation, namely <m>-2B+C=-1</m>, gives <m>-2(C-1)+C=-1</m> which is easily solved to give
+	</li>
+	<li>
+		<m>C=3</m>, and then <m>B=C-1=2</m> and then <m>A=3-B=1</m>.
+	</li>
+	</ul>
+	Hence
+	<md>
+	<mrow>
+	\frac{4x^3+23x^2+45x+27}{x^3+5x^2+8x+4}
+	&amp;= 4+ \frac{3x^2+13x+11}{(x+1)(x+2)^2}
+	</mrow>
+	<mrow>
+	&amp; = 4+\frac{1}{x+1}+\frac{2}{x+2}+\frac{3}{(x+2)^2}
+	</mrow>
+	</md>
+	</p>
+</li>
+<li>
+<p>
+	<em>Step 3 <mdash/> Sneaky Method.</em>
+	The second, sneakier, method for finding <m>A</m>, <m>B</m> and <m>C</m> exploits the fact that <m>3x^2 + 13x + 11 = A(x+2)^2 + B(x+1)(x+2) + C(x+1)</m> must be true for all values of <m>x</m>. In particular, it must be true for <m>x=-1</m>. When <m>x=-1</m>, the factor <m>(x+1)</m> multiplying <m>B</m> and <m>C</m> is exactly zero. So <m>B</m> and <m>C</m> disappear from the equation, leaving us with an easy equation to solve for <m>A</m>:
+	<md>
+	<mrow>
+	3x^2+13x+11\Big|_{x=-1} &amp;=\Big[A(x+2)^2+B(x+1)(x+2) +C(x+1)\Big]_{x=-1}
+	</mrow>
+	<mrow>
+	\Longrightarrow 1&amp;=A
+	</mrow>
+	</md>
+	Sub this value of <m>A</m> back in and simplify.
+	<md>
+	<mrow>
+	3x^2+13x+11&amp;=(1)(x+2)^2+B(x+1)(x+2)+C(x+1)
+	</mrow>
+	<mrow>
+	2x^2+9x+7&amp;=B(x+1)(x+2)+C(x+1)=(xB+2B+C)(x+1)
+	</mrow>
+	</md>
+	Since <m>(x+1)</m> is a factor on the right hand side, it must also be a factor on the left hand side.
+	<md>
+	<mrow>
+	(2x+7)(x+1)=(xB+2B+C)(x+1)\quad\Rightarrow\quad (2x+7)=(xB+2B+C)
+	</mrow>
+	</md>
+	For the coefficients of <m>x</m> to match, <m>B</m> must be <m>2</m>. For the constant terms to match, <m>2B+C</m> must be <m>7</m>, so <m>C</m> must be <m>3</m>. Hence we again have
+	<md>
+	<mrow>
+	\frac{4x^3+23x^2+45x+27}{x^3+5x^2+8x+4}
+	&amp;= 4+ \frac{3x^2+13x+11}{(x+1)(x+2)^2}
+	</mrow>
+	<mrow>
+	&amp; = 4+\frac{1}{x+1}+\frac{2}{x+2}+\frac{3}{(x+2)^2}
+	</mrow>
+	</md>
+</p>
+</li>
+<li>
+<p>
+	<em>Step 4.</em>  The final step is to integrate
+	<md>
+	<mrow>
+	\int\frac{4x^3+23x^2+45x+27}{x^3+5x^2+8x+4}\dee{x}
+	&amp;=\int 4\dee{x}+\int\frac{1}{x+1}\dee{x}+\int\frac{2}{x+2}\dee{x}+
+	\int\frac{3}{(x+2)^2}\dee{x}
+	</mrow><mrow>
+	&amp;= 4x+\log|x+1|+2\log|x+2|-\frac{3}{x+2}+C
+	</mrow>
+	</md>
+</p>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+The method of partial fractions is not just confined to the problem of integrating  rational functions. There are other integrals <mdash/> such as <m>\int\sec x\dee{x}</m> and  <m>\int \sec^3 x\dee{x}</m> <mdash/> that can be transformed (via substitutions) into integrals of  rational functions. We encountered both of these integrals in Sections<nbsp/><xref ref="sec_trigint"/>  and<nbsp/><xref ref="sec_trigsub"/> on trigonometric integrals and substitutions.
+</p>
+
+<example xml:id="eg_PFe"><title><m>\int\sec x\dee{x}</m></title>
+<p><alert>Solution:</alert>
+In this example, we integrate <m>\sec x</m>. It is not yet clear what this integral has to do with partial fractions. To get to a partial fractions computation, we first make one of our old substitutions.
+<md>
+<mrow>
+\int \sec x\dee{x}
+  &amp;= \int\frac{1}{\cos x}\dee{x} &amp; \text{massage the expression a little}
+</mrow><mrow>
+  &amp;= \int\frac{\cos x}{\cos^2 x}\dee{x} &amp; \text{substitute $u=\sin x$, $du = \cos
+x\dee{x}$}
+</mrow><mrow>
+  &amp;= -\int \frac{du}{u^2-1} &amp; \text{and use $\cos^2x=1-\sin^2x=1-u^2$}
+</mrow>
+</md>
+So we now have to integrate <m>\frac{1}{u^2-1}</m>, which is a rational function of <m>u</m>, and so is perfect for partial fractions.
+</p>
+
+<p>
+<ul>
+<li>
+	<em>Step 1.</em>  The degree of the numerator, <m>1</m>, is zero, which is strictly smaller than the degree of the denominator, <m>u^2-1</m>, which is two. So the first step is skipped.
+</li>
+<li>
+	<em>Step 2.</em>  The second step is to factor the denominator:
+	<md>
+	<mrow>
+	u^2-1=(u-1)(u+1)
+	</mrow>
+	</md>
+</li>
+<li>
+	<em>Step 3.</em>  The third step is to write <m>\frac{1}{u^2-1}</m> in the form
+	<md>
+	<mrow>
+	\frac{1}{u^2-1}
+	=\frac{1}{(u-1)(u+1)}
+	=\frac{A}{u-1}+\frac{B}{u+1}
+	</mrow>
+	</md>
+	for some constants <m>A</m> and <m>B</m>.
+</li>
+<li>
+<p>
+	<em>Step 3 <mdash/> Sneaky Method.</em>
+	<ul>
+	<li>
+		Multiply through by the denominator to get
+		<md>
+		<mrow>
+		  1 &amp;= A(u+1) + B(u-1)
+		</mrow>
+		</md>
+		This equation must be true for all <m>u</m>.
+	</li>
+	<li>
+		If we now set <m>u=1</m> then we eliminate <m>B</m> from the equation leaving us with
+		<md>
+		<mrow>
+		  1 &amp;= 2A &amp;\text{ so $A=\frac12$.}
+		</mrow>
+		</md>
+	</li>
+	<li>
+		Similarly, if we set <m>u=-1</m> then we eliminate <m>A</m>, leaving
+		<md>
+		<mrow>
+		  1 &amp;= -2B &amp; \text{which implies $B=-\frac{1}{2}$.}
+		</mrow>
+		</md>
+	</li>
+	</ul>
+	We have now found that <m>A=\frac{1}{2}, B=-\frac{1}{2}</m>, so
+	<md>
+	<mrow>
+	\frac{1}{u^2-1} =\frac{1}{2}\Big[\frac{1}{u-1}-\frac{1}{u+1}\Big].
+	</mrow>
+	</md>
+	</p>
+</li>
+<li>
+	It is always a good idea to check our work.
+	<md>
+	<mrow>
+	\frac{\frac{1}{2}}{u-1}+\frac{-\frac{1}{2}}{u+1}
+	&amp;=\frac{\frac{1}{2}(u+1)-\frac{1}{2}(u-1)}{(u-1)(u+1)}
+	=\frac{1}{(u-1)(u+1)} \checkmark
+	</mrow>
+	</md>
+</li>
+<li>
+	<em>Step 4.</em>  The final step is to integrate.
+	<md>
+	<mrow>
+	\int \sec x\dee{x}
+	  &amp;= -\int \frac{\dee{u}}{u^2-1} &amp; \text{after substitution}
+	</mrow><mrow>
+	  &amp; =-\frac{1}{2}\int \frac{\dee{u}}{u-1} +\frac{1}{2}\int \frac{\dee{u}}{u+1}
+	&amp; \text{partial fractions}
+	</mrow><mrow>
+	  &amp; =-\frac{1}{2}\log|u-1|+\frac{1}{2}\log|u+1|+C
+	</mrow><mrow>
+	  &amp; =-\frac{1}{2}\log|\sin(x)-1|+\frac{1}{2}\log|\sin(x)+1|+C &amp; \text{rearrange a little}
+	</mrow><mrow>
+	  &amp; =\frac{1}{2}\log\left|\frac{1+\sin x}{1-\sin x}\right|+C
+	</mrow>
+	</md>
+	Notice that since <m>-1\le\sin x\le 1</m>, we are free to drop the absolute values in the last  line if we wish.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+Another example in the same spirit, though a touch harder. Again, we saw this problem  in Section<nbsp/><xref ref="sec_trigint"/> and<nbsp/><xref ref="sec_trigsub"/>.
+</p>
+
+<example xml:id="eg_PFf"><title><m>\int \sec^3 x\dee{x}</m></title>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	We'll start by converting it into the integral of a rational function using the  substitution <m>u=\sin x</m>, <m>\dee{u}=\cos x\dee{x}</m>.
+	<md>
+	<mrow>
+	\int \sec^3 x\dee{x}
+	&amp;=\int \frac{1}{\cos^3 x}\dee{x} &amp; \text{massage this a little}
+	</mrow><mrow>
+	&amp;=\int \frac{\cos x}{\cos^4 x}\dee{x} &amp;\text{replace $\cos^2x=1-\sin^2x=1-u^2$}
+	</mrow><mrow>
+	&amp;=\int \frac{\cos x\dee{x}}{{[1-\sin^2 x]}^2}
+	</mrow><mrow>
+	&amp;=\int \frac{\dee{u}}{ [1-u^2]^2}
+	</mrow>
+	</md>
+</li>
+<li>
+	We could now find the partial fraction decomposition of the integrand <m>\frac{1}{ {[1-u^2]}^2}</m> by executing the usual four steps. But it is  easier to use
+	<md>
+	<mrow>
+	\frac{1}{u^2-1} =\frac{1}{2}\Big[\frac{1}{u-1}-\frac{1}{u+1}\Big]
+	</mrow>
+	</md>
+	which we worked out in Example<nbsp/><xref ref="eg_PFe"/> above.
+</li>
+<li>
+	Squaring this gives
+	<md>
+	<mrow>
+	\frac{1}{ {[1-u^2]}^2} &amp;= \frac{1}{4}\Big[\frac{1}{u-1}-\frac{1}{u+1}\Big]^2
+	</mrow><mrow>
+	&amp;=\frac{1}{4}   \Big[\frac{1}{(u-1)^2}-\frac{2}{(u-1)(u+1)}+\frac{1}{(u+1)^2}\Big]
+	</mrow><mrow>
+	&amp;=\frac{1}{4}   \Big[\frac{1}{(u-1)^2}-\frac{1}{u-1}+\frac{1}{u+1}+\frac{1}{(u+1)^2}\Big]
+	</mrow>
+	</md>
+	where we have again used  <m>\frac{1}{u^2-1}=\frac{1}{2}\left[\frac{1}{u-1}-\frac{1}{u+1}\right]</m> in the last step.
+</li>
+<li>
+	It only remains to do the integrals and simplify.
+	<md>
+	<mrow>
+	\int \sec^3 x\dee{x}
+	&amp;= \frac{1}{4} \int  \Big[\frac{1}{(u-1)^2}-\frac{1}{u-1}+\frac{1}{u+1}+\frac{1}{(u+1)^2}\Big] \dee{u}
+	</mrow><mrow>
+	&amp;=\frac{1}{4}\Big[-\frac{1}{u-1}-\log|u-1|+\log|u+1|-\frac{1}{u+1}\Big]+C
+	&amp;\text{group carefully}
+	</mrow><mrow>
+	&amp;= \frac{-1}{4}\Big[\frac{1}{u-1} + \frac{1}{u+1} \Big]  + \frac{1}{4} \Big[ \log|u+1| - \log|u-1| \Big] + C
+	&amp;\text{sum carefully}
+	</mrow><mrow>
+	&amp;=-\frac{1}{4}\frac{2u}{u^2-1}+\frac{1}{4}\log\Big|\frac{u+1}{u-1}\Big|+C
+	&amp;\text{clean up}
+	</mrow><mrow>
+	&amp;= \frac{1}{2}\frac{u}{1-u^2}+\frac{1}{4}\log\Big|\frac{u+1}{u-1}\Big|+C
+	&amp; \text{put $u=\sin x$}
+	</mrow><mrow>
+	&amp; =\frac{1}{2}\frac{\sin x}{\cos^2x}
+			  +\frac{1}{4}\log\Big|\frac{\sin x+1}{\sin x-1}\Big|+C
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+</subsection>
+
+
+<subsection><title>The form of partial fraction decompositions</title>
+<introduction>
+<p>
+In the examples above we used the partial fractions method to decompose rational  functions into easily integrated pieces. Each of those examples was quite involved and we  had to spend quite a bit of time factoring and doing long division. The key step in each  of the computations was Step<nbsp/>3 <mdash/> in that step we decomposed the rational function <m>\frac{N(x)}{D(x)}</m> (or <m>\frac{R(x)}{D(x)}</m>), for which the degree of the numerator is strictly smaller than the degree of the denominator, into a sum of particularly simple rational functions, like <m>\frac{A}{x-a}</m>. We did not,  however, give a systematic description of those decompositions.
+</p>
+
+<p>
+In this subsection we fill that gap by describing the general
+	<fn>
+		Well <mdash/> not the  completely general form, in the sense that we are not allowing the use of complex numbers.  As a result we have to use both linear and quadratic factors in the denominator. If we  could use complex numbers we would be able to restrict ourselves to linear factors.
+	</fn>
+form  of partial fraction decompositions. The justification of these forms is not part of the  course, but the interested reader is invited to read the next (optional) subsection where  such justification is given. In the following it is assumed that
+<ul>
+<li>
+	<m>N(x)</m> and <m>D(x)</m> are polynomials with the degree of <m>N(x)</m> strictly  smaller than the degree of <m>D(x)</m>.
+</li>
+<li>
+	<m>K</m> is a constant.
+</li>
+<li>
+	<m>a_1</m>, <m>a_2</m>, <m>\cdots</m>, <m>a_j</m> are all different numbers.
+</li>
+<li>
+	<m>m_1</m>, <m>m_2</m>, <m>\cdots</m>, <m>m_j</m>, and  <m>n_1</m>, <m>n_2</m>, <m>\cdots</m>, <m>n_k</m>  are all strictly positive integers.
+</li>
+<li>
+	<m>x^2+b_1x+c_1</m>, <m>x^2+b_2x+c_2</m>,  <m>\ \cdots\ </m>, <m>x^2+b_kx+c_k</m> are  all different.
+</li>
+</ul>
+</p>
+</introduction>
+
+<subsubsection><title>Simple linear factor case</title>
+<p>
+If the denominator
+<m>
+D(x)=K(x-a_1)(x-a_2)\cdots(x-a_j)
+</m>
+is a product of <m>j</m> different linear factors, then
+</p>
+<fact xml:id="eq_PFdecompa">
+<statement><p>
+<md>
+<mrow>
+\frac{N(x)}{D(x)}
+=\frac{A_1}{x-a_1}+\frac{A_2}{x-a_2}+\cdots+\frac{A_j}{x-a_j}
+</mrow>
+</md>
+</p></statement>
+</fact>
+
+<p>
+We can then integrate each term
+<md>
+<mrow>
+\int \frac{A}{x-a}\dee{x} &amp;= A\log|x-a| +C.
+</mrow>
+</md>
+</p>
+</subsubsection>
+
+<subsubsection><title>General linear factor case</title>
+<p>
+If the denominator
+<m>
+D(x)=K(x-a_1)^{m_1}(x-a_2)^{m_2}\cdots(x-a_j)^{m_j}
+</m>
+then
+</p>
+<claim xml:id="eq_PFdecompb">
+<statement><p>
+<md>
+<mrow>
+\frac{N(x)}{D(x)}
+&amp;=\frac{A_{1,1}}{x-a_1}+\frac{A_{1,2}}{(x-a_1)^2}+\cdots
+          +\frac{A_{1,m_1}}{(x-a_1)^{m_1}}
+</mrow><mrow>
+&amp;\phantom{=}+\frac{A_{2,1}}{x-a_2}+\frac{A_{2,2}}{(x-a_2)^2}+\cdots
+          +\frac{A_{2,m_2}}{(x-a_2)^{m_2}}+\cdots
+</mrow><mrow>
+&amp;\phantom{=}+\frac{A_{j,1}}{x-a_j}+\frac{A_{j,2}}{(x-a_j)^2}+\cdots
+          +\frac{A_{j,m_j}}{(x-a_j)^{m_j}}
+</mrow>
+</md>
+</p></statement>
+</claim>
+
+<p>
+Notice that we could rewrite each line as
+<md>
+<mrow>
+\frac{A_{1}}{x-a}+\frac{A_{2}}{(x-a)^2}+\cdots+\frac{A_{m}}{(x-a)^{m}}
+&amp;=\frac{A_{1}(x-a)^{m-1}+A_{2}(x-a)^{m-2}+\cdots+A_{m}}{(x-a)^m}
+</mrow><mrow>
+&amp;=\frac{B_{1}x^{m-1}+B_{2}x^{m-2}+\cdots+B_{m}}{(x-a)^m}
+</mrow>
+</md>
+which is a polynomial whose degree, <m>m-1</m>, is strictly smaller than that of the denominator <m>(x-a)^m</m>. But the form of Equation<nbsp/><xref ref="eq_PFdecompb"/> is preferable  because it is easier to integrate.
+<md>
+<mrow>
+  \int \frac{A}{x-a}\dee{x} &amp;= A \log|x-a| +C
+</mrow><mrow>
+  \int \frac{A}{(x-a)^k} \dee{x} &amp;= -\frac{1}{k-1} \cdot \frac{A}{(x-a)^{k-1}} &amp;
+\text{provided }k \gt 1.
+</mrow>
+</md>
+</p>
+
+</subsubsection>
+<subsubsection><title>Simple linear and quadratic factor case</title>
+<p>
+If
+<m>
+D(x)=K(x-a_1)\cdots(x-a_j)(x^2+b_1x+c_1)\cdots(x^2+b_kx+c_k)
+</m>
+then
+</p>
+<claim xml:id="eq_PFdecompc">
+<statement><p>
+<md>
+<mrow>
+\frac{N(x)}{D(x)}
+&amp;=\frac{A_1}{x-a_1}+\cdots+\frac{A_j}{x-a_j}
++\frac{B_1x+C_1}{x^2+b_1x+c_1}+\cdots+\frac{B_kx+C_k}{x^2+b_kx+c_k}
+</mrow>
+</md>
+</p></statement>
+</claim>
+
+<p>
+Note that the numerator of each term on the right hand side has degree one smaller than the degree of the denominator.
+</p>
+
+<p>
+The quadratic terms <m>\frac{Bx+C}{x^2+bx+c}</m> are integrated in a two-step process that is  best illustrated with a simple example (see also Example<nbsp/><xref ref="eg_PFc"/> above).
+</p>
+
+<example xml:id="eg_simple_quad"><title><m>\int \frac{2x+7}{x^2+4x+13}\dee{x}</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	Start by completing the square in the denominator:
+	<md>
+	<mrow>
+	  x^2+4x+13 &amp;= (x+2)^2+9 &amp; \text{and thus}
+	</mrow><mrow>
+	  \frac{2x+7}{x^2+4x+13} &amp;= \frac{2x+7}{(x+2)^2+3^2}
+	</mrow>
+	</md>
+</li>
+<li>
+	Now set <m>y=(x+2)/3, \dee{y}=\frac{1}{3}\dee{x}</m>, or equivalently <m>x=3y-2,  \dee{x}=3\dee{y}</m>:
+	<md>
+	<mrow>
+	\int \frac{2x+7}{x^2+4x+13}\dee{x}
+	&amp;= \int \frac{2x+7}{(x+2)^2+3^2}\dee{x}
+	</mrow><mrow>
+	&amp;= \int \frac{6y-4+7}{3^2 y^2 + 3^2} \cdot 3 \dee{y}
+	</mrow><mrow>
+	&amp;= \int \frac{6y+3}{3(y^2+1)}\dee{y}
+	</mrow><mrow>
+	&amp;= \int \frac{2y+1}{y^2+1}\dee{y}
+	</mrow>
+	</md>
+	Notice that we chose 3 in <m>y=(x+2)/3</m> precisely to transform the  denominator into the form <m>y^2+1</m>.
+</li>
+<li>
+	Now almost always the numerator will be a linear polynomial of <m>y</m> and we decompose  as follows
+	<md>
+	<mrow>
+	  \int \frac{2x+7}{x^2+4x+13}\dee{x} &amp;= \int \frac{2y+1}{y^2+1}\dee{y}
+	</mrow><mrow>
+	&amp;= \int \frac{2y}{y^2+1}\dee{y} + \int \frac{1}{y^2+1}\dee{y}
+	</mrow><mrow>
+	&amp;= \log|y^2+1| + \arctan y + C
+	</mrow><mrow>
+	&amp;= \log\left|\left(\frac{x+2}{3}\right)^2 +1 \right| +  \arctan\left(\frac{x+2}{3} \right)+C
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+</example>
+
+</subsubsection>
+<subsubsection><title>Optional <mdash/> General linear and quadratic factor case</title>
+<p>
+If
+<m>
+D(x)=K(x-a_1)^{m_1}\cdots(x-a_j)^{m_j} (x^2+b_1x+c_1)^{n_1}\cdots(x^2+b_kx+c_k)^{n_k}
+</m>
+</p>
+
+<claim xml:id="eq_PFdecompd">
+<statement><p>
+<md>
+<mrow>
+\frac{N(x)}{D(x)}
+&amp;=\frac{A_{1,1}}{x-a_1}+\frac{A_{1,2}}{(x-a_1)^2}+\cdots
+          +\frac{A_{1,m_1}}{(x-a_1)^{m_1}}+\cdots
+</mrow><mrow>
+&amp;\phantom{=}\!+\frac{A_{j,1}}{x-a_j}+\frac{A_{j,2}}{(x-a_j)^2}+\cdots
+          +\frac{A_{j,m_j}}{(x-a_j)^{m_j}}
+</mrow><mrow>
+&amp;\phantom{=}\!+\frac{B_{1,1}x+C_{1,1}}{x^2+b_1x+c_1}
+          +\frac{B_{1,2}x+C_{1,2}}{(x^2+b_1x+c_1)^2}+\!\cdots\!
+          +\frac{B_{1,n_1}x+C_{1,n_1}}{(x^2+b_1x+c_1)^{n_1}}\!+\!\cdots
+</mrow><mrow>
+&amp;\phantom{=}\!+\frac{B_{k,1}x+C_{k,1}}{x^2+b_kx+c_k}
+          +\frac{B_{k,2}x+C_{k,2}}{(x^2+b_kx+c_k)^2}+\!\cdots\!
+          +\frac{B_{k,n_k}x+C_{1,n_k}}{(x^2+b_kx+c_k)^{n_k}}
+</mrow>
+</md>
+</p></statement>
+</claim>
+
+<p>
+We have already seen how to integrate the simple and general linear terms, and the simple  quadratic terms. Integrating general quadratic terms is not so straightforward.
+</p>
+
+<example><title><m>\int \frac{\dee{x}}{(x^2+1)^n}</m></title>
+<p>
+This example is not so easy, so it should definitely be considered optional.
+</p>
+
+<p>
+<alert>Solution:</alert> In what follows write
+<md>
+<mrow>
+  I_n &amp;= \int \frac{\dee{x}}{(x^2+1)^n}.
+</mrow>
+</md>
+<ul>
+<li>
+	When <m>n=1</m> we know that
+	<md>
+	<mrow>
+	  \int \frac{\dee{x}}{x^2+1} &amp;= \arctan x +C
+	</mrow>
+	</md>
+</li>
+<li>
+	Now assume that <m>n \gt 1</m>, then
+	<md>
+	<mrow>
+	  \int \frac{1}{(x^2+1)^n}\dee{x}
+	  &amp;= \int \frac{(x^2+1-x^2)}{(x^2+1)^n}\dee{x} &amp; \text{sneaky}
+	</mrow><mrow>
+	  &amp;= \int \frac{1}{(x^2+1)^{n-1}}\dee{x} - \int \frac{x^2}{(x^2+1)^n}\dee{x}
+	</mrow><mrow>
+	  &amp;= I_{n-1} - \int \frac{x^2}{(x^2+1)^n}\dee{x}
+	</mrow>
+	</md>
+	So we can write <m>I_n</m> in terms of <m>I_{n-1}</m> and this second integral.
+</li>
+<li>
+	We can use integration by parts to compute the second integral:
+	<md>
+	<mrow>
+	  \int \frac{x^2}{(x^2+1)^n}\dee{x}
+	&amp;= \int \frac{x}{2} \cdot \frac{2x}{(x^2+1)^n}\dee{x} &amp; \text{sneaky}
+	</mrow>
+	</md>
+	We set <m>u=x/2</m> and <m>\dee{v}=\frac{2x}{(x^2+1)^n}\dee{x}</m>, which gives  <m>\dee{u}=\frac{1}{2}\dee{x}</m> and <m>v=-\frac{1}{n-1} \cdot \frac{1}{(x^2+1)^{n-1}}</m>. You can  check <m>v</m> by differentiating. Integration by parts gives
+	<md>
+	<mrow>
+	  \int \frac{x}{2} \cdot \frac{2x}{(x^2+1)^n}\dee{x}
+	&amp;= - \frac{x}{2(n-1)(x^2+1)^{n-1}} + \int \frac{\dee{x}}{2(n-1)(x^2+1)^{n-1}}
+	</mrow><mrow>
+	&amp;= - \frac{x}{2(n-1)(x^2+1)^{n-1}} + \frac{1}{2(n-1)} \cdot I_{n-1}
+	</mrow>
+	</md>
+</li>
+<li>
+	Now put everything together:
+	<md>
+	<mrow>
+	  I_n &amp;= \int \frac{1}{(x^2+1)^n}\dee{x}
+	</mrow><mrow>
+	  &amp;= I_{n-1} + \frac{x}{2(n-1)(x^2+1)^{n-1}} - \frac{1}{2(n-1)} \cdot I_{n-1}
+	</mrow><mrow>
+	  &amp;= \frac{2n-3}{2(n-1)} I_{n-1} + \frac{x}{2(n-1)(x^2+1)^{n-1}}
+	</mrow>
+	</md>
+</li>
+<li>
+	We can then use this recurrence to write down <m>I_n</m> for the first few <m>n</m>:
+	<md>
+	<mrow>
+	  I_2 &amp;= \frac{1}{2} I_1 + \frac{x}{2 (x^2+1)}+C
+	</mrow><mrow>
+	  &amp;= \frac{1}{2}\arctan x + \frac{x}{2(x^2+1)}
+	</mrow><mrow>
+	  I_3 &amp;= \frac{3}{4} I_2 + \frac{x}{4(x^2+1)^2}
+	</mrow><mrow>
+	  &amp;= \frac{3}{8}\arctan x + \frac{3x}{8(x^2+1)} + \frac{x}{4(x^2+1)^2}+C
+	</mrow><mrow>
+	  I_4 &amp;= \frac{5}{6} I_3 + \frac{x}{6(x^2+1)^3}
+	</mrow><mrow>
+	  &amp;= \frac{5}{16}\arctan x + \frac{5x}{16(x^2+1)} + \frac{5x}{24(x^2+1)^2} +
+	\frac{x}{6(x^2+1)^3}+C
+	</mrow>
+	</md>
+	and so forth. You can see why partial fraction questions involving denominators
+	with repeated quadratic factors do not often appear on exams.
+</li>
+</ul>
+</p>
+</example>
+</subsubsection>
+</subsection>
+
+<subsection><title>Optional <mdash/> Justification of the partial fraction decompositions</title>
+<introduction>
+<p>
+	We will now see the justification for the form of the partial fraction decompositions. We  will only consider the case in which the denominator has only linear factors. The  arguments when there are quadratic factors too are similar
+	<fn>
+		If we use complex  numbers then every polynomial can be written as a product of linear factors. This is the  fundamental theorem of algebra.
+	</fn>.
+</p>
+</introduction>
+
+<subsubsection><title>Simple linear factor case</title>
+<p>
+In the most common partial fraction decomposition, we split up
+<md>
+<mrow>
+\frac{N(x)}{(x-a_1)\times\cdots\times (x-a_d)}
+</mrow>
+</md>
+into a sum of the form
+<md>
+<mrow>
+\frac{A_1}{x-a_1}+\cdots+\frac{A_d}{x-a_d}
+</mrow>
+</md>
+We now show that this decomposition can always be achieved, under the  assumptions that the <m>a_i</m>'s are all different and  <m>N(x)</m> is a polynomial  of degree at most <m>d-1</m>. To do so, we shall repeatedly apply  the following Lemma.
+</p>
+
+<lemma xml:id="lem_PFa">
+<statement><p>
+Let <m>N(x)</m> and <m>D(x)</m> be polynomials of degree <m>n</m> and <m>d</m> respectively, with <m>n\le d</m>. Suppose that <m>a</m> is NOT a zero of <m>D(x)</m>. Then there is a polynomial <m>P(x)</m> of degree <m>p \lt d</m> and a number <m>A</m> such that
+<md>
+<mrow>
+\frac{N(x)}{D(x)\,(x-a)} &amp;=\frac{P(x)}{D(x)}+\frac{A}{x-a}
+</mrow>
+</md>
+</p></statement>
+</lemma>
+
+<proof>
+<p>
+<ul>
+<li>
+	To save writing, let <m>z=x-a</m>. We then write <m>\tilde N(z)=N(z+a)</m> and  <m>\tilde D(z)=D(z+a)</m>, which are again polynomials of degree <m>n</m> and <m>d</m> respectively. We  also know that <m>\tilde D(0)=D(a)\ne 0</m>.
+</li>
+<li>
+	In order to complete the proof we need to find a  polynomial <m>\tilde P(z)</m> of degree <m>p \lt d</m> and a number <m>A</m> such that
+	<md>
+	<mrow>
+	\frac{\tilde N(z)}{\tilde D(z)\,z}
+	=\frac{\tilde P(z)}{\tilde D(z)}+\frac{A}{z}
+	=\frac{\tilde P(z) z+A\tilde D(z)}{\tilde D(z)\,z}
+	</mrow>
+	</md>
+	or equivalently, such that
+	<md>
+	<mrow>
+	\tilde P(z) z+A\tilde D(z)=\tilde N(z).
+	</mrow>
+	</md>
+</li>
+<li>
+	Now look at the polynomial on the left hand side. Every term in <m>\tilde P(z) z</m>, has at least one power of <m>z</m>. So the constant term on the left hand side is exactly the constant term in <m>A\tilde D(z)</m>, which is equal to  <m>A\tilde D(0)</m>. The constant term on the right hand side is equal to <m>\tilde N(0)</m>. So the constant terms on the left and right hand sides are the same if we choose <m>A=\frac{\tilde N(0)}{\tilde D(0)}</m>. Recall that <m>\tilde D(0)</m> cannot be zero, so <m>A</m> is well defined.
+</li>
+<li>
+	Now move <m>A\tilde D(z)</m> to the right hand side.
+	<md>
+	<mrow>
+	\tilde P(z) z=\tilde N(z)-A\tilde D(z)
+	</mrow>
+	</md>
+	The constant terms in <m>\tilde N(z)</m> and <m>A\tilde D(z)</m> are the same, so the right hand side contains no constant term and the right hand side is of the form <m>\tilde N_1(z) z</m> for some polynomial <m>\tilde N_1(z)</m>.
+</li>
+<li>
+	Since <m>\tilde N(z)</m> is of degree at most <m>d</m> and <m>A\tilde D(z)</m> is of degree  exactly <m>d</m>, <m>\tilde N_1</m> is a polynomial of degree <m>d-1</m>. It now suffices to choose  <m>\tilde P(z)=\tilde N_1(z)</m>.
+</li>
+</ul>
+</p>
+</proof>
+
+<p>
+Now back to
+<md>
+<mrow>
+\frac{N(x)}{(x-a_1)\times\cdots\times (x-a_d)}
+</mrow>
+</md>
+Apply Lemma<nbsp/><xref ref="lem_PFa"/>, with <m>D(x)=(x-a_2)\times\cdots\times (x-a_d)</m> and  <m>a=a_1</m>. It says
+<md>
+<mrow>
+\frac{N(x)}{(x-a_1)\times\cdots\times (x-a_d)}
+=\frac{A_1}{x-a_1}+\frac{P(x)}{(x-a_2)\times\cdots\times (x-a_d)}
+</mrow>
+</md>
+for some polynomial <m>P</m> of degree at most <m>d-2</m> and some number <m>A_1</m>.
+</p>
+
+<p>
+Apply Lemma <xref ref="lem_PFa"/> a second time, with <m>D(x)=(x-a_3)\times\cdots\times (x-a_d)</m>,  <m>N(x)=P(x)</m> and <m>a=a_2</m>. It says
+<md>
+<mrow>
+\frac{P(x)}{(x-a_2)\times\cdots\times (x-a_d)}
+=\frac{A_2}{x-a_2}+\frac{Q(x)}{(x-a_3)\times\cdots\times (x-a_d)}
+</mrow>
+</md>
+for some polynomial <m>Q</m> of degree at most <m>d-3</m> and some number <m>A_2</m>.
+</p>
+
+<p>
+At this stage, we know that
+<md>
+<mrow>
+\frac{N(x)}{(x-a_1)\times\cdots\times (x-a_d)}
+=\frac{A_1}{x-a_1}+\frac{A_2}{x-a_2}+
+\frac{Q(x)}{(x-a_3)\times\cdots\times (x-a_d)}
+</mrow>
+</md>
+If we just keep going, repeatedly applying Lemma 1, we eventually end up with
+<md>
+<mrow>
+\frac{N(x)}{(x-a_1)\times\cdots\times (x-a_d)}
+=\frac{A_1}{x-a_1}+\cdots+\frac{A_d}{x-a_d}
+</mrow>
+</md>
+as required.
+</p>
+</subsubsection>
+
+<subsubsection><title>The general case with linear factors</title>
+<p>
+Now consider splitting
+<md>
+<mrow>
+\frac{N(x)}{(x-a_1)^{n_1}\times\cdots\times (x-a_d)^{n_d}}
+</mrow>
+</md>
+into a sum of the form
+	<fn>
+		If we allow ourselves to use complex numbers as roots,  this is the general case. We don't need to consider quadratic (or higher) factors since  all polynomials can be written as products of linear factors with complex coefficients.
+	</fn>
+<md>
+<mrow>
+\Big[\frac{A_{1,1}}{x-a_1}+\cdots+\frac{A_{1,n_1}}{(x-a_1)^{n_1}}\Big]+\cdots+
+\Big[\frac{A_{d,1}}{x-a_d}+\cdots+\frac{A_{d,n_d}}{(x-a_d)^{n_d}}\Big]
+</mrow>
+</md>
+We now show that this decomposition can always be achieved, under the  assumptions that the <m>a_i</m>'s are all different and  <m>N(x)</m> is a polynomial  of degree at most <m>n_1+\cdots+n_d-1</m>. To do so, we shall repeatedly apply  the following Lemma.
+</p>
+
+<lemma xml:id="lem_PFb">
+<statement><p>
+Let <m>N(x)</m> and <m>D(x)</m> be polynomials of degree <m>n</m> and <m>d</m> respectively, with <m>n \lt  d+m</m>. Suppose that <m>a</m> is NOT a zero of <m>D(x)</m>. Then there is a polynomial <m>P(x)</m> of degree <m>p \lt d</m> and numbers <m>A_1,\ \cdots,\ A_m</m> such  that
+<md>
+<mrow>
+\frac{N(x)}{D(x)\,(x-a)^m}
+=\frac{P(x)}{D(x)}+\frac{A_1}{x-a}+\frac{A_2}{(x-a)^2}+\cdots
++\frac{A_m}{(x-a)^m}
+</mrow>
+</md>
+</p></statement>
+</lemma>
+
+<proof>
+<p>
+<ul>
+<li>
+	As we did in the proof of the previous lemma, we write <m>z=x-a</m>. Then <m>\tilde  N(z)=N(z+a)</m> and <m>\tilde D(z)=D(z+a)</m> are polynomials of degree <m>n</m> and <m>d</m> respectively, <m>\tilde D(0)=D(a)\ne 0</m>.
+</li>
+<li>
+	In order to complete the proof we have to find a polynomial <m>\tilde P(z)</m> of degree <m>p \lt d</m>  and numbers <m>A_1,\ \cdots,\ A_m</m> such that
+	<md>
+	<mrow>
+	\frac{\tilde N(z)}{\tilde D(z)\,z^m}
+	&amp;=\frac{\tilde P(z)}{\tilde D(z)}+\frac{A_1}{z}+\frac{A_2}{z^2}+\cdots
+	+\frac{A_m}{z^m}
+	</mrow><mrow>
+	&amp;=\frac{\tilde P(z) z^m+A_1z^{m-1}\tilde D(z)+A_2z^{m-2}\tilde
+	D(z)+\cdots+A_m\tilde D(z)}{\tilde D(z)\,z^m}
+	</mrow>
+	</md>
+	or equivalently, such that
+	<md>
+	<mrow>
+	\tilde P(z) z^m+A_1z^{m-1}\tilde D(z)+A_2z^{m-2}\tilde D(z)+\cdots
+	+A_{m-1}z\tilde D(z)+A_m\tilde D(z)
+	=\tilde N(z)
+	</mrow>
+	</md>
+</li>
+<li>
+	Now look at the polynomial on the left hand side. Every single term on the left hand side, except for the very last one, <m>A_m\tilde D(z)</m>, has at least one power of <m>z</m>. So the constant term on the left hand side is exactly the constant term in <m>A_m\tilde D(z)</m>, which is equal to <m>A_m\tilde D(0)</m>. The constant term on the right hand side is equal to <m>\tilde N(0)</m>. So the constant terms on the left and right hand sides are the same if we choose <m>A_m=\frac{\tilde N(0)}{\tilde D(0)}</m>. Recall that  <m>\tilde D(0)\ne 0</m> so <m>A_m</m> is well defined.
+</li>
+<li>
+	Now move <m>A_m\tilde D(z)</m> to the right hand side.
+	<md>
+	<mrow>
+	\tilde P(z) z^m+A_1z^{m-1}\tilde D(z)+A_2z^{m-2}\tilde D(z)+\cdots
+	+A_{m-1}z\tilde D(z)
+	=\tilde N(z)-A_m\tilde D(z)
+	</mrow>
+	</md>
+	The constant terms in <m>\tilde N(z)</m> and <m>A_m\tilde D(z)</m> are the same, so the right hand side contains no constant term and the right hand side is of the form <m>\tilde N_1(z) z</m> with <m>\tilde N_1</m> a polynomial of degree at most <m>d+m-2</m>. (Recall that <m>\tilde N</m> is of degree at most <m>d+m-1</m> and <m>\tilde D</m> is of degree at most <m>d</m>.) Divide the whole equation by <m>z</m> to get
+	<md>
+	<mrow>
+	\tilde P(z) z^{m-1}+A_1z^{m-2}\tilde D(z)+A_2z^{m-3}\tilde D(z)+\cdots +A_{m-1}\tilde D(z) =\tilde N_1(z).
+	</mrow>
+	</md>
+</li>
+<li>
+	Now, we can repeat the previous argument. The constant term on the left hand side, which is exactly equal to <m>A_{m-1}\tilde D(0)</m> matchs the constant term on the right hand side, which is equal to <m>\tilde N_1(0)</m> if we choose  <m>A_{m-1}=\frac{\tilde N_1(0)}{\tilde D(0)}</m>. With this choice of <m>A_{m-1}</m>
+	<md>
+	<mrow>
+	\tilde P(z) z^{m-1}+A_1z^{m-2}\tilde D(z)+A_2z^{m-3}\tilde D(z)+\cdots +A_{m-2} z\tilde D(z)
+	</mrow>
+	<mrow>
+	=\tilde N_1(z)-A_{m-1}\tilde D(z)=\tilde N_2(z)z
+	</mrow>
+	</md>
+	with <m>\tilde N_2</m> a polynomial of degree at most <m>d+m-3</m>. Divide by <m>z</m> and continue.
+</li>
+<li>
+	After <m>m</m> steps like this, we end up with
+	<md>
+	<mrow>
+	\tilde P(z) z=\tilde N_{m-1}(z)-A_1\tilde D(z)
+	</mrow>
+	</md>
+	after having chosen <m>A_1=\frac{\tilde N_{m-1}(0)}{\tilde D(0)}</m>.
+</li>
+<li>
+	There is no constant term on the right side so that <m>\tilde N_{m-1}(z)-A_1\tilde  D(z)</m> is of the form <m>\tilde N_m(z) z</m> with <m>\tilde N_m</m> a polynomial of degree <m>d-1</m>. Choosing <m>\tilde P(z)=\tilde N_m(z)</m> completes the proof.
+</li>
+</ul>
+</p>
+</proof>
+
+<p>Now back to
+<md>
+<mrow>
+\frac{N(x)}{(x-a_1)^{n_1}\times\cdots\times (x-a_d)^{n_d}}
+</mrow>
+</md>
+Apply Lemma <xref ref="lem_PFb"/>, with  <m>D(x)=(x-a_2)^{n_2}\times\cdots\times (x-a_d)^{n_d}</m>, <m>m=n_1</m> and <m>a=a_1</m>. It says
+<md>
+<mrow>
+&amp;\frac{N(x)}{(x-a_1)^{n_1}\times\cdots\times (x-a_d)^{n_d}}
+</mrow><mrow>
+&amp; =\frac{A_{1,1}}{x-a_1}+\frac{A_{1,2}}{(x-a_1)^2}+\cdots
++\frac{A_{1,n_1}}{(x-a)^{n_1}}
++\frac{P(x)}{(x-a_2)^{n_2}\times\cdots\times (x-a_d)^{n_d}}
+</mrow>
+</md>
+Apply Lemma <xref ref="lem_PFb"/> a second time, with  <m>D(x)=(x-a_3)^{n_3}\times\cdots\times (x-a_d)^{n_d}</m>, <m>N(x)=P(x)</m>, <m>m=n_2</m> and  <m>a=a_2</m>. And so on. Eventually, we end up with
+<md>
+<mrow>
+\Big[\frac{A_{1,1}}{x-a_1}+\cdots+\frac{A_{1,n_1}}{(x-a_1)^{n_1}}\Big]+\cdots+
+\Big[\frac{A_{d,1}}{x-a_d}+\cdots+\frac{A_{d,n_d}}{(x-a_d)^{n_d}}\Big]
+</mrow>
+</md>
+which is exactly what we were trying to show.
+</p>
+</subsubsection>
+</subsection>
+
+
+<xi:include href="../problems/prob_s1.10.xml" />
+
+
+</section>

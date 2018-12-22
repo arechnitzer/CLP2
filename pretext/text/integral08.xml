@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_trigint">
+<title>Trigonometric Integrals</title>
+<introduction>
+
+<p>
+Integrals of polynomials of the trigonometric functions <m>\sin x</m>, <m>\cos x</m>, <m>\tan x</m> and  so on, are generally evaluated by using a combination of simple substitutions and  trigonometric identities. There are of course a very large number
+	<fn>
+		The more  pedantic reader could construct an infinite list of them.
+	</fn>
+of trigonometric  identities, but usually we use only a handful of them. The most important three are:
+</p>
+<fact xml:id="eq_TRGINTtrigidentityA">
+<statement><p>
+<md>
+<mrow>
+\sin^2 x +\cos^2 x &amp;= 1
+</mrow>
+</md>
+</p>
+</statement>
+</fact>
+
+<fact xml:id="eq_TRGINTtrigidentityB">
+<statement><p>
+ <md>
+<mrow>
+\sin(2x)&amp;=2\sin x\cos x
+</mrow>
+</md>
+</p>
+</statement>
+</fact>
+
+<fact xml:id="eq_TRGINTtrigidentityC">
+<statement><p>
+<md>
+<mrow>
+\cos(2x)&amp;=\cos^2 x - \sin^2 x
+</mrow><mrow>
+        &amp;=2\cos^2 x - 1
+</mrow><mrow>
+        &amp;=1-2\sin^2 x
+</mrow>
+</md>
+</p>
+</statement>
+</fact>
+
+<p>
+Notice that the last two lines of Equation<nbsp/><xref ref="eq_TRGINTtrigidentityC"/> follow from  the first line by replacing either <m>\sin^2x</m> or <m>\cos^2x</m> using  Equation<nbsp/><xref ref="eq_TRGINTtrigidentityA"/>. It is also useful to rewrite these last two lines:
+</p>
+
+<fact xml:id="eq_TRGINTtrigidentityF">
+<statement><p>
+<md>
+<mrow>
+\sin^2 x &amp;= \frac{1-\cos(2x)}{2}
+</mrow>
+</md>
+</p></statement>
+</fact>
+
+<fact xml:id="eq_TRGINTtrigidentityG">
+<statement><p>
+ <md>
+<mrow>
+\cos^2 x &amp;= \frac{1+\cos(2x)}{2}
+</mrow>
+</md>
+</p></statement>
+</fact>
+
+<p>
+These last two are particularly useful since they allow us to rewrite higher powers of  sine and cosine in terms of lower powers. For example:
+<md>
+<mrow>
+  \sin^4(x) &amp;= \left[ \frac{1-\cos(2x)}{2} \right]^2  &amp;\text{by Equation }<xref ref="eq_TRGINTtrigidentityF"/>
+</mrow><mrow>
+   &amp;= \frac{1}{4} - \frac{1}{2} \cos(2x) + \frac{1}{4}\underbrace{\cos^2(2x)}_{\text{do
+ it again}} &amp; \text{use Equation }<xref ref="eq_TRGINTtrigidentityG"/>
+</mrow><mrow>
+  &amp;= \frac{1}{4} - \frac{1}{2} \cos(2x) + \frac{1}{8}\left(1 + \cos(4x) \right)
+</mrow><mrow>
+  &amp;= \frac{3}{8} - \frac{1}{2} \cos(2x) + \frac{1}{8}\cos(4x)
+</mrow>
+</md>
+So while it was hard to integrate <m>\sin^4(x)</m> directly, the final expression is quite  straightforward (with a little substitution rule).
+</p>
+
+<p>
+There are many such tricks for integrating powers of trigonometric functions. Here we  concentrate on two families
+<md>
+<mrow>
+  \int \sin^mx \cos^nx \dee{x} &amp;&amp;\text{and}&amp;&amp;
+  \int \tan^mx \sec^nx \dee{x}
+</mrow>
+</md>
+for integer <m>n,m</m>. The details of the technique depend on the parity of <m>n</m> and <m>m</m> <mdash/>  that is, whether <m>n</m> and <m>m</m> are even or odd numbers.
+</p>
+</introduction>
+
+<subsection xml:id="sec_sincos">
+<title>Integrating <m>\int \sin^m x\cos^n x\dee{x}</m></title>
+
+<subsubsection><title>One of <m>n</m> and <m>m</m> is odd</title>
+<p>
+Consider the integral <m>\int \sin^2x \cos x\dee{x}</m>. We can integrate this by substituting
+<m>u=\sin x</m> and <m>\dee{u}=\cos x \dee{x}</m>. This gives
+<md>
+<mrow>
+  \int \sin^2x \cos x\dee{x} &amp;= \int u^2 \dee{u}
+</mrow><mrow>
+  &amp;= \frac{1}{3}u^3+C = \frac{1}{3}\sin^3x +C
+</mrow>
+</md>
+This method can be used whenever <m>n</m> is an odd integer.
+<ul>
+<li>
+	Substitute <m>u=\sin x</m> and <m>\dee{u}=\cos x\dee{x}</m>.
+</li>
+<li>
+	This leaves an even power of cosines <mdash/> convert them using <m>\cos^2x = 1-\sin^2x  = 1-u^2</m>.
+</li>
+</ul>
+Here is an example.
+</p>
+
+<example xml:id="eg_TRGINTa"><title><m>\int \sin^2 x\cos^3 x\dee{x}</m></title>
+<p>
+Start by factoring off one power of <m>\cos x</m> to combine with <m>dx</m> to get <m>\cos x\dee{x}=du</m>.
+<md>
+<mrow>
+\int \sin^2 x\cos^3 x\dee{x}
+&amp;= \int \underbrace{\sin^2 x}_{=u^2}\underbrace{\cos^2 x}_{=1-u^2}\ \underbrace{\cos
+x\dee{x}}_{=\dee{u}} &amp; \text{set $u=\sin x$}
+</mrow><mrow>
+&amp;= \int u^2\ (1-u^2)\dee{u}
+</mrow><mrow>
+&amp;=\frac{u^3}{3}-\frac{u^5}{5}+C
+</mrow><mrow>
+&amp;=\frac{\sin^3x}{3}-\frac{\sin^5x}{5}+C
+</mrow>
+</md>
+</p>
+</example>
+
+<p>
+Of course if <m>m</m> is an odd integer we can use the same strategy with the roles of <m>\sin x</m> and <m>\cos x</m> exchanged. That is, we substitute <m>u=\cos x</m>, <m>\dee{u}=-\sin x\dee{x}</m> and <m>\sin^2 x=1-\cos^2x=1-u^2</m>.
+</p>
+
+</subsubsection>
+
+<subsubsection><title>Both <m>n</m> and <m>m</m> are even</title>
+<p>
+If <m>m</m> and <m>n</m> are both even, the strategy is to use the trig identities <xref ref="eq_TRGINTtrigidentityF"/> and <xref ref="eq_TRGINTtrigidentityG"/> to get back to the <m>m</m> or <m>n</m> odd case. This is typically more laborious than the  previous case we studied. Here are a couple of examples that arise quite commonly in  applications.
+</p>
+
+<example xml:id="eg_TRGINTb"><title><m>\int \cos^2 x\dee{x}</m></title>
+<p>
+By <xref ref="eq_TRGINTtrigidentityG"/>
+<me>
+\int \cos^2 x\dee{x}
+= \frac{1}{2}\int \big[1+\cos(2x)\big]\dee{x}
+= \frac{1}{2} \Big[x+\frac{1}{2}\sin(2x)\Big] + C
+</me>
+</p>
+</example>
+
+<example xml:id="eg_TRGINTc"><title><m>\int \cos^4 x\dee{x}</m></title>
+<p>
+First we'll prepare the integrand <m>\cos^4x</m> for easy integration by applying <xref ref="eq_TRGINTtrigidentityG"/> a couple times. We have already used <xref ref="eq_TRGINTtrigidentityG"/> once to get
+<md>
+<mrow>
+\cos^2 x = \frac{1}{2} \big[1+\cos(2x)\big]
+</mrow>
+</md>
+Squaring it gives
+<md>
+<mrow>
+\cos^4 x = \frac{1}{4} \big[1+\cos(2x)\big]^2
+                   =  \frac{1}{4}+\frac{1}{2}\cos(2x)+\frac{1}{4}\cos^2(2x)
+</mrow>
+</md>
+Now by <xref ref="eq_TRGINTtrigidentityG"/> a second time
+<md>
+<mrow>
+\cos^4 x &amp;= \frac{1}{4}+\frac{1}{2}\cos(2x)+\frac{1}{4}\ \frac{1+\cos(4x)}{2}
+</mrow><mrow>
+&amp;=\frac{3}{8}+\frac{1}{2}\cos(2x)+\frac{1}{8}\cos(4x)
+</mrow>
+</md>
+Now it's easy to integrate
+<md>
+<mrow>
+\int \cos^4 x\dee{x}
+&amp;= \frac{3}{8}\int dx+\frac{1}{2}\int\cos(2x)\dee{x}+\frac{1}{8}\int\cos(4x)\dee{x}
+</mrow>
+<mrow>
+&amp;= \frac{3}{8}x+\frac{1}{4}\sin(2x)+\frac{1}{32}\sin(4x) + C
+</mrow>
+</md>
+</p>
+</example>
+
+<example xml:id="eg_cos2sin2"><title><m>\int \cos^2x \sin^2x\dee{x}</m></title>
+<p>
+Here we apply both <xref ref="eq_TRGINTtrigidentityF"/> and <xref ref="eq_TRGINTtrigidentityG"/>.
+<md>
+<mrow>
+  \int \cos^2x \sin^2x\dee{x}
+  &amp;= \frac{1}{4} \int \big[1+\cos(2x)\big] \big[1-\cos(2x)\big] \dee{x}
+</mrow><mrow>
+  &amp;= \frac{1}{4} \int \big[ 1-\cos^2(2x) \big] \dee{x}
+</mrow>
+<intertext>
+We can then apply  <xref ref="eq_TRGINTtrigidentityG"/> again
+</intertext>
+<mrow>
+  &amp;= \frac{1}{4} \int \big[ 1- \frac{1}{2}\left(1+ \cos(4x)\right) \big] \dee{x}
+</mrow><mrow>
+  &amp;= \frac{1}{8}\int \big[1 - \cos(4x)\big] \dee{x}
+</mrow><mrow>
+  &amp;= \frac{1}{8}x -\frac{1}{32}\sin(4x) +C
+</mrow>
+</md>
+Oof! We could also have done this one using <xref ref="eq_TRGINTtrigidentityB"/> to write  the integrand as <m>\sin^2(2x)</m> and then used <xref ref="eq_TRGINTtrigidentityF"/> to write it in  terms of <m>\cos(4x)</m>.
+</p>
+</example>
+
+
+<example  xml:id="eg_TRGINTd"><title><m>\int_0^\pi \cos^2 x\dee{x}</m> and <m>\int_0^\pi \sin^2 x\dee{x}</m></title>
+<p>
+Of course we can compute the definite integral <m>\int_0^\pi \cos^2 x\dee{x}</m> by using the antiderivative for <m>\cos^2 x</m> that we found in  Example <xref ref="eg_TRGINTb"/>. But here is a trickier way to evaluate that integral, and also the integral <m>\int_0^\pi \sin^2 x\dee{x}</m> at the same time, very quickly without needing the antiderivative of  Example <xref ref="eg_TRGINTb"/>.
+</p>
+
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+<p>
+	Observe that <m>\int_0^\pi \cos^2 x\dee{x}</m> and <m>\int_0^\pi \sin^2 x\dee{x}</m> are equal because they represent the same  area <mdash/> look at the graphs below <mdash/> the darkly shaded regions in the two graphs have the same area and the lightly shaded regions in the two graphs have the same area.
+</p>
+
+<sidebyside width="40%">
+<image source="text/figs/sin2Graph"/>
+<image source="text/figs/cos2Graph"/>
+</sidebyside>
+</li>
+<li>
+	Consequently,
+	<md>
+	<mrow>
+	\int_0^\pi \cos^2 x\dee{x}
+	= \int_0^\pi \sin^2 x\dee{x}
+	 &amp;= \frac{1}{2}\bigg[\int_0^\pi \sin^2 x\dee{x}
+							 +\int_0^\pi \cos^2 x\dee{x}\bigg]
+	</mrow><mrow>[0.1in]
+	&amp;=\frac{1}{2}\int_0^\pi \big[\sin^2 x+ \cos^2 x\big]\dee{x}
+	</mrow><mrow>[0.1in]
+	&amp;= \frac{1}{2}\int_0^\pi dx
+	</mrow><mrow>[0.1in]
+	&amp;=\frac{\pi}{2}
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+</subsubsection>
+</subsection>
+
+<subsection xml:id="sec_tansec"><title>Integrating <m>\int \tan^m x\sec^n x\dee{x}</m></title>
+<introduction>
+
+<p>
+The strategy for dealing with these integrals is similar to the strategy that we used to evaluate integrals of the form <m>\int \sin^m x\cos^n x\dee{x}</m> and again depends on the parity of the exponents <m>n</m> and  <m>m</m>. It uses
+	<fn>
+		You will need to memorise the  derivatives of tangent and secant. However there is no need to memorise  <m>1+\tan^2x = \sec^2 x</m>. To derive it very quickly just divide <m>\sin^2 x+\cos^2 x = 1</m> by  <m>\cos^2 x</m>.
+	</fn>
+<md>
+<mrow>
+\diff{}{x}\tan x &amp;= \sec^2 x &amp;
+\diff{}{x}\sec x &amp;= \sec x\,\tan x &amp;
+1+\tan^2x &amp;= \sec^2 x
+</mrow>
+</md>
+We split the methods for integrating <m>\int \tan^m x\sec^n x\dee{x}</m> into 5 cases which we  list below. These will become much more clear after an example (or two).
+<ol label="1">
+<li>
+	When <m>m</m> is odd and any <m>n</m> <mdash/> rewrite the integrand in terms of <m>\sin  x</m> and <m>\cos x</m>:
+	<md>
+	<mrow>
+	\tan^m x\,\sec^n x\dee{x}
+		   &amp;=\big(\frac{\sin x}{\cos x}\big)^m \big(\frac{1}{\cos x}\big)^n\dee{x}
+	</mrow><mrow>
+		   &amp;=\frac{\sin^{m-1}x}{\cos^{n+m}x}\ \sin x\dee{x}
+	</mrow>
+	</md>
+	and then substitute <m>u=\cos x</m>, <m>du = -\sin x\dee{x}</m>, <m>\sin^2x = 1-\cos^2x=1-u^2</m>. See  Examples <xref ref="eg_TRGINTg"/> and <xref ref="eg_TRGINTh"/>.
+</li>
+<li>
+	Alternatively, if <m>m</m> is odd and <m>n \geq 1</m> move one factor of  <m>\sec x\,\tan x</m> to the side so that you can see <m>\sec x\,\tan x\dee{x}</m>  in the integral, and substitute <m>u=\sec x</m>, <m>du=\sec x\,\tan x\,\dee{x}</m> and <m>\tan^2 x = \sec^2 x-1=u^2-1</m>. See Example <xref ref="eg_TRGINTf"/>.
+</li>
+<li>
+	If <m>n</m> is even with <m>n\ge 2</m>, move one factor of <m>\sec^2 x</m> to the side so that you can see <m>\sec^2 x\dee{x}</m> in the integral, and  substitute <m>u=\tan x</m>, <m>du=\sec^2 x\,\dee{x}</m> and <m>\sec^2 x = 1+\tan^2 x=1+u^2</m>. See Example <xref ref="eg_TRGINTe"/>.
+</li>
+<li>
+	When <m>m</m> is even and <m>n=0</m> <mdash/> that is the integrand is just an even power of  tangent <mdash/> we can still use the <m>u=\tan x</m> substitution, after using <m>\tan^2x = \sec^2 x - 1</m> (possibly more than once) to  create a <m>\sec^2 x</m>. See Example <xref ref="eg_TRGINTi"/>.
+</li>
+<li>
+	This leaves the case <m>n</m> odd and <m>m</m> even. There are strategies like those above for treating this case. But they are more complicated and also involve more tricks (that basically have to be memorized). Examples using  them are provided in the optional section entitled  <q>Integrating <m>\sec x</m>, <m>\csc x</m>, <m>\sec^3 x</m> and <m>\csc^3 x</m></q>, below.  A more straight forward strategy uses another technique  called <q>partial fractions</q>. We shall return to this strategy after we have learned about partial fractions. See Example<nbsp/><xref ref="eg_PFe"/> and<nbsp/><xref ref="eg_PFf"/> in  Section<nbsp/><xref ref="sec_parfrac"/>.
+</li>
+</ol>
+</p>
+</introduction>
+
+<subsubsection><title><m>m</m> is odd <mdash/> odd power of tangent</title>
+<p>
+In this case we rewrite the integrand in terms of sine and cosine and then substitute  <m>u=\cos x, \dee{u}=-\sin x \dee{x}</m>.
+</p>
+
+<example xml:id="eg_TRGINTg"><title><m>\int \tan x\dee{x}</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li> Write the integrand <m>\tan x=\frac{1}{\cos x}\sin x</m>. </li>
+<li>
+	Now substitute <m>u=\cos x</m>, <m>du=-\sin x\,\dee{x}</m> just as we did in treating integrands of the form <m>\sin^mx\,\cos^nx</m> with <m>m</m> odd.
+	<md>
+	<mrow>
+	  \int \tan x\,\dee{x}
+	  &amp;=\int \frac{1}{\cos x}\sin x\,\dee{x} \qquad\qquad\qquad \text{substitute $u=\cos x$}
+	</mrow><mrow>
+	  &amp;=\int \frac{1}{u} \cdot(-1) \dee{u}
+	</mrow><mrow>
+	  &amp;=-\log|u|+C
+	</mrow><mrow>
+	  &amp;=-\log|\cos x|+C \qquad\qquad \text{can also write in terms of secant}
+	</mrow><mrow>
+	  &amp;=\log|\cos x|^{-1}+C =\log|\sec x|+C
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+
+<example xml:id="eg_TRGINTh"><title><m>\int \tan^3 x\dee{x}</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li> Write the integrand <m>\tan^3 x=\frac{\sin^2x}{\cos^3 x}\sin x</m>. </li>
+<li>
+	Again substitute <m>u=\cos x</m>, <m>du=-\sin x\,\dee{x}</m>. We rewrite the remaining even  powers of <m>\sin x</m> using <m>\sin^2x=1-\cos^2x=1-u^2</m>.
+</li>
+<li>
+	Hence
+	<md>
+	<mrow>
+	  \int \tan^3 x\,\dee{x}
+	  &amp;=\int \frac{\sin^2x}{\cos^3x}\sin x\,\dee{x} &amp; \text{subsitute $u=\cos x$}
+	</mrow><mrow>
+	  &amp;=\int \frac{1-u^2}{u^3} (-1) \dee{u}
+	</mrow><mrow>
+	  &amp;=\frac{u^{-2}}{2}+\log|u|+C
+	</mrow><mrow>
+	  &amp;=\frac{1}{2 \cos^2 x}+\log|\cos x|+C &amp; \text{can rewrite in terms of secant}
+	</mrow><mrow>
+	  &amp;= \frac{1}{2}\sec^2 x - \log|\sec x|+C
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+</subsubsection>
+
+<subsubsection><title><m>m</m> is odd and <m>n\geq 1</m> <mdash/> odd power of tangent and at least one secant</title>
+
+<p>
+Here we collect a factor of <m>\tan x \sec x</m> and then substitute <m>u = \sec x</m> and <m>\dee{u}  = \sec x \tan x \dee{x}</m>. We can then rewrite any remaining even powers of <m>tan  x</m> in terms of <m>\sec x</m> using <m>\tan^2x = \sec^2 x-1=u^2-1</m>.
+</p>
+
+<example xml:id="eg_TRGINTf"><title><m>\int \tan^3 x\sec^4 x\dee{x}</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	Start by factoring off one copy of <m>\sec x\tan x</m> and combine it with <m>dx</m> to form <m>\sec x\tan x\dee{x}</m>, which will be <m>du</m>.
+</li>
+<li>
+	Now substitute <m>u=\sec x</m>,  <m>\dee{u}=\sec x\tan x\dee{x}</m> and <m>\tan^2x = \sec^2 x-1=u^2-1</m>.
+</li>
+<li>
+	This gives
+	<md>
+	<mrow>
+	\int \tan^3x \sec^4 x\dee{x}
+	&amp;= \int \underbrace{\tan^2 x}_{u^2-1}\
+			\underbrace{\sec^3 x}_{u^3}\
+			\underbrace{\sec x\tan x\dee{x}}_{du}
+	</mrow><mrow>
+	&amp;= \int \big[u^2-1]u^3\dee{u}
+	</mrow><mrow>
+	&amp;=\frac{u^6}{6}-\frac{u^4}{4}+C
+	</mrow><mrow>
+	&amp;=\frac{1}{6}\sec^6 x-\frac{1}{4}\sec^4 x + C
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+</example>
+
+</subsubsection>
+<subsubsection><title><m>n\geq 2</m> is even <mdash/> a positive even power of secant</title>
+<p>
+In the previous case we substituted <m>u = \sec x</m>, while in this case we substitute  <m>u=\tan x</m>. When we do this we write <m>\dee{u}=\sec^2 x \dee{x}</m> and then rewrite  any remaining even powers of <m>\sec x</m> as powers of <m>\tan x</m> using <m>\sec^2x =  1+\tan^2x=1+u^2</m>.
+</p>
+
+<example xml:id="eg_TRGINTe"><title><m>\int \sec^4 x\dee{x}</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	Factor off one copy of <m>\sec^2 x</m> and combine it with <m>dx</m> to form <m>\sec^2 x\dee{x}</m>, which will be <m>du</m>.
+</li>
+<li>
+	Then substitute <m>u=\tan x</m>, <m>du=\sec^2 x\dee{x}</m> and rewrite any remaining even  powers of <m>\sec x</m> as powers of <m>\tan x=u</m> using <m>\sec^2x = 1+\tan^2 x=1+u^2</m>.
+</li>
+<li>
+	This gives
+	<md>
+	<mrow>
+	\int \sec^4 x\dee{x}
+	&amp;= \int \underbrace{\sec^2 x}_{1+u^2}\ \underbrace{\sec^2 x\dee{x}}_{du}
+	</mrow><mrow>
+	&amp;= \int \big[1+u^2]\dee{u}
+	</mrow><mrow>
+	&amp;=u+\frac{u^3}{3}+C
+	</mrow><mrow>
+	&amp;=\tan x+\frac{1}{3}\tan^3 x + C
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_TRGINTfredux"><title><m>\int  \tan^3 x\sec^4x \dee{x}</m> <mdash/> redux</title>
+<p>
+<alert>Solution:</alert> Let us revisit this example using this slightly different approach.
+<ul>
+<li>
+	Factor off one copy of <m>\sec^2 x</m> and combine it with <m>dx</m> to form <m>\sec^2 x\dee{x}</m>, which will be <m>du</m>.
+</li>
+<li>
+	Then substitute <m>u=\tan x</m>, <m>du=\sec^2 x\dee{x}</m> and rewrite any remaining even  powers of <m>\sec x</m> as powers of <m>\tan x=u</m> using <m>\sec^2x = 1+\tan^2 x=1+u^2</m>.
+</li>
+<li>
+	This gives
+	<md>
+	<mrow>
+	\int \tan^3x \sec^4 x\dee{x}
+	&amp;= \int \underbrace{\tan^3x}_{u^3} \underbrace{\sec^2 x}_{1+u^2}\
+			\underbrace{\sec^2 x\dee{x}}_{du}
+	</mrow><mrow>
+	&amp;= \int \big[u^3+u^5]\dee{u}
+	</mrow><mrow>
+	&amp;=\frac{u^4}{4}+ \frac{u^6}{6} + C
+	</mrow><mrow>
+	&amp;=\frac{1}{4}\tan^4 x+\frac{1}{6}\tan^6 x + C
+	</mrow>
+	</md>
+</li>
+<li>
+	This is not quite the same as the answer we got above in  Example<nbsp/><xref ref="eg_TRGINTf"/>. However we can show they are (nearly) equivalent. To  do so we subsitute <m>v=\sec x</m> and <m>\tan^2x=\sec^2x-1 = v^2-1</m>:
+	<md>
+	<mrow>
+	  \frac{1}{6}\tan^6x + \frac{1}{4}\tan^4x
+	  &amp;= \frac{1}{6} (v^2-1)^3 + \frac{1}{4}(v^2-1)^2
+	</mrow><mrow>
+	  &amp;= \frac{1}{6} (v^6-3v^4+3v^2-1) + \frac{1}{4} (v^4-2v^2+1)
+	</mrow><mrow>
+	  &amp;= \frac{v^6}{6} - \frac{v^4}{2} + \frac{v^2}{2} - \frac{1}{6} + \frac{v^4}{4} -
+	\frac{v^2}{2} + \frac{1}{4}
+	</mrow><mrow>
+	  &amp;= \frac{v^6}{6} -\frac{v^4}{4} + 0 \cdot v^2 + \left(\frac{1}{4}-\frac{1}{6}\right)
+	</mrow><mrow>
+	  &amp;= \frac{1}{6}\sec^6x - \frac{1}{4}\sec^4x + \frac{1}{12}.
+	</mrow>
+	</md>
+	So while <m>\frac{1}{6}\tan^6x + \frac{1}{4}\tan^4x \neq \frac{1}{6}\sec^6x -  \frac{1}{4}\sec^4x</m>, they only differ by a constant. Hence both are valid antiderivatives  of <m>\tan^3 x\sec^4x</m>.
+</li>
+</ul>
+</p>
+
+</example>
+
+</subsubsection>
+
+<subsubsection><title><m>m</m> is even and <m>n=0</m> <mdash/> even powers of tangent</title>
+<p>
+We integrate this by setting <m>u=\tan x</m>. For this to work we need to pull one factor of  <m>\sec^2x</m> to one side to form <m>\dee{u}=\sec^2x\dee{x}</m>. To find this factor of <m>\sec^2x</m>  we (perhaps repeatedly) apply the identity <m>\tan^2x=\sec^2x-1</m>.
+</p>
+
+<example xml:id="eg_TRGINTi"><title><m>\int \tan^4 x\dee{x}</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	There is no <m>\sec^2x</m> term present, so we try to create it from <m>\tan^4x</m>  by using <m>\tan^2x = \sec^2 x - 1</m>.
+	<md>
+	<mrow>
+	\tan^4 x &amp;= \tan^2 x \cdot \tan^2 x
+	</mrow><mrow>
+	  &amp;= \tan^2 x\big[\sec^2 x - 1\big]
+	</mrow><mrow>
+	  &amp;=\tan^2x\sec^2 x-\underbrace{\tan^2 x}_{\sec^2x-1}
+	</mrow><mrow>
+	  &amp; = \tan^2x\sec^2 x-\sec^2 x + 1
+	</mrow>
+	</md>
+</li>
+<li>
+	Now we can subtitute <m>u=\tan x</m>, <m>\dee{u}=\sec^2 x\dee{x}</m>.
+	<md>
+	<mrow>
+	\int \tan^4 x\dee{x} &amp; =\int \underbrace{\tan^2x}_{u^2}\
+							  \underbrace{\sec^2 x\dee{x}}_{\dee{u}}
+					  - \int\underbrace{\sec^2 x\dee{x}}_{\dee{u}} + \int\dee{x}
+	</mrow><mrow>
+	&amp;= \int u^2\dee{u} -\int \dee{u} + \int\dee{x}
+	</mrow><mrow>
+	&amp;=\frac{u^3}{3}-u+x+C
+	</mrow><mrow>
+	&amp;=\frac{\tan^3x}{3}-\tan x +x +C
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<example><title><m>\int \tan^8x \dee{x}</m></title>
+<p>
+<alert>Solution:</alert> Let us try the same approach.
+<ul>
+<li>
+	First pull out a factor of <m>\tan^2x</m> to create a <m>\sec^2x</m> factor:
+	<md>
+	<mrow>
+	  \tan^8x &amp;= \tan^6x \cdot \tan^2x
+	</mrow><mrow>
+	  &amp;= \tan^6x \cdot \big[ \sec^2x - 1\big]
+	</mrow><mrow>
+	  &amp;= \tan^6x \sec^2x - \tan^6x
+	</mrow>
+	<intertext>
+		The first term is now ready to be integrated, but we need to reapply the  method to the second term:
+	</intertext>
+	<mrow>
+	  &amp;= \tan^6x \sec^2x - \tan^4x\cdot\big[ \sec^2x - 1\big]
+	</mrow><mrow>
+	  &amp;= \tan^6x \sec^2x - \tan^4x \sec^2x + \tan^4x &amp; \text{do it again}
+	</mrow><mrow>
+	  &amp;= \tan^6x \sec^2x - \tan^4x \sec^2x + \tan^2x\cdot\big[ \sec^2x - 1\big]
+	</mrow><mrow>
+	  &amp;=\tan^6x \sec^2x - \tan^4x \sec^2x + \tan^2x \sec^2x - \tan^2x &amp; \text{and again}
+	</mrow><mrow>
+	  &amp;=\tan^6x \sec^2x - \tan^4x \sec^2x + \tan^2x \sec^2x - \big[\sec^2x-1\big]
+	</mrow>
+	</md>
+</li>
+<li>
+	Hence
+	<md>
+	<mrow>
+	\int \tan^8x \dee{x}
+	&amp;= \int\left[ \tan^6x \sec^2x - \tan^4x \sec^2x + \tan^2x \sec^2x -\sec^2x
+	+1 \right]\dee{x}
+	</mrow><mrow>
+	&amp;= \int \left[\tan^6x -\tan^4x +\tan^2x - 1\right]\sec^2x\dee{x} + \int \dee{x}
+	</mrow><mrow>
+	&amp;= \int \left[u^6 - u^4 +u^2 - 1\right]\dee{u} + x +C
+	</mrow><mrow>
+	&amp;= \frac{u^7}{7} - \frac{u^5}{5} + \frac{u^3}{3} - u + x +C
+	</mrow><mrow>
+	&amp;=\frac{1}{7}\tan^7x - \frac{1}{5}\tan^5x + \frac{1}{3}\tan^3x - \tan x + x +C
+	</mrow>
+	</md>
+</li>
+</ul>
+Indeed this example suggests that for integer <m>k\geq 0</m>:
+<md>
+<mrow>
+  \int \tan^{2k}x \dee{x}
+&amp;= \frac{1}{2k-1}\tan^{2k-1}(x) - \frac{1}{2k-3}\tan^{2k-3}x +
+\cdots - (-1)^k \tan x + (-1)^k x +C
+</mrow>
+</md>
+</p>
+</example>
+
+<p>
+This last example also shows how we might integrate an odd power of tangent:
+</p>
+
+<example><title><m>\int \tan^7 x</m></title>
+<p>
+<alert>Solution:</alert> We follow the same steps
+<ul>
+<li>
+	Pull out a factor of <m>\tan^2x</m> to create a factor of <m>\sec^2x</m>:
+	<md>
+	<mrow>
+	\tan^7x &amp;= \tan^5x \cdot \tan^2x
+	</mrow><mrow>
+	  &amp;= \tan^5x \cdot \big[ \sec^2x - 1\big]
+	</mrow><mrow>
+	  &amp;= \tan^5x \sec^2x - \tan^5x &amp; \text{do it again}
+	</mrow><mrow>
+	  &amp;= \tan^5x \sec^2x - \tan^3x \cdot \big[ \sec^2x - 1\big]
+	</mrow><mrow>
+	  &amp;= \tan^5x \sec^2x - \tan^3x \sec^2x + \tan^3x &amp;\text{and again}
+	</mrow><mrow>
+	  &amp;= \tan^5x \sec^2x - \tan^3x \sec^2x + \tan x \big[ \sec^2x - 1\big]
+	</mrow><mrow>
+	  &amp;= \tan^5x \sec^2x - \tan^3x \sec^2x + \tan x \sec^2x - \tan x
+	</mrow>
+	</md>
+</li>
+<li>
+	Now we can substitute <m>u=\tan x</m> and <m>\dee{u}=\sec^2x \dee{x}</m> and also use the  result from Example<nbsp/><xref ref="eg_TRGINTg"/> to take care of the last term:
+	<md>
+	<mrow>
+	  \int \tan^7x\dee{x}
+	&amp;= \int \big[\tan^5x \sec^2x - \tan^3x \sec^2x + \tan x \sec^2x\big] \dee{x} - \int \tan
+	x \dee{x}
+	</mrow>
+	<intertext>
+		Now factor out the common <m>\sec^2x</m> term and integrate <m>\tan x</m> via Example <xref ref="eg_TRGINTg"/>
+	</intertext>
+	<mrow>
+	&amp;= \int \big[ \tan^5x - \tan^3x +\tan x\big]\sec x\dee{x} - \log|\sec x| +C
+	</mrow><mrow>
+	&amp;= \int \big[ u^5 - u^3 + u \big]\dee{u} - \log|\sec x| +C
+	</mrow><mrow>
+	&amp;= \frac{u^6}{6} - \frac{u^4}{4} + \frac{u^2}{2} - \log|\sec x| +C
+	</mrow><mrow>
+	&amp;= \frac{1}{6}\tan^6x - \frac{1}{4}\tan^4x +\frac{1}{2}\tan^2x - \log|\sec x| +
+	C
+	</mrow>
+	</md>
+</li>
+</ul>
+This example suggests that for integer <m>k\geq 0</m>:
+<md>
+<mrow>
+  \int \tan^{2k+1}x \dee{x}
+&amp;= \frac{1}{2k}\tan^{2k}(x) - \frac{1}{2k-2}\tan^{2k-2}x +
+</mrow>
+<mrow>
+&amp; \cdots - (-1)^k \frac{1}{2} \tan^2 x + (-1)^k \log|\sec x| +C
+</mrow>
+</md>
+</p>
+
+</example>
+
+
+<p>
+Of course we have not considered integrals involving powers of <m>\cot x</m> and <m>\csc x</m>. But they can be treated in much the same way as <m>\tan x</m> and <m>\sec x</m> were.
+</p>
+</subsubsection>
+</subsection>
+
+<subsection xml:id="sec_secantEtc">
+<title>Optional <mdash/> Integrating <m>\sec x</m>, <m>\csc x</m>, <m>\sec^3 x</m>
+                     and <m>\csc^3 x</m></title>
+
+<p>
+As noted above, when <m>n</m> is odd and <m>m</m> is even, one can use similar strategies as to the  previous cases. However the computations are often more involved and more tricks  need to be deployed. For this reason we make this section optional <mdash/> the  computations are definitely non-trivial. Rather than trying to construct a  coherent <q>method</q> for this case, we instead give some examples to give the  idea of what to expect.
+</p>
+
+<example xml:id="eg_TRGINTopta"><title><m>\int \sec x\dee{x}</m> <mdash/> by trickery</title>
+<p>
+<alert>Solution:</alert> There is a very sneaky trick to compute this integral.
+<ul>
+<li>
+	The standard trick for this integral is to multiply the integrand by <m>1=\frac{\sec x+\tan x}{\sec x+\tan x}</m>
+	<md>
+	<mrow>
+	  \sec x &amp;= \sec x\ \frac{\sec x+\tan x}{\sec x+\tan x}
+	  = \frac{\sec^2x + \sec x \tan x}{\sec x+\tan x}
+	</mrow>
+	</md>
+</li>
+<li>
+	Notice now that the numerator of this expression is exactly the derivative its  denominator. Hence we can substitute <m>u=\sec x+\tan x</m> and then  <m>\dee{u} = (\sec x\tan x+\sec^2 x)\,\dee{x}</m>.
+</li>
+<li>
+	Hence
+	<md>
+	<mrow>
+	\int \sec x\dee{x}
+	&amp;=\int \sec x\ \frac{\sec x+\tan x}{\sec x+\tan x}\dee{x}
+	=\int \frac{\sec^2 x+\sec x\tan x}{\sec x+\tan x}\dee{x}
+	</mrow><mrow>
+	&amp;=\int \frac{1}{u}\dee{u}
+	</mrow><mrow>
+	&amp;=\log |u|+C
+	</mrow><mrow>
+	&amp;=\log|\sec x+\tan x|+C
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+There is a second method for integrating <m>\int \sec x\dee{x}</m>, that is  more tedious, but more straight forward. In particular, it does not involve a memorized  trick. The integral <m>\int \sec x\,\dee{x}</m> is converted into the integral  <m>\int\frac{du}{1-u^2}</m> by using the substitution <m>u=\sin x</m>, <m>du=\cos x\,\dee{x}</m>. The  integral <m>\int\frac{du}{1-u^2}</m> is then integrated by the method of  partial fractions, which we shall learn about in Section<nbsp/><xref ref="sec_parfrac"/> <q>Partial  Fractions</q>. The details are in Example<nbsp/><xref ref="eg_PFe"/> in those notes. This second method  gives the answer
+<md>
+<mrow>
+\int \sec x\dee{x} =\frac{1}{2}\log\frac{1+\sin x}{1-\sin x}+C
+</mrow>
+</md>
+which appears to be different than the answer in Example <xref ref="eg_TRGINTopta"/>. But they are really the same (of course) since
+<md>
+<mrow>
+&amp;\frac{1+\sin x}{1-\sin x}
+=\frac{(1+\sin x)^2}{1-\sin^2 x}
+=\frac{(1+\sin x)^2}{\cos^2 x}
+</mrow><mrow>
+\implies\
+&amp;\frac{1}{2}\log \frac{1+\sin x}{1-\sin x}
+=\frac{1}{2}\log\frac{(1+\sin x)^2}{\cos^2 x}
+=\log\Big|\frac{\sin x+1}{\cos x}\Big|
+=\log|\tan x+\sec x|
+</mrow>
+</md>
+Oof!
+</p>
+
+<example xml:id="eg_TRGINToptc"><title><m>\int \csc x\dee{x}</m> <mdash/> by the <m>u=\tan\frac{x}{2}</m> substitution</title>
+
+<p>
+<alert>Solution:</alert> The integral <m>\int \csc x\dee{x}</m> may also be evaluated by both  the methods above. That is either
+<ul>
+<li>
+	by multiplying the integrand by a cleverly chosen <m>1=\frac{\cot x-\csc x}{\cot  x-\csc x}</m> and  then substituting <m>u=\cot x -\csc x</m>,  <m>\dee{u} = (-\csc^2 x+\csc x \cot x)\,\dee{x}</m>, or
+</li>
+<li>
+	by substituting <m>u=\cos x</m>, <m>\dee{u}=-\sin x\,\dee{x}</m> to give <m>\int \csc x\dee{x}=-\int\frac{du}{1-u^2}</m> and then using the  method of partial fractions.
+</li>
+</ul>
+These two methods give the answers
+<mdn>
+<mrow xml:id="eq_INTcscInt" tag="star">
+\int \csc x\dee{x}=\log|\cot x-\csc x|+C
+=-\frac{1}{2}\log \frac{1+\cos x}{1-\cos x}+C
+</mrow>
+</mdn>
+In this example, we shall evaluate <m>\int\csc x\dee{x}</m> by yet a third method, which can be used to integrate rational functions
+	<fn>
+		A rational function of <m>\sin  x</m>  and <m>\cos x</m> is a ratio with both the numerator and denominator being finite sums of  terms of the form <m>a\sin^m x\cos^n x</m>, where <m>a</m> is a constant and <m>m</m> and <m>n</m> are  positive integers.
+	</fn>
+of <m>\sin x</m> and <m>\cos x</m>.
+<ul>
+<li>
+	This method uses the substitution
+	<md>
+	<mrow>
+	x&amp;=2\arctan u &amp; \text{i.e. } u &amp;=\tan\frac{x}{2} &amp; \text{and }
+	\dee{x}&amp;=\frac{2}{1+u^2}\dee{u}
+	</mrow>
+	</md>
+	<mdash/> a half-angle substitution.
+</li>
+<li>
+	To express <m>\sin x</m> and <m>\cos x</m> in terms of <m>u</m>, we first use the double angle  trig identities (Equations<nbsp/><xref ref="eq_TRGINTtrigidentityB"/> and<nbsp/><xref ref="eq_TRGINTtrigidentityC"/>  with <m>x \mapsto \frac{x}{2}</m>) to express <m>\sin x</m> and <m>\cos x</m> in terms of  <m>\sin\frac{x}{2}</m> and <m>\cos\frac{x}{2}</m>:
+	<md>
+	<mrow>
+	\sin x &amp;= 2 \sin\frac{x}{2} \cos\frac{x}{2}
+	</mrow><mrow>
+	\cos x &amp;= \cos^2 \frac{x}{2} - \sin^2\frac{x}{2}
+	</mrow>
+	</md>
+</li>
+<li>
+<p>
+	We then use the triangle
+</p>
+<sidebyside width="33%">
+<image source="text/figs/triangleTh"/>
+</sidebyside>
+
+<p>
+	to express <m>\sin\frac{x}{2}</m> and <m>\cos\frac{x}{2}</m> in terms of <m>u</m>. The bottom and right  hand sides of the triangle have been chosen so that <m>\tan\frac{x}{2}=u</m>. This tells us  that
+	<md>
+	<mrow>
+	  \sin \frac{x}{2} &amp;= \frac{u}{\sqrt{1+u^2}}
+	&amp; \cos \frac{x}{2} &amp;= \frac{1}{\sqrt{1+u^2}}
+	</mrow>
+	</md>
+</p>
+</li>
+<li>
+	This in turn implies that:
+	<md>
+	<mrow>
+	\sin x&amp;=2\sin\frac{x}{2}\cos\frac{x}{2}
+	=2\frac{u}{\sqrt{1+u^2}}\frac{1}{\sqrt{1+u^2}}
+	=\frac{2u}{1+u^2}
+	</mrow><mrow>
+	\cos x&amp;=\cos^2\frac{x}{2}-\sin^2\frac{x}{2}
+	=\frac{1}{1+u^2}-\frac{u^2}{1+u^2}
+	=\frac{1-u^2}{1+u^2}
+	</mrow>
+	</md>
+	Oof!
+</li>
+<li>
+	Let's use this substitution to evaluate <m>\int \csc x\,\dee{x}</m>.
+	<md>
+	<mrow>
+	\int \csc x\dee{x}
+	&amp;=\int \frac{1}{\sin x}\dee{x}
+	=\int \frac{1+u^2}{2u}\ \frac{2}{1+u^2}du
+	=\int \frac{1}{u}\dee{u}
+	=\log|u|+C
+	</mrow><mrow>
+	&amp;=\log\Big|\tan\frac{x}{2}\Big|+C
+	</mrow>
+	</md>
+	To see that this answer is really the same as that in <xref ref="eq_INTcscInt"/>,  note that
+	<md>
+	<mrow>
+	\cot x-\csc x
+	=\frac{\cos x-1}{\sin x}
+	=\frac{-2\sin^2(x/2)}{2\sin(x/2)\cos(x/2)}
+	=-\tan\frac{x}{2}
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_TRGINToptd"><title><m>\int \sec^3 x\dee{x}</m> <mdash/> by trickery</title>
+<p>
+<alert>Solution:</alert> The standard trick used to evaluate <m>\int \sec^3 x\dee{x}</m> is integration by parts.
+<ul>
+<li>
+	Set <m>u=\sec x</m>, <m>\dee{v}=\sec^2 x\dee{x}</m>. Hence <m>\dee{u}=\sec x\tan x\dee{x}</m>,  <m>v=\tan x</m> and
+	<md>
+	<mrow>
+	\int \sec^3 x\dee{x}
+	&amp;=\int \underbrace{\sec x}_{u}\ \underbrace{\sec^2 x\dee{x}}_{dv}
+	</mrow><mrow>
+	&amp;=\underbrace{\sec x}_{u}\ \underbrace{\tan x}_{v}
+			 -\int \underbrace{\tan x}_{v}\ \underbrace{\sec x\tan x\dee{x}}_{du}
+	</mrow>
+	</md>
+</li>
+<li>
+	Since <m>\tan^2 x+1=\sec^2 x</m>, we have <m>\tan^2 x=\sec^2 x-1</m> and
+	<md>
+	<mrow>
+	\int \sec^3 x\dee{x} &amp;=\sec x\ \tan x -\int [\sec^3 x-\sec x]\dee{x}
+	</mrow><mrow>
+	&amp;=\sec x\ \tan x +\log|\sec x+\tan x|+C -\int \sec^3 x\dee{x}
+	</mrow>
+	</md>
+	where we used <m>\int \sec x\dee{x} = \log|\sec x+\tan x|+C</m>, which we saw in Example <xref ref="eg_TRGINTopta"/>.
+</li>
+<li>
+	Now moving the <m>\int \sec^3 x\dee{x}</m> from the right hand side to the left hand side
+	<md>
+	<mrow>
+	2\int \sec^3 x\dee{x} &amp;=\sec x\tan x +\log|\sec x+\tan x|+C &amp; \text{and so}
+	</mrow><mrow>
+	\int \sec^3 x\dee{x} &amp;=\frac{1}{2} \sec x\tan x +\frac{1}{2}\log|\sec x+\tan x|+C
+	</mrow>
+	</md>
+	for a new arbitrary constant <m>C</m> (which is just one half the old one).
+</li>
+</ul>
+</p>
+</example>
+
+
+<p>
+The integral <m>\int \sec^3\dee{x}</m> can also be evaluated by two other methods.
+<ul>
+<li>
+	Substitute <m>u=\sin x</m>, <m>du=\cos x\dee{x}</m> to convert  <m>\int\sec^3 x\dee{x}</m> into <m>\int\frac{du}{{[1-u^2]}^2}</m> and evaluate the latter using the method of partial fractions. This is done in Example<nbsp/><xref ref="eg_PFf"/> in  Section<nbsp/><xref ref="sec_parfrac"/>.
+</li>
+<li>
+	Use the <m>u=\tan\frac{x}{2}</m> substitution. We use this method to evaluate <m>\int\csc^3 x\dee{x}</m> in Example <xref ref="eg_TRGINTopte"/>, below.
+</li>
+</ul>
+</p>
+
+<example xml:id="eg_TRGINTopte">
+<title><m>\int \csc^3 x\dee{x}</m> <ndash/> by the <m>u=\tan\frac{x}{2}</m>  substitution</title>
+
+<p>
+<alert>Solution:</alert> Let us use the half-angle substitution that we introduced in  Example<nbsp/><xref ref="eg_TRGINToptc"/>.
+<ul>
+<li>
+	In this method we set
+	<md>
+	<mrow>
+	u&amp;=\tan\frac{x}{2} &amp;
+	\dee{x}&amp;=\frac{2}{1+u^2} \dee{u}&amp;
+	\sin x&amp;=\frac{2u}{1+u^2} &amp;
+	\cos x&amp;=\frac{1-u^2}{1+u^2}
+	</mrow>
+	</md>
+</li>
+<li>
+	The integral then becomes
+	<md>
+	<mrow>
+	\int \csc^3 x\dee{x}
+	&amp;=\int \frac{1}{\sin^3 x}\dee{x}
+	</mrow><mrow>
+	&amp;=\int {\Big(\frac{1+u^2}{2u}\Big)}^3\ \frac{2}{1+u^2}\dee{u}
+	</mrow><mrow>
+	&amp;=\frac{1}{4}\int \frac{1+2u^2+u^4}{u^3}\dee{u}
+	</mrow><mrow>
+	&amp;=\frac{1}{4}\Big\{\frac{u^{-2}}{-2}+2\log|u|+\frac{u^2}{2}\Big\}+C
+	</mrow><mrow>
+	&amp;=\frac{1}{8}\Big\{-\cot^2\frac{x}{2}+4\log\Big|\tan\frac{x}{2}\Big|
+	+\tan^2\frac{x}{2}\Big\}+C
+	</mrow>
+	</md>
+	Oof!
+</li>
+<li>
+	This is a perfectly acceptable answer. But if you don't like the <m>\frac{x}{2}</m>'s, they may be eliminated by using
+	<md>
+	<mrow>
+	\tan^2\frac{x}{2}-\cot^2\frac{x}{2}
+	&amp;=\frac{\sin^2\frac{x}{2}}{\cos^2\frac{x}{2}}
+	-\frac{\cos^2\frac{x}{2}}{\sin^2\frac{x}{2}}
+	</mrow><mrow>
+	&amp;=\frac{\sin^4\frac{x}{2}-\cos^4\frac{x}{2}} {\sin^2\frac{x}{2}\cos^2\frac{x}{2}}
+	</mrow><mrow>
+	&amp;=\frac{\big(\sin^2\frac{x}{2}-\cos^2\frac{x}{2}\big)
+			 \big(\sin^2\frac{x}{2}+\cos^2\frac{x}{2}\big)}
+		{\sin^2\frac{x}{2}\cos^2\frac{x}{2}}
+	</mrow><mrow>
+	&amp;=\frac{\sin^2\frac{x}{2}-\cos^2\frac{x}{2}}
+		{\sin^2\frac{x}{2}\cos^2\frac{x}{2}}
+	\qquad\qquad \text{since $\sin^2\frac{x}{2}+\cos^2\frac{x}{2}=1$}
+	</mrow><mrow>
+	&amp;=\frac{-\cos x}{\frac{1}{4}\sin^2x}
+	\qquad\qquad\qquad\quad \text{by }<xref ref="eq_TRGINTtrigidentityB"/>\text{ and }<xref ref="eq_TRGINTtrigidentityC"/>
+	</mrow>
+	</md>
+	and
+	<md>
+	<mrow>
+	\tan\frac{x}{2}
+	&amp;=\frac{\sin\frac{x}{2}}{\cos\frac{x}{2}}
+	=\frac{\sin^2\frac{x}{2}} {\sin\frac{x}{2}\cos\frac{x}{2}}
+	</mrow><mrow>
+	&amp;=\frac{\frac{1}{2}[1-\cos x]}{\frac{1}{2}\sin x}
+	\qquad\qquad\qquad \text{by }<xref ref="eq_TRGINTtrigidentityB"/>\text{ and }<xref ref="eq_TRGINTtrigidentityC"/>
+	</mrow>
+	</md>
+	So we may also write
+	<md>
+	<mrow>
+	\int \csc^3 x\dee{x} =-\frac{1}{2}\cot x\csc x +\frac{1}{2}\log|\csc x-\cot x|+C
+	</mrow>
+	</md>
+	</li>
+</ul>
+</p>
+
+</example>
+
+<p>
+That last optional section was a little scary <mdash/> let's get back to something a little
+easier.
+</p>
+
+</subsection>
+
+
+<xi:include href="../problems/prob_s1.8.xml" />
+
+
+</section>

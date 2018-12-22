@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Power Series</title>
+<introduction>
+
+<p>
+Let's return to the simple geometric series
+<md>
+<mrow>
+  \sum_{n=0}^\infty x^n
+</mrow>
+</md>
+where <m>x</m> is some real number. As we have seen (back in  Example<nbsp/><xref ref="eg_SRgeom"/> and Lemma<nbsp/><xref ref="lem_geomsum"/>), for <m>|x| \lt 1</m> this  series converges to a limit, that varies with <m>x</m>,  while for <m>|x|\geq 1</m> the series diverges.  Consequently we can consider this series to be a function of <m>x</m>
+<md>
+<mrow>
+    f(x) &amp;= \sum_{n=0}^\infty x^n &amp; \text{on the domain $|x| \lt 1$}.
+</mrow>
+</md>
+Furthermore (also from Example<nbsp/><xref ref="eg_SRgeom"/> and Lemma<nbsp/><xref ref="lem_geomsum"/>) we know what the function is.
+<md>
+<mrow>
+  f(x) &amp;= \sum_{n=0}^\infty x^n = \frac{1}{1-x}.
+</mrow>
+</md>
+Hence we can consider the series <m>\sum_{n=0}^\infty x^n</m> as a new way  of representing the function <m>\frac{1}{1-x}</m> when <m>|x| \lt 1</m>. This series  is an example of a power series.
+</p>
+
+<p>
+Of course, representing a function as simple as <m>\frac{1}{1-x}</m> by a series  doesn't seem like it is going to make life easier. However the idea of  representing a function by a series turns out to be extremely helpful.  Power series turn out to be very robust mathematical objects and  interact very nicely with not only standard arithmetic operations,  but also with differentiation and integration (see Theorem<nbsp/><xref ref="thm_SRpsops"/>).  This means, for example, that
+<md>
+<mrow>
+  \diff{}{x} \left\{\frac{1}{1-x}\right\}
+  &amp;= \diff{}{x} \sum_{n=0}^\infty x^n &amp; \text{provided $|x| \lt 1$}
+</mrow><mrow>
+  &amp;= \sum_{n=0}^\infty \diff{}{x} x^n  &amp; \text{just differentiate term by term}
+</mrow><mrow>
+  &amp;= \sum_{n=0}^\infty n x^{n-1}
+</mrow>
+<intertext>and in a very similar way</intertext>
+<mrow>
+  \int \frac{1}{1-x} \dee{x} &amp;= \int \sum_{n=0}^\infty x^n \dee{x} &amp; \text{provided $|x| \lt 1$}
+</mrow><mrow>
+  &amp;= \sum_{n=0}^\infty \int x^n \dee{x}  &amp; \text{just integrate term by term}
+</mrow><mrow>
+  &amp;= C + \sum_{n=0}^\infty \frac{1}{n+1} x^{n+1}
+</mrow>
+</md>
+We are hiding some mathematics under the word <q>just</q> in the above,  but you can see that once we have a power series representation of  a function, differentiation and integration become very straightforward.
+</p>
+
+<p>
+So we should set as our goal for this section, the development of machinery  to define and understand power series. This will allow us to answer questions
+	<fn>
+		Recall that <m>n!=1\times 2\times 3\times\cdots\times n</m> is called <q><m>n</m> factorial</q>. By convention <m>0!=1</m>.
+	</fn>
+like
+<md>
+<mrow>
+	\text{Is }\  e^x &amp;=\sum\limits_{n=0}^\infty\frac{x^n}{n!} \text{ ? }
+</mrow>
+</md>
+Our starting point (now that we have equipped ourselves with basic ideas  about series), is the definition of power series.
+</p>
+
+</introduction>
+
+<subsection>
+<title>Definitions</title>
+
+<definition xml:id="def_SRpowerSeries">
+<statement><p>
+A series of the form
+<me>
+ A_0 +A_1(x-c) + A_2(x-c)^2 + A_3 (x-c)^3 + \cdots =\sum_{n=0}^\infty A_n(x-c)^n
+</me>
+is called a <em>power series in <m>(x-c)</m></em> or a  <em>power series centered on <m>c</m></em>. The numbers <m>A_n</m> are called the coefficients of the power series.
+</p>
+
+<p>
+One often considers power series centered on <m>c=0</m> and then the series  reduces to
+<me>
+ A_0 +A_1 x + A_2 x^2 + A_3 x^3 + \cdots =\sum_{n=0}^\infty A_n x^n
+</me>
+</p>
+
+</statement>
+</definition>
+
+<p>
+For example <m>\sum_{n=0}^\infty \frac{x^n}{n!}</m> is the power series  with <m>c=0</m> and <m>A_n=\frac{1}{n!}</m>. Typically, as in that case,  the coefficients <m>A_n</m> are given fixed numbers,  but the <q><m>x</m></q> is to be thought of as a variable.  Thus each power series is really a whole family of series <mdash/>  a different series for each value of <m>x</m>.
+</p>
+
+<p>
+One possible value of <m>x</m> is <m>x=c</m> and then the series reduces
+	<fn>
+		<em>By convention</em>, when the term <m>(x-c)^0</m>  appears in a power series, it has value <m>1</m> for all values of <m>x</m>,  even <m>x=c</m>.
+	</fn>
+to
+<md>
+<mrow>
+\sum_{n=0}^\infty A_n (x-c)^n\Big|_{x=c} &amp;=\sum_{n=0}^\infty A_n (c-c)^n
+</mrow><mrow>
+&amp;=\underbrace{A_0}_{n=0}
++\underbrace{0}_{n=1}
++\underbrace{0}_{n=2}
++\underbrace{0}_{n=3}
++\cdots
+</mrow>
+</md>
+and so simply converges to <m>A_0</m>.
+</p>
+
+<p>
+We now know that a power series converges when <m>x=c</m>. We can now  use our convergence tests to determine for what other values  of <m>x</m> the series converges. Perhaps most straightforward is the  ratio test. The <m>n^{\rm th}</m> term in the series  <m>\sum_{n=0}^\infty A_n(x-c)^n</m> is <m>a_n=A_n(x-c)^n</m>. To apply the ratio test we need to compute the limit
+<md>
+<mrow>
+\lim_{n \to \infty}\left|\frac{a_{n+1}}{a_n}\right|
+&amp;=\lim_{n \to \infty} \left|\frac{A_{n+1}(x-c)^{n+1}}{A_n(x-c)^n}\right|
+</mrow><mrow>
+&amp;=\lim_{n \to \infty} \left|\frac{A_{n+1}}{A_n}\right|\cdot |x-c|
+</mrow><mrow>
+&amp;= |x-c| \cdot \lim_{n \to \infty} \left|\frac{A_{n+1}}{A_n}\right|.
+</mrow>
+</md>
+When we do so there are several possible outcomes.
+<ul>
+<li>
+<p>
+	If the limit of ratios exists and is nonzero
+	<md>
+	<mrow>
+		\lim_{n\rightarrow\infty}\Big|\frac{A_{n+1}}{A_n}\Big| &amp;= A \neq 0,
+	</mrow>
+	</md>
+	then the ratio test says that the series <m>\sum_{n=0}^\infty A_n(x-c)^n</m>
+	<ul>
+	<li> converges when <m>A \cdot |x-c| \lt 1</m>, i.e. when <m>|x-c| \lt \frac{1}{A}</m>,  and </li>
+	<li> diverges when <m>A \cdot |x-c| \gt 1</m>, i.e. when <m>|x-c|  \gt  \frac{1}{A}</m>. </li>
+	</ul>
+	Because of this, when the limit exists, the quantity
+</p>
+<fact xml:id="eq_SRradConv"><title>Radius of convergence</title>
+<statement><p>
+	<md>
+	<mrow>
+	R&amp;=\frac{1}{A}
+	 =\bigg[\lim_{n\rightarrow\infty}\Big|\frac{A_{n+1}}{A_n}\Big|\bigg]^{-1}
+	</mrow>
+	</md>
+</p></statement>
+</fact>
+<p>
+	is called the <em>radius of convergence</em> of the series
+	<fn>
+		The  use of the word <q>radius</q> might seem a little odd here, since we  are really describing the interval in the real line where the series  converges. However, when one starts to consider power series over complex numbers, the radius of convergence does describe a circle inside the  complex plane and so <q>radius</q> is a more natural descriptor.
+	</fn>.
+</p>
+</li>
+<li>
+	If the limit of ratios exists and is zero
+	<md>
+	<mrow>
+		\lim_{n\rightarrow\infty}\Big|\frac{A_{n+1}}{A_n}\Big| &amp;= 0
+	</mrow>
+	</md>
+	then <m>\lim_{n\rightarrow\infty}\Big|\frac{A_{n+1}}{A_n}\Big||x-c| =0</m>  for every <m>x</m> and the ratio test tells us that the  series  <m>\sum_{n=0}^\infty A_n(x-c)^n</m> converges for every number <m>x</m>.  In this case we say that the series has an infinite radius of convergence.
+</li>
+<li>
+	If the limit of ratios diverges to <m>+\infty</m>
+	<md>
+	<mrow>
+	\lim_{n\rightarrow\infty}\Big|\frac{A_{n+1}}{A_n}\Big| &amp;= +\infty
+	</mrow>
+	</md>
+	then <m>\lim_{n\rightarrow\infty}\Big|\frac{A_{n+1}}{A_n}\Big||x-c| =+\infty</m> for every <m>x\ne c</m>. The ratio test then tells us that the series   <m>\sum_{n=0}^\infty A_n(x-c)^n</m> diverges for every number <m>x\ne c</m>. As we have seen above, when <m>x=c</m>, the series reduces to  <m>A_0+0+0+0+0+\cdots</m>, which of course converges. In this case we say that the series has radius of convergence zero.
+</li>
+<li>
+	If <m>\Big|\frac{A_{n+1}}{A_n}\Big|</m> does not approach a limit as <m>n\rightarrow\infty</m>, then we learn nothing from the ratio test and we must use other tools to understand the convergence of the series.
+</li>
+</ul>
+All of these possibilities do happen. We give an example of each below. But first, the concept of <q>radius of convergence</q> is important enough to warrant a formal definition.
+</p>
+
+<definition xml:id="def_SRradiusConvergence">
+<statement><p>
+<ol label="a">
+<li>
+	Let <m>0 \lt R \lt \infty</m>. If <m>\sum_{n=0}^\infty A_n(x-c)^n</m>  converges for <m>|x-c| \lt R</m>,  and diverges for <m>|x-c|  \gt  R</m>, then we say that the series has radius of convergence <m>R</m>.
+</li>
+<li>
+	If <m>\sum_{n=0}^\infty A_n(x-c)^n</m> converges for every number <m>x</m>, we say that the series has an infinite radius of convergence.
+</li>
+<li>
+	If <m>\sum_{n=0}^\infty A_n(x-c)^n</m> diverges for every <m>x\ne c</m>, we say that the series has radius of convergence zero.
+</li>
+</ol>
+</p></statement>
+</definition>
+
+<example xml:id="eg_PWRa"><title>Finite nonzero radius of convergence</title>
+<p>
+We already know that, if <m>a\ne 0</m>, the geometric series <m>\sum\limits_{n=0}^\infty a x^n</m> converges when <m>|x| \lt 1</m> and diverges when <m>|x|\ge 1</m>. So, in the terminology of Definition <xref ref="def_SRradiusConvergence"/>, the geometric series has radius of convergence <m>R=1</m>. As a consistency check, we can also compute <m>R</m> using <xref ref="eq_SRradConv"/>. The series <m>\sum\limits_{n=0}^\infty a x^n</m> has <m>A_n=a</m>. So
+<me>
+R=\bigg[\lim_{n\rightarrow\infty}\Big|\frac{A_{n+1}}{A_n}\Big|\bigg]^{-1}
+=\Big[\lim_{n\rightarrow\infty}1\Big]^{-1}
+=1
+</me>
+as expected.
+</p>
+</example>
+
+<example xml:id="eg_PWRb"><title>Radius of convergence = <m>+\infty</m></title>
+<p>
+The series <m>\sum\limits_{n=0}^\infty \frac{x^n}{n!}</m> has <m>A_n=\frac{1}{n!}</m>. So
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\Big|\frac{A_{n+1}}{A_n}\Big|
+&amp;=\lim_{n\rightarrow\infty}\frac{\frac{1}{(n+1)!}}{\frac{1}{n!}}
+</mrow>
+<mrow>
+&amp; =\lim_{n\rightarrow\infty}\frac{n!}{(n+1)!}
+</mrow>
+<mrow>
+&amp; =\lim_{n\rightarrow\infty}\frac{1\times 2\times 3\times\cdots\times n}
+   {1\times 2\times 3\times\cdots\times n\times(n+1)}
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty}\frac{1}{n+1}
+</mrow><mrow>
+&amp;=0
+</mrow>
+</md>
+and <m>\sum\limits_{n=0}^\infty \frac{x^n}{n!}</m> has radius of  convergence <m>\infty</m>. It converges for every <m>x</m>.
+</p>
+</example>
+
+<example xml:id="eg_PWRc"><title>Radius of convergence = 0</title>
+<p>
+The series <m>\sum\limits_{n=0}^\infty n! x^n</m> has <m>A_n=n!</m>. So
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\Big|\frac{A_{n+1}}{A_n}\Big|
+&amp;=\lim_{n\rightarrow\infty}\frac{(n+1)!}{n!}
+=\lim_{n\rightarrow\infty} \frac
+   {1\times 2\times 3\times 4\times\cdots\times n\times(n+1)}
+   {1\times 2\times 3\times 4\times\cdots\times n}
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty}(n+1)
+</mrow><mrow>
+&amp;=+\infty
+</mrow>
+</md>
+and <m>\sum\limits_{n=0}^\infty n! x^n</m> has radius of convergence zero
+	<fn>
+		Because of this, it might seem that  such a series is fairly pointless. However there are all sorts of  mathematical games that can be played with them without worrying  about their convergence. Such <q>formal</q> power series can still  impart useful information and the interested reader is invited  to look up <q>generating functions</q> with their prefered search engine.
+	</fn>.
+It converges only for <m>x=0</m>, where it takes the value <m>0!=1</m>.
+</p>
+</example>
+
+<example xml:id="eg_PWRda"><title>An awkward series to test</title>
+<p>
+Comparing the series
+<md alignment="alignat">
+<mrow>
+&amp;\ 1&amp;+&amp;\ 2x&amp;+&amp;x^2&amp;+&amp;2x^3&amp;+&amp;x^4&amp;+&amp;2x^5&amp;+\cdots \\
+</mrow>
+<intertext>to</intertext>
+<mrow>
+\sum_{n=1}^\infty A_nx^n=&amp;A_0&amp;+&amp;A_1x&amp;+&amp;A_2x^2&amp;+&amp;A_3x^3&amp;+&amp;A_4x^4&amp;+&amp;A_5x^5&amp;+\cdots
+</mrow>
+</md>
+we see that
+<md alignment="alignat">
+<mrow>
+A_0&amp;=1&amp;\quad
+A_1&amp;=2&amp;\quad
+A_2&amp;=1&amp;\quad
+A_3&amp;=2&amp;\quad
+A_4&amp;=1&amp;\quad
+A_5&amp;=2&amp;\quad\cdots
+</mrow>
+<intertext>so that</intertext>
+<mrow alignment="alignat">
+&amp; &amp;
+\frac{A_1}{A_0}&amp;=2&amp;\qquad
+\frac{A_2}{A_1}&amp;=\frac{1}{2}&amp;\qquad
+\frac{A_3}{A_2}&amp;=2&amp;\qquad
+\frac{A_4}{A_3}&amp;=\frac{1}{2}&amp;\qquad
+\frac{A_5}{A_4}&amp;=2&amp;\qquad\cdots
+</mrow>
+</md>
+and <m>\frac{A_{n+1}}{A_n}</m> does not converge as <m>n\rightarrow\infty</m>. Since the limit of the ratios does not exist, we cannot tell anything  from the ratio test. Nonetheless, we can still figure out for which <m>x</m>'s  our power series converges.
+<ul>
+<li>
+	Because every coefficient <m>A_n</m> is either 1 or 2, the  <m>n^{\rm th}</m> term in our series obeys
+	<me>
+	\big|A_nx^n\big|\le 2 |x|^n
+	</me>
+	and so is smaller than the <m>n^{\rm th}</m> term in the geometric series  <m>\sum_{n=0}^\infty 2|x|^n</m>. This geometric series converges if <m>|x| \lt 1</m>. So, by the comparison test, our series converges for <m>|x| \lt 1</m> too.
+</li>
+<li>
+	Since every <m>A_n</m> is at least one, the <m>n^{\rm th}</m> term in our  series obeys
+	<me>
+	\big|A_nx^n\big|\ge |x|^n
+	</me>
+	If <m>|x|\ge 1</m>, this <m>a_n=A_n x^n</m> cannot converge to zero as  <m>n\rightarrow\infty</m>, and our series diverges by the divergence test.
+</li>
+</ul>
+In conclusion, our series converges if and only if <m>|x| \lt 1</m>, and so has radius of convergence<nbsp/><m>1</m>.
+</p>
+</example>
+
+<example xml:id="eg_PWRd"><title>A series from <m>\pi</m></title>
+<p>
+Lets construct a series from the digits of <m>\pi</m>. Now to avoid dividing by zero, let us set
+<md>
+<mrow>
+  A_n &amp;= 1 + \text{the $n^\mathrm{th}$ digit of $\pi$}
+</mrow>
+</md>
+Since <m>\pi = 3.141591\dots</m>
+<md>
+<mrow>
+  A_0 &amp;= 4 &amp;
+  A_1 &amp;= 2 &amp;
+  A_2 &amp;= 5 &amp;
+  A_3 &amp;= 2 &amp;
+  A_4 &amp;= 6 &amp;
+  A_5 &amp;= 10 &amp;
+  A_6 &amp;= 2 &amp;
+  \cdots
+</mrow>
+</md>
+Consequently every <m>A_n</m> is an integer between 1 and 10 and gives us  the series
+<me>
+\sum_{n=0}^\infty A_n x^n = 4 + 2x + 5x^2 + 2x^3 + 6x^4 +10 x^5 + \cdots
+</me>
+The number <m>\pi</m> is irrational
+	<fn>
+		We give a proof of this in the  optional §<xref ref="sec_RatIrr"/> at the end of this chapter.
+	</fn>
+and  consequently the ratio <m>\frac{A_{n+1}}{A_n}</m> cannot have a limit as <m>n\rightarrow\infty</m>. If you do not understand why  this is the case then don't worry too much about it
+	<fn>
+		This is a little beyond the scope of the course. Roughly  speaking, think about what would happen if the limit of the  ratios did exist. If the limit were smaller than <m>1</m>,  then it would tell you that the terms of our series must be  getting smaller and smaller and smaller <mdash/> which is impossible  because they are all integers between 1 and 10. Similarly if the  limit existed and were bigger than <m>1</m> then the terms  of the series would have to get bigger and bigger and bigger <mdash/>  also impossible. Hence if the ratio exists then it  must be equal to 1 <mdash/> but in that case because the terms are integers, they would have to be all equal when <m>n</m>  became big enough. But that means that the expansion of <m>\pi</m>  would be eventually periodic <mdash/>  something that only rational numbers do (a proof is given in the  optional §<xref ref="sec_RatIrr"/> at the end of this chapter).
+	</fn>.
+As in the last example, the limit of the ratios does not exist and  we cannot tell anything from the ratio test. But we can still figure  out for which <m>x</m>'s it converges.
+<ul>
+<li>
+	Because every coefficient <m>A_n</m> is no bigger (in magnitude) than 10, the <m>n^{\rm th}</m> term in our series obeys
+	<me>
+	\big|A_nx^n\big|\le 10 |x|^n
+	</me>
+	and so is smaller than the <m>n^{\rm th}</m> term in the geometric series  <m>\sum_{n=0}^\infty 10|x|^n</m>. This geometric series converges if <m>|x| \lt 1</m>. So, by the comparison test, our series converges for <m>|x| \lt 1</m> too.
+</li>
+<li>
+	Since every <m>A_n</m> is at least one, the <m>n^{\rm th}</m> term in our  series obeys
+	<me>
+	\big|A_nx^n\big|\ge |x|^n
+	</me>
+	If <m>|x|\ge 1</m>, this <m>a_n=A_n x^n</m> cannot converge to zero as  <m>n\rightarrow\infty</m>, and our series diverges by the divergence test.
+</li>
+</ul>
+In conclusion, our series converges if and only if <m>|x| \lt 1</m>, and so has radius of convergence<nbsp/><m>1</m>.
+</p>
+</example>
+
+<p>
+Though we won't prove it, it is true that every power series has a  radius of convergence, whether or not the limit  <m>\lim\limits_{n\rightarrow\infty}\Big|\frac{A_{n+1}}{A_n}\Big|</m>  exists.
+</p>
+
+<theorem xml:id="thm_SRradiusofconvergence">
+<statement><p>
+Let <m>\sum\limits_{n=0}^\infty A_n (x-c)^n</m> be a power series. Then one of the following alternatives must hold.
+<ol label="a">
+<li>
+	The power series converges for every number <m>x</m>. In this case we say that the radius of convergence is <m>\infty</m>.
+</li>
+<li>
+	There is a number <m>0 \lt R \lt \infty</m> such that the series converges  for <m>|x-c| \lt R</m> and diverges for <m>|x-c| \gt R</m>. Then <m>R</m> is called the radius of convergence.
+</li>
+<li>
+	The series converges for <m>x=c</m> and diverges for all <m>x\ne c</m>. In this case, we say that the radius of convergence is <m>0</m>.
+</li>
+</ol>
+</p></statement>
+</theorem>
+
+
+<definition xml:id="def_SRintervalofconvergence">
+<statement><p>
+Consider the power series
+<md>
+<mrow>
+  \sum_{n=0}^\infty A_n (x-c)^n.
+</mrow>
+</md>
+The set of real <m>x</m>-values for which it converges is called the interval of convergence of the series.
+</p></statement>
+</definition>
+
+<p>
+Suppose that the power series <m>\sum\limits_{n=0}^\infty A_n (x-c)^n</m>  has radius of  convergence <m>R</m>. Then from  Theorem <xref ref="thm_SRradiusofconvergence"/>, we have that
+<ul>
+<li>
+	if <m>R=\infty</m>, then its interval of convergence is <m>-\infty \lt x \lt \infty</m>, which is also denoted <m>(-\infty,\infty)</m>,  and
+</li>
+<li>
+	if <m>R=0</m>, then its interval of convergence is just the point <m>x=0</m>, and
+</li>
+<li>
+<p>
+	if <m>0 \lt R \lt \infty</m>, then we know that the series converges for any <m>x</m>  which obeys
+	<md>
+	<mrow>
+	|x-c| \lt R\quad&amp;\text{or equivalently}\quad -R \lt x-c \lt R
+	</mrow><mrow>
+	   &amp;\text{or equivalently}\quad c-R \lt x \lt c+R
+	</mrow>
+	</md>
+	But we do not (yet) know whether or not the series converges at the  two end points of that interval. We do know, however, that its interval  of convergence must be one of
+	<ul>
+	<li> <m>c-R \lt x \lt c+R</m>, which is also denoted <m>(c-R\,,\,c+R)</m>,  or </li>
+	<li>  <m>c-R\le x \lt c+R</m>, which is also denoted <m>[c-R\,,\,c+R)</m>,  or </li>
+	<li> <m>c-R \lt x\le c+R</m>, which is also denoted <m>(c-R\,,\,c+R]</m>,  or </li>
+	<li> <m>c-R\le x \le c+R</m>, which is also denoted <m>[c-R\,,\,c+R]</m>. </li>
+	</ul>
+</p>
+</li>
+</ul>
+To reiterate <mdash/> while the radius convergence, <m>R</m> with <m>0 \lt R \lt \infty</m>, tells  us that the series converges for <m>|x-c| \lt R</m> and diverges for <m>|x-c| \gt R</m>,  it does not (by itself) tell us whether or not the series converges when  <m>|x-c|=R</m>, i.e. when <m>x=c\pm R</m>. The following example shows that all four possibilities can occur.
+</p>
+
+<example xml:id="eg_SRintervalofconvergence"><title>The series <m>\sum_{n=0}^\infty \frac{x^n}{n^p}</m></title>
+<p>
+Let <m>p</m> be any real number and consider the series  <m>\sum_{n=0}^\infty \frac{x^n}{n^p}</m>. This series has <m>A_n= \frac{1}{n^p}</m>. Since
+<me>
+\lim_{n\rightarrow\infty}\Big|\frac{A_{n+1}}{A_n}\Big|
+=\lim_{n\rightarrow\infty}\frac{n^p}{{(n+1)}^p}
+=\lim_{n\rightarrow\infty}\frac{1}{{(1+\frac{1}{n})}^p}
+=1
+</me>
+the series has radius of convergence <m>1</m>. So it certainly converges for <m>|x| \lt 1</m> and diverges for <m>|x| \gt 1</m>. That just leaves <m>x=\pm 1</m>.
+<ul>
+<li>
+	When <m>x=1</m>, the series reduces to <m>\sum_{n=0}^\infty \frac{1}{n^p}</m>. We know, from Example <xref ref="eg_SRpTest"/>, that this series converges if and only if <m>p \gt 1</m>.
+</li>
+<li>
+	When <m>x=-1</m>, the series reduces to <m>\sum_{n=0}^\infty \frac{(-1)^n}{n^p}</m>. By the alternating series test, Theorem <xref ref="thm_SRalternating"/>, this series converges whenever <m>p \gt 0</m> (so that <m>\frac{1}{n^p}</m> tends to zero as <m>n</m> tends to infinity). When <m>p\le 0</m> (so that <m>\frac{1}{n^p}</m> does <em>not</em> tend to zero as <m>n</m> tends to infinity), it diverges by  the divergence test, Theorem <xref ref="thm_SRdivergenceTest"/>.
+</li>
+</ul>
+So
+<ul>
+<li>
+	The power series <m>\sum_{n=0}^\infty x^n</m> (i.e. <m>p=0</m>) has interval of convergence <m>-1 \lt x \lt 1</m>.
+</li>
+<li>
+	The power series <m>\sum_{n=0}^\infty \frac{x^n}{n}</m> (i.e. <m>p=1</m>) has interval of convergence <m>-1\le x \lt 1</m>.
+</li>
+<li>
+	The power series <m>\sum_{n=0}^\infty \frac{(-1)^n}{n}x^n</m> (i.e. <m>p=1</m>) has interval of convergence <m>-1 \lt  x\le 1</m>.
+</li>
+<li>
+	The power series <m>\sum_{n=0}^\infty \frac{x^n}{n^2}</m> (i.e. <m>p=2</m>) has interval of convergence <m>-1\le x\le 1</m>.
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_SRintervalA"><title>Playing with intervals of convergence</title>
+<p>
+We are told that a certain power series with centre <m>c=3</m>, converges  at <m>x=4</m> and diverges at <m>x=1</m>. What else can we say about the  convergence or divergence of the series for other values of <m>x</m>?
+</p>
+
+<p>
+We are told that the series is centred at <m>3</m>, so its terms are all powers of <m>(x-3)</m> and it is of the form
+<md>
+<mrow>
+\sum_{n \geq 0} A_n (x-3)^n.
+</mrow>
+</md>
+A good way to summarise the convergence data we are given is with  a figure like the one below. Green dots mark the values of <m>x</m> where  the series is known to converge. (Recall that every power series  converges at its centre.)  The red dot marks the value of <m>x</m> where  the series is known to diverge. The bull's eye marks the centre.
+</p>
+
+<sidebyside width="66%">
+<image source="text/figs/convDiv"/>
+</sidebyside>
+
+<p>
+Can we say more about the convergence and/or divergence of the series for other values of <m>x</m>? Yes!
+</p>
+
+<p>
+Let us think about the radius of convergence, <m>R</m>, of the series. We know that it must exist and the information we have  been given allows us to bound <m>R</m>. Recall that
+<ul>
+<li> the series converges at <m>x</m> provided that <m>|x-3| \lt R</m> and </li>
+<li> the series diverges at <m>x</m> if <m>|x-3| \gt R</m>. </li>
+</ul>
+We have been told that
+<ul>
+<li>
+<p>
+	the series converges when <m>x=4</m>, which tells us that
+	<ul>
+	<li> <m>x=4</m> cannot obey <m>|x-3| \gt R</m> so </li>
+	<li> <m>x=4</m> must obey <m>|x-3|\le R</m>, i.e. <m>|4-3|\le R</m>, i.e. <m>R\ge 1</m> </li>
+	</ul>
+</p>
+</li>
+<li>
+<p>
+	the series diverges when <m>x=1</m> so we also know that
+	<ul>
+	<li> <m>x=1</m> cannot obey <m>|x-3| \lt R</m> so </li>
+	<li> <m>x=1</m> must obey <m>|x-3|\ge R</m>, i.e. <m>|1-3|\ge R</m>, i.e. <m>R\le 2</m> </li>
+	</ul>
+</p>
+</li>
+</ul>
+We still don't know <m>R</m> exactly. But we do know that <m>1\le R\le 2</m>. Consequently,
+<ul>
+<li>
+	since <m>1</m> is the smallest that <m>R</m> could be, the series  certainly converges at <m>x</m> if <m>|x-3| \lt 1</m>, i.e. if <m>2 \lt x \lt 4</m> and
+</li>
+<li>
+	since <m>2</m> is the largest that <m>R</m> could be, the series  certainly diverges at <m>x</m> if <m>|x-3| \gt 2</m>, i.e. if <m>x \gt 5</m> or if <m>x \lt 1</m>.
+</li>
+</ul>
+The following figure provides a resume of all of this convergence data <mdash/> there is convergence at green <m>x</m>'s and divergence at red <m>x</m>'s.
+</p>
+
+<sidebyside width="66%">
+<image source="text/figs/convDivB"/>
+</sidebyside>
+
+<p>
+Notice that from the data given we cannot say anything about the  convergence or divergence of the series on the  intervals <m>(1,2]</m> and <m>(4,5]</m>.
+</p>
+
+<p>
+One lesson that we can derive from this example is that,
+<ul>
+<li>   if a series has centre <m>c</m> and converges at <m>a</m>, </li>
+<li>
+	then it also converges at all points between <m>c</m> and <m>a</m>, as well  as at all points of distance strictly less than <m>|a-c|</m> from <m>c</m> on the other side of <m>c</m> from <m>a</m>.
+</li>
+</ul>
+</p>
+</example>
+</subsection>
+
+<subsection><title>Working With Power Series</title>
+
+<p>
+Just as we have done previously with limits, differentiation  and integration, we can construct power series representations  of more complicated functions by using those of simpler functions.  Here is a theorem that helps us to do so.
+</p>
+<theorem xml:id="thm_SRpsops"><title>Operations on Power Series</title>
+<statement><p>
+Assume that the functions <m>f(x)</m> and <m>g(x)</m> are given by the power series
+<me>
+f(x) = \sum_{n=0}^\infty A_n (x-c)^n \qquad
+g(x) = \sum_{n=0}^\infty B_n (x-c)^n
+</me>
+for all <m>x</m> obeying <m>|x-c| \lt R</m>. In particular, we are assuming that both power series have radius of convergence at least <m>R</m>. Also let <m>K</m> be a constant. Then
+<md>
+<mrow>
+f(x)+g(x)   &amp;= \sum_{n=0}^\infty [A_n+B_n]\, (x-c)^n
+</mrow><mrow>
+  Kf(x)     &amp;= \sum_{n=0}^\infty K\, A_n\, (x-c)^n
+</mrow><mrow>
+(x-c)^Nf(x) &amp;= \sum_{n=0}^\infty A_n\, (x-c)^{n+N}
+                         \quad\text{for any integer $N\ge 1$}
+</mrow><mrow>
+           &amp;= \sum_{k=N}^\infty A_{k-N}\, (x-c)^k
+                         \quad\text{where $k=n+N$}
+</mrow><mrow>
+f'(x)     &amp;= \sum_{n=0}^\infty A_n\, n\,(x-c)^{n-1}
+           = \sum_{n=1}^\infty A_n\, n\,(x-c)^{n-1}
+</mrow><mrow>
+\int_c^x f(t)\dee{t} &amp;= \sum_{n=0}^\infty A_n \frac{(x-c)^{n+1}}{n+1}
+</mrow><mrow>
+\int  f(x)\ dx &amp;= \bigg[\sum_{n=0}^\infty A_n \frac{(x-c)^{n+1}}{n+1}\bigg]+C
+\quad\text{with $C$ an arbitrary constant}
+</mrow>
+</md>
+for all <m>x</m> obeying <m>|x-c| \lt R</m>.
+</p>
+
+<p>
+In particular the radius of convergence of each of the six power  series on the right hand sides is at least <m>R</m>. In fact, if <m>R</m>  is the radius of convergence of <m>\sum\limits_{n=0}^\infty A_n (x-c)^n</m>,  then <m>R</m> is also the radius of convergence of all of the above  right hand sides, with the possible exceptions of  <m>\sum\limits_{n=0}^\infty [A_n+B_n]\, (x-c)^n</m> and <m>\sum\limits_{n=0}^\infty KA_n\, (x-c)^n</m> when <m>K=0</m>.
+</p></statement>
+</theorem>
+
+<example><title>More on the last part of Theorem <xref ref="thm_SRpsops"/></title>
+<p>
+The last statement of Theorem <xref ref="thm_SRpsops"/> might seem a little odd,  but consider the following two power series centred at <m>0</m>:
+<md>
+<mrow>
+  \sum_{n=0}^\infty 2^n x^n &amp; \text{ and } \sum_{n=0}^\infty (1-2^n) x^n.
+</mrow>
+</md>
+The ratio test tells us that they both have radius of convergence <m>R=\frac{1}{2}</m>. However their sum is
+<md>
+<mrow>
+  \sum_{n=0}^\infty 2^n x^n + \sum_{n=0}^\infty (1-2^n) x^n &amp;= \sum_{n=0}^\infty x^n
+</mrow>
+</md>
+which has the larger radius of convergence <m>1</m>.
+</p>
+
+<p>
+A more extreme example of the same phenomenon is supplied by the two series
+<md>
+<mrow>
+  \sum_{n=0}^\infty 2^n x^n &amp; \text{ and } \sum_{n=0}^\infty (-2^n) x^n.
+</mrow>
+</md>
+They are both geometric series with radius of convergence <m>R=\frac{1}{2}</m>. But their sum is
+<md>
+<mrow>
+  \sum_{n=0}^\infty 2^n x^n + \sum_{n=0}^\infty (-2^n) x^n
+  &amp;= \sum_{n=0}^\infty (0)x^n
+</mrow>
+</md>
+which has radius of convergence <m>+\infty</m>.
+</p>
+</example>
+
+<p>
+We'll now use this theorem to build power series representations  for a bunch of functions out of the one simple power  series representation that we know <mdash/> the geometric series
+<me>
+\frac{1}{1-x} = \sum_{n=0}^\infty x^n\qquad \text{for all $|x| \lt 1$}
+</me>
+</p>
+
+<example xml:id="eg_SRpsrepAA"><title><m>\frac{1}{1-x^2}</m></title>
+<p>
+Find a power series representation for <m>\frac{1}{1-x^2}</m>.
+</p>
+
+<p>
+<alert>Solution:</alert>
+The secret to finding power series representations for a good many functions is to manipulate them into a form in which <m>\frac{1}{1-y}</m> appears and use the geometric series representation  <m>\frac{1}{1-y} = \sum_{n=0}^\infty y^n</m>. We have deliberately renamed the variable to <m>y</m> here <mdash/> it does not have to be <m>x</m>. We can use that strategy to find a power series expansion for <m>\frac{1}{1-x^2}</m> <mdash/> we  just have to recognize that <m>\frac{1}{1-x^2}</m> is the same as  <m>\frac{1}{1-y}</m> if we set <m>y</m> to <m>x^2</m>.
+<md>
+<mrow>
+\frac{1}{1-x^2} &amp;= \frac{1}{1-y}\bigg|_{y=x^2}\quad &amp;
+             &amp;=\bigg[\sum_{n=0}^\infty y^n
+                                     \bigg]_{y=x^2}
+                   \quad\text{if $|y| \lt 1$, i.e. $|x| \lt 1$}
+</mrow>
+<mrow>
+             &amp;= \sum_{n=0}^\infty {\big(x^2\big)}^n &amp;
+             &amp;= \sum_{n=0}^\infty x^{2n}
+</mrow>
+<mrow>
+             &amp;= 1+x^2+x^4+x^6  +\cdots
+</mrow>
+</md>
+This is a perfectly good power series. There is nothing wrong with the  power of <m>x</m> being <m>2n</m>. (This just means that the coefficients of all odd powers of <m>x</m> are zero.) In fact, you should try to always write power  series in forms that are as easy to understand as possible. The geometric  series that we used at the end of the first line converges for
+<md>
+<mrow>
+|y| \lt 1  \iff  \big|x^2\big| \lt 1  \iff |x| \lt 1
+</mrow>
+</md>
+So our power series has radius of convergence <m>1</m> and interval of convergence <m>-1 \lt x \lt 1</m>.
+</p>
+</example>
+
+<example xml:id="eg_SRpsrepA"><title><m>\frac{x}{2+x^2}</m></title>
+<p>
+Find a power series representation for <m>\frac{x}{2+x^2}</m>.
+</p>
+
+<p><alert>Solution:</alert>
+This example is just a more algebraically involved variant of the last one. Again, the strategy is to manipulate <m>\frac{x}{2+x^2}</m>  into a form in which <m>\frac{1}{1-y}</m> appears.
+<md>
+<mrow>
+\frac{x}{2+x^2} &amp;= \frac{x}{2}\ \frac{1}{1+\frac{x^2}{2}}
+             =\ \frac{x}{2}\ \frac{1}{1-\big({-}\frac{x^2}{2}\big)}
+             \qquad \text{set $-\frac{x^2}{2}=y$}
+</mrow>
+<mrow>
+             &amp;= \frac{x}{2}\ \frac{1}{1-y}\bigg|_{y=-\frac{x^2}{2}}
+             = \frac{x}{2}\ \bigg[\sum_{n=0}^\infty y^n
+                                     \bigg]_{y=-\frac{x^2}{2}}
+                   \quad\text{if $|y| \lt 1$}
+</mrow>
+<intertext>Now use Theorem <xref ref="thm_SRpsops"/> twice</intertext>
+<mrow>
+             &amp;= \frac{x}{2}\ \sum_{n=0}^\infty {\Big(-\frac{x^2}{2}\Big)}^n
+             =\ \frac{x}{2}\ \sum_{n=0}^\infty \frac{(-1)^n}{2^n}x^{2n}
+             = \sum_{n=0}^\infty \frac{(-1)^n}{2^{n+1}}x^{2n+1}
+</mrow>
+<mrow>
+             &amp;= \frac{x}{2} - \frac{x^3}{4} + \frac{x^5}{8}-\frac{x^7}{16}
+                 +\cdots
+</mrow>
+</md>
+The geometric series that we used in the second line converges when
+<md>
+<mrow>
+|y| \lt 1  &amp;\iff  \big|{-}\frac{x^2}{2}\big| \lt 1
+</mrow>
+<mrow>
+&amp; \iff  |x|^2 \lt 2 \iff |x| \lt \sqrt{2}
+</mrow>
+</md>
+So the given power series has radius of convergence <m>\sqrt{2}</m> and interval of convergence <m>-\sqrt{2} \lt x \lt \sqrt{2}</m>.
+</p>
+</example>
+
+
+
+<example xml:id="eg_SRpsrepAAA"><title>Nonzero centre</title>
+<p>
+Find a power series representation for <m>\frac{1}{5-x}</m> with centre <m>3</m>.
+</p>
+
+<p><alert>Solution:</alert>
+The new wrinkle in this example is the requirement that the centre be <m>3</m>. That the centre is to be <m>3</m> means that we need a power series in powers of <m>x-c</m>, with <m>c=3</m>.  So we are looking for a power series of the form <m>\sum_{n=0}^\infty A_n(x-3)^n</m>. The easy way to find such a series is to force an <m>x-3</m> to appear by adding and substracting a <m>3</m>.
+<md>
+<mrow>
+\frac{1}{5-x}
+=\frac{1}{5-(x-3)-3}
+=\frac{1}{2-(x-3)}
+</mrow>
+</md>
+Now we continue, as in the last example, by manipulating <m>\frac{1}{2-(x-3)}</m>  into a form in which <m>\frac{1}{1-y}</m> appears.
+<md>
+<mrow>
+\frac{1}{5-x}
+=\frac{1}{2-(x-3)} &amp;= \frac{1}{2}\ \frac{1}{1-\frac{x-3}{2}}
+             \qquad \text{set $\frac{x-3}{2}=y$}
+</mrow>
+<mrow>
+             &amp;= \frac{1}{2}\ \frac{1}{1-y}\bigg|_{y=\frac{x-3}{2}}
+             = \frac{1}{2}\ \bigg[\sum_{n=0}^\infty y^n
+                                     \bigg]_{y=\frac{x-3}{2}}
+                   \quad\text{if $|y| \lt 1$}
+</mrow>
+<mrow>
+             &amp;= \frac{1}{2}\ \sum_{n=0}^\infty {\Big(\frac{x-3}{2}\Big)}^n
+             = \sum_{n=0}^\infty \frac{(x-3)^n}{2^{n+1}}
+</mrow>
+<mrow>
+             &amp;= \frac{x-3}{2} + \frac{(x-3)^2}{4} + \frac{(x-3)^3}{8}
+                 +\cdots
+</mrow>
+</md>
+The geometric series that we used in the second line converges when
+<md>
+<mrow>
+|y| \lt 1
+&amp; \iff  \Big|\frac{x-3}{2}\Big| \lt 1
+</mrow>
+<mrow>
+&amp; \iff  |x-3| \lt 2
+</mrow>
+<mrow>
+&amp; \iff -2 \lt x-3 \lt 2
+</mrow>
+<mrow>
+&amp; \iff 1 \lt x \lt 5
+</mrow>
+</md>
+So the power series has radius of convergence <m>2</m> and interval of convergence <m>1 \lt x \lt 5</m>.
+</p>
+</example>
+
+<p>
+In the previous two examples, to construct a new series from an  existing series, we replaced <m>x</m> by a simple function. The following  theorem gives us some more (but certainly not all) commonly  used substitutions.
+</p>
+
+<theorem xml:id="thm_SRpsSub"><title>Substituting in a Power Series</title>
+<statement><p>
+Assume that the function <m>f(x)</m> is given by the power  series
+<me>
+f(x) = \sum_{n=0}^\infty A_n x^n
+</me>
+for all <m>x</m> in the interval <m>I</m>. Also let <m>K</m> and <m>k</m> be real constants. Then
+<md>
+<mrow>
+f\big(Kx^k\big)   &amp;= \sum_{n=0}^\infty A_nK^n\, x^{kn}
+</mrow>
+</md>
+whenever <m>Kx^k</m> is in <m>I</m>. In particular, if <m>\sum_{n=0}^\infty A_n x^n</m> has radius of convergence <m>R</m>, <m>K</m> is nonzero and <m>k</m> is a natural number, then <m>\sum_{n=0}^\infty A_nK^n\, x^{kn}</m> has radius of convergence  <m>\root{k}\of{R/|K|}</m>.
+</p></statement>
+</theorem>
+
+<example xml:id="eg_SRpsrepB"><title><m>\frac{1}{(1-x)^2}</m></title>
+<p>
+Find a power series representation for <m>\frac{1}{(1-x)^2}</m>.
+</p>
+
+<p><alert>Solution:</alert>
+Once again the trick is to express <m>\frac{1}{(1-x)^2}</m> in terms of  <m>\frac{1}{1-x}</m>. Notice that
+<md>
+<mrow>
+\frac{1}{(1-x)^2} &amp;= \diff{}{x}\left\{\frac{1}{1-x}\right\}
+</mrow><mrow>
+             &amp;= \diff{}{x} \left\{\sum_{n=0}^\infty x^n \right\}
+</mrow><mrow>
+             &amp;= \sum_{n=1}^\infty nx^{n-1}
+             \qquad\text{by Theorem }<xref ref="thm_SRpsops"/>
+</mrow>
+</md>
+Note that the <m>n=0</m> term has disappeared because, for <m>n=0</m>,
+<me>
+\diff{}{x} x^n = \diff{}{x} x^0 = \diff{}{x} 1= 0
+</me>
+Also note that the radius of convergence of this series is one. We can  see this via Theorem<nbsp/><xref ref="thm_SRpsops"/>. That theorem tells us that  the radius of convergence of a power series is not changed by  differentiation <mdash/> and since <m>\sum_{n=0}^\infty x^n</m> has radius  of convergence one, so too does its derivative.
+</p>
+
+<p>
+Without much more work we can determine the interval of convergence  by testing at <m>x=\pm 1</m>. When <m>x=\pm 1</m> the terms of the series do not  go to zero as <m>n \to \infty</m> and so, by the divergence test, the series  does not converge there. Hence the interval of convergence for the  series is <m>-1  \lt  x  \lt  1</m>.
+</p>
+</example>
+
+
+<p>
+Notice that, in this last example, we differentiated a known series to get  to our answer. As per Theorem<nbsp/><xref ref="thm_SRpsops"/>, the radius of convergence  didn't change. In addition, in this particular example, the interval  of convergence didn't change. This is not always the case. Differentiation of some series causes the interval of convergence to shrink.  In particular the differentiated series may no longer be convergent  at the end points of the interval
+	<fn>
+		Consider the power series  <m>\sum_{n=1}^\infty \frac{x^n}{n}</m>. We know that its interval of  convergence is <m>-1 \leq x  \lt  1</m>. (Indeed see the next example.) When  we differentiate the series we get the geometric series  <m>\sum_{n=0}^\infty x^n</m> which has interval of convergence <m>-1 \lt x \lt 1</m>.
+	</fn>.
+Similarly, when we integrate a power series the radius of convergence is  unchanged, but the interval of convergence may expand to include one or both ends, as illustrated by the next example.
+</p>
+
+<example xml:id="eg_SRpsrepC"><title><m>\log (1+x)</m></title>
+<p>
+Find a power series representation for <m>\log (1+x)</m>.
+</p>
+
+<p><alert>Solution:</alert>
+Recall that <m>\diff{}{x}\log (1+x) = \frac{1}{1+x}</m> so that <m>\log(1+t)</m> is an antiderivative of <m>\frac{1}{1+t}</m> and
+<md>
+<mrow>
+\log(1+x)\ &amp;=\ \int_0^x \frac{dt}{1+t}
+             \ =\  \int_0^x\Big[\sum_{n=0}^\infty (-t)^n\Big]\dee{t}
+</mrow><mrow>
+             &amp;=\  \sum_{n=0}^\infty \int_0^x (-t)^n\dee{t}
+             \qquad\text{by Theorem }<xref ref="thm_SRpsops"/>
+</mrow><mrow>
+             &amp;=\ \sum_{n=0}^\infty (-1)^n\frac{x^{n+1}}{n+1}
+</mrow><mrow>
+             &amp;=\ x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots
+</mrow>
+</md>
+Theorem <xref ref="thm_SRpsops"/> guarantees that the radius of convergence is exactly one (the radius of convergence of the geometric series  <m>\sum_{n=0}^\infty (-t)^n</m>) and that
+<md>
+<mrow>
+\log(1+x) = \sum_{n=0}^\infty (-1)^n\frac{x^{n+1}}{n+1}
+\qquad\text{for all}\quad -1 \lt x \lt 1
+</mrow>
+</md>
+When <m>x=-1</m> our series reduces to  <m>\sum_{n=0}^\infty \frac{-1}{n+1}</m>, which is (minus) the harmonic series and so diverges. That's no surprise <mdash/> <m>\log(1+(-1)) =\log 0=-\infty</m>.  When <m>x=1</m>, the series converges by the alternating series test. It is possible to prove, by continuity, though we won't do so here, that the sum is <m>\log 2</m>.  So the interval of convergence is <m>-1 \lt x\le 1</m>.
+</p>
+</example>
+
+<example xml:id="eg_SRpsrepD"><title><m>\arctan x</m></title>
+<p>
+Find a power series representation for <m>\arctan x</m>.
+</p>
+
+<p><alert>Solution:</alert>
+Recall that <m>\diff{}{x}\arctan x = \frac{1}{1+x^2}</m> so that <m>\arctan t</m> is an antiderivative of <m>\frac{1}{1+t^2}</m> and
+<md>
+<mrow>
+\arctan x\ &amp;=\ \int_0^x \frac{dt}{1+t^2}
+             \ =\  \int_0^x\Big[\sum_{n=0}^\infty {(-t^2)}^n\Big]\dee{t}
+             \ =\  \sum_{n=0}^\infty \int_0^x (-1)^n t^{2n}\dee{t}
+</mrow><mrow>
+             &amp;=\ \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}
+</mrow><mrow>
+             &amp;=x -\frac{x^3}{3} +\frac{x^5}{5}-\cdots
+</mrow>
+</md>
+Theorem <xref ref="thm_SRpsops"/> guarantees that the radius of convergence is exactly one (the radius of convergence of the geometric series  <m>\sum_{n=0}^\infty (-t^2)^n</m>) and that
+<md>
+<mrow>
+\arctan x\ &amp;=\ \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}
+\qquad\text{for all $-1 \lt x \lt 1$}
+</mrow>
+</md>
+When <m>x=\pm 1</m>, the series converges by the alternating series test.  So the interval of convergence is <m>-1\le x\le 1</m>.  It is possible to prove, though once again we won't do so here,  that when <m>x=\pm 1</m>, the series  <m>\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}</m> converges to the value of the left hand side, <m>\arctan x</m>, at <m>x=\pm 1</m>. That is, to <m>\arctan(\pm 1)=\pm \frac{\pi}{4}</m>.
+</p>
+</example>
+
+<p>
+The operations on power series dealt with in Theorem<nbsp/><xref ref="thm_SRpsops"/>  are fairly easy to apply. Unfortunately taking the product, ratio  or composition of two power series is more involved and is beyond  the scope of this course
+	<fn>
+		As always, a quick visit to your favourite search engine will direct the interested reader to more infomation.
+	</fn>.
+Unfortunately Theorem<nbsp/><xref ref="thm_SRpsops"/> alone will not get us  power series representations of many of our standard  functions  (like  <m>e^x</m> and <m>\sin x</m>).  Fortunately we can find such  representations by extending Taylor polynomials
+	<fn>
+		Now is a good  time to review your notes from last term, though  we'll give you a  whirlwind review over the next page or two.
+	</fn>
+to Taylor series.
+</p>
+
+</subsection>
+
+<xi:include href="../problems/prob_s3.5.xml" />
+
+
+</section>

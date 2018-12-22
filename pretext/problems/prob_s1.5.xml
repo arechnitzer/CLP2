@@ -1,0 +1,1075 @@
+<?xml version="1.0" encoding="UTF-8" ?><exercises>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise>
+<statement><p>
+We want to approximate the area between the graphs of <m>y=\cos x</m> and <m>y=\sin x</m> from <m>x=0</m> to <m>x=\pi</m> using a left Riemann sum with <m>n=4</m> rectangles.
+<ol label="a">
+<li> On the graph below, sketch the four rectangles.
+</li>
+<li> Calculate the Riemann approximation.
+</li>
+</ol>
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{4.5}{2}{2.25};
+\YExcoord{3.14}{\pi}
+\YExcoord{1.57}{\frac{\pi}{2}}
+\YExcoord{0.79}{\frac{\pi}{4}}
+\YExcoord{2.36}{\frac{3\pi}{4}}
+\draw[blue, thick] plot[domain=-.5:3.7](\x,{2*cos(\x r)}) node[right]{$y=\cos x$};
+\draw[black, thick] plot[domain=-.5:3.7](\x,{2*sin(\x r)}) node[right]{$y=\sin x$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+When we say <q>area between,</q> we want positive area, <em>not</em> signed area.
+</p></hint>
+<answer><p>
+Area between curves <m>\approx \frac{\pi}{4}\left(2+\sqrt{2}\right)</m>
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{4.5}{2}{2.25};
+\YExcoord{3.14}{\pi}
+\YExcoord{1.57}{\frac{\pi}{2}}
+\YExcoord{0.79}{\frac{\pi}{4}}
+\YExcoord{2.36}{\frac{3\pi}{4}}
+\draw[blue, thick] plot[domain=-.5:3.7](\x,{2*cos(\x r)}) node[right]{$y=\cos x$};
+\draw[black, thick] plot[domain=-.5:3.7](\x,{2*sin(\x r)}) node[right]{$y=\sin x$};
+\draw[red, fill=red, fill opacity=0.5] (0,0) rectangle (0.79,2)
+(0.79,1.41) -- (1.57,1.41)
+(1.57,0) rectangle(2.36,2)
+(2.36,-1.41) rectangle (3.14,1.41);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></answer>
+<solution><sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{4.5}{2}{2.25};
+\YExcoord{3.14}{\pi}
+\YExcoord{1.57}{\frac{\pi}{2}}
+\YExcoord{0.79}{\frac{\pi}{4}}
+\YExcoord{2.36}{\frac{3\pi}{4}}
+\draw[blue, thick] plot[domain=-.5:3.7](\x,{2*cos(\x r)}) node[right]{$y=\cos x$};
+\draw[black, thick] plot[domain=-.5:3.7](\x,{2*sin(\x r)}) node[right]{$y=\sin x$};
+\draw[red, fill=red, fill opacity=0.5] (0,0) rectangle (0.79,2)
+(0.79,1.41) -- (1.57,1.41)
+(1.57,0) rectangle(2.36,2)
+(2.36,-1.41) rectangle (3.14,1.41);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The intervals of our rectangles are <m>[0,\frac{\pi}{4}]</m>, <m>[\frac{\pi}{4},\frac{\pi}{2}]</m>,
+<m>[\frac{\pi}{2},\frac{3\pi}{4}]</m>, and <m>[\frac{3\pi}{4},\pi]</m>. Since we're taking a left Riemann sum, we find the height of the rectangles at the left endpoints of the intervals.
+<ul>
+<li><m>x = 0</m>: The distance from <m>\cos 0</m> to <m>\sin 0</m> is 1, so our first rectangle has height 1.
+</li>
+<li><m>x = \frac{\pi}{4}</m>: The distance from <m>\cos \frac{\pi}{4}</m> to <m>\sin \frac{\pi}{4}</m> is 0, so our second rectangle has height 0.
+</li>
+<li><m>x = \frac{\pi}{2}</m>: The distance from <m>\cos \frac{\pi}{2}</m> to <m>\sin \frac{\pi}{2}</m> is 1, so our third rectangle has height 1.
+</li>
+<li><m>x = \frac{3\pi}{4}</m>: The distance from <m>\cos \frac{3\pi}{4}</m> to <m>\sin \frac{3\pi}{4}</m> is <m>\sin(3\pi/4)-\cos(3\pi/4) =\frac{1}{\sqrt{2}}-\left(-\frac{1}{\sqrt{2}}\right)=\sqrt{2} </m>, so our fourth rectangle has height <m>\sqrt{2}</m>.
+</li>
+</ul>
+So, our approximation for the area between the two curves is
+<me>
+\frac{\pi}{4}\left(1+0+1+\sqrt{2}\right)=\frac{\pi}{4}\left(2+\sqrt{2}\right)</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+We want to approximate the bounded area between the curves <m>y=\arcsin\left(\dfrac{2x}{\pi}\right)</m> and <m>y=\sqrt{\dfrac{\pi x}{2}}</m> using <m>n=5</m> rectangles.
+<ol label="a">
+<li> Draw the five (vertical) rectangles on the picture below corresponding to a right Riemann sum.
+</li>
+<li> Draw  five rectangles on the picture below we might use if we were using horizontal rectangles.
+</li>
+</ol>
+</p><sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1.5}{7}{1.5}{6}
+\YExcoord{6.28}{\frac{\pi}{2}}
+\draw[thick, blue] plot[domain=-.2:1.57, xscale=4, yscale=4]({sin(\x r)/2*3.14},{\x}) ;
+\draw[blue] (4,1)node{$y=\arcsin\left(\frac{2x}{\pi}\right)$};
+\draw[thick] plot[domain=0:1.8, xscale=4, yscale=4, samples=100]({\x},{sqrt(\x*3.14/2)});
+\draw (2,4.75)node{$y=\sqrt{\frac{x\pi}{2}}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+We're taking rectangles that reach from one function to the other.
+</p></hint>
+<answer><p>
+(a) Vertical rectangles:
+</p><sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1.5}{7}{1.5}{6}
+\foreach \x/\l in {1.26/\frac{\pi}{10},2.51/\frac{\pi}{5},3.77/\frac{3\pi}{10},5.03/\frac{2\pi}{5},6.28/\frac{\pi}{2}}
+ 	{\YExcoord{\x}{\l}}
+\draw[red, fill=red, fill opacity=0.5]
+ (0,0.8)rectangle (1.26,2.81)
+  (1.26,1.64)rectangle (2.51,3.97)
+   (2.51,2.56)rectangle (3.77,4.87)
+    (3.77,3.72)rectangle (5.03,5.62)
+        (5.03,6.28)rectangle (6.28,6.28);
+\draw[thick, blue] plot[domain=-.2:1.57, xscale=4, yscale=4]({sin(\x r)/2*3.14},{\x}) ;
+\draw[blue] (4,1)node{$y=\arcsin\left(\frac{2x}{\pi}\right)$};
+\draw[thick] plot[domain=0:1.8, xscale=4, yscale=4, samples=100]({\x},{sqrt(\x*3.14/2)});
+\draw (2,5.25)node{$y=\sqrt{\frac{x\pi}{2}}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<p>(b) One possible answer:
+</p><sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1.5}{7}{1.5}{7}
+\foreach \x/\l in {1.26/\frac{\pi}{10},2.51/\frac{\pi}{5},3.77/\frac{3\pi}{10},5.03/\frac{2\pi}{5},6.28/\frac{\pi}{2}}
+ 	{\YEycoord{\x}{\l});}
+\draw[red, fill=red, fill opacity=0.5]
+ (1.94,0)rectangle (0.25,1.26)
+  (3.69,1.26)rectangle (1,2.51)
+   (5.08,2.51)rectangle (2.26,3.77)
+    (5.98,3.77)rectangle (4.02,5.03)
+        (6.28,5.03)rectangle (6.28,6.28);
+\draw[thick, blue] plot[domain=-.2:1.57, xscale=4, yscale=4]({sin(\x r)/2*3.14},{\x}) ;
+\draw[blue] (4,1)node{$x=\frac{\pi}{2}\sin y$};
+\draw[thick] plot[domain=0:1.8, xscale=4, yscale=4, samples=100]({\x},{sqrt(\x*3.14/2)});
+\draw (2,5.25)node{$x=\frac{2}{\pi}y^2$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+</answer>
+<solution>
+
+<p><ol label="a">
+<li>
+<p>
+We are finding the area in the interval from <m>x=0</m> to <m>x=\frac{\pi}{2}</m>. Since we're taking <m>n=5</m> rectangles, our rectangles cover the following intervals:
+<me>
+\left[0,\frac{\pi}{10}\right],\quad
+\left[\frac{\pi}{10},\frac{\pi}{5}\right],\quad
+\left[\frac{\pi}{5},\frac{3\pi}{10}\right],\quad
+\left[\frac{3\pi}{10},\frac{2\pi}{5}\right],\quad
+\left[\frac{2\pi}{5},\frac{\pi}{2}\right].</me>
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1.5}{7}{1.5}{6}
+\foreach \x/\l in {1.26/\frac{\pi}{10},2.51/\frac{\pi}{5},3.77/\frac{3\pi}{10},5.03/\frac{2\pi}{5},6.28/\frac{\pi}{2}}
+ 	{\YExcoord{\x}{\l}}
+\draw[red, fill=red, fill opacity=0.5]
+ (0,0.8)rectangle (1.26,2.81)
+  (1.26,1.64)rectangle (2.51,3.97)
+   (2.51,2.56)rectangle (3.77,4.87)
+    (3.77,3.72)rectangle (5.03,5.62)
+        (5.03,6.28)rectangle (6.28,6.28);
+\draw[thick, blue] plot[domain=-.2:1.57, xscale=4, yscale=4]({sin(\x r)/2*3.14},{\x}) ;
+\draw[blue] (4,1)node{$y=\arcsin\left(\frac{2x}{\pi}\right)$};
+\draw[thick] plot[domain=0:1.8, xscale=4, yscale=4, samples=100]({\x},{sqrt(\x*3.14/2)});
+\draw (2,5.25)node{$y=\sqrt{\frac{x\pi}{2}}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li>
+<p>
+We are finding the area in the interval from <m>y=0</m> to <m>y=\frac{\pi}{2}</m>. (In general, when we switch from horizontal rectangles to vertical, the limits of integration will change--it's only coincidence that they are the same in this example.) Since we're taking <m>n=5</m> rectangles, these rectangles cover the following intervals of the <m>y</m>-axis:
+<me>
+\left[0,\frac{\pi}{10}\right],\quad
+\left[\frac{\pi}{10},\frac{\pi}{5}\right],\quad
+\left[\frac{\pi}{5},\frac{3\pi}{10}\right],\quad
+\left[\frac{3\pi}{10},\frac{2\pi}{5}\right],\quad
+\left[\frac{2\pi}{5},\frac{\pi}{2}\right].</me>
+</p>
+
+<p>The question doesn't specify which endpoints we're using. Let's use upper endpoints, to match part (a).
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1.5}{7}{1.5}{7}
+\foreach \x/\l in {1.26/\frac{\pi}{10},2.51/\frac{\pi}{5},3.77/\frac{3\pi}{10},5.03/\frac{2\pi}{5},6.28/\frac{\pi}{2}}
+ 	{\YEycoord{\x}{\l});}
+\draw[red, fill=red, fill opacity=0.5]
+ (1.94,0)rectangle (0.25,1.26)
+  (3.69,1.26)rectangle (1,2.51)
+   (5.08,2.51)rectangle (2.26,3.77)
+    (5.98,3.77)rectangle (4.02,5.03)
+        (6.28,5.03)rectangle (6.28,6.28);
+\draw[thick, blue] plot[domain=-.2:1.57, xscale=4, yscale=4]({sin(\x r)/2*3.14},{\x}) ;
+\draw[blue] (4,1)node{$x=\frac{\pi}{2}\sin y$};
+\draw[thick] plot[domain=0:1.8, xscale=4, yscale=4, samples=100]({\x},{sqrt(\x*3.14/2)});
+\draw (2,5.25)node{$x=\frac{2}{\pi}y^2$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M121 2002A</fromexam></title>
+<statement><p>
+Write down a definite integral that represents the
+finite area bounded by the curves <m>y=x^3-x</m> and
+<m>y=x</m> for <m>x\ge 0</m>.
+<em>Do not evaluate the integral explicitly.</em>
+</p></statement>
+
+<hint><p>
+Draw a sketch first.
+</p></hint>
+
+<answer><p>
+<m> \displaystyle\int_0^{\sqrt{2}}\big[2x-x^3\big]\dee{x}</m>
+</p></answer>
+
+<solution><p>
+The curves intersect when <m>y=x</m> and <m>y=x^3-x</m>. To find these points, we set:
+<md>
+<mrow>
+x&amp;=x^3-x
+</mrow><mrow>
+0&amp;=x^3-2x
+</mrow><mrow>
+0&amp;=x(x^2-2)
+</mrow><mrow>
+0&amp;= x \quad\mbox{or}\quad 0=x^2-2
+</mrow>
+</md>
+For <m>x\ge 0</m>, the curves intersect at <m>(0,0)</m> and <m>(\sqrt{2},\sqrt{2})</m>.
+</p>
+
+<p>A handy observation is that, since both curves are continuous and they do not meet each other between <m>x=0</m> and <m>x=\sqrt{2}</m>, we don't have to worry about dividing our area into two regions: one of the functions is always on the top, and the other is always on the bottom.
+</p>
+
+<p>
+Using vertical strips:
+</p>
+<sidebyside width="33%">
+<image source="problems/figs/OE02A_2a"/>
+</sidebyside>
+<p>
+The top and bottom boundaries of the specified region are <m>y=T(x)=x</m>
+and <m>y=B(x)=x^3-x</m>, respectively. So,
+<md>
+<mrow>
+{\rm Area} = \int_0^{\sqrt{2}}\big[T(x)-B(x)\big]\dee{x}
+= \int_0^{\sqrt{2}}\big[x-(x^3-x)\big]\dee{x} = \int_0^{\sqrt{2}} 2x-x^3 \dee{x}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2000D</fromexam></title>
+<statement><p>
+Write down a definite integral that represents the
+area of the region bounded by the line <m>y=-\dfrac{x}{2}</m>
+and the parabola <m>y^2=6-\dfrac{5x}{4}</m>.
+<em>Do not evaluate the integral explicitly.</em>
+</p></statement>
+
+<hint><p>
+Draw a sketch first.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle \int_{-3/2}^{4}\left[\frac{4}{5}(6-y^2)+2y\right]\dee{y}</m>
+</p></answer>
+
+<solution><p>
+We need to find where the curves intersect.
+<md>
+<mrow>
+\frac{x^2}{4}=y^2&amp;=6-\dfrac{5x}{4}
+</mrow><mrow>
+\frac{1}{4}x^2+\frac{5}{4}x-6&amp;=0
+</mrow><mrow>
+x^2+5x-24&amp;=0
+</mrow><mrow>
+(x+8)(x-3)&amp;=0
+</mrow><mrow>
+x=-8,\quad x&amp;=3
+</mrow>
+</md>
+</p>
+
+<p>The curves intersect at <m>(-8,4)</m> and <m>(3,-\frac{3}{2})</m>.  Using horizontal
+strips:
+</p>
+
+<sidebyside width="66%">
+<image source="problems/figs/OE00D_3a"/>
+</sidebyside>
+<p>
+we have
+<md>
+<mrow>
+\text{Area} = \int_{-3/2}^{4}\Big[\frac{4}{5}(6-y^2)+2y\Big]\dee{y}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise xml:id="p1_5_4ax4ay"><title><fromexam>2001A</fromexam></title>
+<statement><p>
+Write down a definite integral that represents the
+area of the finite plane region bounded by <m>y^2=4ax</m> and
+<m>x^2=4ay</m>, where <m>a \gt 0</m> is a constant.
+<em>Do not evaluate the integral explicitly.</em>
+</p></statement>
+
+<hint><p>
+You can probably find the intersections by inspection.
+</p></hint>
+
+<answer><p>
+<m> \displaystyle\int_0^{4a}\left[\sqrt{4ax}-\frac{x^2}{4a}\right]\dee{x}</m>
+</p></answer>
+
+<solution><p>
+If the curves intersect at <m>(x,y)</m>, then
+<md>
+<mrow>
+\left(x^2\right)^2&amp;=\left(4a\right)^2y^2 = (4a)^24ax
+</mrow><mrow>
+x^4&amp;=(4a)^3 x
+</mrow><mrow>
+x^4&amp;-(4a)^3x=0
+</mrow><mrow>
+x(&amp;x^3-(4a)^3)=0
+</mrow><mrow>
+x&amp;= 0 \quad\mbox{or}\quad x^3=(4a)^3
+</mrow>
+</md>
+The curves intersect at <m>(0,0)</m> and <m>(4a,4a)</m>. (It is also possible to find these points by inspection.) Using vertical strips:
+</p>
+
+<sidebyside width="33%">
+<image source="problems/figs/OE01A_2a"/>
+</sidebyside>
+<p>
+We want the <m>y</m>-values of the functions. We write the top  function as <m>y =\sqrt{4ax}</m> (we care about the positive square root, not the negative one) and we write the bottom function as <m>y=\frac{x^2}{4a}</m>.
+Then we have
+<md>
+<mrow>
+\text{Area} = \int_0^{4a}\left[\sqrt{4ax}-\frac{x^2}{4a}\right]\dee{x}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2001D</fromexam></title>
+<statement><p>
+Write down a definite integral that represents the
+area of the region bounded between the line <m>x+12y+5=0</m>
+and the curve  <m>x=4y^2</m>.
+<em>Do not evaluate the integral explicitly.</em>
+</p></statement>
+
+<hint><p>
+To find the intersection, plug <m>x=4y^2</m> into the equation <m>x+12y+5=0</m>.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\int_1^{25}\left[-\frac{1}{12}(x+5)+\frac{1}{2}\sqrt{x}\right]\dee{x}</m>
+</p></answer>
+
+<solution><p>
+The curves intersect when <m>x=4y^2</m> and <m>0=4y^2+12y+5
+=(2y+5)(2y+1)</m>. So, the curves intersect at <m>(1,-\half)</m> and <m>(25,-\frac{5}{2})</m>.
+Using vertical strips:
+</p>
+<sidebyside width="75%">
+<image source="problems/figs/OE01D_3a"/>
+</sidebyside>
+<p>
+we have
+<md>
+<mrow>
+\text{Area} =
+\int_1^{25}\left[-\frac{1}{12}(x+5)+\frac{1}{2}\sqrt{x}\right]\dee{x}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise purpose="RQS"><title><fromexam>M105 2013A</fromexam></title>
+<statement><p>
+Find the area of the region bounded by the graph of
+<m>f (x) = \dfrac{1}{(2x-4)^2}</m> and the <m>x</m>--axis
+between <m>x = 0</m> and <m>x = 1</m>.
+</p></statement>
+
+<hint><p>
+If the bottom function is the <m>x</m>-axis, this is a familiar question.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{8}</m>
+</p></answer>
+
+<solution><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{3.5}{1}{2}
+\YExcoord{2}{1}
+\draw[thick] plot[domain=-.5:1.5, samples=50, scale=2](\x,{1/(4*(\x-2)*(\x-2))});
+\draw[fill=blue, fill opacity=0.5] plot[domain=0:1, samples=10, scale=2](\x,{1/(4*(\x-2)*(\x-2))})--(2,0)-|cycle;
+\draw (3,1.5)node[right]{$y=\frac{1}{(2x-4)^2}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The area between the curve <m>y= \frac{1}{(2x-4)^2}</m>
+and the <m>x</m>-axis, with <m>x</m> running from <m>a=0</m> to
+<m>b=1</m>, is exactly the definite integral of <m>\frac{1}{(2x+4)^2}</m> with limits <m>0</m> and <m>1</m>.
+</p>
+
+<p><md>
+<mrow>
+\mbox{Area}&amp;=\int_0^1 \frac{\dee{x}}{(2x-4)^2}&amp;u=2x-4,\quad\dee{u}=2\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{2}\int_{-4}^{-2}\frac{1}{u^2}\dee{u} = \frac{1}{2}\left[\frac{-1}{u}\right]_{u=-4}^{u=-2}
+</mrow><mrow>
+&amp;=\frac{1}{2}\Big[\frac{1}{2}-\frac{1}{4}\Big]
+=\frac{1}{8}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q2</fromexam></title>
+<statement><p>
+Find the area between the curves <m>y=x</m> and <m>y=3x-x^2</m>, by first identifying the points of intersection and then integrating.
+</p></statement>
+
+<hint><p>
+Part of the job is to determine whether <m>y=x</m> lies above or below
+<m>y=3x-x^2</m>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{4}{3}</m>
+</p></answer>
+
+<solution><p>
+If the curves <m>y=f(x)=x</m> and <m>y=g(x)=3x-x^2</m> intersect at <m>(x,y)</m>, then
+<md>
+<mrow>
+3x-x^2&amp;=y=x
+</mrow><mrow>
+x^2-2x&amp;=0
+</mrow><mrow>
+x(x-2)&amp;=0
+</mrow><mrow>
+x=0 \quad &amp;\mbox{or} \quad x=2
+</mrow>
+</md>
+Furthermore, <m>g(x)-f(x) = 2x-x^2 = x(2-x)</m> is positive for all <m>0\le x\le 2</m>.
+That is, the curve  <m>y=3x-x^2</m> lies above the line <m>y=x</m> for all <m>0\le x\le 2</m>.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{5}{1}{3}
+\draw[thick, blue] plot[domain=-.2:3.25, scale=1.5, samples=40](\x,{3*\x-\x*\x});
+\draw[thick] (-.75,-.75)--(3.5,3.5) node[right]{$y=x$};
+\draw[blue] (4.5,1) node[right]{$y=3x-x^2$};
+\YExcoord{3}{2}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+We therefore evaluate the integral:
+<md>
+<mrow>
+ \int_0^2 \big[ (3x-x^2) - x \big] \,\dee{x}
+  = \int_0^2 [2x-x^2]\,\dee{x}
+   = \bigg[x^2 - \frac{x^3}{3}\bigg]^{2}_{0}
+   = \bigg[ 4-\frac{8}{3} \bigg] -0
+   = \frac{4}{3}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2015A</fromexam></title>
+<statement><p>
+Calculate the area of the region enclosed by <m>y = 2^x</m> and <m>y = \sqrt x+1</m>.
+</p></statement>
+
+<hint><p>
+Guess the intersection points by trying small integers.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{5}{3}-\dfrac{1}{\log 2}</m>
+</p></answer>
+
+<solution><p>
+By inspection, the two curves cross at <m>(0,1)</m> and <m>(1,2)</m>.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{3}{1}{3}
+\draw[thick, blue] plot[domain=0:2, xscale=2, yscale=1.5, samples=140](\x,{sqrt(\x)+1});
+\draw[thick] plot[domain=-.5:1.5, xscale=2,yscale=1.5,  samples=40](\x,{pow(2,\x)});
+\draw[blue] (4,3) node[right]{$y=\sqrt{x}+1$};
+\draw (-1,1) node[left]{$y=2^x$};
+\YExcoord{2}{1}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+To antidifferentiate <m>2^x</m>, we write <m>2^x={(e^{\log 2})}^x=e^{x\log 2}</m>.
+<md>
+<mrow>
+\text{Area} &amp;= \int_0^1\big[(\sqrt{x}+1)-e^{x\log 2}\big]\,\dee{x}
+=\left[\frac{2}{3}x^{3/2}+x-\frac{1}{\log 2} 2^x\right]_0^1
+</mrow><mrow>
+&amp;=\frac{2}{3}+1-\frac{1}{\log 2}[2-1]
+=\frac{5}{3}-\frac{1}{\log 2}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2014A</fromexam></title>
+<statement><p>
+Find the area of the finite region bounded between the two curves
+<m>y = \sqrt{2} \cos(\pi x/4)</m> and <m>y = |x|</m>.
+</p></statement>
+
+<hint><p>
+Draw a sketch first. You can also exploit a symmetry of the region
+to simplify your solution.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{8}{\pi}-1</m>
+</p></answer>
+
+<solution><p>
+Here is a sketch of the specified region.
+</p>
+
+<sidebyside width="50%">
+<image source="problems/figs/OE14A_2"/>
+</sidebyside>
+<p>
+Both functions are even, so the region  is symmetric about the <m>y</m>--axis.
+So, we will compute the area of the part with <m>x\ge 0</m> and multiply
+by <m>2</m>. The curves <m>y=\sqrt{2} \cos(\pi x/4)</m> and <m>y=x</m> intersect
+when <m>x=\sqrt{2} \cos(\pi x/4)</m> or <m>\cos(\pi x/4)=\frac{x}{\sqrt{2}}</m>,
+which is the case
+<fn>
+The solution <m>x=1</m> was found by guessing.
+To guess a solution to <m>\cos(\pi x/4)=\frac{x}{\sqrt{2}}</m> just ask
+yourself what simple angle has a cosine that involves <m>\sqrt{2}</m>. This
+guessing strategy is essentially useless in the real world, but
+works great on problem sets and exams.
+</fn>
+when <m>x=1</m>. So, using vertical strips as in
+the figure above, the area (including the multiplication by 2) is
+<me>
+2\int_0^1 \big[\sqrt{2} \cos(\pi x/4) - x\big]\,\dee{x}
+= 2\bigg[\sqrt{2}\,\frac{4}{\pi} \sin(\pi x/4)-\frac{x^2}{2}\bigg]_0^1
+= 2\bigg[\frac{4}{\pi}-\frac{1}{2}\bigg] = \frac{8}{\pi}-1
+</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q2</fromexam></title>
+<statement><p>
+Find the area of the finite region that is bounded by the graphs of
+<m>f(x) = x^2\sqrt{x^3+1}</m> and <m>g(x) = 3x^2</m>.
+</p></statement>
+
+<hint><p>
+Figure out where the two curves cross. To determine which curve is above the
+other, try evaluating <m>f(x)</m> and <m>g(x)</m> for some simple value of <m>x</m>.
+Alternatively, consider <m>x</m> very close to zero.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{20}{9}</m>
+</p></answer>
+
+<solution><p>
+For our computation, we will need an antiderivative of
+<m>x^2\sqrt{x^3+1}</m>, which can be found using the substitution
+<m>u=x^3+1</m>, <m>\dee{u} = 3x^2\,\dee{x}</m>:
+<md>
+<mrow>
+\int x^2\sqrt{x^3+1} \, \dee{x} = \int \sqrt u \cdot \frac13\,\dee{u} = \frac13\int u^{1/2}\,\dee{u} = \frac13\cdot \frac{u^{3/2}}{3/2}+C = \frac29(x^3+1)^{3/2} + C.
+</mrow>
+</md>
+</p>
+
+<p>The two functions <m>f(x)</m> and <m>g(x)</m> are clearly equal at <m>x=0</m>. If <m>x\ne0</m>, then the functions are equal when
+<md>
+<mrow>
+3x^2 &amp;= x^2\sqrt{x^3+1}
+</mrow><mrow>
+3 &amp;= \sqrt{x^3+1}
+</mrow><mrow>
+9 &amp;= x^3+1
+</mrow><mrow>
+8 &amp;= x^3
+</mrow><mrow>
+2 &amp;= x.
+</mrow>
+</md>
+The function <m>g(x)=3x^2</m> is the larger of the two on the interval <m>[0,2]</m>, as can be seen by plugging in <m>x=1</m>, say, or by observing that when <m>x</m>
+is very small <m>f(x)=x^2\sqrt{x^3+1}\approx x^2</m> and <m>g(x)=3x^2</m>.
+</p>
+
+<sidebyside width="40%">
+<image source="problems/figs/OQ16_2_4"/>
+</sidebyside>
+<p>
+The area in question is therefore:
+<md>
+<mrow>
+\int_0^2 \big( 3x^2 - x^2\sqrt{x^3+1} \big) \, \dee{x} &amp;= \bigg( {x^3} - \frac29(x^3+1)^{3/2} \bigg) \bigg|_0^2
+</mrow><mrow>
+&amp;= \bigg( 2^3 - \frac2 9(2^3+1)^{3/2} \bigg) - \bigg( 0^3 - \frac29(0^3+1)^{3/2} \bigg)
+</mrow><mrow>
+&amp;= \bigg( 8 - 6 \bigg) - \bigg( 0 - \frac 2 9 \bigg) =\frac{20}9.
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q2</fromexam></title>
+<statement><p>
+Find the area to the left of the <m>y</m>--axis and to
+the right of the curve <m>x=y^2+y</m>.
+</p></statement>
+
+<hint><p>
+Think about whether it will easier to use vertical strips or horizontal strips.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{6}</m>
+</p></answer>
+
+<solution><p>
+First, let's figure out what our curve <m>x=y^2+y=y(y+1)</m> looks like.
+<ul>
+<li> The curve intercepts the <m>y</m>-axis when <m>y=0</m> and <m>y=-1</m>.
+</li>
+<li> The <m>x</m>-values of the curve are negative when <m>-1 \lt y \lt 0</m>, and  positive elsewhere.
+</li>
+</ul>
+ This leads to the figure below. We're evaluating the area from <m>y=-1</m> to <m>y=0</m>. Since <m>y^2+y</m> is negative there, the length of our (horizontal) slices are <m>0-(y^2+y)</m>.
+</p>
+
+<p>
+<md>
+<mrow>
+\text{Area}=\int_{-1}^0\big(0-(y^2+y)\big)\,\dee{y} = -\bigg[\frac{y^3}{3}+\frac{y^2}{2}\bigg]_{-1}^0
+=-\frac13+\frac12
+=\frac{1}{6}
+</mrow>
+</md>
+</p>
+<sidebyside width="33%">
+<image source="problems/figs/quiz2M1prob2"/>
+</sidebyside>
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Find the area of the finite region  below <m>y=\sqrt{9-x^2}</m> and above both
+ <m>y=|x|</m> and <m>y=\sqrt{1-x^2}</m>.
+</p></statement>
+<hint><p>
+Writing an integral for this is nasty. How can you avoid it?
+</p></hint>
+<answer><p>
+<m>2\pi</m>
+</p></answer>
+<solution><p>
+Let's begin by sketching our region. Note that <m>y=\sqrt{1-x^2}</m> and <m>y=\sqrt{9-x^2}</m> are the top halves of circles centred at the origin with radii 1 and 3, respectively.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{4}{4}{1}{4}
+\draw[thick] (-3,3)--(0,0)--(3,3);
+\draw[thick] (-1,0) arc(180:0:1cm);
+\draw[thick] (-3,0) arc(180:0:3cm);
+\draw[fill=blue, fill opacity=0.5] (-.71,.71)--(-2.12,2.12) arc(135:45:3) --(.71,.71) arc(45:135:1cm);
+\draw (3,.5) node[right] {$y=\sqrt{9-x^2}$};
+\draw (3,3) node[right] {$y=|x|$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Our region is the difference of two quarter-circles, so we find its area using geometry:
+<me>
+\mbox{Area}=\frac{1}{4}\left(\pi\cdot 3^2\right)-\frac{1}{4}\left(\pi\cdot 1^2\right)=2\pi</me>
+</p>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise xml:id="prob_s1_5q5"><title><fromexam>2013A</fromexam></title>
+<statement><p>
+The graph below shows the region between
+<m>y = 4 + \pi \sin x</m> and <m>y = 4 + 2\pi - 2x</m>.
+</p>
+
+<sidebyside width="66%">
+<image source="problems/figs/OE13A_4a"/>
+</sidebyside>
+<p>
+Find the area of this region.
+</p></statement>
+
+<hint><p>
+You are asked for the area, not the signed area. Be very careful about signs.
+</p></hint>
+
+<answer><p>
+<m>2\Big[\pi-\frac{1}{4}\pi^2\Big]</m>
+</p></answer>
+
+<solution><p>
+We will compute the area by using thin vertical strips, as in
+the sketch  below:
+</p>
+
+<sidebyside width="66%">
+<image source="problems/figs/OE13A_4"/>
+</sidebyside>
+<p>
+By looking at the sketch above, we guess the line <m>y = 4 + 2\pi - 2x</m> intersects the curve
+<m>y = 4 + \pi \sin x</m> when <m>x=\frac{\pi}{2},</m> <m>x=\pi</m>, and <m>x=\frac{3\pi}{2}</m>. Let's make sure these are correct by plugging them into the two equations, and making sure the <m>y</m>-values match:
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell><m>x</m> </cell><cell> <m>4+2\pi-2x</m> </cell><cell> <m>4+\pi\sin(x)</m> </cell><cell> match? </cell>
+</row>
+<row>
+<cell> <m>\frac{\pi}{2}</m> </cell><cell> <m>4+\pi</m> </cell><cell> <m>4+\pi </m> </cell><cell> <m>\checkmark</m> </cell>
+</row>
+<row>
+<cell><m>\pi</m> </cell><cell> <m>4</m> </cell><cell> <m>4</m> </cell><cell> <m>\checkmark</m> </cell>
+</row>
+<row>
+<cell> <m>\frac{3\pi}{2}</m> </cell><cell> <m>4-\pi</m> </cell><cell> <m>4-\pi </m> </cell><cell> <m>\checkmark</m> </cell>
+</row>
+</tabular>
+</sidebyside>
+
+<p>
+Also from
+the sketch, we see that:
+<ul>
+<li>
+When <m>\frac{\pi}{2} \le x \le \pi</m>, the top of the strip is at
+<m>y = 4 + \pi \sin x</m> and the bottom of the strip is at <m>y = 4 + 2\pi - 2x</m>.
+So the strip has height <m>\big[(4 + \pi \sin x)-(4 + 2\pi - 2x)\big]</m>
+and width <m>\dee{x}</m>, and hence area
+<m>\big[(4 + \pi \sin x)-(4 + 2\pi - 2x)\big]\dee{x}</m>.
+</li>
+<li>
+When <m>\pi \le x \le \frac{3\pi}{2}</m>, the top of the strip is at
+<m>y = 4 + 2\pi - 2x</m> and the bottom of the strip is at <m>y = 4 + \pi \sin x</m>.
+So the strip has height <m>\big[(4 + 2\pi - 2x)-(4 + \pi \sin x)\big]</m>
+and width <m>\dee{x}</m>, and hence area
+<m>\big[(4 + 2\pi - 2x)-(4 + \pi \sin x)\big]\dee{x}</m>.
+</li>
+</ul>
+Now we can calculate:
+<md>
+<mrow>
+\hbox{Area}
+&amp;= \int_{\pi/2}^\pi \big[(4 + \pi \sin x)-(4 + 2\pi - 2x)\big]\dee{x}
+   +\int^{3\pi/2}_\pi \big[(4 + 2\pi - 2x)-(4 + \pi \sin x)\big]\dee{x}
+</mrow><mrow>
+&amp;= \int_{\pi/2}^\pi \big[\pi \sin x- 2\pi + 2x\big]\dee{x}
+   +\int^{3\pi/2}_\pi \big[2\pi - 2x- \pi \sin x\big]\dee{x}
+</mrow><mrow>
+&amp;=\Big[-\pi \cos x- 2\pi x + x^2\Big]_{\pi/2}^\pi
+  +\Big[2\pi x - x^2+ \pi \cos x\Big]^{3\pi/2}_\pi
+</mrow><mrow>
+&amp;=\left[\pi-\pi^2+\frac{3}{4}\pi^2\right]
+  +\left[\pi^2-\frac{5}{4}\pi^2+\pi\right]
+</mrow><mrow>
+&amp;=2\Big[\pi-\frac{1}{4}\pi^2\Big]
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1998A</fromexam></title>
+<statement><p>
+Compute the area of the finite region bounded by the
+curves <m>x=0</m>, <m>x=3</m>, <m>y=x+2</m> and <m>y=x^2</m>.
+</p></statement>
+
+<hint><p>
+You are asked for the area, not the signed area. Draw a sketch of the region
+and be very careful about signs.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{31}{6}</m>
+</p></answer>
+
+<solution><p>
+First, here is a sketch of the region. We are not asked for it, but it
+is crucial for understanding the question.
+</p>
+<sidebyside width="33%">
+<image source="problems/figs/graphE98A_3"/>
+</sidebyside>
+<p>
+The two curves  <m>y=x+2</m> and <m>y=x^2</m> cross at <m>(2,4)</m>.
+The area of the part between them with <m>0\le x\le 2</m> is:
+<md>
+<mrow>
+\int_0^2 \big[x+2-x^2\big]\,\dee{x}=\Big[\frac{1}{2} x^2+2x-\frac{1}{3}x^3\Big]_0^2
+=2+4-\frac{8}{3}=\frac{10}{3}
+</mrow>
+</md>
+The area of the part between the two curves with <m>2\le x\le 3</m> is:
+<md>
+<mrow>
+\int_2^3 \big[x^2-(x+2)\big]\,\dee{x}=\Big[\frac{1}{3}x^3-\frac{1}{2} x^2-2x\Big]_2^3
+=9-\frac{9}{2}-6-\frac{8}{3}+2+4=\frac{11}{6}
+</mrow>
+</md>
+The total area is <m>\dfrac{10}{3}+\dfrac{11}{6}=\dfrac{31}{6}</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q2</fromexam></title>
+<statement><p>
+Find the total area between the curves <m>y = x \sqrt{25-x^2}</m> and <m>y=3x</m>, on the interval <m>0\le x\le 4</m>.
+</p></statement>
+
+<hint><p>
+You have to determine whether
+<ul>
+<li>
+   the curve <m>y = f(x) = x \sqrt{25-x^2}</m> lies above the line <m>y=g(x)=3x</m> for all          <m>0\le x\le 4</m> or
+</li>
+<li>
+the curve <m>y = f(x)</m> lies below the line <m>y=g(x)</m> for all <m>0\le x\le 4</m> or
+</li>
+<li>  <m>y=f(x)</m> and <m>y=g(x)</m> cross somewhere between <m>x=0</m> and <m>x=4</m>.
+</li>
+</ul>
+One way to do so is to study the sign of
+      <m>f(x)-g(x) = x\big(\sqrt{25-x^2}-3\big)</m>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{26}{3}</m>
+</p></answer>
+
+<solution><p>
+We need to figure out which curve is on top, when. To do this, set <m>h(x) = 3x - x\sqrt{25-x^2}</m>. If <m>h(x)  \gt  0</m>, then <m>y=3x</m> is the top curve; if <m>h(x) \lt 0</m>, then <m>y=x\sqrt{25-x^2}</m> is the top curve.
+<md>
+<mrow>
+h(x) &amp;= 3x - x\sqrt{25-x^2} = x\left[3-\sqrt{25-x^2}\right]
+</mrow>
+<intertext>We only care about values of <m>x</m> in <m>[0,4]</m>, so <m>x</m> is nonnegative. Then <m>h(x)</m> is positive when:</intertext><mrow>
+3&amp; \gt  \sqrt{25-x^2}
+</mrow><mrow>
+9&amp; \gt  25-x^2
+</mrow><mrow>
+x^2 &amp;  \gt  16
+</mrow><mrow>
+x&amp; \gt  4
+</mrow>
+</md>
+</p>
+
+<p>That is, <m>h(x)</m> is never positive over the interval <m>[0,4]</m>. So, <m>y = x \sqrt{25-x^2}</m> lies above <m>y=3x</m> for all <m>0\le x\le 4</m>.
+</p>
+
+<p>The area we need to calculate is therefore:
+<md>
+<mrow>
+A &amp;= \int_0^4 \left[x \sqrt{25-x^2} - 3x\right]\,\dee{x}
+</mrow><mrow>
+&amp;= \int_0^4 x \sqrt{25-x^2}\,\dee{x} - \int_0^4 3x\,\dee{x}
+</mrow><mrow>&amp;= A_1 - A_2.
+</mrow>
+</md>
+To evaluate <m>A_1</m>, we use the substitution
+<m>u(x) = 25-x^2</m>, for which <m>\dee{u} = u'(x)\,\dee{x}= -2x\,\dee{x}</m>;
+and <m>u(4)=25-4^2=9</m> when <m>x=4</m>,
+while <m>u(0)=25-0^2=25</m> when <m>x=0</m>. Therefore
+<md>
+<mrow>
+A_1 &amp;= \int_{x=0}^{x=4} x \sqrt{25-x^2}\,\dee{x}
+= -\frac{1}{2} \int_{u=25}^{u=9} \sqrt{u}\,\dee{u}
+= \left[-\frac{1}{3} u^{3/2} \right]_{25}^{9}
+= \frac{125 - 27}{3} = \frac{98}{3}
+</mrow>
+</md>
+For <m>A_2</m> we use the antiderivative directly:
+<me>
+A_2 = \int_0^4 3x\,\dee{x} =\left[ \frac{3x^2}{2} \right]_0^4 = 24
+</me>
+Therefore the total area is:
+<md>
+<mrow>
+A = \frac{98}{3} - 24 = \frac{26}{3}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Find the area of the finite region below <m>y=\sqrt{9-x^2}</m> and <m>y=x</m>, and above  <m>y=\sqrt{1-(x-1)^2}</m>.
+</p></statement>
+<hint><p>
+Flex those geometry muscles.
+</p></hint>
+<answer><p>
+<m>\dfrac{7\pi}{8}-\dfrac{1}{2}</m>
+</p></answer>
+<solution><p>
+Let's begin by sketching our region. Note that <m>y=\sqrt{9-x^2}</m> is the top half of a circle centred at the origin with radius 3, while <m>y=\sqrt{1-(x-1)^2}</m> is the top half of a circle of radius 1 centred at <m>(1,0)</m>.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{4}{4}{1}{4}
+\draw[thick] (-1,-1)--(0,0)--(3,3);
+\draw[thick] (0,0) arc(180:0:1cm);
+\draw[thick] (-3,0) arc(180:0:3cm);
+\draw[fill=blue, fill opacity=0.5] (2.12,2.12) arc(45:0:3cm)--(2,0) arc(0:90:1) --cycle ;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Note <m>y=x</m> intersects <m>y=\sqrt{1-(x-1)^2}</m> at <m>(1,1)</m>, the highest part of the smaller half-circle.
+</p>
+
+<p>We can easily take the area of  triangles and sectors of circles. With that in mind, we cut up our region the following way:
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{4}{4}{1}{4}
+\draw[thick] (-1,-1)--(0,0)--(3,3);
+\draw[thick] (0,0) arc(180:0:1cm);
+\draw[thick] (-3,0) arc(180:0:3cm);
+\draw[thick, dashed, red, fill=red, fill opacity=0.5] (0,0)--(1,1)|-cycle;
+\draw[red] (.5,-.25) node{$A_1$};
+\draw[thick, dashed, green, fill=green, fill opacity=0.5] (1,0) --(1,1)arc(90:0:1cm)--cycle;
+\draw[green] (1.5,-.25) node{$A_2$};
+\draw[blue, ultra thick, fill opacity=0.5, pattern=crosshatch, pattern color=blue] (0,0)--(2.12,2.12) arc(45:0:3cm)--cycle;
+\draw[blue] (3.5,1) node{$A_3$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+<ul>
+<li> The desired area is <m>A_3-(A_1+A_2)</m>.
+</li>
+<li> <m>A_1</m> is the area of right a triangle with base 1 and height 1, so <m>A_1 = \frac{1}{2}</m>.
+</li>
+<li> <m>A_2</m> is the area of a quarter circle of radius 1, so <m>A_2=\frac{\pi}{4}</m>.
+</li>
+<li> <m>A_3</m> is the area of an eighth of a circle of radius 3, so <m>A_2 = \frac{9\pi}{8}</m>
+</li>
+</ul>
+So, the area of our region is<nbsp/><nbsp/> <m>\dfrac{9\pi}{8} - \dfrac{1}{2}-\dfrac{\pi}{4}=\dfrac{7\pi}{8}-\dfrac{1}{2}</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Find the area of the finite region bounded by the curve <m>y=x(x^2-4)</m> and the line <m>y=x-2</m>.
+</p></statement>
+<hint><p>
+These two functions have three points of intersection. This question is slightly messy, but uses the same concepts we've been practicing so far.
+</p></hint>
+<answer><p>
+<m>12\sqrt{2}-\dfrac{13}{4}</m>
+</p></answer>
+<solution><p>
+The first function is a cubic, with intercepts at <m>x=0,\pm2</m>. The second is a straight line  with a positive slope.
+</p>
+
+<p>We need to figure out what these functions look like in relation to one another, so let's find their points of intersection.
+<md>
+<mrow>
+x(x^2-4)&amp;=x-2
+</mrow><mrow>
+x(x+2)(x-2)&amp;=x-2
+</mrow><mrow>
+\boxed{\color{blue}{x-2=0}} \quad\mbox{or}\quad x(x+2)&amp;=1
+</mrow><mrow>
+x^2+2x-1&amp;=0
+</mrow><mrow>
+x &amp;= \dfrac{-2\pm\sqrt{4-4(1)(-1)}}{2}
+</mrow><mrow>
+x&amp;=\boxed{\color{red}{-1\pm \sqrt{2}}}
+</mrow>
+</md>
+So, our three points of intersection are when <m>\color{blue}{x=2}</m> and when <m>\color{red}{x=-1\pm\sqrt{2}}</m>. We note <me>
+\textcolor{red}{-1-\sqrt{2}}  \lt \textcolor{red}{ -1+\sqrt{2} } \lt  -1+\sqrt{4} \lt \textcolor{blue}{2}\ .</me>
+ So, we need to see which function is on top over the two intervals <m>\left[-1-\sqrt{2},-1+\sqrt{2}\right]</m> and <m>\left[-1+\sqrt{2},2\right]</m>. It suffices to check points in these intervals.
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell><m>x</m></cell><cell><m>x(x^2-4)</m> </cell><cell> <m>x-2</m> </cell><cell> top function:</cell>
+</row><row>
+<cell> 0 </cell><cell> 0 </cell><cell> <m>-2</m> </cell><cell> <m>x(x^2-4)</m></cell>
+</row><row>
+<cell> 1 </cell><cell> -3 </cell><cell> <m>-1</m> </cell><cell> <m>x-2</m></cell>
+</row>
+</tabular>
+</sidebyside>
+<p>
+Since 0 is in the interval <m>\left[-1-\sqrt{2},-1+\sqrt{2}\right]</m>, <m>x(x^2-4)</m> is the top function in that interval.
+Since 1 is in the interval <m>\left[-1+\sqrt{2},2\right]</m>, <m>x-2</m> is the top function in that interval. Now we can set up the integral to evaluate the area:
+<md>
+<mrow>
+\mbox{Area}&amp;=\int_{-1-\sqrt{2}}^{-1+\sqrt{2}}\left[x(x^2-4) - (x-2)\right]\dee{x}  \quad&amp;&amp;+ \quad
+&amp;&amp;\int_{-1+\sqrt{2}}^{2}\left[(x-2)-x(x^2-4)\right]\dee{x}
+</mrow>
+<mrow>
+&amp;=\int_{-1-\sqrt{2}}^{-1+\sqrt{2}}\left[x^3-5x+2\right]\dee{x}  \quad&amp;&amp;+ \quad
+&amp;&amp;\int_{-1+\sqrt{2}}^{2}\left[-x^3+5x-2\right]\dee{x}
+</mrow>
+<mrow>
+&amp;=\left[\frac{1}{4}x^4 - \frac{5}{2}x^2+2x\right]_{-1-\sqrt{2}}^{-1+\sqrt{2}}  \quad&amp;&amp;+ \quad
+&amp;&amp;\left[-\frac{1}{4}x^4 + \frac{5}{2}x^2-2x\right]_{-1+\sqrt{2}}^{2}
+</mrow>
+<intertext>After some taxing but rudimentary algebra:</intertext><mrow>
+&amp;=\left(8\sqrt{2}\right)+\left(4\sqrt{2}-\frac{13}{4}\right)=12\sqrt{2}-\frac{13}{4}
+</mrow>
+</md>
+</p></solution>
+</exercise></exercisegroup>
+
+</exercises>

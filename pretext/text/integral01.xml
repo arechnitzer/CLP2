@@ -1,0 +1,1563 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_intdef">
+<title>Definition of the Integral</title>
+<introduction>
+<p>
+	Arguably the easiest way to introduce integration is by considering the area between  the graph of a given function and the <m>x</m>-axis, between two specific vertical lines <mdash/>  such as is shown in the figure above. We'll follow this route by starting with a motivating example.
+</p>
+</introduction>
+
+
+<subsection>
+<title>A Motivating Example</title>
+
+<p>
+	Let us find the area under the curve <m>y=e^x</m> (and above the <m>x</m>-axis)  for <m>0\le x\le 1</m>. That is, the area of  <m>\big\{\ (x,y)\ \big|\ 0\le y\le e^x</m>, <m>0\le x\le 1\ \big\}</m>.
+</p>
+<sidebyside width="66%">
+ <image source="text/figs/etox_area"/>
+</sidebyside>
+<p>This area is equal to the <q>definite integral</q>
+<md>
+<mrow>
+  \text{Area} &amp;= \int_0^1 e^x \dee{x}
+</mrow>
+</md>
+Do not worry about this notation or terminology just yet. We discuss  it at length below. In different applications this quantity will  have different interpretations <mdash/> not just area. For example, if <m>x</m>  is time and <m>e^x</m> is your velocity at time <m>x</m>, then we'll see later (in Example<nbsp/><xref ref="eg_INTdistance"/>) that the specified area is the  net distance travelled between time <m>0</m> and time <m>1</m>. After we finish  with the example, we'll mimic it to give a general definition of the  integral <m>\int_a^b f(x) \dee{x}</m>.
+</p>
+
+<example xml:id="eg_INTexparea"><title>Computing an area with vertical strips</title>
+<p>
+We wish to compute the area of <m>\big\{\ (x,y)\ \big|\ 0\le y\le e^x</m>, <m>0\le x\le  1\ \big\}</m>. We know, from our experience with <m>e^x</m> in differential calculus,  that the curve <m>y=e^x</m> is not easily written in terms of other simpler  functions, so it is very unlikely that we would be able to write the area as  a combination of simpler geometric objects such as triangles, rectangles or  circles.
+</p>
+
+<p>
+So rather than trying to write down the area exactly, our strategy is to  approximate the area and then make our approximation more and more precise
+	<fn>
+		This should remind the reader of the approach taken to compute  the slope of a tangent line way way back at the start of differential calculus.
+	</fn>.
+We choose
+	<fn>
+		Approximating the area in this way leads to a definition of integration that is called Riemann integration. This is the most  commonly used approach to integration. However we could also approximate the  area by using long thin horizontal strips. This leads to a definition of  integration that is called Lebesgue integration. We will not be covering  Lebesgue integration in these notes.
+	</fn>
+to approximate the area as a union of a  large number of tall thin (vertical) rectangles. As we take more and more  rectangles we get better and better approximations. Taking the limit as the  number of rectangles goes to infinity gives the exact area
+	<fn>
+		If we want  to be more careful here, we should construct two approximations, one that is  always a little smaller than the desired area and one that is a little larger.  We can then take a limit using the Squeeze Theorem and arrive at the  exact area. More on this later.
+	</fn>.
+</p>
+
+<p>
+	As a warm up exercise, we'll now just use four rectangles. In Example  <xref ref="eg_INTexpareaB"/>, below, we'll consider an arbitrary number of rectangles  and then take the limit as the number of rectangles goes to infinity. So
+<ul>
+<li>
+	subdivide the interval <m>0\le x\le 1</m> into <m>4</m> equal subintervals each of width <m>\frac{1}{4}</m>, and
+</li>
+<li>
+	subdivide the area of interest into four corresponding  vertical strips, as in the figure below.
+</li>
+</ul>
+The area we want is exactly the sum of the areas of all four strips.
+</p>
+
+<sidebyside width="33%">
+<image source="text/figs/earea1four"/>
+</sidebyside>
+
+<p>
+Each of these strips is almost, but not quite, a rectangle. While the bottom and  sides are fine (the sides are at right-angles to the base), the top of the strip  is not horizontal. This is where we must start to approximate. We can replace  each strip by a rectangle by just levelling off the top. But now we have to make  a choice <mdash/> at what height do we level off the top?
+</p>
+
+<p>
+Consider, for example, the leftmost strip. On this strip, <m>x</m> runs from <m>0</m> to  <m>\frac{1}{4}</m>. As <m>x</m> runs from <m>0</m> to <m>\frac{1}{4}</m>, the height <m>y</m>  runs from <m>e^0</m> to <m>e^{\frac{1}{4}}</m>. It would be reasonable to choose the  height of the approximating rectangle to be somewhere between <m>e^0</m> and <m>e^{\frac{1}{4}}</m>. Which
+</p>
+
+<sidebyside width="33%">
+<image source="text/figs/earea3four"/>
+</sidebyside>
+
+<p>
+height should we choose? Well, actually it doesn't matter. When we eventually  take the limit of infinitely many approximating rectangles all of those  different choices give exactly the same final answer. We'll say more about this  later.
+</p>
+
+<p>
+In this example we'll do two sample computations.
+<ul>
+<li>
+<p>
+	For the first computation we approximate each slice by a rectangle whose height is the height of the <em>left</em> hand side of the slice.
+	<ul>
+	<li>
+		On the first slice, <m>x</m> runs from <m>0</m> to <m>\frac{1}{4}</m>,  and the height <m>y</m> runs from <m>e^0</m>, on the left hand side, to  <m>e^{\frac{1}{4}}</m>, on the right hand side.
+	</li>
+	<li>
+		So we approximate the first slice by the rectangle of height <m>e^0</m> and width <m>\frac{1}{4}</m>, and hence of area <m>\frac{1}{4}\,e^0  =\frac{1}{4}</m>.
+	</li>
+	<li>
+		On the second slice, <m>x</m> runs from <m>\frac{1}{4}</m> to  <m>\frac{1}{2}</m>, and the height <m>y</m> runs from <m>e^{\frac{1}{4}}</m> and  <m>e^{\frac{1}{2}}</m>.
+	</li>
+	<li>
+		So we approximate the second slice by the rectangle of height <m>e^{\frac{1}{4}}</m> and width <m>\frac{1}{4}</m>, and hence of area  <m>\frac{1}{4}\,e^{\frac{1}{4}}</m>.
+	</li>
+	<li> And so on.	</li>
+	<li>
+		All together, we approximate the area of interest by the sum of the areas of the four approximating rectangles, which is
+		<md>
+		<mrow>
+		\big[1+ e^{\frac{1}{4}} + e^{\frac{1}{2}} +e^{\frac{3}{4}}\big]\frac{1}{4}  =1.5124
+		</mrow>
+		</md>
+	</li>
+	<li>
+		This particular approximation is called the <q>left Riemann sum approximation to <m>\int_0^1 e^x\dee{x}</m> with <m>4</m> subintervals</q>. We'll explain this  terminology later.
+	</li>
+	<li>
+		This particular approximation represents the shaded area  in the figure on the left below. Note that, because <m>e^x</m> <em>increases</em> as  <m>x</m> increases, this approximation is definitely smaller than the true area.
+	</li>
+	</ul>
+</p>
+</li>
+</ul>
+</p>
+
+<sidebyside widths="33% 33%" valign="middle">
+<image source="text/figs/earea4"/> <image source="text/figs/earea4right"/>
+</sidebyside>
+
+<p>
+<ul>
+<li>
+<p>
+	For the second computation we approximate each slice by a rectangle whose height is the height of the <em>right</em> hand side of the slice.
+	<ul>
+	<li>
+		On the first slice, <m>x</m> runs from <m>0</m> to <m>\frac{1}{4}</m>,  and the height <m>y</m> runs from <m>e^0</m>, on the left hand side, to  <m>e^{\frac{1}{4}}</m>, on the right hand side.
+	</li>
+	<li>
+		So we approximate the first slice by the rectangle of height <m>e^{\frac{1}{4}}</m> and width <m>\frac{1}{4}</m>, and hence of area  <m>\frac{1}{4}\,e^{\frac{1}{4}}</m>.
+	</li>
+	<li>
+		On the second slice, <m>x</m> runs from <m>\frac{1}{4}</m> to  <m>\frac{1}{2}</m>, and the height <m>y</m> runs from <m>e^{\frac{1}{4}}</m> and <m>e^{\frac{1}{2}}</m>.
+	</li>
+	<li>
+		So we approximate the second slice by the rectangle of height <m>e^{\frac{1}{2}}</m> and width <m>\frac{1}{4}</m>, and hence of area  <m>\frac{1}{4}\,e^{\frac{1}{2}}</m>.
+	</li>
+	<li> And so on. </li>
+	<li>
+		All together, we approximate the area of interest by the sum of the areas of the four approximating rectangles, which is
+		<md>
+		<mrow>
+		\big[e^{\frac{1}{4}} + e^{\frac{1}{2}} +e^{\frac{3}{4}}+e^1\big]\frac{1}{4} =1.9420
+		</mrow>
+		</md>
+	</li>
+	<li>
+		This particular approximation is called the <q>right Riemann sum approximation to <m>\int_0^1 e^x\dee{x}</m> with <m>4</m> subintervals</q>.
+	</li>
+	<li>
+		This particular approximation represents the shaded area in the figure on  the right above. Note that, because <m>e^x</m> <em>increases</em> as <m>x</m> increases,  this approximation is definitely larger than the true area.
+	</li>
+	</ul>
+</p>
+</li>
+</ul>
+</p>
+</example>
+
+<p>Now for the full computation that gives the exact area.</p>
+<example xml:id="eg_INTexpareaB"><title>Computing an area exactly</title>
+<p>
+Recall that we wish to compute the area of <m>\big\{\ (x,y)\ \big|\ 0\le y\le  e^x</m>, <m>0\le x\le 1\ \big\}</m> and that our strategy is to approximate this area by  the area of a union of a large number of very thin rectangles, and then take the limit as the number of rectangles goes to infinity. In Example<nbsp/><xref ref="eg_INTexparea"/>, we used just four rectangles. Now we'll consider a  general number of rectangles, that we'll call <m>n</m>. Then we'll take the limit  <m>n\rightarrow\infty</m>. So
+<ul>
+<li> pick a natural number <m>n</m> and </li>
+<li>
+	subdivide the interval <m>0\le x\le 1</m> into <m>n</m> equal subintervals each of width <m>\frac{1}{n}</m>, and
+</li>
+<li>
+	subdivide the area of interest into corresponding thin strips, as in the  figure below.
+</li>
+</ul>
+The area we want is exactly the sum of the areas of all of the thin strips.
+</p>
+
+<sidebyside width="33%">
+<image source="text/figs/earea1"/>
+</sidebyside>
+
+<p>
+Each of these strips is almost, but not quite, a rectangle. As in Example  <xref ref="eg_INTexparea"/>, the only problem is that the top is not horizontal. So we  approximate each strip by a rectangle, just by levelling off the top. Again, we  have to make a choice <mdash/> at what height do we level off the top?
+</p>
+
+<p>
+Consider, for example, the leftmost strip. On this strip, <m>x</m> runs from <m>0</m> to  <m>\frac{1}{n}</m>. As <m>x</m> runs from <m>0</m> to <m>\frac{1}{n}</m>, the height <m>y</m>  runs from  <m>e^0</m> to <m>e^{\frac{1}{n}}</m>. It would be reasonable to choose the  height of the approximating rectangle to be somewhere between <m>e^0</m> and  <m>e^{\frac{1}{n}}</m>. Which height should we choose?
+</p>
+
+<p>
+Well, as we said in Example <xref ref="eg_INTexparea"/>, it doesn't matter. We shall  shortly take the limit <m>n\rightarrow\infty</m> and, in that limit, all of those  different choices give exactly the same final answer. We won't justify that  statement in this example, but there will be an (optional) section shortly that   provides the justification. For this example we just, arbitrarily, choose the  height of each rectangle to be the height of the graph <m>y=e^x</m> at the smallest  value of <m>x</m> in the corresponding strip
+	<fn>
+		Notice that since <m>e^x</m> is an  increasing function, this choice of heights means that each of our rectangles is  smaller than the strip it came from.
+	</fn>.
+The figure on the left below shows the  approximating rectangles when <m>n=4</m> and the figure on the right shows the  approximating rectangles when <m>n=8</m>.
+</p>
+
+<sidebyside widths="33% 33%" valign="middle">
+<image source="text/figs/earea4"/>
+  <image source="text/figs/earea5"/>
+</sidebyside>
+
+<p>
+Now we compute the approximating area when there are <m>n</m> strips.
+<ul>
+<li>
+	We approximate the leftmost strip by a rectangle of height <m>e^0</m>. All of  the rectangles have width <m>\frac{1}{n}</m>. So the leftmost rectangle has area  <m>\frac{1}{n}e^0</m>.
+</li>
+<li>
+	On strip number <m>2</m>, <m>x</m> runs from <m>\frac{1}{n}</m> to <m>\frac{2}{n}</m>. So the  smallest value of <m>x</m> on strip number <m>2</m> is <m>\frac{1}{n}</m>, and we approximate  strip number <m>2</m> by a rectangle of height <m>e^{\frac{1}{n}}</m> and hence of  area <m>\frac{1}{n}e^{\frac{1}{n}} </m>.
+</li>
+<li> And so on.</li>
+<li>
+	On the last strip, <m>x</m> runs from <m>\frac{n-1}{n}</m> to <m>\frac{n}{n}=1</m>.  So the smallest value of <m>x</m> on the last strip is <m>\frac{n-1}{n}</m>, and we  approximate the last strip by a rectangle of height <m>e^{\frac{(n-1)}{n}}</m> and hence of area <m> \frac{1}{n}e^{\frac{(n-1)}{n}} </m>.
+</li>
+</ul>
+</p>
+
+<p>
+The total area of all of the approximating rectangles is
+<md>
+<mrow>
+\text{Total approximating area} &amp;= \frac{1}{n}e^0
+                                   + \frac{1}{n}e^{\frac{1}{n}}
+                                   + \frac{1}{n}e^{\frac{2}{n}}
+                                   + \frac{1}{n}e^{\frac{3}{n}}
+                                   + \cdots
+                                   + \frac{1}{n}e^{\frac{(n-1)}{n}}
+</mrow><mrow>
+	&amp;= \frac{1}{n}\Big( 1+ e^{\frac{1}{n}} +e^{\frac{2}{n}}+e^{\frac{3}{n}}
+		+\cdots+ e^{\frac{(n-1)}{n}}\Big)
+</mrow>
+</md>
+Now the sum in the brackets might look a little intimidating because of all the  exponentials, but it actually has a pretty simple structure that can be easily  seen if we rename <m>e^{\frac{1}{n}}=r</m>. Then
+<ul>
+<li> the first term is 1 = <m>r^0</m> and </li>
+<li> the second term is <m>e^{\frac{1}{n}}=r^1</m> and </li>
+<li> the third term is <m>e^{\frac{2}{n}}=r^2</m> and </li>
+<li> the fourth term is <m>e^{\frac{3}{n}}=r^3</m> and </li>
+<li> and so on and </li>
+<li> the last term is <m>e^{\frac{(n-1)}{n}}=r^{n-1}</m>. </li>
+</ul>
+So
+<md>
+<mrow>
+	\text{Total approximating area}
+	&amp;= \frac{1}{n}\left( 1+ r +r^2 +\cdots+ r^{n-1}\right)
+</mrow>
+</md>
+The sum in brackets is known as a geometric sum and satisfies a nice simple formula:
+</p>
+<fact xml:id="eq_INTgeomsum"><title>Geometric sum</title>
+<statement><p>
+<md>
+<mrow>
+1+ r +r^2 +\cdots+ r^{n-1} =\frac{r^n-1}{r-1} \qquad\text{provided $r\ne 1$}
+</mrow>
+</md>
+</p></statement>
+</fact>
+
+<p>
+The derivation of the above formula is not too difficult. So let's  derive it in a little aside.
+</p>
+<aside><title>Geometric sum</title>
+<p>
+Denote the sum as
+<md>
+<mrow>
+S &amp;=
+1 + r + r^2 + \cdots + r^{n-1}
+</mrow>
+</md>
+Notice that if we multiply the whole sum by <m>r</m> we get back almost the same
+thing:
+<md>
+<mrow>
+rS&amp;= r\left(1+ r +r^2 +\cdots+ r^{n-1}\right)
+</mrow><mrow>
+   &amp;= r+ r^2+ r^3 +\cdots+ r^n
+</mrow>
+</md>
+This right hand side differs from the original sum <m>S</m> only in that
+<ul>
+<li>
+	the right hand side is missing the <q><m>1+\,</m></q> that <m>S</m> starts with and
+</li>
+<li>
+	the right hand side has an extra <q><m>+r^n\,</m></q> at the end that does not appear in <m>S</m>.
+</li>
+</ul>
+That is
+<md>
+<mrow>
+  rS &amp; = S-1+r^n
+</mrow>
+<intertext>Moving this around a little gives</intertext>
+<mrow>
+  (r-1)S &amp;= (r^n-1)
+</mrow><mrow>
+  S &amp;= \frac{r^n-1}{r-1}
+</mrow>
+</md>
+as required. Notice that the last step in the manipulations only works providing <m>r \neq
+1</m> (otherwise we are dividing by zero).
+</p>
+</aside>
+
+<p>
+Now we can go back to our area approximation armed with the above result about geometric  sums.
+<md>
+<mrow>
+\text{Total approximating area}
+&amp;= \frac{1}{n}\left( 1+ r +r^2 +\cdots+ r^{n-1}\right)
+</mrow><mrow>
+&amp;= \frac{1}{n} \frac{r^n-1}{r-1} \qquad\qquad \text{remember that $r=e^{1/n}$}
+</mrow><mrow>
+&amp;= \frac{1}{n} \frac{e^{n/n} - 1}{e^{1/n}-1}
+</mrow><mrow>
+&amp;= \frac{1}{n} \frac{e - 1}{e^{1/n}-1}
+</mrow>
+</md>
+</p>
+
+<p>To get the exact area
+	<fn>
+		We haven't proved that this will give us the  exact area, but it should be clear that taking this limit will give us a lower  bound on the area. To complete things rigorously we also need an upper bound and  the squeeze theorem. We do this in the next optional subsection.
+	</fn>
+all we need to  do is make the approximation better and better by taking the limit <m>n\rightarrow  \infty</m>. The limit will look more familiar if we rename <m>\frac{1}{n}</m> to  <m>X</m>. As <m>n</m> tends to infinity, <m>X</m> tends to <m>0</m>, so
+<md>
+<mrow>
+\text{Area}&amp;=\lim_{n\rightarrow\infty} \frac{1}{n}\ \frac{e-1}{e^{1/n}-1}
+</mrow><mrow>
+&amp;=(e-1)\lim_{n\rightarrow\infty} \frac{1/n}{e^{1/n}-1}
+</mrow><mrow>
+&amp;=(e-1)\lim_{X\rightarrow 0} \frac{X}{e^X-1}
+              &amp;\text{(with $X=\frac{1}{n}$)}
+</mrow>
+</md>
+Examining this limit we see that both numerator and denominator tend to zero as <m>X\to 0</m>,  and so we cannot evaluate this limit by computing the limits of the numerator and  denominator separately and then dividing the results. Despite this, the limit is not too  hard to evaluate; here we give two ways:
+<ul>
+<li>
+	Perhaps the easiest way to compute the limit is by using  l'Hôpital's rule
+	<fn>
+		If you do not recall L'Hôpital's rule and indeterminate forms then we recommend you skim over your differential calculus notes on the topic.
+	</fn>.
+	Since both numerator and denominator go to zero, this is a <m>\frac00</m> indeterminate  form. Thus
+	<md>
+	<mrow>
+	\lim_{X\rightarrow 0} \frac{X}{e^X-1}
+	&amp;=\lim_{X\rightarrow 0} \frac{\diff{}{X}X}{\diff{}{X}(e^X-1)}
+	=\lim_{X\rightarrow 0} \frac{1}{e^X}=1
+	</mrow>
+	</md>
+</li>
+<li>
+	Another way
+	<fn>
+		Say if you don't recall l'Hôpital's rule and have not had time to revise it.
+	</fn>
+	to evaluate the same limit is to observe that it can be massaged  into the form of the limit definition of the derivative. First notice that
+	<md>
+	<mrow>
+	\lim_{X\rightarrow 0} \frac{X}{e^X-1}
+	&amp;= \left[\lim_{X\rightarrow 0} \frac{e^X-1}{X} \right]^{-1}
+	</mrow>
+	</md>
+	provided this second limit exists and is nonzero
+	<fn>
+	To hyphenate or not to hypenate: <q>non-zero</q> or <q>nonzero</q>? The authors took our lead from <url href="https://gcc.gnu.org/ml/gcc/2001-10/msg00610.html">here</url> and also <url href="https://www.economist.com/news/books-and-arts/21723088-hyphens-can-be-tricky-they-need-not-drive-you-crazy-hysteria-over-hyphens">here</url>.
+	</fn>.
+	This second limit should look a little  familiar:
+	<md>
+	<mrow>
+	\lim_{X\rightarrow 0} \frac{e^X-1}{X}
+	&amp;= \lim_{X\rightarrow 0} \frac{e^X-e^0}{X-0}
+	</mrow>
+	</md>
+	which is just the definition of the derivative of <m>e^x</m> at <m>x=0</m>. Hence we have
+	<md>
+	<mrow>
+	\lim_{X\rightarrow 0} \frac{X}{e^X-1}
+	&amp;=\left[\lim_{X\rightarrow 0}\, \frac{e^X-e^0}{X-0} \right]^{-1}
+	</mrow><mrow>
+	&amp;=\left[\diff{}{X}e^X\Big|_{X=0} \right]^{-1}
+	</mrow><mrow>
+	&amp;=\left[e^X\big|_{X=0}\right]^{-1}
+	</mrow><mrow>
+	&amp;=1
+	</mrow>
+	</md>
+</li>
+</ul>
+So, after this short aside into limits, we may now conclude that
+<md>
+<mrow>
+\text{Area} &amp;=(e-1)\lim_{X\rightarrow 0} \frac{X}{e^X-1}
+</mrow><mrow>
+&amp;=e-1
+</mrow>
+</md>
+</p>
+
+</example>
+
+</subsection>
+
+<subsection>
+<title>Optional <mdash/> A more rigorous area computation</title>
+
+<p>
+In Example<nbsp/><xref ref="eg_INTexparea"/> above we considered the area of the region <m>\big\{\ (x,y)\ \big|\ 0\le y\le e^x</m>, <m>0\le x\le 1\ \big\}</m>. We approximated that area  by  the area of a union of <m>n</m> thin rectangles. We then claimed that upon taking  the number of rectangles to infinity, the approximation of the area became the  exact area. However we did not justify the claim. The purpose of this optional  section is to make that calculation rigorous.
+</p>
+
+<p>
+The broad set-up is the same. We divide the region up into <m>n</m> vertical strips,  each of width <m>\frac1n</m> and we then approximate those strips by rectangles.  However rather than an uncontrolled approximation, we construct two sets of  rectangles <mdash/> one set always smaller than the original area and one always  larger. This then gives us lower and upper bounds on the area of the region.   Finally we make use of the squeeze  theorem
+	<fn>
+		Recall that if we have 3 functions <m>f(x), g(x), h(x)</m> that satisfy <m>f(x) \leq g(x) \leq  h(x)</m> and we know that <m>\lim_{x \to a} f(x) = \lim_{x\to a} h(x) = L</m> exists and is  finite, then the squeeze theorem tells us that <m>\lim_{x\to a} g(x) = L</m>.
+	</fn>
+to establish  the result.
+</p>
+
+<p>
+<ul>
+<li>
+	To find our upper and lower bounds we make use of the fact that <m>e^x</m> is an  increasing function. We know this because the derivative <m>\diff{}{x}e^x=e^x</m>  is always  positive. Consequently, the smallest and largest values of <m>e^x</m> on the interval  <m>a\le x\le b</m> are <m>e^a</m> and <m>e^b</m>, respectively.
+</li>
+<li>
+<p>
+	In particular, for <m>0\le x\le \frac{1}{n}</m>, <m>e^x</m> takes values only between <m>e^0</m> and <m>e^{\frac{1}{n}}</m>.  As a result,  the first strip
+	<md>
+	<mrow>
+	\big\{\ (x,y)\ \big|\ 0\le x\le \frac{1}{n},\ 0\le y\le e^x\ \big\}
+	</mrow>
+	</md>
+	<ul>
+	<li>
+		contains the rectangle of <m>0\le x\le \frac{1}{n}</m>, <m>0\le y\le e^0</m>  (the lighter rectangle in the figure on the left below) and
+	</li>
+	<li>
+		is contained in the rectangle <m>0\le x\le \frac{1}{n}</m>, <m>0\le y\le  e^{\frac{1}{n}}</m>  (the largest rectangle in the figure on the left below).
+	</li>
+	</ul>
+	Hence
+	<md>
+	<mrow>
+	\frac{1}{n}e^{0}
+	\le {\rm Area}
+	  \big\{\ (x,y)\ \big|\ 0\le x\le \frac{1}{n},\ 0\le y\le e^x\ \big\}
+	\le \frac{1}{n}e^{\frac{1}{n}}
+	</mrow>
+	</md>
+</p>
+
+<sidebyside widths="33% 33%" valign="middle">
+	<image source="text/figs/earea3"/>
+	<image source="text/figs/earea6"/>
+</sidebyside>
+</li>
+<li>
+<p>
+	Similarly, for the second, third, <ellipsis/>, last strips,  as in the figure on the right above,
+	<md>
+	<mrow>
+	\frac{1}{n}e^{\frac{1}{n}}
+	&amp;\le {\rm Area}\big\{\ (x,y)\ \big|\
+				 \frac{1}{n}\le x\le \frac{2}{n},\ 0\le y\le e^x\ \big\}
+	&amp;\le \frac{1}{n}e^{\frac{2}{n}}
+	</mrow>
+	<mrow>
+	\frac{1}{n}e^{\frac{2}{n}}
+	&amp;\le {\rm Area}\big\{\ (x,y)\ \big|\
+				\frac{2}{n}\le x\le \frac{3}{n},\ 0\le y\le e^x\ \big\}
+	&amp;\le \frac{1}{n}e^{\frac{3}{n}}
+	</mrow>
+	<mrow>
+	\vdots &amp; \vdots &amp;\vdots
+	</mrow>
+	<mrow>
+	\frac{1}{n}e^{\frac{(n-1)}{n}}
+	&amp;\le {\rm Area}\big\{\ (x,y)\ \big|\
+			  \frac{(n-1)}{n}\le x\le \frac{n}{n},\ 0\le y\le e^x\ \big\}
+	&amp;\ \le\frac{1}{n}e^{\frac{n}{n}}
+	</mrow>
+	</md>
+</p>
+</li>
+<li>
+<p>
+	Adding these <m>n</m> inequalities together gives
+	<md>
+	<mrow>
+	\frac{1}{n}\left(1+e^{\frac{1}{n}}+\cdots+e^{\frac{(n-1)}{n}}\right)
+	</mrow>
+	<mrow>
+	\le {\rm Area}\big\{\ (x,y)\ \big|\ 0\le x\le 1,\ 0\le y\le e^x\ \big\}
+	</mrow>
+	<mrow>
+	\le \frac{1}{n}\left(e^{\frac{1}{n}}+e^{\frac{2}{n}}+\cdots+
+			 e^{\frac{n}{n}}\right)
+	</mrow>
+	</md>
+</p>
+</li>
+<li>
+	We can then recycle equation<nbsp/><xref ref="eq_INTgeomsum"/> with <m>r=e^{\frac1n}</m>, so  that <m>r^n=\left(e^{\frac{1}{n}}\right)^n=e</m>. Thus we have
+	<md>
+	<mrow>
+	\frac{1}{n}\frac{e-1}{e^{\frac{1}{n}}-1}
+	\le {\rm Area}\big\{\ (x,y)\ \big|\ 0\le x\le 1,\ 0\le y\le e^x\ \big\}
+	\le \frac{1}{n}e^{\frac{1}{n}}\frac{e-1}{e^{\frac{1}{n}}-1}
+	</mrow>
+	</md>
+	where we have used the fact that the upper bound is a simple multiple of the  lower bound:
+	<md>
+	<mrow>
+	\left(e^{\frac{1}{n}}+e^{\frac{2}{n}}+\cdots+
+			 e^{\frac{n}{n}}\right)
+	&amp;= e^{\frac{1}{n}}\left(1+e^{\frac{1}{n}}+\cdots
+	+e^{\frac{(n-1)}{n}}\right).
+	</mrow>
+	</md>
+</li>
+<li>
+<p>
+	We now apply the squeeze theorem to the above inequalities. In particular, the  limits of the lower and upper bounds are
+	<md>
+	<mrow>
+	\lim_{n\rightarrow\infty}\frac{1}{n}\frac{e-1}{e^{\frac{1}{n}}-1}
+	&amp;=(e-1)\lim_{X=\frac{1}{n}\rightarrow 0}\frac{X}{e^X-1}
+	=e-1
+	</mrow>
+	</md>
+	(by l'Hôpital's rule) and
+	<md>
+	<mrow>
+	\lim_{n\rightarrow\infty}\frac{1}{n}e^{\frac{1}{n}}\frac{e-1}{e^{\frac{1}{n}}-1}
+	&amp;=(e-1)\lim_{X=\frac{1}{n}\rightarrow 0}\cdot \frac{Xe^X}{e^X-1}
+	</mrow><mrow>
+	&amp;=(e-1)\lim_{X\to 0}e^X \cdot \lim_{X=\to 0}\frac{X}{e^X-1}
+	</mrow><mrow>
+	&amp;=(e-1) \cdot 1 \cdot 1
+	</mrow>
+	</md>
+	Thus, since the exact area is trapped between the lower and upper bounds, the squeeze  theorem then implies that
+	<md>
+	<mrow>
+	 \text{Exact area} &amp;= e-1.
+	</mrow>
+	</md>
+</p>
+</li>
+</ul>
+</p>
+</subsection>
+
+<subsection xml:id="ssec_sum_notn">
+<title>Summation notation</title>
+<introduction>
+<p>
+As you can see from the above example (and the more careful rigorous computation), our  discussion of integration will involve a fair bit of work with sums of quantities. To  this end, we make a quick aside into summation notation. While one can work through the  material below without this notation, proper summation notation is well worth learning,  so we advise the reader to persevere.
+</p>
+
+<p>
+Writing out the summands explicitly can become quite impractical <mdash/> for example, say we  need the sum of the first 11 squares:
+<md>
+<mrow>
+  1 + 2^2 + 3^2 + 4^2+ 5^2 + 6^2 + 7^2 + 8^2 + 9^2 + 10^2 + 11^2
+</mrow>
+</md>
+This becomes tedious. Where the pattern is clear, we will often skip the middle few  terms and instead write
+<md>
+<mrow>
+  1 + 2^2 + \cdots  + 11^2.
+</mrow>
+</md>
+A far more precise way to write this is using <m>\Sigma</m> (capital-sigma) notation. For  example, we can write the above sum as
+<md>
+<mrow>
+  \sum_{k=1}^{11} k^2
+</mrow>
+</md>
+This is read as
+</p>
+<blockquote>
+<p>
+ The sum from <m>k</m> equals 1 to 11 of <m>k^2</m>.
+</p>
+</blockquote>
+
+<p>More generally</p>
+
+<definition>
+<statement><p>
+Let <m>m\leq n</m> be integers and let <m>f(x)</m> be a function defined on the integers.
+Then we write
+<md>
+<mrow>
+  \sum_{k=m}^n f(k)
+</mrow>
+</md>
+to mean the sum of <m>f(k)</m> for <m>k</m> from <m>m</m> to <m>n</m>:
+<md>
+<mrow>
+  f(m) + f(m+1) + f(m+2) + \cdots + f(n-1) + f(n).
+</mrow>
+</md>
+Similarly we write
+<md>
+<mrow>
+  \sum_{i=m}^n a_i
+</mrow>
+</md>
+to mean
+<md>
+<mrow>
+  a_m+a_{m+1}+a_{m+2}+\cdots+a_{n-1}+a_n
+</mrow>
+</md>
+for some set of coefficients <m>\{ a_m, \ldots, a_n \}</m>.
+</p></statement>
+</definition>
+
+
+<p>
+Consider the example
+<md>
+<mrow>
+\sum_{k=3}^7 \frac{1}{k^2}=\frac{1}{3^2}+\frac{1}{4^2}+\frac{1}{5^2}+
+\frac{1}{6^2}+\frac{1}{7^2}
+</mrow>
+</md>
+It is important to note that the right hand side of this expression evaluates to a
+number
+	<fn>
+		Some careful addition shows it is <m>\frac{46181}{176400}</m>.
+	</fn>;
+it does not  contain <q><m>k</m></q>.  The summation index <m>k</m>  is just a <q>dummy</q> variable and  it does not have to be called <m>k</m>. For example
+<md>
+<mrow>
+  \sum_{k=3}^7 \frac{1}{k^2}
+  =\sum_{i=3}^7 \frac{1}{i^2}
+  =\sum_{j=3}^7 \frac{1}{j^2}
+  =\sum_{\ell=3}^7 \frac{1}{\ell^2}
+</mrow>
+</md>
+Also the summation index has no meaning outside the sum. For example
+<md>
+<mrow>
+k\sum_{k=3}^7 \frac{1}{k^2}
+</mrow>
+</md>
+has no mathematical meaning; it is gibberish.
+</p>
+
+<p>
+A sum can be represented using summation notation in many different ways. If you are unsure as to whether or not two summation notations represent the same sum, just write out the first few terms and the last  couple of terms. For example,
+<md>
+<mrow>
+\sum_{m=3}^{15} \frac{1}{m^2}
+&amp;=\overbrace{\frac{1}{3^2}}^{m=3}
+  +\overbrace{\frac{1}{4^2}}^{m=4}
+  +\overbrace{\frac{1}{5^2}}^{m=5}
+  +\cdots
+  +\overbrace{\frac{1}{14^2}}^{m=14}
+  +\overbrace{\frac{1}{15^2}}^{m=15}
+</mrow><mrow>
+\sum_{m=4}^{16} \frac{1}{(m-1)^2}
+&amp;=\overbrace{\frac{1}{3^2}}^{m=4}
+  +\overbrace{\frac{1}{4^2}}^{m=5}
+  +\overbrace{\frac{1}{5^2}}^{m=6}
+  +\cdots
+  +\overbrace{\frac{1}{14^2}}^{m=15}
+  +\overbrace{\frac{1}{15^2}}^{m=16}
+</mrow>
+</md>
+are equal.
+</p>
+
+<p>
+Here is a theorem that gives a few rules for manipulating summation notation.
+</p>
+
+<theorem xml:id="thm_INTsummationArith"><title>Arithmetic of Summation Notation</title>
+<statement><p>
+Let <m>n\ge m</m> be integers. Then for all real numbers <m>c</m> and <m>a_i,b_i</m>,
+<m>m\le i\le n</m>.
+<ol label="a">
+<li> <m>\sum\limits_{i=m}^nca_i = c\bigg(\sum\limits_{i=m}^na_i\bigg)</m> </li>
+<li> <m>\sum\limits_{i=m}^n(a_i+b_i) = \bigg(\sum\limits_{i=m}^na_i\bigg) + \bigg(\sum\limits_{i=m}^nb_i\bigg)</m> </li>
+<li> <m>\sum\limits_{i=m}^n(a_i-b_i) = \bigg(\sum\limits_{i=m}^na_i\bigg)  - \bigg(\sum\limits_{i=m}^nb_i\bigg)</m> </li>
+</ol>
+</p></statement>
+</theorem>
+
+<proof>
+<p>
+We can prove this theorem by just writing out both sides of each equation, and observing that they are equal, by the usual laws of arithmetic
+	<fn>
+		Since all  the sums are finite, this isn't too hard. More care must be taken when the sums involve  an infinite number of terms. We will examine this in Chapter<nbsp/><xref ref="chap_seq_ser"/>.
+	</fn>.
+For example, for the first equation, the left and right hand sides are
+<md>
+<mrow>
+\sum_{i=m}^nca_i = ca_m+ca_{m+1}+\cdots+ca_n
+</mrow>
+<mrow>
+\quad\text{and}\quad
+c\bigg(\sum\limits_{i=m}^na_i\bigg) = c(a_m+a_{m+1}+\cdots+a_n)
+</mrow>
+</md>
+They are equal by the usual distributive law. The <q>distributive law</q> is the fancy name for <m>c(a+b)=ca+cb</m>.
+</p>
+</proof>
+
+<p>Not many sums can be computed exactly
+	<fn>
+		Of course, any finite sum can be computed  exactly <mdash/> just sum together the terms. What we mean by <q>computed exactly</q> in this  context, is that we can rewrite the sum as a simple, and easily  evaluated, formula involving the terminals of the sum. For example
+		<me>
+		\sum_{k=m}^n r^k = \frac{r^{n+1}-r^m}{r-1} \qquad \qquad \text{provided $r\neq1$}
+		</me>
+		No matter what finite integers we choose for <m>m</m> and <m>n</m>, we can quickly compute the sum  in just a few arithmetic operations. On the other hand, the sums,
+		<md>
+		<mrow>
+		\sum_{k=m}^n \frac{1}{k} &amp;&amp;
+		\sum_{k=m}^n \frac{1}{k^2}
+		</mrow>
+		</md>
+		cannot be expressed in such clean formulas (though you can rewrite them quite cleanly  using integrals). To explain more clearly we would need to go into a more detailed and  careful discussion that is beyond the scope of this course.
+		</fn>.
+Here are some that can. The  first few are used a lot.
+</p>
+
+<theorem xml:id="thm_INTspecialSums">
+<statement><p>
+<ol label="a">
+<li>
+	<m>\sum\limits_{i=0}^n ar^i = a\frac{1-r^{n+1}}{1-r}</m>, for all real numbers <m>a</m> and <m>r\ne 1</m> and all integers <m>n\ge 0</m>.
+</li>
+<li>
+	<m>\sum\limits_{i=1}^n 1 = n</m>, for all integers <m>n\ge 1</m>.
+</li>
+<li>
+	<m>\sum\limits_{i=1}^n i = \frac{1}{2}n(n+1)</m>, for all integers <m>n\ge 1</m>.
+</li>
+<li>
+	<m>\sum\limits_{i=1}^n i^2 = \frac{1}{6}n(n+1)(2n+1)</m>, for all integers <m>n\ge 1</m>.
+</li>
+<li>
+	<m>\sum\limits_{i=1}^n i^3 = \Big[\frac{1}{2}n(n+1)\Big]^2</m>, for all integers <m>n\ge 1</m>.
+</li>
+</ol>
+</p></statement>
+</theorem>
+</introduction>
+
+<subsubsection><title>Proof of Theorem <xref ref="thm_INTspecialSums"/> (Optional)</title>
+
+<proof>
+<p>
+<ol label="a">
+<li>
+	The first sum is
+	<md>
+	<mrow>
+	\sum_{i=0}^n ar^i =ar^0 + ar^1 + ar^2 + \cdots + ar^n
+	</mrow>
+	</md>
+	which is just the left hand side of equation<nbsp/><xref ref="eq_INTgeomsum"/>, with <m>n</m>  replaced by <m>n+1</m> and then multiplied by <m>a</m>.
+</li>
+<li>
+	The second sum is just <m>n</m> copies of <m>1</m> added together, so of course the sum is <m>n</m>.
+</li>
+<li>
+	The third and fourth sums are discussed in the appendix of the CLP-I notes. In that discussion certain <q>tricks</q> are used to compute the  sums with only simple arithmetic. Those tricks do not easily generalise to the fifth sum.
+</li>
+<li>
+<p>
+	Instead of repeating that appendix, we'll derive the third sum  using a trick that  generalises to the fourth and fifth sums (and also to higher powers). The trick uses the generating function
+		<fn>
+			Generating functions are frequently used in mathematics to  analyse sequences and series, but are beyond the scope of the course. The interested  reader should take a look at <q>Generatingfunctionology</q> by Herb  Wilf. It is an excellent book and is also free to download.
+		</fn>
+	<m>S(x)</m>:
+</p>
+	<fact xml:id="eq_INTpowergenfnl"><title>Finite geometric sum</title>
+	<statement><p>
+	<md>
+	<mrow>
+	S(x) = 1+x+x^2+\cdots+x^n &amp;= \frac{x^{n+1}-1}{x-1}
+	</mrow>
+	</md>
+	</p></statement>
+	</fact>
+<p>
+	Notice that this is just the geometric sum given by equation<nbsp/><xref ref="eq_INTgeomsum"/> with <m>n</m>  replaced by <m>n+1</m>.
+</p>
+
+<p>
+	Now, consider the limit
+	<md>
+	<mrow>
+	\lim_{x\to 1} S(x) &amp;= \lim_{x\to 1} \left(1+x+x^2+\cdots+x^n\right) = n+1 \qquad \text{but also}
+	</mrow><mrow>
+	&amp;= \lim_{x\to 1} \frac{x^{n+1}-1}{x-1} \qquad\qquad\qquad \text{now use l'Hôpital's rule}
+	</mrow><mrow>
+	&amp;= \lim_{x\to 1} \frac{(n+1)x^n}{1} = n+1.
+	</mrow>
+	</md>
+	This is not so hard (or useful). But now consider the derivative of <m>S(x)</m>:
+	<md>
+	<mrow>
+	S'(x) &amp;= 1 +2x + 3x^2 + \cdots + n x^{n-1}
+	</mrow><mrow>
+	&amp;= \diff{}{x} \left[\frac{x^{n+1}-1}{x-1}\right] \qquad\qquad\qquad\qquad  \text{use the quotient rule}
+	</mrow><mrow>
+	&amp;= \frac{(x-1)\cdot (n+1)x^n - (x^{n+1}-1)\cdot 1}{(x-1)^2} \qquad  \text{now clean it up}
+	</mrow><mrow>
+	&amp;= \frac{nx^{n+1}-(n+1)x^n+1}{(x-1)^2}.
+	</mrow>
+	</md>
+	Hence if we take the limit of the above expression as <m>x\to 1</m> we recover
+	<md>
+	<mrow>
+	\lim_{x\to 1} S'(x) &amp;= 1 +2 +3+\cdots+n
+	</mrow><mrow>
+	&amp;=\lim_{x\to 1} \frac{nx^{n+1}-(n+1)x^n+1}{(x-1)^2} \qquad\qquad \text{now use l'Hôpital's rule}
+	</mrow><mrow>
+	&amp;=\lim_{x\to 1} \frac{n(n+1)x^{n}-n(n+1)x^{n-1}}{2(x-1)} \qquad \text{l'Hôpital's rule again}
+	</mrow><mrow>
+	&amp;=\lim_{x\to 1} \frac{n^2(n+1)x^{n-1}-n(n+1)(n-1)x^{n-2}}{2}
+	</mrow><mrow>
+	&amp;= \frac{n^2(n+1) - n(n-1)(n+1)}{2} = \frac{n(n+1)}{2}
+	</mrow>
+	</md>
+	as required. This computation can be done without l'Hôpital's rule, but the manipulations required are a fair bit messier.
+</p>
+</li>
+<li>
+<p>
+	The derivation of the fourth and fifth sums is similar to, but  even more tedious than, that of the third sum. One takes two or three  derivatives of the generating functional.
+</p>
+</li>
+</ol>
+</p>
+</proof>
+</subsubsection>
+</subsection>
+
+<subsection xml:id="sec_defInt"><title>The Definition of the Definite Integral</title>
+<p>
+	In this section we give a definition of the definite integral <m>\ds \int_a^b f(x)\dee{x}</m>  generalising the machinery we used in Example<nbsp/><xref ref="eg_INTexparea"/>. But first some  terminology and a couple of remarks to better motivate the definition.
+</p>
+
+<definition>
+<statement><p>
+The symbol <m>\ds \int_a^b f(x)\dee{x}</m> is read <q>the definite integral of the function  <m>f(x)</m> from <m>a</m> to <m>b</m></q>. The function <m>f(x)</m> is called the integrand of <m>\int_a^b  f(x)\dee{x}</m> and <m>a</m> and <m>b</m> are called
+	<fn>
+		<m>a</m> and <m>b</m> are also called the bounds of integration.
+	</fn>
+the limits of integration. The interval <m>a\le x \le b</m> is called the interval of integration and is also called the domain of integration.
+</p></statement>
+</definition>
+
+<p>
+Before we explain more precisely what the definite integral actually is, a few remarks  (actually <mdash/> a few interpretations) are in order.
+<ul>
+<li>
+<p>
+	If <m>f(x)\ge 0</m> and <m>a\le b</m>, one interpretation of the symbol <m>\ds \int_a^b f(x)\dee{x}</m> is <q>the area of the region <m>\big\{\ (x,y)\ \big|\ a\le x\le b,\   0\le y\le f(x)\ \big\}</m></q>.
+</p>
+<sidebyside width="50%">
+<image source="text/figs/areaSqrt"/>
+</sidebyside>
+
+<p>
+	In this way we can rewrite the area in Example<nbsp/><xref ref="eg_INTexparea"/> as the definite  integral <m>\int_0^1 e^x \dee{x}</m>.
+</p>
+</li>
+<li>
+	This interpretation breaks down when either <m>a \gt b</m> or <m>f(x)</m> is not always positive,  but it can be repaired by considering <q>signed areas</q>.
+</li>
+<li>
+<p>
+	If <m>a\le b</m>, but <m>f(x)</m> is not always positive, one interpretation of <m>\int_a^b  f(x)\dee{x}</m> is <q>the signed area between <m>y=f(x)</m> and the <m>x</m>-axis for <m>a\le x\le b</m></q>.  For <q>signed area</q> (which is also called the <q>net area</q>), areas above the <m>x</m>-axis  count as positive while areas below the <m>x</m>-axis count as negative. In the example  below,  we have the graph of the function
+      <md>
+	<mrow>
+    f(x)=\begin{cases}
+	   -1 &amp; \text{if }1\le x\le 2\\
+	   2  &amp; \text{if }2 \lt  x\le 4 \\
+	   0 &amp; \text{otherwise}
+		\end{cases}
+	</mrow>
+	</md>
+	The <m>2\times 2</m> shaded square above the <m>x</m>-axis has signed area <m>+2\times 2=+4</m>. The <m>1\times 1</m> shaded square below the <m>x</m>-axis has signed area <m>-1\times 1=-1</m>. So, for this <m>f(x)</m>,
+	<md>
+	<mrow>
+	  \int_0^5 f(x)\dee{x} = +4-1=3
+	</mrow>
+	</md>
+</p>
+  <sidebyside width="50%">
+  <image source="text/figs/signedArea"/>
+  </sidebyside>
+</li>
+<li> We'll come back to the case <m>b \lt a</m> later. </li>
+</ul>
+We're now ready to define <m>\int_a^b f(x)\dee{x}</m>. The definition is a little involved,  but essentially mimics what we did in Example<nbsp/><xref ref="eg_INTexparea"/> (which is why we did  the example before the definition). The main differences are that we replace the function  <m>e^x</m> by a generic function <m>f(x)</m> and we replace the interval from <m>0</m> to <m>1</m> by the  generic interval
+	<fn>
+		We'll eventually allow <m>a</m> and <m>b</m> to be any two real numbers,  not even requiring <m>a \lt b</m>. But it is easier to start off assuming <m>a \lt b</m>, and that's what  we'll do.
+	</fn>
+from <m>a</m> to <m>b</m>.
+<ul>
+<li>
+	We start by selecting any natural number <m>n</m> and subdividing the interval from <m>a</m> to <m>b</m> into <m>n</m> equal subintervals. Each subinterval has width <m>\frac{b-a}{n}</m>.
+</li>
+<li>
+	Just as was the case in Example<nbsp/><xref ref="eg_INTexparea"/> we will eventually take the  limit as <m>n\to\infty</m>, which squeezes the width of each subinterval down to zero.
+</li>
+<li>
+	For each integer <m>0\le i\le n</m>, define <m>x_i = a + i \cdot\frac{b-a}{n}</m>. Note that  this means that <m>x_0=a</m> and <m>x_n = b</m>. It is worth keeping in mind that these numbers  <m>x_i</m> do depend on <m>n</m> even though our choice of notation hides this dependence.
+</li>
+<li>
+<p>
+	Subinterval number <m>i</m> is <m>x_{i-1} \leq x \leq  x_i</m>. In particular, on the first subinterval, <m>x</m> runs from <m>x_0=a</m> to <m>x_1=a+\frac{b-a}{n}</m>. On the second subinterval, <m>x</m> runs from <m>x_1</m> to <m>x_2=a+2\frac{b-a}{n}</m>.
+</p>
+     <sidebyside width="66%">
+     <image source="text/figs/intDecompE"/>
+     </sidebyside>
+</li>
+<li>
+<p>
+	On each subinterval we now pick <m>x_{i,n}^*</m> between <m>x_{i-1}</m> and <m>x_i</m>. We then  approximate <m>f(x)</m> on the <m>i^\mathrm{th}</m> subinterval by the constant function  <m>y=f(x_{i,n}^*)</m>. We include <m>n</m> in the subscript to remind ourselves that these numbers  depend on <m>n</m>.
+</p>
+<p>
+	Geometrically, we're approximating the region
+	<md>
+	<mrow>
+	\big\{\ (x,y)\ \big|\
+	\text{$x$ is between $x_{i-1}$ and $x_i$, and $y$ is between $0$ and $f(x)$} \ \big\}
+	</mrow>
+	</md>
+	by the rectangle
+	<md>
+	<mrow>
+	\big\{\ (x,y)\ \big|\
+	\text{$x$ is between $x_{i-1}$ and $x_i$, and $y$ is between $0$ and $f(x_{i,n}^*)$} \ \big\}
+	</mrow>
+	</md>
+</p>
+	 <sidebyside width="33%">
+	 <image source="text/figs/rect_approx_adr1"/>
+	 </sidebyside>
+<p>
+	In Example<nbsp/><xref ref="eg_INTexparea"/> we chose <m>x_{i,n}^* = x_{i-1}</m> and so we  approximated the function <m>e^x</m> on each subinterval by the value it took at the leftmost  point in that subinterval.
+</p>
+</li>
+<li>
+	So, when there are <m>n</m> subintervals our approximation to the signed area between the curve <m>y=f(x)</m> and the <m>x</m>-axis, with <m>x</m> running from <m>a</m> to <m>b</m>, is
+	<md>
+	<mrow>
+	\sum_{i=1}^n f(x_{i,n}^*)\cdot \frac{b-a}{n}
+	</mrow>
+	</md>
+	We interpret this as the signed area since the summands <m>f(x_{i,n}^*)\cdot\frac{b-a}{n}</m>  need not be positive.
+</li>
+<li>
+	Finally we define the definite integral by taking the limit of this sum as  <m>n\rightarrow\infty</m>.
+</li>
+</ul>
+Oof! This is quite an involved process, but we can now write down the definition we need.
+</p>
+
+<definition xml:id="def_INTintegral">
+<statement><p>
+Let <m>a</m> and <m>b</m> be two real numbers and let <m>f(x)</m> be a function that is defined for all <m>x</m> between <m>a</m> and <m>b</m>. Then we define
+<md>
+<mrow>
+\int_a^b f(x)\dee{x} =\lim_{n\rightarrow\infty}\sum_{i=1}^n f(x_{i,n}^*)\cdot\frac{b-a}{n}
+</mrow>
+</md>
+when the limit exists and takes the same value for all choices of  the <m>x_{i,n}^*</m>'s. In this case, we say that <m>f</m> is integrable on the  interval from <m>a</m> to <m>b</m>.
+</p></statement>
+</definition>
+
+<p>
+Of course, it is not immediately obvious when this limit should exist. Thankfully it is  easier for a function to be <q>integrable</q> than it is for it to be <q>differentiable</q>.
+</p>
+
+<theorem xml:id="thm_integrable">
+<statement><p>
+Let <m>f(x)</m> be a function on the interval <m>[a,b]</m>. If
+<ul>
+<li> <m>f(x)</m> is continuous on <m>[a,b]</m>, or </li>
+<li> <m>f(x)</m> has a finite number of jump discontinuities on <m>[a,b]</m> (and is otherwise  continuous)
+</li>
+</ul>
+then <m>f(x)</m> is integrable on <m>[a,b]</m>.
+</p></statement>
+</theorem>
+
+<p>
+We will not justify this theorem. But a slightly weaker statement is proved in (the optional) Section<nbsp/><xref ref="ssec_careful_defn"/>. Of course this does not tell us how to  actually evaluate any definite integrals <mdash/> but we will get to that in time.
+</p>
+
+<p>Some comments:
+<ul>
+<li>
+	Note that, in Definition <xref ref="def_INTintegral"/>, we allow <m>a</m> and <m>b</m> to be any two real numbers. We do not require that <m>a \lt b</m>. That is, even when <m>a \gt b</m>, the symbol <m>\int_a^b f(x)\dee{x}</m> is still defined by the formula of Definition <xref ref="def_INTintegral"/>. We'll get an interpretation for <m>\int_a^b f(x)\dee{x}</m>, when <m>a \gt b</m>, later.
+</li>
+<li>
+	It is important to note that the definite integral <m>\int_a^b f(x)\dee{x}</m>  represents a number, not a function of <m>x</m>. The integration variable <m>x</m>  is another <q>dummy</q> variable, just like the summation index <m>i</m> in  <m>\sum_{i=m}^n a_i</m> (see Section<nbsp/><xref ref="ssec_sum_notn"/>). The integration variable does not  have to be called <m>x</m>. For example
+	<md>
+	<mrow>
+	\int_a^b f(x)\dee{x} = \int_a^b f(t)\dee{t} = \int_a^b f(u)\dee{u}
+	</mrow>
+	</md>
+	Just as with summation variables, the integration variable <m>x</m> has no meaning outside of <m>f(x)\dee{x}</m>. For example
+	<md>
+	<mrow>
+	x\int_0^1 e^x\dee{x}\qquad\text{and}\qquad  \int_0^x e^x\dee{x}
+	</mrow>
+	</md>
+	are both gibberish.
+</li>
+</ul>
+</p>
+
+<p>
+The sum inside definition<nbsp/><xref ref="def_INTintegral"/> is named after Bernhard Riemann
+	<fn>
+		Bernhard Riemann was a 19th century German mathematician who  made  extremely important contributions to many different areas of mathematics <mdash/> far  too  many to list here. Arguably two of the most important (after Riemann sums) are  now  called Riemann surfaces and the Riemann hypothesis (he didn't name them after  himself).
+	</fn>
+who made the first rigorous definition of the definite integral and so placed  integral  calculus on rigorous footings.
+</p>
+
+<definition xml:id="def_INTthreeRiemannSums">
+<statement><p>
+The sum <m>\ds </m> inside definition<nbsp/><xref ref="def_INTintegral"/>
+<md>
+<mrow>
+\sum_{i=1}^n f(x_{i,n}^*)\,\frac{b-a}{n}
+</mrow>
+</md>
+is called a Riemann sum. It is also often written as
+<md>
+<mrow>
+\sum_{i=1}^n f(x_i^*)\,\De x
+</mrow>
+</md>
+where <m>\De x = \frac{b-a}{n}</m>.
+<ul>
+<li>
+	If we choose each <m>x_{i,n}^* = x_{i-1}=a+(i-1)\frac{b-a}{n}</m> to be the  left hand end point of the <m>i^{\rm th}</m> interval, <m>[x_{i-1},x_i]</m>,  we get the approximation
+	<md>
+	<mrow>
+	\sum_{i=1}^n f\left(a+(i-1)\frac{b-a}{n}\right)\,\frac{b-a}{n}
+	</mrow>
+	</md>
+	which is called the <q>left Riemann sum approximation to <m>\int_a^b f(x)\dee{x}</m> with <m>n</m> subintervals</q>. This is the approximation used  in  Example<nbsp/><xref ref="eg_INTexparea"/>.
+</li>
+<li>
+	In the same way, if we choose <m>x_{i,n}^* = x_{i}=a+i\frac{b-a}{n}</m> we  obtain the approximation
+	<md>
+	<mrow>
+	\sum_{i=1}^n f\left(a+i\frac{b-a}{n}\right)\,\frac{b-a}{n}
+	</mrow>
+	</md>
+	which is called the <q>right Riemann sum approximation to <m>\int_a^b f(x)\dee{x}</m> with <m>n</m> subintervals</q>. The word <q>right</q> signifies  that, on each  subinterval <m>[x_{i-1},x_i]</m> we approximate <m>f</m> by its value at the right-hand  end-point,  <m>x_i=a+i\frac{b-a}{n}</m>, of the subinterval.
+</li>
+<li>
+	A third commonly used approximation is
+	<md>
+	<mrow>
+	\sum_{i=1}^n f\left(a+(i-\frac12)\frac{b-a}{n}\right)\,\frac{b-a}{n}
+	</mrow>
+	</md>
+	which is called the <q>midpoint Riemann sum approximation to <m>\int_a^b f(x)\dee{x}</m> with <m>n</m> subintervals</q>. The word <q>midpoint</q> signifies that, on each subinterval <m>[x_{i-1},x_i]</m> we approximate <m>f</m> by its value at the midpoint, <m>\frac{x_{i-1}+x_i}{2} =a+(i-\frac{1}{2})\frac{b-a}{n}</m>, of the subinterval.
+</li>
+</ul>
+</p></statement>
+</definition>
+
+
+<p>
+In order to compute a definite integral using Riemann sums we need to be able to  compute  the limit of the sum as the number of summands goes to infinity. This approach  is not  always feasible and we will soon arrive at other means of computing definite  integrals  based on antiderivatives. However, Riemann sums also provide us with a good  means of  approximating definite integrals <mdash/> if we take <m>n</m> to be a large, but finite,  integer,  then the corresponding Riemann sum can be a good approximation of the definite  integral.  Under certain circumstances this can be strengthened to give rigorous bounds on  the integral. Let us revisit Example<nbsp/><xref ref="eg_INTexparea"/>.
+</p>
+
+<example><title>Upper and lower bounds on area</title>
+<p>
+Let's say we are again interested in the integral <m>\int_0^1 e^x\dee{x}</m>. We can  follow  the same procedure as we used previously to construct Riemann sum  approximations. However  since the integrand <m>f(x)=e^x</m> is an increasing function, we can make our  approximations  into upper and lower bounds without much extra work.
+</p>
+
+<p>
+More precisely, we approximate <m>f(x)</m> on each subinterval <m>x_{i-1}\le x\le x_i</m>
+<ul>
+<li>
+	by its smallest value on the subinterval, namely <m>f(x_{i-i})</m>, when  we compute the left Riemann sum approximation and
+</li>
+<li>
+	by its largest value on the subinterval, namely <m>f(x_i)</m>, when we  compute the right Riemann sum approximation.
+</li>
+</ul>
+This is illustrated in the two figures below. The shaded region in the left hand figure is the left Riemann sum approximation and the  shaded region in the right hand figure is the right Riemann sum approximation.
+</p>
+
+<sidebyside widths="33% 33%" valign="middle">
+	<image source="text/figs/earea7"/> <image source="text/figs/earea8"/>
+</sidebyside>
+
+<p>
+We can see that exactly because <m>f(x)</m> is increasing, the left Riemann sum  describes an area smaller than the definite integral while the right Riemann sum  gives an  area larger
+	<fn>
+		When a function is decreasing the situation is reversed <mdash/>  the  left Riemann sum is always larger than the integral while the right Riemann sum  is  smaller than the integral. For more general functions that both increase and  decrease it  is perhaps easiest to study each increasing (or decreasing) interval  separately.
+	</fn>
+than the integral.
+</p>
+
+<p>
+When we approximate the integral <m>\int_0^1 e^x\dee{x}</m> using <m>n</m> subintervals, then, on interval number<nbsp/><m>i</m>,
+<ul>
+<li> <m>x</m> runs from <m>\frac{i-1}{n}</m> to <m>\frac{i}{n}</m> and </li>
+<li>
+	<m>y=e^x</m> runs from <m>e^{\frac{(i-1)}{n}}</m>, when <m>x</m> is at the left hand end point of the interval, to <m>e^{\frac{i}{n}}</m>, when <m>x</m> is at the right hand end point of the interval.
+</li>
+</ul>
+Consequently, the left Riemann sum approximation to <m>\int_0^1 e^x\dee{x}</m> is <m>\sum_{i=1}^n e^{\frac{(i-1)}{n}}\,\frac{1}{n}</m> and the  right Riemann sum approximation is  <m>\sum_{i=1}^n e^{\frac{i}{n}}\cdot\frac{1}{n}</m>. So
+<md>
+<mrow>
+\sum_{i=1}^n e^{\frac{(i-1)}{n}}\,\frac{1}{n}
+\ \le\ \int_0^1 e^x\dee{x}\ \le\
+\sum_{i=1}^n e^{\frac{i}{n}}\cdot\frac{1}{n}
+</mrow>
+</md>
+Thus  <m>L_n=\sum_{i=1}^n e^{\frac{(i-1)}{n}}\,\frac{1}{n}</m>, which for any <m>n</m> can be evaluated by computer, is a lower bound on the exact value of   <m>\int_0^1 e^x\dee{x}</m> and  <m>R_n=\sum_{i=1}^n e^{\frac{i}{n}}\,\frac{1}{n}</m>, which for any <m>n</m> can also be evaluated by computer, is an upper bound on the exact value  of  <m>\int_0^1 e^x\dee{x}</m>. For example, when <m>n=1000</m>, <m>L_n= 1.7174</m> and  <m>R_n=1.7191</m> (both to four decimal places) so that, again to four  decimal places,
+<md>
+<mrow>
+1.7174 \le \int_0^1 e^x\dee{x} \le 1.7191
+</mrow>
+</md>
+Recall that the exact value is <m>e-1 = 1.718281828\dots</m>.
+</p></example>
+</subsection>
+
+<subsection xml:id="ssec_knownareas"><title>Using Known Areas to Evaluate Integrals</title>
+<p>
+One of the main aims of this course is to build up general machinery for  computing  definite integrals (as well as interpretting and applying them). We shall start  on this  soon, but not quite yet. We have already seen one concrete, if laborious, method  for  computing definite integrals <mdash/> taking limits of Riemann sums as we did in  Example<nbsp/><xref ref="eg_INTexparea"/>. A second method, which will work for some special  integrands, works by interpretting the definite integral as <q>signed area</q>.  This  approach will work nicely when the area under the curve decomposes into simple  geometric  shapes like triangles, rectangles and circles. Here are some examples of this  second method.
+</p>
+
+<example><title>A very simple integral and a very simple area</title>
+<p>
+The integral <m>\int_a^b 1\dee{x}</m> (which is also written as just <m>\int_a^b\dee{x}</m>) is  the  area of the shaded rectangle (of width <m>b-a</m> and height <m>1</m>) in the figure on  the right below. So
+</p>
+<sidebyside widths="33% 40%" valign="middle">
+<p><m>\int_a^b\dee{x} = (b-a)\times (1)=b-a</m></p>
+<image source="text/figs/areaRect"/>
+</sidebyside>
+</example>
+
+
+<example xml:id="eg_INTtriangle"><title>Another simple integral</title>
+<p>
+Let <m>b \gt 0</m>.
+The integral <m>\int_0^b x\dee{x}</m>  is the area of
+the shaded triangle (of base <m>b</m> and of height <m>b</m>) in the figure on
+the right below. So
+</p>
+<sidebyside widths="33% 33%" valign="middle">
+<p><m>\int_0^b x\dee{x} = \frac{1}{2}b\times b=\frac{b^2}{2}</m></p>
+<image source="text/figs/areaX"/>
+</sidebyside>
+
+<p>
+The integral <m>\int_{-b}^0 x\dee{x}</m>  is the signed area of the shaded triangle (again of base <m>b</m> and of height <m>b</m>) in the figure on  the right below. So
+</p>
+<sidebyside widths="33% 33%" valign="middle">
+<p><m>\int_{-b}^0 x\dee{x} = -\frac{b^2}{2} </m></p>
+<image source="text/figs/areaMX"/>
+</sidebyside>
+
+</example>
+
+
+<p>
+Notice that it is very easy to extend this example to the integral <m>\int_0^b  c x\dee{x}</m> for any real numbers <m>b,c \gt 0</m> and find
+<md>
+<mrow>
+\int_0^b c x\dee{x} &amp;= \frac{c}{2} b^2.
+</mrow>
+</md>
+</p>
+
+<example xml:id="eg_INTtriangleB"><title>Evaluating <m>\int_{-1}^1 \left(1-|x|\right)\dee{x}</m></title>
+<p>
+In this example, we shall evaluate <m>\int_{-1}^1 \left(1-|x|\right)\dee{x}</m>. Recall that
+<md>
+<mrow>
+|x|=\begin{cases} -x &amp;\text{if $x\le 0$} \\
+                   x &amp;\text{if $x\ge 0$}
+    \end{cases}
+</mrow>
+</md>
+so that
+<md>
+<mrow>
+1-|x|=\begin{cases} 1+x &amp;\text{if $x\le 0$}\\
+                    1-x &amp;\text{if $x\ge 0$}
+    \end{cases}
+</mrow>
+</md>
+To picture the geometric figure whose area the integral represents observe that
+<ul>
+<li>
+	at the left hand end of the domain of integration <m>x=-1</m> and  the integrand <m>1-|x|=1-|-1|=1-1=0</m> and
+</li>
+<li>
+	as <m>x</m> increases from <m>-1</m> towards <m>0</m>, the integrand <m>1-|x|=1+x</m> increases linearly, until
+</li>
+<li>
+	when <m>x</m> hits <m>0</m> the integrand hits  <m>1-|x|=1-|0|=1</m> and then
+</li>
+<li>
+	as <m>x</m> increases from <m>0</m>, the integrand <m>1-|x|=1-x</m> decreases linearly, until
+</li>
+<li>
+	when <m>x</m> hits <m>+1</m>, the right hand end of the domain of integration, the  integrand hits   <m>1-|x|=1-|1|=0</m>.
+</li>
+</ul>
+So the integral <m>\int_{-1}^1 \left(1-|x|\right)\dee{x}</m>  is the area of the shaded triangle (of base <m>2</m> and of height <m>1</m>) in the figure on  the right below and
+</p>
+<sidebyside widths="33% 33%" valign="middle">
+<p><m>\int_{-1}^1 \left(1-|x|\right)\dee{x} = \frac{1}{2}\times 2\times 1 =
+1</m></p>
+<image source="text/figs/areaAbs"/>
+</sidebyside>
+</example>
+
+<example xml:id="eg_quarter_circle"><title>Evaluating <m>\int_0^1 \sqrt{1-x^2}\dee{x}</m></title>
+<p>
+The integral <m>\int_0^1 \sqrt{1-x^2}\dee{x}</m>  has integrand <m>f(x)=\sqrt{1-x^2}</m>. So it represents the area under <m>y=\sqrt{1-x^2}</m> with <m>x</m> running from <m>0</m> to <m>1</m>. But we may rewrite
+<md>
+<mrow>
+  y&amp;=\sqrt{1-x^2} &amp;\text{as}&amp;&amp; x^2+y^2&amp;= 1, y\geq 0
+</mrow>
+</md>
+But this is the (implicit) equation for a circle <mdash/> the extra condition that  <m>y\geq0</m>  makes it the equation for the semi-circle centred at the origin with radius 1  lying on  and above the <m>x</m>-axis. Thus the integral represents the area of the quarter  circle of  radius <m>1</m>, as shown in the figure on the right below. So
+</p>
+<sidebyside widths="33% 33%" valign="middle">
+<p><m>
+\int_0^1 \sqrt{1-x^2}\dee{x} = \frac{1}{4}\pi(1)^2 = \frac{\pi}{4}
+</m></p>
+<image source="text/figs/areaCirc"/>
+</sidebyside>
+</example>
+
+<p>
+This next one is a little tricker and relies on us knowing the symmetries of the  sine  function.
+</p>
+
+<example><title>Integrating sine</title>
+<p>
+The integral <m>\int_{-\pi}^\pi \sin x\dee{x}</m>  is the signed area of the shaded region in the figure on the right below. It naturally splits into  two  regions, one on either side of the <m>y</m>-axis. We don't know the formula for the  area of  either of these regions (yet), however the two regions are very nearly the same.  In  fact, the part of the shaded region below the <m>x</m>-axis is exactly the reflection, in the <m>x</m>-axis, of the part of the shaded region above the <m>x</m>-axis. So the signed area of part of the shaded region below the <m>x</m>-axis is the negative of the signed area of part of the shaded region above the <m>x</m>-axis and
+</p>
+<sidebyside widths="33% 33%" valign="middle">
+<p><m>
+\int_{-\pi}^\pi \sin x\dee{x} = 0
+</m></p>
+<image source="text/figs/areaSin"/>
+</sidebyside>
+</example>
+</subsection>
+
+<subsection xml:id="ssec_velocity"><title>Another Interpretation for Definite Integrals</title>
+<p>
+So far, we have only a single intepretation
+	<fn>
+		If this were the only  intepretation  then integrals would be a nice mathematical curiousity and unlikely to be the  core  topic of a large first year mathematics course.
+	</fn>
+for definite integrals <mdash/>  namely areas  under graphs. In the following example, we develop a second interpretation.
+</p>
+
+<example xml:id="eg_INTdistance"><title>A moving particle</title>
+<p>
+Suppose that a particle is moving along the <m>x</m>-axis and suppose that at time <m>t</m> its velocity is <m>v(t)</m> (with <m>v(t) \gt 0</m>  indicating rightward motion and <m>v(t) \lt 0</m> indicating leftward motion).  What is the change in its <m>x</m>-coordinate between time <m>a</m> and time <m>b \gt a</m>?
+</p>
+
+<p>
+We'll work this out using a procedure similar to our definition of the integral. First pick a natural number <m>n</m> and divide the time interval from <m>a</m> to <m>b</m> into <m>n</m> equal subintervals, each of width <m>\frac{b-a}{n}</m>. We are  working our way  towards a Riemann sum (as we have done several times above) and so we will  eventually  take the limit <m>n\rightarrow\infty</m>.
+<ul>
+<li>
+	The first time interval runs from <m>a</m> to <m>a+\frac{b-a}{n}</m>. If we think of  <m>n</m> as  some large number, the width of this interval, <m>\frac{b-a}{n}</m> is very small and  over  this time interval, the velocity does not change very much. Hence we can  approximate the  velocity over the first subinterval as being essentially constant at its value  at the  start of the time interval <mdash/> <m>v(a)</m>. Over the subinterval the <m>x</m>-coordinate  changes by  velocity times time, namely <m>v(a) \cdot \frac{b-a}{n}</m>.
+</li>
+<li>
+	Similarly, the second  interval runs from time <m>a+\frac{b-a}{n}</m>  to time <m>a+2\frac{b-a}{n}</m>. Again, we can assume that the velocity does not  change  very much and so we can approximate the velocity as being essentially constant  at its  value at the start of the subinterval <mdash/> namely  <m>v\left(a+\frac{b-a}{n}\right)</m>. So  during the second subinterval the particle's  <m>x</m>-coordinate changes by approximately <m>v\left(a+\frac{b-a}{n}\right)   \frac{b-a}{n}</m>.
+</li>
+<li>
+	In general, time subinterval number <m>i</m> runs from <m>a+(i-1)\frac{b-a}{n}</m>  to <m>a+i\frac{b-a}{n}</m> and during this subinterval the particle's <m>x</m>-coordinate changes, essentially, by
+	<md>
+	<mrow>,
+	v\left(a+(i-1)\frac{b-a}{n}\right)  \frac{b-a}{n}.
+	</mrow>
+	</md>
+</li>
+</ul>
+So the net change in <m>x</m>-coordinate from time <m>a</m> to time <m>b</m> is approximately
+<md>
+<mrow>
+&amp;v(a)\,\frac{b-a}{n} + v\Big(a+\frac{b-a}{n}\Big)\,\frac{b-a}{n} +\cdots
++v\Big(a+(i-1)\frac{b-a}{n}\Big)\,\frac{b-a}{n} + \cdots
+</mrow><mrow>
+&amp;
++v\Big(a+(n-1)\frac{b-a}{n}\Big)\,\frac{b-a}{n}
+</mrow><mrow>
+&amp;= \sum_{i=1}^n v\Big(a+(i-1)\frac{b-a}{n}\Big)\,\frac{b-a}{n}
+</mrow>
+</md>
+This exactly the left Riemann sum approximation to the integral of <m>v</m> from <m>a</m> to <m>b</m> with <m>n</m> subintervals. The limit as <m>n\rightarrow\infty</m> is exactly the definite integral <m>\int_a^b v(t)\dee{t}</m>. Following tradition, we have called the (dummy) integration variable <m>t</m> rather than <m>x</m> to remind us that it is time that is running from <m>a</m> to <m>b</m>.
+</p>
+
+<p>
+The conclusion of the above discussion is that if a particle is moving  along the <m>x</m>-axis and its <m>x</m>-coordinate and velocity at time <m>t</m> are <m>x(t)</m> and <m>v(t)</m>, respectively, then, for all <m>b \gt a</m>,
+<md>
+<mrow>
+x(b)  - x(a) = \int_a^b v(t)\dee{t}.
+</mrow>
+</md>
+</p>
+
+</example>
+</subsection>
+
+<subsection xml:id="ssec_careful_defn">
+<title>Optional <mdash/> careful definition of the integral</title>
+<p>
+In this optional section we give a more mathematically rigorous definition of  the definite  integral <m>\ds \int_a^b f(x)\dee{x}</m>. Some textbooks use a sneakier, but  equivalent,  definition. The integral will be defined as the limit of a family of  approximations to the area between the graph of <m>y=f(x)</m> and the <m>x</m>-axis, with <m>x</m> running from <m>a</m>  to <m>b</m>.  We will then show conditions under which this limit is guaranteed to exist. We  should  state up front that these conditions are more restrictive than is strictly  necessary <mdash/>  this is done so as to keep the proof accessible.
+</p>
+
+<p>
+The family of approximations needed is slightly more general than that used to  define  Riemann sums in the previous sections, though it is quite similar. The main  difference is  that we do not require that all the subintervals have the same size.
+<ul>
+<li>
+	We start by selecting a positive integer <m>n</m>. As was the case previously,  this will  be the number of subintervals used in the approximation and eventually we will  take the  limit as <m>n \to \infty</m>.
+</li>
+<li>
+	Now subdivide the interval from <m>a</m> to <m>b</m> into <m>n</m> subintervals by  selecting <m>n+1</m>  values of <m>x</m> that obey
+	<md>
+	<mrow>
+	a=x_0 \lt x_1 \lt x_2 \lt \cdots \lt x_{n-1} \lt x_n=b.
+	</mrow>
+	</md>
+	The subinterval number <m>i</m> runs from <m>x_{i-1}</m> to <m>x_i</m>. This formulation does  not require the subintervals to have the same size. However we will eventually  require  that the widths of the subintervals shrink towards zero as <m>n\to\infty</m>.
+</li>
+<li>
+	Then for each subinterval we select a value of <m>x</m> in that interval. That  is, for  <m>i=1,2,\dots,n</m>, choose <m>x_i^*</m> satisfying <m>x_{i-1} \leq x_i^* \leq x_i</m>. We will use  these values of <m>x</m> to help approximate <m>f(x)</m> on each subinterval.
+</li>
+<li>
+<p>
+	The area between the graph of <m>y=f(x)</m> and the <m>x</m>-axis, with <m>x</m> running
+</p>
+
+<sidebyside width="66%">
+ <image source="text/figs/intDecompU"/>
+</sidebyside>
+
+<p>
+from <m>x_{i-1}</m> to <m>x_i</m>, i.e. the contribution, <m>\int_{x_{i-1}}^{x_i} f(x)\dee{x}</m>, from interval number <m>i</m> to the integral,  is approximated by the area of a rectangle. The rectangle has width  <m>x_i-x_{i-1}</m> and height <m>f(x_i^*)</m>.
+</p>
+
+<sidebyside width="33%">
+<image source="text/figs/rect_approx_adr2"/>
+</sidebyside>
+
+</li>
+<li>
+	Thus the approximation to the integral, using all <m>n</m> subintervals, is
+	<md>
+	<mrow>
+	\int_a^b f(x)\dee{x}
+	\approx f(x_1^*)[x_1-x_0]+f(x_2^*)[x_2-x_1]+\cdots+ f(x_n^*)[x_n-x_{n-1}]
+	</mrow>
+	</md>
+</li>
+<li>
+	Of course every different choice of <m>n</m> and <m>x_1,x_2,\cdots,x_{n-1}</m>  and <m>x_1^*, x_2^*,\cdots,x_n^*</m> gives a different approximation. So to  simplify the  discussion that follows, let us denote a particular choice of all these numbers  by <m>\bbbp</m>:
+	<md>
+	<mrow>
+	\bbbp=\left(n,x_1,x_2,\cdots,x_{n-1},x_1^*, x_2^*, \cdots, x_n^*\right).
+	</mrow>
+	</md>
+	Similarly let us denote the resulting approximation by <m>\cI(\bbbp)</m>:
+	<md>
+	<mrow>
+	\cI(\bbbp)=f(x_1^*)[x_1-x_0]+f(x_2^*)[x_2-x_1]+\cdots+ f(x_n^*)[x_n-x_{n-1}]
+	</mrow>
+	</md>
+</li>
+<li>
+	We claim that, for any reasonable
+		<fn>We'll be more precise about  what <q>reasonable</q> means shortly.</fn>
+	function <m>f(x)</m>, if you take any reasonable
+		<fn>Again, we'll explain this <q>reasonble</q> shortly</fn>
+	sequence  of  these  approximations you always get the exactly the same limiting value. We define  <m>\int_a^b f(x) \dee{x}</m> to be this limiting value.
+</li>
+<li>
+	Let's be more precise. We can take the limit of these approximations in  two equivalent ways. Above we did this by taking the number of subintervals <m>n</m>  to infinity. When we did this, the width of all the subintervals went to zero.  With the formulation we are now using, simply taking the number of subintervals  to be very large does not imply that they will all shrink in size. We could  have  one very large subinterval and a large number of tiny ones. Thus we take the  limit we need by taking the width of the subintervals to zero. So for any  choice  <m>\bbbp</m>, we define
+	<md>
+	<mrow>
+	M(\bbbp)=\max\big\{ x_1-x_0\ ,\  x_2-x_1\ ,\  \cdots\ ,\  x_n-x_{n-1}\big\}
+	</mrow>
+	</md>
+	that is the maximum width of the subintervals used in the approximation  determined by  <m>\bbbp</m>. By forcing the maximum width to go to zero, the widths of all the  subintervals  go to zero.
+</li>
+<li>
+	We then define the definite integral as the limit
+	<md>
+	<mrow>
+	\int_a^b f(x)\dee{x}=\lim_{M(\bbbp)\rightarrow 0}\cI(\bbbp).
+	</mrow>
+	</md>
+</li>
+</ul>
+Of course, one is now left with the question of determining when the above  limit  exists.  A proof of the very general conditions which guarantee existence of this limit  is beyond  the scope of this course, so we instead give a weaker result (with stronger  conditions)  which is far easier to prove.
+</p>
+
+<p>
+For the rest of this section, assume
+<ul>
+<li> that <m>f(x)</m> is continuous for <m>a\le x\le b</m>, </li>
+<li> that <m>f(x)</m> is differentiable for <m>a \lt x \lt b</m>, and </li>
+<li> that <m>f'(x)</m> is bounded <mdash/> ie <m>|f'(x)|\leq F</m> for some constant <m>F</m>. </li>
+</ul>
+We will now show that, under these hypotheses, as <m>M(\bbbp)</m> approachs zero,  <m>\cI(\bbbp)</m>  always approaches the area, <m>A</m>, between the graph of <m>y=f(x)</m> and the  <m>x</m>-axis, with <m>x</m>  running from <m>a</m> to <m>b</m>.
+</p>
+
+<p>
+These assumptions are chosen to make the argument particularly transparent.  With  a little  more work one can weaken the hypotheses considerably. We are cheating a little  by  implicitly assuming that the area <m>A</m> exists. In fact, one can adjust the  argument below  to remove this implicit assumption.
+<ul>
+<li>
+<p>
+Consider <m>A_j</m>, the part of the area coming from <m>x_{j-1}\le x\le x_j</m>.
+</p>
+ <sidebyside width="75%">
+ <image source="text/figs/rect_approx_adr3"/>
+ </sidebyside>
+<p>
+We have approximated this area by <m>f(x_j^*)[x_j-x_{j-1}]</m> (see figure left).
+</p>
+</li>
+<li>
+	Let <m>f({\overline x}_j)</m> and  <m>f({\underline x}_j)</m> be the largest and smallest values
+		<fn>
+			Here we are  using the  extreme value theorem <mdash/> its proof is beyond the scope of this course. The  theorem says  that any continuous function on a closed interval must attain a minimum and  maximum at  least once. In this situation this implies that for any continuous function  <m>f(x)</m>,  there are <m>x_{j-1}\le {\overline x}_j, {\underline x}_j\le x_j</m> such that <m>f({\underline x}_j)\le f(x) \le f({\overline x}_j)</m> for all <m>x_{j-1}\le x\le x_j</m>.
+		</fn>
+	of <m>f(x)</m> for
+	<m>x_{j-1}\le x\le x_j</m>. Then the true area is bounded by
+	<md>
+	<mrow>
+	  f({\underline x}_j)[x_j-x_{j-1}] \leq  A_j \leq f({\overline x}_j)[x_j-x_{j-1}].
+	</mrow>
+	</md>
+	(see figure right).
+</li>
+<li>
+	Now since <m>f({\underline x}_j) \leq f(x_j^*) \leq f({\overline x}_j)</m>, we  also know  that
+	<md>
+	<mrow>
+	  f({\underline x}_j)[x_j-x_{j-1}] \leq  f(x_j^*)[x_{j-1}-x_j] \leq f({\overline x}_j)[x_j-x_{j-1}].
+	</mrow>
+	</md>
+</li>
+<li>
+	So both the true area, <m>A_j</m>, and our approximation of that area  <m>f(x_j^*)[x_j - x_{j-1}]</m>  have to lie between <m>f({\overline  x}_j)[x_j-x_{j-1}]</m> and <m>f({\underline x}_j)[x_j-x_{j-1}]</m>. Combining these  bounds we have that the difference between the true area and our approximation  of that area is bounded by
+	<md>
+	<mrow>
+	\big|A_j-f(x_j^*)[x_j-x_{j-1}]\big| \le[f({\overline x}_j)-f({\underline x}_j)]\cdot[x_j-x_{j-1}].
+	</mrow>
+	</md>
+	(To see this think about the smallest the true area can be and the largest our  approximation can be and vice versa.)
+</li>
+<li>
+	Now since our function, <m>f(x)</m> is differentiable we can apply one of the  main  theorems we learned in CLP-I <mdash/> the Mean Value  Theorem
+	<fn>
+		Recall that the mean value theorem states that for a function  continuous on <m>[a,b]</m> and differentiable on <m>(a,b)</m>, there exists a number <m>c</m>  between  <m>a</m> and <m>b</m> so that
+		<me>
+			f'(c) = \frac{f(b)-f(a)}{b-a}.
+		</me>
+	</fn>.
+	The MVT implies that there exists a <m>c</m> between <m>{\underline  x}_j</m> and <m>{\overline x}_j</m> such that
+	<md>
+	<mrow>
+	f({\overline x}_j)-f({\underline x}_j) =f'(c)\cdot [{\overline x}_j-{\underline x}_j]
+	</mrow>
+	</md>
+</li>
+<li>
+	By the assumption that <m>|f'(x)|\le F</m> for all <m>x</m> and the fact that  <m>{\underline  x}_j</m> and <m>{\overline x}_j</m> must both be between <m>x_{j-1}</m> and <m>x_j</m>
+	<md>
+	<mrow>
+	\big|f({\overline x}_j)-f({\underline x}_j)\big|
+	\le F\cdot \big|{\overline x}_j-{\underline x}_j\big|
+	\le F\cdot [x_j-x_{j-1}]
+	</mrow>
+	</md>
+	Hence the error in this part of our approximation obeys
+	<md>
+	<mrow>
+	\big|A_j-f(x_j^*)[x_j-x_{j-1}]\big|
+	\le F\cdot [x_j-x_{j-1}]^2.
+	</mrow>
+	</md>
+</li>
+<li>
+	That was just the error in approximating <m>A_j</m>. Now we bound the total  error by  combining the errors from approximating on all the subintervals. This gives
+	<md>
+	<mrow>
+	 \left| A-\cI(\bbbp)\right|
+	  &amp;= \left| \sum_{j=1}^n A_j - \sum_{j=1}^n f(x_j^*)[x_j-x_{j-1}] \right|
+	</mrow><mrow>
+	  &amp;= \left| \sum_{j=1}^n \left(A_j - f(x_j^*)[x_j-x_{j-1}] \right) \right|
+	&amp;\text{triangle inequality}
+	</mrow><mrow>
+	  &amp;\leq \sum_{j=1}^n\left|A_j - f(x_j^*)[x_j-x_{j-1}]\right|
+	</mrow><mrow>
+	  &amp;\leq \sum_{j=1}^n F\cdot [x_j-x_{j-1}]^2 &amp; \text{from above}
+	</mrow>
+	<intertext>Now do something a little sneaky. Replace one of these factors of  <m>[x_j-x_{j-1}]</m> (which is just the width of the <m>j^\mathrm{th}</m> subinterval) by the	maximum width of the subintervals:
+	</intertext>
+	<mrow>
+	  &amp;\leq \sum_{j=1}^n F\cdot M(\bbbp)\cdot [x_j-x_{j-1}]  &amp;\text{$F$ and  $M(\bbbp)$ are  constant}
+	</mrow><mrow>
+	  &amp;\leq F\cdot M(\bbbp)\cdot \sum_{j=1}^n [x_j-x_{j-1}] &amp; \text{sum is total  width}
+	</mrow><mrow>
+	  &amp; = F\cdot M(\bbbp)\cdot (b-a).
+	</mrow>
+	</md>
+</li>
+<li>
+	Since <m>a</m>, <m>b</m> and <m>F</m> are fixed, this tends to zero as the maximum  rectangle width <m>M(\bbbp)</m> tends to zero.
+</li>
+</ul>
+</p>
+
+<p>Thus, we have proven</p>
+
+<theorem>
+<statement><p>
+Assume that <m>f(x)</m> is continuous for <m>a\le x\le b</m>, and is differentiable for all <m>a \lt x \lt b</m> with <m>|f'(x)|\le F</m>, for some  constant <m>F</m>.  Then,  as the maximum rectangle width <m>M(\bbbp)</m> tends to zero, <m>\cI(\bbbp)</m> always converges to <m>A</m>, the area between the graph of <m>y=f(x)</m> and the <m>x</m>-axis,  with <m>x</m> running from <m>a</m> to <m>b</m>.
+</p></statement>
+</theorem>
+
+
+</subsection>
+
+<xi:include href="../problems/prob_s1.1.xml" />
+
+
+</section>

@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_def_int">
+<title>Basic properties of the definite integral</title>
+<introduction>
+
+<p>
+When we studied limits and derivatives, we developed methods for taking limits  or derivatives of <q>complicated functions</q> like <m>f(x)=x^2 + \sin(x)</m> by  understanding how limits and derivatives interact with basic arithmetic  operations like addition and subtraction. This allowed us to reduce the problem  into one of of computing derivatives of simpler functions like <m>x^2</m> and  <m>\sin(x)</m>. Along the way we established  simple rules such as
+<md>
+<mrow>
+  \lim_{x\to a}(f(x)+g(x)) &amp;= \lim_{x\to a}f(x) + \lim_{x\to a} g(x)
+&amp;\text{and}&amp;&amp;
+  \diff{}{x}(f(x)+g(x)) &amp;= \diff{f}{x} + \diff{g}{x}
+</mrow>
+</md>
+Some of these rules have very natural analogues for integrals and we discuss  them below. Unfortunately the analogous rules for integrals of products of  functions or integrals of compositions of functions are more complicated than  those for limits or derivatives. We discuss those rules at length in subsequent  sections. For now let us consider some of the simpler rules of the arithmetic  of  integrals.
+</p>
+
+<theorem xml:id="thm_Intarith"><title>Arithmetic of Integration</title>
+<statement><p>
+Let <m>a,b</m> and <m>A,B,C</m> be real numbers. Let the functions <m>f(x)</m> and <m>g(x)</m> be integrable on an interval that contains <m>a</m> and <m>b</m>. Then
+<md>
+<mrow>
+\text{(a)}&amp;&amp; \int_a^b \left( f(x) + g(x) \right)\dee{x} &amp;= \int_a^b f(x)\dee{x} + \int_a^b g(x)\dee{x}
+</mrow><mrow>
+\text{(b)}&amp;&amp; \int_a^b\left(f(x)-g(x)\right)\dee{x}  &amp;= \int_a^b f(x)\dee{x} - \int_a^b g(x)\dee{x}
+</mrow><mrow>
+\text{(c)}&amp;&amp; \int_a^b C f(x) \dee{x} &amp;= C\cdot \int_a^b f(x)\dee{x}
+</mrow>
+<intertext>Combining these three rules we have</intertext>
+<mrow>
+\text{(d)}&amp;&amp; \int_a^b \left( Af(x) + Bg(x) \right)\dee{x} &amp;= A\int_a^b f(x)\dee{x} + B\int_a^b g(x)\dee{x}
+</mrow>
+<intertext>That is, integrals depend linearly on the integrand.</intertext>
+<mrow>
+\text{(e)}&amp;&amp; \int_a^b \dee{x} = \int_a^b 1 \cdot \dee{x} &amp;= b-a
+</mrow>
+</md>
+</p>
+</statement>
+</theorem>
+
+<p>
+It is not too hard to prove this result from the definition of the definite  integral.  Additionally we only really need to prove (d) and (e) since
+<ul>
+<li> (a) follows from (d) by setting <m>A=B=1</m>,</li>
+<li> (b) follows from (d) by setting <m>A=1, B=-1</m>, and </li>
+<li> (c) follows from (d) by setting <m>A=C, B=0</m>. </li>
+</ul>
+</p>
+
+<proof>
+<p>
+As noted above, it suffices for us to prove (d) and (e). Since (e) is easier,  we  will  start with that. It is also a good warm-up for (d).
+<ul>
+<li> The definite integral in (e), <m>\int_a^b 1 \dee{x}</m>, can be interpreted  geometrically as the area of the rectangle with height 1 running from <m>x=a</m> to  <m>x=b</m>; this area is clearly <m>b-a</m>. We can also prove this formula from the definition of  the  integral  (Definition<nbsp/><xref ref="def_INTintegral"/>):
+<md>
+<mrow>
+\int_a^b\dee{x}
+&amp;=\lim_{n\rightarrow\infty}\sum_{i=1}^n f(x_{i,n}^*)\,\frac{b-a}{n}
+&amp;\text{by definition}
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty}\sum_{i=1}^n 1\,\frac{b-a}{n}
+&amp;\text{since $f(x)=1$}
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty}(b-a) \sum_{i=1}^n \frac{1}{n}
+&amp;\text{since $a,b$ are constants}
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty}(b-a)
+</mrow><mrow>
+&amp;=b-a
+</mrow>
+</md>
+as required.
+</li>
+<li> To prove (d) let us start by defining <m>h(x) = Af(x)+Bg(x)</m> and then we  need to  express the integral of <m>h(x)</m> in terms of those of <m>f(x)</m> and <m>g(x)</m>. We use  Definition<nbsp/><xref ref="def_INTintegral"/> and some algebraic manipulations
+	<fn>
+		Now  is a good  time to look back at Theorem<nbsp/><xref ref="thm_INTsummationArith"/>.
+	</fn>
+to arrive at the  result.
+<md>
+<mrow>
+\int_a^bh(x) \dee{x}
+&amp;= \sum_{i=1}^n h(x_{i,n}^*)\cdot\frac{b-a}{n}
+&amp;\text{by Definition }<xref ref="def_INTintegral"/>
+</mrow><mrow>
+&amp;= \sum_{i=1}^n \left(Af(x_{i,n}^*)+Bg(x_{i,n}^*) \right)\cdot \frac{b-a}{n}
+</mrow><mrow>
+&amp;= \sum_{i=1}^n \left(Af(x_{i,n}^*)\cdot \frac{b-a}{n} + Bg(x_{i,n}^*)\cdot
+\frac{b-a}{n} \right)
+</mrow><mrow>
+&amp;= \left(\sum_{i=1}^n Af(x_{i,n}^*)\cdot \frac{b-a}{n}\right)
+ + \left(\sum_{i=1}^n Bg(x_{i,n}^*)\cdot \frac{b-a}{n}\right)
+&amp;\text{by Theorem }<xref ref="thm_INTsummationArith"/>\text{(b)}
+</mrow><mrow>
+&amp;= A\left(\sum_{i=1}^n f(x_{i,n}^*)\cdot \frac{b-a}{n}\right)
+ + B\left(\sum_{i=1}^n g(x_{i,n}^*)\cdot \frac{b-a}{n}\right)
+&amp;\text{by Theorem }<xref ref="thm_INTsummationArith"/>\text{(a)}
+</mrow><mrow>
+&amp;= A \int_a^b f(x) \dee{x} + B \int_a^b g(x) \dee{x}
+&amp;\text{by Definition }<xref ref="def_INTintegral"/>
+</mrow>
+</md>
+as required.
+</li>
+</ul>
+</p>
+</proof>
+
+<p>
+Using this Theorem we can integrate sums, differences and constant multiples of  functions  we know how to integrate. For example:
+</p>
+
+<example><title>The integral of a sum</title>
+<p>
+In Example<nbsp/><xref ref="eg_INTexparea"/> we saw that <m>\int_0^1 e^x\dee{x}=e-1</m>. So
+<md>
+<mrow>
+\int_0^1\big(e^x+7\big)\dee{x} &amp;= \int_0^1 e^x\dee{x} + 7\int_0^1 1 \dee{x}
+</mrow><mrow>
+&amp; \text{by Theorem }<xref ref="thm_Intarith"/>\text{(d) with $A=1,f(x)=e^x,B=7,g(x)=1$}
+</mrow><mrow>
+&amp;=(e-1)+7\times (1-0)
+</mrow><mrow>
+&amp;\text{by Example }<xref ref="eg_INTexparea"/>\text{ and  Theorem }<xref ref="thm_Intarith"/>\text{(e)}
+</mrow><mrow>
+&amp;=e+6
+</mrow>
+</md>
+</p></example>
+
+
+<p>
+When we gave the formal definition of <m>\int_a^b f(x) \dee{x}</m> in  Definition<nbsp/><xref ref="def_INTintegral"/> we explained that the integral could be  interpreted as the signed area between the curve <m>y=f(x)</m> and the <m>x</m>-axis on  the interval <m>[a,b]</m>. In order for this interpretation to make sense we  required  that <m>a \lt b</m>, and though we remarked that the integral makes sense when <m>a \gt b</m> we  did not explain any further. Thankfully there is an easy way to express the  integral <m>\int_a^b f(x)\dee{x}</m> in terms of <m>\int_b^a f(x)\dee{x}</m> <mdash/> making  it  always possible to write an integral so the lower limit of integration  is less than the upper limit of integration. Theorem<nbsp/><xref ref="thm_Intdomain"/>,  below,  tell us that, for example, <m>\int_7^3 e^x\dee{x} = - \int_3^7 e^x\dee{x}</m>. The same theorem also provides us with two other simple manipulations of the limits of  integration.
+</p>
+
+<theorem xml:id="thm_Intdomain">
+<title>Arithmetic for the Domain of Integration</title>
+<statement><p>
+Let <m>a,b,c</m>  be real numbers. Let the function <m>f(x)</m>  be integrable on an interval that contains <m>a</m>, <m>b</m> and <m>c</m>. Then
+<md>
+<mrow>
+\text{(a)}&amp;&amp; \int_a^a f(x)\dee{x}&amp;= 0
+</mrow><mrow>
+\text{(b)}&amp;&amp; \int_b^a f(x)\dee{x}&amp;= -\int_a^b f(x)\dee{x}
+</mrow><mrow>
+\text{(c)}&amp;&amp; \int_a^b f(x)\dee{x}&amp;= \int_a^c f(x)\dee{x} + \int_c^b f(x)\dee{x}
+</mrow>
+</md>
+</p></statement>
+</theorem>
+
+<p>
+The proof of this statement is not too difficult.
+</p>
+
+<proof>
+<p>
+Let us prove the statements in order.
+<ul>
+<li>
+	Consider the definition of the definite integral
+	<md>
+	<mrow>
+	  \int_a^b f(x) \dee{x} &amp;= \lim_{n \to \infty} \sum_{i=1}^n  f(x_{i,n}^*)\cdot\frac{b-a}{n}
+	</mrow>
+	</md>
+	If we now substitute <m>b=a</m> in this expression we have
+	<md>
+	<mrow>
+	  \int_a^a f(x) \dee{x}  &amp;= \lim_{n \to \infty} \sum_{i=1}^n  f(x_{i,n}^*)\cdot\underbrace{\frac{a-a}{n}}_{=0}
+	</mrow><mrow>
+	  &amp;= \lim_{n \to \infty} \sum_{i=1}^n \underbrace{f(x_{i,n}^*)\cdot 0}_{=0}
+	</mrow><mrow>
+	  &amp;= \lim_{n \to \infty} 0
+	</mrow><mrow>
+	  &amp;= 0
+	</mrow>
+	</md>
+	as required.
+</li>
+<li>
+<p>
+	Consider now the definite integral <m>\int_a^b f(x) \dee{x}</m>. We will sneak  up on the proof by first examining Riemann sum approximations to both this and  <m>\int_b^a f(x)\dee{x}</m>. The midpoint Riemann sum approximation to <m>\int_a^b  f(x)\dee{x}</m> with <m>4</m> subintervals (so that each subinterval has width  <m>\frac{b-a}{4}</m>) is
+	<md>
+	<mrow>
+	&amp;\left\{f\Big(a+\frac{1}{2}\frac{b-a}{4}\Big)
+		  +f\Big(a+\frac{3}{2}\frac{b-a}{4}\Big)
+		  +f\Big(a+\frac{5}{2}\frac{b-a}{4}\Big)
+	  + f\Big(a+\frac{7}{2}\frac{b-a}{4}\Big)
+	  \right\}\cdot\frac{b-a}{4}
+	</mrow><mrow>
+	&amp;=\left\{f\Big(\frac{7}{8}a+\frac{1}{8}b\Big)
+	   +f\Big(\frac{5}{8}a+\frac{3}{8}b\Big)
+	   +f\Big(\frac{3}{8}a+\frac{5}{8}b\Big)
+	   +f\Big(\frac{1}{8}a+\frac{7}{8}b\Big)\right\}\cdot\frac{b-a}{4}
+	</mrow>
+	</md>
+	Now we do the same for <m>\int_b^a f(x)\dee{x}</m> with <m>4</m> subintervals. Note that <m>b</m>  is now the lower limit on the integral and <m>a</m> is now the upper limit on the  integral. This is likely to cause confusion when we write out the Riemann sum, so we'll temporarily rename <m>b</m> to <m>A</m> and <m>a</m> to <m>B</m>. The midpoint Riemann sum  approximation to <m>\int_A^B f(x)\dee{x}</m> with <m>4</m> subintervals is
+	<md>
+	<mrow>
+	&amp;\left\{f\Big(A+\frac{1}{2}\frac{B-A}{4}\Big)
+		  +f\Big(A+\frac{3}{2}\frac{B-A}{4}\Big)
+		  +f\Big(A+\frac{5}{2}\frac{B-A}{4}\Big)
+	   +f\Big(A+\frac{7}{2}\frac{B-A}{4}\Big)\right\}\cdot \frac{B-A}{4}
+	</mrow><mrow>
+	&amp;=\left\{f\Big(\frac{7}{8}A+\frac{1}{8}B\Big)
+	   +f\Big(\frac{5}{8}A+\frac{3}{8}B\Big)
+	   +f\Big(\frac{3}{8}A+\frac{5}{8}B\Big)
+	   +f\Big(\frac{1}{8}A+\frac{7}{8}B\Big)\right\}\cdot \frac{B-A}{4}
+	</mrow>
+	<intertext>Now recalling that <m>A=b</m> and <m>B=a</m>, we have that the midpoint  Riemann sum approximation to <m>\int_b^a f(x)\dee{x}</m> with  <m>4</m> subintervals is</intertext>
+	<mrow>
+	&amp;\left\{f\Big(\frac{7}{8}b+\frac{1}{8}a\Big)
+	   +f\Big(\frac{5}{8}b+\frac{3}{8}a\Big)
+	   +f\Big(\frac{3}{8}b+\frac{5}{8}a\Big)
+	   +f\Big(\frac{1}{8}b+\frac{7}{8}a\Big)\right\}\cdot \frac{a-b}{4}
+	</mrow>
+	</md>
+	Thus we see that the Riemann sums for the two integrals are nearly identical  <mdash/> the only difference being the factor of <m>\frac{b-a}{4}</m> versas  <m>\frac{a-b}{4}</m>. Hence the two Riemann sums are negatives of each other.
+</p>
+
+<p>
+	The same computation with <m>n</m> subintervals shows that the midpoint Riemann sum  approximations to <m>\int_b^a f(x)\dee{x}</m> and <m>\int_a^b f(x)\dee{x}</m> with <m>n</m>  subintervals are negatives of each other. Taking the limit <m>n\rightarrow\infty</m>  gives <m>\int_b^a f(x)\dee{x}= -\int_a^b f(x)\dee{x}</m>.
+</p>
+</li>
+<li>
+<p>
+	Finally consider (c) <mdash/> we will not give a formal proof of this, but  instead will interpret it geometrically. Indeed one can also interpret (a)  geometrically. In both cases these become statements about areas:
+	<md>
+	<mrow>
+	\int_a^a f(x)\dee{x}=0\qquad\text{and}\qquad
+	\int_a^b f(x)\dee{x}= \int_a^c f(x)\dee{x} + \int_c^b f(x)\dee{x}
+	</mrow>
+	</md>
+	are
+	<md>
+	<mrow>
+	\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le a,\ 0\le y\le f(x)\ \big\}=0
+	</mrow>
+	</md>
+	and
+	<md>
+	<mrow>
+	\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le b,\ 0\le y\le f(x)\ \big\}
+	&amp;=\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le c,\ 0\le y\le f(x)\ \big\}
+	</mrow><mrow>
+	&amp;
+	+\text{Area}\big\{\ (x,y)\ \big|\ c\le x\le b,\ 0\le y\le f(x)\ \big\}
+	</mrow>
+	</md>
+	respectively. Both of these geometric statements are intuitively obvious. See the figures below.
+</p>
+	<sidebyside widths="33% 50%" valign="middle">
+	<image source="text/figs/areaAA"/>
+	  <image source="text/figs/areaABC"/>
+	</sidebyside>
+<p>
+	Note that we have assumed that <m>a\leq c \leq b</m> and that <m>f(x)\geq 0</m>. One can  remove  these restrictions and also make the proof more formal, but it becomes quite  tedious and   less intuitive.
+</p>
+</li>
+</ul>
+</p>
+</proof>
+
+<remark>
+<p>
+For notational simplicity, let's assume that <m>a\le c\le b</m> and <m>f(x)\ge 0</m> for all <m>a\le x\le b</m>.  The geometric interpretations of the identities
+<md>
+<mrow>
+\int_a^a f(x)\dee{x}=0\qquad\text{and}\qquad
+\int_a^b f(x)\dee{x}= \int_a^c f(x)\dee{x} + \int_c^b f(x)\dee{x}
+</mrow>
+</md>
+are
+<md>
+<mrow>
+\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le a,\ 0\le y\le f(x)\ \big\}=0
+</mrow>
+</md>
+and
+<md>
+<mrow>
+\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le b,\ 0\le y\le f(x)\ \big\}
+&amp;=\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le c,\ 0\le y\le f(x)\ \big\}
+</mrow><mrow>
+&amp;
++\text{Area}\big\{\ (x,y)\ \big|\ c\le x\le b,\ 0\le y\le f(x)\ \big\}
+</mrow>
+</md>
+respectively. Both of these geometric statements are intuitively obvious. See the figures below. We won't give a formal proof.
+</p>
+
+<sidebyside widths="33% 50%" valign="middle">
+<image source="text/figs/areaAA"/>
+  <image source="text/figs/areaABC"/>
+</sidebyside>
+
+<p>
+So we concentrate on the formula <m>\int_b^a f(x)\dee{x}= -\int_a^b f(x)\dee{x}</m>. The midpoint Riemann sum approximation to <m>\int_a^b f(x)\dee{x}</m> with <m>4</m> subintervals (so that each subinterval has width <m>\frac{b-a}{4}</m>)
+is
+<mdn>
+<mrow number="no">
+&amp;\Big\{f\Big(a+\frac{1}{2}\frac{b-a}{4}\Big)
+      +f\Big(a+\frac{3}{2}\frac{b-a}{4}\Big)
+      +f\Big(a+\frac{5}{2}\frac{b-a}{4}\Big)
+   +f\Big(a+\frac{7}{2}\frac{b-a}{4}\Big)\Big\}\ \frac{b-a}{4}
+</mrow>
+<mrow  xml:id="eq_INTflipL" tag="star">
+&amp;=\Big\{f\Big(\frac{7}{8}a+\frac{1}{8}b\Big)
+   +f\Big(\frac{5}{8}a+\frac{3}{8}b\Big)
+   +f\Big(\frac{3}{8}a+\frac{5}{8}b\Big)
+   +f\Big(\frac{1}{8}a+\frac{7}{8}b\Big)\Big\}\ \frac{b-a}{4}
+</mrow>
+</mdn>
+We're now going to write out the midpoint Riemann sum approximation to  <m>\int_b^a f(x)\dee{x}</m> with <m>4</m> subintervals. Note that <m>b</m> is now the lower limit on the integral and <m>a</m> is now the upper limit on the integral. This is likely to cause confusion when we write out the Riemann sum, so we'll temporarily rename <m>b</m> to <m>A</m> and <m>a</m> to <m>B</m>. The midpoint Riemann sum approximation to <m>\int_A^B f(x)\dee{x}</m> with  <m>4</m> subintervals is
+<md>
+<mrow>
+&amp;\Big\{f\Big(A+\frac{1}{2}\frac{B-A}{4}\Big)
+      +f\Big(A+\frac{3}{2}\frac{B-A}{4}\Big)
+      +f\Big(A+\frac{5}{2}\frac{B-A}{4}\Big)
+   +f\Big(A+\frac{7}{2}\frac{B-A}{4}\Big)\Big\}\ \frac{B-A}{4}
+</mrow><mrow>
+&amp;=\Big\{f\Big(\frac{7}{8}A+\frac{1}{8}B\Big)
+   +f\Big(\frac{5}{8}A+\frac{3}{8}B\Big)
+   +f\Big(\frac{3}{8}A+\frac{5}{8}B\Big)
+   +f\Big(\frac{1}{8}A+\frac{7}{8}B\Big)\Big\}\ \frac{B-A}{4}
+</mrow>
+</md>
+Now recalling that <m>A=b</m> and <m>B=a</m>, we have that the midpoint Riemann  sum approximation to <m>\int_b^a f(x)\dee{x}</m> with  <m>4</m> subintervals is
+<mdn>
+<mrow xml:id="eq_INTflipR" tag="dstar">
+\Big\{f\Big(\frac{7}{8}b+\frac{1}{8}a\Big)
+   +f\Big(\frac{5}{8}b+\frac{3}{8}a\Big)
+   +f\Big(\frac{3}{8}b+\frac{5}{8}a\Big)
+   +f\Big(\frac{1}{8}b+\frac{7}{8}a\Big)\Big\}\ \frac{a-b}{4}
+</mrow>
+</mdn>
+The curly brackets in <xref ref="eq_INTflipL"/> and <xref ref="eq_INTflipR"/> are equal to each other <mdash/> the terms are just in the reverse order. The factors multiplying the curly brackets in <xref ref="eq_INTflipL"/> and  <xref ref="eq_INTflipR"/>, namely <m>\frac{b-a}{4}</m> and <m>\frac{a-b}{4}</m>, are negatives of each other, so  <xref ref="eq_INTflipR"/><m>=-</m><xref ref="eq_INTflipL"/>. The same computation with <m>n</m> subintervals shows that the midpoint Riemann sum approximations to  <m>\int_b^a f(x)\dee{x}</m> and <m>\int_a^b f(x)\dee{x}</m> with <m>n</m> subintervals are negatives of each other. Taking the limit <m>n\rightarrow\infty</m> gives <m>\int_b^a f(x)\dee{x}= -\int_a^b f(x)\dee{x}</m>.
+</p>
+</remark>
+
+
+<example xml:id="eg_INTPROPxa"><title>Revisiting Example <xref ref="eg_INTtriangle"/></title>
+<p>
+Back in Example<nbsp/><xref ref="eg_INTtriangle"/> we saw that when <m>b \gt 0</m> <m>\int_0^b x\dee{x} =\frac{b^2}{2}</m>. We'll now verify that  <m>\int_0^b x\dee{x} =\frac{b^2}{2}</m> is still true when <m>b=0</m> and also when <m>b \lt 0</m>.
+<ul>
+<li>
+	First consider <m>b=0</m>. Then the statement <m>\int_0^b x\dee{x} =\frac{b^2}{2}</m> becomes
+	<md>
+	<mrow>
+	\int_0^0 x\dee{x} =0
+	</mrow>
+	</md>
+	This is an immediate consequence of Theorem <xref ref="thm_Intdomain"/>(a).
+</li>
+<li>
+	Now consider <m>b \lt 0</m>. Let us write <m>B=-b</m>, so that <m>B \gt 0</m>. In  Example<nbsp/><xref ref="eg_INTtriangle"/> we saw that
+	<md>
+	<mrow>
+	\int_{-B}^0 x\dee{x} =-\frac{B^2}{2}.
+	</mrow>
+	</md>
+	So we have
+	<md>
+	<mrow>
+	\int_0^b x\dee{x}
+	&amp;=\int^{-B}_0 x\dee{x} =- \int_{-B}^0 x\dee{x} &amp; \text{by Theorem }<xref ref="thm_Intdomain"/>\text{(b)}
+	</mrow><mrow>
+	&amp; =-\left(-\frac{B^2}{2}\right) &amp; \text{by Example }<xref ref="eg_INTtriangle"/>
+	</mrow><mrow>
+	&amp; =\frac{B^2}{2} = \frac{b^2}{2}
+	</mrow>
+	</md>
+</li>
+</ul>
+We have now shown that
+<md>
+<mrow>
+\int_0^b x\dee{x} &amp;=\frac{b^2}{2} &amp;\text{ for all real numbers $b$}
+</mrow>
+</md>
+</p>
+</example>
+
+
+<example xml:id="eg_INTPROPx"><title><m>\int_a^b x\dee{x}</m></title>
+<p>
+Applying Theorem <xref ref="thm_Intdomain"/> yet again, we have, for all real numbers <m>a</m> and <m>b</m>,
+<md>
+<mrow>
+\int_a^b x\dee{x} &amp;=  \int_a^0 x\dee{x} + \int_0^b x\dee{x} &amp;
+           \text{by Theorem }<xref ref="thm_Intdomain"/>(c)\text{ with $c=0$}
+</mrow><mrow>
+               &amp;=  \int_0^b x\dee{x} - \int_0^a x\dee{x} &amp;
+            \text{by Theorem }<xref ref="thm_Intdomain"/>\text{(b)}
+</mrow><mrow>
+               &amp;=\frac{b^2-a^2}{2} &amp;
+            \text{by Example }<xref ref="eg_INTPROPxa"/>\text{, twice}
+</mrow>
+</md>
+We can also understand this result geometrically.
+</p>
+
+<sidebyside width="80%">
+ <image source="text/figs/triangles_adr"/>
+</sidebyside>
+
+<p>
+<ul>
+<li>
+	(left) When <m>0 \lt a \lt b</m>, the integral represents the area in green which  is the difference of two right-angle triangles <mdash/> the larger with area <m>b^2/2</m>  and the smaller with area <m>a^2/2</m>.
+</li>
+<li>
+	(centre) When <m>a \lt 0 \lt b</m>, the integral represents the signed area of the two  displayed triangles. The one above the axis has area <m>b^2/2</m> while the one  below has area <m>-a^2/2</m> (since it is below the axis).
+</li>
+<li>
+	(right) When <m>a \lt b \lt 0</m>, the integral represents the signed area in purple  of the difference between the two triangles <mdash/> the larger with area <m>-a^2/2</m>  and the smaller with area <m>-b^2/2</m>.
+</li>
+</ul>
+</p>
+
+</example>
+
+<p>
+Theorem<nbsp/><xref ref="thm_Intdomain"/>(c) shows us how we can split an integral over a  larger interval into one over two (or more) smaller intervals. This is  particularly useful for dealing with piece-wise functions, like <m>|x|</m>.
+</p>
+
+<example xml:id="eg_INTPROPabs"><title>Integrals involving <m>|x|</m></title>
+<p>
+Using Theorem<nbsp/><xref ref="thm_Intdomain"/>, we can readily evaluate integrals involving  <m>|x|</m>. First, recall that
+<md>
+<mrow>
+|x|=\begin{cases}
+          x &amp; \text{if $x\ge 0$} \\
+         -x &amp; \text{if $x \lt  0$}
+    \end{cases}
+</mrow>
+</md>
+Now consider (for example) <m>\int_{-2}^3 |x| \dee{x}</m>. Since the integrand  changes at <m>x=0</m>, it makes sense to split the interval of integration at that  point:
+<md>
+<mrow>
+  \int_{-2}^3 |x| \dee{x}
+&amp;= \int_{-2}^0 |x| \dee{x} + \int_0^3 |x| \dee{x}
+&amp;\text{by Theorem }<xref ref="thm_Intdomain"/>
+</mrow><mrow>
+&amp;= \int_{-2}^0 (-x) \dee{x} + \int_0^3 x \dee{x}
+&amp;\text{by definition of $|x|$}
+</mrow><mrow>
+&amp;= -\int_{-2}^0 x\dee{x} + \int_0^3 x \dee{x}
+&amp;\text{by Theorem }<xref ref="thm_Intarith"/>\text{(c)}
+</mrow><mrow>
+&amp;= - (-2^2/2) + (3^2/2) = (4+9)/2
+</mrow><mrow>
+&amp;= 13/2
+</mrow>
+</md>
+We can go further still <mdash/> given a function <m>f(x)</m> we can rewrite  the integral of <m>f(|x|)</m> in terms of the integral of <m>f(x)</m> and <m>f(-x)</m>.
+<md>
+<mrow>
+\int_{-1}^1 f\big(|x|\big)\dee{x} &amp; = \int_{-1}^0 f\big(|x|\big)\dee{x}+ \int_0^1 f\big(|x|\big)\dee{x}
+</mrow><mrow>
+&amp; = \int_{-1}^0 f(-x)\dee{x}+ \int_0^1 f(x)\dee{x}
+</mrow>
+</md>
+</p>
+</example>
+
+<p>Here is a more concrete example.</p>
+
+<example><title>Revisiting Example <xref ref="eg_INTtriangleB"/></title>
+<p>
+Let us compute <m>\int_{-1}^1 \big(1-|x|\big)\dee{x}</m> again. In  Example<nbsp/><xref ref="eg_INTtriangleB"/> we evaluated this integral by interpretting it as  the area of a triangle. This time we are going to use <em>only</em> the  properties given in Theorems<nbsp/><xref ref="thm_Intarith"/> and<nbsp/><xref ref="thm_Intdomain"/> and the  facts that
+<md>
+<mrow>
+\int_a^b \dee{x} &amp;= b-a &amp;\text{and}&amp;&amp;
+\int_a^b x\dee{x}=\frac{b^2-a^2}{2}
+</mrow>
+</md>
+That <m>\int_a^b\dee{x} = b-a</m> is part (e) of Theorem<nbsp/><xref ref="thm_Intarith"/>. We saw that <m>\int_a^b x\dee{x}=\frac{b^2-a^2}{2}</m> in Example<nbsp/><xref ref="eg_INTPROPx"/>.
+</p>
+
+<p>
+First we are going to get rid of the absolute value signs by splitting the  interval over which we integrate. Recalling that <m>|x|=x</m> whenever <m>x\ge 0</m> and  <m>|x|=-x</m> whenever <m>x\le 0</m>, we split the interval by  Theorem<nbsp/><xref ref="thm_Intdomain"/>(c),
+<md>
+<mrow>
+\int_{-1}^1 \big(1-|x|\big)\dee{x} &amp;=\int_{-1}^0 \big(1-|x|\big)\dee{x} + \int_0^1 \big(1-|x|\big)\dee{x}
+</mrow><mrow>
+&amp;=\int_{-1}^0 \big(1-(-x)\big)\dee{x} + \int_0^1 \big(1-x\big)\dee{x}
+</mrow><mrow>
+&amp;=\int_{-1}^0 \big(1+x\big)\dee{x} + \int_0^1 \big(1-x\big)\dee{x}
+</mrow>
+</md>
+Now we apply parts (a) and (b) of Theorem <xref ref="thm_Intarith"/>, and then
+<md>
+<mrow>
+\int_{-1}^1 \big[1-|x|\big]\dee{x}
+&amp;=\int_{-1}^0 1\dee{x} + \int_{-1}^0 x\dee{x} + \int_0^1 1\dee{x}  - \int_0^1 x\dee{x}
+</mrow><mrow>
+&amp;=[0-(-1)]+\frac{0^2-(-1)^2}{2}+[1-0]-\frac{1^2-0^2}{2}
+</mrow><mrow>
+&amp;=1
+</mrow>
+</md>
+</p>
+</example>
+</introduction>
+
+<subsection>
+<title>More properties of integration: even and odd functions</title>
+
+<p>Recall
+	<fn>
+		We haven't done this in this course, but you should have seen  it in your differential calculus course or perhaps even earlier.
+	</fn>
+the following definition
+</p>
+
+<definition>
+<statement><p>
+Let <m>f(x)</m> be a function. Then,
+<ul>
+<li> we say that <m>f(x)</m> is even when <m>f(x)=f(-x)</m> for all <m>x</m>, and </li>
+<li> we say that <m>f(x)</m> is odd when <m>f(x)=-f(-x)</m> for all <m>x</m>. </li>
+</ul>
+</p></statement>
+</definition>
+
+<p>
+Of course most functions are neither even nor odd, but many of the standard  functions you know are.
+</p>
+
+<example xml:id="eg_lefthalfevenfunction"><title>Even functions</title>
+<p>
+<ul>
+<li>
+	Three examples of even functions are <m>f(x)=|x|</m>, <m>f(x)=\cos x</m> and  <m>f(x)=x^2</m>. In fact, if <m>f(x)</m> is any even power of <m>x</m>, then <m>f(x)</m> is an  even function.
+</li>
+<li>
+<p>
+	The part of the graph <m>y=f(x)</m> with <m>x\le 0</m>, may be constructed by  drawing the part of the graph with <m>x\ge 0</m> (as in the figure on the left below) and then reflecting it in the <m>y</m>-axis (as in the figure on the right below).
+</p>
+<sidebyside widths="40% 40%" valign="middle">
+	<image source="text/figs/evenCosPt"/>
+	<image source="text/figs/evenCos"/>
+</sidebyside>
+</li>
+<li>
+	In particular, if <m>f(x)</m> is an even function and <m>a \gt 0</m>, then  the two sets
+	<md>
+	<mrow>
+		 &amp;\big\{\ (x,y)\ \big|\
+		   \text{$0\le x\le a$ and $y$ is between $0$ and $f(x)$} \ \big\}
+	</mrow><mrow>
+		 &amp;\big\{\ (x,y)\ \big|\
+		   \text{$-a\le x\le 0$ and $y$ is between $0$ and $f(x)$} \ \big\}
+		</mrow>
+	</md>
+	are reflections of each other in the <m>y</m>-axis and so have the same  signed area. That is
+	<md>
+	<mrow>
+			\int_0^a f(x)\dee{x} &amp;= \int_{-a}^0 f(x)\dee{x}
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_areaunderoddfunction"><title>Odd functions</title>
+<p>
+<ul>
+<li>
+	Three examples of odd functions are <m>f(x)=\sin x</m>, <m>f(x)=\tan x</m> and  <m>f(x)=x^3</m>. In fact, if <m>f(x)</m> is any odd power of <m>x</m>, then <m>f(x)</m> is  an odd function.
+</li>
+<li>
+<p>
+	The part of the graph <m>y=f(x)</m> with <m>x\le 0</m>, may be constructed by  drawing the part of the graph with <m>x\ge 0</m> (like the solid line in the figure  on the left below) and then reflecting it in the <m>y</m>-axis (like the dashed  line  in the figure on the left below) and then relecting the result in the <m>x</m>-axis  (i.e. flipping it upside down, like in the figure on the right, below).
+</p>
+<sidebyside widths="40% 40%" valign="middle">
+<image source="text/figs/oddSinPt"/> <image source="text/figs/oddSin"/>
+</sidebyside>
+</li>
+<li>
+	In particular, if <m>f(x)</m> is an odd function and <m>a \gt 0</m>, then the  signed areas of the two sets
+	<md>
+	<mrow>
+		 &amp;\big\{\ (x,y)\ \big|\
+		   \text{$0\le x\le a$ and $y$ is between $0$ and $f(x)$} \ \big\}
+	</mrow><mrow>
+		 &amp;\big\{\ (x,y)\ \big|\
+		   \text{$-a\le x\le 0$ and $y$ is between $0$ and $f(x)$} \ \big\}
+		</mrow>
+	</md>
+	are negatives of each other <mdash/> to get from the first set to the second  set, you flip it upside down, in addition to reflecting it in the <m>x</m>-axis.  That is
+	<md>
+	<mrow>
+			\int_0^a f(x)\dee{x} = -\int_{-a}^0 f(x)\dee{x}
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+We can exploit the symmetries noted in the examples above, namely
+<md>
+<mrow>
+	\int_0^a f(x)\dee{x} &amp;= \int_{-a}^0 f(x)\dee{x} &amp; \text{for $f$ even}
+</mrow><mrow>
+	\int_0^a f(x)\dee{x} &amp;= -\int_{-a}^0 f(x)\dee{x} &amp; \text{for $f$ odd}
+</mrow>
+</md>
+together with Theorem<nbsp/><xref ref="thm_Intdomain"/> Theorem <xref ref="thm_Intdomain"/>
+<md>
+<mrow>
+	\int_{-a}^a f(x)\dee{x} &amp;= \int_{-a}^0 f(x)\dee{x} + \int_0^a f(x) \dee{x}
+</mrow>
+</md>
+in order to simplify the integration of even and odd functions over intervals  of the form <m>[-a,a]</m>.
+</p>
+
+<theorem xml:id="thm_INTevenodd"><title>Even and Odd</title>
+<statement><p>
+Let <m>a \gt 0</m>.
+<ol label="a">
+<li>
+	If <m>f(x)</m> is an even function, then
+	<md>
+	<mrow>
+	\int_{-a}^a f(x) \dee{x} = 2\int_0^a f(x) \dee{x}
+	</mrow>
+	</md>
+</li>
+<li>
+	If <m>f(x)</m> is an odd function, then
+	<md>
+	<mrow>
+	\int_{-a}^a f(x) \dee{x} = 0
+	</mrow>
+	</md>
+</li>
+</ol>
+</p></statement>
+</theorem>
+
+<proof>
+<p>
+For any function
+<md>
+<mrow>
+\int_{-a}^a f(x)\dee{x} = \int_0^a f(x)\dee{x} + \int_{-a}^0 f(x)\dee{x}
+</mrow>
+</md>
+When <m>f</m> is even, the two terms on the right hand side are equal. When <m>f</m> is odd, the two terms on the right hand side are negatives of each other.
+</p>
+</proof>
+</subsection>
+
+<subsection><title>Optional <mdash/> More properties of integration: inequalities for integrals</title>
+
+
+<p>
+We are still unable to integrate many functions, however with a little work we  can infer bounds on integrals from bounds on their integrands.
+</p>
+
+<theorem xml:id="thm_INTineq"><title>Inequalities for Integrals</title>
+<statement><p>
+Let <m>a\le b</m>  be real numbers and let the functions <m>f(x)</m> and <m>g(x)</m> be integrable on the interval <m>a\le x\le b</m>.
+<ol label="a">
+<li>
+	If <m>f(x)\ge 0</m> for all <m>a\le x\le b</m>, then
+	<md>
+	<mrow>
+	\int_a^b f(x)\dee{x} \ge 0
+	</mrow>
+	</md>
+</li>
+<li>
+	If there are constants <m>m</m> and <m>M</m> such that  <m>m\le f(x)\le M</m>  for all <m>a\le x\le b</m>, then
+	<md>
+	<mrow>
+	m(b-a)\le \int_a^b f(x)\dee{x} \le M(b-a)
+	</mrow>
+	</md>
+</li>
+<li>
+	If <m>f(x)\le g(x)</m> for all <m>a\le x\le b</m>, then
+	<md>
+	<mrow>
+	\int_a^b f(x)\dee{x} \le \int_a^b g(x)\dee{x}
+	</mrow>
+	</md>
+</li>
+<li>
+	We have
+	<md>
+	<mrow>
+	\bigg|\int_a^b f(x)\dee{x}\bigg|\le \int_a^b |f(x)|\dee{x}
+	</mrow>
+	</md>
+</li>
+</ol>
+</p></statement>
+</theorem>
+
+<proof>
+<p>
+<ol label="a">
+<li>
+	By interpreting the integral as the signed area, this statement  simply says that if the curve <m>y=f(x)</m> lies above the <m>x</m>-axis and <m>a\le b</m>, then the signed area of  <m>\big\{\ (x,y)\ \big|\ a\le x\le b,\   0\le y\le f(x)\ \big\}</m> is at least zero. This is quite clear. Alternatively, we could argue more  algebraically from Definition<nbsp/><xref ref="def_INTintegral"/>. We observe that when we  define <m>\int_a^b f(x)\dee{x}</m> via Riemann sums, every  summand, <m>f(x_{i,n}^*)\,\frac{b-a}{n}\ge 0</m>. Thus the whole sum is nonnegative  and consequently, so is the limit, and thus so is the integral.
+</li>
+<li>
+	We can argue this from (a) with a little massaging. Let <m>g(x) =  M-f(x)</m>, then since <m>f(x)\le M</m>, we have <m>g(x) = M-f(x)\ge 0</m> so that
+	<md>
+	<mrow>
+	\int_a^b\big(M-f(x)\big)\dee{x} &amp;= \int_a^b g(x) \dee{x} \geq 0.
+	</mrow>
+	<intertext>but we also have</intertext>
+	<mrow>
+	\int_a^b\big(M-f(x)\big)\dee{x} &amp;= \int_a^b M\dee{x} -\int_a^b f(x)\dee{x}
+	</mrow><mrow>
+	&amp;= M(b-a)-\int_a^b f(x)\dee{x}
+	</mrow>
+	</md>
+	Thus
+	<md>
+	<mrow>
+	M(b-a)-\int_a^b f(x)\dee{x} &amp; \geq 0 &amp; \text{rearrange}
+	</mrow><mrow>
+	  M(b-a) &amp; \geq \int_a^b f(x)\dee{x}
+	</mrow>
+	</md>
+	as required. The argument showing <m>\int_a^b f(x)\dee{x} \ge m(b-a)</m> is similar.
+</li>
+<li>
+	Now let <m>h(x) = g(x)-f(x)</m>. Since <m>f(x) \le g(x)</m>, we have
+	<m>h(x) = g(x)-f(x)\ge 0</m> so that
+	<md>
+	<mrow>
+	\int_a^b\big(g(x)-f(x)\big)\dee{x} &amp;= \int_a^b h(x) \dee{x} \geq 0
+	</mrow>
+	<intertext>But we also have that</intertext>
+	<mrow>
+	\int_a^b\big(g(x)-f(x)\big)\dee{x} &amp;= \int_a^b g(x) \dee{x} - \int_a^b f(x) \dee{x}
+	</mrow>
+	</md>
+	Thus
+	<md>
+	<mrow>
+	\int_a^b g(x) \dee{x} - \int_a^b f(x) \dee{x} &amp; \geq 0 &amp; \text{rearrange}
+	</mrow>
+	<mrow>
+	\int_a^b g(x) \dee{x} &amp; \geq  \int_a^b f(x) \dee{x}
+	</mrow>
+	</md>
+	as required.
+</li>
+<li>
+	For any <m>x</m>, <m>|f(x)|</m> is either <m>f(x)</m> or <m>-f(x)</m> (depending on whether  <m>f(x)</m> is positive or negative), so we certainly have
+	<md>
+	<mrow>
+	f(x)&amp;\le |f(x)| &amp; \text{and}&amp;&amp; -f(x)&amp;\le |f(x)|
+	</mrow>
+	</md>
+	Applying part (c) to each of those inequalities gives
+	<md>
+	<mrow>
+	\int_a^b f(x)\dee{x} &amp;\le \int_a^b |f(x)|\dee{x} &amp; \text{and} &amp;&amp;
+	-\int_a^b f(x)\dee{x} &amp;\le \int_a^b |f(x)|\dee{x}
+	</mrow>
+	</md>
+	Now <m>|\int_a^b f(x)\dee{x}|</m> is either equal to <m>\int_a^b f(x)\dee{x}</m> or  <m>-\int_a^b f(x)\dee{x}</m> (depending on whether the integral is positive or  negative). In either case we can apply the above two inequalities to get the  same result, namely
+	<md>
+	<mrow>
+	  \left|\int_a^b f(x)\dee{x}\right| &amp;\leq \int_a^b |f(x)|\dee{x}.
+	</mrow>
+	</md>
+</li>
+</ol>
+</p>
+</proof>
+
+
+<example><title><m>\int_0^{\frac{\pi}{3}}\sqrt{\cos x}\dee{x}</m></title>
+<p>
+Consider the integral
+<md>
+<mrow>
+\int_0^{\frac{\pi}{3}}\sqrt{\cos x}\dee{x}
+</mrow>
+</md>
+This is not so easy to compute exactly
+	<fn>
+		It is not too hard to use Riemann sums and a computer to evaluate it numerically: <m>0.948025319\dots</m>.
+	</fn>,
+but we can bound it quite quickly.
+</p>
+
+<p>
+For <m>x</m> between <m>0</m> and <m>\frac{\pi}{3}</m>, the function <m>\cos x</m> takes  values
+	<fn>
+		You know the graphs of sine and cosine, so you should be able to work this out without too much difficulty.
+	</fn>
+between <m>1</m> and <m>\frac{1}{2}</m>. Thus the function <m>\sqrt{\cos x}</m> takes values between <m>1</m> and <m>\frac{1}{\sqrt{2}}</m>. That is
+<md>
+<mrow>
+ \frac{1}{\sqrt{2}} &amp;\le \sqrt{\cos x} \le 1 &amp; \text{for $0\le x\le \frac{\pi}{3}$}.
+</mrow>
+</md>
+Consequently, by Theorem <xref ref="thm_INTineq"/>(b) with  <m>a=0</m>, <m>b=\frac{\pi}{3}</m>, <m>m= \frac{1}{\sqrt{2}}</m> and <m>M=1</m>,
+<md>
+<mrow>
+\frac{\pi}{3\sqrt{2}} &amp;\le \int_0^{\frac{\pi}{3}} \sqrt{\cos x}\dee{x}  \le \frac{\pi}{3}
+</mrow><mrow>
+</mrow>
+<intertext>Plugging these expressions into a calculator gives us</intertext><mrow>
+0.7404804898 &amp; \le \int_0^{\frac{\pi}{3}} \sqrt{\cos x}\dee{x}  \leq 1.047197551
+</mrow>
+</md>
+</p>
+</example>
+</subsection>
+
+
+<xi:include href="../problems/prob_s1.2.xml" />
+
+
+</section>

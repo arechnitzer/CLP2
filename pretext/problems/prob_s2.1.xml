@@ -1,0 +1,1708 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<exercises>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise>
+<statement><p>
+Find the work (in joules) required to lift a 3-gram block of matter a height of 10 centimetres against the force of gravity (with <m>g=9.8</m> m/sec<m>^2</m>).
+</p></statement>
+<hint><p>
+Watch your units: <m>1 \,\mathrm{J} = 1\, \frac{\mathrm{kg}\cdot\mathrm{m}^2}{\mathrm{sec}^2}</m>, but your mass is not given in kilograms, and your height is not given in metres.
+</p></hint>
+<answer><p>
+0.00294 J
+</p></answer>
+<solution><p>
+Force is mass <m>\times</m> acceleration (with acceleration equal to <m>g</m> in this problem), and both in this scenario are constant, so we don't need an integral <mdash/> only a product <mdash/> to calculate the force acting on the block.
+</p>
+
+<p>To find the force in newtons, recall one newton is one <m>\frac{\text{kg}\cdot\text{m}}{\text{sec}^2}</m>, so we need the mass of our block in kg. Specifically, our block has mass <m>\frac{3}{1000}</m> kg. So, the force involved is
+<me>
+F=\left(\frac{3}{1000}\text{ kg}\right)\times\left(9.8 \frac{\text{m}}{\text{sec}^2}\right) = 0.0294 \frac{\text{kg}\cdot\text{m}}{\text{sec}^2} = 0.0294 \text{N}</me>
+</p>
+
+<p>To find the work in joules, recall one joule is one newton-metre: that is, one newton of force acting over one metre. So, we need our distance in metres.
+<me>
+W = \big( 0.0294 \text{N}\big)\times\left(\frac{1}{10} \text{m}\right) = 0.00294 \text{N}\cdot\text{m} = 0.00294 \text{J}</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+A rock exerts a force of 1 N on the ground where it sits due to  gravity. Use <m>g=9.8</m> m/sec<m>^2</m>.
+</p>
+
+<p>What is the mass of the rock?
+</p>
+
+<p>How much work (in joules) does it take to lift that rock one metre in the air?
+</p></statement>
+<hint><p>
+The force of the rock on the ground is the product of its mass and the acceleration due to gravity.
+</p></hint>
+<answer><p>
+The rock has mass <m>\dfrac{1}{9.8}</m> kg (about 102 grams); lifting it one metre takes 1 J of work.
+</p></answer>
+<solution><p>
+The force of the rock is one newton, or one kilogram-metre per second squared, so
+<me>
+1 \frac{\text{kg}\cdot\text{m}}{\text{sec}^2} = (x \text{kg})\left(9.8 \frac{\text{m}}{\text{sec}^2}\right)</me>
+</p>
+
+<p>Therefore, the mass of the rock is <m>\frac{1}{9.8} </m> kg, or about 102 grams.
+</p>
+
+<p>Now, since one joule is one newton-metre, the amount of work required to counteract 1 N of gravitational force for one metre is precisely one joule.
+</p>
+
+<p>Remark:  having an idea of how much work a joule is, and how much force a newton is, is a good tool for checking the reasonableness of your work. For example, after this question, if you calculate that a marble weighs 100 N, you can be pretty sure there's an error in your calculation.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_1_integralsandunits">
+<statement><p>
+Consider the equation
+<me>
+W = \int_a^b F(x)\,\dee{x}</me>
+</p>
+
+<p>where <m>x</m> is measured in metres and <m>F(x)</m> is measured in kilogram-metres per second squared (newtons).
+</p>
+
+<p>For some large <m>n</m>, we might approximate
+<me>
+W \approx \sum_{i=1}^n F(x_i)\Delta x </me>
+</p>
+
+<p>where <m>\Delta x = \frac{b-a}{n}</m> and <m>x_i</m> is some number in the interval <m>[a+(i-1)\Delta x, a+i\Delta x]</m>. (This is just the general form of a Riemann sum).
+<ol label="a">
+<li> What are the units of <m>\Delta x</m>?
+</li>
+<li> What are the units of <m>F(x_i)</m>?
+</li>
+<li> Using your answers above, what are the units of <m>W</m>?
+</li>
+</ol>
+Remark: we already know the units of <m>W</m> from the text, but the Riemann sum illustrates <em>why they make sense</em> arising from this particular integral.
+</p></statement>
+<hint><p>
+Adding or subtracting two quantities of the same units doesn't change the units. For example, if I have one metre of rope, and I tie on two more metres of rope, I have <m>1+2=3</m> metres of rope <mdash/> not 3 centimetres of rope, or 3 kilograms of rope.
+</p>
+
+<p>Multiplying or dividing quantities of some units gives rise to a quantity with the product or quotient of those units. For example, if I buy ten pounds of salmon for <m>\$</m>50, the price of my salmon is <m>\dfrac{50\text{ dollars} }{10\text{ pounds}} = \dfrac{50}{10} \frac{\text{dollars}}{\text{pound}} = 5 \frac{\text{dollars}}{\text{pound}}</m>. (Not 5 pound-dollars, or 5 pounds.)
+</p></hint>
+<answer><p>
+(a) metres
+</p><p>
+(b) newtons
+</p><p>
+(c) joules
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<p>
+We defined <m>\Delta x = \frac{b-a}{n}</m>:  that is, the length of one interval, when we chop <m>[a,b]</m> into <m>n</m> of them. If <m>b</m> and <m>a</m> are measured in metres, then <m>\Delta x</m> is measured in metres as well. So, the units of <m>\Delta x</m> are metres.
+</p>
+
+<p>Put another way, since <m>a</m> and <m>b</m> both describe a quantity in metres, <m>b-a</m> describes a quantity in metres as well. (When we add or subtract quantities of the same units, their sum or difference is given in the same units.) Since <m>n</m> is a unitless quantity (simply a number: not <q><m>n</m> kg</q> or <q><m>n</m> m</q>), <m>\frac{b-a}{n}</m> still describes a quantity in metres. (If I have 6 metres of cloth, and I cut it into 3 pieces, each piece has <m>\frac{6}{3}=2</m> metres <mdash/> not 2 kilograms, or 2 metres per second.)
+</p>
+</li>
+<li> Since <m>F(x)</m> is measured in kilogram-metres per second squared (newtons), the units of <m>F(x_i)</m> are kilogram-metres per second squared (newtons).
+</li>
+<li> <m>W</m> is calculated by adding up summands of the form <m>F(x_i)\Delta x</m>. The units of <m>F(x_i)\Delta x</m> are the products of the units of <m>F(x_i)</m> with the units of <m>\Delta x</m>. That is, the units of <m>F(x_i)\Delta x</m> are <m>\left(\frac{\text{kg}\cdot\text{m}}{\text{sec}^2}\right)\left(\text{m}\right) = \frac{\text{kg}\cdot\text{m}^2}{\text{sec}^2} = J</m>. The sum of terms given in joules is itself given in joules, so the units of <m>W</m> are joules.
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose <m>f(x)</m>  has units <m>\dfrac{\mathrm{smoot}}{\mathrm{megaFonzie}}</m>, and <m>x</m> is measured in barns
+<fn>For this problem, it doesn't matter what the units measure, but a smoot is a silly measure of length; a megaFonzie is an apocryphal measure of coolness; and a barn is a humorous (but actually used) measure of area. For explanations (and entertainment) see <url href="https://en.wikipedia.org/wiki/List_of_humorous_units_of_measurement"/>
+ and <url href="https://en.wikipedia.org/wiki/List_of_unusual_units_of_measurement"/> (accessed 27 July 2017).</fn>. What are the units of the quantity <m>\int_0^1 f(x)\,\dee{x}</m>?
+</p></statement>
+<hint><p>
+See Question<nbsp/><xref ref="prob_s2_1_integralsandunits" text="local"/>.
+</p></hint>
+<answer><p>
+<m>\dfrac{\mathrm{smoot}\cdot\mathrm{barn}}{\mathrm{megaFonzie}}</m>   (smoot-barns per megaFonzie)
+</p></answer>
+<solution><p>
+As we saw in Question<nbsp/><xref ref="prob_s2_1_integralsandunits" text="local"/>, the units of <m>\int_a^b f(x)\, \dee{x}</m> are simply the units of the integrand, <m>f(x)</m>, multiplied by the units of the variable of integration, <m>x</m>. In this case, that yields
+<m>\frac{\mathrm{smoot}\cdot\mathrm{barn}}{\mathrm{megaFonzie}}</m> (that is, smoot-barns per megaFonzie).
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+You want weigh your luggage  before a flight. You don't have a scale or balance, but you do have a heavy-duty spring from your local engineering-supply store. You nail it to your wall, marking where the bottom hangs. You hang a one-litre bag of water (with mass one kilogram)  from the spring, and observe that the spring stretches 1 cm. Where on the wall should you mark the bottom of the spring corresponding to a hanging mass of 10kg?
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0) rectangle (9,6);
+\draw (1,5) node[vertex]{};
+\draw[decorate,
+        decoration={coil,amplitude=6pt, segment length=6pt}] (1,5) --(1,3);
+\draw (1,3) arc (0:-180:2mm);
+\draw[very thick,  \lt -] (1.5,2.8)--(2,2.8) node[right]{bottom of unloaded spring};
+\draw[very thick,  \lt -] (1.5,1.5)--(2,1.5) node[right]{bottom of spring with 10kg mass};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+You may assume that the spring obeys Hooke's law.
+</p></statement>
+<hint><p>
+Hooke's law says that the force required to stretch a spring <m>x</m> units past its natural length is proportional to <m>x</m>; that is, there is some constant <m>k</m> associated with the individual spring such that the force required to stretch it <m>x</m> m past its natural length is <m>kx</m>.
+</p></hint>
+<answer><p>
+10 cm below the bottom of the unloaded spring
+</p></answer>
+<solution><p>
+Hooke's law says that the force required to stretch a spring <m>x</m> units past its natural length is proportional to <m>x</m>; that is, there is some constant <m>k</m> associated with the individual spring such that the force required to stretch it <m>x</m> m past its natural length is <m>kx</m>.
+<ul>
+<li>Solution 1:
+Since the force required to stretch the spring is proportional to the amount stretched, and the force acting on the spring is proportional to the mass hanging from it, we conclude the amount the spring stretches is proportional to the mass hung from it. So, if 1 kg stretches it 1 cm, then 10 kg will stretch it 10 cm. We should mark the wall 10 cm below the bottom of the spring as it hangs unloaded.
+</li>
+<li>
+<p>
+Solution 2:
+We can find <m>k</m> from the test with the bag of water. The force exerted by the bag of water was <m>(1\text{ kg})(9.8\text{ m/sec}^2) = 9.8</m> N<m>=k(1 \text{ cm})</m>. So,
+<me>
+k = \frac{9.8 \frac{\text{kg}\cdot\text{m}}{\text{sec}^2}}{0.01\text{ m}} = 980 \frac{\text{kg}}{\text{sec}^2}</me>
+</p>
+
+<p>If we hang 10 kg from the spring, gravity exerts a force of <m>(10 \text{ kg})(9.8 \text{ m/sec}^2) = 98 \frac{\text{kg}\cdot\text{m}}{\text{sec}^2}</m>. This will be matched by the spring with a force of <m>kx</m> newtons, where <m>k</m> is the spring constant and <m>x</m> is the amount stretched.
+<md>
+<mrow>
+kx&amp;=98 \frac{\text{kg}\cdot\text{m}}{\text{sec}^2}
+</mrow><mrow>
+\left(980 \frac{\text{kg}}{\text{sec}^2}\right)\left(x\text{ m}\right)&amp;=98 \frac{\text{kg}\cdot\text{m}}{\text{sec}^2}
+</mrow><mrow>
+x&amp;=\frac{1}{10}\text{ m} = 10\text{ cm}
+</mrow>
+</md>
+So, we should put the mark at 10 cm below the natural length of the spring.
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+The work done by a force in moving an object from position <m>x = 1</m> to <m>x = b</m> is
+<m>W(b) = -b^3+6b^2-9b+4</m>
+for any <m>b</m> in <m>[1,3]</m>. At what position <m>x</m> in <m>[1,3]</m> is the force the strongest?
+</p></statement>
+<hint><p>
+Definition<nbsp/><xref ref="def_WKwork"/> tells us the work done by the force from <m>x=1</m> to <m>x=b</m> is
+<m>W(b) = \int_1^b F(x) \dee{x}</m>, where <m>F(x)</m> is the force on the object at position <m>x</m>. To recover the equation for <m>F(x)</m>, use the Fundamental Theorem of Calculus.
+</p></hint>
+<answer><p>
+<m>x=2</m>
+</p></answer>
+<solution><p>
+Definition<nbsp/><xref ref="def_WKwork"/> tells us the work done by the force is
+<m>W(b) = \int_1^b F(x) \dee{x}</m>, where <m>F(x)</m> is the force on the object at position <m>x</m>.
+So, by the Fundamental Theorem of Calculus Part 1,
+<md>
+<mrow>
+\diff{}{b}\{W(b)\} = \diff{}{b}\left\{\int_1^b F(x) \dee{x}\right\} &amp;= F(b)
+</mrow><mrow>
+\diff{}{b}\left\{-b^3+6b^2-9b+4\right\}&amp;=F(b)
+</mrow><mrow>
+-3b^2+12b-9&amp;=F(b)
+</mrow><mrow>
+-3(b-1)(b-3)&amp;=F(b)
+</mrow>
+</md>
+So, <m>F(x)</m> is the quadratic polynomial <m>-3(x-1)(x-3)</m>.
+</p><sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{0.5}{4}{1}{3.2}
+\draw[thick, blue] plot[domain=0.95:3.05](\x,{-3*(\x-1)*(\x-3)});
+\draw[blue] (3,1) node[right]{$y=F(x)$};
+\YExcoord{1}{1}
+\YExcoord{2}{2}
+\YExcoord{3}{3}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The largest absolute value of <m>F(x)</m> over <m>[1,3]</m> occurs at <m>x=2</m>.  At this point, we have our strongest force.
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise><title><fromexam>2014D</fromexam></title>
+<statement><p>
+A variable force <m>F(x) = \frac{a}{\sqrt{x}}</m> Newtons moves an object
+along a straight line when it is a distance of <m>x</m> meters from the origin.
+If the work done in moving the object from <m>x = 1</m> meters to
+<m>x = 16</m> meters is <m>18</m> joules, what is the value of <m>a</m>? Don't worry
+about the units of <m>a</m>.
+</p></statement>
+
+<hint><p>
+Review Definition <xref ref="def_WKwork"/> for calculating the work done by a force over a distance.
+</p></hint>
+
+<answer><p>
+<m>a=3</m>
+</p></answer>
+
+<solution><p>
+By Definition <xref ref="def_WKwork"/>, the work done in moving the object from <m>x = 1</m> meters
+to <m>x = 16</m> meters by the force <m>F(x)</m> is
+<md>
+<mrow>
+W = \int_1^{16} F(x)\dee{x}
+= \int_1^{16} \frac{a}{\sqrt{x}}\dee{x}
+= \Big[2a\sqrt{x}\,\Big]_{x=1}^{x=16}
+=6a
+</mrow>
+</md>
+To have <m>W=18</m>, we need <m>a=3</m>.
+</p>
+
+<p>As a side remark, <m>F(x)= \frac{a}{\sqrt{x}}</m> should have units Newtons.
+Since <m>x</m>, a distance, is measured in  meters, <m>a</m> has to have the bizarre
+units newton-<m>\sqrt{\text{meter}}\text{s}</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+A tube of air is fitted with a plunger that compresses the air as it is pushed in. If the natural length of the tube of air is <m>\ell</m>, when the plunger has been pushed  <m>x</m> metres past its natural position, the force exerted by the air is <m>\frac{c}{\ell-x}</m> N, where <m>c</m> is a positive constant (depending on the particulars of the tube of air) and <m>x \lt \ell</m>.
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (3,1) arc(90:-90:5mm and 1cm);
+\draw (3,1)--(0,1) arc (90:270:5mm and 1cm)--(3,-1);
+\draw (1,1)  arc (90:270:5mm and 1cm);
+\draw[] (1,-1)  arc (-90:90:5mm and 1cm);
+\draw[] (1,.9)  arc (90:270:4mm and .9cm);
+\draw[] (1,-.9)  arc (-90:90:4mm and .9cm);
+\draw[fill=white] (3,-.2)--(1,-.2) arc (270:90:1mm and 2mm)--(4,.2) arc (90:-90:1mm and 2mm)--(3,-.2);
+\draw (3,1) arc(90:270:5mm and 1cm);
+\fill[fill=blue, opacity=0.1] (1,-1)  arc (270:90:5mm and 1cm) --(0,1)  arc (90:270:5mm and 1cm)--(1,-1);
+\draw[decorate, decoration={brace, amplitude=7pt, mirror}] (1,-1.5)--(3,-1.5) node[midway,  below, yshift=-3mm]{$x$};
+\draw[decorate, decoration={brace, amplitude=7pt}] (0,1.5)--(3,1.5) node[midway,  above, yshift=3mm]{$\ell$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+<ol label="a">
+<li> What are the units of <m>c</m>?
+</li>
+<li> How much work does it take to push the plunger from 1 metre past its natural position to 1.5 metres past its natural position? (You may assume <m>\ell \gt 1.5</m>.)
+</li>
+</ol>
+</p></statement>
+<hint><p>
+For (a), <m>\frac{c}{\ell-x}</m> is meausured in Newtons, while <m>\ell</m> and <m>x</m> are in metres. For (b), notice the similarities and differences between the tube of air and a spring obeying Hooke's law.
+</p></hint>
+<answer><p>
+(a) joules
+</p><p>
+ (b) <m>\displaystyle c\log\left(\frac{\ell-1}{\ell-1.5}\right)\text{ J}</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> Since <m>\frac{c}{\ell-x}</m> is measured in newtons, and <m>\ell</m> and <m>x</m> (and therefore <m>\ell-x</m>) are measured in metres, the units of <m>c</m> are newton-metres, i.e. joules.
+</li>
+<li>
+<p>
+Following Definition <xref ref="def_WKwork"/>, the work done compressing the air is
+<me>
+W = \int_1^{1.5}F(x)\,\dee{x}
+</me>
+where <m>F(x)</m> is the amount of force applied when the plunger is <m>x</m> metres past its natural position. The amount of force applied is equal in magnitude to the amount of force supplied by the tube: <m>\frac{c}{\ell-x}</m> N. Note <m>\ell</m> and <m>c</m> are constants. We can guess the antiderivative, or use the substitution <m>u=\ell-x</m>, <m>\dee{u}=-x\,\dee{x}</m>.
+<md>
+<mrow>
+W &amp;=\int_1^{1.5} \frac{c}{\ell-x}\,\dee{x}  = \big[-c\log|\ell-x|\big]_1^{1.5}
+</mrow><mrow>
+&amp;=-c\big[\log|\ell-1.5| - \log|\ell-1|\big]
+</mrow><mrow>
+&amp;=-c\log\left(\frac{\ell-1.5}{\ell-1}\right)
+</mrow><mrow>
+&amp;=c\log\left(\frac{\ell-1}{\ell-1.5}\right)\text{ J}</mrow>
+</md>
+Note that, because <m>\ell \gt 1.5</m>, the argument of logarithm is positive, so we don't need the absolute value signs. Furthermore, <m>\ell-1  \gt  \ell-1.5</m>, so <m>\frac{\ell-1}{\ell-1.5} \gt 1</m>, hence <m>\log\left(\frac{\ell-1}{\ell-1.5}\right) \gt 0</m>.
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<introduction><p>Questions <xref ref="prob_s2_1_normal1" text="local"/> through <xref ref="prob_s2_1_normal2" text="local"/> offer practice on two broad types of calculations covered in the text: lifting things against gravity, and stretching springs. You may make the same physical assumptions as in the text: that is, springs follow Hooke's law, and the acceleration due to gravity is a constant <m>-9.8</m> metres per second squared.</p></introduction>
+
+<exercise xml:id="prob_s2_1_normal1"><title><fromexam>2016Q3</fromexam></title>
+<statement><p>
+Find the work (in joules) required to stretch a string <m>10</m> cm beyond
+equilibrium, if its spring constant is <m>k=50\ \mathrm{N}/\mathrm{m}</m>.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_WKhookes"/>. Be careful about your units.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{4}\ \mathrm{J}</m>
+</p></answer>
+
+<solution><p>
+By Hooke's Law, the force exerted by the spring
+at displacement <m>x</m> m from its natural length is <m>F = kx</m>,
+where <m>k</m> is the spring constant.
+Measuring distance in meters and force in newtons (since one joule is one newton-metre), the total work is
+<md>
+<mrow>
+\int_{0}^{0.1\ \mathrm{m}} kx \,\dee{x} = \bigg[\frac{1}{2}kx^2\bigg]_{0}^{0.1\ \mathrm{m}}
+ = \frac{1}{2}\cdot\underbrace{ \vphantom{(}50}_{\mathrm{N/m}}\cdot\underbrace{ (0.1)^2}_{\mathrm{m}^2}\ =\frac{1}{4}\mathrm{J}.
+</mrow>
+</md>
+</p>
+
+<p>Note the units of the integrand (<m> kx</m>) are newtons, and the units of the variable of integration, <m>x</m>, are metres. So, the evaluated integral has units newton-metres, or joules.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2013A</fromexam></title>
+<statement><p>
+A force of <m>10</m> N (newtons) is required to hold
+a spring stretched <m>5</m> cm beyond its natural length. How much work,
+in joules (J), is done in stretching the spring from its
+natural length to <m>50</m> cm beyond its natural length?
+</p></statement>
+
+<hint><p>
+Be careful about the units.
+</p></hint>
+
+<answer><p>
+<m>25</m> J
+</p></answer>
+
+<solution><p>
+First note that newtons and joules are SI units with one joule equal to one newton-metre, so we should
+measure distances in meters rather than centimeters.
+Next recall that a spring with spring constant <m>k</m>
+exerts a force <m>F(x)=kx</m> when the spring is stretched  <m>x</m> m beyond its
+natural length. So in this case <m>(0.05\text{ m})( k) =10 \text{ N}</m>, or <m>k=200</m> N/m. The work done is:
+<md>
+<mrow>
+\int_0^{0.5\ \mathrm{m}} F(x)\dee{x}
+=\int_0^{0.5} 200 x\dee{x}
+=\Big[100 x^2\Big]_0^{0.5}
+=25\ \mathrm{J}
+</mrow>
+</md>
+Note the units of the integrand (<m>F(x) = kx=200x</m>) are newtons (<m>k</m> is given in N/m, and <m>x</m> is given in m). The units of the variable of integration, <m>x</m> are metres. So, the evaluated integral has units newton-metres, or joules.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS" xml:id="prob_s2_1cable"><title><fromexam>2016Q3</fromexam></title>
+<statement><p>
+A <m>5</m>-metre-long cable of mass <m>8</m> kg is used to lift
+a bucket off the ground. How much work is needed
+to raise the entire cable to height <m>5</m> m? Ignore the mass of the bucket and its contents.
+</p>
+
+<!-- <p>Use <m>g=9.8\ \mathrm{m/s^2}</m> for the acceleration due to gravity.</p> -->
+</statement>
+
+<hint><p>
+Suppose that the bucket is a distance <m>y</m> above the ground.
+How much work is required to raise it an additional height <m>\dee{y}</m>?
+</p></hint>
+
+<answer><p>
+<m>196\ \mathrm{J}</m>
+</p></answer>
+
+<solution><p>
+Note that the cable has mass density <m>\frac{8}{5}</m> kg/m.
+When the bucket is at height <m>y</m>, the cable that remains to be lifted has length <m>(5-y)</m> m
+and mass <m>\frac{8}{5}(5-y)=8\big(1-\frac{y}{5}\big)</m> kg.
+So, at height <m>y</m>, the cable is subject to a downward gravitational force
+of <m>8\big(1-\frac{y}{5}\big)\cdot9.8</m> N; to raise the cable we need
+to apply a compensating upward force of <m>8\big(1-\frac{y}{5}\big)\cdot9.8</m> N.
+So, the work required is
+<me>
+\int_0^{5}8\Big(1-\frac{y}{5}\Big)\cdot9.8\,\dee{y}
+=8\bigg[\Big(y-\frac{y^2}{10}\Big)\cdot9.8\bigg]_0^{5}
+=8\cdot 2.5\cdot 9.8 \quad\text{ N}\cdot\text{m}= 196\ \mathrm{J}.
+</me>
+</p>
+
+<p>Alternatively, the cable has linear density <m>8</m> kg<m>{}/5</m> m<m>{}= 1.6</m> kg<m>{}/{}</m>m, and so the work required to lift a small piece of the cable (of length <m>\Delta y</m>) from height <m>y</m> m to height <m>5</m> m is
+<me>
+\underbrace{\underbrace{1.6\Delta y}_{\text{mass}}\cdot\underbrace{9.8\vphantom{y}}_{\text{gravity}}}_{\text{force}}\cdot\underbrace{(5-y)}_{\text{distance}}.</me>
+ The total work required is therefore
+<me>
+\int_0^{5} 1.6\cdot9.8(5-y) \,\dee{y} = 1.6\cdot9.8\left[5y-\frac{1}{2}y^2\right]_0^5=1.6\cdot9.8\cdot\left(25-\frac{25}{2}\right) = 196\ \mathrm{J}
+</me>
+as before.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_1_tank3">
+<statement><p>
+A  tank 1 metre high has pentagonal cross sections of area 3 m<m>^2</m> and is filled with water. How much work does it take to pump out all the water?
+</p>
+
+<p>You may assume the density of water is 1 kg per 1000 cm<m>^3</m>.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick] (-3,1)--(0,0)--(3,1)--(1.5,2)--(-1.5,2)--cycle;
+\draw[thick] (-3,1)--(-3,-1.5) (0,0)--(0,-2.5) (3,1)--(3,-1.5) (-3,-1.5)--(0,-2.5)--(3,-1.5);
+\draw[thin] (1.5,2)--(1.5,.5) (-1.5,2)--(-1.5,.5);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+Since you're given the area of the cross-section, it doesn't matter what shape it has. However, the  density of water is given in cubic centimetres, while the measurements of the tank are given in metres.
+</p></hint>
+<answer><p>
+14700 J
+</p></answer>
+<solution><p>
+Imagine pumping out a thin, horizontal  layer of water that is at height <m>y</m> <mdash/> that is, <m>y</m> metres above the bottom of the tank. Let the width of the layer be <m>\dee{y}</m>.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick] (-3,1)--(0,0)--(3,1)--(1.5,2)--(-1.5,2)--cycle;
+\draw[thick] (-3,1)--(-3,-1.5) (0,0)--(0,-2.5) (3,1)--(3,-1.5) (-3,-1.5)--(0,-2.5)--(3,-1.5);
+\draw[thin] (1.5,2)--(1.5,.5) (-1.5,2)--(-1.5,.5);
+\filldraw[thick, fill opacity=0.3] (-3,-1)--(0,-2)--(3,-1)--(3,-.8)--(0,-1.8)--(-3,-.8)--cycle;
+\fill [fill opacity=0.1] (3,-.8)--(1.5,-.2)--(-1.5,-.2)--(-3,-.8)--(0,-1.8)--cycle;
+\draw[dashed, gray] (1.5,-.2)--(1.5,.5)
+(-1.5,-.2)--(-1.5,.5);
+\draw[|-|] (-3.5,-1)--(-3.5,-.8);
+\draw (-3.6,-.9) node[left]{$\dee{y}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+<ul>
+<li> The volume of water in the layer is <m>3\dee{y}</m> m<m>^3</m> (since the cross-section has area 3 m<m>^3</m>).
+</li>
+<li> One cubic metre is equal to <m>100^3</m> cubic centimetres. So, the mass of water in one cubic metre is <m>\dfrac{100^3}{1000} = 1\,000</m> kg.
+</li>
+<li> Therefore, the mass of water in our layer is (<m>3\,000\,\dee{y}</m>) kg.
+</li>
+<li>  The force of gravity acting on it is <m>(-9.8 \times 3\,000\,\dee{y})</m> N, so we need to pump with a compensating force of <m>(9.8 \times 3\,000\,\dee{y})</m> N.
+</li>
+<li>  The water needs to be pumped a distance of <m>1-y</m> metres.
+</li>
+<li> So, the work required to pump out the thin layer of water at height <m>y</m> is <m>(9.8 \times 3\,000\times(1-y)\,\dee{y})</m> J.
+</li>
+</ul>
+So, all together, the work to pump out the entire tank is
+<me>
+\int_0^19.8 \times 3\,000\times(1-y)\,\dee{y}  = 9.8 \times 3000 \times \left[y-\frac{1}{2}y^2\right]_0^1=14\,700 \text{ J}</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2015A</fromexam></title>
+<statement><p>
+A sculpture, shaped like a pyramid <m>3</m>m high sitting on the ground, has been made by
+stacking smaller and smaller (very thin) iron plates on top of one another. The iron plate
+at height <m>z</m> m above ground level is a square whose side length is <m>(3-z)</m> m. All of
+the iron plates started on the floor of a basement <m>2</m> m below ground level.
+</p>
+
+<p>Write down an integral that represents the work, in joules, it took to move all of the
+iron from its starting position to its present position. Do <alert>not</alert> evaluate the
+integral. (You can use <m>9.8</m> m<m>{}/{}</m>s<m>{}^2</m> for the acceleration due to gravity and
+<m>8000</m>  kg<m>{}/{}</m>m<m>{}^3</m> for the density of iron.)
+</p></statement>
+
+<hint><p>
+Consider the work done to lift a horizontal plate from 2 m below the ground to a height <m>z</m>. You'll need to know the mass of the plate, which you can calculate from its volume, since its density is given to you.
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0)  coordinate(a){};
+\draw (3,1)  coordinate(b){};
+\draw (.5,4)  coordinate(c){};
+\draw (-2,1) coordinate(d){};
+\draw[thick] (a)--(b)--(c)--(d)--(a)--(c);
+\draw (d)--(c) coordinate[midway](e){};
+\draw (a)--(c) coordinate[midway](f){};
+\draw (b)--(c) coordinate[midway](g){};
+\draw (e)+(0,-.2) coordinate(ee){};
+\draw (f)+(0,-.2) coordinate(ff){};
+\draw (g)+(0,-.2) coordinate(gg){};
+\filldraw[thick, fill opacity=0.3] (e)--(ee)--(ff)--(gg)--(g)--(f)--(e);
+\draw (.75,3) coordinate (h){};
+\filldraw[opacity=0.1] (e)--(h)--(g)--(f)--(e);
+\draw[|-|] (-1.5,2.5)--(-1.5,2.3);
+\draw (-1.6,2.45) node[left]{$\dee{z}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></hint>
+
+<answer><p>
+<m>\displaystyle\int_0^3 (9.8)(8000) (2+z)(3-z)^2\,\dee{z} \quad</m>  joules
+</p></answer>
+
+<solution><p>
+We can model the sculpture as a collection of thin horizontal plates of width <m>\dee{z}</m>. Remember work is force times distance; a horizontal plate at height <m>z</m> moved <m>z+2</m> metres from the basement to its final position. So, we need to know the force acting on the plate, which is the product of the mass of the plate with the acceleration due to gravity. Since we are given the density of iron, if we find the volume of the plate, then we can calculate its mass.
+ </p><sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0)  coordinate(a){};
+\draw (3,1)  coordinate(b){};
+\draw (.5,4)  coordinate(c){};
+\draw (-2,1) coordinate(d){};
+\draw[thick] (a)--(b)--(c)--(d)--(a)--(c);
+\draw (d)--(c) coordinate[midway](e){};
+\draw (a)--(c) coordinate[midway](f){};
+\draw (b)--(c) coordinate[midway](g){};
+\draw (e)+(0,-.2) coordinate(ee){};
+\draw (f)+(0,-.2) coordinate(ff){};
+\draw (g)+(0,-.2) coordinate(gg){};
+\filldraw[thick, fill opacity=0.3] (e)--(ee)--(ff)--(gg)--(g)--(f)--(e);
+\draw (.75,3) coordinate (h){};
+\filldraw[opacity=0.1] (e)--(h)--(g)--(f)--(e);
+\draw[|-|] (-1.5,2.5)--(-1.5,2.3);
+\draw (-1.5,2.45) node[left]{$\dee{z}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The plate at height <m>z</m>
+<ul>
+<li> has side length <m>3-z</m> m and hence
+</li>
+<li> has area <m>(3-z)^2</m> m<m>^2</m> and hence
+</li>
+<li>  has volume <m>(3-z)^2\,\dee{z}</m> m<m>^3</m> and hence
+</li>
+<li>  has mass <m>8000 (3-z)^2\,\dee{z}</m> kg and hence
+</li>
+<li> is subject to a gravitational force of
+<m>9.8\times 8000 (3-z)^2\,\dee{z}</m> N and hence
+</li>
+<li>   requires work <m>9.8\times 8000 (2+z)(3-z)^2\,\dee{z}</m> J
+to raise it from <m>2</m> m below ground level to <m>z</m> m above ground
+level.
+</li>
+</ul>
+So the total work is
+<me>
+\int_0^3 9.8\times 8000 (2+z)(3-z)^2\,\dee{z}\ \text{joules}
+</me>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose a spring extends 5 cm past its natural length when one kilogram is hung from its end. How much work is done to extend the spring from 5 cm past its natural length to 7 cm past its natural length?
+</p></statement>
+<hint><p>
+You can find the spring constant <m>k</m> from the information about the hanging kilogram.
+</p></hint>
+<answer><p>
+0.2352 J
+</p></answer>
+<solution><p>
+From the information given about the hanging kilogram, we can find the spring constant <m>k</m>. One kilogram generates a force of <m>9.8</m> N under  gravity. (We find this by the calculation <m>(1\text{ kg})\times(9.8 \text{m/sec}^2)=9.8\text{ N}</m>.) This force is matched by the force of the spring, which by Hooke's law is equal to <m>k(\frac{1}{20} \text{m})</m>. So,
+<me>
+k = \frac{9.8 \text{ N}}{\frac{1}{20} \text{ m} } = 196  \frac{\text{N}}{\text{m}}</me>
+</p>
+
+<p>Again by Hooke's law, the force required to stretch the spring <m>x</m> metres past its natural length is <m>196x</m> N (when <m>x</m> is measured in metres).
+</p>
+
+<p>So, the work required to stretch the spring from 5 cm past its natural length to 7 cm past its natural length is
+<me>
+W = \int_{0.05}^{0.07} 196 x\,\dee{x} = \big[98x^2\big]_{0.05}^{0.07}=0.2352\text{ J}</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS" xml:id="prob_s2_1firewood">
+<statement><p>
+Ten kilograms of firewood are hoisted on a rope up a height of 4 metres to a second-floor deck. If
+the total work done is <m>400</m> joules, what is the mass of the 4 metres of rope?
+</p>
+
+<p>You may assume that the rope has the same density all the way along.
+</p></statement>
+<hint><p>
+Follow the method of Example<nbsp/><xref ref="eg_WKcable"/> and Question<nbsp/><xref ref="prob_s2_1cable" text="local"/> in this section.
+</p></hint>
+<answer><p>
+<m>\dfrac{20}{49}</m> kg, or about 408 grams
+</p></answer>
+<solution><p>
+Let <m>M</m> be the mass of the rope. Then its density is <m>\frac{M}{4}</m> kg/m. Following the method of Example<nbsp/><xref ref="eg_WKcable"/>, we let <m>y</m> be the height of the firewood above the ground, so the wood is raised from <m>y=0</m> to <m>y=4</m>. When the wood is at height <m>y</m>,
+<ul>
+<li> the rope that remains to be lifted has length <m>4-y</m>, and so it has mass <m>\frac{M}{4}(4-y) </m> kg,
+</li>
+<li> and the firewood still has mass 10 kg.
+</li>
+<li> The remaining rope and the wood are subject to a downward gravitational force of magnitude <m>\underbrace{\left[\frac{M}{4}(4-y)+10\right]}_{\text{mass}}\times\, 9.8\quad</m> N.
+</li>
+<li> So, to raise the firewood from height <m>y</m> to height <m>(y+\dee{y})</m>, we need to apply a compensating upward force of <m>\left[\frac{M}{4}(4-y)+10\right]\times 9.8</m> through distance <m>\dee{y}</m>. This takes work <m>\left[\frac{M}{4}(4-y)+10\right]\times 9.8\,\dee{y}</m> J.
+</li>
+</ul>
+All together, the work involved in hauling up the wood is
+<me>
+\int_0^4\left(\left[\frac{M}{4}(4-y)+10\right]\times 9.8\right)\dee{y} =
+9.8\int_0^4\left((M+10) - \frac{M}{4}y\right)\dee{y}=9.8(2M+40) \text{ J}</me>
+</p>
+
+<p>Since the work was 400 joules, solving <m>400=9.8(2M+40)</m> for <m>M</m> tells us the mass of the rope is <m>\frac{200}{9.8}-20 = \frac{20}{49}</m> kg, or about 408 g.
+</p>
+
+<p>Alternately, the work involved in lifting up the wood is <m>10\times 9.8 \times 4 = 392</m> J, so the work in lifting up the rope is 8 J. A small section of rope of length <m>\dee{y}</m>, that starts at height <m>y</m> above the ground, has mass <m>\frac{M}{4}\dee{y}</m> kg and is lifted <m>(4-y)</m> metres, so the work involved in lifting this section of rope is <m>9.8 \times (4-y) \times \frac{M}{4}\dee y</m>. Then the amount of work to lift the whole rope (but not the wood) is
+<me>
+8 \text{ J} = \int_0^4 \left(9.8 \times (4-y) \times \frac{M}{4}\right)\dee y  = \frac{9.8 \times M}{4}\int_0^4 (4-y)\dee{y} = \frac{9.8 \times M}{4}\times 8</me>
+</p>
+
+<p>which again results in <m>M = \frac{4}{9.8}=\frac{20}{49}</m> kg.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_1_normal2">
+<statement><p>
+A 5 kg weight is attached to the middle of a 10-metre long rope, which dangles out a window. The rope alone has mass 1 kg. How much work does it take to pull the entire rope in through the window, together with the weight?
+</p></statement>
+<hint><p>
+Calculating the work done on the rope and the weight separately makes the computation somewhat easier.
+</p></hint>
+<answer><p>
+294 J
+</p></answer>
+<solution><p>
+For Questions<nbsp/><xref ref="prob_s2_1cable" text="local"/> and <xref ref="prob_s2_1firewood" text="local"/> in this section, we gave two methods for finding the work involved in pulling up a cable: one where we consider pulling up the entire remaining cable a tiny distance of <m>\dee{y}</m>, and one where we consider pulling a tiny slice of cable of length <m>\dee{y}</m> the entire distance up.
+</p>
+
+<p>There is another variation we can consider with the weight: we can either calculate the work done on the weight and the work done on the rope separately, or we can calculate them together. If we calculate them together, then there are two cases to consider: the work done pulling up the first 5 metres of rope involves the weight, while the last 5 metres does not. These two choices (how to model the rope, and how to deal with the weight) actually lead to four solutions, but to avoid unnecessary repetition only two are presented below.
+<ul>
+<li>
+<p>
+Solution 1: In this solution, we consider the work on the rope separately from work on the weight, and we imagine lifting a tiny piece of rope the entire distance to the window.
+</p>
+
+<p>The weight has a mass of 5 kg, and is lifted a distance of 5 m to the window. The force of gravity acting on the weight is <m>(5 \text{ kg})(9.8 \text{ m/sec}^2) = 49</m> N, so the work to lift it 5 metres is <m>(49\text{ N})(5\text{ m}) = \textcolor{red}{245}\text{J}</m>.
+</p>
+
+<sidebyside width="25%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (.2,-.4)--(1,0)--(1,2)--(-1,1)--(-1,-1)--(0,-.5);
+\draw[rounded corners] (0,-.5)--(0,-3.5)--(.2,-3.5)--(.2,-.4);
+\draw (.2,-.4)--(-.1,-.4)--(-.1,-.5)--(0,-.5);
+\draw[decorate, decoration={brace, amplitude=10pt, mirror}] (.9,-1.9)--(.9,-.4) node[midway, right, xshift=4mm]{$y$};
+\color{blue}
+\draw[fill] (.2,-2) -- (0,-2)--(0,-2.2)--(.2,-2.2);
+\draw[|-|] (1,-2.2)--(1,-2);
+\draw (1.5,-2.1) node{$\dee{y}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+<p>
+The density of the rope is <m>\frac{1}{10}</m> kg/m. A tiny piece of rope of length <m>\dee{y}</m>, hanging <m>y</m> metres from the window, has mass (<m>\frac{1}{10}\,\dee{y}</m>) kg, and needs to be lifted <m>y</m> metres. So, the force of gravity acting on the piece of rope is <m>(\frac{1}{10}\,\dee{y} \text{ kg})\left(9.8\text{ m/sec}^2\right) = 0.98\,\dee{y}</m> N, and the work to pull it up to the window is <m>(0.98y\,\dee{y})</m> J. So, the total work to pull up the rope is
+<me>
+\int_0^{10} 0.98y\,\dee{y} = 0.98\left[\frac{y^2}{2}\right]_0^{10}=\textcolor{blue}{49\text{ J}}</me>
+</p>
+
+<p>All together, the work to pull up the rope with the weight is <m>\textcolor{red}{245}+\textcolor{blue}{49}=294</m> J.
+</p>
+</li>
+<li>
+<p>
+Solution 2: In this solution, we consider the work on the rope together with the weight, and we imagine lifting the remaining rope a tiny distance to the window.
+</p>
+
+<p>Suppose <m>y</m> metres of the rope have been pulled in, and <m>0 \le y \le 5</m> (shown on the left, below). Then the remaining rope has length <m>10-y</m>, and contains the weight, so the mass remaining to be pulled up is <m>\underbrace{\frac{1}{10}(10-y)}_{\text{rope}} + \underbrace{\vphantom{\frac{1}{10}}5}_{\text{weight}} = 6-\frac{y}{10}</m> kg. Then the force of gravity acting on the dangling rope and weight is <m>(9.8 \text{ m/sec}^2)((6-\frac{y}{10})\text{ kg}) =\left(58.8-0.98y\right)</m> N. The work needed to lift this rope <m>\dee{y}</m> metres is <m>\textcolor{red}{\left(58.8-0.98y\right)\dee{y} J}</m>.
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (.2,-.4)--(1,0)--(1,2)--(-1,1)--(-1,-1)--(0,-.5);
+\draw (.2,-.4)--(-1,-.4)--(-1,-.5)--(0,-.5);
+\draw[decorate, decoration={brace, amplitude=10pt, mirror}] (.9,-3.5)--(.9,-.4) node[midway, right, xshift=4mm]{$10-y$};
+\color{red}
+\draw[rounded corners] (0,-.5)--(0,-3.5)--(.2,-3.5)--(.2,-.4);
+\draw (.1,-1) node[shape=circle, minimum size=3mm, fill]{};
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (.2,-.4)--(1,0)--(1,2)--(-1,1)--(-1,-1)--(0,-.5);
+\draw (.2,-.4)--(-1,-.4)--(-1,-.5)--(0,-.5);
+\draw (.2,-3.5) node{};
+\draw[decorate, decoration={brace, amplitude=10pt, mirror}] (.9,-2.5)--(.9,-.4) node[midway, right, xshift=4mm]{$10-y$};
+\draw (-.7,-.45) node[shape=circle, minimum size=3mm, fill]{};
+\color{blue}
+\draw[rounded corners] (0,-.5)--(0,-2.5)--(.2,-2.5)--(.2,-.4);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Now, suppose <m>y</m> metres of the rope have been pulled in, and <m>5  \lt  y \le 10</m> (shown above, right). Then the remaining rope has length <m>10-y</m>, but <em>does not contain</em> the weight, so the mass remaining to be pulled up is <m>\frac{1}{10}(10-y) = 1-\frac{y}{10}</m> kg. Then the force of gravity acting on the dangling rope is <m>(9.8 \text{ m/sec}^2)((1-\frac{y}{10})\text{ kg}) =\left(9.8-0.98y\right)</m> N. The work needed to lift this rope <m>\dee{y}</m> metres is <m>\textcolor{blue}{\left(9.8-0.98y\right)\dee{y} J}</m>.
+</p>
+
+<p>All together, the work needed to lift the rope is
+<md>
+<mrow>
+W = \int_0^{10} F(y) \dee{y} &amp;= \textcolor{red}{\int_0^5 \left(58.8-0.98y\right)\dee{y}} + \textcolor{blue}{\int_5^{10}\left(9.8-0.98y\right)\dee{y}}
+</mrow><mrow>
+&amp;=\left[58.8y - 0.49y^2\right]_0^{5} + \left[9.8 y - 0.49 y^2\right]_5^{10}
+</mrow><mrow>
+&amp;=294 \text{ J}
+</mrow>
+</md>
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+A box is dragged along the floor. Friction exerts a force in the opposite direction of motion from the box, and that force is equal to <m>\mu \times m \times g</m>, where <m>\mu</m> is a constant, <m>m</m> is the mass of the box and <m>g</m> is the acceleration due to gravity. You may assume <m>g=9.8</m> m/sec<m>^2</m>.
+</p>
+
+<p><ol label="a">
+<li> How much work is done dragging a box of mass 10 kg along the floor for three metres if <m>\mu=0.4</m>?
+</li>
+<li> Suppose the box contains a volatile substance that rapidly evaporates. You pull the box at a constant rate of 1 m/sec for three seconds, and the mass of the box at <m>t</m> seconds (<m>0 \leq t \leq 3</m>) is <m>(10-\sqrt{t})</m> kilograms. If <m>\mu=0.4</m>, how much work is done pulling the box for three seconds?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+When you pull the box, the force you're exerting is exactly the same as the frictional force, but in the opposite direction. In (a), that force is constant. In (b), it changes. Check Definition<nbsp/><xref ref="def_WKwork"/> for how to turn force into work.
+</p></hint>
+<answer><p>
+(a) 117.6 J
+</p><p>
+ (b) <m>3.92\left[30-2\sqrt{3}\right]\approx 104\text{ J}</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<p>
+The frictional force is <m>\mu \times m \times g = 0.4 \left(10 \text{ kg} \right)\left(9.8 \ \frac{\text{m}}{\text{sec}^2}\right)  = 39.2\ \frac{\text{kg}\cdot\text{m}}{\text{sec}^2} = 39.2\text { N}</m>. Since this constant force acts over a distance of 3 metres, the work is <m>3\times 39.2 =117.6 \text{ J} </m>.
+</p>
+
+<p> In the case of a constant force, we don't need to use an integral, but we could if we wanted:
+ <me>
+W = \int_0^3 39.2 \dee{x} = \big[39.2x\big]_0^3 = 39.2 \times 3 = 117.6 \text{ J}.</me>
+</p>
+</li>
+<li> Since the box is moving at a speed of 1 m/sec, at time <m>t</m> we can say the box is at position <m>t</m>, <m>0 \le t \le 3</m>. At position <m>t</m>, the mass of the box is <m>(10-\sqrt{t})</m> kg, so the frictional force is <m>0.4 \times m \times g = 0.4\left(10-\sqrt{t} \text{kg}\right)\left(9.8 \frac{\text{m}}{\text{sec}^2}\right) = 3.92(10-\sqrt t) \text{N}</m>. Now that we know the force, to find the work we simply integrate, following Definition<nbsp/><xref ref="def_WKwork"/>:
+<md>
+<mrow>
+W &amp;= \int_0^3 3.92(10-\sqrt t)\dee{t} = 3.92\left[10t-\frac{2}{3}t^{3/2}\right]_0^3
+</mrow><mrow>
+&amp;=3.92\left[30-\frac{2}{3}\sqrt{3}^3\right]=3.92\left[30-2\sqrt{3}\right]\approx 104\text{ J}
+</mrow>
+</md>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<introduction><p>For Questions<nbsp/><xref ref="prob_s2_1_Work_KE" text="local"/> and <xref ref="prob_s2_1_Work_KE2" text="local"/>,
+use the principle (introduced after Definition<nbsp/><xref ref="def_WKwork"/> and utilized in Example<nbsp/><xref ref="eg_WKgravity"/>) that the work done on a particle by a force over a distance is equal to the change in kinetic energy of that particle.</p></introduction>
+
+<exercise xml:id="prob_s2_1_Work_KE">
+<statement><p>
+A ball of mass 1 kg is attached to a spring, and the spring is attached to a table. The ball moves with some initial velocity, and the spring slows it down. At its farthest, the spring stretches 10 cm past its natural length. If the spring constant is 5 N/m, what was the initial velocity of the ball?
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[decorate, decoration={coil, amplitude=10pt}] (0,0)--(3,0);
+\draw(3,0)--(3.5,0);
+\draw (4,0) node[shape=circle, fill, minimum size=1cm]{};
+\draw[ultra thick, - \gt ] (3,-1)--(5,-1);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+You may assume that the ball starts moving with initial velocity <m>v_0</m>, and that the only force slowing it down is the spring. You may also assume that the spring started out at its natural length, it follows Hooke's law, and when it is stretched its farthest, the velocity of the ball is 0 m/sec.
+</p></statement>
+<hint><p>
+Remember that the work done on an object is equal to the change in its kinetic energy, which is <m>\frac{1}{2}mv^2</m>, where <m>m</m> is the mass of the object and <m>v</m> is its velocity. Hooke's law will tell you how much work was done stretching the spring.
+</p></hint>
+<answer><p>
+<m>\dfrac{1}{2\sqrt{5}}</m> m/sec, or about 22.36 cm/sec
+</p></answer>
+<solution><p>
+Definition<nbsp/><xref ref="def_WKwork"/>  in the text is justified by showing that the work done by a force acting on a particle is  equal to the change in the kinetic energy of that particle. We can use Hooke's law to calculate the work done stretching the spring. That work will be equal to the change in kinetic energy of the ball.
+</p>
+
+<p>The ball initially has kinetic energy <m>\frac{1}{2}(1\text{ kg})(v_0 \text{ m/sec})^2 = \frac{v_0^2}{2} \frac{\text{kg}\cdot\text{m}^2}{\text{sec}^2} = \frac{v_0^2}{2}\text{ J}</m>.  At the time the spring is stretched its farthest, the ball's velocity is 0 m/sec, so its kinetic energy is <m>\frac{1}{2}(1\text{ kg})(0 \text{ m/sec})^2 =0 \text{J}</m>. So, the change in kinetic energy of the ball is <m>\frac{v_0^2}{2}</m> J.
+</p>
+
+<p>Now let's find the work done by the spring. Its spring constant is <m>k=5</m> N/m, so, the force on the spring when it is stretched <m>x</m> metres past its natural length is <m>5x</m> N. The spring is stretched from its natural length to 10 cm, which is 0.1 m. Then the work done by the spring is
+<md>
+<mrow>
+W&amp;=\int_0^{0.1} kx \dee{x}= \int_0^{0.1} 5x\,\dee{x} = \left[\frac{5}{2}x^2\right]_0^{0.1} = \frac{1}{40} \text{ J}
+</mrow>
+</md>
+</p>
+
+<p>Now we can find <m>v_0</m>.
+<md>
+<mrow>
+\frac{v_0^2}{2} =\frac{1}{40} \qquad \implies \qquad v_0 = \frac{1}{\sqrt{20}} \text{ m/sec} \approx 22.36 \text{ cm/sec}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS" xml:id="prob_s2_1_Work_KE2">
+<statement><p>
+A mild-mannered university professor who is definitely not a spy notices that when their car is on the ground, it is 2 cm shorter than when it is on a jack. (That is: when the car is on a jack, its struts are at their natural length; when on the ground, the weight of the car causes the struts to compress 2 cm.) The university professor calculates that if they were to jump a local neighborhood drawbridge, their car would fall to the ground with a speed of 4 m/sec. If the car can sag 20 cm before important parts scrape the ground, and the car has mass 2000 kg unoccupied (2100 kg with the professor inside), can the professor, who is certainly not involved in international intrigue, safely jump the  bridge?
+</p>
+
+<p>Assume the car falls vertically, the struts obey Hooke's law, and the work done by the struts is equal to the change in kinetic energy of the car + professor. Use 9.8 m/sec<m>^2</m> for  the acceleration due to gravity.
+</p></statement>
+<hint><p>
+As in Question<nbsp/><xref ref="prob_s2_1_Work_KE" text="local"/> in this section, the change in kinetic energy of the car is equal to the work done by the compressing struts. The only added step is to calculate the spring constant, given that a car with mass 2000 kg compresses the spring 2 cm in Earth's gravity. You're not calculating <em>work</em> to find the spring constant: you're using the fact that when the car is sitting still, the force exerted upward by the struts is equal to the force exerted downward by the mass of the car under gravity.
+</p></hint>
+<answer><p>
+yes (at least, the car won't scrape the ground)
+</p></answer>
+<solution><p>
+The setup to answer this question is similar to Question<nbsp/><xref ref="prob_s2_1_Work_KE" text="local"/> in this section: the work done by a spring on the occupied vehicle will be equal to the change in kinetic energy of that occupied vehicle. So, we need to find the work done by the spring, and the kinetic energy lost by the falling car. In order to find the work done by the spring, we need to find the spring constant.
+</p>
+
+<p><ul>
+<li>Spring constant: The car's mass of 2000 kg compresses the struts 2 cm past their natural length. The force of the car under gravity is <m>(2000 \text{ kg})\times(9.8 \text{ m/sec}^2) = 19\,600 </m> N. This force is exactly the same as that exerted by the   spring, <m>k(0.02 \text{ m})</m>. So, <m>k = 980\,000</m> N/m.
+</li>
+<li>Work done by spring: The spring can safely compress 20 cm. So, the amount of work done by the spring compressing that far gives us the <em>maximum</em> amount of work the spring can safely do. While the car is falling, the spring is at its natural length, so the work done to compress it to 20 cm (0.2 m) shorter is:
+<me>
+\int_0^{0.2} kx\,\dee{x} = \int_0^{0.2} 980\,000 x\,\dee{x} =\big[490\,000 x^2 \big]_0^{0.2}=19\,600 \text{ J}</me>
+</li>
+<li>Change in kinetic energy:
+When the car first hits the pavement, it's falling at <m>4</m> m/sec, so it has kinetic energy <m>\frac{1}{2}(2100\text{ kg})(4\text{ m/sec})^2 = 16\,800</m> J. When the car compresses the springs as far as they go and it starts to rebound, it has kinetic energy 0, since its instantaneous velocity is zero. So, the change in kinetic energy is
+<m>16\,800</m> J.
+</li>
+</ul>
+Since the change in kinetic energy is <m>16\,800</m> J, and the struts can safely do a work of (up to) <m>19\,600</m> J, the jump is within the (meagre) safety limits set by the question.
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise xml:id="prob_s2_1_tank2">
+<statement><p>
+A disposable paper cup has the shape of a right circular cone with radius 5 cm and height 15 cm, and is completely filled with water. How much work is done sucking all the water out of the cone with a straw?
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick] (0,0) node[shape=ellipse, minimum width=4cm, minimum height=2cm, draw, thick, fill, fill opacity=0.2, left color=black, right color=black, middle color=white]{};
+\filldraw[thick, left color=black, right color=black, middle color=gray] (-2,0)--(0,-4.5)--(2,0) arc(0:-180:2cm and 1cm);
+\draw[fill=white, thick](0,0)+(265:2cm and 1cm) arc (265:275:2cm and 1cm) |-(-3,.4)--(-3,.1)-|cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+You may assume that 1 m<m>^3</m> of water has mass 1000 kilograms, the acceleration due to gravity is <m>-9.8</m> m/sec<m>^2</m>, and that the water moves as high up as the very top of the cup and no higher.
+</p></statement>
+<hint><p>
+To find the radius of a horizontal layer of water, use similar triangles. Be careful with centimetres versus metres.
+</p></hint>
+<answer><p>
+<m>\approx 0.144\text{ J}</m>
+</p></answer>
+<solution><p>
+Let's consider sucking up a flat, horizontal layer of water. If the water is <m>y</m> metres above bottom of the cone, then it needs to be raised <m>0.15-y</m> metres. So, if its mass is <m>m</m> kg, then the force of gravity acting on it is <m>9.8m</m> N and the work involved in slurping it to the top of the cone is <m>9.8m(0.15-y)</m> J. So, what we need to find is the mass of a layer of water <m>y</m> metres from the bottom of the cone.
+</p>
+
+<sidebyside width="33%" valign="middle">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick] (0,0) node[shape=ellipse, minimum width=4cm, minimum height=2cm, draw]{};
+\draw[thick] (-2,0)--(0,-4.5)--(2,0);
+\draw (0,-2.25) node[shape=ellipse, minimum width=2cm, minimum height=1cm, draw, fill, fill opacity=0.1]{};
+\filldraw[thick, fill opacity=0.3] (-1,-2.25)--(-1,-2.5) arc(180:360: 1cm and .5cm)--(1,-2.25) arc(0:-180: 1cm and .5cm);
+\draw[|-|] (-1.5,-2.25)--(-1.5,-2.5);
+\draw (-1.7,-2.5) node[left]{$\dee{y}$};
+\draw[dashed, red] (0,-2.25)--(1,-2.25) node[midway, above]{$r$};
+\draw[red,decorate, decoration={brace, amplitude=10pt}] (1.5,-2.25)--(1.5,-4.5) node[midway,right, xshift=5mm]{$y$};
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick] (-2,0)--(0,-4.5)--(2,0)--cycle;
+\draw[thick] (-1,-2.25)--(1,-2.25);
+\draw[decorate, decoration={brace, amplitude=10pt}] (2.5,0)--(2.5,-4.5) node[midway,right, xshift=4mm]{$0.15$};
+\draw[decorate, decoration={brace, amplitude=10pt}] (0,0)--(2,0) node[midway,above, yshift=4mm]{$0.05$};
+\color{red}
+\draw[decorate, decoration={brace, amplitude=10pt}] (1.5,-2.25)--(1.5,-4.5) node[midway,right, xshift=4mm]{$y$};
+\draw[decorate, decoration={brace, amplitude=5pt}] (0,-2.25)--(1,-2.25) node[midway,above, yshift=2.5mm]{$r$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+A horizontal cross-section of the cone is a circle. To find its radius, we use similar triangles: <m>\frac{r}{y} = \frac{0.05}{0.15}</m>, so <m>r=\frac{1}{3}y</m>. Therefore, the area of the cross-section of the cone <m>y</m> metres above its bottom is <m>\pi\left(\frac{1}{3}y\right)^2 = \frac{\pi}{9}y^2</m> m<m>^2</m>.  If this layer has height <m>\dee{y}</m>, then its volume is
+<m>\frac{\pi}{9}y^2\,\dee{y}</m> m<m>^3</m>, and its mass is <m>1000\frac{\pi}{9}y^2\,\dee{y}</m> kg.
+</p>
+
+<p>Now, we know that the work to suck up the layer of water <m>y</m> metres from the bottom of the cup is <m>9.8(0.15-y)\left(1000\frac{\pi}{9}y^2\,\dee{y}\right)</m> J. So, the work involved in drinking all the water is:
+<md>
+<mrow>
+W&amp;=\int_0^{0.15}9.8(0.15-y)\left(1000\frac{\pi}{9}y^2\right)\,\dee{y}
+</mrow><mrow>
+&amp;= \frac{9800\pi}{9}\int_0^{0.15}\big(0.15y^2-y^3\big)\,\dee{y}
+</mrow><mrow>
+&amp;= \frac{9800\pi}{9}\left[\frac{0.15}{3}y^3-\frac{1}{4}y^4 \right]_0^{0.15}
+</mrow><mrow>&amp;= \frac{9800\pi}{9}\left[{0.05} (0.15)^3-\frac{1}{4}(0.15)^4 \right]\\
+&amp;\approx 0.144\text{ J}
+</mrow>
+</md>
+Even drinking water takes work. Life is hard.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS" xml:id="prob_s2_1_tank1"><title><fromexam>2014A</fromexam></title>
+<statement><p>
+A spherical tank of radius <m>3</m> metres is half-full of water.
+It has a spout of length <m>1</m> metre sticking up from the top of
+the tank. Find the work required to pump all of the water
+in the tank out the spout. The density of water is <m>1000</m> kilograms
+per cubic metre. The acceleration due to gravity is <m>9.8</m> metres
+per second squared.
+</p>
+
+<sidebyside width="40%">
+<image source="problems/figs/OE14A_4"/>
+</sidebyside>
+</statement>
+
+<hint><p>
+See Example <xref ref="eg_WKdrum"/> for a basic method for calculating the work done pumping water.
+</p>
+
+<p> To find the area of a horizontal layer of water, use some geometry. A horizontal cross-section of a sphere is a circle, and its radius will depend on the height of the layer in the tank.
+</p></hint>
+
+<answer><p>
+<m>904{,}050\pi\ \text{J}</m>
+</p></answer>
+
+<solution><p>
+Imagine slicing the water into horizontal pancakes of thickness <m>\dee{x}</m> as in the sketch below.
+</p>
+
+
+<sidebyside width="40%">
+<image source="problems/figs/OE14A_4a"/>
+</sidebyside>
+
+<p>
+Denote by <m>x</m> the distance of a pancake below the surface of
+the water. (So, <m>x</m> runs from <m>0</m> to <m>3</m>.) Each pancake:
+<ul>
+<li> has radius <m>\sqrt{3^2-x^2}</m> m (by Pythagoras) and hence
+</li>
+<li> has cross-sectional area <m>\pi (9-x^2)</m> m<m>^2</m> and hence
+</li>
+<li> has volume <m>\pi (9-x^2)\,\dee{x}</m> m<m>^3</m> and hence
+</li>
+<li> has mass <m>1000 \pi (9-x^2)\,\dee{x}</m> kg and hence
+</li>
+<li> is subject to a gravitational force of
+<m>9.8\times 1000 \pi (9-x^2)\,\dee{x}</m> N and hence
+</li>
+<li> requires work <m>9800 \pi (9-x^2)(x+4)\,\dee{x}</m> J
+to raise it to the spout.
+(It has to be raised <m>x</m> m to bring it to the height of the centre
+of the sphere, then <m>3</m> m more to bring it to the top of the sphere,
+and finally <m>1</m> m more to bring it to the spout.)
+</li>
+</ul>
+The total work is:
+<md>
+<mrow>
+\int_0^3 9800 \pi (9-x^2)(x+4)\,\dee{x}
+&amp;=\int_0^3 9800 \pi \big(36+9x-4x^2-x^3\big)\,\dee{x}
+</mrow><mrow>
+&amp;=9800 \pi{\Big[36x+\frac{9}{2}x^2-\frac{4}{3}x^3-\frac{1}{4}x^4\Big]}_0^3
+</mrow><mrow>
+&amp;=9800\cdot\frac{369}{4} \pi
+=904{,}050\pi
+\ \text{joules}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+A 5-metre cable is pulled out of a deep hole, where it was dangling straight down. The cable has density <m>\rho(x) = (10-x)</m> kg/m, where <m>x</m> is the distance from the bottom end of the rope. (So, the bottom of the cable is denser than the top.) How much work is done pulling the cable out of the hole?
+</p></statement>
+<hint><p>
+The basic ideas you've used already with <q>cable problems</q>  still work, you only need to take care that the density of the cable is no longer constant. The mass of a tiny piece of cable, say of length <m>\dee{x}</m>, is (density)<m>\times</m>(length) = <m>(10-x)\dee{x}</m>, where <m>x</m> is the distance of our piece from the bottom of the cable.
+</p>
+
+<p>If you want more work to reference, Question<nbsp/><xref ref="prob_s1_6_density"/> in Section<nbsp/><xref ref="sec_int_volumes"/> finds the mass of an object of variable density.
+</p></hint>
+<answer><p>
+<m>1020\frac{5}{6}</m> J
+</p></answer>
+<solution><p>
+<ul>
+<li>
+<p>Solution 1:
+Let's consider the work involved in lifting up a small section of cable, with length <m>\dee{y}</m>, distance <m>y</m> from the bottom end of the cable.
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[ \lt - \gt , help lines] (0,-6)--(0,1);
+\draw[thick] (0.9,0)--(0.9,-5.5) arc(180:360:1cm and .5cm) --(2.9,0);
+\filldraw[thick, rounded corners, bottom color=black, top color=white] (1,0)--(1,-5)--(1.2,-5)--(1.2,.2);
+\draw (1.9,0) node[thick, shape=ellipse, minimum width=2cm, minimum height=1cm, draw]{};
+\draw[fill=white, thick] (1.2,.2)--(.8,.2)--(.8,0)--(1,0);
+\YEycoord{0}{5}
+\YEycoord{-5}{0}
+\draw[decorate, decoration={brace, amplitude=10pt}] (-1,-3)--(-1,0) node[midway,left, xshift=-5mm]{$5-y$};
+\color{red}
+\YEycoord{-3}{y}
+\filldraw[red, thick, bottom color=red, top color=white] (1,-3.2) arc(180:360:1mm and .5 mm)  --(1.2,-2.8) arc(0:-180:1mm and .5mm)--cycle;
+\draw[|-|] (1.4,-3.2)--(1.4,-2.8);
+\draw (1.5,-3) node[right]{$\dee{y}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The distance this section must travel is <m>(5-y)</m> metres, so if its mass is <m>M(y)</m>, then the work involved is
+<me>
+W = \int_0^5 9.8 \times (5-y)\times M(y)</me>
+</p>
+
+<p>So, we need to find <m>M(y)</m>. The length of the section of cable is <m>\dee{y}</m>, and its distance from the end of the cable is <m>y</m>, so the mass of the section is <m>(10-y)\,\dee{y}</m>. Therefore,
+<md>
+<mrow>
+W &amp;= \int_0^5 9.8 \times (5-y)\times M(y)
+</mrow><mrow>
+&amp;= \int_0^5 9.8 \times (5-y)\times (10-y)\,\dee{y}
+</mrow><mrow>
+&amp;=9.8\int_0^5 \big(50-15y+y^2\big)\,\dee{y}
+</mrow><mrow>
+&amp;=9.8\left[50y-\frac{15}{2}y^2+\frac{1}{3}y^3\right]_0^5
+</mrow><mrow>
+&amp;=\frac{6125}{6} = 1020\tfrac{5}{6}\ \text{J}
+</mrow>
+</md>
+</p>
+</li>
+<li><p>
+Solution 2:
+Alternately, we can continue to use the basic method of Example<nbsp/><xref ref="eg_WKcable"/> in the text, noticing that the density of the cable is no longer constant.
+</p>
+
+<p>Let's consider pulling the cable up a tiny distance of <m>\dee{y}</m> metres, after we have already lifted it <m>y</m> metres (so  <m>(5-y)</m> metres of the cable is still in the hole).
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[ \lt - \gt , help lines] (0,-6)--(0,1);
+\draw[thick] (0.9,0)--(0.9,-5.5) arc(180:360:1cm and .5cm) --(2.9,0);
+\filldraw[thick, rounded corners, bottom color=black, top color=black!50!white] (1,0)--(1,-3)--(1.2,-3)--(1.2,.2)--(1,.2);
+\draw (1.9,0) node[thick, shape=ellipse, minimum width=2cm, minimum height=1cm, draw]{};
+\filldraw[thick, rounded corners, right color=black!50!white, left color=white] (1,.2)--(-2,.2)--(-2,0)--(1,0);
+\YEycoord{0}{5}
+\YEycoord{-5}{0}
+\YEycoord{-3}{y}
+\draw[decorate, decoration={brace, amplitude=10pt}] (3,0)--(3,-3) node[midway, right, xshift=5mm]{$5-y$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+If <m>R(y)</m> is the mass of the remaining cable (in kg), then the force of gravity is <m>-9.8 \times R(y)</m>, so the work done is <m>9.8 \times R(y) \times \dee{y}</m>. Once we find <m>R(y)</m>, we can calculate the total work done:
+<me>
+W = \int _0 ^ 5 9.8 \times R(y) \times \dee{y} \tag{$*$} </me>
+</p>
+
+<p>As given in the question statement, the density of the cable is <m>(10-x)</m> kg/m, where <m>x</m> is the distance from the bottom end of the cable. Consider a tiny section of cable <m>x</m> metres from the bottom end, of length <m>\dee{x}</m>.
+</p>
+
+<sidebyside width="15%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\filldraw[thick, rounded corners, bottom color=black, top color=white] (0,0)--(0,-5)--(.2,-5)--(.2,0);
+\YEycoord{-5}{0}
+\color{red}
+\YEycoord{-2}{x}
+\filldraw[red, thick, bottom color=red, top color=white] (0,-2.2) arc(180:360:1mm and .5 mm)  --(.2,-1.8) arc(0:-180:1mm and .5mm)--cycle;
+\draw[|-|] (.4,-2.2)--(.4,-1.8);
+\draw (.5,-2) node[right]{$\dee{x}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The mass of this tiny section is <m>\left(10-x\ \frac{\text{kg}}{\text{m}}\right) \times \left(\dee{x}\ \text{m}\right) = (10-x)\dee{x}</m> kg. The section of cable dangling is the last <m>(5-y)</m> metres of cable. So, the combined mass of the section of cable dangling, after we've already pulled up <m>y</m> metres of it, is
+<me>
+R(y) = \int_0^{5-y} (10-x)\dee{x} =\left[10x - \frac{1}{2}x^2\right]_0^{5-y}=\frac{75}{2} -5y -\frac{1}{2} y^2</me>
+</p>
+
+<p>Now we can calculate the total work involved in pulling up the entire cable, using equation (<m>*</m>).
+<md>
+<mrow>
+W &amp;= \int _0 ^ 5 9.8 \times R(y) \times \dee{y}
+</mrow><mrow>
+&amp;=\int _0 ^ 5 9.8 \times \left(\frac{75}{2} -5y -\frac{1}{2}y^2\right) \times \dee{y}
+</mrow><mrow>
+&amp;=9.8\left[\frac{75}{2}y-\frac{5}{2}y^2-\frac{1}{6}y^3\right]_0^5
+</mrow><mrow>
+&amp;=\frac{6125}{6}=1020\frac{5}{6} \text{ J}
+</mrow>
+</md>
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+A rectangular tank is fitted with a  plunger that can raise and lower the water level by decreasing and increasing the length of its base, as in the diagrams below. The tank has base width 1 m (which does not change) and contains 3 m<m>^3</m> of water.
+</p><sidebyside width="33%" valign="middle">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick] (0,0) rectangle (3,3) (0,3)--(1,4)--(4,4)--(4,1)--(3,0) (3,3)--(4,4);
+\draw[thick, red, fill, fill=red, fill opacity=0.1] (3.1,.2)--(3.9,1)--(3.9,3.8)--(3.1,3)--cycle;
+\draw[thick, red, fill, fill=red] (3.5,2) arc(90:270:1mm and 2mm) --(5,1.6) arc(270:-270:1mm and 2mm)(5,2)--cycle;
+\fill[blue, fill=blue, fill opacity=0.3] (0,0) rectangle (3,1);
+\fill[blue, fill=blue, fill opacity=0.1] (0,1) -- (1,2)--(3,2)--(3,1)--cycle;
+\draw (1.5,-.5) node{3 m};
+\draw (3.75,.25) node[rotate=45]{1 m};
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick] (1,0) rectangle (4,3) (1,3)--(2,4)--(5,4)--(5,1)--(4,0) (4,3)--(5,4);
+\begin{scope}[xshift=-5mm]
+\draw[red] (3,0)--(3,3)--(4,4)--(4,1)--cycle;
+\draw[thick, red, fill, fill=red, fill opacity=0.1] (3.1,.2)--(3.9,1)--(3.9,3.8)--(3.1,3)--cycle;
+\draw[thick, red, fill, fill=red] (3.5,2) arc(90:270:1mm and 2mm) --(5,1.6) arc(270:-270:1mm and 2mm)(5,2)--cycle;
+\end{scope}
+\fill[blue, fill=blue, fill opacity=0.3] (1,0) rectangle (2.5,2);
+\fill[blue, fill=blue, fill opacity=0.1] (1,2) -- (2,3)--(2.5,3)--(2.5,2)--cycle;
+\draw[thick] (4,2)--(4,1.6);
+\draw (1.5,-.5) node{};
+\draw (4.75,.25) node[rotate=45]{1 m};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The force of the water acting on any tiny piece of the plunger is <m>PA</m>, where <m>P</m> is the pressure of the water, and <m>\dee{A}</m> is the area of the tiny piece. The pressure varies with the depth of the piece (below the surface of the water). Specifically, <m>P=cD</m>, where <m>D</m> is the depth of the tiny piece and <m>c</m> is a constant, in this case
+<m>c=9800</m> N/m<m>^3</m>.
+<ol label="a">
+<li> If the  length of the base is 3 m, give the force of the water on the entire plunger. (You can do this with an integral: it's the sum of the force on all the tiny pieces of the plunger.)
+</li>
+<li> If the  length of the base is <m>x</m> m, give the force of the water on the entire plunger.
+</li>
+<li> Give the work required to move the plunger in so that the base length changes from 3 m to 1 m.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+To calculate the force on the entire plunger, first find the force on a horizontal rectangle with height <m>\dee{y}</m> at depth <m>y</m>.
+</p>
+
+<p>Checking units can be a good way to make sure your calculation makes sense.
+</p></hint>
+<answer><p>
+(a) 4900 N
+</p><p>
+(b) <m>\frac{44100}{x^2}\text{ N}</m>
+</p><p>
+(c) <m>29\,400\text{ J}</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li><p>
+The force of the depends on depth, which varies. So, consider a thin rectangle of the plunger at depth <m>y</m>, with height <m>\dee{y}</m> and width 1 m (the width of the entire plunger). Let the area of this rectangle be <m>\dee{A}</m>.
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick] (0,0) rectangle (3,3);
+\draw[help lines,  \lt - \gt ] (-1,-.5)--(-1,3.5) node[above]{depth};
+\begin{scope}[xshift=-1cm]
+\YEycoord{3}{0}
+\YEycoord{1}{y}
+\end{scope}
+\draw[red, fill] (0,.9) rectangle (3,1.1);
+\draw[red, |-|] (3.5,.9)--(3.5,1.1);
+\draw[red] (4,1) node{$\dee{y}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The area of this rectangle is <m>1\dee{y}</m> m<m>^2</m>, so the force of the water acting on it is <m>F=P\cdot\dee{A} = \underbrace{\left(9800 \tfrac{\text{N}}{\text{m}^3}\right)}_c\underbrace{\left(y\text{ m}\right)}_d \underbrace{\left(\dee{y} \text{ m}^2\right)}_{\dee A} = 9800y\,\dee{y}</m> N.
+</p>
+
+<p>The depth at the top of the plunger is <m>y=0</m>. To find the depth at the bottom of the plunger, note that the water has a volume of 3 m<m>^3</m>, and is in a rectangular container with base 1 m by 3 m. So, its height is 1 m.
+</p>
+
+<p>The force over the entire plunger, from depth <m>y=0</m> to <m>y=1</m>, is
+<me>
+\int_0^1 9800y\,\dee{y} =  \big[4900 y^2\big]_0^1 = 4900 \text{ N}</me>
+</p>
+</li>
+<li><p>
+Let's follow our work from part (a), but with the width of the length of the base as <m>x</m> m.
+</p>
+
+<p>Still, a thin rectangle of plunger has width 1 m and height <m>\dee{y}</m> m, so it has area <m>\dee{y}</m> m<m>^2</m>. At depth <m>y</m>, it has a force from the water of <m>9800y\,\dee{y}</m> N. This hasn't changed from (a).
+</p>
+
+<p>Now, let's consider the depth of the water. The volume of water is 3 m<m>^3</m>, and it is in a rectangular container with base 1 m by <m>x</m> m. So, its depth is <m>3/x</m> m.
+Therefore, the force on the entire plunger must  be calculated from <m>y=0</m> to <m>y=3/x</m>.
+<me>
+F(x)=\int_0^{3/x} 9800y\,\dee{y} =  \big[4900 y^2\big]_0^{3/x} = \frac{9}{x^2}4900 = \frac{44100}{x^2}\text{ N}</me>
+</p>
+
+<p>Let's check that this answer makes sense: <m>F(3)=4900</m> N, which matches our answer from (a).
+</p>
+</li>
+<li> If the force of water acting on the plunger, when the length of the base is <m>x</m> metres, is given by <m>F(x)</m>, then we push the plunger with a force of <m>-F(x)</m>. Then the work we're looking for is
+<md>
+<mrow>
+W &amp;= \int_3^1 -F(x)\,\dee{x}  = \int_1^3 F(x)\,\dee{x}
+</mrow>
+<intertext>
+<m>F(x)</m>  is exactly what we found in (b):
+<m>F(x) = \frac{44100}{x^2}\text{ N}</m>.
+</intertext><mrow>
+W&amp;= \int_1^3 F(x)\,\dee{x} = \int_1^3 \frac{44100}{x^2}\,\dee{x} = 44100\left[-\frac{1}{x}\right]_1^3 = 44100\cdot \frac{2}{3} = 29\,400\text{ J}
+</mrow>
+</md>
+
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+A leaky bucket picks up 5 L of water from a well, but drips out 1 L every ten seconds. If the bucket was hauled up 5 metres at a constant speed of 1 metre every two seconds, how much work was done?
+</p>
+
+<p>Assume the rope and bucket have negligible mass and one litre of water has 1 kg mass, and use <m>9.8</m> m/sec<m>^2</m> for the acceleration due to gravity.
+</p></statement>
+<hint><p>
+When <m>y</m> metres of rope have been hauled up, what is the mass of the water?
+</p></hint>
+<answer><p>
+220.5 J
+</p></answer>
+<solution><p>
+Let's start by converting from time spent pulling to amount pulled. When <m>y</m> metres of rope have been pulled up, <m>2y</m> seconds have passed, so <m>\frac{1}{5}y</m> litres of water have leaked out of the bucket, leaving <m>5-\frac{1}{5}y</m> litres.  (This only makes sense when <m>\frac{1}{5}y \leq 5</m>, but we only consider values of <m>y</m> from 0 to 5, so it's not a problem. That is, we're never hauling up an empty bucket that can't leak any more.)
+</p>
+
+<p>When we've pulled up <m>y</m> metres of rope, the mass in the bucket is <m>(5-\frac{1}{5}y)</m> kg, so the force of gravity acting on it is <m>9.8(5-\frac{1}{5}y)</m> N. Since we pull up 5 metres of rope, the work done is:
+<me>
+W = \int_0^5 9.8\left(5-\frac{1}{5}y\right) \,\dee{y} = 9.8\left[5y-\frac{1}{10}y^2\right]_0^5 = 9.8\left[25-2.5\right]=220.5\text{ J}</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+The force of gravity between two objects, one of mass <m>m_1</m> and another of mass <m>m_2</m>, is <m>F = G\dfrac{m_1m_2}{r^2}</m>, where <m>r</m> is the distance between them and <m>G</m> is the gravitational constant.
+</p>
+
+<p>How much work is required to separate the earth and the moon far enough apart that the gravitational attraction between them is negligible?
+</p>
+
+<p>Assume the mass of the earth is <m>6 \times 10^{24}</m> kg
+and the mass of the moon is <m>7 \times 10^{22}</m> kg, and that they are currently  <m>400\,000</m> km
+away from each other. Also, assume <m>G = 6.7\times 10^{-11} \ \frac{\text{m}^3}{\text{kg}\cdot\text{sec}^2}</m>, and  the only force acting on the earth and moon is the gravity between them.
+</p></statement>
+<hint><p>
+The work you're asked for is an improper integral, moving the earth and moon infinitely far apart.
+</p></hint>
+<answer><p>
+About <m>7 \times 10^{28} \text{ J}</m>
+</p></answer>
+<solution>
+
+<p>According to the formula for gravity between two objects, the earth and moon will gravitationally attract one another no matter how far apart they are, so what we're looking for is the work to separate them infinitely far. That is, we want to calculate
+<m>\displaystyle\int_a^\infty F(r)\,\dee{r}</m>, where <m>a = 400\,000\,000</m> m.
+</p>
+
+<p>If we take <m>m_1</m> and <m>m_2</m> to be the mass of the earth and moon as given in the question statement, then:
+<md>
+<mrow>Gm_1m_2 &amp;= \left(6.7\times 10^{-11} \ \frac{\text{m}^3}{\text{kg}\cdot\text{sec}^2}\right)
+\left(6 \times 10^{24}\text{ kg}\right)\left(7 \times 10^{22}\text{ kg}\right)
+</mrow><mrow>
+&amp;\approx 2.8 \times 10^{37}  \frac{\text{kg}\cdot\text{m}^3}{\text{sec}^2}
+</mrow>
+</md>
+With that out of the way, let's calculate our work.
+<md>
+<mrow>
+W&amp;=\int_a^\infty F(r)\,\dee{r} =\lim_{b \to \infty} \int_a^b  G\dfrac{m_1m_2}{r^2}\,\dee{r}
+</mrow><mrow>&amp;=
+(Gm_1m_2)\lim_{b \to \infty}\left[-\frac{1}{r}\right]_a^b
+</mrow><mrow>
+&amp;=(Gm_1m_2)\lim_{b \to \infty} \left(\frac{1}{a}-\frac{1}{b}\right)
+</mrow><mrow>&amp;=
+\frac{Gm_1m_2}{a}
+</mrow><mrow>
+&amp;\approx\frac{2.8 \times 10^{37}  \frac{\text{kg}\cdot\text{m}^3}{\text{sec}^2}}{4\times 10^8 \text{ m}}
+</mrow><mrow>
+&amp;=7 \times 10^{28} \text{ J}
+</mrow>
+</md>
+</p>
+
+<p>Remark: since the force of gravity between the earth and the moon gets weaker as they are farther apart, it takes less and less work to move them each kilometre. If we move them a finite distance apart, the work involved will always be less than <m>7\times 10^{28}</m> joules, no matter how huge that finite distance is. If we move them a very, very long (but finite) distance apart, the work we did will be quite close to (but still less than) <m>7\times 10^{28}</m> joules.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+True or false: the work done pulling up a dangling cable of length <m>\ell</m> and mass <m>m</m> (with uniform density) is the same as the work done lifting up a ball of mass <m>m</m> a height of <m>\ell/2</m>.
+</p>
+
+<sidebyside  width="33%" valign="middle">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (.2,-.4)--(1,0)--(1,2)--(-1,1)--(-1,-1)--(0,-.5);
+\draw[rounded corners] (0,-.5)--(0,-3.5)--(.2,-3.5)--(.2,-.4);
+\draw (.2,-.4)--(-.1,-.4)--(-.1,-.5)--(0,-.5);
+\draw[decorate, decoration={brace, amplitude=10pt, mirror}] (.9,-3.5)--(.9,-.4) node[midway, right, xshift=4mm]{$\ell$};
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (1,0)--(1,2)--(-1,1)--(-1,-1)--cycle;
+\draw[decorate, decoration={brace, amplitude=10pt, mirror}] (.9,-1.95)--(.9,-.4) node[midway, right, xshift=4mm]{$\ell/2$};
+\draw (.1,-1.95) node[shape=circle, minimum size=3mm, fill]{};
+\draw (.9,-3.5) node{};
+\draw[thick, - \gt ] (.1,-1.5)--(.1,-.75);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+You can formulate a guess by considering the work done on the ball versus the work done on the rope in Question<nbsp/><xref ref="prob_s2_1_normal2" text="local"/>, Solution 1. But be careful <mdash/> the ball in that problem did not have the same mass as the rope.
+</p></hint>
+<answer><p>
+true
+</p></answer>
+<solution><p>
+A ball of mass <m>m</m> experiences a gravitational force of <m>mg</m>, so lifting it a height of <m>\ell/2</m> involves a work of <m>\frac{1}{2}mg\ell</m>.
+</p>
+
+<p>The cable has density <m>m/\ell</m>. A tiny section of cable with length <m>\dee{y}</m> has mass <m>\frac{m}{\ell}\,\dee{y}</m>, and so gravity acts on it with a force of <m>\frac{mg}{\ell}\,\dee{y}</m>. If the tiny section of cable is <m>y</m> units from the top of the cable, it needs to be pulled up <m>y</m> units, so the work on that section is <m>\frac{mg}{\ell}y\,\dee{y}</m>. Therefore, the work to pull up the entire cable is
+<me>
+\int_0^\ell \frac{mg}{\ell}y\,\dee{y} = \left[\frac{mg}{2\ell}y^2\right]_0^\ell = \frac{mg}{2\ell}\ell^2 = \frac{1}{2}mg\ell</me>
+</p>
+
+<p>So, the work to pull up a cable with uniform density is the same as the work to pull up a ball with the same mass from the middle height of the cable.
+</p>
+
+<p>Remark: this is a nice fact to use when you're checking your computations for <q>pulling up cable</q> problems, but keep in mind it depends on the cable being of uniform density.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+A tank one metre high is filled with watery mud that has settled to be denser at the bottom than at the top.
+</p>
+
+<p>At height <m>h</m> metres above the bottom of the tank, the cross-section of the tank has the shape of the finite region bounded by the two curves <m>y=x^2</m> and <m>y=2-h-3x^2</m>.
+At height <m>h</m> metres above the bottom of the tank, the density of the liquid is <m>1000\sqrt{2-h}</m> kilograms per cubic metre.
+</p>
+
+<p> How much work is done to pump all the liquid out of the tank?
+</p>
+
+<p>You may assume the acceleration due to gravity is <m>9.8</m> m/sec<m>^2</m>.
+</p></statement>
+<hint><p>
+There are two things that vary with height: the density of the liquid, and the area of the cross-section of the tank. Make a formula <m>M(h)</m> for the mass of a thin layer of liquid <m>h</m> metres below the top of the tank, using mass<m>=</m>volume<m>\times</m>density. The rest of the problem is similar to other tank-pumping problems in this section.
+</p></hint>
+<answer><p>
+<m>9255\tfrac{5}{9}\text{ J}</m>
+</p></answer>
+<solution><p>
+Like our other tank-pumping problems (e.g. Questions<nbsp/><xref ref="prob_s2_1_tank3" text="local"/>, <xref ref="prob_s2_1_tank2" text="local"/>, and <xref ref="prob_s2_1_tank1" text="local"/> in this section, and Example<nbsp/><xref ref="eg_WKdrum"/> in the text), we can find the work done by considering thin layers of liquid. If the layer of liquid <m>h</m> metres above the bottom of the tank with thickness <m>\dee{h}</m> has mass <m>M(h)</m>, then the force of gravity acting on it is <m>-9.8M(h)</m> N and the work required to pump it to the top of the tank (<m>1-h</m> metres away) is <m>9.8(1-h)M(h)</m> J. So, the work to empty the entire tank is
+<me>
+W = \int_0^19.8(1-h)M(h) \tag{$*$} </me>
+</p>
+
+<p>Our  remaining task is to find <m>M(h)</m>. There are two things that vary with height: the density of the liquid, and the area of the cross-section of the tank.
+</p>
+
+<p>At  height <m>h</m> metres, the cross-section of the tank is shaped like the finite region bounded by the curves <m>y=x^2</m> and <m>y=2-h-3x^2</m>. To find this area, we need an integral (see Section 1.5 for a refresher), and to find the limits of integration, we need to know where the two curves meet. By solving <m>x^2 =2-h-3x^2</m>, we find that they meet at <m>x = \pm\frac{1}{2}\sqrt{2-h}</m>. (Recall <m>h</m> is between 0 and 1, so <m>\sqrt{2-h}</m> is a real number, i.e. the curves do indeed meet.) Furthermore, when <m>-\frac{1}{2}\sqrt{2-h}\le x \le \frac{1}{2}\sqrt{2-h}</m>, then <m>x^2 \leq 2-h-3x^2</m>, so <m>y=x^2</m> is the bottom function and <m>2-h-3x^2</m> is the top function.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3}{3}{2}{3}
+\YExcoord{-1.22}{-\frac{1}{2}\sqrt{2-h}}
+\YExcoord{1.22}{}
+\draw[thick, blue] plot[domain=-1.5:1.5]({2*\x},{\x*\x})node[right]{$y=x^2$};
+\draw[thick, red] plot[domain=-.75:1]({2*\x},{1.5-3*\x*\x})node[right]{$y=2-h-3x^2$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+So, (taking advantage of the fact that our region has even symmetry) the area of the cross-section of the tank at height <m>h</m> is
+<md>
+<mrow>
+A(h) &amp;= \int_{-\frac{1}{2}\sqrt{2-h}}^{\frac{1}{2}\sqrt{2-h}} \left( \big[2-h-3x^2\big]-x^2 \right)\,\dee{x}
+</mrow><mrow>
+&amp;= 2\int_{0}^{\frac{1}{2}\sqrt{2-h}} \left( 2-h-4x^2 \right)\,\dee{x}
+</mrow><mrow>
+&amp;=2\left[(2-h)x - \frac{4}{3}x^3\right]_{0}^{\frac{1}{2}\sqrt{2-h}}
+</mrow><mrow>
+&amp;=2\left[(2-h)\cdot\frac{1}{2}\sqrt{2-h} - \frac{4}{3}\cdot \frac{1}{ 8}\sqrt{2-h}^3\right]
+</mrow><mrow>
+&amp;=(2-h)^{3/2}\left[1-\frac{1}{3}\right] = \frac{2}{3}(2-h)^{3/2}
+</mrow>
+<intertext>Now, we can calculate the volume of a slice at height <m>h</m> of thickness <m>\dee{h}</m>.
+</intertext><mrow>
+V(h)&amp;=\frac{2}{3}(2-h)^{3/2}\,\dee{h}
+</mrow>
+<intertext>The density of the liquid at height <m>h</m> is <m>1000\sqrt{2-h}</m> kg/m<m>^3</m>, so
+</intertext><mrow>
+M(h)&amp;=1000\sqrt{2-h}\times \frac{2}{3}(2-h)^{3/2}\,\dee{h}
+</mrow><mrow>
+&amp;= \frac{2000}{3}(2-h)^2\dee{h}
+</mrow>
+<intertext>Now we use (<m>*</m>) to find the work done pumping out the tank.</intertext><mrow>
+W&amp;=\int_0^19.8(1-h)M(h) = \int_0^1 9.8(1-h)\cdot \frac{2000}{3}(2-h)^2\dee{h}
+</mrow><mrow>
+&amp;=\frac{19600}{3}\int_0^1 \big(4-8h+5h^2-h^3\big)\,\dee{h}
+</mrow><mrow>
+&amp;=\frac{19600}{3}\left[4h-4h^2+\frac{5}{3}h^3-\frac{1}{4}h^4\right]_0^1
+</mrow><mrow>
+&amp;=\frac{19600}{3}\left[4-4+\frac{5}{3}-\frac{1}{4}\right]
+</mrow><mrow>
+&amp;=\frac{19600}{3}\times\frac{17}{12}
+</mrow><mrow>
+&amp;=\frac{83300}{9} = 9255\tfrac{5}{9}\text{ J}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+An hourglass is 0.2 m tall and shaped such that that <m>y</m> metres above or below its vertical centre it has a radius of <m>y^2+0.01</m> m.
+</p>
+
+<p>It is exactly half-full of sand, which has mass
+<m>M=\frac{1}{7}</m> kilograms.
+</p>
+
+<p>How much work is done on the sand by quickly flipping the hourglass over?
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick] plot[domain=-2.5:2.5]({\x*\x/4+.25},\x);
+\draw[thick] plot[domain=-2.5:2.5]({-\x*\x/4-.25},\x);
+\draw[thick] (-1.8125,-2.5) arc (180:360:1.8125cm and .5cm);
+\draw[thick] (0,2.5) node[shape=ellipse, draw, minimum width = 3.625cm, minimum height = .5cm]{};
+\draw[thick] (-.25,0) arc (180:360:.25cm and .07cm);
+\draw[dashed] (-.25,0) arc (180:0:.25cm and .07cm);
+\fill[fill opacity=0.1](-.25,0) arc (180:360:.25cm and .07cm) arc (0:180:.25cm and .07cm);
+\fill[fill opacity=0.3]  (-1.8125,-2.5) arc (180:360:1.8125cm and .5cm)
+plot[domain=-2.5:0]({\x*\x/4+.25},\x) arc (0:-180:.25cm and .07cm) plot[domain=0:-2.5]({-\x*\x/4-.25},\x) arc (180:360:1.8125cm and .5cm) ;
+\draw[ultra thick, decorate, decoration={coil, amplitude=20pt, segment length=7.5mm}] (2.6,0)--(4.6,0);
+\draw[ultra thick, - \gt ] (4.6,0)--(4.8,0);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick] plot[domain=-2.5:2.5]({\x*\x/4+.25},\x);
+\draw[thick] plot[domain=-2.5:2.5]({-\x*\x/4-.25},\x);
+\draw[thick] (-1.8125,-2.5) arc (180:360:1.8125cm and .5cm);
+\draw[thick] (0,2.5) node[shape=ellipse, draw, minimum width = 3.625cm, minimum height = .5cm, fill, fill opacity=0.3]{};
+\draw[thick] (-.25,0) arc (180:360:.25cm and .07cm);
+\fill[fill opacity=0.3] (-1.8125,2.5) arc (180:360:1.8125cm and .25cm)--plot [domain=2.5:0]({\x*\x/4+.25},\x) arc(0:-180:.25cm and .07cm)--plot[domain=0:2.5]({-\x*\x/4-.25},\x);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Assume that the  work done is only moving against gravity, with <m>g=9.8</m> m/sec<m>^2</m>, and the sand has uniform density. Also assume that at the instant the hourglass is flipped over, the sand has not yet begun to fall, as in the picture above.
+</p></statement>
+<hint><p>
+You can model the motion, instead of a rotation, as dividing the sand into thin horizontal slices and lifting each of them to their new position.
+<ul>
+<li> In order to calculate the work involved lifting a layer of sand, you need to know the mass of the layer of sand.
+</li>
+<li> To find the mass of a layer of sand, you need its volume and the density of the sand.
+</li>
+<li> To find the density of the sand, you need to the volume of the sand: that is, the volume of half the hourglass.
+</li>
+<li> The hourglass is a solid of rotation: you can find its volume using an integral, as in Section 1.6.
+</li>
+</ul>
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{7}{40}= 0.175 \text{ J}</m>
+</p></answer>
+<solution><p>
+Since the only work done is against the force of gravity, we only need to know how high the sand was lifted, not how it got there. So, we don't really need to worry about its semicircular path: we can imagine that every grain of sand was lifted from its old position to its new position.
+</p>
+
+<p>Consider a thin, horizontal layer of sand in the hourglass, <m>y</m> metres below the vertical centre of the hourglass.
+<ul>
+<li> Its final position is <m>y</m> metres above the centre of the hourglass. That is, it was lifted <m>2y</m> metres against the force of gravity.
+</li>
+<li> The layer is shaped like a circle with radius <m>y^2+0.01</m> and height <m>\dee{y}</m>, so its volume is <m>\pi\left(y^2+0.01\right)^2\,\dee{y}</m> cubic metres.
+</li>
+<li> To find the mass of the layer, we need to know the density of the sand. Let the volume of sand in the hourglass be <m>V</m>. We are given its mass <m>M</m>. Then <m>\pi\left(y^2+0.01\right)^2\,\dee{y}</m> cubic metres has a mass of <m>\frac{M}{V}\pi\left(y^2+0.01\right)^2\,\dee{y}</m> kilograms.
+</li>
+<li> So, the force of gravity acting on the layer is <m>9.8\frac{M}{V}\pi\left(y^2+0.01\right)^2\,\dee{y}</m> N, acting vertically downwards.
+</li>
+<li> To lift the layer to its final position, we apply a compensating force over a distance of <m>2y</m> metres, for a total work of <m>9.8\frac{M}{V}\pi\left(y^2+0.01\right)^22y\,\dee{y}</m> J.
+</li>
+<li> Since the hourglass has height <m>0.2</m> m, and exactly half of it is filled with sand, the top layer of sand is exactly at the vertical centre of the hourglass, and the bottom layer of sand is  0.1 metres below.
+</li>
+</ul>
+Using <m>V</m> is the volume of sand in the hourglass, and <m>M</m> is its mass (we're given <m>M  =\frac{1}{7}</m> kg) then  the total work flipping <em>all</em> the sand is:
+</p>
+
+<p><md>
+<mrow>
+W &amp;= \int_0^{0.1} 9.8\frac{M}{V}\pi\left(y^2+0.01\right)^22y\,\dee{y} = \frac{19.6M\pi}{V}\int_0^{0.1}\big(y^5+0.02y^3+0.0001y\big)\,\dee{y}
+</mrow><mrow>
+&amp;= \frac{19.6M\pi}{V}\int_0^{1/10}\left(y^5+\frac{2}{10^2}y^3+\frac{1}{10^4}y\right)\,\dee{y}
+= \frac{19.6M\pi}{V}\left[\frac{1}{6}y^6+\frac{1}{2\cdot10^2}y^4+\frac{1}{2\cdot 10^4}y^2\right]_0^{1/10}
+</mrow><mrow>
+&amp;= \frac{19.6M\pi}{V}\left[\left(\frac{1}{6\cdot 10^6}+\frac{1}{2\cdot10^6}+\frac{1}{2\cdot 10^6}\right) - 0\right]
+</mrow><mrow>
+&amp;= \frac{19.6M\pi}{V}\left[\frac{7}{6\cdot 10^6}\right]\tag{$*$}
+</mrow>
+</md>
+</p>
+
+<p>It remains to find <m>V</m>: the volume of sand in the hourglass. We know the sand is in the shape of a solid of rotation. Recall from Section 1.6 that we can find the volume of such shapes by slicing them into thin disks.
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\begin{scope}[xshift=-3cm]
+\draw[ \lt - \gt , help lines] (0,-3)--(0,.5);
+\YEycoord{0}{0}
+\YEycoord{-1.75}{x}
+\YEycoord{-2.5}{0.1}
+\end{scope}
+\draw[thick] plot[domain=-2.5:0]({\x*\x/4+.25},\x);
+\draw[thick] plot[domain=-2.5:0]({-\x*\x/4-.25},\x);
+\draw[thick] (-1.8125,-2.5) arc (180:360:1.8125cm and .5cm);
+\draw[thick] (-.25,0) arc (180:360:.25cm and .07cm);
+\draw[thick] (-.25,0) arc (180:0:.25cm and .07cm);
+\fill[fill opacity=0.1](-.25,0) arc (180:360:.25cm and .07cm) arc (0:180:.25cm and .07cm);
+\fill[fill opacity=0.1]  (-1.8125,-2.5) arc (180:360:1.8125cm and .5cm)
+plot[domain=-2.5:0]({\x*\x/4+.25},\x) arc (0:-180:.25cm and .07cm) plot[domain=0:-2.5]({-\x*\x/4-.25},\x) arc (180:360:1.8125cm and .5cm) ;
+\draw (0,-1.75) node[draw, dashed, shape=ellipse, fill, fill opacity=0.1, minimum width = 2cm, minimum height=1mm]{};
+\draw[thick, fill, fill opacity=0.2] (-1.02,-1.75)--(-1.02,-2) arc (180:360:1cm and 2mm) --(1.02,-1.75) arc(0:-180:1cm and 2mm);
+\draw (0,-1.75)--(1.02,-1.75);
+\draw[decorate, decoration={brace, amplitude=7pt, mirror}] (0,-3.3) -- (1.02,-3.2) node[midway, below, yshift=-2mm]{$x^2+0.01$};
+\draw[|-|] (2,-1.75)--(2,-2);
+\draw (2.1,-1.85) node[right]{$\dee{x}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+In the picture above, we've used an axis that matches the way we've been describing our solid: <m>0</m> is the vertical centre of the hourglass, which is where the top of the sand is,  and the bottom of the sand is <m>0.1</m> metres from 0.
+</p>
+
+<p>To find the volume of this solid, we slice it into horizontal disks. The disk that is <m>x</m> metres from the centre of the hourglass has radius <m>x^2+0.01</m> and thickness <m>\dee{x}</m>, so it has volume <m>\pi(x^2+0.01)^2\,\dee{x}</m>. The volume of the entire solid, i.e. the volume of the sand, is:
+<md>
+<mrow>V &amp;= \int_0^{0.1}\pi(x^2+0.01)^2\,\dee{x}
+= \pi\int_0^{0.1}(x^4+0.02x^2+0.0001)\,\dee{x}
+</mrow><mrow>
+&amp;= \pi\left[\frac{1}{5}x^5+\frac{2}{ 3\times10^2}x^3+\frac{1}{10^4}x\right]_0^{0.1}
+</mrow><mrow>&amp;= \pi\left[\left(\frac{1}{5\times 10^5}+\frac{2}{3\times 10^5}+\frac{1}{10^5}\right)-0\right]
+</mrow><mrow>&amp;= \frac{28\pi}{15\times 10^5}= \frac{28\pi}{1.5\times 10^6}
+ </mrow>
+</md>
+ So, the volume of sand in the hourglass is <m>V=\frac{28\pi}{1.5\times 10^6}</m> cubic metres.
+</p>
+
+<p> Using (<m>*</m>), we can find the total work done quickly flipping the hourglass.
+ <md>
+<mrow>
+ W&amp;=\frac{19.6M\pi}{V}\left[\frac{7}{6\cdot 10^6} \right]
+</mrow><mrow>
+ &amp;=\frac{19.6 \times \frac{1}{7} \pi}{\frac{28\pi}{1.5\times 10^6}}\left[\frac{7}{6\cdot 10^6} \right]
+</mrow><mrow>&amp;=\frac{19.6 \times 1.5 }{28 \times 6} = \frac{29.4}{168} =\frac{7}{40}= 0.175 \text{ J}
+ </mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose  at position <m>x</m> a particle experiences a force of <m>F(x) = \sqrt{1-x^4}</m> N. Approximate the work done moving the particle from <m>x=0</m> to <m>x=1/2</m>, accurate to within <m>0.01</m> J.
+</p></statement>
+<hint><p>
+Theorem<nbsp/><xref ref="thm_num_int_err"/> gives error bounds for the standard types of numerical approximations. You won't need very many intervals to achieve the desired accuracy.
+</p></hint>
+<answer><p>
+One possible answer: <m>\displaystyle \frac{1}{4}\left[\sqrt{1-\left(\frac18\right)^4} +
+ \sqrt{1-\left(\frac38\right)^4}\right]</m>
+</p></answer>
+<solution><p>
+Using Definition<nbsp/><xref ref="def_WKwork"/>, the work involved is
+<me>
+W = \int_{0}^{1/2} \sqrt{1-x^4}\,\dee{x} \quad\text{ J}.</me>
+</p>
+
+<p>However, the function <m>F(x)=\sqrt{1-x^4}</m> happens to not have an antiderivative that can be expressed as an elementary function. That means we can't use the Fundamental Theorem of Calculus Part 2 to evaluate this integral (at least, not without knowing a bit more about functions than is prerequisite for this course). Instead, we can use numerical methods, like the midpoint rule or Simpson's rule, to approximate its value.
+</p>
+
+<p>It's not immediately clear which rule (Simpson's, midpoint, or trapezoidal) will lead us down the easiest path. For Simpson's rule, we need to know the fourth derivative of <m>F(x)</m>, which is not a simple task. But, we often need fewer intervals for Simpson's rule than for the midpoint or trapezoid rules. In this case, we'll show below that  <m>n = 2</m> intervals  suffice to guarantee a low enough error using the midpoint rule, so Simpson's rule won't let us get away with fewer intervals. Below, we find the approximation using the midpoint rule <mdash/> but there are other ways as well.
+</p>
+
+<p>In order to decide how many intervals we should use with the midpoint rule, we need to know the second derivative of <m>F(x)</m>.
+<md>
+<mrow>
+F(x)&amp;=(1-x^4)^{1/2}
+</mrow><mrow>
+F'(x)&amp;=\frac12\left(1-x^4\right)^{-1/2}\cdot(-4x^3) = -2x^3\left(1-x^4\right)^{-1/2}
+</mrow><mrow>
+F''(x)&amp;=(-2x^3)\left(-\frac12\right)\left(1-x^4\right)^{-3/2}(-4x^3) + (-6x^2)\left(1-x^4\right)^{-1/2}
+</mrow><mrow>
+&amp;=-4x^6\left(1-x^4\right)^{-3/2} + (-6x^2)\left(1-x^4\right)^{-1/2}
+</mrow><mrow>&amp;=2x^2\left(1-x^4\right)^{-3/2}\left(-2x^4 - 3\left(1-x^4\right)\right)
+</mrow><mrow>&amp;=2x^2\left(1-x^4\right)^{-3/2}\left(x^4-3\right)
+</mrow><mrow>&amp;=\frac{2x^2\left(x^4-3\right)}{\left(1-x^4\right)^{3/2}}</mrow>
+</md>
+For values of <m>x</m> between 0 and <m>\frac{1}{2}</m>,
+ <ul>
+<li>
+	the denominator <m>\big(1-x^4\big)^{3/2}</m> is always at least as big as <m>{\big(1-{\big(\frac{1}{2}\big)}^4\big)}^{3/2}</m>,
+</li>
+<li>
+	the factor <m>x^2</m> in the numerator is never bigger than  <m>\big(\frac{1}{2}\big)^2</m>, and
+</li>
+<li>
+	the factor <m>x^4-3</m> in the numerator has magnitude at most<m>3</m>,
+</li>
+</ul>
+so that<md>
+<mrow>
+|F''(x)|&amp; = \frac{2x^2\left|x^4-3\right|}{\left(1-x^4\right)^{3/2}}\leq \frac{2(\frac{1}{2})^2(3)}{\left(1-(\frac12)^4\right)^{3/2}}=\frac{\frac{3}{2}}{\frac{15^{3/2}}{64}}=\frac{32}{5\sqrt{15}} \lt 2
+</mrow>
+<intertext>Using Theorem<nbsp/><xref ref="thm_num_int_err"/> with <m>M = 2</m>, <m>a=0</m>, and <m>b=1/2</m>, the error in a midpoint approximation with <m>n</m> intervals is at most
+</intertext>
+<mrow>
+\frac{M}{24}\cdot\frac{(b-a)^3}{n^2}&amp;=\frac{2}{24}\cdot \frac{1/8}{n^2} = \frac{1}{96n^2}
+</mrow>
+</md>
+If <m>n \ge 2</m>, then our error is certainly less than <m>\frac{1}{100}</m>.
+</p>
+
+<p>If we use the midpoint rule with <m>n=2</m>, then <m>\bar x_1= \frac{1}{8}</m> and <m>\bar x_2=\frac{3}{8}</m>.
+</p><sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[ \lt - \gt , gray] (-.5,0)--(6.5,0) node[right]{$x$};
+\YExcoord{0}{0\vphantom{\frac12}}
+\YExcoord{6}{\frac{1}{2}}
+\YExcoord{3}{\frac{1}{4}}
+\color{red}
+\YExcoord{4.5}{\frac{3}{8}}
+\YExcoord{1.5}{\frac{1}{8}}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The midpoint rule approximation of <m>\int_0^{1/2}\sqrt{1-x^4}\,\dee{x}</m> with <m>n=2</m> and <m>\De x = \frac{1}{4}</m> is:
+<md>
+<mrow>
+\int_0^{1/2}\sqrt{1-x^4}\,\dee{x}&amp;\approx\De x\left[\sqrt{1-\bar x_1^4} + \sqrt{1-\bar x_2^4}\right]
+</mrow><mrow>
+&amp;= \frac{1}{4}\left[\sqrt{1-\left(\frac18\right)^4} +
+ \sqrt{1-\left(\frac38\right)^4}\right]
+</mrow>
+</md>
+Since we used <m>n=2</m>, by our previous work the error in this approximation is less than <m>\frac{1}{96\times 2^2} = \frac{1}{384}</m>, which is certainly less than 0.01, as required.
+</p></solution>
+</exercise></exercisegroup>
+
+</exercises>

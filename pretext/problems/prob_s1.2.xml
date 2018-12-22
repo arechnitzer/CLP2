@@ -1,0 +1,1082 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<exercises>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise>
+<statement><p>
+For each of the following properties of definite integrals, draw a picture illustrating the concept, interpreting definite integrals as areas under a curve.
+</p>
+
+<p>For simplicity, you may assume that <m>a \leq c \leq b</m>, and that <m>f(x),g(x)</m> give positive values.
+<ol label="a">
+<li> <m>\displaystyle\int_a^a f(x)\,\dee{x}=0</m>, (Theorem<nbsp/><xref ref="thm_Intdomain"/>, part (a))
+</li>
+<li> <m>\displaystyle\int_a^b f(x)\,\dee{x}= \displaystyle\int_a^c f(x)\,\dee{x} + \int_c^b f(x)\dee{x} </m>, (Theorem<nbsp/><xref ref="thm_Intdomain"/>, part (c))
+</li>
+<li> <m>\displaystyle\int_a^b \left( f(x) + g(x) \right)\,\dee{x}
+= \displaystyle\int_a^b f(x)\,\dee{x} + \displaystyle\int_a^b g(x)\,\dee{x}</m>, (Theorem<nbsp/><xref ref="thm_Intarith"/>, part (a))
+</li>
+</ol>
+</p></statement>
+<hint><p>
+<ol label="a">
+<li> What is the length of this figure?
+</li>
+<li> Think about cutting the area into two pieces vertically.
+</li>
+<li> Think about cutting the area into two pieces another way.
+</li>
+</ol>
+</p></hint>
+<answer><p>
+Possible drawings:
+</p><sidebyside valign="middle">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{2.5}{1}{3}
+\YExcoord{1}{a}
+\draw[thick] plot[domain=-.5:2] (\x,{\x*\x/2+.25}) node[right] {$y=f(x)$};
+\draw[thick, blue] (1,0)--(1,.75);
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{2.5}{1}{3}
+\YExcoord{.5}{a}
+\YExcoord{1}{c}
+\YExcoord{1.5}{b}
+\draw[thick] plot[domain=-.5:2] (\x,{\x*\x/2+.25}) node[right] {$y=f(x)$};
+\draw[fill=blue, fill opacity=0.5] plot[domain=.5:1] (\x,{\x*\x/2+.25})--(1,.75)--(1,0)--(.5,0)--cycle;
+\draw[fill=red, fill opacity=0.5] plot[domain=1:1.5] (\x,{\x*\x/2+.25})--(1.5,1.375)--(1.5,0)--(1,0)--cycle;
+\draw[thick, blue] (1,0)--(1,.75);
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{2.5}{1}{3}
+\YExcoord{.5}{a}
+\YExcoord{1.5}{b}
+\draw[thick] plot[domain=-.5:2] (\x,{\x*\x/3+.25}) node[right] {$y=f(x)$};
+\draw[thick] plot[domain=-.5:2] (\x,{2+\x/2-\x*\x/10}) node[right] {$y=f(x)+g(x)$};
+\draw[fill=blue, fill opacity=0.5] plot[domain=.5:1.5] (\x,{\x*\x/3+.25})--(1.5,0)--(.5,0)--cycle;
+\draw[fill=red, fill opacity=0.5]plot[domain=.5:1.5] (\x,{2+\x/2-\x*\x/10})--
+plot[domain=1.5:.5] (\x,{\x*\x/3+.25}) --cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></answer>
+<solution><p>
+<ol label="a">
+<li><p>
+<m>\displaystyle\int_a^a f(x)\,\dee{x}=0</m>
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{2.5}{1}{2}
+\YExcoord{1}{a}
+\draw[thick] plot[domain=-.5:2] (\x,{\x*\x/2+.25}) node[right] {$y=f(x)$};
+\draw[thick, blue] (1,0)--(1,.75);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The area under the curve is zero, because it's a region with no width.
+</p>
+</li>
+<li><p>
+<m>\displaystyle\int_a^b f(x)\,\dee{x}=\textcolor{blue}{ \displaystyle\int_a^c f(x)\,\dee{x}} +\textcolor{red}{ \int_c^b f(x)\dee{x} }</m>
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{2.5}{1}{2}
+\YExcoord{.5}{a}
+\YExcoord{1}{c}
+\YExcoord{1.5}{b}
+\draw[thick] plot[domain=-.5:2] (\x,{\x*\x/2+.25}) node[right] {$y=f(x)$};
+\draw[fill=blue, fill opacity=0.5] plot[domain=.5:1] (\x,{\x*\x/2+.25})--(1,.75)--(1,0)--(.5,0)--cycle;
+\draw[fill=red, fill opacity=0.5] plot[domain=1:1.5] (\x,{\x*\x/2+.25})--(1.5,1.375)--(1.5,0)--(1,0)--cycle;
+\draw[thick, blue] (1,0)--(1,.75);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+If we assume <m>a \leq c \leq b</m>, then this identity simply tells us that  if we add up the area under the curve from <m>a</m> to <m>c</m>, and from <m>c</m> to <m>b</m>, then we get the whole area under the curve from <m>a</m> to <m>b</m>.
+</p>
+
+<p>
+(The situation is slightly more complicated when <m>c</m> is not between <m>a</m> and <m>b</m>, but it still works out.)
+</p>
+</li>
+<li><p>
+<m>\displaystyle\int_a^b \left( f(x) + g(x) \right)\,\dee{x}
+=\textcolor{blue}{ \displaystyle\int_a^b f(x)\,\dee{x}} +\textcolor{red}{ \displaystyle\int_a^b g(x)\,\dee{x}}</m>
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{2.5}{1}{3}
+\YExcoord{.5}{a}
+\YExcoord{1.5}{b}
+\draw[thick] plot[domain=-.5:2] (\x,{\x*\x/3+.25}) node[right] {$y=f(x)$};
+\draw[thick] plot[domain=-.5:2] (\x,{2+\x/2-\x*\x/10}) node[right] {$y=f(x)+g(x)$};
+\draw[fill=blue, fill opacity=0.5] plot[domain=.5:1.5] (\x,{\x*\x/3+.25})--(1.5,0)--(.5,0)--cycle;
+\draw[fill=red, fill opacity=0.5]plot[domain=.5:1.5] (\x,{2+\x/2-\x*\x/10})--
+plot[domain=1.5:.5] (\x,{\x*\x/3+.25}) --cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The blue-shaded area in the picture above is <m>\displaystyle\int_a^b f(x)\dee{x}</m>. The area under the curve <m>f(x)+g(x)</m> but above the curve <m>f(x)</m> (shown in red) is <m>\displaystyle\int_a^b g(x)\dee{x}</m>.
+</p>
+</li>
+</ol></p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p> If <m>\displaystyle\int_0^b \cos x\dee{x}=\sin b</m>, then what is <m>\displaystyle\int_a^b \cos x\dee{x}</m>?
+</p></statement>
+<hint><p>
+Use the identity <m>\int\limits_a^b f(x)\dee{x} =
+\int\limits_a^c f(x)\dee{x}+
+\int\limits_c^b f(x)\dee{x}</m>.
+</p></hint>
+<answer><p>
+<m>\sin b-\sin a</m>
+</p></answer>
+<solution><p>
+Using the identity
+<md>
+<mrow>
+\int\limits_a^b f(x)\dee{x} &amp;=
+\int\limits_a^c f(x)\dee{x}+
+\int\limits_c^b f(x)\dee{x}\ ,
+</mrow>
+<intertext> we see</intertext><mrow>
+\int\limits_a^b\cos x\dee{x} &amp;=
+\int\limits_a^0 \cos x\dee{x}+
+\int\limits_0^b \cos x\dee{x}
+</mrow><mrow>&amp;=
+-\int\limits_0^a \cos x\dee{x}+
+\int\limits_0^b \cos x\dee{x}
+</mrow><mrow>
+&amp;=-\sin a + \sin b
+</mrow><mrow>
+&amp;=\sin b - \sin a
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2015A, 2016A</fromexam></title>
+<statement><p>
+Decide whether each of the following statements is true or false.
+If false, provide a counterexample. If true, provide a brief justification.
+(Assume that <m>f(x)</m> and <m>g(x)</m> are continuous functions.)
+</p>
+
+<p>
+<ol label="a">
+<li>
+<m>\displaystyle\int_{-3}^{-2} f(x) \dee{x}=-\displaystyle\int_{3}^{2} f(x) \dee{x}</m>.
+</li>
+<li>
+If <m>f(x)</m> is an odd function, then <m>\displaystyle \int_{-3}^{-2} f(x)\,\dee{x} = \int_2^3 f(x)\,\dee{x}</m>.
+</li>
+<li> <m>\displaystyle\int_{0}^{1} f(x)\cdot g(x) \dee{x} =\int_{0}^{1} f(x) \dee{x} \cdot \int_{0}^{1} g(x)\dee{x}</m>.
+</li>
+</ol>
+</p></statement>
+
+<answer><p>
+(a) False. For example, the function
+<md>
+<mrow>
+f(x) = \begin{cases}
+               0 &amp; \text{for } x \lt 0 \\
+               1 &amp; \text{for } x \ge 0
+      \end{cases}
+</mrow>
+</md>
+provides a counterexample.
+</p>
+
+<p> (b)
+False. For example, the function <m>f(x)=x</m> provides a counterexample.
+</p>
+
+<p> (c)
+False. For example, the functions
+<md>
+<mrow>
+f(x) = \begin{cases}
+               0 &amp; \text{for } x \lt \frac{1}{2} \\
+               1 &amp; \text{for } x\ge\frac{1}{2} \\
+      \end{cases}
+&amp;&amp;\mbox{and}&amp;&amp;g(x) = \begin{cases}
+               0 &amp; \text{for } x\ge \frac{1}{2}\\
+               1 &amp; \text{for } x \lt \frac{1}{2}
+      \end{cases}
+</mrow>
+</md>
+provide a counterexample.
+</p>
+
+</answer>
+
+<solution><p> (a)
+False. For example if
+<md>
+<mrow>
+f(x) = \begin{cases}
+               0 &amp; \text{for } x \lt 0
+</mrow><mrow>
+               1 &amp; \text{for } x\ge0
+      \end{cases}
+</mrow>
+</md>
+then <m>\textcolor{blue}{\int_{-3}^{-2} f(x) \dee{x}=0}</m> and <m>\textcolor{red}{-\int_{3}^{2} f(x) \dee{x}=-1}</m>.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{2.5}{2.5}{.5}{1.25}
+\draw[thick] (-2.25,0)--(0,0) node[opendot]{};
+\draw[thick] (0,1)node[vertex]{}--(2.25,1) ;
+\YExcoord{-2}{-3}
+\YExcoord{-1.33}{-2}
+\YExcoord{2}{3}
+\YExcoord{1.33}{2}
+\draw[ultra thick, blue] (-2,0)--(-1.33,0);
+\draw[red, thick, fill=red, fill opacity=0.5] (1.33,0) rectangle (2,1);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+ (b)
+False.  For example, if <m>f(x)=x</m>, then <m>\textcolor{blue}{\int_{-3}^{-2} f(x)\,\dee{x} }</m> is negative while
+<m>\textcolor{red}{\int_2^3 f(x)\,\dee{x} }</m> is positive, so they cannot be the same.
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaxis{2.5}{2.5}
+\draw[thick] (-2.25,-2.25)--(2.25,2.25);
+\YEnxcoord{-2}{-3}
+\YEnxcoord{-1.33}{-2}
+\YExcoord{2}{3}
+\YExcoord{1.33}{2}
+\draw[thick, blue, fill=blue, fill opacity=0.5] (-2,-2)--(-1.33,-1.33)|-(-2,0)--cycle;
+\draw[red, thick, fill=red, fill opacity=0.5] (1.33,1.33) --(2,2)|-(1.33,0)--cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+ (c)
+False.  For example, consider the functions
+<md>
+<mrow>
+f(x) = \begin{cases}
+               0 &amp; \text{for } x \lt \frac{1}{2}\\
+               1 &amp; \text{for } x\ge\frac{1}{2}
+      \end{cases}
+&amp;&amp;\mbox{and}&amp;&amp;g(x) = \begin{cases}
+               0 &amp; \text{for } x\ge \frac{1}{2} \\
+               1 &amp; \text{for } x \lt \frac{1}{2}
+      \end{cases}
+</mrow>
+</md>
+</p>
+
+<p>Then <m>f(x)\cdot g(x)=0</m> for all <m>x</m>, so <m>\int_0^1 f(x)\cdot g(x) \dee{x}=0</m>. However,
+<m>\textcolor{blue}{\int_0^1 f(x) \dee{x}= \frac{1}{2}}</m> and <m>\textcolor{red}{\int_0^1 g(x) \dee{x}= \frac{1}{2}}</m>, so <m>\int_0^1 f(x)\dee{x} \cdot \int_0^1 g(x) \dee{x}= \frac{1}{4}</m>.
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YExcoord{1}{\frac{1}{2}}
+\YExcoord{2}{1}
+\YEycoord{1}{1}
+\YEaaxis{.5}{2.5}{.5}{1.25}
+\draw[blue, fill=blue, fill opacity=0.5] (1,1)rectangle (2,0);
+\draw[thick] (-.25,0)--(1,0) node[opendot]{};
+\draw[thick] (1,1)node[vertex]{}--(2.25,1)  node[right]{$f(x)$};
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YExcoord{1}{\frac{1}{2}}
+\YExcoord{2}{1}
+\YEycoord{1}{1}
+\YEaaxis{.5}{2.5}{.5}{1.25}
+\draw[red, fill=red, fill opacity=0.5] (0,1)rectangle (1,0);
+\draw[thick] (1,0)node[vertex]{}--(2.25,0)  node[above]{$g(x)$};
+\draw[thick] (-.25,1)--(1,1) node[opendot]{};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose we want to make a right Riemann sum with 100 intervals to approximate <m>\int\limits_5^0 f(x)\dee{x}</m>, where <m>f(x)</m> is a function that gives only positive values.
+<ol label="a">
+<li> What is <m>\Delta x</m>? </li>
+<li> Are the heights of our rectangles positive or negative? </li>
+<li> Is our Riemann sum positive or negative? </li>
+<li> Is the signed area under the curve <m>y=f(x)</m> from <m>x=0</m> to <m>x=5</m> positive or negative? </li>
+</ol>
+</p></statement>
+<hint><p>
+Note that the limits of the integral given are in the opposite order from what we might expect: the smaller number is the top limit of integration.
+</p>
+
+<p>Recall <m>\De x = \frac{b-a}{n}</m>.</p>
+</hint>
+<answer><p>
+(a) <m>-\dfrac{1}{20}</m>, (b) positive, (c) negative, (d) positive.
+</p>
+
+</answer>
+<solution><p>
+<ol label="a">
+<li>
+<p>
+<m>\Delta x = \dfrac{b-a}{n}=\dfrac{0-5}{100} = -\dfrac{1}{20}</m>
+</p>
+<p>
+Note: if we were to use the Riemann-sum definition of a definite integral, this is how we would justify the identity <m>\int\limits_a^b f(x)\dee{x}=-\int\limits_b^a f(x)\dee{x}</m>.
+</p>
+</li>
+<li> The heights of the rectangles are given by <m>f(x_i)</m>, where <m>x_i = a+i\Delta x = 5 - \frac{i}{20}</m>. Since <m>f(x)</m> only gives positive values, <m>f(x_i)  \gt 0</m>, so the heights of the rectangles are positive.
+</li>
+<li> Our Riemann sum is the sum of the signed areas of individual rectangles. Each rectangle has a negative base (<m>\Delta x</m>) and a positive height (<m>f(x_i)</m>).  So, each term of our sum is negative. If we add up negative numbers, the sum is negative. So, the Riemann sum is negative.
+</li>
+<li>
+Since <m>f(x)</m> is always above the <m>x</m>-axis, <m>\int\limits_0^5 f(x)\dee{x}</m> is positive.
+</li>
+</ol>
+</p>
+</solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+
+<exercise><title><fromexam>M105 2015A</fromexam></title>
+<statement><p>
+Suppose <m>\displaystyle\int_2^3 f(x)\,\dee{x} = -1</m> and
+<m>\displaystyle\int_2^3 g(x)\,\dee{x} = 5</m>. Evaluate
+<m>\displaystyle \int_2^3 \big( 6 f(x) - 3 g(x) \big)\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+Split the <q>target integral</q> up into pieces that can be evaluated using the given integrals.
+</p></hint>
+
+<answer><p>
+<m>-21</m>
+</p></answer>
+
+<solution><p>
+The operation of integration is linear (that's
+part (d) of the <q>arithmetic of integration</q>
+Theorem <xref ref="thm_Intarith"/>),
+so that:
+<md>
+<mrow>
+\int_2^3 [6 f(x) -3 g(x)]\,\dee{x}
+&amp;= \int_2^3 6 f(x)\,\dee{x}  - \int_2^3 3 g(x)\,\dee{x}
+</mrow><mrow>
+&amp;= 6 \int_2^3  f(x)\,\dee{x}  - 3\int_2^3 g(x)\,\dee{x}
+= (6 \times (-1)) - (3 \times 5)
+= -21
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q1</fromexam></title>
+<statement><p>
+If <m>\displaystyle\int_0^2 f(x)\,\dee{x} = 3</m> and
+<m>\displaystyle\int_0^2 g(x)\,\dee{x} = -4</m>, calculate
+<m>\displaystyle \int_0^2 \big( 2 f(x) + 3 g(x) \big)\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+Split the <q>target integral</q> up into pieces that can be evaluated using the given integrals.
+</p></hint>
+
+<answer><p>
+<m>-6</m>
+</p></answer>
+
+<solution><p>
+The operation of integration is linear (that's
+part (d) of the <q>arithmetic of integration</q>
+Theorem <xref ref="thm_Intarith"/>),
+so that:
+<md>
+<mrow>
+\int_0^2 [2 f(x) +3 g(x)]\,\dee{x}
+   &amp;= \int_0^2 2 f(x)\,\dee{x}  + \int_0^2 3 g(x)\,\dee{x}
+</mrow><mrow>
+&amp;= 2 \int_0^2  f(x)\,\dee{x}  + 3\int_0^2 g(x)\,\dee{x} = (2 \times 3) + (3 \times (-4)) = -6
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q1</fromexam></title>
+<statement><p>
+ The functions <m>f(x)</m> and <m>g(x)</m> obey
+<me>
+\int_0^{-1} f(x)\,\dee{x} = 1 \qquad
+\int_0^2 f(x)\,\dee{x} = 2 \qquad
+\int_{-1}^0 g(x)\,\dee{x} = 3 \qquad
+\int_0^2 g(x)\,\dee{x} = 4
+</me>
+Find <m>\int_{-1}^2 \big[3g(x)-f(x)\big]\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+Split the <q>target integral</q> up into pieces that can be evaluated using the given integrals.
+</p></hint>
+
+<answer><p>
+20
+</p></answer>
+
+<solution><p>
+Using part (d) of the <q>arithmetic of integration</q> Theorem <xref ref="thm_Intarith"/>, followed by parts (c) and (b) of the <q>arithmetic for the domain of integration</q> Theorem <xref ref="thm_Intdomain"/>,
+<md>
+<mrow>
+\int_{-1}^2 \big[3g(x)-f(x)\big]\,\dee{x}
+&amp;=3\int_{-1}^2 g(x)\,\dee{x}-\int_{-1}^2 f(x)\,\dee{x}
+</mrow><mrow>
+&amp;=3\int_{-1}^0 g(x)\,\dee{x}+3\int_0^2 g(x)\,\dee{x}
+-\int_{-1}^0 f(x)\,\dee{x}-\int_0^2 f(x)\,\dee{x}
+</mrow><mrow>
+&amp;=3\int^0_{-1} g(x)\,\dee{x}+3\int_0^2 g(x)\,\dee{x}
++\int_0^{-1} f(x)\,\dee{x}-\int_0^2 f(x)\,\dee{x}
+</mrow><mrow>
+&amp;=3\times 3+3\times 4 + 1 - 2 = 20
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p> In Question<nbsp/><xref ref="p1_1_awkwardcircle"/>, Section<nbsp/><xref ref="sec_intdef"/>, we found that
+<me>
+\int_0^a\sqrt{1-x^2}\dee{x}=\frac{\pi}{4} - \frac{1}{2}\arccos(a)+\frac{1}{2}a\sqrt{1-a^2}</me>
+</p>
+
+<p>when <m>0\le a\le 1</m>.
+</p>
+
+<p>Using this fact, evaluate the following:
+<ol label="a">
+<li> <m>\displaystyle\int_{a}^0 \sqrt{1-x^2}\dee{x}</m>, where <m>-1 \leq a \leq 0</m>
+</li>
+<li> <m>\displaystyle\int_{a}^1 \sqrt{1-x^2}\dee{x}</m>, where <m>0 \leq a \leq 1</m>
+</li>
+</ol>
+</p></statement>
+<hint><p> For part (a), use the symmetry of the integrand. For part (b), the area <m>\int	\limits_{0}^1 \sqrt{1-x^2}\dee{x}</m> is easy to find--how is this useful to you?
+</p></hint>
+<answer><p>
+<ol label="a">
+<li> <m>\frac{\pi}{4} - \frac{1}{2}\arccos(-a)-\frac{1}{2}a\sqrt{1-a^2}</m>
+</li>
+<li> <m>\frac{1}{2}\arccos(a)-\frac{1}{2}a\sqrt{1-a^2}</m>
+</li>
+</ol>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> Since <m>\sqrt{1-x^2}</m> is an even function,
+<md>
+<mrow>
+\displaystyle\int_{a}^0 \sqrt{1-x^2}\dee{x} &amp;=\displaystyle\int_{0}^{|a|} \sqrt{1-x^2}\dee{x}  = \frac{\pi}{4} - \frac{1}{2}\arccos(|a|)+\frac{1}{2}|a|\sqrt{1-|a|^2}
+</mrow><mrow>
+&amp;=\frac{\pi}{4} - \frac{1}{2}\arccos(-a)-\frac{1}{2}a\sqrt{1-a^2}
+</mrow>
+</md>
+</li>
+<li> Note <m>\displaystyle\int_{0}^1 \sqrt{1-x^2}\dee{x}=\frac{\pi}{4}</m>, since the area under the curve represents one-quarter of the unit circle. Then,
+<md>
+<mrow>\displaystyle\int_{a}^1 \sqrt{1-x^2}\dee{x}&amp;=
+\displaystyle\int_{0}^1 \sqrt{1-x^2}\dee{x}-
+\displaystyle\int_{0}^a \sqrt{1-x^2}\dee{x}
+</mrow><mrow>
+&amp;=\frac{\pi}{4}-\left(\frac{\pi}{4} - \frac{1}{2}\arccos(a)+\frac{1}{2}a\sqrt{1-a^2}\right)
+</mrow><mrow>
+&amp;=\frac{1}{2}\arccos(a)-\frac{1}{2}a\sqrt{1-a^2}
+</mrow>
+</md>
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+
+<exercise xml:id="prob_s1_2_2"  purpose="RQS"><title><fromexam>M105 2013A</fromexam></title>
+<statement><p>
+Evaluate <m>{\displaystyle\int_{-1}^2 |2x|\dee{x}}</m>.
+</p>
+
+<p>You may use the result from  Example <xref ref="eg_INTPROPx"/> that
+<m>
+\int\limits_a^b x\dee{x}=\frac{b^2-a^2}{2}
+</m>.
+</p>
+
+</statement>
+
+<hint><p>
+The evaluation of this integral was also the subject of Question
+<xref ref="prob_s1_2_2"/> in Section<nbsp/><xref ref="sec_intdef"/>. This time try using the method of Example <xref ref="eg_INTPROPabs"/>.
+</p></hint>
+
+<answer><p>
+<m>5</m>
+</p></answer>
+
+<solution><p>
+Recall that
+<md>
+<mrow>
+|x|=\begin{cases} -x &amp;\text{if } x\le 0 \\
+                   x &amp;\text{if } x\ge 0
+    \end{cases}
+</mrow>
+</md>
+so that
+<md>
+<mrow>
+|2x|=\begin{cases} -2x &amp;\text{if } x\le 0 \\
+                    2x &amp;\text{if } x\ge 0
+    \end{cases}
+</mrow>
+</md>
+Also recall, from  Example <xref ref="eg_INTPROPx"/>, that
+<md>
+<mrow>
+\int_a^b x\dee{x}&amp;=\frac{b^2-a^2}{2}
+</mrow>
+</md>
+So
+<md>
+<mrow>
+\int_{-1}^2 |2x|\dee{x}
+&amp;=\int_{-1}^0 |2x|\dee{x}+\int_0^2 |2x|\dee{x}
+=\int_{-1}^0 (-2x)\dee{x}+\int_0^2 2x\dee{x}
+</mrow><mrow>
+&amp;= -2\int_{-1}^0 x\dee{x}+2\int_0^2 x\dee{x}
+=-2\cdot\frac{0^2-(-1)^2}{2} +2\cdot\frac{2^2-0^2}{2}
+</mrow><mrow>
+&amp;=1+4=5
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int_{-5}^5 x|x|\dee{x}\,.</m>
+</p></statement>
+<hint><p> Use symmetry.
+</p></hint>
+<answer><p> 0
+</p></answer>
+<solution><p>
+We note that the integrand <m>f(x)=x|x|</m> is an odd function, because <m>f(-x)=-x|-x|=-x|x|=-f(x)</m>. Then by Theorem<nbsp/><xref ref="thm_INTevenodd"/> part (b), <m>\displaystyle\int_{-5}^5 x|x| \dee{x}=0</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose <m>f(x)</m> is an even function and <m>\displaystyle\int_{-2}^2 f(x)\dee{x}=10</m>. What is
+<m>\displaystyle\int_{-2}^0 f(x)\dee{x}</m>?
+</p></statement>
+<hint><p>
+Check Theorem<nbsp/><xref ref="thm_INTevenodd"/>.
+</p></hint>
+<answer><p> 5
+</p></answer>
+<solution><p>
+Using Theorem<nbsp/><xref ref="thm_INTevenodd"/> part (a),
+<md>
+<mrow>10&amp;=\int_{-2}^2 f(x)\dee{x}=2\int_{0}^2f(x)\dee{x}
+</mrow><mrow>
+5&amp;=\int_{0}^2f(x)\dee{x}
+</mrow>
+<intertext>Also,</intertext><mrow>
+\int_{-2}^2 f(x)\dee{x}&amp;=\int_{-2}^0 f(x)\dee{x}+\int_{0}^2 f(x)\dee{x}
+</mrow>
+<intertext>So,</intertext><mrow>
+\int_{-2}^0 f(x)\dee{x}&amp;=\int_{-2}^2 f(x)\dee{x}-\int_{0}^2 f(x)\dee{x}
+</mrow><mrow>
+&amp;=10-5=5
+</mrow>
+</md>
+Indeed, for any even function <m>f(x)</m>, <m>\int\limits_{-a}^0 f(x)\dee{x} = \int\limits_{0}^a f(x)\dee{x}</m>.
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise><title><fromexam>2016Q1</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int_{-2}^{2} \left(5+\sqrt{4-x^2}\right)\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+Split the integral into a sum of two integrals. Interpret each geometrically.
+</p></hint>
+
+<answer><p>
+<m>20 +2\pi</m>
+</p></answer>
+
+<solution><p>
+We first use additivity:
+<md>
+<mrow>
+ \int_{-2}^{2} \left(5+\sqrt{4-x^2}\right)\dee{x} =
+\textcolor{blue}{  \int_{-2}^{2} 5\,\dee{x} }+ \textcolor{red}{\int_{-2}^{2} \sqrt{4-x^2}\,\dee{x}}
+</mrow>
+</md>
+The first integral represents the area of a rectangle of height 5 and width 4 and so equals <m>20</m>.
+The second integral represents the area above the <m>x</m>--axis and below the curve <m>y=\sqrt{4-x^2}</m> or <m>x^2+y^2=4</m>. That is a semicircle of radius 2, which has area
+<m>\frac{1}{2}\pi 2^2</m>. So
+<md>
+<mrow>
+ \int_{-2}^{2} \left(5+\sqrt{4-x^2}\right)\dee{x} =
+\textcolor{blue}{20} +\textcolor{red}{2\pi}
+</mrow>
+</md>
+</p>
+
+<sidebyside widths="40% 40%" valign="middle">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{2.5}{2.5}{.5}{5.5}
+\YExcoord{2}{2}
+\YExcoord{-2}{-2}
+\draw[thick] (-2.25,5)--(2.25,5);
+\draw[fill=blue, fill opacity=0.5] (-2,0) rectangle (2,5);
+\draw (2.25,5) node[right]{$y=5$};
+\draw[blue] (0,-1.5) node{$\int\limits_{-2}^2 5 \dee{x}=5$};
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{2.5}{2.5}{.5}{5.5}
+\draw[thick] (-2,0) arc (180:0:2cm);
+\YExcoord{2}{2}
+\YExcoord{-2}{-2}
+\draw[fill=red, fill opacity=0.5] (-2,0) arc (180:0:2cm)--cycle;
+\draw (2.25,1.5) node[right]{$y=\sqrt{4-x^2}$};
+\draw[red] (0,-1.5) node{$\int\limits_{-2}^2 \sqrt{4-x^2} \dee{x}=2\pi$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M121 2012A</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int_{-2012}^{+2012} \frac{\sin x}{\log(3+x^2)}\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+Hmmmm.  Looks like a complicated integral. It's probably a trick question.
+Check for symmetries.
+</p></hint>
+
+<answer><p>
+<m>0</m>
+</p></answer>
+
+<solution><p>
+Note that the integrand <m>f(x) = \frac{\sin x}{\log(3+x^2)}</m> is an odd function, because:
+<me>
+f(-x) = \frac{\sin(-x)}{\log(3+(-x)^2)}=\frac{-\sin x}{\log(3+x^2)} =- f(x)
+</me>
+The domain of integration <m>-2012 \le x \le 2012</m> is symmetric about <m>x=0</m>. So,
+by Theorem <xref ref="thm_INTevenodd"/>,
+<me>
+\int_{-2012}^{+2012} \frac{\sin x}{\log(3+x^2)}\dee{x} = 0
+</me>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int_{-2012}^{+2012} x^{1/3}\cos x\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+Check for symmetries again.
+</p></hint>
+
+<answer><p>
+<m>0</m>
+</p></answer>
+
+<solution><p>
+Note that the integrand <m>f(x) = x^{1/3}\cos x</m> is an odd function,
+because:
+<me>
+f(-x) = (-x)^{1/3}\cos(-x)= - x^{1/3}\cos x =- f(x)
+</me>
+The domain of integration <m>-2012 \le x \le 2012</m> is symmetric about <m>x=0</m>. So,
+by Theorem <xref ref="thm_INTevenodd"/>,
+<me>
+\int_{-2012}^{+2012}x^{1/3}\cos x\,\dee{x} = 0
+</me>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int_{0}^6 (x-3)^3\,\dee{x}\,.</m>
+</p></statement>
+<hint><p>
+What does the integrand look like to the left and right of <m>x=3</m>?
+</p></hint>
+<answer><p>
+0
+</p></answer>
+<solution><p>
+Our integrand <m>f(x)=(x-3)^3</m> is neither even nor odd. However, it does have a similar symmetry. Namely, <m>f(3+x)=-f(3-x)</m>. So, <m>f</m> is <q>negatively symmetric</q> across the line <m>x=3</m>. This suggests that the integral should be 0: the positive area to the right of <m>x=3</m> will be the same as the negative area to the left of <m>x=3</m>.
+</p>
+
+<p>Another way to see this is to notice that the graph of <m>f(x)=(x-3)^3</m> is equivalent to the graph of <m>g(x)=x^3</m> shifted three units to the right, and <m>g(x)</m> is an odd function. So,
+<me>
+\textcolor{red}{\int_{0}^6 (x-3)^3\,\dee{x}} = \textcolor{blue}{\int_{-3}^3 x^3\,\dee{x}}=0</me>
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3.5}{6.5}{3.5}{3}
+\foreach \x in {-3,3,6}{\YExcoord{\x}{\x}}
+\draw[thick, blue] plot[domain=-3:3] (\x,{\x*\x*\x/9});
+\draw[blue] (3,3) node[right]{$y=x^3$};
+\draw[thick, red] plot[domain=0:6] (\x,{(\x-3)*(\x-3)*(\x-3)/9});
+\draw[red] (6,3) node[right]{$y=(x-3)^3$};
+\draw[fill=red, fill opacity=0.5] plot[domain=0:6] (\x,{(\x-3)*(\x-3)*(\x-3)/9})|-(3,0)-|(0,-3);
+\draw[fill=blue, fill opacity=0.5] plot[domain=-3:3] (\x,{\x*\x*\x/9})|-(0,0)-|(-3,-3);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_2_ellipsearea">
+<statement><p>
+We want to compute the area of an ellipse, <m>(ax)^2+(by)^2=1</m> for some (let's say positive) constants <m>a</m> and <m>b</m>.
+<ol label="a">
+<li> Solve the equation for the upper half of the ellipse. It should have the form <q><m>y=\cdots</m></q>
+</li>
+<li> Write an integral for the area of the upper half of the ellipse. Using properties of integrals, make the integrand look like the upper half of a circle.
+</li>
+<li> Using geometry and your answer to part (b), find the area of the ellipse.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+In part (b), you'll have to factor a constant out through a square root. Remember the upper half of a circle looks like <m>\sqrt{r^2-x^2}</m>.
+</p></hint>
+<answer><p>
+(a) <m>y = \dfrac{1}{b}\sqrt{1-(ax)^2}</m>
+</p>
+<p>
+(b) <m>\displaystyle\frac{a}{b}\int_{-\frac{1}{a}}^{\frac{1}{a}}\sqrt{\frac{1}{a^2}-x^2}\dee{x}</m>
+</p>
+<p>
+(c) <m>\dfrac{\pi}{ab}</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<md>
+<mrow>
+(ax)^2+(by)^2&amp;=1
+</mrow><mrow>
+by&amp;=\sqrt{1-(ax)^2}
+</mrow><mrow>
+y &amp;= \frac{1}{b}\sqrt{1-(ax)^2}
+</mrow>
+</md>
+</li>
+<li> The values of <m>x</m> in the domain of the function above are those that satisfy <m>1-(ax)^2 \geq 0</m>. That is, <m>-\frac{1}{a}\leq x \leq \frac{1}{a}</m>. Therefore, the upper half of the ellipse has area
+<md>
+<mrow>
+\displaystyle\frac{1}{b}&amp;\displaystyle\int_{-\frac{1}{a}}^{\frac{1}{a}}\sqrt{1-(ax)^2}\dee{x}
+</mrow>
+<intertext>The upper half of a circle has equation <m>y=\sqrt{r^2-x^2}</m>.</intertext>
+<mrow>
+&amp;=\frac{1}{b}\int_{-\frac{1}{a}}^{\frac{1}{a}}\sqrt{a^2\left(\frac{1}{a^2}-x^2\right)}\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{b}\int_{-\frac{1}{a}}^{\frac{1}{a}}a\sqrt{\frac{1}{a^2}-x^2}\dee{x}
+</mrow><mrow>
+&amp;=\frac{a}{b}\int_{-\frac{1}{a}}^{\frac{1}{a}}\sqrt{\frac{1}{a^2}-x^2}\dee{x}
+</mrow>
+</md>
+</li>
+<li>
+<p>
+The function <m>y=\sqrt{\dfrac{1}{a^2}-x^2}</m> is the upper-half of the circle centred at the origin with radius <m>\dfrac{1}{a}</m>. So, the expression from (b) evaluates to <m>\left(\dfrac{a}{b}\right)\dfrac{\pi}{2a^2} = \dfrac{\pi}{2ab}</m>.
+</p>
+
+<p>The expression from (b) was half of the ellipse, so the area of the ellipse is <m>\dfrac{\pi}{ab}</m>.
+</p>
+</li>
+</ol>
+</p>
+
+<p>Remark: this was a slightly long-winded way of getting the result. The reasoning is basically this:
+<ul>
+<li> The area of the unit circle <m>x^2+y^2=1</m> is <m>\pi </m>.
+</li>
+<li> The ellipse <m>(ax)^2+y^2=1</m> is obtained by shrinking the unit circle horizontally by a factor of <m>a</m>. So, its area is <m>\dfrac{\pi}{a}</m>.
+</li>
+<li> Further, the ellipse <m>(ax)^2+(by)^2=1</m> is obtained from the previous ellipse by shrinking it vertically by a factor of <m>b</m>. So, its area is <m>\dfrac{\pi}{ab}</m>.
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement>
+<p>Fill in the following table: the product of an (even/odd) function with an (even/odd) function is an (even/odd) function. You may assume that both functions are defined for all real numbers.
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell>
+<m>\times</m></cell><cell>even</cell><cell>odd</cell>
+</row><row>
+<cell>
+even</cell><cell></cell><cell></cell>
+</row><row>
+<cell>
+odd</cell><cell></cell><cell></cell>
+</row>
+</tabular>
+</sidebyside>
+</statement>
+<hint><p>
+For two functions <m>f(x)</m> and <m>g(x)</m>, define <m>h(x)=f(x)\cdot g(x)</m>. If <m>h(-x)=h(x)</m>, then the product is even; if <m>h(-x)=-h(x)</m>, then the product is odd.
+</p>
+
+<p>The table will <em>not</em> be  the same as if we were multiplying even and odd <em>numbers</em>.
+</p></hint>
+<answer>
+
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell><m>\times</m></cell><cell>even</cell><cell>odd</cell>
+</row><row>
+<cell>even</cell><cell>even</cell><cell>odd</cell>
+</row><row>
+<cell>odd</cell><cell>odd</cell><cell>even</cell>
+</row>
+</tabular>
+</sidebyside>
+
+</answer>
+<solution><p>
+Let's recall the definitions of even and odd functions: <m>f(x)</m> is <em>even</em> if <m>f(-x)=f(x)</m> for every <m>x</m> in its domain, and <m>f(x)</m> is <em>odd</em> if <m>f(-x)=-f(x)</m> for every <m>x</m> in its domain.
+</p>
+
+<p>Let <m>h(x)=f(x)\cdot g(x)</m>.
+<ul>
+<li>even <m>\times</m> even:  If <m>f</m> and <m>g</m> are both even, then <m>h(-x)=f(-x)\cdot g(-x) = f(x)\cdot g(x)=h(x)</m>, so their product is even.
+</li>
+<li>odd <m>\times</m> odd:  If <m>f</m> and <m>g</m> are both odd, then <m>h(-x)=f(-x)\cdot g(-x) =[- f(x)]\cdot [-g(x)]=f(x)\cdot g(x)=h(x)</m>, so their product is even.
+</li>
+<li>even <m>\times</m> odd:  If <m>f</m> is even and <m>g</m> is odd, then <m>h(-x)=f(-x)\cdot g(-x) = f(x)\cdot[- g(x)]=-[f(x)\cdot g(x)]=-h(x)</m>, so their product is odd. Because multiplication is commutative, the order we multiply the functions in doesn't matter.
+</li>
+</ul>
+</p>
+
+<p>We note that the table would be the same as if we were <em>adding</em> (not multiplying) even and odd <em>numbers</em> (not functions).
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose <m>f(x)</m> is an odd function and <m>g(x)</m> is an even function, both defined at <m>x=0</m>. What are the possible values of <m>f(0)</m> and <m>g(0)</m>?
+</p></statement>
+<hint><p>
+Note <m>f(0)=f(-0)</m>.
+</p></hint>
+<answer><p>
+<m>f(0)=0</m>; <m>g(0)</m> can be any real number
+</p></answer>
+<solution><p>
+Since <m>f(x)</m> is odd, <m>f(0)=-f(-0)=-f(0)</m>. So, <m>f(0)=0</m>.
+</p>
+
+<p>However, this restriction does not apply to <m>g(x)</m>. For example, for any constant <m>c</m>, let <m>g(x)=c</m>. Then <m>g(x)</m> is even and <m>g(0)=c</m>. So, <m>g(0)</m> can be any real number.
+</p></solution>
+</exercise>
+
+<exercise xml:id="p1_1_bothevenodd">
+<statement><p>
+Suppose <m>f(x)</m> is a function defined on all real numbers that is both even and odd. What could <m>f(x)</m> be?
+</p></statement>
+<hint><p>
+If <m>f(x)</m> is even and odd, then <m>f(x)=-f(x)</m> for every <m>x</m>.
+</p></hint>
+<answer><p>
+<m>f(x)=0</m> for every <m>x</m>
+</p></answer>
+<solution><p>
+Let <m>x</m> be any real number.
+<ul>
+<li> <m>f(x)=f(-x)</m> (since <m>f(x)</m> is even), and
+</li>
+<li> <m>f(x)=-f(-x)</m> (since <m>f(x)</m> is odd).
+</li>
+<li> So, <m>f(x)=-f(x)</m>.
+</li>
+<li> Then (adding <m>f(x)</m> to both sides) we see <m>2f(x)=0</m>, so <m>f(x)=0</m>.
+</li>
+</ul>
+So, <m>f(x)=0</m> for every <m>x</m>.
+</p></solution>
+</exercise>
+
+<exercise xml:id="p1_2_derivevenodd" purpose="RQS">
+<statement><p>
+Is the derivative of an even function even or odd? Is the derivative of an odd function even or odd?
+</p></statement>
+<hint><p>
+Think about mirroring a function across an axis. What does this do to the slope?
+</p></hint>
+<answer><p>
+The derivative of an even function is odd, and the derivative of an odd function is even.
+</p></answer>
+<solution>
+
+<p>
+<ul>
+<li>
+<p>
+Solution 1: Suppose <m>f(x)</m> is an odd function. We investigate <m>f'(x)</m> using the chain rule:
+<md>
+<mrow>
+f(-x)&amp;=-f(x)&amp; \mbox{(odd function)}
+</mrow><mrow>
+\diff{}{x}\{f(-x)\}&amp;=\diff{}{x}\{-f(x)\}
+</mrow><mrow>
+-f'(-x)&amp;=-f'(x) &amp; \mbox{(chain rule)}
+</mrow><mrow>
+f'(-x)&amp;=f'(x)
+</mrow>
+</md>
+So, when <m>f(x)</m> is odd, <m>f'(x)</m> is even.
+</p>
+
+<p>
+Similarly, suppose <m>f(x)</m> is even.
+<md>
+<mrow>
+f(-x)&amp;=f(x)&amp; \mbox{(even function)}
+</mrow><mrow>
+\diff{}{x}\{f(-x)\}&amp;=\diff{}{x}\{f(x)\}
+</mrow><mrow>
+-f'(-x)&amp;=f'(x) &amp; \mbox{(chain rule)}
+</mrow><mrow>
+f'(-x)&amp;=-f'(x)
+</mrow>
+</md>
+So, when <m>f(x)</m> is even,  <m>f'(x)</m> is odd.
+</p>
+</li>
+<li>
+<p>
+Solution 2:
+Another way to think about this problem is to notice that <q>mirroring</q> a function changes the sign of its derivative. Then since an even function is <q>mirrored once</q> (across the <m>y</m>-axis), it should have <m>f'(x)=-f'(-x)</m>, and so the derivative of an even function should be an odd function. Since an odd function is <q>mirrored twice</q> (across the <m>y</m>-axis and across the <m>x</m>-axis), it should have <m>f'(x)=-(-f'(-x))=f'(-x)</m>. So the derivative of an odd function should be even. These ideas are presented in more detail below.
+</p>
+
+<p>
+First, we consider the case where <m>f(x)</m> is even, and investigate <m>f'(x)</m>.
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaxis{5}{3}
+\draw[thick,blue] plot[domain=-5:5, samples=50](\x,{2*cos(\x*3.14/5 r)});
+\draw[blue] (5,-2) node[right]{$y=f(x)$};
+\foreach \x/\y in {1/1,2/2.5,3/4}
+{\YExcoord{\y}{a_{\x}}
+\YExcoord{-\y}{-a_{\x}}}
+\foreach \x/\y in {1/1.6,2.5/0,4/-1.6}{
+	\draw[red] (\x,\y) node[vertex]{};
+	\draw[red] (-\x,\y) node[vertex]{};}
+\foreach \a/\b/\x/\y in {1/1.6/0.5/-0.37,
+2.5/0/.5/-0.63,
+4/-1.6/.5/-.37}{
+\ADD{\a}{\x}{\xx}
+\ADD{\b}{\y}{\yy}
+\SUBTRACT{\a}{\x}{\xxx}
+\SUBTRACT{\b}{\y}{\yyy}
+\ADD{-\a}{-\x}{\ww}
+\ADD{\b}{\y}{\zz}
+\SUBTRACT{-\a}{-\x}{\www}
+\SUBTRACT{\b}{\y}{\zzz}
+\draw[red, ultra thick] (\xx,\yy)--(\xxx,\yyy);
+\draw[red, ultra thick] (\ww,\zz)--(\www,\zzz);}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The whole function has a mirror-like symmetry across the <m>y</m>-axis. So, at <m>x</m> and <m>-x</m>, the function will have the same <q>steepness,</q> but if one is increasing then the other is decreasing. That is, <m>f'(-x)=-f'(x)</m>. (In the picture above, compare the slope at some point <m>a_i</m> with its corresponding point <m>-a_i</m>.) So, <m>f'(x)</m> is odd when <m>f(x)</m> is even.
+</p>
+
+<p>
+Second, let's consider the case where <m>f(x)</m> is odd, and investigate <m>f'(x)</m>. Suppose the blue graph below is <m>y=f(x)</m>. If <m>f(x)</m> were <em>even</em>, then to the left of the <m>y</m>-axis, it would look like the orange graph, which we'll call <m>y=g(x)</m>.
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaxis{5}{3}
+\draw[thick,blue] plot[domain=-1.25:1.25, xscale=4, yscale=3, samples=50](\x,{\x*(\x*\x-1)});
+\draw[thick,orange, dashed] plot[domain=0:1.25, xscale=4, yscale=3, samples=50](-\x,{\x*(\x*\x-1)});
+\draw[orange] (-5,2) node[left]{$y=g(x)$};
+\draw[blue] (5,2) node[right]{$y=f(x)$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+From our work above, we know that, for every <m>x \gt 0</m>, <m>-f'(x)=g'(-x)</m>. When <m>x \lt 0</m>, <m>f(x)=-g(x)</m>. So, if <m>x \gt 0</m>, then <m>-f'(x)=g'(-x)=-f'(-x)</m>. In other words, <m>f'(x)=f'(-x)</m>. Similarly, if <m>x \lt 0</m>, then <m>f'(x)=-g'(x)=f'(-x)</m>. Therefore <m>f'(x)</m> is even. (In the graph below, you can anecdotally verify that <m>f'(a_i)=f'(-a_i)</m>.)
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaxis{5}{3}
+\draw[thick,blue] plot[domain=-1.25:1.25, xscale=4, yscale=3, samples=50](\x,{\x*(\x*\x-1)});
+\draw[thick,orange, dashed] plot[domain=0:1.25, xscale=4, yscale=3, samples=50](-\x,{\x*(\x*\x-1)});
+\draw[orange] (-5,2) node[left]{$y=g(x)$};
+\draw[blue] (5,2) node[right]{$y=f(x)$};
+\foreach \x/\y in {1/1,2/2.5,3/4}
+{\YExcoord{\y}{a_{\x}}
+\YExcoord{-\y}{-a_{\x}}}
+\foreach \x/\y in {1/-.7,2.5/-1.14,4/0}{
+	\draw[red] (\x,\y) node[vertex]{};
+	\draw[red] (-\x,-\y) node[vertex]{};
+	\draw[orange] (-\x,\y) node[vertex]{};}
+\foreach \a/\b/\x/\y in {1/-0.7/0.5/-0.3,
+2.5/-1.14/.5/.05,
+4/0/.25/.4}{
+\ADD{\a}{\x}{\xx}
+\ADD{\b}{\y}{\yy}
+\SUBTRACT{\a}{\x}{\xxx}
+\SUBTRACT{\b}{\y}{\yyy}
+\ADD{-\a}{\x}{\ww}
+\ADD{-\b}{\y}{\zz}
+\SUBTRACT{-\a}{\x}{\www}
+\SUBTRACT{-\b}{\y}{\zzz}
+\draw[red, ultra thick] (\xx,\yy)--(\xxx,\yyy);
+\draw[orange, thick] (-\xx,\yy)--(-\xxx,\yyy);
+\draw[red, ultra thick] (\ww,\zz)--(\www,\zzz);}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+</ul>
+</p>
+
+</solution>
+</exercise></exercisegroup>
+
+</exercises>

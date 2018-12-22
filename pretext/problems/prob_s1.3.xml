@@ -1,0 +1,2058 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<exercises>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise><title><fromexam>2016Q2</fromexam></title>
+<statement><p>
+Suppose that <m>f(x)</m> is a function and <m>F(x) = e^{(x^2-3)} + 1</m> is an antiderivative of <m>f(x)</m>. Evaluate the definite integral <m>\displaystyle\int_1^{\sqrt5} f(x)\,\dee{x}</m>.
+</p></statement>
+
+<answer><p>
+<m>e^2-e^{-2}</m>
+</p></answer>
+
+<solution><p>
+The Fundamental Theorem of Calculus Part 2 (Theorem <xref ref="thm_INTfundthmofcalc"/>) tells us that
+<md>
+<mrow>
+\int_1^{\sqrt5} f(x)\,\dee{x} &amp;= F(\sqrt5) - F(1)
+</mrow><mrow>
+&amp;= \big( e^{(\sqrt5^2-3)} + 1 \big) - \big( e^{(1^2-3)} + 1 \big)
+</mrow><mrow>
+&amp;= e^{5-3} - e^{1-3} = e^2-e^{-2}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2015A</fromexam></title>
+<statement><p>
+For the function <m>f(x) = x^3 -\sin 2x</m>, find its antiderivative <m>F(x)</m> that
+satisfies <m>F(0)=1</m>.
+</p></statement>
+
+<hint><p>
+First find the general antiderivative by guessing and checking.
+</p></hint>
+
+<answer><p>
+<m>F(x) = \dfrac{x^4}{4}+\dfrac{1}{2}\cos 2x+\dfrac{1}{2}</m>.
+</p></answer>
+
+<solution><p>
+First, let's find a general antiderivative of <m>x^3-\sin(2x)</m>.
+<ul>
+<li> One function with derivative <m>x^3</m> is <m>\dfrac{x^4}{4}</m>.
+</li>
+<li>  To find an antiderivative of <m>\sin(2x)</m>, we might first guess <m>\cos(2x)</m>; checking, we see <m>\diff{}{x}\{\cos(2x)\}=-2\sin(2x)</m>. So, we only need to multiply by <m>-\dfrac{1}{2}</m>: <m>\displaystyle\diff{}{x}\left\{-\dfrac{1}{2}\cos 2x\right\}=\sin(2x)</m>.
+</li>
+</ul>
+So, the general antiderivative
+of <m>f(x)</m> is <m>\dfrac{x^4}{4}+\dfrac{1}{2}\cos 2x+C</m>. To satisfy <m>F(0)=1</m>,
+we need
+<fn>The symbol
+<m>\iff</m> is read <q>if and only if</q>. This is used in mathematics to
+express the logical equivalence of two statements. To be more precise,
+the statement <m>P \iff Q</m> tells us that <m>P</m> is true whenever <m>Q</m> is true
+and <m>Q</m> is true whenever <m>P</m> is true.</fn>
+</p>
+
+<p><md>
+<mrow>
+\Big[\frac{x^4}{4}+\frac{1}{2}\cos 2x+C\Big]_{x=0}=1
+\iff \frac{1}{2} + C = 1
+\iff C=\frac{1}{2}
+</mrow>
+</md>
+So <m>F(x) = \dfrac{x^4}{4}+\dfrac{1}{2}\cos 2x+\dfrac{1}{2}</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2014D</fromexam></title>
+<statement><p>
+Decide whether each of the following statements is true or false.
+Provide a brief justification.
+</p>
+
+<p><ol label="a">
+<li>
+If <m>f(x)</m> is continuous on <m>[1, \pi]</m> and differentiable on <m>(1,\pi)</m>, then
+           <m>\displaystyle\int_1^\pi f'(x)\,\dee{x} = f(\pi)-f(1)</m>.
+</li>
+<li>
+ <m>\displaystyle\int_{-1}^1 \frac{1}{x^2}\,\dee{x} = 0</m>.
+</li>
+<li>
+If <m>f</m> is continuous on <m>[a, b]</m> then
+           <m>\displaystyle\int_a^b xf(x)\,\dee{x} = x\int_a^b f(x)\,\dee{x} </m>.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+Be careful. Two of these make no sense at all.
+</p></hint>
+
+<answer><p>
+(a) True
+</p><p>
+(b) False
+</p><p>
+(c) False, unless <m>\int_a^b f(x)\,\dee{x}=\int_a^b xf(x)\,\dee{x} = 0</m>.
+</p></answer>
+
+<solution><p> (a)
+This is true, by part 2 of the Fundamental Theorem of Calculus,
+Thereom <xref ref="thm_INTfundthmofcalc"/>,
+with <m>G(x)=f(x)</m> and <m>f(x)</m> replaced by <m>f'(x)</m>.
+</p>
+
+<p> (b)
+This is not only false, but it makes no sense at all. The integrand
+is strictly positive so the integral has to be strictly positive. In fact it's
+<m>+\infty</m>. The Fundamental Theorem of Calculus does not apply because the integrand has an infinite discontinuity at <m>x=0</m>.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3.5}{3.5}{1}{4.25}
+\YExcoord{-1}{-1}
+\YExcoord{1}{1}
+\draw[thick] plot[domain=-3:-0.5](\x,{1/(\x*\x)});
+\draw[thick] plot[domain=.5:3](\x,{1/(\x*\x)});
+\draw (2.5,.5) node[above] {$y=\frac{1}{x^2}$};
+\draw[fill=blue, fill opacity=0.5] plot[domain=-1:-0.5](\x,{1/(\x*\x)})--(.5,4)--
+plot[domain=.5:1](\x,{1/(\x*\x)})--(1,0)--(-1,0)--cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+(c)
+This is not only false, but it makes no sense at all, unless
+<m>\int_a^b f(x)\,\dee{x}=\int_a^b xf(x)\,\dee{x} = 0</m>. The left hand
+side is a number. The right hand side is a number times <m>x</m>.
+</p>
+
+<p><me>
+\underbrace{\int_a^b xf(x)\dee{x}}_{\mathrm{area}} \qquad\mbox{vs}\qquad \underbrace{x}_{\mathrm{variable}}\cdot\underbrace{\int_a^bf(x)\dee{x}}_{\mathrm{area}}</me>
+</p>
+
+<p>For example,
+if <m>a=0</m>, <m>b=1</m> and <m>f(x) = 1</m>, then the left hand side is
+<m>\int_0^1 x\,\dee{x} = \frac{1}{2}</m> and the right hand side is
+<m>x\int_0^1 \dee{x}=x</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p> True or false: an antiderivative of <m>\dfrac{1}{x^2}</m> is <m>\log (x^2)</m> (where by <m>\log x</m> we mean logarithm base <m>e</m>).
+</p></statement>
+<hint><p>
+Check by differentiating.
+</p></hint>
+<answer><p> false
+</p></answer>
+<solution><p>
+This is a tempting thought:
+<md>
+<mrow>
+\int \frac{1}{x}\dee{x}&amp;=\log|x|+C
+</mrow>
+<intertext> so perhaps similarly </intertext><mrow>
+\int \frac{1}{x^2}\dee{x}&amp;\stackrel{?}{=}\log|x^2|+C=\log(x^2)+C
+</mrow>
+<intertext> We check by differentiating:</intertext><mrow>
+\diff{}{x}\{\log(x^2)\} &amp;= \diff{}{x}\{2\log x\}=\frac{2}{x} \neq \frac{1}{x^2}
+</mrow>
+</md> So, it wasn't so easy: false.
+</p>
+
+<p>When we're guessing antiderivatives, we often need to adjust our original guesses a little. Changing constants works well; changing functions usually does not.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p> True or false: an antiderivative of <m>\cos(e^x)</m> is <m>\frac{\sin(e^x)}{e^x}</m>.
+</p></statement>
+<hint><p>
+Check by differentiating.
+</p></hint>
+<answer><p>
+false
+</p></answer>
+<solution><p>
+This is tempting:
+ <md>
+<mrow>
+ \diff{}{x}\{\sin(e^x)\} &amp;= e^x\cos(e^x)
+ </mrow>
+<intertext>so perhaps</intertext><mrow>
+ \diff{}{x}\left\{\frac{\sin(e^x)}{e^x}\right\} &amp;\stackrel{?}{=} \cos(e^x)
+ </mrow>
+<intertext>We check by differentiating:</intertext><mrow>
+ \diff{}{x}\left\{\frac{\sin(e^x)}{e^x}\right\} &amp;=\frac{e^x\left(\cos(e^x)\cdot e^x\right)-\sin(e^x)e^x}{e^{2x}} &amp;\mbox{(quotient rule)}
+</mrow><mrow>
+ &amp; = \cos (e^x) - \frac{\sin(e^x)}{e^x}
+</mrow><mrow>
+ &amp;\neq \cos(e^x)
+ </mrow>
+</md>
+ So, the statement is false.
+</p>
+
+<p> When we're guessing antiderivatives, we often need to adjust our original guesses a little. Dividing by constants works well; dividing by functions usually does not.
+ </p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Suppose <m>F(x) = \displaystyle\int_7^x \sin(t^2)\dee{t}</m>. What is the instantaneous rate of change of <m>F(x)</m> with respect to <m>x</m>?
+</p></statement>
+<hint><p> Use the Fundamental Theorem of Calculus Part 1.
+</p></hint>
+<answer><p>
+<m>\sin(x^2)</m>
+</p></answer>
+<solution><p>
+<q>The instantaneous rate of change of <m>F(x)</m> with respect to <m>x</m></q> is another way of saying <q><m>F'(x)</m></q>. From the Fundamental Theorem of Calculus Part 1, we know this is <m>\sin (x^2)</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p> Suppose <m>F(x) = \displaystyle\int_{2}^x e^{1/t}\dee{t}</m>. What is the slope of the tangent line to <m>y=F(x)</m> when <m>x=3</m>?
+</p></statement>
+<hint><p>
+Use the Fundamental Theorem of Calculus, Part 1.
+</p></hint>
+<answer><p>
+<m>\sqrt[3]{e}</m>
+</p></answer>
+<solution><p>
+The slope of the tangent line to <m>y=F(x)</m> when <m>x=3</m> is exactly <m>F'(3)</m>. By the Fundamental Theorem of Calculus Part 1, <m>F'(x) = e^{1/x}</m>. Then <m>F'(3) = e^{1/3} = \sqrt[3]{e}</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Suppose <m>F'(x)=f(x)</m>. Give two different antiderivatives of <m>f(x)</m>.
+</p></statement>
+<hint><p>
+You already know that <m>F(x)</m> is an antiderivative of <m>f(x)</m>.
+</p></hint>
+<answer><p>
+For any constant <m>C</m>, <m>F(x)+C</m> is an antiderivative of <m>f(x)</m>. So, for example, <m>F(x)</m> and <m>F(x)+1</m> are both antiderivatives of <m>f(x)</m>.
+</p></answer>
+<solution><p>
+For any constant <m>C</m>, <m>F(x)+C</m> is an antiderivative of <m>f(x)</m>, because <m>\diff{}{x}\{F(x)+C\} = \diff{}{x}\{F(x)\} = f(x)</m>. So, for example, <m>F(x)</m> and <m>F(x)+1</m> are both antiderivatives of <m>f(x)</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> In Question<nbsp/><xref ref="p1_1_awkwardcircle"/>, Section<nbsp/><xref ref="sec_intdef"/>, we found that
+<me>
+\int_0^a\sqrt{1-x^2}\dee{x}=\frac{\pi}{4} - \frac{1}{2}\arccos(a)+\frac{1}{2}a\sqrt{1-a^2}.</me>
+</p>
+
+<p><ol label="a">
+<li> Verify that <m>\displaystyle\diff{}{a}\left\{\frac{\pi}{4} - \frac{1}{2}\arccos(a)+\frac{1}{2}a\sqrt{1-a^2}\right\} = \sqrt{1-a^2}</m>.
+</li>
+<li> Find a function <m>F(x)</m> that satisfies <m>F'(x) = \sqrt{1-x^2}</m> and <m>F(0)=\pi</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p> (a) Recall <m>\diff{}{x}\{\arccos x\} = \frac{-1}{\sqrt{1-x^2}}</m>. </p>
+<p>
+(b) All antiderivatives of <m>\sqrt{1-x^2}</m> differ from one another by a constant. You already know one antiderivative.
+</p></hint>
+<answer><p>
+<ol label="a">
+<li> We differentiate with respect to <m>a</m>. Recall <m>\diff{}{x}\{\arccos x\} = \frac{-1}{\sqrt{1-x^2}}</m>. To differentiate <m>\frac{1}{2}a\sqrt{1-a^2}</m>, we use the product and chain rules.
+<md>
+<mrow>
+\diff{}{a}\left\{\frac{\pi}{4} - \frac{1}{2}\arccos(a)+\frac{1}{2}a\sqrt{1-a^2}\right\} &amp;=
+0-\frac{1}{2}\cdot\frac{-1}{\sqrt{1-a^2}} + \left(\frac{1}{2}a\right)\cdot\frac{-2a}{2\sqrt{1-a^2}} + \frac{1}{2}\sqrt{1-a^2}
+</mrow><mrow>
+&amp;=\frac{1}{2\sqrt{1-a^2}}-
+\frac{a^2}{2\sqrt{1-a^2}}+\frac{1-a^2}{2\sqrt{1-a^2}}
+</mrow><mrow>
+&amp;=\frac{1-a^2+1-a^2}{2\sqrt{1-a^2}}
+</mrow><mrow>
+&amp;=\frac{2(1-a^2)}{2\sqrt{1-a^2}}
+</mrow><mrow>&amp;=\sqrt{1-a^2}
+</mrow>
+</md>
+</li>
+<li> <m>F(x) =  \dfrac{5\pi}{4}-\dfrac{1}{2}\arccos(x)+\dfrac{1}{2}x\sqrt{1-x^2}</m>
+</li>
+</ol>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>  We differentiate with respect to <m>a</m>. Recall <m>\diff{}{x}\{\arccos x\} = \frac{-1}{\sqrt{1-x^2}}</m>. To differentiate <m>\frac{1}{2}a\sqrt{1-a^2}</m>, we use the product and chain rules.
+<md>
+<mrow>
+\diff{}{a}\left\{\frac{\pi}{4} - \frac{1}{2}\arccos(a)+\frac{1}{2}a\sqrt{1-a^2}\right\} &amp;=
+0-\frac{1}{2}\cdot\frac{-1}{\sqrt{1-a^2}} + \left(\frac{1}{2}a\right)\cdot\frac{-2a}{2\sqrt{1-a^2}} + \frac{1}{2}\sqrt{1-a^2}
+</mrow><mrow>
+&amp;=\frac{1}{2\sqrt{1-a^2}}-
+\frac{a^2}{2\sqrt{1-a^2}}+\frac{1-a^2}{2\sqrt{1-a^2}}
+</mrow><mrow>
+&amp;=\frac{1-a^2+1-a^2}{2\sqrt{1-a^2}}
+</mrow><mrow>
+&amp;=\frac{2(1-a^2)}{2\sqrt{1-a^2}}
+</mrow><mrow>&amp;=\sqrt{1-a^2}
+</mrow>
+</md>
+</li>
+<li>
+<p>
+Let <m>G(x) = \frac{\pi}{4}-\frac{1}{2}\arccos(x)+\frac{1}{2}x\sqrt{1-x^2}</m>. We showed in part (a) that <m>G(x)</m> is an antiderivative of <m>\sqrt{1-x^2}</m>. Since <m>F(x)</m> is also an antiderivative of <m>\sqrt{1-x^2}</m>, <m>F(x) = G(x)+C</m> for some constant <m>C</m> (this is Lemma<nbsp/><xref ref="lemma_C"/>).
+</p>
+
+<p>
+Note <m>G(0)=\displaystyle\int_0^0\sqrt{1-x^2}\dee{x} =0</m>, so if <m>F(0)=\pi</m>, then <m>F(x)=G(x)+\pi</m>. That is,
+<me>
+F(x) =  \frac{5\pi}{4}-\frac{1}{2}\arccos(x)+\frac{1}{2}x\sqrt{1-x^2}\ .</me>
+</p>
+</li>
+</ol>
+</p>
+</solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate the following integrals using the Fundamental Theorem of Calculus Part 2, or explain why it does not apply.
+<ol label="a">
+<li> <m>\displaystyle\int_{-\pi}^\pi \cos x \dee{x}</m>. </li>
+<li> <m>\displaystyle\int_{-\pi}^\pi \sec^2 x \dee{x}</m>. </li>
+<li> <m>\displaystyle\int_{-2}^0 \frac{1}{x+1}\dee{x}</m>. </li>
+</ol>
+</p></statement>
+
+<hint><p>
+In order to apply the Fundamental Theorem of Calculus Part 2, the integrand must be continuous over the interval of integration.
+</p></hint>
+<answer><p>
+(a) 0
+</p><p>
+(b),(c) The FTC does not apply, because the integrand is not continuous over the interval of integration.
+</p>
+</answer>
+
+<solution><p>
+<ol label="a">
+<li> The antiderivative of <m>\cos x</m> is <m>\sin x</m>, and <m>\cos x</m> is continuous everywhere, so
+<m>\displaystyle\int_{-\pi}^\pi \cos x \dee{x} = \sin(\pi)-\sin(-\pi) = 0</m>.
+</li>
+<li> Since <m>\sec^2 x</m> is discontinuous at <m>x=\pm\frac{\pi}{2}</m>, the Fundamental Theorem of Calculus Part 2 does not apply to <m>\displaystyle\int_{-\pi}^\pi \sec^2 x \dee{x}</m>.
+</li>
+<li> Since <m>\frac{1}{x+1}</m> is discontinuous at <m>x=-1</m>,  the Fundamental Theorem of Calculus Part 2 does not apply to <m>\displaystyle\int_{-2}^0 \frac{1}{x+1}\dee{x}</m>.
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+
+<introduction><p>Questions<nbsp/><xref ref="p1_1_FTC1" text="local"/> through <xref ref="p1_1_FTC2" text="local"/> are meant to help reinforce key ideas in  the Fundamental Theorem of Calculus and its proof.</p></introduction>
+
+
+<exercise xml:id="p1_1_FTC1">
+<statement><p>  As in the proof of the Fundamental Theorem of Calculus, let <m>F(x) = \int_{a}^x f(t)\dee{t}</m>.
+In the diagram below, shade the area corresponding to <m>F(x+h)-F(x)</m>.
+</p><sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEtaaxis{1}{5}{1}{3}
+\YExcoord{1}{a}
+\YExcoord{2}{x}
+\YExcoord{4}{x+h}
+\draw[thick] plot[domain=.5:4.5] (\x,{3-(\x-3)*(\x-3)/2}) node[right]{$y=f(t)$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p> Use the definition of <m>F(x)</m> as an area.
+</p></hint>
+<answer><sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEtaaxis{1}{5}{1}{3}
+\YExcoord{1}{a}
+\YExcoord{2}{x}
+\YExcoord{4}{x+h}
+\draw[thick] plot[domain=.5:4.5] (\x,{3-(\x-3)*(\x-3)/2}) node[right]{$y=f(t)$};
+\draw[fill=blue, fill opacity=0.5] plot[domain=2:4] (\x,{3-(\x-3)*(\x-3)/2}) |-(2,0)--cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></answer>
+<solution>
+
+<p>Using the definition of <m>F</m>, <m>\textcolor{red}{F(x)}</m> is the area under the curve from <m>a</m> to <m>x</m>, and <m>\textcolor{blue}{F(x+h)}</m> is the area under the curve from <m>a</m> to <m>x+h</m>. These are shown on the same diagram, below.
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEtaaxis{1}{5}{1}{3}
+\YExcoord{1}{a}
+\YExcoord{2}{x}
+\YExcoord{4}{x+h}
+\draw[thick] plot[domain=.5:4.5] (\x,{3-(\x-3)*(\x-3)/2}) node[right]{$y=f(t)$};
+\draw[pattern=north east lines, pattern color=blue] plot[domain=1:4] (\x,{3-(\x-3)*(\x-3)/2}) |-(1,0)--cycle;
+\draw[pattern color=red, pattern=north west lines,  opacity=0.5] plot[domain=1:2] (\x,{3-(\x-3)*(\x-3)/2}) |-(1,0)--cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Then the area represented by <m>\textcolor{blue}{F(x+h)}-\textcolor{red}{F(x)}</m> is the area that is outside the red, but inside the blue. Equivalently, it is <m>\int\limits_{x}^{x+h} f(t)\dee{t}</m>.
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEtaaxis{1}{5}{1}{3}
+\YExcoord{1}{a}
+\YExcoord{2}{x}
+\YExcoord{4}{x+h}
+\draw[thick] plot[domain=.5:4.5] (\x,{3-(\x-3)*(\x-3)/2}) node[right]{$y=f(t)$};
+\draw[fill=blue, fill opacity=0.5] plot[domain=2:4] (\x,{3-(\x-3)*(\x-3)/2}) |-(2,0)--cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise xml:id="p1_1_intpic1" purpose="RQS">
+<statement><p>
+Let <m>F(x) = \displaystyle\int_0^x f(t)dt</m>, where <m>f(t)</m> is shown in the graph below, and <m>0 \leq x \leq 4</m>.
+<ol label="a">
+<li> Is <m>F(0)</m> positive, negative, or zero?
+</li>
+<li> Where is <m>F(x)</m> increasing and where is it decreasing?
+</li>
+</ol>
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEtaaxis{1}{5}{3}{3}
+\draw[thick] plot[domain=-1:4.3, samples=60] (\x,{(\x+.5)*(\x-1)*(\x-3)/(abs(\x)+1)});
+\foreach \x in {1,...,4}{\YExcoord{\x}{\x}}
+\draw (4,2) node[right] {$y=f(t)$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+<m>F(x)</m> represents net <em>signed</em> area.
+</p></hint>
+<answer><p>
+(a) zero
+</p><p>
+ (b) increasing when <m>0  \lt  x  \lt  1</m> and <m>3 \lt x \lt 4</m>; decreasing when <m>1 \lt x \lt 3</m>
+</p></answer>
+<solution><p>
+We evaluate <m>F(0)</m> using the definition: <m>F(0) = \int_0^0 f(t)\dee{t}=0</m>. Although <m>f(0) \gt 0</m>, the <em>area</em> from <m>t=0</m> to <m>t=0</m> is zero.
+</p>
+<p>
+As <m>x</m> moves along, <m>F(x)</m> adds bits of signed area. If it's adding positive area, it's increasing, and if it's adding negative area, it's decreasing. So, <m>F(x)</m> is increasing when <m>0  \lt  x  \lt  1</m> and <m>3 \lt x \lt 4</m>, and <m>F(x)</m> is decreasing when <m>1 \lt x \lt 3</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>G(x) = \displaystyle\int_x^0 f(t)dt</m>, where <m>f(t)</m> is shown in the graph below, and <m>0 \leq x \leq 4</m>.
+<ol label="a">
+<li> Is <m>G(1)</m> positive, negative, or zero?
+</li>
+<li> Where is <m>G(x)</m> increasing and where is it decreasing?
+</li>
+</ol>
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEtaaxis{1}{5}{3}{3}
+\draw[thick] plot[domain=-1:4.3, samples=60] (\x,{(\x+.5)*(\x-1)*(\x-3)/(abs(\x)+1)});
+\foreach \x in {1,...,4}{\YExcoord{\x}{\x}}
+\draw (4,2) node[right] {$y=f(t)$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+Note <m>G(x)=-F(x)</m>, when <m>F(x)</m> is defined as in Question<nbsp/><xref ref="p1_1_intpic1" text="local"/>.
+</p></hint>
+<answer><p>
+(a) zero
+</p><p>
+ (b) <m>G(x)</m> is increasing when <m>1 \lt x \lt 3</m>, and it is decreasing when <m>0 \lt x \lt 1</m> and when <m>3 \lt x \lt 4</m>.
+</p></answer>
+<solution><p>
+This question is nearly identical to Question<nbsp/><xref ref="p1_1_intpic1" text="local"/>, with
+<me>
+G(x) = \displaystyle\int_x^0 f(t)\dee{t} = -\displaystyle\int_0^x f(t)\dee{t}=-F(x).</me>
+</p>
+
+<p>So, <m>G(x)</m> increases when <m>F(x)</m> decreases, and vice-versa. Therefore: <m>G(0)=0</m>, <m>G(x)</m> is increasing when <m>1 \lt x \lt 3</m>, and <m>G(x)</m> is decreasing when <m>0 \lt x \lt 1</m> and when <m>3 \lt x \lt 4</m>.
+</p></solution>
+</exercise>
+
+<exercise xml:id="p1_1_FTC2">
+<statement><p> Let <m>F(x) = \displaystyle\int_a^x t\dee{t}</m>.
+Using the definition of the derivative, find <m>F'(x)</m>.
+</p></statement>
+<hint><p> Using the definition of the derivative, <m>F'(x) = \displaystyle\lim_{h \to 0}\dfrac{F(x+h)-F(x)}{h}</m>.
+</p>
+
+<p>The area of a trapezoid with base <m>b</m> and heights <m>h_1</m> and <m>h_2</m> is <m>\frac{1}{2}b(h_1+h_2)</m>.
+</p></hint>
+<answer><p>
+Using the definition of the derivative,
+<md>
+<mrow> F'(x) &amp; = \displaystyle\lim_{h \to 0}\dfrac{F(x+h)-F(x)}{h}
+</mrow><mrow>
+&amp;=\lim_{h \to 0}\dfrac{\int_a^{x+h} t\dee{t}-\int_a^x t\dee{t}}{h}
+</mrow><mrow>
+&amp;=\lim_{h \to 0}\dfrac{\int_x^{x+h} t\dee{t}}{h}
+</mrow>
+<intertext>The numerator describes the area of a trapezoid with base <m>h</m> and heights <m>x</m> and <m>x+h</m>.</intertext><mrow>
+&amp;=\lim_{h \to 0}\dfrac{\frac{1}{2}h(x+x+h)}{h}
+</mrow><mrow>
+&amp;=\lim_{h \to 0}\left(x+\frac{1}{2}h\right)
+</mrow><mrow>
+&amp;=x
+</mrow>
+</md>
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEtaaxis{1}{3}{1}{3}
+\YExcoord{1}{x}
+\YExcoord{2}{x+h}
+\YEycoord{1}{x}
+\YEycoord{2}{x+h}
+\draw[thick] (-.5,-.5)--(2.75,2.75) node[right]{$y=t$};
+\draw[fill=blue, fill opacity=0.5] (1,0)--(1,1)--(2,2)--(2,0)--cycle;
+\draw[blue] (3,1) node[right]{$\int_x^{x+h}t\dee t$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+So, <m>F'(x)=x</m>.
+</p></answer>
+<solution><p>
+Using the definition of the derivative,
+<md>
+<mrow> F'(x) &amp; = \displaystyle\lim_{h \to 0}\dfrac{F(x+h)-F(x)}{h}
+</mrow><mrow>
+&amp;=\lim_{h \to 0}\dfrac{\int_a^{x+h} t\dee{t}-\int_a^x t\dee{t}}{h}
+</mrow><mrow>
+&amp;=\lim_{h \to 0}\dfrac{\int_x^{x+h} t\dee{t}}{h}
+</mrow>
+<intertext>The numerator describes the area of a trapezoid with base <m>h</m> and heights <m>x</m> and <m>x+h</m>.</intertext><mrow>
+&amp;=\lim_{h \to 0}\dfrac{\frac{1}{2}h(x+x+h)}{h}
+</mrow><mrow>
+&amp;=\lim_{h \to 0}\left(x+\frac{1}{2}h\right)
+</mrow><mrow>
+&amp;=x
+</mrow>
+</md>
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEtaaxis{1}{3}{1}{3}
+\YExcoord{1}{x}
+\YExcoord{2}{x+h}
+\YEycoord{1}{x}
+\YEycoord{2}{x+h}
+\draw[thick] (-.5,-.5)--(2.75,2.75) node[right]{$y=t$};
+\draw[fill=blue, fill opacity=0.5] (1,0)--(1,1)--(2,2)--(2,0)--cycle;
+\draw[blue] (3,1) node[right]{$\int_x^{x+h}t\dee t$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+So, <m>F'(x)=x</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Give a continuous function <m>f(x)</m> so that <m>F(x) = \displaystyle\int_0^x f(t)dt</m> is a constant.
+</p></statement>
+<hint><p>
+There is only one!
+</p></hint>
+<answer><p>
+<m>f(t)=0</m>
+</p></answer>
+<solution><p>
+If <m>F(x)</m> is constant, then <m>F'(x)=0</m>. By the Fundamental Theorem of Calculus Part 1, <m>F'(x)=f(x)</m>. So, the only possible continuous function fitting the question is <m>f(x)=0</m>.
+</p>
+
+<p>This makes intuitive sense: if moving <m>x</m> doesn't add or subtract area under the curve, then there must not be any area under the curve--the curve should be the same as the <m>x</m>-axis.
+</p>
+
+<p>As an aside, we mention that there are other, <em>non-continuous</em> functions <m>f(t)</m> such that <m>\int_0^x f(t)\dee{t} = 0</m> for all <m>x</m>. For example,
+<m>f(t) = \left\{\begin{array}{cc}
+0 &amp; x \neq 0\\
+1 &amp; x=0
+\end{array}\right.</m>. These kinds of removable discontinuities will not factor heavily in our discussion of integrals.
+</p></solution>
+</exercise>
+
+<introduction><p>So far, we have been able to guess many antiderivatives. Often, however, antiderivatives are very difficult to guess. In Questions<nbsp/><xref ref="p1_3_inttablea" text="local"/> through <xref ref="p1_3_inttableb" text="local"/>, we will find some antiderivatives that might appear in a table of integrals. Coming up with the antiderivative might be quite difficult (strategies to do just that will form a large part of this semester), but <em>verifying</em> that your antiderivative is correct is as simple as differentiating.</p></introduction>
+
+<exercise xml:id="p1_3_inttablea">
+<statement><p> Evaluate and simplify <m>\diff{}{x}\{x\log(ax)-x\}</m>, where <m>a</m> is some constant and <m>\log(x)</m> is the logarithm base <m>e</m>. What <em>antiderivative</em> does this tell you?
+</p></statement>
+<hint><p>
+If <m>\diff{}{x}\{F(x)\}=f(x)</m>, that tells us <m>\int f(x)\dee{x} = F(x)+C</m>.
+</p></hint>
+<answer><p>
+<m>\int \log(ax)\dee{x}= x\log(ax)-x+C</m>, where <m>a</m> is a given constant, and <m>C</m> is any constant.
+</p></answer>
+<solution><p>
+<md>
+<mrow>
+\diff{}{x}\{x\log(ax)-x\}&amp;=x\left(\frac{a}{ax}\right)+\log(ax)-1 &amp;\mbox{(product rule, chain rule)}
+</mrow><mrow>
+&amp;=\log(ax)
+</mrow>
+<intertext>So, we know</intertext><mrow>
+\int \log(ax)\dee{x}&amp;= x\log(ax)-x+C&amp;\mbox{where $a$ is a given constant, and $C$ is any constant.}
+</mrow>
+</md>
+Remark: <m>\int \log(ax)\dee{x}</m> can be calculated using the method of Integration by Parts, which you will learn in Section<nbsp/><xref ref="sec_intbyparts"/>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate and simplify <m>\diff{}{x}\{e^x\left(x^3-3x^2+6x-6\right)\}</m>. What <em>antiderivative</em> does this tell you?
+</p></statement>
+<hint><p>
+When you're differentiating, you can leave the <m>e^x</m> factored out.
+</p></hint>
+<answer><p>
+<m>\int x^3e^x\dee{x}=e^x\left(x^3-3x^2+6x-6\right)+C
+</m>
+</p></answer>
+<solution><p>
+<md>
+<mrow>
+\diff{}{x}\left\{e^x\left(x^3-3x^2+6x-6\right)\right\}&amp;=e^x\left(3x^2-6x+6\right)+e^x\left(x^3-3x^2+6x-6\right)
+&amp;\mbox{(product rule)}
+</mrow><mrow>
+&amp;=e^x\left(3x^2-6x+6+x^3-3x^2+6x-6\right)
+</mrow><mrow>
+&amp;=x^3e^x
+</mrow>
+<intertext>So,</intertext><mrow>
+\int x^3e^x\dee{x}&amp;=e^x\left(x^3-3x^2+6x-6\right)+C
+</mrow>
+</md>
+</p>
+
+<p>Remark: <m>\int x^3e^x\dee{x}</m> can be calculated using the method of Integration by Parts, which you will learn in Section<nbsp/><xref ref="sec_intbyparts"/>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate and simplify <m>\diff{}{x}\left\{\log\left|x+\sqrt{x^2+a^2}\right|\right\}</m>, where <m>a</m> is some constant. What <em>antiderivative</em> does this tell you?
+</p></statement>
+<hint><p>
+After differentiation, you can simplify pretty far. Keep at it!
+</p></hint>
+<answer><p>
+<m>\displaystyle\int \dfrac{1}{\sqrt{x^2+a^2}}\dee{x} = \log\left|x+\sqrt{x^2+a^2}\right|+C
+</m> when <m>a</m> is a given constant. As usual, <m>C</m> is an arbitrary constant.
+</p></answer>
+<solution><p>
+<md>
+<mrow>
+\diff{}{x}\left\{\log\left|x+\sqrt{x^2+a^2}\right|\right\}&amp;=
+\frac{1}{x+\sqrt{x^2+a^2}}\cdot \left(1+\frac{1}{2\sqrt{x^2+a^2}}\cdot 2x\right)
+&amp;\mbox{(chain rule)}
+</mrow><mrow>
+&amp;=\frac{1+\frac{x}{\sqrt{x^2+a^2}}}{x+\sqrt{x^2+a^2}}
+=\frac{\frac{\sqrt{x^2+a^2}+x}{\sqrt{x^2+a^2}}}{x+\sqrt{x^2+a^2}}
+</mrow><mrow>
+&amp;=\frac{1}{\sqrt{x^2+a^2}}
+</mrow>
+<intertext>So,</intertext><mrow>
+\int \frac{1}{\sqrt{x^2+a^2}}\dee{x} &amp;= \log\left|x+\sqrt{x^2+a^2}\right|+C
+</mrow>
+</md>
+</p>
+
+<p>Remark: <m>\int \frac{1}{\sqrt{x^2+a^2}}\dee{x} </m> can be calculated using the method of Trigonometric Substitution, which you will learn in Section<nbsp/><xref ref="sec_trigsub"/>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise xml:id="p1_3_inttableb">
+<statement><p> Evaluate and simplify <m>\displaystyle\diff{}{x}\left\{\sqrt{x(a+x)}-a\log\left(\sqrt{x}+\sqrt{a+x}\right)\right\}</m>, where <m>a</m> is some constant. What <em>antiderivative</em> does this tell you?
+</p></statement>
+<hint><p> This derivative also simplifies considerably. You might need to add fractions by finding a common denominator.
+</p></hint>
+<answer><p>
+<m>\displaystyle\int \dfrac{x}{\sqrt{x(a+x)}}\dee{x}=\sqrt{x(a+x)}-a\log\left(\sqrt{x}+\sqrt{a+x}\right)+C</m>
+</p></answer>
+<solution><p>
+Using the chain rule:
+<md>
+<mrow>
+\diff{}{x}&amp;\left\{\sqrt{x(a+x)}-a\log\left(\sqrt{x}+\sqrt{a+x}\right)\right\}
+</mrow><mrow>
+&amp;=
+\frac{x+(a+x)}{2\sqrt{x(a+x)}}-a\left(\frac{1}{\sqrt{x}+\sqrt{a+x}}\cdot\left(\frac{1}{2\sqrt{x}}+\frac{1}{2\sqrt{a+x}}\right)\right)
+</mrow><mrow>&amp;=
+\frac{2x+a}{2\sqrt{x(a+x)}}-
+a\left(
+\frac{1}{\sqrt{x}+\sqrt{a+x}}\cdot\left(
+\frac{\sqrt{a+x}+\sqrt{x}}{2\sqrt{x(a+x)}}\right)\right)
+</mrow><mrow>&amp;=
+\frac{2x+a}{2\sqrt{x(a+x)}}-
+a\left(\frac{1}{2\sqrt{x(a+x)}}\right)
+</mrow><mrow>
+&amp;=\frac{2x}{2\sqrt{x(a+x)}} = \frac{x}{\sqrt{x(a+x)}}
+</mrow>
+<intertext>So,</intertext><mrow>
+\int \frac{x}{\sqrt{x(a+x)}}\dee{x}&amp;=\sqrt{x(a+x)}-a\log\left(\sqrt{x}+\sqrt{a+x}\right)+C
+</mrow>
+</md>
+</p>
+
+<p>Remark: <m>\int \frac{x}{\sqrt{x(a+x)}}\dee{x}</m> can be calculated using the method of Trigonometric Substitution, which you will learn in Section<nbsp/><xref ref="sec_trigsub"/>.
+</p>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise purpose="RQS"><title><fromexam>2016Q2</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int_0^2 \big(x^3+\sin x)\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+Guess a function whose derivative is the integrand, then use the Fundamental Theorem of Calculus Part 2.
+</p></hint>
+
+<answer><p>
+<m>5-\cos 2</m>
+</p></answer>
+
+<solution><p>
+By the Fundamental Theorem of Calculus,
+<md>
+<mrow>
+\int_0^2 \big(x^3+\sin x)\,\dee{x}
+&amp;=\left[\frac{x^4}{4}-\cos x\right]_0^2
+</mrow><mrow>
+&amp;=\left(\frac{2^4}{4}-\cos 2\right)-\left(0 -\cos 0\right)
+</mrow><mrow>
+&amp;= 4-\cos2+1=5-\cos2.
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int_1^2 \frac{x^2+2}{x^2}\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+Split the given integral up into two integrals.
+</p></hint>
+
+<answer><p>
+<m>2</m>
+</p></answer>
+
+<solution><p>
+By part (d) of our <q>Arithmetic of Integration</q> theorem, Theorem <xref ref="thm_Intarith"/>,
+<me>
+\int_1^2 \frac{x^2+2}{x^2}\,\dee{x}
+=\int_1^2 \Big[1+\frac{2}{x^2}\Big]\,\dee{x}
+=\int_1^2 \dee{x} + 2\int_1^2 \frac{1}{x^2}\,\dee{x}
+</me>
+Then by the Fundamental Theorem of Calculus Part 2,
+<md>
+<mrow>
+\int_1^2 \dee{x} + 2\int_1^2 \frac{1}{x^2}\,\dee{x}
+=\Big[x\Big]_1^2 + 2\Big[-\frac{1}{x}\Big]_1^2
+=\big[2-1\big] + 2\Big[-\frac{1}{2}+1\Big]
+=2
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int \dfrac{1}{1+25x^2}\dee{x}</m>.
+</p></statement>
+<hint><p>
+The integrand is similar to <m>\dfrac{1}{1+x^2}</m>, so something with arctangent seems in order.
+</p></hint>
+<answer><p>
+<m>\dfrac{1}{5}\arctan(5x)+C</m>
+</p></answer>
+<solution><p>
+The integrand is similar to <m>\dfrac{1}{1+x^2}</m>, which is the derivative of arctangent. Indeed, we have
+<md>
+<mrow>\displaystyle\int \dfrac{1}{1+25x^2}\dee{x} &amp;= \int \dfrac{1}{1+(5x)^2}\dee{x}.
+</mrow>
+<intertext> So, a reasonable first guess for the antiderivative might be </intertext><mrow>
+\textcolor{red}{F(x)} &amp;\textcolor{red}{\stackrel{?}{=} \arctan(5x)}.
+</mrow>
+<intertext> However, because of the chain rule, </intertext><mrow>
+\color{red}{F'(x)} &amp;\color{red}{= \dfrac{5}{1+(5x)^2}}.
+</mrow>
+<intertext> In order to <q>fix</q> the numerator, we make a second guess: </intertext><mrow>
+\color{blue}{F(x)} &amp;\color{blue}{= \frac{1}{5}\arctan(5x)}
+</mrow><mrow>
+\color{blue}{F'(x)} &amp;\color{blue}{= \dfrac{1}{5}\left(\dfrac{5}{1+(5x)^2}\right) = \dfrac{1}{1+25x^2}}
+</mrow><mrow>
+ \mbox{So,}\qquad
+\displaystyle\int \dfrac{1}{1+25x^2}\dee{x}&amp;=\frac{1}{5}\arctan(5x)+C.
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int \dfrac{1}{\sqrt{2-x^2}}\dee{x}</m>.
+</p></statement>
+<hint><p>
+The integrand is similar to <m>\dfrac{1}{\sqrt{1-x^2}}</m>, so factoring out <m>\sqrt{2}</m> from the denominator will make it look like some flavour of arcsine.
+</p></hint>
+<answer><p>
+<m>\arcsin\left(\dfrac{x}{\sqrt{2}}\right)+C</m>
+</p></answer>
+<solution><p>
+The integrand is similar to <m>\dfrac{1}{\sqrt{1-x^2}}</m>. In order to formulate a guess for the antiderivative, let's factor out <m>\sqrt{2}</m> from the denominator:
+<md>
+<mrow>
+\displaystyle\int \dfrac{1}{\sqrt{2-x^2}}\dee{x}&amp;=
+\displaystyle\int \dfrac{1}{\sqrt{2\left(1-\frac{x^2}{2}\right)}}\dee{x}
+</mrow><mrow>
+&amp;=\displaystyle\int \dfrac{1}{
+\sqrt{2}\sqrt{1-\frac{x^2}{2}}}\dee{x}
+</mrow><mrow>
+&amp;=
+\int\frac{1}{\sqrt{2}}\cdot \dfrac{1}{
+\sqrt{1-\left(\dfrac{x}{\sqrt2}\right)^2}}\dee{x}
+</mrow>
+<intertext>At this point, we might guess that our antiderivative is something like <m>F(x) = \arcsin\left(\dfrac{x}{\sqrt{2}}\right)</m>. To explore this possibility, we can differentiate, and see what we get.
+</intertext>
+<mrow>
+\diff{}{x}\left\{\arcsin\left(\dfrac{x}{\sqrt{2}}\right)\right\}&amp;=\frac{1}{\sqrt{2}}\cdot\dfrac{1}{\sqrt{1-\left(\dfrac{x}{\sqrt{2}}\right)^2}}
+</mrow>
+<intertext>This is exactly what we want! So,
+</intertext><mrow>
+\int \dfrac{1}{\sqrt{2-x^2}}\dee{x}&amp;=\arcsin\left(\dfrac{x}{\sqrt2}\right)+C
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate <m>\displaystyle\int \tan^2 x \dee{x}</m>.
+</p></statement>
+<hint><p>
+We know how to antidifferentiate <m>\sec^2 x</m>, and there is an identity linking <m>\sec^2 x</m> with <m>\tan^2 x</m>.
+</p></hint>
+<answer><p>
+<m>\tan x - x +C</m>
+</p></answer>
+<solution><p>
+We know that <m>\int \sec^2 x\dee{x} = \tan x +C</m>, and <m>\sec^2x = \tan^2 x + 1</m>, so
+<md>
+<mrow>
+\int \tan^2 x\dee{x} &amp;= \int \sec^2x - 1 \dee{x}
+</mrow><mrow>
+&amp;=\int \sec^2 x \dee{x} - \int 1 \dee{x}
+</mrow><mrow>
+&amp;=\tan x - x + C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate <m>\displaystyle\int 3 \sin x \cos x \dee{x}</m>.
+</p></statement>
+<hint><p> Recall <m>2\sin x \cos x = \sin(2x)</m>.
+</p></hint>
+<answer><p>
+<m>-\dfrac{3}{4}\cos(2x)+C</m>, or
+ equivalently,
+<m>\dfrac{3}{2}\sin^2 x+C</m>
+</p></answer>
+<solution><p>
+<ul>
+<li>Solution 1: This might not obviously look like the derivative of anything familiar, but it does look like half of a familiar trig identity:
+<m>2\sin x \cos x = \sin(2x)</m>.
+<md>
+<mrow>
+\int 3 \sin x \cos x \dee{x}&amp;=\int \frac{3}{2}\cdot 2\sin x \cos x \dee{x}
+</mrow><mrow>
+&amp;=\int \frac{3}{2} \sin(2x)\dee{x}
+</mrow>
+<intertext>So, we might guess that the antiderivative is something like <m>-\cos(2x)</m>. We only need to figure out the constants.</intertext><mrow>
+\diff{}{x}\{-\cos(2x)\}&amp;=2\sin(2x)
+</mrow><mrow>
+\mbox{So,}\qquad
+\diff{}{x}\left\{-\frac{3}{4}\cos(2x)\right\}&amp;=\frac{3}{2}\sin(2x)
+</mrow><mrow>
+\mbox{Therefore,}\qquad \int 3\sin x \cos x\dee{x}&amp;=-\frac{3}{4}\cos(2x)+C
+</mrow>
+</md>
+</li>
+<li>Solution 2:
+You might notice that the integrand looks  like it came from the chain rule, since <m>\cos x</m> is the derivative of <m>\sin x</m>. Using this observation, we can work out the antideriative:
+<md>
+<mrow>
+\diff{}{x}\left\{\sin^2 x\right\}&amp;=2\sin x \cos x
+</mrow><mrow>
+\diff{}{x}\left\{\frac{3}{2}\sin^2 x\right\}&amp;=3\sin x \cos x
+</mrow><mrow>
+\mbox{So,}\qquad \int 3\sin x \cos x \dee{x}&amp;=\frac{3}{2}\sin^2 x+C
+</mrow>
+</md>
+</li>
+</ul>
+These two answers look different. Using the identity <m>\cos(2x)=1 - 2 \sin^2(x)</m>, we reconcile them:
+<md>
+<mrow>
+-\frac{3}{4}\cos(2x)+C&amp;= -\frac{3}{4}\left(1-2\sin^2x\right)+C
+</mrow><mrow>
+&amp;=\frac{3}{2}\sin^2 x + \left(C-\frac{3}{4}\right)
+</mrow>
+</md>
+ The <m>\frac{3}{4}</m> here is not significant. Remember that <m>C</m> is  used
+         to designate a constant that can take any value between <m>-\infty</m> and <m>+\infty</m>.
+         So <m>C-\frac{3}{4}</m> is also just a constant that can take any value between
+         <m>-\infty</m> and <m>+\infty</m>. As the two answers we found differ by a constant,
+         they are equivalent.</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate <m>\displaystyle\int \cos^2 x \dee{x}</m>.
+</p></statement>
+<hint><p>
+<m>\cos^2 x = \dfrac{1+\cos(2x)}{2}</m>
+</p></hint>
+<answer><p>
+<m>\dfrac{1}{2}x+\dfrac{1}{4}\sin(2x)+C</m>
+</p></answer>
+<solution><p>
+It's not immediately obvious which function has <m>\cos^2 x</m> as its derivative, but we can make the situation a little clearer by using the identity <m>\cos^2 x = \dfrac{1+\cos(2x)}{2}</m>:
+<md>
+<mrow>
+\int \cos^2 x \dee{x}&amp;=\int \frac{1}{2}\cdot \left(1+\cos(2x)\right)\dee{x}
+</mrow><mrow>
+&amp;=\int \frac{1}{2}\dee{x} + \int \frac{1}{2}\cos(2x)\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{2}x + C+  \int \frac{1}{2}\cos(2x)\dee{x}
+</mrow>
+<intertext>For the remaining integral, we might guess something like <m>F(x) = \sin(2x)</m>. Let's figure out the appropriate constant:</intertext><mrow>
+\diff{}{x}\left\{ \sin(2x) \right\}&amp;=2\cos(2x)
+</mrow><mrow>
+\diff{}{x}\left\{ \frac{1}{4}\sin(2x) \right\}&amp;=\frac{1}{2}\cos(2x)
+</mrow><mrow>
+\mbox{So,}\qquad
+ \int \frac{1}{2}\cos(2x)\dee{x} &amp;=\frac{1}{4}\sin(2x)+C
+</mrow><mrow>
+\mbox{Therefore,}\qquad
+ \int \cos^2 x \dee{x}&amp;=\frac{1}{2}x+\frac{1}{4}\sin(2x)+C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2012A</fromexam></title>
+<statement><p>
+If
+<me>
+F(x)=\int_0^x \log(2+\sin t)\,\dee{t}\quad\text{and}\quad
+G(y)=\int^0_y \log(2+\sin t)\,\dee{t}
+</me>
+find <m>F'\big(\frac{\pi}{2}\big)</m> and <m>G'\big(\frac{\pi}{2}\big)</m>.
+</p></statement>
+
+<answer><p>
+<m>F'\left(\frac{\pi}{2}\right)=\log(3)</m>
+</p><p>
+<m>G'\left(\frac{\pi}{2}\right)=-\log(3)</m>
+</p></answer>
+
+<solution><p>
+By the Fundamental Theorem of Calculus Part 1,
+<md alignment="alignat">
+  <mrow>
+F'(x)&amp;=\diff{}{x} \int_0^x \log(2+\sin t)\,\dee{t}
+     &amp;&amp;=\log(2+\sin x)
+   </mrow><mrow>
+G'(y)&amp;=\diff{}{y}\bigg[- \int_0^y \log(2+\sin t)\,\dee{t}\bigg]
+     &amp;&amp;=-\log(2+\sin y)
+   </mrow>
+ </md>
+So,
+<me>
+F'\Big(\frac{\pi}{2}\Big)=\log 3\qquad
+G'\Big(\frac{\pi}{2}\Big)=-\log(3)
+</me>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2014A</fromexam></title>
+<statement><p>
+Let <m>f(x)=\displaystyle\int_1^x 100(t^2-3t+2)e^{-t^2}\dee{t}</m>.
+Find the interval(s) on which <m>f</m> is increasing.
+</p></statement>
+
+<hint><p>
+There is a good way to test where a function is increasing,
+decreasing, or constant, that also has something to do with topic
+of this section.
+</p></hint>
+
+<answer><p>
+<m>f(x)</m> is increasing when
+<m>-\infty \lt x \lt 1</m> and when <m>2 \lt x \lt \infty</m>.
+</p></answer>
+
+<solution><p>
+By the Fundamental Theorem of Calculus Part 1,
+<me>
+f'(x) = 100(x^2-3x+2)e^{-x^2}
+      = 100(x-1)(x-2)e^{-x^2}
+</me>
+As <m>f(x)</m> is increasing whenever <m>f'(x) \gt 0</m> and <m>100 e^{-x^2}</m>
+is always strictly bigger than <m>0</m>,
+we have <m>f(x)</m> increasing if and only if <m>(x-1)(x-2) \gt 0</m>, which
+is the case if and only if <m>(x-1)</m> and <m>(x-2)</m> are of the same
+sign. Both are positive when <m>x \gt 2</m> and both are negative when
+<m>x \lt 1</m>. So <m>f(x)</m> is increasing when
+<m>-\infty \lt x \lt 1</m> and when <m>2 \lt x \lt \infty</m>.
+</p>
+
+<p>Remark: even without the Fundamental Theorem of Calculus, since <m>f(x)</m> is the area under a curve from 1 to <m>x</m>, <m>f(x)</m> is increasing when the curve is above the <m>x</m>-axis (because we're adding positive area), and it's decreasing when the curve is below the <m>x</m>-axis (because we're adding negative area).
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M105 2013A</fromexam></title>
+<statement><p>
+If <m>F(x)={\displaystyle\int_0^{\cos x} \frac{1}{t^3+6}\,\dee{t}}</m>,
+find <m>F'(x)</m>.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_INTftocB"/>.
+</p></hint>
+
+<answer><p>
+<m>F'(x)=-\dfrac{\sin x}{\cos^3x+6}</m>
+</p></answer>
+
+<solution><p>
+Write <m>G(x)={\displaystyle\int_0^x \frac{1}{t^3+6}\,\dee{t}}</m>.
+By the Fundamental Theorem of Calculus Part 1, <m>G'(x)=\dfrac{1}{x^3+6}</m>.
+Since <m>F(x)=G(\cos x)</m>, the chain rule gives us
+<md>
+<mrow>
+F'(x)=G'(\cos x)\cdot(-\sin x)=-\frac{\sin x}{\cos^3x+6}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1997D</fromexam></title>
+<statement><p>
+ Compute <m>f'(x)</m> where <m>f(x)= \displaystyle\int_0^{1+x^4}e^{t^2}\dee{t}</m>.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_INTftocB"/>.
+</p></hint>
+
+<answer><p>
+<m>4x^3e^{(1+x^4)^2}</m>
+</p></answer>
+
+<solution><p>
+Define <m>g(x)= \displaystyle\int_0^x e^{t^2}\dee{t}</m>. By the Fundamental
+Theorem of Calculus Part 1, <m>g'(x)=e^{x^2}</m>. As <m>f(x)=g(1+x^4)</m>
+the chain rule gives us
+<md>
+<mrow>
+f'(x)=4x^3g'(1+x^4)=4x^3e^{(1+x^4)^2}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2015A</fromexam></title>
+<statement><p>
+ Evaluate <m>\displaystyle\diff{}{x}\left\{\int_0^{\sin x}(t^6+8)\dee{t}\right\}</m>.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_INTftocB"/>.
+</p></hint>
+
+<answer><p>
+<m>\big(\sin^6 x+8)\cos x</m>
+</p></answer>
+
+<solution><p>
+Define <m>g(x)=\int_0^x (t^6+8)\dee{t}</m>. By the fundamental
+theorem of calculus, <m>g'(x)=x^6+8</m>. We are to compute the derivative of <m>f(x)=g(\sin x)</m>. The chain rule gives
+<md>
+<mrow>
+\diff{}{x}\left\{\int_0^{\sin x}(t^6+8)\dee{t}\right\}
+  =g'(\sin x)\cdot \cos x=\big(\sin^6 x+8\big)\cos x
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2000D</fromexam></title>
+<statement><p>
+Let <m>F(x)= \displaystyle\int_0^{x^3}e^{-t}\sin\left(\frac{\pi t}{2}\right)\,\dee{t}</m>.
+Calculate <m>F'(1)</m>.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_INTftocB"/>.
+</p></hint>
+
+<answer><p>
+<m>F'(1)=3e^{-1}</m>
+</p></answer>
+
+<solution><p>
+Let <m>G(x)= \displaystyle\int_0^{x}e^{-t}\sin\left(\frac{\pi t}{2}\right)\,\dee{t}</m>.
+By the Fundamental Theorem of Calculus Part 1,  <m>G'(x)=e^{-x}\sin\big(\frac{\pi x}{2}\big)</m> and,
+since <m>F(x)=G(x^3)</m>,
+<m>F'(x)=3x^2G'(x^3)=3x^2e^{-x^3}\sin\big(\frac{\pi x^3}{2}\big)</m>. Then
+<m>F'(1)=3e^{-1}\sin\big(\frac{\pi }{2}\big)
+=3e^{-1}</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q2</fromexam></title>
+<statement><p>
+Find <m>\displaystyle \diff{}{u} \left\{ \int_{\cos u}^0 \frac{\dee{t}}{1+t^3}
+\right\}</m>.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_INTftocC"/>.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle{}\frac{\sin{u}}{1+\cos^3 u}</m>
+</p></answer>
+
+<solution><p>
+Define <m>\displaystyle G(x) = \int_x^0 \frac{\dee{t}}{1+t^3}
+   = - \int_0^x \frac1{1+t^3}\,\dee{t}</m>, so that
+<m>\displaystyle G'(x) = - \frac1{1+x^3}</m> by the Fundamental Theorem of Calculus Part 1.
+Then by the chain rule,
+<md>
+<mrow>
+\diff{}{u} \left\{ \int_{\cos u}^0 \frac{\dee{t}}{1+t^3} \right\}
+= \diff{}{u} G(\cos u)
+=  G'(\cos u) \cdot \diff{}{u}\cos u
+= {-}\frac{1}{1+\cos^3 u} \cdot (-\sin{u}).
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M121 2000A</fromexam></title>
+<statement><p>
+Find  <m>f(x)</m> if <m>x^2=1+\displaystyle\int_1^x f(t)\dee{t}</m>.
+</p></statement>
+
+<hint><p>
+Apply <m>\diff{}{x}</m> to both sides.
+</p></hint>
+
+<answer><p>
+<m>f(x)=2x</m>
+</p></answer>
+
+<solution><p>
+Applying <m>\diff{}{x}</m> to both sides of
+<m>x^2=1+\int_1^x f(t)\dee{t}</m> gives, by the Fundamental Theorem of Calculus Part 1,
+<m>2x=f(x)</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2013A</fromexam></title>
+<statement><p>
+If <m>x \sin(\pi x) = \displaystyle\int_0^x f(t)\, \dee{t}</m> where <m>f</m>
+is a continuous function, find <m>f(4)</m>.
+</p></statement>
+
+<hint><p>
+What is the title of this section?
+</p></hint>
+
+<answer><p>
+<m>f(4)=4\pi</m>
+</p>
+
+</answer>
+
+<solution><p>
+Apply <m>\diff{}{x}</m> to both sides of
+<m>x \sin(\pi x) = \int_0^x f(t)\, \dee{t}</m>. Then, by the Fundamental Theorem
+of Calculus Part 1,
+<md alignment="alignat">
+  <mrow>
+&amp;&amp;f(x)
+    =\diff{}{x} \int_0^x f(t)\, \dee{t}&amp;=\diff{}{x}\big\{x \sin(\pi x)\big\}
+  </mrow><mrow>
+\implies&amp;&amp; f(x) &amp;= \diff{}{x}\big\{x \sin(\pi x)\big\}
+               =\sin(\pi x)+\pi x\cos(\pi x) \\
+\implies&amp;&amp; f(4)&amp;= \sin(4\pi)+4\pi\cos(4\pi)=4\pi
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q2</fromexam></title>
+<statement><p>
+Consider the function <m>\displaystyle F(x)=\int_0^{x^2} e^{-t}\,\dee{t} +\int_{-x}^0 e^{-t^2}\,\dee{t}</m>.
+<ol label="a">
+<li>
+Find <m>F'(x)</m>.
+</li>
+<li>
+Find the value of <m>x</m> for which <m>F(x)</m> takes its minimum value.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_INTftocC"/>.
+</p></hint>
+
+<answer><p>
+(a) <m>(2x+1)e^{-x^2}</m>
+</p><p>
+(b) <m>x=-1/2</m>
+</p></answer>
+
+<solution><p>
+(a) Write
+<md>
+<mrow>
+F(x)=G(x^2)-H(-x)\qquad\hbox{with}\quad G(y)=\int_0^{y} e^{-t}\,\dee{t},\
+H(y)=\int^{y}_0 e^{-t^2}\,\dee{t}
+</mrow>
+</md>
+By the Fundamental Theorem of Calculus Part 1,
+<md>
+<mrow>
+G'(y)=e^{-y}\, ,\qquad
+H'(y)= e^{-y^2}
+</mrow>
+</md>
+Hence, by the chain rule,
+<md>
+<mrow>
+F'(x)=2x G'(x^2)-(-1)H'(-x)=2x e^{-(x^2)}+e^{-(-x)^2}
+      =(2x+1)e^{-x^2}
+</mrow>
+</md>
+</p>
+
+<p>
+(b) Observe that <m>F'(x) \lt 0</m> for <m>x \lt -1/2</m> and <m>F'(x) \gt 0</m> for <m>x \gt -1/2</m>.
+Hence <m>F(x)</m> is decreasing for <m>x \lt -1/2</m> and increasing for <m>x \gt -1/2</m>,
+and <m>F(x)</m> must take its minimum value when <m>x=-1/2</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2016A</fromexam></title>
+<statement><p>
+If <m>F(x)</m> is defined by
+<m>\displaystyle F(x) = \int_{x^4-x^3}^x e^{\sin t}\,\dee{t}</m>, find <m>F'(x)</m>.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_INTftocC"/>.
+</p>
+
+</hint>
+
+<answer><p>
+<m>e^{\sin x}-e^{\sin(x^4-x^3)}\big(4x^3-3x^2\big)</m>
+</p></answer>
+
+<solution><p>
+Define <m>G(y)=\displaystyle\int_0^ye^{\sin t}\dee{t}</m>. Then:
+<md>
+<mrow>
+F(x) &amp;= \int_0^x e^{\sin t}\,\dee{t} + \int_{x^4-x^3}^0 e^{\sin t}\,\dee{t}
+= \int_0^x e^{\sin t}\,\dee{t} - \int_0^{x^4-x^3} e^{\sin t}\,\dee{t}
+</mrow><mrow>
+&amp;=G(x) - G(x^4-x^3)
+</mrow>
+</md>
+</p>
+
+<p>By the Fundamental Theorem of Calculus Part 1,
+<md>
+<mrow>
+G'(y)=e^{\sin y}\qquad
+</mrow>
+</md>
+Hence, by the chain rule,
+<md>
+<mrow>
+F'(x) &amp;= G'(x)- G'(x^4-x^3)\ \diff{}{x}\big\{x^4-x^3\big\}
+</mrow><mrow>
+ &amp;= G'(x)- G'(x^4-x^3)\ (4x^3-3x^2)
+</mrow><mrow>
+&amp;=e^{\sin x}-e^{\sin(x^4-x^3)}\big(4x^3-3x^2\big)
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M121 2012A</fromexam></title>
+<statement><p>
+Evaluate
+<m>\displaystyle \diff{}{x}\bigg\{\int_{x^5}^{-x^2} \cos\big(e^t\big)\,\dee{t} \bigg\}</m>.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_INTftocC"/>.
+</p></hint>
+
+<answer><p>
+<m>-2x \cos\big(e^{-x^2}\big) -5x^4\cos\big(e^{x^5}\big)</m>
+</p></answer>
+
+<solution><p>
+Define
+with
+<m>G(y) = \displaystyle\int_0^y \cos\big(e^t\big)\,\dee{t}</m>.
+Then:
+<md>
+<mrow>
+F(x) &amp;=  \int_{x^5}^{-x^2} \cos\big(e^t\big)\,\dee{t}
+=\int_0^{-x^2} \cos\big(e^t\big)\,\dee{t} + \int_{x^5}^0 \cos\big(e^t\big)\,\dee{t}
+</mrow><mrow>
+&amp;=\int_0^{-x^2} \cos\big(e^t\big)\,\dee{t} - \int_0^{x^5} \cos\big(e^t\big)\,\dee{t}
+</mrow><mrow>
+&amp;=G(-x^2) - G(x^5)
+</mrow>
+</md>
+By the Fundamental Theorem of Calculus,
+<md>
+<mrow>
+G'(y)=\cos\big(e^y\big)
+</mrow>
+</md>
+Hence, by the chain rule,
+<md>
+<mrow>
+F'(x) &amp;= G'(-x^2)\ \diff{}{x}\big\{-x^2\big\} - G'(x^5)\ \diff{}{x}\big\{x^5\big\}
+</mrow><mrow>
+ &amp;= G'(-x^2)\ (-2x)- G'(x^5)\ (5x^4)
+</mrow><mrow>
+&amp;=-2x \cos\big(e^{-x^2}\big) -5x^4\cos\big(e^{x^5}\big)
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2014D</fromexam></title>
+<statement><p>
+Differentiate
+<m>\displaystyle \int_x^{e^x} \sqrt{\sin t}\,\dee{t}</m>.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_INTftocC"/>.
+</p></hint>
+
+<answer><p>
+<m>e^x\sqrt{\sin(e^x)} -\sqrt{\sin(x)}</m>
+</p></answer>
+
+<solution><p>
+Define
+with
+<m>G(y) = \displaystyle\int_0^y \sqrt{\sin t}\,\dee{t}</m>
+Then:
+<md>
+<mrow>
+F(x)&amp;=\int_x^{e^x} \sqrt{\sin t}\,\dee{t}
+</mrow><mrow>
+&amp;= \int_0^{e^x} \sqrt{\sin t}\,\dee{t} + \int_x^0 \sqrt{\sin t}\,\dee{t}
+= \int_0^{e^x} \sqrt{\sin t}\,\dee{t} - \int_0^x \sqrt{\sin t}\,\dee{t}
+</mrow><mrow>
+&amp;=G(e^x) - G(x)
+</mrow>
+</md>
+By the Fundamental Theorem of Calculus Part 1,
+<md>
+<mrow>
+G'(y)=\sqrt{\sin y}\qquad
+</mrow>
+</md>
+Hence, by the chain rule,
+<md>
+<mrow>
+F'(x) &amp;= G'(e^x)\ \diff{}{x}\big\{e^x\big\} - G'(x)
+</mrow><mrow>
+ &amp;=  e^xG'(e^x) - G'(x)
+</mrow><mrow>
+&amp;=e^x\sqrt{\sin(e^x)} -\sqrt{\sin(x)}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2014A</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle \int_1^5 f(x)\,\dee{x}</m>, where
+<m>\displaystyle f(x)= \begin{cases} 3 &amp;\text{ if $x\le 3$} \\
+                                   x &amp;\text{ if $x\ge 3$}
+                     \end{cases}</m>.
+</p></statement>
+
+<hint><p>
+Split up the domain of integration.
+</p></hint>
+
+<answer><p>
+<m>14</m>
+</p></answer>
+
+<solution><p>
+Splitting up the domain of integration,
+<md>
+<mrow>
+ \int_1^5 f(x)\dee{x}
+&amp;= \int_1^3 f(x)\,\dee{x}   +  \int_3^5 f(x)\,\dee{x}
+</mrow><mrow>
+&amp;= \int_1^3  3\,\dee{x}   +  \int_3^5 x\,\dee{x}
+</mrow><mrow>
+&amp;= 3x\bigg|_{x=1}^{x=3} +\frac{x^2}{2} \bigg|_{x=3}^{x=5}
+</mrow><mrow>
+&amp;=14
+</mrow>
+</md>
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{4}{.25}{3}
+\YExcoord{.5}{1}
+\YExcoord{1.5}{3}
+\YExcoord{2.5}{5}
+\YEycoord{1.5}{3}
+\draw[thick] (.2,1.5)--(1.5,1.5)--(3,3) node[below right]{$y=f(x)$};
+\draw[fill=blue, fill opacity=0.5] (.5,0)rectangle (1.5,1.5);
+\draw[fill=red, fill opacity=0.5] (1.5,0) -| (2.5,2.5)--(1.5,1.5)--cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise><title><fromexam>M105 2014A</fromexam></title>
+<statement><p>
+If <m>f'(1)=2</m> and <m>f'(2)=3</m>, find <m>\displaystyle\int_1^2 f'(x) f''(x)\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+It is possible to guess an antiderivative for <m>f'(x) f''(x)</m>
+that is expressed in terms of <m>f'(x)</m>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{5}{2}</m>
+</p></answer>
+
+<solution><p>
+By the chain rule,
+<md>
+<mrow>
+\diff{}{x}\big\{\left(f'(x)\right)^2\big\} = 2 f'(x)\,f''(x)
+</mrow>
+</md>
+so <m>\frac{1}{2} f'(x)^2</m> is an antiderivative for <m>f'(x)\,f''(x)</m> and,
+by the Fundamental Theorem of Calculus Part 2,
+<md>
+<mrow>
+\int_1^2 f'(x) f''(x)\,\dee{x}
+=\left[\frac{1}{2}\left(f'(x)\right)^2\right]_{x=1}^{x=2}
+=\frac{1}{2} f'(2)^2 - \frac{1}{2} f'(1)^2
+=\frac{5}{2}
+</mrow>
+</md>
+</p>
+
+<p>Remark: evaluating antiderivatives of this type will occupy the next section, Section<nbsp/><xref ref="sec_subs"/>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q2</fromexam></title>
+<statement><p>
+A car traveling at <m>30\,\textrm{m}/\textrm{s}</m> applies its brakes at time <m>t=0</m>,
+its velocity (in <m>\textrm{m}/\textrm{s}</m>) decreasing according to the formula
+<m>v(t) = 30 - 10t</m>. How far does the car go before it stops?
+</p></statement>
+
+<hint><p>
+When does the car stop?
+What is the relation between velocity and distance travelled?
+</p></hint>
+
+<answer><p>
+<m>45\,\textrm{m}</m>
+</p></answer>
+
+<solution><p>
+The car stops when <m>v(t)=30-10t=0</m>, which occurs at time <m>t = 3</m>.
+The distance covered up to that time is
+<md>
+<mrow>
+\int_0^3 v(t)\,\dee{t} = (30t - 5t^2)\Big|_{0}^{3} = (90-45)-0 = 45\,\textrm{m}.
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>1998A</fromexam></title>
+<statement><p>
+Compute <m>f'(x)</m> where <m>f(x)= \displaystyle\int_0^{2x-x^2}\log\big(1+e^t\big)\,\dee{t}</m>.
+Does <m>f(x)</m> have an absolute maximum? Explain.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_INTftocB"/>. For the absolute maximum part of the question, study the sign
+of <m>f'(x)</m>.
+</p></hint>
+
+<answer><p>
+<m>f'(x)=(2-2x)\log\big(1+e^{2x-x^2}\big)</m>
+and <m>f(x)</m> achieves its absolute maximum at <m>x=1</m>, because
+<m>f(x)</m> is increasing for <m>x \lt 1</m> and decreasing for <m>x \gt 1</m>.
+</p></answer>
+
+<solution><p>
+Define <m>g(x) = \displaystyle\int_0^x\log\big(1+e^t\big)\,\dee{t}</m>. By the Fundamental
+Theorem of Calculus Part 1, <m>g'(x) = \log\big(1+e^x\big)</m>. But <m>f(x)=g(2x-x^2)</m>,
+so by the chain rule,
+<md>
+<mrow>
+f'(x)=g'(2x-x^2)\cdot \diff{}{x}\{2x-x^2\}
+=(2-2x)\cdot\log\big(1+e^{2x-x^2}\big)
+</mrow>
+</md>
+Observe that <m>e^{2x-x^2} \gt 0</m> for all <m>x</m> so that <m>1+e^{2x-x^2} \gt 1</m> for all
+<m>x</m> and <m>\log\big(1+e^{2x-x^2}\big) \gt 0</m> for all <m>x</m>. Since <m>2-2x</m> is positive
+for <m>x \lt 1</m> and negative for <m>x \gt 1</m>, <m>f'(x)</m> is also positive for <m>x \lt 1</m> and
+negative for <m>x \gt 1</m>. That is, <m>f(x)</m> is increasing for <m>x \lt 1</m> and decreasing
+for <m>x \gt 1</m>. So <m>f(x)</m> achieves its absolute maximum at <m>x=1</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2001A</fromexam></title>
+<statement><p>
+Find the minimum value of <m>\displaystyle\int_0^{x^2-2x}\frac{\dee{t}}{1+t^4}</m>.
+Express your answer as an integral.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_INTftocB"/>. For the <q>minimum value</q>  part of the question, study the sign
+of <m>f'(x)</m>.
+</p></hint>
+
+<answer><p>
+The minimum is <m>\int_0^{-1} \frac{\dee{t}}{1+t^4}</m>.
+As <m>x</m> runs from <m>-\infty</m> to <m>\infty</m>, the function <m>f(x)= \int_0^{x^2-2x}\frac{\dee{t}}{1+t^4}</m>
+decreases until <m>x</m> reaches 1 and then increases all <m>x \gt 1</m>. So the minimum is achieved
+for <m>x=1</m>.   At <m>x=1</m>, <m>x^2-2x=-1</m>.
+</p></answer>
+
+<solution><p>
+Let <m>f(x)=\int_0^{x^2-2x}\frac{\dee{t}}{1+t^4}</m> and
+<m>g(x)= \int_0^{x}\frac{\dee{t}}{1+t^4}</m>. Then <m>g'(x)=\frac{1}{1+x^4}</m> and,
+since <m>f(x)=g(x^2-2x)</m>, <m>f'(x)=(2x-2)g'(x^2-2x)=2\frac{x-1}{1+(x^2-2x)^4}</m>.
+This is zero for <m>x=1</m>, negative for <m>x \lt 1</m> and positive for <m>x \gt 1</m>.
+Thus as <m>x</m> runs from <m>-\infty</m> to <m>\infty</m>, <m>f(x)</m> decreases until <m>x</m>
+reaches 1 and then increases all <m>x \gt 1</m>. So the minimum of <m>f(x)</m> is achieved
+for <m>x=1</m>. At <m>x=1</m>, <m>x^2-2x=-1</m> and
+<m>f(1)=\int_0^{-1}\frac{\dee{t}}{1+t^4}</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2001D</fromexam></title>
+<statement><p>
+ Define the function <m>F(x)=\displaystyle\int_0^{x^2}\sin(\sqrt{t})\,\dee{t}</m>
+  on the interval <m>0 \lt x \lt 4</m>. On this interval, where does <m>F(x)</m> have a maximum?
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_INTftocB"/>. For the <q>maximum</q>  part of the question, study the sign
+of <m>F'(x)</m>.
+</p></hint>
+
+<answer><p>
+ <m>F</m> achieves its maximum value at <m>x=\pi</m>.
+</p></answer>
+
+<solution><p>
+Define <m>G(x)=\displaystyle\int_0^x\sin(\sqrt{t})\,\dee{t}</m>. By the Fundamental Theorem of Calculus Part 1, <m>G'(x)=\sin(\sqrt{x})</m>.
+Since <m>F(x)=G(x^2)</m>, and since <m>x \gt 0</m>, we have <me>
+F'(x)=2xG'(x^2)=2x\sin |x|=2x\sin x.</me>
+ Thus <m>F</m> increases
+as <m>x</m> runs from to <m>0</m> to <m>\pi</m> (since <m>F'(x) \gt 0</m> there) and decreases
+as <m>x</m> runs from <m>\pi</m> to <m>4</m> (since <m>F'(x) \lt 0</m> there). Thus <m>F</m> achieves its
+maximum value at <m>x=\pi</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2002A</fromexam></title>
+<statement><p>
+Evaluate
+<m>\lim\limits_{n\rightarrow\infty}\dfrac{\pi}{n}\displaystyle\sum\limits_{j=1}^n
+\sin\left(\frac{j\pi}{n}\right)</m> by interpreting it as a limit of Riemann sums.
+</p></statement>
+
+<hint><p>
+Review the definition of the definite integral and in particular
+Definitions  <xref ref="def_INTintegral"/>  and <xref ref="def_INTthreeRiemannSums"/>.
+</p></hint>
+
+<answer><p>
+<m>2</m>
+</p></answer>
+
+<solution><p>
+The given sum is of the form
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\sum_{j=1}^n
+\frac{\pi}{n}\sin\Big(\frac{j\pi}{n}\Big)
+=\lim_{n\rightarrow\infty}\sum_{j=1}^n
+f(x_j^*)\De x
+</mrow>
+</md>
+with <m>\De x=\frac{\pi}{n}</m>, <m>x_j^*=\frac{j\pi}{n}</m> and <m>f(x)=\sin(x)</m>.
+Since <m>x_0^*=0</m> and <m>x_n^*=\pi</m>, the right hand side is the definition (using
+the right Riemann sum)  of
+<md>
+<mrow>
+\int_0^\pi f(x)\,\dee{x}=\int_0^\pi \sin(x)\,\dee{x}
+=\left[-\cos(x)\right]_0^\pi=2
+</mrow>
+</md>
+where we evaluate the definite integral using the Fundamental Theorem of Calculus Part 2.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M121 2002A</fromexam></title>
+<statement><p>
+Use Riemann sums to evaluate the limit
+<m>\displaystyle\lim_{n\rightarrow\infty}\frac{1}{n}
+       \sum_{j=1}^n \frac{1}{1+\frac{j}{n}}\ .</m>
+</p></statement>
+
+<hint><p>
+Review the definition of the definite integral and in particular
+Definitions  <xref ref="def_INTintegral"/>  and <xref ref="def_INTthreeRiemannSums"/>.
+</p></hint>
+
+<answer><p>
+<m>\log 2</m>
+</p></answer>
+
+<solution><p>
+The given sum is of the form
+<me>
+\lim_{n\rightarrow\infty}\frac{1}{n} \sum_{j=1}^n
+\frac{1}{1+\frac{j}{n}}
+=\lim_{n\rightarrow\infty}\sum_{j=1}^n f(x_j)\De x
+</me>
+with <m>\De x=\frac{1}{n}</m>, <m>x_j=\frac{j}{n}</m> and <m>f(x)=\frac{1}{1+x}</m>.
+The right hand side is the definition (using the right Riemann sum)
+of
+<md>
+<mrow>
+\int_0^1 f(x)\,dx=\int_0^1 \frac{1}{1+x}\,\dee{x}
+=\log|1+x|\Big|_0^1
+=\log 2
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Below is the graph of <m>y=f(t)</m>, <m>-5 \leq t \leq 5</m>.
+Define <m>F(x) = \displaystyle\int_{0}^x f(t)\dee{t}</m> for any <m>x</m> in <m>[-5,5]</m>. Sketch <m>F(x)</m>.
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{6}{8}{2}{4}
+\draw[thick, blue] plot[domain=-5:5, samples=100] (\x,{(\x*\x)/3+1)*cos(\x*1.57 r)/2}) node[above right]{$y=f(x)$};
+\foreach \x in {-2.5,-1.5,-.5, .5, 1.5, 2.5}{
+	\MULTIPLY{\x}{2}{\l}
+	\YExcoord{\l}{\l}}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+Carefully check the Fundamental Theorem of Calculus: as written, it only applies directly to <m>F(x)</m> when <m>x\ge0</m>.
+</p>
+
+<p>Is <m>F(x)</m> even or odd?
+</p></hint>
+<answer><p> In the sketch below, open dots denote inflection points, and closed dots denote extrema.
+</p><sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{6}{8}{2}{4}
+\draw[thick, red] plot[domain=0:5, samples=100]
+(\x,{(\x*\x/3+1)/3.14*sin(\x*1.57 r)+4/(3*3.14*3.14)*\x*cos(\x*1.57 r)-8/(3*3.14*3.14*3.14)*sin(\x*1.57 r)}) node[right]{$y=F(x)$};
+\draw[thick, red] plot[domain=0:5, samples=100]
+(-\x,{-(\x*\x/3+1)/3.14*sin(\x*1.57 r)-4/(3*3.14*3.14)*\x*cos(\x*1.57 r)+8/(3*3.14*3.14*3.14)*sin(\x*1.57 r)});
+\draw[thick, blue] plot[domain=-5:5, samples=100] (\x,{(\x*\x)/3+1)*cos(\x*1.57 r)/2}) node[above right]{$y=f(x)$};
+\foreach \x in {-5,-3,-1,1,3,5}{
+	\YExcoord{\x}{\x}}
+\foreach \x/\y in {1/.34,5/2.89,3/-1.2}
+{\draw[red] (\x,\y) node[vertex]{};
+\draw[red] (-\x,-\y) node[vertex]{};}
+\foreach \x/\y in {2.25/-.57,4/0.5}
+{\draw[red] (\x,\y) node[opendot]{};
+\draw[red] (-\x,-\y) node[opendot]{};}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+</answer>
+<solution>
+<p>
+<ul>
+<li>
+<p>
+<m>\mathbf{F(x),\,x \ge 0}</m>:
+We learned quite a lot last semester about curve sketching. We can use those techniques here. We have to be quite careful about the sign of <m>x</m>, though. We can only directly apply the Fundamental Theorem of Calculus Part 1 (as it's written in your text) when <m>x\ge 0</m>. So first, let's graph the right-hand portion. Notice <m>f(x)</m> has even symmetry--so, if we know one half of <m>F(x)</m>, we should be able to figure out the other half with relative ease.
+</p>
+
+<p><ul>
+<li> <m>F(0)=\displaystyle\int_0^0 f(t)\dee{t}=0</m> (so, <m>F(x)</m> passes through the origin)
+</li>
+<li>
+<p>
+Using the Fundamental Theorem of Calculus Part 1, <m>F'(x) \gt 0</m> when <m>0 \lt x \lt 1</m> and when <m>3 \lt x \lt 5</m>; <m>F'(x) \lt 0</m> when <m>1 \lt x \lt 3</m>. So, <m>F(x)</m> is decreasing from 1 to 3, and increasing from 0 to 1 and also from 3 to 5. That gives us a skeleton to work with.
+</p><sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{6}{1}{3}
+\foreach \x in {1,3,5}{
+	\YExcoord{\x}{\x}}
+\draw node[vertex]{};
+\draw[thick, - \gt ] (0,0)--(1,.4);
+\draw[thick, - \gt ] (1,.4)--(3,-1.19);
+\draw[thick, - \gt ] (3,-1.19)--(5,2.89);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+We get the relative sizes of the maxes and mins by eyeballing the area under <m>y=f(t)</m>. The first lobe (from <m>x=0</m> to <m>x=1</m> has a small positive area, so <m>F(1)</m> is a small positive number. The next lobe (from <m>x=1</m> to <m>x=3</m>) has a larger absolute area than the first, so <m>F(3)</m> is negative. Indeed, the second lobe seems to have more than twice the area of the first, so <m>|F(3)|</m> should be larger than <m>F(1)</m>. The third lobe is larger still, and even after subtracting the area of the second lobe it looks much larger than the first or second lobe, so <m>|F(3)| \lt F(5)</m>.
+</p>
+</li>
+<li><p>
+We can use <m>F''(x)</m> to get the concavity of <m>F(x)</m>. Note <m>F''(x)=f'(x)</m>. We observe <m>f(x)</m> is decreasing on (roughly) <m>(0,2.5)</m> and <m>(4,5)</m>, so <m>F(x)</m> is concave down on those intervals.
+Further, <m>f(x)</m> is increasing on (roughly) <m>(2.5,4)</m>, so <m>F(x)</m> is concave up there, and has inflection points at about <m>x=2.5</m> and <m>x=4</m>.
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{6}{8}{2}{4}
+\draw[thick, red] plot[domain=0:5, samples=100]
+(\x,{(\x*\x/3+1)/3.14*sin(\x*1.57 r)+4/(3*3.14*3.14)*\x*cos(\x*1.57 r)-8/(3*3.14*3.14*3.14)*sin(\x*1.57 r)}) node[right]{$y=F(x)$};
+\draw[thick, blue] plot[domain=-5:5, samples=100] (\x,{(\x*\x)/3+1)*cos(\x*1.57 r)/2}) node[above right]{$y=f(x)$};
+\foreach \x in {-5,-3,-1,1,3,5}{
+	\YExcoord{\x}{\x}}
+\foreach \x/\y in {1/.34,5/2.89,3/-1.2}
+{\draw[red] (\x,\y) node[vertex]{};}
+\foreach \x/\y in {2.25/-.57,4/0.5}
+{\draw[red] (\x,\y) node[opendot]{};}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+In the sketch above, closed dots are extrema, and open dots are inflection points.
+</p>
+</li>
+</ul>
+</p>
+</li>
+<li><p>
+<m>\mathbf{F(x),\,x  \lt  0}</m>:
+Now we can consider the left half of the graph. If you stare at it long enough, you might convince yourself that <m>F(x)</m> is an odd function. We can also show this with the following calculation:
+<md>
+<mrow>
+F(-x)&amp;=\int_0^{-x} f(t)\dee{t}
+&amp;\text{As in Example }<xref ref="eg_lefthalfevenfunction"/>\text{, since $f(t)$ is even,}
+</mrow><mrow>
+&amp;=\int_x^0 f(t)\dee{t}=-\int_0^x f(t)\dee{t}
+</mrow><mrow>
+&amp;=-F(x)
+</mrow>
+</md>
+Knowing that <m>F(x)</m> is odd allows us to finish our sketch.
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{6}{8}{2}{4}
+\draw[thick, red] plot[domain=0:5, samples=100]
+(\x,{(\x*\x/3+1)/3.14*sin(\x*1.57 r)+4/(3*3.14*3.14)*\x*cos(\x*1.57 r)-8/(3*3.14*3.14*3.14)*sin(\x*1.57 r)}) node[right]{$y=F(x)$};
+\draw[thick, red] plot[domain=0:5, samples=100]
+(-\x,{-(\x*\x/3+1)/3.14*sin(\x*1.57 r)-4/(3*3.14*3.14)*\x*cos(\x*1.57 r)+8/(3*3.14*3.14*3.14)*sin(\x*1.57 r)});
+\draw[thick, blue] plot[domain=-5:5, samples=100] (\x,{(\x*\x)/3+1)*cos(\x*1.57 r)/2}) node[above right]{$y=f(x)$};
+\foreach \x in {-5,-3,-1,1,3,5}{
+	\YExcoord{\x}{\x}}
+\foreach \x/\y in {1/.34,5/2.89,3/-1.2}
+{\draw[red] (\x,\y) node[vertex]{};
+\draw[red] (-\x,-\y) node[vertex]{};}
+\foreach \x/\y in {2.25/-.57,4/0.5}
+{\draw[red] (\x,\y) node[opendot]{};
+\draw[red] (-\x,-\y) node[opendot]{};}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+</ul>
+</p>
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2015A</fromexam></title>
+<statement><p>
+Define <m>f(x)=x^3\displaystyle\int_{0}^{x^3+1} e^{t^3} \dee{t}</m>.
+<ol label="a">
+<li>
+Find a formula for the derivative <m>f'(x)</m>. (Your formula may include in integral sign.)
+</li>
+<li>
+Find the equation of the tangent line to the graph of <m>y=f(x)</m> at <m>x=-1</m>.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+In general, the equation of the tangent line to the graph of <m>y=f(x)</m> at <m>x=a</m>
+is <m>y=f(a) + f'(a)\,(x-a)</m>.
+</p></hint>
+
+<answer><p> (a)
+<m>3x^2 \displaystyle\int_{0}^{x^3+1} e^{t^3} \dee{t}
+            + 3x^5  e^{(x^3+1)^3} </m>
+</p><p>
+(b)
+<m>y = -3(x+1)</m>
+</p></answer>
+
+<solution><p> (a)
+Using the product rule, followed by the chain rule, followed
+by the Fundamental Theorem of Calculus Part 1,
+<md>
+<mrow>
+f'(x) &amp; = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
+           x^3\diff{}{x}\int_{0}^{x^3+1} e^{t^3} \dee{t}
+</mrow><mrow>
+&amp; = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
+           x^3\ \big[3x^2\big]
+           \Bigg[\frac{d\hfill}{dy}\int_{0}^{y} e^{t^3} \dee{t}\Bigg]_{y=x^3+1}
+</mrow><mrow>
+&amp; = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
+           x^3\ \big[3x^2\big]
+           \Big[e^{y^3}\Big]_{y=x^3+1}
+</mrow><mrow>
+&amp; = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t}
+           + x^3\ \big[3x^2\big]  e^{(x^3+1)^3}
+</mrow><mrow>
+&amp; = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t}
+            + 3x^5  e^{(x^3+1)^3}
+</mrow>
+</md>
+</p>
+
+<p>
+(b)
+In general, the equation of the tangent line to the graph of <m>y=f(x)</m> at <m>x=a</m>
+is
+<me>
+y=f(a) + f'(a)\,(x-a)
+</me>
+Substituting in the given <m>f(x)</m> and <m>a=-1</m>:
+<md>
+<mrow>
+f(a)=f(-1)&amp;=(-1)^3\int_0^0 e^{t^3}\dee{t}=0
+</mrow><mrow>
+f'(a)=f'(-1)&amp;=3(-1)^2\int_{0}^{0}e^{t^3}\dee{t} + 3(-1)^5e^{0}
+</mrow><mrow>
+&amp;=0-3=-3
+</mrow><mrow>
+(x-a)=x-(-1)&amp;=x+1
+</mrow>
+<intertext>So, the equation of the tangent line is</intertext><mrow>
+y = -3(x+1)\ .
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p> Two students calculate <m>\int f(x)\dee{x}</m> for some function <m>f(x)</m>.
+<ul>
+<li> Student A calculates <m>\int f(x)\dee{x} = \tan^2 x + x + C</m>
+</li>
+<li> Student B calculates <m>\int f(x)\dee{x} = \sec^2 x + x + C</m>
+</li>
+<li> It is a fact that <m>\diff{}{x}\{\tan^2 x\} = f(x)-1</m>
+</li>
+</ul>
+Who ended up with the correct answer?
+</p></statement>
+<hint><p> Recall <m>\tan^2x+1=\sec^2 x</m>.
+</p></hint>
+<answer><p>
+Both students.
+</p></answer>
+<solution><p>
+Recall that <q><m>+C</m></q> means that we can add any constant to the function. Since <m>\tan^2 x = \sec^2 x - 1</m>, Students A and B have equivalent answers: they only differ by a constant.
+</p>
+
+<p>So, if one is right, both are right; if one is wrong, both are wrong. We check Student A's work:
+<me>
+\diff{}{x}\{\tan^2 x + x + C\}=\diff{}{x}\{\tan^2 x\} +1 + 0 = f(x)-1+1=f(x)</me>
+</p>
+
+<p>So, Student A's answer is indeed an anditerivative of <m>f(x)</m>. Therefore, <em>both students</em> ended up with the correct answer.
+</p>
+
+<p>Remark: it is a frequent occurrence that equivalent answers might look quite different. As you are comparing your work to others', this is a good thing to keep in mind!
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>  Let <m>F(x)=\displaystyle\int_0^x x^3 \sin(t)\dee{t}</m>.
+<ol label="a">
+<li> Evaluate <m>F(3)</m>.
+</li>
+<li> What is <m>F'(x)</m>?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Since the integration is with respect to <m>t</m>, the <m>x^3</m> term can be moved outside the integral.
+</p></hint>
+<answer><p>
+(a) <m>27(1-\cos 3 )</m>
+</p>
+<p>
+   (b) <m>x^3\sin (x) + 3x^2[1-\cos (x)]</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> When <m>x=3</m>,
+<md>
+<mrow>
+F(3)&amp;=\displaystyle\int_0^3 3^3 \sin(t)\dee{t}=27\int_0^3 \sin  t  \dee{t}
+</mrow>
+<intertext>Using the Fundamental Theorem of Calculus Part 2,</intertext><mrow>
+&amp;=27\left[-\cos t\right]_{t=0}^{t=3}
+=27\left[-\cos 3 - (-\cos 0)\right]
+</mrow><mrow>
+&amp;=27(1-\cos 3 )
+</mrow>
+</md>
+</li>
+<li> Since the integration is with respect to <m>t</m>, the <m>x^3</m> term can be moved outside the integral. That is: for the purposes of the integral, <m>x^3</m> is a constant (although for the purposes of the derivative, it certainly is not).
+<md>
+<mrow>
+F(x)&amp;=\displaystyle\int_0^x x^3 \sin(t)\dee{t} = x^3 \int_0^x \sin(t)\dee{t}
+</mrow>
+<intertext>Using the product rule and the Fundamental Theorem of Calculus Part 1,</intertext><mrow>
+F'(x)&amp;=x^3\cdot \sin(x) + 3x^2 \int_0^x \sin(t)\dee{t}
+</mrow><mrow>
+&amp;=x^3\sin(x)+3x^2\left[-\cos(t)\right]_{t=0}^{t=x}
+</mrow><mrow>
+&amp;=x^3\sin(x)+3x^2[-\cos(x)-(-\cos(0))]
+</mrow><mrow>
+&amp;=x^3\sin (x) + 3x^2[1-\cos (x)]
+</mrow>
+</md>
+</li>
+</ol>
+</p>
+
+<p>Remark: Since <m>x</m> and <m>t</m> play different roles in our problem, it's crucial that they have different names. This is one reason why we should avoid the common mistake of writing <m>\int_a^x f(x)\dee{x}</m> when we mean <m>\int_a^x f(t)\dee{t}</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>f(x)</m> be an even function, defined everywhere, and let <m>F(x)</m> be an antiderivative of <m>f(x)</m>. Is <m>F(x)</m> even, odd, or not necessarily either one?
+(You may use your answer from Section<nbsp/><xref ref="sec_def_int"/>, Question<nbsp/><xref ref="p1_2_derivevenodd"/>. )
+</p></statement>
+<hint><p>
+Remember that antiderivatives may have a constant term.
+</p></hint>
+<answer><p>
+If <m>f(x)=0</m>  for all <m>x</m>, then <m>F(x)</m> is even and possibly also odd.
+</p>
+
+<p>If <m>f(x) \neq 0</m> for some <m>x</m>, then <m>F(x)</m> is not even. It might be odd, and it might be neither even nor odd.
+</p>
+
+<p>(Perhaps surprisingly, every antiderivative of an odd function is even.)
+</p></answer>
+<solution><p>
+If <m>F(x)</m> is even, then <m>f(x)</m> is odd (by the result of Question<nbsp/><xref ref="p1_2_derivevenodd"/> in Section<nbsp/><xref ref="sec_def_int"/>). So, <m>F(x)</m> can only be even if <m>f(x)</m> is both even and odd. By the result in Question<nbsp/><xref ref="p1_1_bothevenodd"/>, Section<nbsp/><xref ref="sec_def_int"/>, this means <m>F(x)</m> is only even if <m>f(x)=0</m> for all <m>x</m>. Note if <m>f(x)=0</m>, then <m>F(x)</m> is a constant function. So, it is certainly even, and it might be odd as well if <m>F(x)=f(x)=0</m>.
+</p>
+
+<p>Therefore, if <m>f(x) \neq 0</m> for some <m>x</m>, then <m>F(x)</m> is not even. It could be odd, or it could be neither even nor odd. We can come up with examples of both types: if <m>f(x)=1</m>, then <m>F(x)=x</m> is an odd antiderivative, and <m>F(x)=x+1</m> is an antiderivative that is neither even nor odd.
+</p>
+
+<p>Interestingly, the antiderivative of an odd function is always even. The proof is a little beyond what we might ask you, but is given below for completeness. The proof goes like this: First, we'll show that if <m>g(x)</m> is odd, then there is <em>some</em> antiderivative of <m>g(x)</m> that is even. Then, we'll show that <em>every</em> antiderivative of <m>g(x)</m> is even.
+</p>
+
+<p>So, suppose <m>g(x)</m> is odd and define <m>G(x)=\displaystyle\int_0^x g(t)dt</m>.
+By the Fundamental Theorem of Calculus Part 1, <m>G'(x)=g(x)</m>, so <m>G(x)</m> is an antiderivative of <m>g(x)</m>. Since <m>g(x)</m> is odd, for any <m>x\ge 0</m>, the net signed area under the curve along <m>[0,x]</m> is the <em>negative</em> of the net signed area under the curve along <m>[-x,0]</m>. So,
+<md>
+<mrow>
+\int_0^x g(t)\dee{}t &amp;= - \int_{-x}^0 g(t)\dee{t}&amp;\quad(\mbox{See Example }<xref ref="eg_areaunderoddfunction"/>)
+</mrow>
+<mrow>
+&amp;=\int_0^{-x} g(t)\dee{t}
+</mrow>
+<intertext>By the definition of <m>G(x)</m>,</intertext><mrow>
+G(x)&amp;=G(-x)
+</mrow>
+</md>
+That is, <m>G(x)</m> is even. We've shown that there exists <em>some</em> antiderivative of <m>g(x)</m> that is even; it remains to show that <em>all of them</em> are even.
+</p>
+
+<p>Recall that every antiderivative of <m>g(x)</m> differs from <m>G(x)</m> by some constant. So, any antiderivative of <m>g(x)</m>  can be written as <m>G(x)+C</m>, and  <m>G(-x)+C = G(x)+C</m>. So, every antiderivative of an odd function is even.
+</p></solution>
+</exercise></exercisegroup>
+
+</exercises>

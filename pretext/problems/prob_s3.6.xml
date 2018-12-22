@@ -1,0 +1,3166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<exercises>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise purpose="RQS">
+<statement><p>
+Below is a graph of <m>y=f(x)</m>, along with the constant approximation, linear approximation, and quadratic approximation centred at <m>a=2</m>. Which is which?
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{4}{.5}{4}
+\YExcoord{2}{2}
+\draw[ultra thick] plot[domain=0:4](\x,{(5*\x*\x-\x*\x*\x)/8})node[right]{$y=f(x)$};
+\draw[red, thick] (0,-0.5)--(3.5,3) node[right]{$A$};
+\draw[blue, thick] (0,1.5)--(4,1.5) node[right]{$B$};
+\draw[green, thick] plot[domain=0:3.5](\x,{1.5+(\x-2)+(\x-2)*(\x-2)/2}) node[right]{$C$};
+\draw (2,1.5) node[vertex]{};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+Which of the functions are constant, linear, and quadratic?
+</p></hint>
+<answer><p>
+<m>\textcolor{red}{A}</m>: linear
+</p>
+<p>
+<m>\textcolor{blue}{B}</m>: constant
+</p>
+<p>
+<m>\textcolor{green}{C}</m>: quadratic
+</p></answer>
+<solution><p>
+All functions <m>A</m>, <m>B</m>, and <m>C</m> intersect the function <m>y=f(x)</m> when <m>x=2</m>. <m>B</m> is a constant function, so this is the constant approximation. <m>A</m> is the tangent line, so <m>A</m> is the linear approximation. <m>C</m> is a tangent parabola, so <m>C</m> is the quadratic approximation.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose <m>T(x)</m> is the Taylor series for <m>f(x)=\arctan^3\left(e^x+7\right)</m> centred at <m>a=5</m>. What is <m>T(5)</m>?
+</p></statement>
+<hint><p>
+You don't have to actually calculate the entire series <m>T(x)</m> to answer the question.
+</p></hint>
+<answer><p>
+<m>T(5)=\arctan^3\left(e^5+7\right)</m>
+</p></answer>
+<solution><p>
+Following how a Taylor series is constructed, the Taylor series and the function agree at the point chosen as the centre.  So, <m>T(5)=\arctan^3\left(e^5+7\right)</m>.
+</p>
+
+<p>If we were evaluating a Taylor series at a point <em>other than its centre</em>, we would generally need to check that (a) the series converges, and (b) it converges to the same value as the function we used to create it.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Below are a list of common functions, and their Taylor series representations. Match the function to the Taylor series.
+</p>
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell>function </cell> <cell> series</cell>
+</row><row>
+<cell>A. <m>\dfrac{1}{1-x}</m></cell><cell>I. <m>\displaystyle\sum_{n=0}^\infty(-1)^n\dfrac{x^{n+1}}{n+1}</m> </cell>
+</row>
+<row>
+<cell>B. <m>\log(1+x)</m></cell><cell>II. <m>\displaystyle\sum_{n=0}^\infty(-1)^n\dfrac{x^{2n+1}}{(2n+1)!}</m>
+</cell>
+</row><row>
+<cell>C. <m>\arctan x</m></cell><cell>III. <m>\displaystyle\sum_{n=0}^\infty(-1)^n\dfrac{x^{2n}}{(2n)!}</m> </cell>
+</row><row>
+<cell> D. <m>e^x</m></cell><cell>IV. <m>\displaystyle\sum_{n=0}^\infty(-1)^n\dfrac{x^{2n+1}}{2n+1}</m> </cell>
+</row><row>
+<cell> E. <m>\sin x</m> </cell><cell>V. <m>\displaystyle\sum_{n=0}^\infty x^n</m> </cell>
+</row><row>
+<cell>F. <m>\cos x</m> </cell><cell>VI. <m>\displaystyle\sum_{n=0}^\infty \frac{x^n}{n!}</m> </cell>
+</row>
+</tabular>
+</sidebyside>
+</statement>
+<hint><p>
+If you don't have these memorized, it's good to be able to derive them. For instance, <m>\log(1+x)</m> is the antiderivative of <m>\dfrac{1}{1+x}</m>, whose Taylor series can be found by modifying the geometric series <m>\sum x^n</m>.
+</p></hint>
+<answer><p>
+A - V
+</p><p>
+B - I
+</p><p>
+C - IV
+</p><p>
+D - VI
+</p><p>
+E - II
+</p><p>
+F - III
+</p></answer>
+<solution><p>
+These are listed in Theorem<nbsp/><xref ref="thm_SRimportantTaylorSeries"/> in the CLP-II text. However, it's possible to figure out many of them without a lot of memorization. For example, <m>e^0=\cos(0)=\frac{1}{1-0}=1</m>, while <m>\sin(0)=\log(1+0)=\arctan(0)=0</m>. So by plugging in <m>x=0</m> to the series listed, we can divide them into these two categories.
+</p>
+
+<p>The derivative of sine is cosine, so we can also look for one series that is the derivative of another. The derivative of <m>e^x</m> is <m>e^x</m>, so we can look for a series that is its own derivative.
+</p>
+
+<p>Furthermore,      sine and arctangent are odd functions and only  II and IV are  odd.
+Cosine is an even  function and only III is even.
+</p>
+
+<p>Alternately, we can find the first few terms of each series using the definition of a Taylor series, and match them up.
+</p>
+
+<p>All together, the functions correspond to the following series:
+</p>
+
+<p>A - V
+</p><p>
+B - I
+</p><p>
+C - IV
+</p><p>
+D - VI
+</p><p>
+E - II
+</p><p>
+F - III
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+<ol label="a">
+<li> Suppose <m>f(x)=\displaystyle\sum_{n=0}^\infty \frac{n^2}{(n!+1)}(x-3)^n</m> for all real <m>x</m>. What is <m>f^{(20)}(3)</m> (the twentieth derivative of <m>f(x)</m> at <m>x=3</m>)?
+</li>
+<li> Suppose <m>g(x)=\displaystyle\sum_{n=0}^\infty \frac{n^2}{(n!+1)}(x-3)^{2n}</m> for all real <m>x</m>. What is <m>g^{(20)}(3)</m>?
+</li>
+<li> If <m>h(x)=\dfrac{\arctan(5x^2)}{x^4}</m>, what is <m>h^{(20)}(0)</m>? What is <m>h^{(22)}(0)</m>?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+See Example<nbsp/><xref ref="eg_SRfindDeriv"/> in the CLP-II text.
+</p></hint>
+<answer><p>
+(a) <m>f^{(20)}(3)=20^2\left(\dfrac{20!}{20!+1}\right)</m>
+</p><p>
+(b) <m>g^{(20)}(3)=10^2\left(\dfrac{20!}{10!+1}\right)</m>
+</p><p>
+(c) <m>h^{(20)}(0)=0;\quad h^{(22)}(0)=\dfrac{22!\cdot 5^{13}}{13}</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<p>
+Using the definition of a Taylor series, we know
+<me>
+ \displaystyle\sum_{n=0}^\infty \frac{n^2}{(n!+1)}(x-3)^n=\displaystyle\sum_{n=0}^\infty \frac{f^{(n)}(3)}{n!}(x-3)^n
+</me>
+So, the coefficient of <m>(x-3)^{20}</m> is  <m>\frac{f^{(20)}(3)}{20!}</m> (using the definition). Using the given series, the coefficient of <m>(x-3)^{20}</m> is <m>\frac{20^2}{20!+1}</m>. So,
+<md>
+<mrow>
+\frac{f^{(20)}(3)}{20!}&amp;=\frac{20^2}{20!+1}
+</mrow><mrow>
+\Rightarrow \qquad f^{(20)}(3)&amp;=20^2\left(\frac{20!}{20!+1}\right)
+</mrow>
+</md>
+(which is extremely close to <m>20^2</m>).
+</p>
+</li>
+<li>
+<p>
+Using the definition of a Taylor series, we know
+<me>
+ \displaystyle\sum_{n=0}^\infty \frac{n^2}{(n!+1)}(x-3)^{2n}=\displaystyle\sum_{k=0}^\infty \frac{g^{(k)}(3)}{k!}(x-3)^{k}
+</me>
+So, the coefficient of <m>(x-3)^{20}</m> is  <m>\frac{g^{(20)}(3)}{20!}</m> (using the definition). Looking at the given series, the coefficient of <m>(x-3)^{20}</m> occurs when <m>n=10</m>, so it is <m>\frac{10^2}{10!+1}</m>. So,
+<md>
+<mrow>
+\frac{g^{(20)}(3)}{20!}&amp;=\frac{10^2}{10!+1}
+</mrow><mrow>
+\Rightarrow \qquad g^{(20)}(3)&amp;=10^2\left(\frac{20!}{10!+1}\right)
+</mrow>
+</md>
+</p>
+</li>
+<li>
+With the previous two examples in mind, we find the Maclaurin series for <m>h(x).</m> (Using the series representation will be much easier than differentiating <m>h(x)</m> directly twenty times.) Recall from the text that we know the Maclaurin series for <m>\arctan x</m>.
+<md>
+<mrow>
+\arctan(x)&amp;=\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}
+</mrow><mrow>
+\arctan(5x^2)&amp;=\sum_{n=0}^\infty (-1)^n\frac{(5x^2)^{2n+1}}{2n+1}
+=\sum_{n=0}^\infty (-1)^n\frac{5^{2n+1}}{2n+1}x^{4n+2}
+</mrow><mrow>
+\frac{\arctan(5x^2)}{x^4}&amp;=\sum_{n=0}^\infty (-1)^n\frac{5^{2n+1}}{2n+1}x^{4n-2}
+</mrow><mrow>
+\sum_{k=0}^\infty \frac{h^{(k)}(0)}{k!}x^k&amp;=\sum_{n=0}^\infty (-1)^n\frac{5^{2n+1}}{2n+1}x^{4n-2}
+</mrow>
+</md>
+Using the definition of a Maclaurin series, the coefficient of <m>x^{22}</m> is <m>\dfrac{h^{(22)}(0)}{22!}</m>. This occurs in  the given series when <m>n=6</m>, so
+<md>
+<mrow>
+\dfrac{h^{(22)}(0)}{22!}&amp;=(-1)^6\frac{5^{2\times6+1}}{2\times6+1}=\frac{5^{13}}{13}
+</mrow><mrow>
+\Rightarrow\qquad h^{(22)}(0)&amp;=\frac{22!\cdot 5^{13}}{13}
+</mrow>
+</md>
+Similarly, the coefficient of <m>x^{20}</m> in the Maclaurin series is <m>\dfrac{h^{(20)(0)}}{20!}</m>. Since no term <m>x^{20}</m> occurs in our series, that coefficient is 0, so <m>h^{(20)}(0)=0</m>.
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<introduction><p>In Questions<nbsp/><xref ref="TSdef1"  text="local"/> through <xref ref="TSdef2"  text="local"/>, you will create Taylor series from scratch. In practice, it is often preferable to modify an existing series, rather than creating a new one, but you should understand both ways.</p></introduction>
+
+<exercise xml:id="TSdef1">
+<statement><p>
+Using the definition of a Taylor series, find the Taylor series for <m>f(x)=\log(x)</m> centred at <m>x=1</m>.
+</p></statement>
+<hint><p>
+The series will bear some resemblance to the Maclaurin series for <m>\log(1+x)</m>.
+</p>
+
+</hint>
+<answer><p>
+<m>\displaystyle\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}(x-1)^n</m>
+</p></answer>
+<solution><p>
+The definition of a Taylor series tells us we will be computing the coefficients in the series
+<me>
+\sum_{n=0}^\infty \frac{f^{(n)}(1)}{n!}(x-1)^n
+</me>
+That is, we need a general description of <m>f^{(n)}(1)</m>. To find this, we take a few derivatives, and look for a pattern.
+<md>
+<mrow>
+f(x)&amp;=\log(x) &amp; f(1)&amp;=0
+</mrow><mrow>
+f'(x)&amp;=x^{-1} &amp; f'(1)&amp;=1
+</mrow><mrow>
+f''(x)&amp;=(-1)x^{-2} &amp; f''(1)&amp;=-1
+</mrow><mrow>
+f^{(3)}(x)&amp;=(-2)(-1)x^{-3}&amp; f^{(3)}(1)&amp;=2!
+</mrow><mrow>
+f^{(4)}(x)&amp;=(-3)(-2)(-1)x^{-4}&amp; f^{(4)}(1)&amp;=-3!
+</mrow><mrow>
+f^{(5)}(x)&amp;=(-4)(-3)(-2)(-1)x^{-5}&amp; f^{(5)}(1)&amp;=4!
+</mrow><mrow>
+f^{(6)}(x)&amp;=(-5)(-4)(-3)(-2)(-1)x^{-6}&amp; f^{(6)}(1)&amp;=-5!
+</mrow><mrow>
+&amp;\vdots&amp;&amp;\vdots
+</mrow><mrow>
+f^{(n)}(x)&amp;=(-1)^{n-1}(n-1)!\,x^{-n} &amp; f^{(n)}(1)&amp;=(-1)^{n-1}(n-1)!
+</mrow>
+</md>
+Using the convention <m>0!=1</m>, our pattern for <m>f^{(n)}(1)</m> begins when <m>n=1</m>.
+<me>
+\sum_{n=0}^\infty \frac{f^{(n)}(1)}{n!}(x-1)^n
+=0+\sum_{n=1}^\infty \frac{(-1)^{n-1}(n-1)! }{n!}(x-1)^n
+=\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}(x-1)^n
+</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+	Find the Taylor series for <m>f(x)=\sin x</m> centred at <m>a=\pi</m>.
+</p></statement>
+<hint><p>
+The terms <m>f^{(n)}(\pi)</m> are going to be similar to the terms <m>f^{(n)}(0)</m> that we used in the Maclaurin series for sine.
+</p></hint>
+<answer><p>
+	<m>\displaystyle \sum_{n=0}^\infty \frac{(-1)^{n+1}}{(2n+1)!}(x-\pi)^{2n+1}</m>
+</p></answer>
+<solution><p>
+	To find the Taylor series for sine, centred at <m>a=\pi</m>, we'll need to know the various derivatives of sine at <m>\pi</m>.
+	<md>
+<mrow>
+	f(x)&amp;=\sin x &amp; f(\pi)&amp;=0
+</mrow><mrow>
+	f'(x)&amp;=\cos x &amp; f'(\pi)&amp;=-1
+</mrow><mrow>
+	f''(x)&amp;=-\sin x &amp; f''(\pi)&amp;=0
+</mrow><mrow>
+	f'''(x)&amp;=-\cos x &amp; f'''(\pi)&amp;=1
+</mrow><mrow>
+	f^{(4)}(x)&amp;=\sin x = f(x) &amp; f^{(4)}(\pi)&amp;=0
+	</mrow>
+</md>
+	Even derivatives are 0; odd derivatives alternate between <m>-1</m> and <m>+1</m>. (If you're following along with the derivation of the Maclaurin series for sine in the text, note <m>f^{(n)}(\pi)=-f^{(n)}(0)</m>.)
+</p>
+
+<p>	In our Taylor series, every even-indexed term will be zero, and we will be left with only odd-indexed terms. If we let <m>n</m> be our index, then the term <m>2n+1</m> will capture all the odd numbers. Since the signs alternate, <m>f^{(2n+1)}(\pi)=(-1)^{n+1}</m>. So, our Taylor series is:
+</p>
+
+<p>	<md>
+<mrow>
+	\sum_{k=0}^\infty \frac{f^{(k)}(\pi)}{k!}(x-\pi)^k &amp;= \sum_{n=0}^\infty \frac{f^{(2n+1)}(\pi)}{(2n+1)!}(x-\pi)^{2n+1} \qquad\text{(since the even terms are all zero)}
+</mrow><mrow>
+	&amp;=\sum_{n=0}^\infty \frac{(-1)^{n+1}}{(2n+1)!}(x-\pi)^{2n+1}
+	</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Using the definition of a Taylor series, find the Taylor series for <m>g(x)=\dfrac{1}{x}</m> centred at <m>x=10</m>. What is the interval of convergence of the resulting series?
+</p></statement>
+<hint><p>
+	The Taylor series will look similar to a geometric series.
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{1}{10}\sum_{n=0}^\infty\left(\frac{10-x}{10}\right)^n</m> with interval of convergence <m>(0,20)</m>.
+</p></answer>
+<solution><p>
+The definition of a Taylor series tells us we will be computing the coefficients in the series
+<me>
+\sum_{n=0}^\infty \frac{g^{(n)}(10)}{n!}(x-10)^n</me>
+</p>
+
+<p>That is, we need a general description of <m>g^{(n)}(10)</m>. To find this, we take a few derivatives, and look for a pattern.
+</p>
+
+<p><md>
+<mrow>
+g(x)&amp;=x^{-1} &amp; g(10)&amp;=\frac{1}{10}
+</mrow><mrow>
+g'(x)&amp;=(-1)x^{-2} &amp; g'(10)&amp;=\frac{-1}{10^2}
+</mrow><mrow>
+g''(x)&amp;=(-2)(-1)x^{-3}&amp; g''(10)&amp;=\frac{(-1)^22!}{10^3}
+</mrow><mrow>
+g^{(3)}(x)&amp;=(-3)(-2)(-1)x^{-4}&amp; g^{(3)}(10)&amp;=\frac{(-1)^33!}{10^4}
+</mrow><mrow>
+g^{(4)}(x)&amp;=(-4)(-3)(-2)(-1)x^{-5}&amp;g^{(4)}(10)&amp;=\frac{(-1)^44!}{10^5}
+</mrow><mrow>
+g^{(5)}(x)&amp;=(-5)(-4)(-3)(-2)(-1)x^{-6}&amp; g^{(5)}(10)&amp;=\frac{(-1)^55!}{10^6}
+</mrow><mrow>
+&amp;\vdots&amp;&amp;\vdots
+</mrow><mrow>
+g^{(n)}(x)&amp;=(-1)^{n}n!x^{-(n+1)} &amp; g^{(n)}(10)&amp;=\frac{(-1)^{n}n!}{10^{n+1}}
+</mrow>
+</md>
+Using the convention <m>0!=1</m>, our pattern for <m>g^{(n)}(10)</m> begins when <m>n=0</m>.
+</p>
+
+<p><md>
+<mrow>
+\sum_{n=0}^\infty \frac{g^{(n)}(1)}{n!}(x-10)^n
+&amp;=\sum_{n=0}^\infty \frac{(-1)^{n}n!}{n! 10^{n+1}}(x-10)^n
+</mrow><mrow>
+&amp;=-\sum_{n=0}^\infty \frac{(x-10)^n}{(-10)^{n+1}}
+</mrow><mrow>
+&amp;=\frac{1}{10}\sum_{n=0}^\infty\left(\frac{10-x}{10}\right)^n
+</mrow>
+</md>
+</p>
+
+<p>For fixed <m>x</m>, we recognize this as a geometric series with <m>r=\frac{10-x}{10}</m>. So it converges precisely when <m>|r| \lt 1</m>, i.e.
+<md>
+<mrow>
+\left| \frac{10-x}{10} \right|&amp; \lt 1
+</mrow><mrow>
+\left|10-x \right|&amp; \lt 10
+</mrow><mrow>
+-10 \lt x-10&amp; \lt 10
+</mrow><mrow>
+0 \lt x&amp; \lt 20
+</mrow>
+</md>
+So, its interval of convergence is <m>(0,20)</m>.
+</p></solution>
+</exercise>
+
+<exercise xml:id="TSdef2" purpose="RQS">
+<statement><p>
+Using the definition of a Taylor series, find the Taylor series for <m>h(x)=e^{3x}</m> centred at <m>x=a</m>, where <m>a</m> is some constant. What is the radius of convergence of the resulting series?
+</p></statement>
+<hint><p>
+	Your answer will depend on <m>a</m>.
+</p></hint>
+<answer><p>
+	<m>\displaystyle \sum_{n=0}^\infty \frac{3^ne^{3a} }{n!}(x-a)^n</m>, with infinite radius of convergence
+</p></answer>
+<solution><p>
+	The definition of a Taylor series tells us we will be computing the coefficients in the series
+	<me>
+\sum_{n=0}^\infty \frac{h^{(n)}(a)}{n!}(x-a)^n</me>
+</p>
+
+<p>	That is, we need a general description of <m>h^{(n)}(a)</m>. To find this, we take a few derivatives, and look for a pattern.
+</p>
+
+<p>	<md>
+<mrow>
+	h(x)&amp;=e^{3x} &amp; h(a)&amp;=e^{3a}
+</mrow><mrow>
+	h'(x)&amp;=3e^{3x} &amp; h'(a)&amp;=3e^{3a}
+</mrow><mrow>
+	h''(x)&amp;=3^2e^{3x} &amp; h''(a)&amp;=3^2e^{3a}
+</mrow><mrow>
+	h'''(x)&amp;=3^3e^{3x} &amp; h'''(a)&amp;=3^3e^{3a}
+</mrow><mrow>
+	&amp;\vdots&amp;&amp;\vdots
+</mrow><mrow>
+	h^{(n)}(x)&amp;=3^{n}e^{3x} &amp; h^{(n)}(a)&amp;=3^{n}e^{3a}
+		</mrow>
+</md>
+</p>
+
+<p>The pattern for <m>h^{(n)}(a)</m> holds for all (whole numbers) <m>n \ge 0</m>. So, our Taylor series for <m>h(x)</m> is
+	<me>
+\sum_{n=0}^\infty \frac{3^ne^{3a} }{n!}(x-a)^n</me>
+</p>
+
+<p>To find its radius of convergence, we use the ratio test.
+<md>
+<mrow>
+\left|\frac{a_{n+1}}{a_n}\right|&amp;=\left|\frac{3^{n+1}e^{3a} (x-a)^{n+1}}{(n+1)!}\cdot {\frac{n!}{3^ne^{3a}(x-a)^n }}\right|
+</mrow><mrow>
+&amp;=\left|\frac{3^{n+1}}{3^n}\cdot\frac{e^{3a}}{e^{3a}}\cdot \frac{n!}{(n+1)!}\cdot\frac{(x-a)^{n+1}}{(x-a)^n}\right|
+</mrow><mrow>
+&amp;=3\cdot\frac{1}{n+1}\cdot |x-a|
+</mrow><mrow>
+\lim_{n \to \infty }\left|\frac{a_{n+1}}{a_n}\right|&amp;=\lim_{n \to \infty}\left[\frac{3}{n+1}\cdot |x-a|\right]=0
+</mrow>
+</md>
+Our series converges for every value of <m>x</m>, so its radius of convergence is <m>\infty</m>.
+</p></solution>
+</exercise>
+
+</exercisegroup>
+<exercisegroup>
+<introduction><p>In Questions<nbsp/><xref ref="prob_s3_6modify1" text="local"/> through <xref ref="prob_s3_6modify2" text="local"/>, practice creating new Taylor series by modifying known Taylor series, rather than creating your series from scratch.</p></introduction>
+
+<exercise xml:id="prob_s3_6modify1" purpose="RQS"><title><fromexam>M105 2013A</fromexam></title>
+<statement><p>
+Find the Maclaurin series for <m>f(x) = \dfrac{1}{2x-1}</m>.
+</p></statement>
+
+<hint><p>
+You should know the Maclaurin series for <m>\dfrac{1}{1-x}</m>. Use it.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle-\sum\limits_{n=0}^\infty 2^nx^n</m>
+</p></answer>
+
+<solution><p>
+Substituting <m>y=2x</m> into <m>\displaystyle \frac{1}{1-y} = \sum\limits_{n=0}^\infty y^n</m>
+gives
+<md>
+<mrow>
+f(x) = \frac{1}{2x-1} = -\frac{1}{1-2x}
+=-\sum_{n=0}^\infty (2x)^n
+=-\sum_{n=0}^\infty 2^nx^n
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2014A</fromexam></title>
+<statement><p>
+Let <m>\displaystyle\sum\limits_{n=0}^\infty b_nx^n</m>
+be the Maclaurin series for <m>\displaystyle f(x) = \frac{3}{x+1} - \frac{1}{2x-1}</m>,
+</p>
+<p>
+i.e. <m>\displaystyle\sum\limits_{n=0}^\infty b_nx^n = \frac{3}{x+1} - \frac{1}{2x-1}</m>.
+</p>
+<p>
+Find <m>b_n</m>.
+</p></statement>
+
+<hint><p>
+You should know the Maclaurin series for <m>\dfrac{1}{1-x}</m>. Use it.
+</p></hint>
+
+<answer><p>
+<m>b_n = 3(-1)^n + 2^n</m>
+</p></answer>
+
+<solution><p>
+Substituting first <m>y=-x</m> and then <m>y=2x</m> into
+<m>\dfrac{1}{1-y} = \displaystyle\sum\limits_{n=0}^\infty y^n</m> gives
+<md alignment="alignat">
+  <mrow>
+\frac{1}{1-(-x)} &amp;= \sum_{n=0}^\infty (-x)^n&amp;&amp;=\sum_{n=0}^\infty (-1)^nx^n
+</mrow><mrow>
+\frac{1}{1-(2x)} &amp;= \sum_{n=0}^\infty (2x)^n&amp;&amp;=\sum_{n=0}^\infty 2^nx^n
+</mrow>
+</md>
+Hence
+<md>
+<mrow>
+f(x) &amp;=\frac{3}{x+1} - \frac{1}{2x-1} = \frac{3}{1-(-x)} + \frac{1}{1-2x}
+=3\sum_{n=0}^\infty (-1)^nx^n  +  \sum_{n=0}^\infty 2^nx^n
+</mrow><mrow>
+&amp;=\sum_{n=0}^\infty \big(3(-1)^n + 2^n\big)x^n
+</mrow>
+</md>
+So <m>b_n = 3(-1)^n + 2^n</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2014A</fromexam></title>
+<statement><p>
+Find the coefficient <m>c_5</m> of the fifth degree term in the Maclaurin
+series <m>\displaystyle\sum_{n=0}^\infty c_nx^n</m> for <m>e^{3x}</m>.
+</p></statement>
+
+<hint><p>
+You should know the Maclaurin series for <m>e^x</m>. Use it.
+</p></hint>
+
+<answer><p>
+<m>c_5=\dfrac{3^5}{5!}</m>
+</p></answer>
+
+<solution><p>
+We found the Taylor series for <m>e^{3x}</m> from scratch in Question<nbsp/><xref ref="TSdef2" text="local"/>. If we hadn't just done that, we could easily find it by modifying the series for <m>e^x</m>.
+</p>
+
+<p>Substituting <m>y=3x</m> into the exponential series
+<me>
+e^y=\sum_{n=0}^\infty\frac{y^n}{n!}
+</me>
+gives
+<me>
+e^{3x}=\sum_{n=0}^\infty\frac{(3x)^n}{n!}
+=\sum_{n=0}^\infty\frac{3^n\,x^n}{n!}
+</me>
+so that <m>c_5</m>, the coefficient of <m>x^5</m>, which appears only in
+the <m>n=5</m> term, is
+<m>c_5=\dfrac{3^5}{5!}</m>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M105 2012A</fromexam></title>
+<statement><p>
+Express the Taylor series of the function
+<me>
+f(x) = \log(1 + 2x)
+</me>
+about <m>x = 0</m> in summation notation.
+</p></statement>
+
+<hint><p>
+Review Example <xref ref="eg_SRpsrepC"/> in the CLP-II text.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\sum_{n=0}^\infty  (-1)^n  \frac{2^{n+1} x^{n+1}}{n+1}</m>
+for all <m>|x| \lt \frac{1}{2}</m>
+</p></answer>
+
+<solution><p>
+Since
+<me>
+f'(t) =\diff{}{t}\log(1+2t) = \frac{2}{1+2t} = 2\sum_{n=0}^\infty(-2t)^n
+\qquad\text{if }|2t| \lt 1\text{ i.e. }|t| \lt \frac{1}{2}
+</me>
+and <m>f(0)=0</m>, we have
+<md>
+<mrow>
+f(x)
+&amp;=\int_0^x f'(t) \,\dee{t}
+=2 \sum_{n=0}^\infty \int_0^x (-1)^n 2^n t^n\,\dee{t}
+=\sum_{n=0}^\infty  (-1)^n 2^{n+1} \frac{x^{n+1}}{n+1}
+\qquad\text{ for all }|x| \lt \frac{1}{2}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2013A</fromexam></title>
+<statement><p>
+The first two terms in the Maclaurin series for
+<m>x^2 \sin(x^3)</m> are <m>ax^5 + bx^{11}</m> , where <m>a</m> and
+<m>b</m> are constants. Find the values of <m>a</m> and <m>b</m>.
+</p></statement>
+
+<hint><p>
+You should know the Maclaurin series for <m>\sin x</m>. Use it.
+</p></hint>
+
+<answer><p>
+ <m>a=1</m>, <m>b=-\dfrac{1}{3!}=-\dfrac{1}{6}</m>.
+</p></answer>
+
+<solution><p>
+We just need to substitute <m>y=x^3</m> into the known Maclaurin series for <m>\sin y</m>,
+to get the Maclaurin series for <m>\sin(x^3)</m>, and then multiply the result
+by <m>x^2</m>.
+<md>
+<mrow>
+\sin y&amp;= y-\frac{y^3}{3!}+\cdots \cr
+\sin(x^3)&amp;= x^3-\frac{x^9}{3!}+\cdots \cr
+x^2\sin(x^3)&amp;= x^5-\frac{x^{11}}{3!}+\cdots \cr
+</mrow>
+</md>
+so <m>a=1</m> and <m>b=-\frac{1}{3!}=-\frac{1}{6}</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2014D</fromexam></title>
+<statement><p>
+Give the first two nonzero terms in the Maclaurin series for <m>\displaystyle{\int \frac{e^{-x^2}-1}{x} \,\dee{x}}</m>.
+</p></statement>
+
+<hint><p>
+You should know the Maclaurin series for <m>e^x</m>. Use it.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\int \frac{e^{-x^2}-1}{x} \,\dee{x} = C -\frac{x^2}{2} + \frac{x^4}{8} + \cdots</m>.
+</p>
+
+<p>It is not clear from the wording of the question whether or not
+the arbitrary constant <m>C</m> is to be counted as one of the
+<q>first two nonzero terms</q>.
+</p></answer>
+
+<solution><p>
+Recall that
+<me>
+e^y = \sum_{n=0}^\infty\frac{y^n}{n!}
+    =1 + y + \frac{y^2}{2} +\frac{y^3}{3!} + \cdots
+</me>
+Setting <m>y=-x^2</m>, we have
+<md>
+<mrow>
+e^{-x^2} &amp; = 1 -x^2 + \frac{x^4}{2} - \frac{x^6}{3!} + \cdots
+</mrow><mrow>
+e^{-x^2} - 1&amp; =  -x^2 + \frac{x^4}{2} - \frac{x^6}{6} + \cdots
+</mrow><mrow>
+\frac{e^{-x^2} - 1}{x}&amp; =  -x + \frac{x^3}{2} - \frac{x^5}{6} + \cdots
+</mrow><mrow>
+\int \frac{e^{-x^2}-1}{x} \,\dee{x}&amp; = C -\frac{x^2}{2} + \frac{x^4}{8} - \frac{x^6}{36} + \cdots
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2015A</fromexam></title>
+<statement><p>
+Find the Maclaurin series for <m>\displaystyle{\int x^4\arctan(2x) \,\dee{x}}</m>.
+</p></statement>
+
+<hint><p>
+You should know the Maclaurin series for <m>\arctan(x)</m>. Use it.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\sum\limits_{n=0}^\infty (-1)^n\frac{2^{2n+1} x^{2n+6}}{(2n+1)(2n+6)} +C
+=\sum\limits_{n=0}^\infty (-1)^n\frac{2^{2n} x^{2n+6}}{(2n+1)(n+3)} +C</m>
+</p></answer>
+
+<solution><p>
+Recall that
+<me>
+\arctan(y) = \sum_{n=0}^\infty(-1)^n\frac{y^{2n+1}}{2n+1}
+</me>
+Setting <m>y=2x</m>, we have
+<md>
+<mrow>
+\int x^4\arctan(2x) \,\dee{x}&amp;=
+\int\left( x^4\sum_{n=0}^\infty (-1)^n\frac{(2x)^{2n+1}}{2n+1} \right)\dee{x}
+</mrow><mrow>
+&amp;=
+\int\left( \sum_{n=0}^\infty (-1)^n\frac{2^{2n+1}x^{2n+5}}{2n+1} \right)\dee{x}
+</mrow><mrow>
+&amp;=
+\sum_{n=0}^\infty (-1)^n\frac{2^{2n+1} x^{2n+6}}{(2n+1)(2n+6)} +C
+</mrow><mrow>
+&amp;=\sum_{n=0}^\infty (-1)^n\frac{2^{2n} x^{2n+6}}{(2n+1)(n+3)} +C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s3_6modify2" purpose="RQS"><title><fromexam>M105 2015A</fromexam></title>
+<statement><p>
+Suppose that <m>\displaystyle\diff{f}{x}=\frac{x}{1+3x^3}</m> and <m>f(0)=1</m>.
+Find the Maclaurin series for <m>f(x)</m>.
+</p></statement>
+
+<hint><p>
+You should know the Maclaurin series for <m>\dfrac{1}{1-x}</m>. Use it.
+</p></hint>
+
+<answer><p>
+<m>f(x)  = 1+ \displaystyle\sum\limits_{n=0}^\infty (-1)^n  \frac{3^n }{3n+2} x^{3n+2}</m>
+</p></answer>
+
+<solution><p>
+Substituting <m>y=-3x^3</m> into <m>\dfrac{1}{1-y} = \sum\limits_{n=0}^\infty y^n</m>
+gives
+<md>
+<mrow>
+\diff{f}{x} = x\cdot\frac{1}{1+3x^3}
+=x\sum_{n=0}^\infty {\big(-3x^3\big)}^n
+=\sum_{n=0}^\infty (-1)^n 3^n x^{3n+1}
+</mrow>
+</md>
+Now integrating,
+<md>
+<mrow>
+f(x)  = \sum_{n=0}^\infty (-1)^n 3^n \frac{x^{3n+2}}{3n+2} +C
+</mrow>
+</md>
+To have <m>f(0)=1</m>, we need <m>C=1</m>. So, finally
+<md>
+<mrow>
+f(x)  = 1+ \sum_{n=0}^\infty (-1)^n  \frac{3^n }{3n+2} x^{3n+2}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+</exercisegroup>
+
+<exercisegroup>
+<introduction><p>In past chapters, we were only able to exactly evaluate very specific types of series: geometric and telescoping. In Questions<nbsp/><xref ref="prob_s3_6evaluate1" text="local"/> through <xref ref="prob_s3_6evaluate2" text="local"/>, we expand our range by relating given series to Taylor series.</p></introduction>
+
+<exercise xml:id="prob_s3_6evaluate1" purpose="RQS"><title><fromexam>M105 2012A</fromexam></title>
+<statement><p>
+The Maclaurin series for <m>\arctan x</m> is given by
+<me>
+\arctan x = \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}
+</me>
+which has radius of convergence equal to <m>1</m>. Use this fact to compute
+the exact value of the series below:
+<me>
+\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1) 3^n}
+</me>
+</p></statement>
+
+<hint><p>
+Set <m>(-1)^n\dfrac{x^{2n+1}}{2n+1}=C\dfrac{(-1)^n}{(2n+1)3^n}</m>, for some constant <m>C</m>. What are <m>x</m> and <m>C</m>?
+</p></hint>
+
+<answer><p>
+<m>\dfrac{\pi}{2\sqrt{3}}</m>
+</p></answer>
+
+<solution><p>
+	We're given a big hint: that our series resembles the Taylor series for arctangent.
+</p>
+
+<p>	The terms of arctangent are <m>(-1)^n\dfrac{x^{2n+1}}{2n+1}</m>. Our terms resemble those terms, with <m>x^{2n+1}</m> replaced by <m>\dfrac{1}{3^n}</m>.
+</p>
+
+<p>Since  <m>3^n=\big(\sqrt{3}\big)^{2n}=\frac{1}{\sqrt{3}}\big(\sqrt{3}\big)^{2n+1}</m>:
+<md>
+<mrow>
+\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1) 3^n}
+&amp;=\sqrt{3} \sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)\big(\sqrt{3}\big)^{2n+1} }
+</mrow>
+<mrow>
+&amp; =\sqrt{3} \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}
+         \bigg|_{x=\frac{1}{\sqrt{3}}}
+=\sqrt{3}\,\arctan\frac{1}{\sqrt{3}}
+</mrow><mrow>
+&amp;=\sqrt{3}\,\frac{\pi}{6}
+=\frac{\pi}{2\sqrt{3}}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2014D</fromexam></title>
+<statement><p>
+Evaluate <m>{\displaystyle\sum_{n=0}^\infty\frac{(-1)^n}{n!}}\,</m>.
+</p></statement>
+
+<hint><p>
+There is an important Taylor series, one of the series in
+Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the CLP-II text, that looks a lot like the given series.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{e}</m>
+</p></answer>
+
+<solution><p>
+Recall that <m>e^x =\displaystyle \sum\limits_{n=0}^\infty\frac{x^n}{n!}</m>. So
+<md>
+<mrow>
+\sum_{n=0}^\infty\frac{(-1)^n}{n!}
+=\Big[\sum_{n=0}^\infty\frac{x^n}{n!}\Big]_{x=-1}
+=\Big[e^x\Big]_{x=-1}
+=e^{-1}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M105 2013A</fromexam></title>
+<statement><p>
+Evaluate <m>{\displaystyle\sum_{k=0}^\infty\frac{1}{e^k k!}}\,</m>.
+</p></statement>
+
+<hint><p>
+There is an important Taylor series, one of the series in
+Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the CLP-II text, that looks a lot like the given series.
+</p></hint>
+
+<answer><p>
+<m>e^{1/e}</m>
+</p></answer>
+
+<solution><p>
+Recall that <m>e^x = \displaystyle\sum\limits_{k=0}^\infty\frac{x^k}{k!}</m>. So
+<md>
+<mrow>
+\sum_{k=0}^\infty\frac{1}{e^k k!}
+=\Big[\sum_{k=0}^\infty\frac{x^k}{k!}\Big]_{x=1/e}
+=\Big[e^x\Big]_{x=1/e}
+=e^{1/e}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2013A</fromexam></title>
+<statement><p>
+Evaluate the sum of the convergent series
+<m>{\displaystyle\sum_{k=1}^\infty\frac{1}{\pi^k k!}}\,</m>.
+</p></statement>
+
+<hint><p>
+There is an important Taylor series, one of the series in
+Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the CLP-II text, that looks a lot like the given series. Be careful about the
+limits of summation.
+</p></hint>
+
+<answer><p>
+<m>e^{1/\pi}-1</m>
+</p></answer>
+
+<solution><p>
+Recall that <m>e^x = \displaystyle\sum\limits_{k=0}^\infty\frac{x^k}{k!}</m>. So
+<md>
+<mrow>
+\sum_{k=0}^\infty\frac{1}{\pi^k k!}
+=\Big[\sum_{k=0}^\infty\frac{x^k}{k!}\Big]_{x=1/\pi}
+=\Big[e^x\Big]_{x=1/\pi}
+=e^{1/\pi}
+</mrow>
+</md>
+This series differs from the given one only in that it starts with <m>k=0</m> while
+the given series starts with <m>k=1</m>. So
+<md>
+<mrow>
+\sum_{k=1}^\infty\frac{1}{\pi^k k!}
+=\sum_{k=0}^\infty\frac{1}{\pi^k k!} -\underbrace{1}_{k=0}
+=e^{1/\pi}-1
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Evaluate
+<m>{\displaystyle\sum_{n=1}^\infty\frac{(-1)^{n-1}}{n\, 2^n}}\,</m>.
+</p></statement>
+
+<hint><p>
+There is an important Taylor series, one of the series in
+Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the CLP-II text, that looks a lot like the given series.
+</p></hint>
+
+<answer><p>
+<m>\log(3/2)</m>
+</p></answer>
+
+<solution><p>
+Recall that
+<me>
+    \log(1+x) = \sum_{k=0}^\infty(-1)^k\frac{x^{k+1}}{k+1}
+                    = \sum_{n=1}^\infty(-1)^{n-1}\frac{x^n}{n}
+</me>
+(To get from the first sum to the second sum we substituted <m>n=k+1</m>. If you don't see
+why the two sums are equal, write out the first few terms of each.)
+So
+<md>
+<mrow>
+\sum_{n=1}^\infty\frac{(-1)^{n-1}}{n\, 2^n}
+=\Big[\sum_{n=1}^\infty(-1)^{n-1}\frac{x^n}{n}\Big]_{x=1/2}
+=\Big[\log(1+x)\Big]_{x=1/2}
+=\log(3/2)
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M121 2012A</fromexam></title>
+<statement><p>
+Evaluate
+<m>{\displaystyle\sum_{n=1}^\infty\frac{n+2}{n!}e^n}\,</m>.
+</p></statement>
+
+<hint><p>
+Split the series into a sum of two series.
+There is an important Taylor series, one of the series in
+Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the
+CLP-II text, that looks a lot like each of the two series.
+</p></hint>
+
+<answer><p>
+<m>(e+2)e^e-2</m>
+</p></answer>
+
+<solution><p>
+Write
+<md>
+<mrow>
+\sum_{n=1}^\infty\frac{n+2}{n!}e^n
+&amp;=\sum_{n=1}^\infty\frac{n}{n!}e^n
+   + \sum_{n=1}^\infty\frac{2}{n!}e^n
+</mrow><mrow>
+&amp;=\sum_{n=1}^\infty\frac{e^n}{(n-1)!}
+   + 2\sum_{n=1}^\infty\frac{e^n}{n!}
+</mrow><mrow>
+&amp;=e\sum_{n=1}^\infty\frac{e^{n-1}}{(n-1)!}
+   + 2\sum_{n=1}^\infty\frac{e^n}{n!}
+</mrow><mrow>
+&amp;=e\sum_{n=0}^\infty\frac{e^n}{n!}
+   + 2\sum_{n=1}^\infty\frac{e^n}{n!}
+</mrow>
+</md>
+Recall that <m>e^x = \displaystyle\sum\limits_{n=0}^\infty\frac{x^n}{n!}</m>. So
+<md>
+<mrow>
+\sum_{n=1}^\infty\frac{n+2}{n!}e^n
+&amp;=e\Big[\sum_{n=0}^\infty\frac{x^n}{n!}\Big]_{x=e}
++2\Big[\sum_{n=1}^\infty\frac{x^n}{n!}\Big]_{x=e}
+</mrow>
+<mrow>
+&amp; =e\Big[e^x\Big]_{x=e} + 2\Big[e^x-1\Big]_{x=e}
+= e^{e+1}  + 2(e^e-1)
+</mrow><mrow>
+&amp;=(e+2)e^e-2
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+	Evaluate <m>\displaystyle\sum_{n=1}^\infty \frac{2^n}{n}</m>, or show that it diverges.
+</p></statement>
+<hint><p>
+	Try the ratio test.
+</p></hint>
+<answer><p>
+	The sum diverges <mdash/> see the solution.
+</p></answer>
+<solution><p>
+Let's use the ratio test:
+<md>
+<mrow>
+\lim_{n \to \infty}\left|\frac{a_{n+1}}{a_n} \right|&amp;=
+\lim_{n \to \infty}\left|\frac{\frac{2^{n+1}}{n+1}}{\frac{2^n}{n}} \right|
+</mrow><mrow>
+&amp;=
+\lim_{n \to \infty}2\frac{n}{n+1}=2 \gt 1
+</mrow>
+</md>
+So, the series diverges.
+</p>
+
+<p>Remark: it's tempting to note that
+<m>\log(1+y)=\displaystyle\sum_{n=0}^\infty (-1)^n\frac{y^{n+1}}{n+1}=-\sum_{n=1}^\infty \frac{(-y)^n}{n}</m>, and try to substitute in <m>y=-2</m>. But, the Maclaurin series for <m>\log(1+y)</m> has radius of convergence <m>R=1</m>, so it doesn't converge at <m>y=-2</m>. Furthermore, <m>\log(1+(-2))=\log(-1)</m>, but this is undefined.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+	Evaluate
+	<me>
+\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}\left(\frac{\pi}{4} \right)^{2n+1}\left(1+2^{2n+1} \right)</me>
+</p>
+
+<p>	or show that it diverges.
+</p></statement>
+<hint><p>
+	Write it as the sum of two Taylor series.
+</p></hint>
+<answer><p>
+	<m>\dfrac{1+\sqrt{2}}{\sqrt{2}} </m>
+</p></answer>
+<solution><p>
+	Our series looks something like the Taylor series for sine, <m>\sin x = \displaystyle\sum_{n=0}^\infty \frac{(-1)^{n}}{(2n+1)!}x^{2n+1}</m>.
+	<md>
+<mrow>
+	\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}\left(\frac{\pi}{4} \right)^{2n+1}\left(1+2^{2n+1} \right)&amp;=
+	\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}\left[\left(\frac{\pi}{4}\right)^{2n+1}+\left(\frac{\pi}{2}\right)^{2n+1} \right]
+</mrow><mrow>
+	&amp;=\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}\left(\frac{\pi}{4}\right)^{2n+1}
+	+\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}\left(\frac{\pi}{2}\right)^{2n+1}
+</mrow><mrow>
+	&amp;=\sin\left(\frac{\pi}{4} \right)+\sin\left(\frac{\pi}{2} \right)
+</mrow><mrow>
+	&amp;=\frac{1}{\sqrt{2}}+1=\frac{1+\sqrt{2}}{\sqrt{2}}
+	</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s3_6evaluate2" purpose="RQS"><title><fromexam>M121 2000A</fromexam></title>
+<statement><p>
+(a) Show that the power series
+<m>\displaystyle\sum_{n=0}^\infty \frac{x^{2n}}{(2n)!}</m>
+converges absolutely for all real numbers<nbsp/><m>x</m>.
+</p>
+
+<p> (b)  Evaluate <m>\displaystyle\sum_{n=0}^\infty \frac{1}{(2n)!}</m>.
+</p></statement>
+
+<hint><p>
+Can you think of a way to eliminate the odd terms from
+<m>e^x=\displaystyle \sum_{n=0}^\infty \frac{x^n}{n!}</m>?
+</p></hint>
+
+<answer><p>
+(a) See the solution.
+</p>
+<p>
+(b) <m>\displaystyle\frac12\left(e+\frac{1}{e}\right)</m>
+</p></answer>
+
+<solution><p>
+(a)
+<ul>
+<li>Solution 1: The naive strategy is to set <m>a_n=\dfrac{x^{2n}}{(2n)!}</m> and apply
+the ratio test.
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
+&amp;=\lim_{n\rightarrow\infty}
+   \left|\frac{ \frac{x^{2n+2}}{(2n+2)!}  }
+                  {\frac{x^{2n}}{(2n)!}}\right| =\left|
+                  \frac{x^{2n+2}}{x^{2n}}\cdot \frac{(2n)!}{(2n+2)(2n+1)(2n)!}
+                  \right|
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty}  \frac{x^2}{(2n+2)(2n+1)}
+</mrow><mrow>
+&amp;=0
+</mrow>
+</md>
+This is smaller than <m>1</m> no matter what <m>x</m> is.
+So the series converges for all <m>x</m>.
+</li>
+<li>
+<p>
+Solution 2: Alternatively, the sneaky way is to observe that both
+<m>e^x=\displaystyle \sum_{n=0}^\infty \frac{x^n}{n!}</m>
+and
+<m>e^{-x}=\displaystyle \sum_{n=0}^\infty \frac{(-x)^n}{n!}</m>
+are known to converge for all <m>x</m>. So
+<me>
+\frac{1}{2}\big(e^x+e^{-x}\big)
+= \sum_{{n{\rm\ even}}}\frac{x^n}{n!}
+= \sum_{n=0}^\infty \frac{x^{2n}}{(2n)!}
+</me>
+also converges for all <m>x</m>.
+</p>
+</li>
+</ul>
+(b)
+Recall that <m>e^x=\displaystyle\sum\limits_{n=0}^\infty \frac{x^n}{n!}</m>. Then:
+<md>
+<mrow>
+e&amp;=\sum\limits_{n=0}^\infty \frac{1}{n!}\cr
+e^{-1}&amp;=\sum_{n=0}^\infty \frac{(-1)^n}{n!}
+</mrow><mrow>
+e+e^{-1}&amp;=\sum_{n=0}^\infty \frac{1+(-1)^n}{n!}
+=2\sum_{n{\rm\ even}}^\infty \frac{1}{n!}
+=2\sum_{n=0}^\infty \frac{1}{(2n)!}
+</mrow>
+</md>
+Hence <m>\displaystyle\sum\limits_{n=0}^\infty \frac{1}{(2n)!}=\frac12\left(e+\frac{1}{e}\right)</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+<ol label="a">
+<li> Using the fact that <m>\arctan(1)=\dfrac{\pi}{4}</m>, how many terms of the Taylor series for arctangent would you have to add up to approximate <m>\pi</m> with an error of at most <m>4\times 10^{-5}</m>?
+</li>
+<li>
+<p>
+Example<nbsp/><xref ref="eg_pi"/> in the CLP-II text mentions the formula
+<me>
+\pi=16\arctan\frac15-4\arctan\frac{1}{239}</me>
+Using the Taylor series for arctangent, how many terms would you have to add up to approximate <m>\pi</m> with an error of at most <m>4\times 10^{-5}</m>?
+</p>
+</li>
+<li> Assume without proof the following:
+<me>
+\arctan\frac12+\arctan\frac13=\arctan\left(\frac{3+2}{2\cdot3-1}\right)
+</me>
+Using the Taylor series for arctangent, how many terms would you have to add up to approximate <m>\pi</m> with an error of at most <m>4\times 10^{-5}</m>?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+	The series you're adding up are alternating, so it's simple to bound the error using a partial sum.
+</p></hint>
+<answer><p>
+	(a) 50,000
+	</p>
+	<p>
+	(b) three terms (<m>n=0</m> to <m>n=2</m>)
+	</p>
+	<p>
+	(c)  six terms (<m>n=0</m> to <m>n=5</m>)
+</p></answer>
+<solution><p>
+	All three series we're adding up are alternating, so we can bound the absolute error in the approximation <m>S_N</m> (the <m>N</m>-th partial sum) by <m>|a_{N+1}|</m>.
+</p>
+
+<p>	The Taylor series for arctangent is
+	<me>
+\arctan(x)=\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}</me>
+for every real <m>x</m>.
+</p>
+
+<p>	<ol label="a">
+<li>
+	Using the Taylor series for arctangent when <m>x=1</m>, we see
+	<md>
+<mrow>
+	\frac{\pi}{4}=\arctan(1)&amp;=\sum_{n=0}^\infty(-1)^n \frac{1}{2n+1}
+</mrow><mrow>
+	\pi &amp;=\sum_{n=0}^\infty (-1)^n\frac{4}{2n+1}
+	</mrow>
+</md>
+	The error involved in approximating <m>\pi</m> with the partial sum <m>S_N</m> is at most <m>|a_{N+1}|=\frac{4}{2N+3}</m>. In order for this to be at most <m>4\times 10^{-5}</m>, we need:
+	<md>
+<mrow>
+	\frac{4}{2N+3}&amp;\le 4\times 10^{-5}
+</mrow><mrow>
+	2N+3 &amp;\ge 10^5
+</mrow><mrow>
+	N&amp;\ge \frac{10^5-3}{2}=5\times 10^4-\frac{3}{2}=50,000-1.5
+	</mrow>
+</md>
+	Since <m>n</m> must be an integer, we need to add up the terms from <m>n=0</m> to <m>n=49,999</m>. That is, we add up the first 50,000 terms.
+</li>
+<li>
+<p>
+	Using the Taylor series for arctangent:
+	<md>
+<mrow>
+	\pi=16\arctan\frac15-4\arctan\frac{1}{239}&amp;=16\sum_{n=0}^\infty(-1)^n\frac{1}{(2n+1)5^{2n+1}}-
+	4\sum_{n=0}^\infty(-1)^n\frac{1}{(2n+1)\cdot 239^{2n+1}}
+</mrow><mrow>
+	&amp;=\sum_{n=0}^\infty\frac{(-1)^n}{2n+1}\left(\frac{16}{5^{2n+1}}-\frac{4}{239^{2n+1}} \right)
+</mrow>
+</md>
+	This is an alternating sum, so the absolute error in using the partial sum <m>S_N</m> is at most:
+	<me>
+	|a_{N+1}|=\frac{1}{2N+3}\left(\frac{16}{5^{2N+3}} -\frac{4}{239^{2N+3}}\right)
+	</me>
+So, we want to find a value of <m>N</m> that makes this at most <m>4\times 10^{-5}</m>. Several values of <m>N</m> are given below.
+</p>
+<sidebyside>
+<tabular  left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell><m>N</m></cell><cell><m>|a_{N+1}|</m></cell>
+</row><row>
+<cell>1 </cell><cell> <m>\dfrac{1}{5}\left(\dfrac{16}{5^5}-\dfrac{4}{239^5} \right)\approx 0.001</m></cell>
+</row><row>
+<cell> 2 </cell><cell> <m>\dfrac{1}{7}\left(\dfrac{16}{5^7}-\dfrac{4}{239^7} \right)\approx 0.000029 \lt 4\times 10^{-5}</m></cell>
+</row>
+</tabular>
+</sidebyside>
+<p>
+So, it suffices to add up the first three terms (<m>n=0</m>, <m>n=1</m>, and <m>n=2</m>) of the series.
+</p>
+</li>
+<li> <p>
+Again, we use the Taylor series for arctangent.
+<md>
+<mrow>
+	\arctan\frac12+\arctan\frac13&amp;=\arctan\left(\frac{3+2}{2\cdot3-1}\right)=\arctan(1)=\frac{\pi}{4}
+</mrow><mrow>
+	\pi&amp;=4\left(\arctan\frac12+\arctan\frac13 \right)
+</mrow><mrow>
+	&amp;=4\sum_{n=0}^\infty (-1)^n\frac{1}{(2n+1)2^{2n+1}}+4\sum_{n=0}^\infty (-1)^n\frac{1}{(2n+1)3^{2n+1}}
+</mrow><mrow>
+	&amp;=\sum_{n=0}^\infty (-1)^n\frac{4}{2n+1}\left(\frac{1}{2^{2n+1}}+\frac{1}{3^{2n+1}} \right)
+	</mrow>
+</md>
+If we use the partial sum <m>S_N</m>, our absolute error is at most <me>
+|a_{N+1}|=\dfrac{4}{2N+3}\left(\dfrac{1}{2^{2N+3}}+\dfrac{1}{3^{2N+3}} \right).</me>
+ Several of these values are given below.
+</p>
+<sidebyside>
+<tabular  left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell><m>N</m></cell><cell><m>|a_{N+1}|</m></cell>
+</row><row>
+<cell>1 </cell><cell> <m>\displaystyle \frac{4}{5}\left(\frac{1}{2^5}+\frac{1}{3^5} \right)\approx 0.028</m></cell>
+</row><row>
+<cell>2 </cell><cell> <m>\displaystyle\frac{4}{7}\left(\frac{1}{2^7}+\frac{1}{3^7} \right)\approx 0.0047</m></cell>
+</row><row>
+<cell>3 </cell><cell> <m>\displaystyle\frac{4}{9}\left(\frac{1}{2^9}+\frac{1}{3^9} \right)\approx 0.00089</m></cell>
+</row><row>
+<cell>4 </cell><cell> <m>\displaystyle\frac{4}{11}\left(\frac{1}{2^{11}}+\frac{1}{3^{11}} \right)\approx 0.00018</m></cell>
+</row><row>
+<cell>5 </cell><cell> <m>\displaystyle\frac{4}{13}\left(\frac{1}{2^{13}}+\frac{1}{3^{13}} \right)\approx 0.000038 \lt 4\times10^{-5}</m></cell>
+</row>
+</tabular>
+</sidebyside>
+<p>
+So, it suffices to add the first six terms (<m>n=0</m> to <m>n=5</m>) of the series.
+</p>
+</li>
+</ol>
+</p>
+
+<p>Remark: if we actually wanted to approximate <m>\pi</m> this way, the series from part (a) is probably not ideal <mdash/> adding 50,000 terms sounds rough. The series from (b) and (c) seem much more practical.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose you wanted to approximate the number <m>\log(1.5)</m> as a rational number using the Taylor expansion of <m>\log(1+x)</m>. How many terms would you need to add to get 10 decimal places of accuracy? (That is, an absolute error less than <m>5\times10^{-11}</m>.)
+</p>
+
+</statement>
+<hint><p>
+The Taylor Series is alternating, so  bounding the error in a partial-sum approximation is straightforward.
+</p></hint>
+<answer><p>
+	29
+</p></answer>
+<solution><p>
+	Using the Taylor series for <m>\log(1+x)</m>:
+	<md>
+<mrow>
+	\log(1+x)&amp;=\sum_{n=1}^\infty (-1)^{n+1}\frac{x^n}{n}
+</mrow><mrow>
+	\log(1.5)=\log\left(1+\frac12\right)&amp;=\sum_{n=1}^\infty (-1)^{n+1}\frac{1}{n2^n}
+	</mrow>
+</md>
+Since this is an alternating series, the error involved in using the partial sum <m>S_N</m> is at most
+<me>
+|a_{N+1}|=\frac{1}{(N+1)2^{N+1}}.</me>
+</p>
+
+<p>We want this to be at most <m>5 \times 10^{-11}</m>.
+</p>
+<sidebyside>
+<tabular  left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell><m>N</m></cell><cell><m>|a_{N+1}|</m></cell>
+</row><row>
+<cell> 10 </cell><cell> <m>\displaystyle \frac{1}{11\cdot 2^{11}}\approx 4\times 10^{-5}</m></cell>
+</row><row>
+<cell> 15 </cell><cell> <m>\displaystyle\frac{1}{16\cdot 2^{16}}\approx 9.5\times 10^{-7}</m></cell>
+</row><row>
+<cell> 20 </cell><cell> <m>\displaystyle\frac{1}{21\cdot 2^{21}}\approx 2 \times 10^{-8}</m></cell>
+</row><row>
+<cell> 25 </cell><cell> <m>\displaystyle\frac{1}{26\cdot 2^{26}}\approx 6 \times 10^{-10}</m></cell>
+</row><row>
+<cell> 26 </cell><cell> <m>\displaystyle\frac{1}{27\cdot 2^{27}}\approx 3 \times 10^{-10}</m></cell>
+</row><row>
+<cell> 27 </cell><cell> <m>\displaystyle\frac{1}{28\cdot 2^{28}}\approx 1 \times 10^{-10}</m></cell>
+</row><row>
+<cell> 28 </cell><cell> <m>\displaystyle\frac{1}{29\cdot 2^{29}}\approx 6 \times 10^{-11}</m></cell>
+</row><row>
+<cell> 29 </cell><cell> <m>\displaystyle\frac{1}{30\cdot 2^{30}}\approx 3 \times 10^{-11}</m></cell>
+</row>
+</tabular>
+</sidebyside>
+<p>
+So, it suffices to add up the first 29 terms.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+	Suppose you wanted to approximate the number <m>e</m> as a rational number using the Maclaurin expansion of <m>e^x</m>. How many terms would you need to add to get 10 decimal places of accuracy?
+	(That is, an absolute error less than <m>5\times10^{-11}</m>.)
+</p>
+
+<p>	You may assume without proof that <m>2 \lt e \lt 3</m>.
+</p></statement>
+<hint><p>
+	The Taylor Series is not alternating, so use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation.
+</p></hint>
+<answer><p>
+<m>S_{13}</m>	or higher
+</p></answer>
+<solution><p>The Taylor Series for <m>e^x</m> is not alternating, so we'll use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation. The error in the partial-sum approximation <m>S_N</m> is
+	<me>
+E_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}</me>
+</p>
+
+<p>	for some <m>c</m> strictly between <m>a</m> and <m>x</m>. In our case, <m>a=0</m> and <m>x=1</m>. So, we want to find a value of <m>N</m> such that
+	<me>
+\left|\frac{f^{(N+1)}(c)}{(N+1)!}\left(1-0\right)^{N+1}\right|=\frac{e^c}{(N+1)!} \lt 5\times 10^{-11}</me>
+</p>
+
+<p>	for <em>all</em> <m>c</m> in <m>(0,1)</m>.
+</p>
+
+<p>	If <m>c</m> is between 0 and 1, then <m>e^c</m> is between 1 and <m>e</m>. However, since the purpose of this problem is to approximate <m>e</m> precisely, it doesn't make much sense to use <m>e</m> in our bound. Since <m>e</m> is less than 3, then <m>e^c \lt 3</m> for all <m>c</m> in <m>(0,1)</m>. Now we can search for an appropriate value of <m>N</m>.
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell>	<m>N</m></cell><cell><m> \dfrac{3}{(N+1)!}</m></cell>
+</row><row>
+<cell>	10 </cell><cell> <m>\displaystyle \frac{3}{11!}=\frac{1}{9^{10}}\approx 8\times 10^{-8}</m></cell>
+</row><row>
+<cell>	11 </cell><cell> <m>\displaystyle \frac{3}{12!}\approx 6\times 10^{-9}</m></cell>
+</row><row>
+<cell>	12 </cell><cell> <m>\displaystyle \frac{3}{13!}\approx 5\times 10^{-10}</m></cell>
+</row><row>
+<cell>	13 </cell><cell> <m>\displaystyle \frac{3}{14!}\approx 3\times 10^{-11}</m></cell>
+</row>
+</tabular>
+</sidebyside>
+<p>
+So, it suffices to use the partial sum <m>S_{13}</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose you wanted to approximate the number <m>\log(0.9)</m> as a rational number using the Taylor expansion of <m>\log(1-x)</m>. Which partial sum should you use to get 10 decimal places of accuracy?
+(That is, an absolute error less than <m>5\times10^{-11}</m>.)
+</p></statement>
+<hint><p>
+The Taylor Series is not alternating, so use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation.
+</p></hint>
+<answer><p>
+	<m>S_9</m> or higher
+</p></answer>
+<solution><p>
+The Taylor Series for <m>\log(1-x)</m> is not alternating, so we'll use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation. The error in the partial-sum approximation <m>S_N</m> is
+<me>
+E_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}</me>
+</p>
+
+<p>for some <m>c</m> strictly between <m>a</m> and <m>x</m>. In our case, <m>a=0</m> and <m>x=\dfrac1{10}</m>. So, we want to find a value of <m>N</m> such that
+<me>
+\left|\frac{f^{(N+1)}(c)}{(N+1)!}\left(\frac{1}{10}\right)^{N+1}\right| \lt 5\times 10^{-11}</me>
+</p>
+
+<p>for <em>all</em> <m>c</m> in <m>(0,\frac1{10})</m>.
+</p>
+
+<p>To find this <m>N</m>, we to know <m>f^{(N+1)}(x)</m>. Just like when we create a Taylor polynomial from scratch, we'll differentiate <m>f(x)</m> several times, and look for a pattern.
+</p>
+
+<p><md>
+<mrow>
+f(x)&amp;=\log(1-x)&amp;f^{(6)}(x)&amp;=\frac{-2(3)(4)(5)}{(1-x)^6}
+</mrow><mrow>
+f'(x)&amp;=\frac{-1}{1-x}&amp;f^{(7)}(x)&amp;=\frac{-2(3)(4)(5)(6)}{(1-x)^7}
+</mrow><mrow>
+f''(x)&amp;=\frac{-1}{(1-x)^2}&amp;&amp;\vdots
+</mrow><mrow>
+f'''(x)&amp;=\frac{-2}{(1-x)^3}&amp;f^{(N+1)}(x)&amp;=\frac{-N!}{(1-x)^{N+1}}
+</mrow><mrow>
+f^{(4)}(x)&amp;=\frac{-2(3)}{(1-x)^4}
+</mrow><mrow>
+f^{(5)}(x)&amp;=\frac{-2(3)(4)}{(1-x)^5}
+</mrow>
+</md>
+Now we want a reasonable bound on <m>f^{(N+1)}(c)</m>, when <m>c</m> is in <m>(0,\frac{1}{10})</m>. Note that in this range, <m>1-c \gt 0</m>.
+<md alignment="alignat">
+  <mrow>
+&amp;&amp;0 &amp; \lt c \lt \frac{1}{10}
+</mrow><mrow>
+&amp;\Rightarrow&amp;\qquad \frac{9}{10} &amp; \lt 1-c \lt 1
+</mrow><mrow>
+&amp;\Rightarrow&amp;\qquad \left(\frac{9}{10}\right)^{N+1} &amp; \lt (1-c)^{N+1} \lt 1
+</mrow><mrow>
+&amp;\Rightarrow&amp;\qquad 1&amp; \lt \frac{1}{(1-c)^{N+1}} \lt \left(\frac{10}{9}\right)^{N+1}
+</mrow><mrow>
+&amp;\Rightarrow&amp;\qquad N!&amp; \lt \frac{N!}{(1-c)^{N+1}} \lt N!\left(\frac{10}{9}\right)^{N+1}
+</mrow>
+</md>
+</p>
+
+<p>This bound provides us with a <q>worst-case scenario</q> error. We don't know exactly what <m>c</m> is, but we don't need to <mdash/> the bound above holds for <em>all</em> <m>c</m> between 0 and <m>\frac{1}{10}</m>.
+</p>
+
+<p>Now we're ready to choose an <m>N</m> that results in a sufficiently small error bound.
+</p>
+
+<p><md>
+<mrow>
+\left|\frac{\textcolor{blue}{f^{(N+1)}(c)}}{(N+1)!}\left(\frac{1}{10}\right)^{N+1}\right|&amp; \lt
+\frac{\textcolor{blue}{N!\left(\tfrac{10}{9}\right)^{N+1}}}{(N+1)!}\left(\frac{1}{10}\right)^{N+1}=\frac{1}{9^{N+1}\cdot (N+1)}
+</mrow><mrow>
+\text{So, we want:}\qquad \frac{1}{9^{N+1}\cdot (N+1)}&amp; \lt 5\times 10^{-11}
+</mrow>
+</md>
+</p>
+
+<p>To find an appropriate <m>N</m>, we test several values.
+</p>
+
+<sidebyside>
+<tabular  left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell> <m>N</m></cell><cell><m> \dfrac{1}{9^{N+1}\cdot (N+1)}</m></cell>
+</row><row>
+<cell>  8 </cell><cell> <m>\displaystyle \frac{1}{9\cdot 9^{9}}=\frac{1}{9^{10}}\approx 3\times 10^{-10}</m></cell>
+</row><row>
+<cell> 9 </cell><cell> <m>\displaystyle \frac{1}{10\cdot 9^{10}}\approx 3\times 10^{-11}</m></cell>
+	</row>
+</tabular>
+</sidebyside>
+<p>
+So, it suffices to use the partial sum <m>S_9</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+	Define the hyperbolic sine function as
+	<me>
+\sinh x = \frac{e^{x}-e^{-x}}{2}.</me>
+</p>
+
+<p>	Suppose you wanted to approximate the number <m>\sinh(b)</m> using the Maclaurin series of <m>\sinh x</m>, where <m>b</m> is some number in <m>(-2,1)</m>. Which partial sum should you use to guarantee 10 decimal places of accuracy?
+	(That is, an absolute error less than <m>5\times10^{-11}</m>.)
+</p>
+
+<p>	You may assume without proof that <m>2 \lt e \lt 3</m>.
+</p></statement>
+<hint><p>
+	Use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation.
+	This theorem requires you to consider values of <m>c</m> between <m>x</m> and <m>x=0</m>; since <m>x</m> could be anything from <m>-2</m> to <m>1</m>, you should think about values of <m>c</m> between <m>-2</m> and <m>1</m>.
+</p></hint>
+<answer><p>
+<m>S_{18}</m> or higher
+</p></answer>
+<solution><p>
+	We'll use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error of a partial-sum approximation. The error in the partial-sum approximation <m>S_N</m> is
+	<me>
+E_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}</me>
+</p>
+
+<p>	for some <m>c</m> strictly between <m>a</m> and <m>x</m>. In our case, <m>a=0</m> and <m>x</m> is in <m>(-2,1)</m>. So, we want to find a value of <m>N</m> such that
+	<me>
+\left|\frac{f^{(N+1)}(c)}{(N+1)!}\left(x\right)^{N+1}\right| \lt 5\times 10^{-11}</me>
+</p>
+
+<p>	for <em>all</em> <m>x</m> in <m>(-2,1)</m>, and <em>all</em> <m>c</m> in <m>(-2,1)</m>.
+</p>
+
+<p>	To find this <m>N</m>, we to know <m>f^{(N+1)}(x)</m>. Just like when we create a Taylor polynomial from scratch, we'll differentiate <m>f(x)</m> several times, and look for a pattern.
+</p>
+
+<p><md>
+<mrow>
+f(x)=\sinh(x)&amp;=\frac{e^x-e^{-x}}{2}
+</mrow><mrow>
+f'(x)&amp;=\frac{e^x+e^{-x}}{2}
+</mrow><mrow>
+f''(x)&amp;=\frac{e^x-e^{-x}}{2}
+</mrow><mrow>
+f'''(x)&amp;=\frac{e^x+e^{-x}}{2}
+</mrow>
+</md>
+That is, even derivatives of <m>f(x)</m> are <m>f(x)</m>, and odd derivatives of <m>f(x)</m> are <m>\frac{{e^x}+e^{-x}}{2}</m> (which, incidentally, is the function called <m>\cosh x</m>).
+</p>
+
+<p>	Now we want a reasonable bound on <m>f^{(N+1)}(c)</m>, when <m>c</m> is in <m>(-2,1)</m>. Since powers of <m>e</m> are always positive, we begin by noting that <m>0 \lt \frac{e^x-e^{-x}}{2} \lt \frac{e^x+e^{-x}}{2}</m>. So, all derivatives of <m>f(x)</m> are bounded above by <m>\frac{e^x+e^{-x}}{2}</m>.
+<md alignment="alignat">
+  <mrow>
+	&amp;&amp;-2 &amp; \lt c \lt 1
+</mrow><mrow>
+	&amp;\Rightarrow&amp;\qquad e^{-2} &amp; \lt e^c \lt e &amp;\mbox{and } e^{-1}&amp; \lt e^{-c} \lt e^2
+</mrow><mrow>
+	&amp;\Rightarrow&amp;\qquad f^{(N+1)}(c)&amp; \lt \frac{e^c+e^{-c}}{2} &amp; &amp; \lt \frac{e^2+e^2}{2}=e^2 \lt 9
+</mrow>
+</md>
+</p>
+
+<p>	This bound provides us with a <q>worst-case scenario</q> error. We don't know exactly what <m>c</m> is, but we don't need to <mdash/> the bound above holds for <em>all</em> <m>c</m> between <m>-2</m> and <m>1</m>.
+</p>
+
+<p>	We also don't know exactly what <m>x</m> will be, only that it's between <m>-2</m> and <m>1</m>. So, we note <m>|x|^{N+1} \lt 2^{N+1}</m>.
+</p>
+
+<p>	Now we're ready to choose an <m>N</m> that results in a sufficiently small error bound.
+</p>
+
+<p>	<md>
+<mrow>
+	\left|\frac{\textcolor{blue}{f^{(N+1)}(c)}}{(N+1)!}\textcolor{red}{\left(x\right)^{N+1}}\right|&amp; \lt
+	\frac{\textcolor{blue}{9}\cdot \textcolor{red}{2^{N+1}}}{(N+1)!}
+</mrow><mrow>
+	\text{So, we want:}\qquad \frac{9\cdot2^{N+1}}{(N+1)!}&amp; \lt 5\times 10^{-11}
+	</mrow>
+</md>
+</p>
+
+<p>	To find an appropriate <m>N</m>, we test several values.
+</p>
+
+<sidebyside>
+<tabular  left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell> 	<m>N</m></cell><cell><m> \dfrac{9\cdot 2^{N+1}}{(N+1)!}</m></cell>
+</row><row>
+<cell>  	10 </cell><cell> <m>\displaystyle \frac{9\cdot 2^{11}}{(11)!}\approx 5\times 10^{-4}</m></cell>
+</row><row>
+<cell> 	15 </cell><cell> <m>\displaystyle \frac{9\cdot 2^{16}}{(16)!}\approx 3\times 10^{-8}</m></cell>
+</row><row>
+<cell> 	17 </cell><cell> <m>\displaystyle \frac{9\cdot 2^{18}}{(18)!}\approx 4\times 10^{-10}</m></cell>
+</row><row>
+<cell> 	18 </cell><cell> <m>\displaystyle \frac{9\cdot 2^{19}}{(19)!}\approx 4\times 10^{-11} \lt 5\times10^{-11}</m></cell>
+		</row>
+</tabular>
+</sidebyside>
+<p>
+So, it suffices to use the partial sum <m>S_{18}</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+	Let <m>f(x)</m> be a function with
+	<me>
+f^{(n)}(x)=\frac{(n-1)!}{2}\left[(1-x)^{-n}+(-1)^{n-1}(1+x)^{-n} \right]</me>
+</p>
+
+<p>	for all <m>n \ge 1</m>.
+</p>
+
+<p>	Give reasonable bounds (both upper and lower) on the error involved in approximating <m>f\left(-\frac13 \right)</m> using the partial sum <m>S_6</m> of the Taylor series for <m>f(x)</m> centred at <m>a=\frac12</m>.
+</p>
+
+<p>Remark: One function with this quality is the inverse hyperbolic tangent function<fn>Of course it is! Actually, hyperbolic tangent is <m>\mathrm{tanh}(x) = \dfrac{e^x-e^{-x}}{e^x+e^{-x}}</m>, and inverse hyperbolic tangent is its functional inverse.</fn>.
+</p></statement>
+<hint><p>
+Use Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation.
+</p>
+
+<p>To bound the derivative over the appropriate range, remember how to find absolute extrema.
+</p></hint>
+<answer><p>
+The error is in the interval <m>\displaystyle\left(\dfrac{-5^7}{14\cdot 3^7}\left[1+\frac{1}{3^7} \right]\quad,\quad \dfrac{-5^7}{7\cdot 6^7} \right)\approx\left(-0.199, -0.040\right)</m>
+</p></answer>
+<solution><p>
+	We'll use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation. The error in the partial-sum approximation <m>S_N</m> is
+<me>
+E_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}</me>
+</p>
+
+<p>for some <m>c</m> strictly between <m>a</m> and <m>x</m>. In our case, <m>a=\dfrac12</m>, <m>x=-\dfrac1{3}</m>, and we are given the <m>n</m>th derivative of <m>f(x)</m>:
+<md>
+<mrow>E_6&amp;=\frac{\textcolor{blue}{f^{(7)}(c)}}{7!}\left(-\frac13-\frac12 \right)^{7}
+</mrow><mrow>
+&amp;=\frac{1}{7!}\cdot\textcolor{blue}{\frac{6!}{2}\left[\left(1-c\right)^{-7}+(-1)^{6}\left(1+c\right)^{-7} \right]}\left(-\frac56 \right)^7
+</mrow><mrow>
+&amp;=\frac{-5^7}{14\cdot 6^7}\cdot\left[\left(1-c\right)^{-7}+\left(1+c\right)^{-7} \right]
+&amp;=</mrow>
+</md>
+</p>
+
+<p>for some <m>c</m> in <m>(-\frac13,\frac1{2})</m>.
+</p>
+
+<p>We want to provide actual numeric bounds for this expression. That is, we want to find the absolute max and min of
+<me>
+E(c)=\frac{-5^7}{14\cdot 6^7}\cdot\left[\left(1-c\right)^{-7}+\left(1+c\right)^{-7} \right]</me>
+</p>
+
+<p>over the interval <m>\left( -\frac{1}{3},\frac{1}{2}\right)</m>. Absolute extrema occur at endpoints and critical points. So, we'll start by differentiating <m>E(c)</m>, and finding its critical points (if any) in  the interval <m>\left( -\frac{1}{3},\frac{1}{2}\right)</m>.
+</p>
+
+<p><md>
+<mrow>
+E(c)&amp;=\frac{-5^7}{14\cdot 6^7}\cdot\left[\left(1-c\right)^{-7}+\left(1+c\right)^{-7} \right]
+</mrow><mrow>
+E'(c)&amp;=\frac{-5^7}{14\cdot 6^7}\cdot\left[7\left(1-c\right)^{-8}-7\left(1+c\right)^{-8} \right]=0
+</mrow><mrow>
+\left(1-c\right)^{-8}&amp;=\left(1+c\right)^{-8}
+</mrow><mrow>
+1-c&amp;=1+c
+</mrow><mrow>
+c&amp;=0
+</mrow>
+</md>
+</p>
+
+<p>Since <m>E'(c)</m> is defined over our entire interval, its only critical point is <m>c=0</m>.
+</p>
+
+<p><ul>
+<li> <m>E(0)=\dfrac{-5^7}{14\cdot 6^7}[2]</m>
+</li>
+<li> <m>E\left(-\frac{1}{3}\right)=\dfrac{-5^7}{14\cdot 6^7}\left[\left(\frac43 \right)^{-7}+\left(\frac23 \right)^{-7} \right]=\dfrac{-5^7}{14\cdot 6^7}\left[\left(\frac34 \right)^{7}+\left(\frac32 \right)^{7} \right]</m>
+</li>
+<li> <m>E\left(\frac{1}{2}\right)=\dfrac{-5^7}{14\cdot 6^7}\left[\left(\frac12 \right)^{-7}+\left(\frac32 \right)^{-7} \right]=\dfrac{-5^7}{14\cdot 6^7}\left[2^7+\left(\frac23 \right)^{7} \right]</m>
+</li>
+</ul>
+We want to decide which of these numbers is biggest, and which smallest. Note that <m>2^7</m> is much, much bigger than <m>(3/2)^7</m>, and both <m>(3/4)^7</m> and <m>(2/3)^7</m> are less than one. Furthermore, <m>(3/2)^7</m> is much larger than 2. So: <m>\left[2^7+(2/3)^7\right] \gt \left[(3/2)^7+(3/4)^7\right] \gt 2.</m> Therefore,
+<me>
+\dfrac{-5^7}{14\cdot 6^7}\left[2^7+\left(\frac23 \right)^{7} \right] \lt \dfrac{-5^7}{14\cdot 6^7}\left[\left(\frac34 \right)^{7}+\left(\frac32 \right)^{7} \right] \lt \dfrac{-5^7}{14\cdot 6^7}[2]</me>
+</p>
+
+<p>We conclude that the error <m>E_6</m> is in the interval
+<me>
+\left(\dfrac{-5^7}{14\cdot 6^7}\left[2^7+\left(\frac23 \right)^{7} \right]\quad,\quad \dfrac{-5^7}{14\cdot 6^7} [2]\right)</me>
+</p>
+
+<p>or, equivalently,
+</p>
+
+<p><me>
+\left(\dfrac{-5^7}{14\cdot 3^7}\left[1+\frac{1}{3^7} \right]\quad,\quad \dfrac{-5^7}{7\cdot 6^7} \right)</me>
+</p>
+
+<p>which is approximately <m>\left(-0.199, -0.040\right)</m>.
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise purpose="RQS"><title><fromexam>2014A</fromexam></title>
+<statement><p>
+Use series to evaluate
+<m>\displaystyle \lim\limits_{x\rightarrow 0}\frac{1-\cos x}{1+x-e^x}</m>.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_TaylorlimitB"/> in the CLP-II text
+</p></hint>
+
+<answer><p>
+<m>-1</m>
+</p></answer>
+
+<solution><p>
+Using the Maclaurin series expansions of <m>\cos x</m> and <m>e^x</m>,
+<md>
+<mrow>
+\cos x&amp; = 1-\frac{x^2}{2!} +\frac{x^4}{4!} +\cdots
+</mrow><mrow>
+1-\cos x&amp; = \frac{x^2}{2!} -\frac{x^4}{4!} +\cdots
+</mrow><mrow>
+e^x &amp;= 1+x+ \frac{x^2}{2!} +\frac{x^3}{3!} +\cdots
+</mrow><mrow>
+1+x-e^x&amp;=-\frac{x^2}{2!} -\frac{x^3}{3!} +\cdots
+</mrow><mrow>
+\frac{1-\cos x}{1+x-e^x}
+&amp;=\frac{\frac{x^2}{2!} -\frac{x^4}{4!} +\cdots }
+        {-\frac{x^2}{2!} -\frac{x^3}{3!} +\cdots}
+=\frac{\frac{1}{2!} -\frac{x^2}{4!} +\cdots }
+        {-\frac{1}{2!} -\frac{x}{3!} +\cdots}
+</mrow>
+</md>
+we have
+<me>
+\lim_{x\rightarrow 0}\frac{1-\cos x}{1+x-e^x}
+=\lim_{x\rightarrow 0}\frac{\frac{1}{2!} -\frac{x^2}{4!} +\cdots }
+        {-\frac{1}{2!} -\frac{x}{3!} +\cdots}
+=\frac{\frac{1}{2!}} {-\frac{1}{2!}}
+=-1
+</me>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Evaluate
+<m>\displaystyle \lim\limits_{x\rightarrow 0}\frac{\sin x -x +\frac{x^3}{6}}{x^5}</m>.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_TaylorlimitB"/> in the
+CLP-II text
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{5!}=\dfrac{1}{120}</m>
+</p></answer>
+
+<solution><p>
+Using the Maclaurin series expansion of <m>\sin x</m>,
+<md>
+<mrow>
+\sin x&amp; = x-\frac{x^3}{3!} +\frac{x^5}{5!} -\frac{x^7}{7!} +\cdots
+</mrow><mrow>
+\sin x-x +\frac{x^3}{6} &amp; = \frac{x^5}{5!}-\frac{x^7}{7!} +\cdots
+</mrow><mrow>
+\frac{\sin x -x +\frac{x^3}{6}}{x^5}
+&amp;=\frac{1}{5!}-\frac{x^2}{7!} +\cdots
+</mrow>
+</md>
+we have
+<me>
+\lim_{x\rightarrow 0}\frac{\sin x -x +\frac{x^3}{6}}{x^5}
+=\lim_{x\rightarrow 0}\Big(\frac{1}{5!}-\frac{x^2}{7!} +\cdots\Big)
+=\frac{1}{5!}
+=\frac{1}{120}
+</me>
+</p>
+
+<p>Remark: to solve this using l'Hôpital's rule we would differentiate five times, making series a practical alternative.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s3_6_indet">
+<statement><p>
+Evaluate
+<m>\displaystyle \lim\limits_{x\rightarrow 0}\left(1+x+x^2\right)^{2/x}</m> using a Taylor series for the natural logarithm.
+</p></statement>
+
+<hint><p>
+Set <m>f(x)=\left(1+x+x^2\right)^{2/x}</m>, and find <m> \lim\limits_{x\rightarrow 0}\log\left(f(x)\right)</m>.
+</p></hint>
+
+<answer><p>
+<m>e^2</m>
+</p></answer>
+
+<solution><p>
+Our limit has the indeterminate form <m>1^{\infty}</m>; as with l'Hôpital's rule, we can change it to a friendlier form using the natural logarithm.
+<md>
+<mrow>
+f(x)&amp;=\left(1+x+x^2\right)^{2/x}
+</mrow><mrow>
+\log(f(x))&amp;=\log\left[\left(1+x+x^2\right)^{2/x}\right]=\frac{2}{x}\log\left(1+x+x^2\right)
+</mrow>
+</md>
+Recall <m>\log(1+y)=\displaystyle\sum_{n=1}^\infty \frac{(-1)^{n+1}y^n}{n}</m>, and set <m>y=x+x^2</m>. The series converges when <m>|y| \lt 1</m>, and since we only consider values of <m>x</m> that are very close to 0, we can assume <m>|x+x^2| \lt 1</m>.
+<md>
+<mrow>
+\log(f(x))&amp;=\frac{2}{x}\log\left(1+(x+x^2)\right)=\frac{2}{x}\sum_{n=1}^\infty\frac{(-1)^{n+1}(x+x^2)^n}{n}
+</mrow><mrow>
+&amp;=\frac{2}{x}\left[(x+x^2)-\frac{(x+x^2)^2}{2}+\frac{(x+x^2)^3}{3}-\cdots\right]
+</mrow><mrow>
+&amp;=2+2x-\frac{(x+x^2)^2}{2x}+\frac{(x+x^2)^3}{3x}-\cdots
+</mrow><mrow>
+&amp;=2+2x-\frac{(x^2+x)(1+x)}{2}+\frac{(x^2+x)^2(1+x)}{3}-\cdots
+</mrow><mrow>
+\lim_{x \to 0}\log(f(x))&amp;=\lim_{x \to 0}\left[2+2x-\frac{(x^2+x)(1+x)}{2}+\frac{(x^2+x)^2(1+x)}{3}-\cdots\right]
+</mrow><mrow>
+&amp;=2+0+0\cdots=2
+</mrow><mrow>
+\lim_{x \to 0} f(x)&amp;=\lim_{x \to 0}e^{\log f(x)}=e^2
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Use series to evaluate
+<me>
+\lim_{x \to \infty} \left(1+\frac{1}{2x}\right)^{x}</me>
+</p>
+
+</statement>
+
+<hint><p>
+Use the substitution <m>y=\dfrac{1}{x}</m>, and compare to Question<nbsp/><xref ref="prob_s3_6_indet"  text="local"/>.
+</p></hint>
+
+<answer><p>
+<m>\sqrt{e}</m>
+</p></answer>
+
+<solution><p>
+We have an indeterminate form <m>1^\infty</m>. We can use a natural logarithm to change this to a friendlier form. Furthermore, to avoid negative powers, we substitute <m>y=\dfrac{1}{2x}</m>. As <m>x</m> grows larger and larger, <m>y</m> gets closer and closer to zero, while staying positive.
+<md>
+<mrow>
+\log\left[\left(1+\frac1{2x}\right)^{x}\right]&amp;=x\log\left(1+\frac1{2x}\right)=\frac{1}{2y}\log(1+y)
+</mrow><mrow>
+&amp;=\frac{1}{2y}\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n}y^{n}
+</mrow><mrow>
+&amp;=\frac{1}{2y}\left[y-\frac{y^2}{2}+\frac{y^3}{3}-\frac{y^4}{4}+\cdots\right]
+</mrow><mrow>
+&amp;=\left[\frac{1}{2}-\frac{y}{4}+\frac{y^2}{6}-\frac{y^3}{8}+\cdots\right]
+</mrow><mrow>
+\lim_{x \to \infty}\log\left[\left(1+\frac1{2x}\right)^{x}\right]&amp;=\lim_{y \to 0^+}\left[\frac{1}{2}-\frac{y}{4}+\frac{y^2}{6}-\frac{y^3}{8}+\cdots\right]=\frac{1}{2}
+</mrow><mrow>
+\lim_{x \to \infty}\left[\left(1+\frac1{2x}\right)^{x}\right]&amp;=e^{1/2}=\sqrt{e}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+	Evaluate the series <m>\displaystyle\sum_{n=0}^\infty\frac{ (n+1)(n+2)}{7^n}</m> or show that it diverges.
+</p></statement>
+<hint><p>
+	Start by differentiating <m>\displaystyle\sum_{n=0}^\infty x^n</m>.
+</p></hint>
+<answer><p>
+	<m>\displaystyle\frac{2}{(6/7)^3}=\frac{343}{108}</m>
+</p></answer>
+<solution><p>
+The factor <m>(n+1)(n+2)</m> reminds us of a derivative. Start with the geometric series.
+<md>
+<mrow>
+	\frac{1}{1-x}&amp;=\sum_{n=0}^\infty x^n
+</mrow><mrow>
+	\diff{}{x}\left\{\frac{1}{1-x} \right\}&amp;=\diff{}{x}\left\{ \sum_{n=0}^\infty x^n  \right\}
+</mrow><mrow>
+	\frac{1}{(1-x)^2}&amp;=\sum_{n=0}^\infty nx^{n-1}=\sum_{n=1}^\infty nx^{n-1}
+</mrow><mrow>
+	\diff{}{x}\left\{\frac{1}{(1-x)^2} \right\}&amp;=\diff{}{x}\left\{ \sum_{n=1}^\infty nx^{n-1}  \right\}
+</mrow><mrow>
+	\frac{2}{(1-x)^3}&amp;=\sum_{n=1}^\infty n(n-1)x^{n-2}=\sum_{n=2}^\infty n(n-1)x^{n-2}
+</mrow><mrow>
+	&amp;=\sum_{n=0}^\infty (n+2)(n+1)x^n
+	</mrow>
+</md>
+	Let <m>x=\frac{1}{7}</m>. Then <m>|x| \lt 1</m>, so our series converges.
+	<md>
+<mrow>
+	\frac{2}{(1-1/7)^3}	&amp;=\sum_{n=0}^\infty (n+2)(n+1)\left(\frac{1}{7}\right)^n
+</mrow><mrow>
+	\frac{2}{(6/7)^3}	&amp;=\sum_{n=0}^\infty \frac{(n+2)(n+1)}{7^n}
+	</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+	Write the series <m>f(x)=\displaystyle\sum_{n=0}^\infty\frac{(-1)^nx^{2n+4}}{(2n+1)(2n+2)}</m> as a combination of familiar functions.
+</p></statement>
+<hint><p>
+	The series bears a resemblance to the Taylor series for arctangent.
+</p></hint>
+<answer><p>
+	<m>\displaystyle  \sum_{n=0}^\infty (-1)^n\frac{x^{2n+4}}{(2n+1)(2n+2)}=x^3\arctan x - \frac{x^2}{2}\log(1+x^2)</m>
+</p></answer>
+<solution><p>
+Recall the Taylor series for arctangent is:
+<me>
+	\arctan x = \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}</me>
+</p>
+
+<p>There are similarities between this and our given series: skipping powers of <m>x</m>, and a denominator that's not factorial. We'll try to manipulate it to look like our series. First, we antidifferentiate, to get a factor of <m>(2n+2)</m> on the bottom.
+<md>
+<mrow>
+	\int \arctan x\,\dee{x} &amp;= \sum_{n=0}^\infty (-1)^n\frac{x^{2n+2}}{(2n+1)(2n+2)}+C
+	</mrow>
+<intertext>We can find the antiderivative of arctangent  using integration by parts. Let <m>u=\arctan x</m> and <m>\dee{v}=\dee{x}</m>; then <m>\dee{u}=\frac{1}{1+x^2}\dee{x}</m> and <m>v=x</m>.
+</intertext>
+<mrow>
+	\int \arctan x \,\dee{x}&amp;=x\arctan x - \int \frac{x}{1+x^2}\,\dee{x}+C
+		</mrow>
+<intertext>Now, we use the substitution <m>w=1+x^2</m>, <m>\dee{w}=2x\dee{x}</m>.</intertext>
+<mrow>
+		&amp;=x\arctan x - \frac{1}{2}\log(1+x^2)+C
+</mrow><mrow>
+\text{So, }
+	 \sum_{n=0}^\infty (-1)^n\frac{x^{2n+2}}{(2n+1)(2n+2)}&amp;=x\arctan x - \frac{1}{2}\log(1+x^2)+C
+	 </mrow>
+<intertext>To find <m>C</m>, we evaluate both sides of the equation at <m>x=0</m>.</intertext>
+<mrow>
+	 0&amp;=0\arctan 0 -\frac{1}{2}\log(1)+C=C
+</mrow><mrow>
+	 \text{Therefore, }
+ \sum_{n=0}^\infty (-1)^n\frac{x^{2n+2}}{(2n+1)(2n+2)}&amp;=x\arctan x - \frac{1}{2}\log(1+x^2)
+ </mrow>
+<intertext>Multiplying both sides by <m>x^2</m>,</intertext><mrow>
+  \sum_{n=0}^\infty (-1)^n\frac{x^{2n+4}}{(2n+1)(2n+2)}&amp;=x^3\arctan x - \frac{x^2}{2}\log(1+x^2)
+	</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+	<ol label="a">
+<li> Find the Maclaurin series for <m>f(x) = (1-x)^{-1/2}</m>. What is its radius of convergence?
+</li>
+<li> Manipulate the  series you just found to find the Maclaurin series for <m>g(x)=\arcsin x</m>. What is its radius of convergence?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+For simplification purposes, note
+<m>\displaystyle(1)(3)(5)(7)\cdots(2n-1)=\dfrac{(2n)!}{2^n \,n!}</m>.
+</p></hint>
+<answer><p>
+	(a) the Maclaurin series for <m>f(x)</m> is <m>\displaystyle \sum_{n=0}^\infty\frac{(2n)!}{2^{2n}\,(n!)^2}x^n</m>, and its radius of convergence is <m>R=1</m>.
+</p>
+
+<p>	(b) the Maclaurin series for <m>\arcsin x</m> is <m>\displaystyle\sum_{n=0}^\infty\frac{(2n)!}{2^{2n}\,(n!)^2(2n+1)}x^{2n+1}</m>, and its radius of convergence is <m>R=1</m>.
+</p></answer>
+<solution><p>
+	<ol label="(a)">
+<li> 	We'll start, as we usually do, by finding a pattern for <m>f^{(n)}(0)</m>.
+	<md>
+<mrow>
+	f(x)&amp;=(1-x)^{-1/2}
+</mrow><mrow>
+	f'(x)&amp;=\frac{1}{2}(1-x)^{-3/2}
+</mrow><mrow>
+	f''(x)&amp;=\frac{1\cdot3}{2^2}(1-x)^{-5/2}
+</mrow><mrow>
+	f'''(x)&amp;=\frac{1\cdot3\cdot5}{2^3}(1-x)^{-7/2}
+</mrow><mrow>
+	f^{(4)}(x)&amp;=\frac{1\cdot3\cdot5\cdot7}{2^4}(1-x)^{-9/2}
+</mrow><mrow>
+	\vdots&amp;
+</mrow><mrow>
+	f^{(n)}(x)&amp;=\frac{1\cdot3\cdot5\cdot \ldots \cdot (2n-1)}{2^n}(1-x)^{-(2n+1)/2}
+</mrow><mrow>
+	f^{(n)}(0)&amp;=\frac{1\cdot3\cdot5\cdot \ldots \cdot (2n-1)}{2^n}
+	</mrow>
+<intertext>We could leave it like this, but we simplify, to make our work cleaner later on.</intertext><mrow>
+&amp;=\frac{1}{2^n}\cdot\frac{(2n)!}{2\cdot4\cdot6\cdot\ldots\cdot(2n)}
+</mrow><mrow>
+&amp;=\frac{1}{2^n}\cdot\frac{(2n)!}{2^n\cdot n!}
+</mrow><mrow>
+&amp;=\frac{(2n)!}{2^{2n}\,n!}
+	</mrow>
+</md>
+This pattern holds for <m>n\ge0</m>. Now, we can write our Maclaurin series for <m>f(x)</m>.
+<me>
+(1-x)^{-1/2}=\sum_{n=0}^\infty\frac{f^{(n)}(0)}{n!}x^n=\sum_{n=0}^\infty\frac{(2n)!}{2^{2n}\,(n!)^2}x^n
+</me>
+To find the radius of convergence, we use the ratio test.
+<md>
+<mrow>
+\left|\frac{a_{n+1}}{a_n}\right|
+&amp;=\frac{(2n+2)!}{2^{2n+2}((n+1)!)^2}\cdot\frac{2^{2n}\,(n!)^2}{(2n)!}\cdot|x|
+</mrow><mrow>
+&amp;=\frac{(2n+2)!}{(2n)!}\left(\frac{n!}{(n+1)!} \right)^2\cdot\frac{2^{2n}}{2^{2n+2}}|x|
+</mrow><mrow>
+&amp;=(2n+2)(2n+1)\left(\frac{1}{n+1} \right)^2\cdot\frac{1}{4}|x|
+</mrow><mrow>
+&amp;=\frac{4n^2+4n+2}{4n^2+8n+4}|x|
+</mrow><mrow>
+\lim_{n \to \infty}\left|\frac{a_{n+1}}{a_n}\right|&amp;=\lim_{n \to \infty}\left[\frac{4n^2+4n+2}{4n^2+8n+4}|x| \right]=|x|
+</mrow>
+</md>
+So, the radius of convergence is <m>R=1</m>.
+</li>
+<li> We note the derivative of the arcsine function is <m>\dfrac{1}{\sqrt{1-x^2}}=f(x^2)</m>. With this insight, we can manipulate our Taylor series for <m>f(x)</m> into a Taylor series for arcsine.
+<md>
+<mrow>
+\frac{1}{\sqrt{1-x}}&amp;=\sum_{n=0}^\infty\frac{(2n)!}{2^{2n}\,(n!)^2}x^n
+</mrow><mrow>
+\frac{1}{\sqrt{1-x^2}}&amp;=\sum_{n=0}^\infty\frac{(2n)!}{2^{2n}\,(n!)^2}x^{2n}
+</mrow><mrow>
+\int\frac{1}{\sqrt{1-x^2}}\,\dee{x}&amp;=\int\left(\sum_{n=0}^\infty\frac{(2n)!}{2^{2n}\,(n!)^2}x^{2n}\right)\,\dee{x}
+</mrow><mrow>
+\arcsin x &amp;=\sum_{n=0}^\infty\frac{(2n)!}{2^{2n}\,(n!)^2(2n+1)}x^{2n+1}+C
+</mrow><mrow>
+\arcsin x &amp;=\sum_{n=0}^\infty\frac{(2n)!}{2^{2n}\,(n!)^2(2n+1)}x^{2n+1}
+</mrow>
+</md>
+where we found the value of <m>C</m> by setting <m>x=0</m>. Its radius of convergence is also 1, by Theorem<nbsp/><xref ref="thm_SRpsops"/>.
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2014A</fromexam></title>
+<statement><p>
+Find the Taylor series for <m>f(x) = \log(x)</m> centred at <m>a = 2</m>.
+Find the interval of convergence for this series.
+</p></statement>
+
+<hint><p>
+You know the Maclaurin series for <m>\log(1+y)</m>. Use it!
+Remember that you are asked for a series expansion in powers
+of <m>x-2</m>. So you want <m>y</m> to be some constant times <m>x-2</m>.
+</p></hint>
+
+<answer><p>
+<m>\log(x) =\displaystyle \log 2 +\sum\limits_{n=1}^\infty \frac{(-1)^{n-1}}{n\,2^n}(x-2)^n</m>.
+It converges when <m>0 \lt x\le 4</m>.
+</p></answer>
+
+<solution><p>
+We use that
+<me>
+\log(1+y)= \sum_{n=1}^\infty (-1)^{n-1} \frac{y^n}{n} \qquad
+\text{for all } -1  \lt  y \le 1
+</me>
+with <m>y=\dfrac{x-2}{2}</m> to give
+<md>
+<mrow>
+\log(x) &amp; = \log(2 +x -2)
+=\log\left[2\left(1+\frac{x-2}{2}\right)\right]
+</mrow><mrow>
+        &amp;= \log 2 +\log\Big(1+\frac{x-2}{2}\Big)
+         =\log 2 +\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n\,2^n}(x-2)^n
+</mrow>
+</md>
+It converges when <m>-1 \lt y\le 1</m>, or equivalently,
+<m>0 \lt x\le 4</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1996A</fromexam></title>
+<statement><p>
+Let <m>\displaystyle I(x)=\int_0^x\frac{1}{1+t^4}\ \dee{t}</m>.
+<ol label="a">
+<li>
+Find the Maclaurin series for <m>I(x)</m>.
+</li>
+<li>
+Approximate <m>I(1/2)</m> to within <m>\pm0.0001</m>.
+</li>
+<li>
+Is your approximation in (b) larger or smaller than the true value of <m>I(1/2)</m>? Explain.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_SRpsrepD"/> in the
+CLP-II text.
+For parts (b) and (c), review  § <xref ref="sec_AST"/> in the
+CLP-II text.
+</p>
+
+</hint>
+
+<answer><p>
+(a) <m>\displaystyle\sum\limits_{n=0}^\infty (-1)^n\ \frac{x^{4n+1}}{4n+1}</m>
+</p>
+<p>(b)
+<m>0.493967</m>
+</p>
+<p>
+(c) The approximate value of part (b) is larger than the true value
+of <m>I(1/2)</m>
+</p></answer>
+
+<solution><p> (a) Using the geometric series expansion with <m>r=-t^4</m>,
+<md>
+<mrow>
+\frac{1}{1-r} =\sum_{n=0}^\infty r^n
+&amp;\implies\frac{1}{1+t^4} =\sum_{n=0}^\infty {(-t^4)}^n =\sum_{n=0}^\infty (-1)^nt^{4n}
+</mrow>
+</md>
+Substituting this into our integral,
+<md>
+<mrow>
+I(x)
+&amp;=\int_0^x\frac{1}{1+t^4}\ \dee{t}
+</mrow><mrow>
+&amp;=\int_0^x \left( \sum_{n=0}^\infty (-1)^n t^{4n}\right)\dee{t}
+</mrow><mrow>
+&amp;=\left[\sum\limits_{n=0}^\infty (-1)^n\ \frac{t^{4n+1}}{4n+1}\right]_{t=0}^{t=x}
+</mrow><mrow>
+&amp;=\sum\limits_{n=0}^\infty (-1)^n\ \frac{x^{4n+1}}{4n+1}
+</mrow>
+</md>
+</p>
+
+<p> (b)  Substituting in <m>x=\frac{1}{2}</m>,
+<md>
+<mrow>
+I(1/2)&amp;=\sum_{n=0}^\infty (-1)^n\ \frac{1}{(4n+1)2^{4n+1}}
+</mrow><mrow>
+&amp;=\frac12-\frac{1}{5\times2^5}+\frac{1}{9\times 2^9}
+-\frac{1}{13\times 2^{13}}+\cdots
+</mrow><mrow>
+&amp;=0.5-0.00625+0.000217-0.0000094+\cdots
+=\boxed{0.493967}-0.0000094+\cdots
+</mrow>
+</md>
+See part (c) for the error analysis.
+</p>
+
+<p> (c)
+The series for <m>I(x)</m> is an alternating series (that is, the sign alternates)
+with successively smaller terms that converge to zero. So the error introduced by
+truncating the series is between zero and the first omitted term. In this case, the
+first omitted term was negative (<m>-0.0000094</m>). So the exact value of <m>I(1/2)</m>
+is the approximate value found in part (b) plus a negative number whose
+magnitude is smaller than <m>0.00001=10^{-5}</m>.
+So the approximate value of part (b) is <em>larger</em> than the true value
+of <m>I(1/2)</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Using a Maclaurin series, the number <m>a = 1/5-1/7+1/18</m> is found to be an approximation for <m>\displaystyle I = \int_0^1 x^4 e^{-x^2}\,\dee{x}</m>. Give the best
+upper bound you can for <m>|I - a|</m>.
+</p></statement>
+
+<hint><p>
+Look at the signs of successive terms in the series.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{66}</m>
+</p></answer>
+
+<solution><p>
+Expanding the exponential using its Maclaurin series,
+<md>
+<mrow>
+I&amp;=\int_0^1 x^4 e^{-x^2}\ \dee{x}
+=\sum_{n=0}^\infty\int_0^1 x^4 \frac{{(-x^2)}^n}{n!}\ \dee{x}
+=\sum_{n=0}^\infty \frac{(-1)^n}{n!}\int_0^1 x^{2n+4} \ \dee{x}
+</mrow><mrow>
+&amp;=\sum_{n=0}^\infty \frac{(-1)^n}{n!(2n+5)}
+= \underbrace{\frac{1}{5}}_{n=0}
+   -\underbrace{\frac{1}{7}}_{n=1}
+   +\underbrace{\frac{1}{18}}_{n=2}
+   -\underbrace{\frac{1}{3!(11)}}_{n=3}
+   +\cdots
+</mrow>
+</md>
+The signs of successive terms in this series alternate. Futhermore the
+magnitude of the <m>n^{\rm th}</m> term decreases with <m>n</m>. Hence, by the alternating
+series test, <m>I</m> lies between
+<m>\frac{1}{5}-\frac{1}{7}+\frac{1}{18}</m> and
+<m>\frac{1}{5}-\frac{1}{7}+\frac{1}{18}-\frac{1}{3!(11)}</m>.
+So
+<me>
+|I - a| \le \frac{1}{3!(11)} =\frac{1}{66}
+</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M121 1999A</fromexam></title>
+<statement><p>
+Find an interval of length <m>0.0002</m> or less that contains
+the number
+<me>
+I=\int_0^{\frac{1}{2}} x^2 e^{-x^2}\ \dee{x}
+</me>
+</p></statement>
+
+<hint><p>
+The magic word is <q>series</q>.
+</p></hint>
+
+<answer><p>
+Any interval of length 0.0002 that contains <m>0.03592</m> and <m>0.03600</m>
+is fine.
+</p></answer>
+
+<solution><p>
+Expanding the exponential using its Taylor series,
+<md>
+<mrow>
+I&amp;=\int_0^{\frac{1}{2}} x^2 e^{-x^2}\ \dee{x}
+=\sum_{n=0}^\infty\int_0^{\frac{1}{2}} x^2 \frac{{(-x^2)}^n}{n!}\ \dee{x}
+=\sum_{n=0}^\infty \frac{(-1)^n}{n!}\int_0^{\frac{1}{2}} x^{2n+2} \ \dee{x}
+</mrow><mrow>
+&amp;=\sum_{n=0}^\infty \frac{(-1)^n}{n!(2n+3)}\frac{1}{2^{2n+3}}
+</mrow>
+</md>
+The signs of successive terms in this series alternate. Futhermore the
+magnitude of the <m>n^{\rm th}</m> term decreases with <m>n</m>. Hence, by the alternating
+series test, <m>I</m> lies between
+<m>\sum\limits_{n=0}^N \frac{(-1)^n}{n!(2n+3)}\frac{1}{2^{2n+3}}</m> and
+<m>\sum\limits_{n=0}^{N+1} \frac{(-1)^n}{n!(2n+3)}\frac{1}{2^{2n+3}}</m>, for every
+<m>N</m>. The first few terms are, to five decimal places,
+</p>
+<sidebyside>
+<tabular  left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell>    <m>n</m></cell><cell>0</cell><cell>1</cell><cell>2</cell><cell>3  </cell>
+</row><row>
+<cell>    <m>\dfrac{(-1)^n}{n!(2n+3)}\frac{1}{2^{2n+3}}</m></cell><cell>0.04167</cell><cell>-0.00625</cell><cell>0.00056</cell><cell>-0.00004</cell>
+</row>
+</tabular>
+</sidebyside>
+<p>
+Allowing for a roundoff error of <m>0.000005</m> in each of these,
+<m>I</m> must be between
+<me>
+0.04167-0.00625+0.00056+0.000005\times 3=0.035995
+</me>
+and
+<me>
+0.04167-0.00625+0.00056-0.00004-0.000005\times 4=0.035920
+</me>
+</p>
+
+<p>where the multiples of
+ 0.000005 are the maximum
+possible accumulated roundoff errors in the added terms.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1996D</fromexam></title>
+<statement><p>
+ Let <m>\displaystyle I(x)=\int_0^x\frac{e^{-t}-1}{t}\,\dee{t}</m>.
+<ol label="a">
+<li>
+Find the Maclaurin series for <m>I(x)</m>.
+</li>
+<li>
+ Approximate <m>I(1)</m> to within <m>\pm0.01</m>.
+</li>
+<li>
+Explain why your answer to part (b) has the desired accuracy.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_erf"/> in the
+CLP-II text.
+For parts (b) and (c), review  § <xref ref="sec_AST"/> in the
+CLP-II text.
+</p>
+
+</hint>
+
+<answer><p>
+(a) <m>\displaystyle\sum\limits_{n=1}^\infty (-1)^n\ \frac{x^n}{n\ n!}</m>
+</p>
+<p>
+(b)<m>-0.80</m>
+</p>
+<p>
+(c) See the solution.
+</p></answer>
+
+<solution><p> (a) Using the Taylor series expansion of <m>e^x</m> with <m>x=-t</m>,
+<md>
+<mrow>
+e^{-t} =\sum_{n=0}^\infty \frac{(-t)^n}{n!}
+&amp;\implies e^{-t}-1 =\sum_{n=1}^\infty (-1)^n\frac{t^n}{n!}
+\implies \frac{e^{-t}-1}{t} =\sum_{n=1}^\infty (-1)^n\frac{t^{n-1}}{n!}
+</mrow>
+</md>
+Substituting this into our integral,
+<md>
+<mrow>
+I(x)
+=\int_0^x\frac{e^{-t}-1}{t}\,\dee{t}
+=\sum_{n=1}^\infty (-1)^n\int_0^x \frac{t^{n-1}}{n!}\,\dee{t}
+=\sum_{n=1}^\infty (-1)^n\ \frac{x^n}{n\cdot n!}
+</mrow>
+</md>
+</p>
+
+<p> (b)  Substituting in <m>x=1</m>,
+<md>
+<mrow>
+I(1)&amp;=\sum_{n=1}^\infty (-1)^n\ \frac{1}{n\cdot n!}
+</mrow><mrow>
+&amp;=-1+\frac{1}{2\cdot 2!}-\frac{1}{3\cdot 3!}+\frac{1}{4\cdot 4!}-\frac{1}{5\cdot 5!}
++\cdots
+</mrow><mrow>
+&amp;=-1+0.25-0.0556+0.0104-0.0017+\cdots
+=-0.80
+</mrow>
+</md>
+See part (c) for the error analysis.
+</p>
+
+<p> (c)
+The series for <m>I(x)</m> is an alternating series (that is, the sign alternates)
+with successively smaller terms that converge to zero. So the error introduced by truncating
+the series is no larger than the first omitted term. So the magnitude of
+<m>-\frac{1}{5\,5!}+\cdots</m> is no larger than <m>0.0017</m>. Allowing for a roundoff
+error of at most <m>0.0001</m> in each of the two terms <m>-0.0556+0.0104</m>
+<md>
+<mrow>
+I(1)=-1+0.25-0.0556+0.0104\pm 0.0019=-0.7952\pm 0.0019
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>1997A</fromexam></title>
+<statement><p>
+ The function <m>\Si(x)</m> is defined by <m>\Si(x)=\displaystyle\int_0^x\frac{\sin t}{t}\,\dee{t}</m>.
+</p>
+
+<p><ol label="a">
+<li>
+Find the Maclaurin series for <m>\Si(x)</m>.
+</li>
+<li>
+ It can be shown that <m>\Si(x)</m> has an absolute maximum which occurs at its smallest
+positive critical point (see the graph of <m>\Si(x)</m> below). Find this critical
+point.
+</li>
+<li>
+<p>
+Use the previous information to find the maximum value of <m>\Si(x)</m> to within <m>\pm 0.01</m>.
+</p>
+
+<sidebyside width="50%">
+<image source="problems/figs/graphE97_9"/>
+</sidebyside>
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_erf"/> in the
+CLP-II text.
+For part (b), review  the fundamental theorem of calculus in § <xref ref="sec_fundamental"/>
+of the
+CLP-II text.
+For part (c), review  § <xref ref="sec_AST"/> in the
+CLP-II text.
+</p>
+
+</hint>
+
+<answer><p>
+(a)
+<m>\displaystyle\Si(x)
+=\sum\limits_{n=0}^\infty (-1)^n\ \frac{x^{2n+1}}{(2n+1)(2n+1)!}</m>
+</p>
+<p>
+(b)
+<m>x=\pi</m>
+</p>
+<p>
+(c)
+<m>1.8525</m>
+</p></answer>
+
+<solution><p> (a)
+Using the Taylor series expansion of <m>\sin x</m> with <m>x=t</m>,
+<md>
+<mrow>
+\sin t =\sum_{n=0}^\infty (-1)^n\frac{t^{2n+1}}{(2n+1)!}
+&amp;\implies \frac{\sin t}{t} =\sum_{n=0}^\infty (-1)^n\frac{t^{2n}}{(2n+1)!}
+</mrow>
+</md>
+So
+<md>
+<mrow>
+\Si(x)
+&amp;=\int_0^x\frac{\sin t}{t}\,\dee{t}
+=\sum_{n=0}^\infty (-1)^n\int_0^x \frac{t^{2n}}{(2n+1)!}\,\dee{t}
+=\sum_{n=0}^\infty (-1)^n\ \frac{x^{2n+1}}{(2n+1)(2n+1)!}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+The critical points of <m>\Si(x)</m> are the solutions of <m>\Si'(x)=0</m>.
+By the fundamental theorem of calculus <m>\Si'(x)=\frac{\sin x}{x}</m>,
+so the critical points of <m>\Si(x)</m> are <m>x=\pm \pi, \pm 2\pi,\ \cdots</m>.
+The absolute maximum occurs at <m>x=\pi</m>.
+</p>
+
+<p> (c)
+Substituting in <m>x=\pi</m>,
+<md>
+<mrow>
+\Si(\pi)&amp;=\sum_{n=0}^\infty (-1)^n\ \frac{\pi^{2n+1}}{(2n+1)(2n+1)!}
+</mrow><mrow>
+&amp;=\pi-\frac{\pi^3}{3\cdot 3!}+\frac{\pi^5}{5\cdot 5!}-\frac{\pi^7}{7\cdot 7!}+\cdots
+</mrow><mrow>
+&amp;=3.1416-1.7226+0.5100-0.0856+0.0091-0.0007+\cdots
+</mrow>
+</md>
+The series for <m>\Si(\pi)</m> is an alternating series (that is, the sign alternates)
+with successively smaller terms that converge to zero.
+So the error introduced by truncating the series is no larger than the first omitted term. So
+<md>
+<mrow>
+\Si(\pi)=3.1416-1.7226+0.5100-0.0856+0.0091=1.8525
+</mrow>
+</md>
+with an error of magnitude at most <m>0.0007+0.0005</m> (the 0.0005 is the maximum
+possible accumulated roundoff error in all five retained terms).
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>1997D</fromexam></title>
+<statement><p>
+  Let <m>\displaystyle I(x)=\int_0^x\frac{\cos t-1}{t^2}\,\dee{t}</m>.
+</p>
+
+<p><ol label="a">
+<li>
+Find the Maclaurin series for <m>I(x)</m>.
+</li>
+<li>
+Use this series to approximate <m>I(1)</m> to within <m>\pm0.01</m>
+</li>
+<li>
+  Is your estimate in (b) greater than <m>I(1)</m>? Explain.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_erf"/> in the
+CLP-II text.
+For parts (b) and (c), review  § <xref ref="sec_AST"/> in the
+CLP-II text.
+</p>
+
+</hint>
+
+<answer><p>
+(a)
+<m>\displaystyle I(x)=\sum\limits_{n=1}^\infty(-1)^n\frac{x^{2n-1}}{(2n)!(2n-1)}</m>
+</p>
+<p>(b)
+<m>\displaystyle I(1)= -\frac{1}{2}+\frac{1}{4!3} \pm  \frac{1}{6!5}
+        =-0.486\pm0.001</m>
+</p>
+<p> (c)
+<m>I(1) \lt -\dfrac{1}{2}+\dfrac{1}{4!3}</m>
+</p>
+
+</answer>
+
+<solution><p> (a)
+Using the Taylor series expansion of <m>\cos t</m>,
+<md alignment="alignat">
+  <mrow>
+\cos t&amp;=1-\frac{t^2}{2!}+\frac{t^4}{4!}-\frac{t^6}{6!}+\cdots
+         &amp;&amp;=\sum_{n=0}^\infty(-1)^n\frac{t^{2n}}{(2n)!}
+ </mrow><mrow>
+\frac{\cos t-1}{t^2}&amp;= -\frac{1}{2!}+\frac{t^2}{4!}-\frac{t^4}{6!}+\cdots
+         &amp;&amp;=\sum_{n=1}^\infty(-1)^n\frac{t^{2n-2}}{(2n)!}
+ </mrow><mrow>
+I(x)=\int_0^x \frac{\cos t-1}{t^2}\,\dee{t}
+      &amp;=-\frac{x}{2!}+\frac{x^3}{4!3}-\frac{x^5}{6!5}+\cdots
+      &amp;&amp;=\sum_{n=1}^\infty(-1)^n\frac{x^{2n-1}}{(2n)!(2n-1)}
+</mrow>
+</md>
+</p>
+
+<p> (b), (c)  Substituting in <m>x=1</m>,
+<md>
+<mrow>
+I(1)&amp;=-\frac{1}{2}+\frac{1}{4!3}-\frac{1}{6!5}
++\cdots
+</mrow><mrow>
+&amp;=-0.5+0.0139-0.0003-\cdots\cr
+&amp;=-0.486\pm0.001
+</mrow>
+</md>
+The series for <m>I(1)</m> is an alternating series with decreasing
+successive terms that converge to zero. So approximating
+<m>I(1)</m> by <m>-\frac{1}{2}+\frac{1}{4!3}</m> introduces an error
+between <m>0</m> and <m>-\frac{1}{6!5}</m>. Hence <m>I(1) \lt -\frac{1}{2}+\frac{1}{4!3}</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>1998A</fromexam></title>
+<statement><p>
+Let <m>\displaystyle I(x)=\int_0^x\frac{\cos t+t\sin t-1}{t^2}\,\dee{t}</m>
+</p>
+
+<p><ol label="a">
+<li>
+Find the Maclaurin series for <m>I(x)</m>.
+</li>
+<li>
+Use this series to approximate <m>I(1)</m> to within <m>\pm0.001</m>
+</li>
+<li>
+Is your estimate in (b) greater than or less than <m>I(1)</m>?
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_erf"/> in the
+CLP-II text.
+For parts (b) and (c), review  § <xref ref="sec_AST"/> in the
+CLP-II text.
+</p>
+
+</hint>
+
+<answer><p>
+(a)
+ <m>\displaystyle I(x)=\sum_{n=1}^\infty (-1)^{n+1}\frac{x^{2n-1}}{(2n)!}= \frac{1}{2!}x-\frac{1}{4!}x^3+\frac{1}{6!}x^5-\frac{1}{8!}x^8+\cdots</m>
+ </p>
+ <p> (b) 0.460
+ </p>
+ <p> (c)
+ <m>\displaystyle I(1) \lt \frac{1}{2!}-\frac{1}{4!}+\frac{1}{6!} \lt 0.460</m>
+</p>
+
+</answer>
+
+<solution><p> (a)
+Using the Taylor series expansions of <m>\sin x</m> and <m>\cos x</m> with <m>x=t</m>,
+<md>
+<mrow>
+\sin t &amp;= \sum_{n=0}^\infty (-1)^n\frac{t^{2n+1}}{(2n+1)!}&amp;=&amp; t-\frac{t^3}{3!}+\frac{t^5}{5!}-\frac{t^7}{7!}+\cdots
+</mrow><mrow>
+\textcolor{red}{t\sin t} &amp;= \sum_{n=0}^\infty (-1)^n\frac{t^{2n+2}}{(2n+1)!}&amp;=&amp;\textcolor{red}{\phantom{1-\ }t^2-\frac{t^4}{3!}+\frac{t^6}{5!}-\frac{t^8}{7!}+\cdots}
+</mrow><mrow>
+&amp;=\textcolor{red}{ -\sum_{n=1}^\infty (-1)^n\frac{t^{2n}}{(2n-1)!} }
+</mrow><mrow>
+\cos t &amp;=\sum_{n=0}^\infty (-1)^n\frac{t^{2n}}{(2n)!}&amp;=&amp; 1-\frac{t^2}{2!}+\frac{t^4}{4!}-\frac{t^6}{6!}+\frac{t^8}{8!}+\cdots
+</mrow><mrow>
+\textcolor{blue}{\cos t-1} &amp;=\textcolor{blue}{\sum_{n=1}^\infty (-1)^n\frac{t^{2n}}{(2n)!}}&amp;=&amp;\textcolor{blue}{ -\frac{t^2}{2!}+\frac{t^4}{4!}-\frac{t^6}{6!}+\frac{t^8}{8!}+\cdots}
+</mrow><mrow>
+\textcolor{blue}{\cos t} + \textcolor{red}{t\sin t}\textcolor{blue}{ -1}&amp;=\textcolor{blue}{\sum_{n=1}^\infty (-1)^n\frac{t^{2n}}{(2n)!}} \textcolor{red}{-\sum_{n=1}^\infty (-1)^n\frac{t^{2n}}{(2n-1)!} }
+</mrow><mrow>&amp;=\sum_{n=1}^\infty (-1)^nt^{2n}\left(\frac{1}{(2n)!}-\frac{1}{(2n-1)!}\right)&amp;=&amp;\Big(1-\frac{1}{2!}\Big)t^2
+-\Big(\frac{1}{3!}-\frac{1}{4!}\Big)t^4
++\cdots
+</mrow><mrow>
+&amp;=\sum_{n=1}^\infty (-1)^nt^{2n}\left(\frac{1}{(2n)!}-\frac{2n}{(2n)!}\right)
+</mrow><mrow>
+&amp;=\sum_{n=1}^\infty (-1)^nt^{2n}\left(\frac{1-2n}{(2n)!}\right)
+&amp;=&amp;\Big(\frac{2}{2!}-\frac{1}{2!}\Big)t^2
+-\Big(\frac{4}{4!}-\frac{1}{4!}\Big)t^4
++\cdots
+</mrow><mrow>
+&amp;=\sum_{n=1}^\infty (-1)^{n+1}t^{2n}\left(\frac{2n-1}{(2n)!}\right)
+&amp;=&amp;\frac{1}{2!}t^2-\frac{3}{4!}t^4
++\frac{5}{6!}t^6
+-\frac{7}{8!}t^8+\cdots
+</mrow><mrow>
+\frac{\cos t + t\sin t -1}{t^2}&amp;=\sum_{n=1}^\infty (-1)^{n+1}t^{2n-2}\left(\frac{2n-1}{(2n)!}\right)
+&amp;=&amp;\frac{1}{2!}t-\frac{3}{4!}t^2
++\frac{5}{6!}t^4
+-\frac{7}{8!}t^6+\cdots
+</mrow>
+</md>
+
+Now, we're ready to integrate.
+<md>
+<mrow>
+I(x)=\int_0^x\left( \frac{\cos t + t\sin t -1}{t^2}\right)&amp;=\int_0^x \left(\sum_{n=1}^\infty (-1)^{n+1}t^{2n-2}\left(\frac{2n-1}{(2n)!} \right)\right) \dee{t}
+</mrow><mrow>
+&amp;= \left[\sum_{n=1}^\infty (-1)^{n+1}\frac{t^{2n-1}}{(2n)!}\right]_0^x
+</mrow><mrow>
+&amp;=\sum_{n=1}^\infty (-1)^{n+1}\frac{x^{2n-1}}{(2n)!}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+<m>I(1)=\frac{1}{2!}-\frac{1}{4!}+\frac{1}{6!}-\frac{1}{8!}+\cdots
+=0.5-0.041\dot6+0.00139-0.000024+\cdots=\boxed{0.460}\,</m>.
+The error analysis is in part (c).
+</p>
+
+<p> (c) The series for <m>I(1)</m> is an alternating series with decreasing
+successive terms that convege to zero. So approximating
+<m>I(1)</m> by <m>\frac{1}{2!}-\frac{1}{4!}+\frac{1}{6!}</m> introduces an error
+between <m>0</m> and <m>-\frac{1}{8!}</m>. So  <m>I(1) \lt \frac{1}{2!}-\frac{1}{4!}+\frac{1}{6!} \lt 0.460</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2016A</fromexam></title>
+<statement><p>
+Define
+<m>
+{\displaystyle f(x) = \int_0^x\frac{1-e^{-t}}{t}\ \dee{t}}
+</m>.
+<ol label="a">
+<li>
+Show that the Maclaurin series for <m>f(x)</m> is
+<m>\displaystyle\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n\cdot n!} x^n</m>.
+</li>
+<li>
+Use the ratio test to determine the values of <m>x</m> for which
+the Maclaurin series
+<m>\displaystyle\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n\cdot n!} x^n</m> converges.
+</li>
+</ol>
+</p></statement>
+
+<answer><p>
+(a) See the solution.
+</p>
+<p>
+(b) The series converges for all <m>x</m>.
+</p></answer>
+
+<solution><p> (a)
+Substituting <m>x=-t</m> into the known power series
+<m>e^x = 1 + x +\frac{x^2}{2!}+\frac{x^3}{3!} + \frac{x^4}{4!} + \cdots</m>,
+we see that:
+<md>
+<mrow>
+e^{-t}&amp;= 1  - t +\frac{t^2}{2!}-\frac{t^3}{3!} + \frac{t^4}{4!} - \cdots
+</mrow><mrow>
+1-e^{-t}&amp;=  t - \frac{t^2}{2!}+ \frac{t^3}{3!} - \frac{t^4}{4!} + \cdots
+</mrow><mrow>
+\frac{1-e^{-t}}{t}&amp;=  1 - \frac{t}{2!}+ \frac{t^2}{3!} - \frac{t^3}{4!} + \cdots
+</mrow><mrow>
+\int \frac{1-e^{-t}}{t}\ \dee{t}&amp;=  C + x - \frac{x^2}{2\cdot 2!}
+                   + \frac{x^3}{3\cdot 3!} - \frac{x^4}{4\cdot 4!} + \cdots
+</mrow>
+</md>
+Finally, <m>f(0) = 0</m> (since <m>f(0)</m> is an integral from <m>0</m> to <m>0</m>) and so <m>C=0</m>. Therefore
+<md>
+<mrow>
+f(x) = \int_0^x\frac{1-e^{-t}}{t}\ \dee{t} =  x - \frac{x^2}{2\cdot 2!} + \frac{x^3}{3\cdot 3!} - \frac{x^4}{4\cdot 4!} + \cdots.
+</mrow>
+</md>
+</p>
+
+<p>
+We can also do this calculation entirely in summation notation:
+<m>e^{x}= \displaystyle\sum\limits_{n=0}^\infty \frac{x^n}{n!}</m>, and so
+<md>
+<mrow>
+e^{-t}&amp;= \sum_{n=0}^\infty \frac{(-t)^n}{n!}
+  =1+ \sum_{n=1}^\infty \frac{(-1)^nt^n}{n!}
+</mrow><mrow>
+1-e^{-t}&amp;= - \sum_{n=1}^\infty \frac{(-1)^nt^n}{n!} = \sum_{n=1}^\infty \frac{(-1)^{n-1} t^n}{n!}
+</mrow><mrow>
+\frac{1-e^{-t}}{t}&amp;= \sum_{n=1}^\infty \frac{(-1)^{n-1} t^{n-1}}{n!}
+</mrow><mrow>
+\hskip-90pt f(x) = \int_0^x\frac{1-e^{-t}}{t}\ \dee{t}
+&amp;= \sum_{n=1}^\infty \frac{(-1)^{n-1} x^n}{n\cdot n!}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+We set <m>a_n=A_nx^n = \dfrac{(-1)^{n-1}}{n\cdot n!} x^n</m> and apply
+the ratio test.
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
+&amp;=\lim_{n\rightarrow\infty}
+   \bigg|\frac{{(-1)^{n}}x^{n+1}/{((n+1)\cdot (n+1)!)}}
+                {{(-1)^{n-1}}x^n/{(n\cdot n!)}}\bigg|
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty}
+   \bigg( \frac{|x|^{n+1}}{|x|^n} \frac{n\cdot n!}{(n+1)\cdot (n+1)!} \bigg)
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty}
+      \bigg( |x|\frac{n}{(n+1)^2} \bigg)
+\qquad\text{since $(n+1)!=(n+1)\,n!$}
+</mrow><mrow>
+&amp;=0
+</mrow>
+</md>
+This is smaller than <m>1</m> no matter what <m>x</m> is.
+So the series converges for all <m>x</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>1998A</fromexam></title>
+<statement><p>
+ Show that <m>\displaystyle \int_0^1\frac{x^3}{e^x-1}\,\dee{x}\le\frac{1}{3}</m>.
+</p></statement>
+
+<hint><p>
+Use the Maclaurin series for <m>e^x</m>.
+</p></hint>
+
+<answer><p>
+See the solution.
+</p></answer>
+
+<solution><p>
+<md>
+<mrow>
+&amp;e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots
+\ge 1+x\qquad\hbox{for all $x\ge 0$}
+</mrow><mrow>
+&amp;\implies   e^x-1\ge x
+</mrow><mrow>
+&amp;\implies   \frac{x^3}{e^x-1}\le \frac{x^3}{x} = x^2
+</mrow><mrow>
+&amp;\implies   \int_0^1\frac{x^3}{e^x-1}\,\dee{x} \le \int_0^1 x^2\,\dee{x}=\frac{1}{3}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M121 2012A</fromexam></title>
+<statement><p>
+Let <m>\displaystyle \cosh(x) =\frac{e^x+e^{-x}}{2}</m>.
+<ol label="a">
+<li>
+Find the power series expansion of <m>\cosh(x)</m> about <m>x_0 = 0</m> and
+determine its interval of convergence.
+</li>
+<li>
+Show that <m>3\frac{2}{3}\le \cosh(2) \le 3\frac{2}{3} + 0.1</m>.
+</li>
+<li>
+Show that <m>\cosh(t) \le e^{\frac{1}{2}t^2}</m> for all <m>t</m>.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+For part (c), compare two power series term-by-term.
+</p></hint>
+
+<answer><p>
+(a)
+<m>\cosh(x)=\displaystyle \sum\limits_{\genfrac{}{}{0pt}{}{n=0}{n\text{ even}}}^\infty
+                                      \frac{x^n}{n!}
+         = \sum\limits_{n=0}^\infty\frac{x^{2n}}{(2n)!}</m> for all <m>x</m>.
+</p></answer>
+
+<solution><p> (a) We know that
+<m>e^x = \sum\limits_{n=0}^\infty \frac{x^n}{n!}</m> for all <m>x</m>.
+Replacing <m>x</m> by <m>-x</m>, we also have
+<m>e^{-x} = \sum\limits_{n=0}^\infty \frac{(-x)^n}{n!}</m> for all <m>x</m>
+and hence
+<md>
+<mrow>
+\cosh(x) =\frac{1}{2}\big[e^x+e^{-x}\big]
+         =\frac{1}{2}\Big[\sum_{n=0}^\infty \frac{x^n}{n!}
+                         + \sum_{n=0}^\infty \frac{(-x)^n}{n!}\Big]
+         = \sum_{\genfrac{}{}{0pt}{}{n=0}{n\text{ even}}}^\infty\frac{x^n}{n!}
+         = \sum_{n=0}^\infty\frac{x^{2n}}{(2n)!}
+</mrow>
+</md>
+for all <m>x</m>. In particular, the interval of convergence is all real numbers.
+</p>
+
+<p> (b) Using the power series expansion of part (a),
+<md>
+<mrow>
+\cosh(2) &amp;= 1 +\frac{2^2}{2!}+\frac{2^4}{4!}
+                    +\sum_{n=3}^\infty\frac{2^{2n}}{(2n)!}
+         = 3\frac{2}{3}
+                    +\sum_{n=3}^\infty\frac{2^{2n}}{(2n)!}
+</mrow>
+</md>
+So it suffices to show that <m>\sum_{n=3}^\infty\frac{2^{2n}}{(2n)!}\le 0.1</m>.
+Let's write <m>b_n = \frac{2^{2n}}{(2n)!}</m>. The first term in
+<m>\sum_{n=3}^\infty\frac{2^{2n}}{(2n)!}</m> is
+<me>
+b_3 = \frac{2^6}{6!}
+    = \frac{2^6}{6 \times 5 \times 4 \times 3\times 2}
+    = \frac{4}{45}
+</me>
+The ratio between successive terms in <m>\sum_{n=3}^\infty\frac{2^{2n}}{(2n)!}</m>
+is
+<md>
+<mrow>
+\frac{b_{n+1}}{b_n}
+= \frac{2^{2n+2}/2^{2n}}{(2n+2)!/(2n)!}
+=\frac{4}{(2n+2)(2n+1)}
+\le \frac{4}{8\times 7}
+=\frac{1}{14}\qquad
+\text{for all }n\ge 3
+</mrow>
+</md>
+Hence
+<md>
+<mrow>
+\sum_{n=3}^\infty\frac{2^{2n}}{(2n)!}
+&amp;\le \overbrace{\frac{4}{45}}^{b_3}
+    + \overbrace{\frac{4}{45}\times \frac{1}{14}}^{b_4\le}
+    + \overbrace{\frac{4}{45}\times \frac{1}{14^2}}^{b_5\le}
+    + \overbrace{\frac{4}{45}\times \frac{1}{14^3}}^{b_6\le}
+    + \cdots
+</mrow><mrow>
+&amp;=\frac{4}{45}\,\frac{1}{1-\frac{1}{14}}
+=\frac{4}{45}\,\frac{14}{13}
+=\frac{56}{585} \lt \frac{1}{10}
+</mrow>
+</md>
+</p>
+
+<p> (c) Comparing
+<me>
+\cosh(t) = \sum_{n=0}^\infty\frac{t^{2n}}{(2n)!}
+ = \sum_{n=0}^\infty\frac{{(t^2)}^n}{(2n)!}
+\qquad\text{and}\qquad
+e^{\frac{1}{2}t^2}
+    = \sum_{n=0}^\infty\frac{{(\frac{1}{2}t^2)}^n}{n!}
+    = \sum_{n=0}^\infty\frac{{(t^2)}^n}{2^n n!}
+</me>
+we see that it suffices to show that <m>(2n)! \ge 2^n n!</m>.
+Now. for all <m>n\ge 1</m>,
+<md>
+<mrow>
+(2n)! &amp;=\overbrace{1\times 2\times\cdots\times n}^{n\text{ factors}}
+      \overbrace{(n+1)\times (n+2)\times\cdots\times 2n}^{n\text{ factors}}
+</mrow><mrow>
+&amp;\ge\overbrace{1\times 2\times\cdots\times n}^{n\text{ factors}}
+      \overbrace{2\times 2\times\cdots\times 2}^{n\text{ factors}}
+</mrow><mrow>
+&amp;=2^n\, n!
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>The law of the instrument says <q>If you have a hammer then everything looks like a nail</q> <mdash/> it is really a description of the <q>tendency of jobs to be adapted to tools rather than adapting tools to jobs</q><fn>Quote from Silvan Tomkins's <em>Computer Simulation of Personality: Frontier of Psychological Theory</em>. See also Birmingham screwdrivers.</fn>. Anyway, this is a long way of saying that just because we know how to compute things using Taylor series doesn't mean we should neglect other techniques.
+
+<ol label="a">
+<li> Using Newton's method, approximate the constant <m>\sqrt[3]{2}</m> as a root of the function <m>g(x)=x^3-2</m>. Using a calculator, make your estimation accurate to within 0.01.
+</li>
+<li> You may assume without proof that
+		<me>
+\sqrt[3]{x}=1+\frac{1}{6}(x-1)+\sum_{n=2}^\infty(-1)^{n-1}\frac{(2)(5)(8)\cdots(3n-4)}{3^n\, n!}(x-1)^n.
+</me>
+for all real numbers <m>x</m>. Using the fact that this is an alternating series, how many terms would you have to add for the partial sum to estimate <m>\sqrt[3]{2}</m> with an error less than 0.01?
+</li>
+</ol>
+</p>
+
+</statement>
+<hint><p>
+For Newton's method, recall we approximate a root of the function <m>g(x)</m> in iterations: given an approximation <m>x_n</m>, our next approximation is <m>x_{n+1}=x_n-\dfrac{g(x_n)}{g'(x_n)}</m>.
+</p>
+
+<p>To gauge your error, note that from approximation to approximation, the first digits stabilize. Keep refining your approximation until the first two digits stop changing.
+</p></hint>
+<answer><p>
+(a) <m>\sqrt[3]{3}\approx 1.26</m>
+</p>
+<p>
+(b) 12 terms (<m>S_{11}</m>)
+</p></answer>
+<solution>
+
+<p>	<ol label="(a)">
+<li>
+		For Newton's method, recall we approximate a root of the function <m>g(x)</m> in iterations: given an approximation <m>x_n</m>, our next approximation is <m>x_{n+1}=x_n-\dfrac{g(x_n)}{g'(x_n)}</m>. In our case,
+<me>
+x_{n+1}=x_n - \frac{x_n^3-2}{3x_n^2}=\frac23\left(x_n+\frac{1}{x_n^2}\right).</me>
+We want to start somewhere reasonably close to the actual root we want, so let's set <m>x_0=1</m>. (Your starting point may vary.)
+<md>
+<mrow>
+x_0&amp;=1 &amp;&amp;\implies x_1=\dfrac23\left(1+\frac11\right)=\dfrac{4}{3}&amp;\approx&amp;1.3333
+</mrow><mrow>
+ x_1&amp;=\dfrac43 &amp;&amp;\implies x_2=\dfrac23\left(\frac43+\frac{9}{16}\right)=\dfrac{91}{72}&amp;\approx&amp;1.2639
+</mrow><mrow>
+  x_2&amp;=\dfrac{91}{72} &amp;&amp;\implies x_3=\dfrac23\left(\dfrac{91}{72}+\dfrac{72^2}{91^2}\right)=\dfrac{1126819 }{894348 }&amp;\approx&amp;1.2599
+</mrow><mrow>
+    x_3&amp;=\dfrac{1126819 }{894348 } &amp;&amp;\implies x_4=\dfrac23\left(\dfrac{1126819 }{894348 }+\dfrac{894348^2}{1126819^2}\right)&amp;\approx&amp;1.2599
+</mrow>
+</md>
+So, <m>\sqrt[3]{2}\approx 1.26</m>.
+</li>
+<li>
+<p>
+We'll evaluate the given series at <m>x=2</m>. This yields the series
+<me>
+\sqrt[3]{2}=1+\frac{1}{6}+\sum_{n=2}^\infty(-1)^{n-1}\frac{(2)(5)(8)\cdots(3n-4)}{3^n\, n!}.
+</me>
+This series is alternating, so if we use the partial sum <m>S_N</m>, our absolute error is at most
+<me>
+|a_{N+1}|=\frac{(2)(5)(8)\cdots(3N-1)}{3^{N+1}\, (N+1)!}
+</me>
+(if <m>N \ge 2</m>). We want to know which value of <m>N</m> makes this at most 0.01. We test several values.
+</p>
+
+<sidebyside>
+<tabular  left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell>
+<m>N</m></cell><cell><m>|a_{N+1}|</m> </cell>
+</row><row>
+<cell>3</cell><cell> <m>\dfrac{(2)(5)(8)}{3^4\cdot 4!}\approx 0.04</m></cell>
+</row>
+<row>
+<cell>4 </cell><cell> <m>\dfrac{(2)(5)(8)(11)}{3^5\, 5!}\approx 0.03</m></cell></row>
+<row>
+<cell> 5 </cell><cell> <m>\dfrac{(2)(5)(8)(11)(14)}{3^6\, 6!}\approx 0.023</m> </cell></row>
+<row>
+<cell> 6 </cell><cell> <m>\dfrac{(2)(5)(8)(11)(14)(17)}{3^7\, 7!}\approx 0.019</m> </cell></row>
+<row>
+<cell>7 </cell><cell> <m>\dfrac{(2)(5)(8)(11)(14)(17)(20)}{3^8\, 8!}\approx 0.016</m> </cell></row>
+<row>
+<cell>8 </cell><cell> <m>\dfrac{(2)(5)(8)(11)(14)(17)(20)(23)}{3^9\, 9!}\approx 0.013</m> </cell></row>
+<row>
+<cell>9 </cell><cell> <m>\dfrac{(2)(5)(8)(11)(14)(17)(20)(23)(26)}{3^{10}\, 10!}\approx 0.012</m> </cell></row>
+<row>
+<cell>10 </cell><cell> <m>\dfrac{(2)(5)(8)(11)(14)(17)(20)(23)(26)(29)}{3^{11}\, 11!}\approx 0.0103</m>  </cell></row>
+<row>
+<cell>11 </cell><cell> <m>\dfrac{(2)(5)(8)(11)(14)(17)(20)(23)(26)(29)(32)}{3^{12}\, 12!}\approx 0.009</m> </cell>
+</row>
+</tabular>
+</sidebyside>
+<p>
+So, the approximation <m>S_{11}</m> has a sufficiently small error. That is, we would add up the first twelve terms.
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>f(x)=\arctan(x^3)</m>. Write <m>f^{(10)}\left(\frac{1}{5} \right)</m> as a sum of rational numbers with an error less than <m>10^{-6}</m> using the Maclaurin series for arctangent.
+</p></statement>
+<hint><p>
+First, modify your known Maclaurin series for arctangent into a Maclaurin series for <m>f(x)</m>. This series is not hard to repeatedly differentiate, so use it to find a power series for <m>f^{(10)}(x)</m>.
+</p></hint>
+<answer><p>
+<m>\displaystyle \frac{15!}{5!\cdot5^6}-\frac{21!}{7!\cdot 11!\cdot 5^{11}}+\frac{27!}{9!\cdot 17!\cdot 5^{17}}-\frac{33!}{11!\cdot 23!\cdot 5^{23}}</m>
+</p></answer>
+<solution>
+
+<p>	Our plan is as follows:
+	<ul>
+<li> Make a Taylor series for <m>f(x)</m>
+</li>
+<li> Calculate the tenth derivative of the Taylor series of <m>f(x)</m>.
+</li>
+<li> Decide how many terms we need to add to achieve the desired accuracy.
+</li>
+<li> Approximate <m>f^{(10)}\left(\frac15\right)</m> with a partial sum.
+</li>
+</ul>
+</p>
+
+<p>We know that the Taylor series for <m>\arctan x</m> is <m>\displaystyle\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}</m>, which converges for <m>-1\le x\le1</m>. So, the Taylor series for <m>\arctan(x^3)</m> is
+<me>
+f(x)=\arctan(x^3)=\sum_{n=0}^\infty (-1)^n\frac{(x^3)^{2n+1}}{2n+1}
+=\sum_{n=0}^\infty (-1)^n\frac{x^{6n+3}}{2n+1}</me>
+</p>
+
+<p>It is much easier to differentiate this series many times than it is to differentiate <m>\arctan(x^3)</m> directly many times.
+<md>
+<mrow>
+f'(x)&amp;=\sum_{n=0}^\infty (-1)^n\frac{(6n+3)x^{6n+2}}{2n+1}
+</mrow><mrow>
+f''(x)&amp;=\sum_{n=0}^\infty (-1)^n\frac{(6n+3)(6n+2)x^{6n+1}}{2n+1}
+</mrow><mrow>
+f'''(x)&amp;=\sum_{n=0}^\infty (-1)^n\frac{(6n+3)(6n+2)(6n+1)x^{6n}}{2n+1}
+</mrow><mrow>
+\vdots&amp;
+</mrow><mrow>
+f^{(10)}(x)&amp;=\sum_{n=0}^\infty (-1)^n\frac{(6n+3)(6n+2)(6n+1)\cdots(6n-6)x^{6n-7}}{2n+1}
+</mrow><mrow>
+&amp;=\sum_{n=2}^\infty (-1)^n\frac{(6n+3)(6n+2)(6n+1)\cdots(6n-6)x^{6n-7}}{2n+1}
+</mrow><mrow>
+&amp;=\sum_{n=2}^\infty (-1)^n\frac{(6n+3)!}{(2n+1)(6n-7)!}x^{6n-7}
+</mrow><mrow>
+f^{(10)}\left(\frac{1}{5}\right)&amp;=\sum_{n=2}^\infty (-1)^n\frac{(6n+3)!}{(2n+1)(6n-7)!\cdot 5^{6n-7}}
+</mrow>
+</md>
+(Notice, after ten differentiations, the terms <m>a_0</m> and <m>a_1</m> are both zero.)
+</p>
+
+<p>Since this is an alternating series, the absolute error involved in using the approximation <m>S_N</m> is at most
+<me>
+|a_{N+1}|=\frac{(6N+9)!}{(2N+3)(6N-1)!\cdot 5^{6N-1}}</me>
+</p>
+
+<p>By testing a few values of <m>N</m>, we find
+<me>
+|a_6|=|a_{5+1}|=\frac{39!}{(13)(29!)\cdot 5^{29}}\approx 0.00000095 \lt 10^{-6}</me>
+</p>
+
+<p>So, <m>S_5</m> is a sufficient approximation. That is,
+<md>
+<mrow>
+f^{(10)}\left(\frac15\right)&amp;\approx \sum_{n=2}^5 (-1)^n\frac{(6n+3)!}{(2n+1)(6n-7)!\cdot 5^{6n-7}}
+</mrow><mrow>
+&amp;=(-1)^2\frac{15!}{5\cdot 5!\cdot 5^{5}}+(-1)^3\frac{21!}{7!\cdot 11!\cdot 5^{11}}+
+(-1)^4\frac{27!}{9!\cdot 17!\cdot 5^{17}}+
+(-1)^5\frac{33!}{11!\cdot 23!\cdot 5^{23}}
+</mrow><mrow>
+&amp;=\frac{15!}{5!\cdot5^6}-\frac{21!}{7!\cdot 11!\cdot 5^{11}}+\frac{27!}{9!\cdot 17!\cdot 5^{17}}-\frac{33!}{11!\cdot 23!\cdot 5^{23}}
+</mrow>
+</md>
+Remark: if we had calculated <m>f^{(10)}(1/5)</m> directly, using derivative rules instead of series, we would have found an exact value; however, our value here is easier to find, and is highly accurate (if not exact).
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Consider the following function:
+<me>
+f(x)=\begin{cases}
+e^{-1/x^2} &amp; x \neq 0\\
+0 &amp; x=0
+\end{cases}</me>
+</p>
+
+<p><ol label="a">
+<li> Sketch <m>y=f(x)</m>.
+</li>
+<li> Assume (without proof) that <m>f^{(n)}(0)=0</m> for all whole numbers <m>n</m>. Find the Maclaurin series for <m>f(x)</m>.
+</li>
+<li> Where does the Maclaurin series for <m>f(x)</m> converge?
+</li>
+<li> For which values of <m>x</m> is <m>f(x)</m> equal to its Maclaurin series?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+	Remember <m>e^x</m> is never negative for any real number <m>x</m>.
+</p></hint>
+<answer><p>
+	(a)
+	</p>
+	<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+	\YEaaxis{4}{4}{.5}{2.5}
+	\draw (0,0) node[vertex]{};
+	\YEycoord{2}{1}
+	\YExcoord{-1.63}{-\sqrt{2/3}}
+	\YExcoord{1.63}{\sqrt{2/3}}
+	\draw[thick] plot[domain=-2:-.05, scale=2](\x,{exp(-1/(\x*\x))});
+	\draw[thick] plot[domain=-.05:2, scale=2](\x,{exp(-1/(\x*\x))});
+	\draw (4,2) node[right]{$y=f(x)$};
+	\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<p>	(b) the constant function 0
+</p><p>
+(c) everywhere
+</p>
+<p>
+(d) only at <m>x=0</m>
+</p></answer>
+<solution><p>
+<ol label="(a)">
+<li>
+<p>
+To sketch <m>y=f(x)</m>, we note the following:
+<ul>
+<li> <m>f(x)</m> is never negative.
+</li>
+<li> <m>\lim\limits_{x \to \pm \infty} f(x)=e^0=1</m>, so the curve has horizontal asymptotes in both directions at <m>y=1</m>.
+</li>
+<li> <m>\lim\limits_{x \to \pm 0} f(x)=\lim\limits_{x \to \pm 0} \frac{1}{e^{1/x^2}}=\lim\limits_{u \to +\infty}\frac{1}{e^u}=0=f(0)</m>, so the curve is continuous at <m>x=0</m>.
+</li>
+<li> For <m>x\neq 0</m>, <m>f'(x)=\frac{2}{x^3}e^{-1/x^2}</m>, so our curve is decreasing on <m>(-\infty,0)</m> and increasing on <m>(0,\infty)</m>
+</li>
+<li> For <m>x\neq 0</m>,  <m>f''(x)=2x^{-6}(2-3x^2)e^{-1/x^2}</m>, so our curve is concave up on <m>(-\sqrt{2/3},\sqrt{2/3})</m>, and concave down elsewhere.
+</li>
+</ul>
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+		\YEaaxis{4}{4}{.5}{2.5}
+		\draw (0,0) node[vertex]{};
+		\YEycoord{2}{1}
+		\YExcoord{-1.63}{-\sqrt{2/3}}
+		\YExcoord{1.63}{\sqrt{2/3}}
+		\draw[thick] plot[domain=-2:-.05, scale=2](\x,{exp(-1/(\x*\x))});
+		\draw[thick] plot[domain=-.05:2, scale=2](\x,{exp(-1/(\x*\x))});
+		\draw (4,2) node[right]{$y=f(x)$};
+		\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li> Since <m>f^{(n)}(0)=0</m> for all whole <m>n</m> (that is, the graph is really quite flat at the origin), and since <m>f(0)=0</m>, the Maclaurin series for <m>f(x)</m> is <m>\displaystyle\sum_{n=0}^\infty \frac{0}{n!}x^n=0</m>.
+</li>
+<li> The Maclaurin series converges for all real values of <m>x</m> (to the constant 0).
+</li>
+<li> Since <m>e^y \gt 0</m> for any real <m>y</m>, we see <m>f(x)=0</m> only when <m>x=0</m>. So, <m>f(x)</m> is only equal to its Maclaurin series at the single point <m>x=0</m>.
+</li>
+</ol>
+Remark: the function <m>f(x)</m> is an example of a function whose Maclaurin series converges, but not to <m>f(x)</m>! To describe this behaviour, we say <m>f(x)</m> is <em>non-analytic</em>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose <m>f(x)</m> is an odd function, and <m>f(x)=\displaystyle\sum_{n=0}^\infty\frac{f^{(n)}(0)}{n!}x^n</m>. Simplify
+<m>\displaystyle\sum_{n=0}^\infty \dfrac{f^{(2n)}(0)}{(2n)!}x^{2n}</m>.
+</p></statement>
+<hint><p>
+Since <m>f(x)</m> is odd, <m>f(-x)=-f(x)</m> for all <m>x</m> in its domain. Consider the even-indexed terms and odd-indexed terms of the Taylor series.
+</p></hint>
+<answer><p>
+	<m>0</m>
+</p></answer>
+<solution><p>
+	<ul>
+<li>Solution 1:
+		Since <m>f(x)</m> is odd, <m>f(-x)=-f(x)</m> for all <m>x</m> in its domain. We plug this into our power series, then consider the even-indexed terms and the odd-indexed terms separately.
+<md>
+<mrow>
+f(-x)&amp;=-f(x)
+</mrow><mrow>
+\sum_{n=0}^\infty\frac{f^{(n)}(0)}{n!}(-x)^n&amp;=-\sum_{n=0}^\infty\frac{f^{(n)}(0)}{n!}x^n
+</mrow><mrow>
+\textcolor{red}{\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{(2n+1)!}(-x)^{2n+1}}+
+\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}(-x)^{2n}}&amp;=\textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{n!}x^{2n+1}}\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{n!}x^{2n}}
+</mrow><mrow>
+\textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{(2n+1)!}x^{2n+1}}+
+\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&amp;=\textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{n!}x^{2n+1}}\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{n!}x^{2n}}
+</mrow><mrow>
+\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&amp;=\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{n!}x^{2n}}
+</mrow><mrow>
+2\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&amp;=0
+</mrow><mrow>
+\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&amp;=0
+</mrow>
+</md>
+</li>
+<li>
+<p>
+Solution 2:	Alternately, we could note the following:
+	<ul>
+<li> Since all derivative of <m>f(x)</m> exist, all its derivatives are continuous.
+</li>
+<li> The derivative of an odd function is even, and the derivative of an even function is odd.
+</li>
+<li> So, the even-indexed derivatives of <m>f(x)</m> are continuous, odd functions.
+</li>
+<li> Every continuous, odd function passes through the origin. That is, <m>f^{(2n)}(0)=0</m>.
+</li>
+<li> So, every term in the series is <m>0</m>.
+</li>
+</ul>
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+</exercisegroup>
+
+</exercises>

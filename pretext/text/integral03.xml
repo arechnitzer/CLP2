@@ -1,0 +1,960 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_fundamental">
+<title>The Fundamental Theorem of Calculus</title>
+<introduction></introduction>
+
+<subsection><title>The Fundamental Theorem of Calculus</title>
+
+<p>
+We have spent quite a few pages (and lectures) talking about definite  integrals, what they are (Definition<nbsp/><xref ref="def_INTintegral"/>), when they  exist (Theorem<nbsp/><xref ref="thm_integrable"/>), how to compute some special  cases (Section<nbsp/><xref ref="ssec_knownareas"/>), some ways to manipulate them  (Theorem<nbsp/><xref ref="thm_Intarith"/> and<nbsp/><xref ref="thm_Intdomain"/>) and how to bound them  (Theorem<nbsp/><xref ref="thm_INTineq"/>). Conspicuously missing from all of this has been a  discussion of how to compute them in general. It is high time we rectified  that.
+</p>
+
+<p>
+The single most important tool used to evaluate integrals is called <q>the fundamental theorem of calculus</q>. Its grand name is justified <mdash/> it  links the two branches of calculus by connecting derivatives to integrals. In  so  doing it also tells us how to compute integrals. Very roughly speaking the  derivative of an integral is the original function. This fact allows us to  compute integrals using antiderivatives
+	<fn>
+		You learned these near the  end of your differential calculus course. Now is a good time to revise <mdash/>  but we'll go over them here since they are so important in what follows.
+	</fn>.
+Of course <q>very rough</q> is not enough <mdash/> let's be precise.
+</p>
+
+<theorem xml:id="thm_INTfundthmofcalc"><title>Fundamental Theorem of Calculus</title>
+<statement><p>
+Let <m>a \lt b</m> and let <m>f(x)</m> be a function which is defined and continuous on  <m>[a,b]</m>.
+<ul>
+<li>
+	<alert>Part 1</alert>. Let <m>\ds F(x)=\int_a^x f(t)\dee{t}</m> for any <m>x  \in[a,b]</m>. Then the function <m>F(x)</m> is differentiable and further
+	<md>
+	<mrow>
+	 F'(x) &amp;=f(x)
+	</mrow>
+	</md>
+</li>
+<li>
+	<alert>Part 2</alert>. Let <m>G(x)</m> be any function which is defined and  continuous on <m>[a,b]</m>. Further let <m>G(x)</m> be differentiable with <m>G'(x)=f(x)</m>  for all <m>a \lt x \lt b</m>. Then
+	<md>
+	<mrow>
+	\int_a^b f(x)\dee{x} &amp;=G(b)-G(a) &amp; \text{or equivalently} &amp;&amp;
+	\int_a^b G'(x)\dee{x} &amp;=G(b)-G(a)
+	</mrow>
+	</md>
+</li>
+</ul>
+</p></statement>
+</theorem>
+
+<p>
+Before we prove this theorem and look at a bunch of examples of its  application, it is important that we recall one definition from differential  calculus <mdash/> antiderivatives. If <m>F'(x) = f(x)</m> on some interval, then  <m>F(x)</m>  is called an antiderivative of <m>f(x)</m> on that interval. So Part 2 of the the  fundamental theorem of calculus tells us how to evaluate the definite integral  of <m>f(x)</m> in terms of any of its antiderivatives <mdash/>  if  <m>G(x)</m> is any  antiderivative of <m>f(x)</m> then
+<md>
+<mrow>
+\int_a^b f(x) \dee x &amp;= G(b)-G(a)
+</mrow>
+</md>
+The form <m>\int_a^b G'(x)\,\dee{x} = G(b) - G(a)</m> of the fundamental theorem relates the  rate of change of <m>G(x)</m> over the interval <m>a\le x\le b</m> to the net change of <m>G</m> between  <m>x=a</m> and <m>x=b</m>. For that reason, it is sometimes called the <q>net change theorem</q>.
+</p>
+
+<p>
+We'll start with a simple example. Then we'll see why the  fundamental theorem is true and then we'll do many more, and more involved,  examples.
+</p>
+
+<example xml:id="eg_first"><title>A first example</title>
+<p>
+Consider the integral <m>\int_a^b x \dee{x}</m> which we have explored previously  in Example<nbsp/><xref ref="eg_INTPROPx"/>.
+<ul>
+<li> The integrand is <m>f(x)=x</m>. </li>
+<li>
+	We can readily verify that <m>G(x) = \frac{x^2}{2}</m> satisfies <m>G'(x)=f(x)</m>  and so is an antiderivative of the integrand.
+</li>
+<li>
+	Part 2 of Theorem<nbsp/><xref ref="thm_INTfundthmofcalc"/> then tells us that
+	<md>
+	<mrow>
+	  \int_a^b f(x) \dee{x} &amp;= G(b)-G(a)
+	</mrow><mrow>
+	  \int_a^b x \dee{x} &amp;= \frac{b^2}{2} - \frac{a^2}{2}
+	</mrow>
+	</md>
+	which is precisely the result we obtained (with more work) in  Example<nbsp/><xref ref="eg_INTPROPx"/>.
+</li>
+</ul>
+</p></example>
+
+<p>
+We do not give completely rigorous proofs of the two parts of the theorem <mdash/>  that is not really needed for this course. We just give the main ideas of the  proofs so that you can understand why the theorem is true.
+</p>
+
+<proof><title>Part 1</title>
+<p> We wish to show that if
+<md>
+<mrow>
+  F(x) &amp;= \int_a^x f(t) \dee{t} &amp; \text{then}&amp;&amp;
+  F'(x) &amp;= f(x)
+</mrow>
+</md>
+<ul>
+<li>
+	Assume that <m>F</m> is the above integral and then consider <m>F'(x)</m>. By  definition
+    <md>
+	<mrow>
+	  F'(x) &amp;=\lim_{h\rightarrow 0} \frac{F(x+h)-F(x)}{h}
+	  </mrow>
+	</md>
+</li>
+<li>
+	To understand this limit, we interpret the terms <m>F(x), F(x+h)</m> as signed  areas. To simplify this further, let's only consider the case that <m>f</m> is alway nonnegative and that <m>h \gt 0</m>. These restrictions are not hard to remove, but the  proof ideas are a bit cleaner if we keep them in place. Then we have
+	<md>
+	<mrow>
+	F(x+h)&amp;=\text{the area of the region $\big\{\ (t,y)\ \big|\ a\le t\le x+h,\
+					0\le y\le f(t)\ \big\}$}
+	</mrow><mrow>
+	F(x)&amp;=\text{the area of the region $\big\{\ (t,y)\ \big|\ a\le t\le x,
+					  \phantom{+h\ \,}\  0\le y\le f(t)\ \big\}$}
+	</mrow>
+	</md>
+</li>
+<li>
+<p>
+	Then the numerator
+	<md>
+	<mrow>
+	F(x+h)-F(x)=\text{the area of $\big\{\ (t,y)\ \big|\ x\le t\le x+h,\
+					0\le y\le f(t)\ \big\} $}
+	</mrow>
+	</md>
+	This is just the more darkly shaded region in the figure
+</p>
+<sidebyside width="50%">
+<image source="text/figs/fundThm"/>
+</sidebyside>
+</li>
+<li>
+	We will be taking the limit <m>h\rightarrow 0</m>. So suppose that <m>h</m> is  very small. Then, as <m>t</m> runs from <m>x</m> to <m>x=h</m>, <m>f(t)</m> runs only over  a very narrow range of values
+	<fn>
+		Notice that if <m>f</m> were discontinuous, then this might be false.
+	</fn>,
+all close to <m>f(x)</m>.
+</li>
+<li>
+	So the darkly shaded region is almost a rectangle of width <m>h</m> and height  <m>f(x)</m> and so has an area which is very close to <m>f(x)h</m>. Thus <m>\frac{F(x+h)-F(x)}{h}</m> is very close to <m>f(x)</m>.
+</li>
+<li>
+	In the limit <m>h\rightarrow 0</m>, <m>\frac{F(x+h)-F(x)}{h}</m> becomes exactly <m>f(x)</m>, which is precisely what we want.
+</li>
+</ul>
+</p>
+</proof>
+
+<p>
+We can make the above more rigorous using the Mean Value Theorem
+	<fn>
+		The  MVT tells us that there is a number <m>c</m> between <m>x</m> and <m>x+h</m> so that
+		<me>
+		 F'(c) = \frac{F(x+h)-F(x)}{(x+h)-x} = \frac{F(x+h)-F(x)}{h}
+		 </me>
+		 But since <m>F'(x) = f(x)</m>, this tells us that
+		 <me>
+		  \frac{F(x+h)-F(x)}{h} = f(c)
+		</me>
+		where <m>c</m> is trapped between <m>x+h</m> and <m>x</m>. Now when we take the limit as <m>h \to 0</m> we have that this number <m>c</m> is squeezed to <m>x</m> and the result follows.
+		</fn>.
+</p>
+
+<proof><title>Part 2</title>
+<p>
+We want to show that <m>\int_a^b f(t)\dee{t}=G(b)-G(a)</m>. To do this we exploit  the fact that the derivative of a constant is zero.
+<ul>
+<li>
+	Let
+	<md>
+	<mrow>
+	  H(x) &amp;= \int_a^x f(t)\dee{t} -G(x)+G(a)
+	</mrow>
+	</md>
+	Then the result we wish to prove is that <m>H(b)=0</m>.  We will do this by showing  that <m>H(x)=0</m> for all <m>x</m> between <m>a</m> and <m>b</m>.
+</li>
+<li>
+	We first show that <m>H(x)</m> is constant by computing its derivative:
+	<md>
+	<mrow>
+	  H'(x) &amp;= \diff{}{x}\int_a^x f(t)\dee{t} - \diff{}{x}\left( G(x) \right)+  \diff{}{x}\left( G(a) \right)
+	</mrow>
+	<intertext>Since <m>G(a)</m> is a constant, its derivative is <m>0</m> and by assumption  the derivative of <m>G(x)</m> is just <m>f(x)</m>, so</intertext>
+	<mrow>
+	  &amp;= \diff{}{x}\int_a^x f(t)\dee{t} - f(x)
+	</mrow>
+	<intertext>Now Part<nbsp/>1 of the theorem tells us that this derivative is just <m>f(x)</m>, so</intertext>
+	<mrow>
+	  &amp;= f(x) - f(x) = 0
+	</mrow>
+	</md>
+	Hence <m>H</m> is constant.
+</li>
+<li>
+	To determine which constant we just compute <m>H(a)</m>:
+	<md>
+	<mrow>
+	  H(a) &amp;= \int_a^a f(t)\dee{t} - G(a)+G(a)
+	</mrow><mrow>
+	  &amp;= \int_a^a f(t)\dee{t} &amp; \text{by Theorem }<xref ref="thm_Intdomain"/>\text{(a)}
+	</mrow><mrow>
+	  &amp;=0
+	</mrow>
+	</md>
+	as required.
+</li>
+</ul>
+</p>
+</proof>
+
+<p>
+The simple example we did above (Example<nbsp/><xref ref="eg_first"/>), demonstrates the  application of part<nbsp/>2 of the fundamental theorem of calculus. Before we do more  examples (and there will be many more over the coming sections) we should do  some examples illustrating the use of part<nbsp/>1 of the fundamental  theorem of calculus. Then we'll move on to part<nbsp/>2.
+</p>
+
+<example><title><m>\diff{}{x}\int_0^x t \dee{t}</m></title>
+<p>
+Consider the integral <m>\int_0^x t\,\dee{t}</m>. We know how to evaluate this <mdash/> it is just  Example<nbsp/><xref ref="eg_first"/> with <m>a = 0</m>, <m>b = x</m>. So we have two ways to compute the  derivative. We can evaluate the integral and then take the derivative, or we can apply  Part<nbsp/>1 of the fundamental theorem. We'll do both, and check that the two answers are the same.
+</p>
+
+<p>
+First, Example<nbsp/><xref ref="eg_first"/> gives
+<md>
+<mrow>
+         F(x) = \int_0^x  t\,\dee{t} =\frac{x^2}{2}
+</mrow>
+</md>
+So of course <m>F'(x) = x</m>. Second, Part<nbsp/>1 of the fundamental theorem  of calculus tells us that the derivative of <m>F(x)</m> is just the integrand.  That is, Part<nbsp/>1 of the fundamental theorem of calculus also gives <m>F'(x) = x</m>.
+</p>
+</example>
+
+
+<p>
+In the previous example we were able to evaluate the integral explicitly,  so we did not  need the fundamental theorem to determine its derivative. Here is an example that really  does require the use of the fundamental theorem.
+</p>
+
+<example xml:id="eg_INTftocA"><title><m>\diff{}{x}\int_0^x e^{-t^2}\dee{t}</m></title>
+<p>
+We would like to find <m>\diff{}{x}\int_0^x e^{-t^2}\dee{t}</m>. In the previous  example, we were able to compute the corresponding derivative in two ways <mdash/> we could  explicitly compute the integral and then differentiate the result, or we could apply  part<nbsp/>1 of the fundamental theorem  of calculus. In this example we do not know the integral explicitly. Indeed it  is not possible to express
+	<fn>
+		The integral <m>\int_0^x e^{-t^2} \dee{t}</m> is  closely related to the <q>error function</q> which is an extremely important  function in mathematics. While we cannot express this integral (or the error  function) as a <em>finite</em> combination of polynomials, exponentials etc, we  can express it as an infinite series
+	<me>
+	  \int_0^x e^{-t^2}\dee{t}
+	  = x - \frac{x^3}{3\cdot 1} + \frac{x^5}{5\cdot 2} - \frac{x^7}{7\cdot 3!} +
+	\frac{x^9}{9\cdot 4!} +\cdots + (-1)^k \frac{x^{2k+1}}{(2k+1)\cdot k!} + \cdots
+	</me>
+	But more on this in Chapter<nbsp/><xref ref="chap_seq_ser"/>.
+	</fn>
+the integral <m>\int_0^x  e^{-t^2}\dee{t}</m> as a finite combination of standard functions such as  polynomials, exponentials, trigonometric functions and so on.
+</p>
+
+<p>
+Despite this, we can find its derivative by just applying the first part of the fundamental theorem of calculus with <m>f(t)=e^{-t^2}</m> and <m>a=0</m>.  That gives
+<md>
+<mrow>
+\diff{}{x}\int_0^x e^{-t^2}\dee{t} &amp;=\diff{}{x}\int_0^x f(t)\dee{t}
+</mrow><mrow>
+&amp;=f(x) = e^{-x^2}
+</mrow>
+</md>
+</p>
+</example>
+
+<p>
+Let us ratchet up the complexity of the previous example <mdash/> we can make the  limits of the integral more complicated functions. So consider the previous  example with the upper limit <m>x</m> replaced by <m>x^2</m>:
+</p>
+
+<example xml:id="eg_INTftocB"><title><m>\diff{}{x}\int_0^{x^2} e^{-t^2}\dee{t}</m></title>
+<p>
+Consider the integral <m>\int_0^{x^2} e^{-t^2}\dee{t}</m>. We would like to  compute its derivative with respect to <m>x</m> using part<nbsp/>1 of the fundamental  theorem of calculus.
+</p>
+
+<p>
+The fundamental theorem tells us how to compute the derivative of  functions of the form <m>\int_a^x f(t)\dee{t}</m> but the integral at hand is  <em>not</em> of the specified form because the upper limit we have is <m>x^2</m>, rather than  <m>x</m>, <mdash/> so more care is required. Thankfully we can deal with this obstacle with only a  little extra work. The trick is to define an auxiliary function by simply  changing the upper limit to <m>x</m>. That is, define
+<md>
+<mrow>
+ E(x) &amp;= \int_0^x e^{-t^2}\dee{t}
+</mrow>
+<intertext>Then the integral we want to work with is</intertext>
+<mrow>
+  E(x^2) &amp;= \int_0^{x^2} e^{-t^2}\dee{t}
+</mrow>
+</md>
+The derivative <m>E'(x)</m> can be found via part<nbsp/>1 of the fundamental theorem of  calculus (as we did in Example<nbsp/><xref ref="eg_INTftocA"/>) and is <m>E'(x)=  e^{-x^2}</m>. We can then use this fact with the chain rule to compute the  derivative we need:
+<md>
+<mrow>
+  \diff{}{x} \int_0^{x^2} e^{-t^2}\dee{t}  &amp;= \diff{}{x}E(x^2) &amp;\text{use the chain rule}
+</mrow><mrow>
+  &amp;= 2x E'(x^2)
+</mrow><mrow>
+  &amp;= 2x e^{-x^4}
+</mrow>
+</md>
+</p>
+</example>
+
+<p>
+What if both limits of integration are functions of <m>x</m>? We can still make this  work, but we have to split the integral using Theorem<nbsp/><xref ref="thm_Intdomain"/>.
+</p>
+
+<example xml:id="eg_INTftocC"><title><m>\diff{}{x}\int_x^{x^2} e^{-t^2}\dee{t}</m></title>
+<p>
+Consider the integral
+<md>
+<mrow>
+  \int_x^{x^2} e^{-t^2}\dee{t}
+</mrow>
+</md>
+As was the case in the previous example, we have to do a little pre-processing  before we can apply the fundamental theorem.
+</p>
+
+<p>
+This time (by design), not only is the upper limit of integration <m>x^2</m> rather  than <m>x</m>, but the lower limit of integration also depends on <m>x</m> <mdash/> this is  different from the integral <m>\int_a^x f(t)\dee{t}</m> in the fundamental theorem  where the <em>lower</em> limit of integration is a constant.
+</p>
+
+<p>
+Fortunately we can use the basic properties of integrals  (Theorem<nbsp/><xref ref="thm_Intdomain"/>(b) and<nbsp/>(c)) to split <m>\int_x^{x^2} e^{-t^2}\dee{t}</m>  into pieces whose derivatives we already know.
+<md>
+<mrow>
+\int_x^{x^2} e^{-t^2}\dee{t}
+&amp;=\int_x^0 e^{-t^2}\dee{t}+\int_0^{x^2} e^{-t^2}\dee{t}
+&amp;\text{by Theorem }<xref ref="thm_Intdomain"/>\text{(c)}
+</mrow><mrow>
+&amp;=-\int^x_0 e^{-t^2}\dee{t}+\int_0^{x^2} e^{-t^2}\dee{t}
+&amp;\text{by Theorem }<xref ref="thm_Intdomain"/>\text{(b)}
+</mrow>
+</md>
+With this pre-processing, both integrals are of the right form. Using what  we have learned in the the previous two examples,
+<md>
+<mrow>
+\diff{}{x}\int_x^{x^2} e^{-t^2}\dee{t}
+&amp;=\diff{}{x}\left( -\int_0^{x} e^{-t^2}\dee{t} + \int_0^{x^2} e^{-t^2}\dee{t}  \right)
+</mrow><mrow>
+&amp;=-\diff{}{x}\int^x_0 e^{-t^2}\dee{t} +\diff{}{x}\int_0^{x^2} e^{-t^2}\dee{t}
+</mrow><mrow>
+&amp;=- e^{-x^2} +2x e^{-x^4}
+</mrow>
+</md>
+</p>
+</example>
+
+<p>
+Before we start to work with part<nbsp/>2 of the fundamental theorem, we need a little  terminology and notation. First some terminology <mdash/> you may have seen this  definition in your differential calculus course.
+</p>
+
+<definition><title>Antiderivatives</title>
+<statement><p>
+ Let <m>f(x)</m> and <m>F(x)</m> be functions. If <m>F'(x)=f(x)</m> on an interval, then we  say that <m>F(x)</m> is an antiderivative of <m>f(x)</m> on that interval.
+</p></statement>
+</definition>
+
+<p>
+As we saw above, an antiderivative of <m>f(x)=x</m> is <m>F(x) = x^2/2</m> <mdash/> we can  easily verify this by differentiation. Notice that <m>x^2/2 + 3</m> is also an  antiderivative of <m>x</m>, as is <m>x^2/2 + C</m> for any constant <m>C</m>. This observation  gives us the following simple lemma.
+</p>
+
+<lemma xml:id="lemma_C">
+<statement><p>
+Let <m>f(x)</m> be a function and let <m>F(x)</m> be an antiderivative of <m>f(x)</m>. Then  <m>F(x)+C</m> is also an antiderivative for any constant <m>C</m>. Further, every antiderivative of  <m>f(x)</m> must be of this form.
+</p></statement>
+</lemma>
+
+<proof>
+<p>
+There are two parts to the lemma and we prove each in turn.
+<ul>
+<li>
+	Let <m>F(x)</m> be an antiderivative of <m>f(x)</m> and let <m>C</m> be some constant. Then
+	<md>
+	<mrow>
+	  \diff{}{x}\left( F(x) + C \right)
+	  &amp;=   \diff{}{x}\left( F(x) \right)  +  \diff{}{x}\left( C \right)
+	</mrow><mrow>
+	  &amp;= f(x) + 0
+	</mrow>
+	</md>
+	since the derivative of a constant is zero, and by definition the derivative of <m>F(x)</m> is  just <m>f(x)</m>. Thus <m>F(x)+C</m> is also an antiderivative of <m>f(x)</m>.
+</li>
+<li>
+	Now let <m>F(x)</m> and <m>G(x)</m> both be antiderivatives of <m>f(x)</m> <mdash/> we will show that
+	<m>G(x) = F(x)+C</m> for some constant <m>C</m>. To do this let <m>H(x) = G(x)-F(x)</m>. Then
+	<md>
+	<mrow>
+	\diff{}{x}H(x)
+	&amp;= \diff{}{x}\left( G(x)-F(x) \right)
+	= \diff{}{x} G(x) - \diff{}{x}F(x)
+	= f(x) - f(x) = 0
+	</mrow>
+	</md>
+	Since the derivative of <m>H(x)</m> is zero, <m>H(x)</m> must be a constant
+	function
+	<fn>
+		This follows from the Mean Value Theorem. Say <m>H(x)</m> were not constant,  then there would be two numbers <m>a \lt b</m> so that <m>H(a)\neq H(b)</m>. Then the MVT tells us that  there is a number <m>c</m> between <m>a</m> and <m>b</m> so that
+		<me>
+		H'(c) = \frac{H(b)-H(a)}{b-a}.
+		</me>
+		Since both numerator and denominator are nonzero, we know the derivative at <m>c</m> is  nonzero. But this would contradict the assumption that derivative of <m>H</m> is zero. Hence  we cannot have <m>a \lt b</m> with <m>H(a)\neq H(b)</m> and so <m>H(x)</m> must be constant.
+	</fn>.
+	Thus <m>H(x)=G(x)-F(x)=C</m> for  some constant <m>C</m> and the result follows.
+</li>
+</ul>
+</p>
+
+</proof>
+
+<p>
+Based on the above lemma we have the following definition.
+</p>
+
+<definition xml:id="def_INTindefintegral">
+<statement><p>
+The <q>indefinite integral of <m>f(x)</m></q> is denoted by <m>\int f(x)\dee{x}</m>  and should be regarded as the general antiderivative of <m>f(x)</m>. In particular, if <m>F(x)</m>  is an antiderivative of <m>f(x)</m> then
+<md>
+<mrow>
+  \int f(x)\dee{x} &amp;= F(x) + C
+</mrow>
+</md>
+where the <m>C</m> is an arbitrary constant. In this context, the constant <m>C</m> is also  often called a <q>constant of integration</q>.
+</p></statement>
+</definition>
+
+<p>
+Now we just need a tiny bit more notation.
+</p>
+
+<definition>
+<statement><p>
+The symbol
+<md>
+<mrow>
+\left.\int f(x)\dee{x} \right|_{a}^{b}
+</mrow>
+</md>
+denotes the change in an antiderivative of <m>f(x)</m> from <m>x=a</m> to <m>x=b</m>. More precisely,  let <m>F(x)</m> be any antiderivative of <m>f(x)</m>. Then
+<md>
+<mrow>
+\left.\int f(x)\dee{x} \right|_{a}^{b}
+  &amp;= \left.F(x)\right|_a^b = F(b) - F(a)
+</mrow>
+</md>
+</p></statement>
+</definition>
+
+<p>
+Notice that this notation allows us to write part<nbsp/>2 of the fundamental theorem as
+<md>
+<mrow>
+  \int_a^b f(x)\dee{x} &amp;= \left.\int f(x)\dee{x} \right|_{a}^{b}
+</mrow><mrow>
+  &amp;= \left.F(x)\right|_a^b = F(b) - F(a)
+</mrow>
+</md>
+Some texts also use an equivalent notation using square brackets:
+<md>
+<mrow>
+  \int_a^b f(x)\dee{x} &amp;= \Big[F(x)\Big]_a^b = F(b) - F(a).
+</mrow>
+</md>
+You should be familiar with both notations.
+</p>
+
+<p>
+We'll soon develop some strategies for computing more complicated integrals. But for now, we'll try a few integrals that are simple enough that we can just guess the answer. Of course, any antiderivative that we can guess we can also check  <mdash/> simply differentiate the guess and verify you get back to the original function:
+<md>
+<mrow>
+  \diff{}{x} \int f(x)\dee{x} &amp;= f(x).
+</mrow>
+</md>
+We do these examples in some detail to help us become comfortable finding indefinite  integrals.
+</p>
+
+<example xml:id="eg_INTintegralA"><title>Compute the definite integral <m>\int_1^2 x\dee{x}</m></title>
+<p>
+Compute the definite integral <m>\int_1^2 x\dee{x}</m>.
+</p>
+
+<p>
+<alert>Solution:</alert> We have already seen, in Example <xref ref="eg_INTPROPx"/>, that <m>\int_1^2 x\dee{x}=\frac{2^2-1^2}{2}=\frac{3}{2}</m>. We shall now rederive that result using the fundamental theorem of calculus.
+<ul>
+<li>
+	The main difficulty in this approach is finding the indefinite integral (an  antiderivative) of <m>x</m>. That is, we need to find a function <m>F(x)</m> whose derivative is  <m>x</m>. So think back to all the derivatives you computed last term
+	<fn>
+		Of course, this  assumes that you did your differential calculus course last term. If you did that course  at a different time then please think back to that point in time. If it is long enough  ago that you don't quite remember when it was, then you should probably do some revision  of derivatives of simple functions before proceeding further.
+	</fn>
+	and try to remember a  function whose derivative was something like <m>x</m>.
+</li>
+<li>
+	This shouldn't be too hard <mdash/> we recall that the derivatives of polynomials are  polynomials. More precisely, we know that
+	<md>
+	<mrow>
+	  \diff{}{x}x^n &amp;= n x^{n-1}
+	</mrow>
+	</md>
+	So if we want to end up with just <m>x = x^1</m>, we need to take <m>n=2</m>. However this gives us
+	<md>
+	<mrow>
+	  \diff{}{x}x^2 &amp;= 2x
+	</mrow>
+	</md>
+</li>
+<li>
+	This is pretty close to what we want except for the factor of <m>2</m>. Since this is a  constant we can just divide both sides by <m>2</m> to obtain:
+	<md>
+	<mrow>
+	  \frac{1}{2}\cdot \diff{}{x}x^2 &amp;= \frac{1}{2}\cdot 2x &amp;\text{which becomes}
+	</mrow><mrow>
+	  \cdot \diff{}{x}\frac{x^2}{2}&amp;= x
+	</mrow>
+	</md>
+	which is exactly what we need. It tells us that <m>x^2/2</m> is an antiderivative of <m>x</m>.
+</li>
+<li>
+	Once one has an antiderivative, it is easy to compute the indefinite integral
+	<md>
+	<mrow>
+	\int x\dee{x} &amp;= \frac{1}{2}x^2+C
+	</mrow>
+	</md>
+	as well as the definite integral:
+	<md>
+	<mrow>
+	\int_1^2 x\dee{x}
+	&amp;= \left.\frac{1}{2}x^2 \right|_1^2 &amp;\text{since $x^2/2$ is an antiderivative of $x$}
+	</mrow><mrow>
+	&amp;=\frac{1}{2} 2^2- \frac {1}{2}1^2 =\frac{3}{2}
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+While the previous example could be computed using signed areas, the following example  would be very difficult to compute without using the fundamental theorem of calculus.
+</p>
+<example xml:id="eg_INTintegralB"><title>Compute <m>\int_0^{\frac{\pi}{2}} \sin x\dee{x}</m></title>
+<p>
+Compute <m>\int_0^{\frac{\pi}{2}} \sin x\dee{x}</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	Once again, the crux of the solution is guessing the antiderivative of <m>\sin x</m>  <mdash/> that is finding a function whose derivative  is <m>\sin x</m>.
+</li>
+<li>
+	The standard derivative that comes closest to <m>\sin x</m> is
+	<md>
+	<mrow>
+	\diff{}{x}\cos x = -\sin x
+	</mrow>
+	</md>
+	which is the derivative we want, multiplied by a factor of <m>-1</m>.
+</li>
+<li>
+	Just as we did in the previous example, we multiply this equation by a constant to  remove this unwanted factor:
+	<md>
+	<mrow>
+	(-1)\cdot \diff{}{x}\cos x &amp;= (-1)\cdot(-\sin x) &amp;\text{giving us}
+	</mrow><mrow>
+	\diff{}{x}\big(-\cos x\big) &amp;= \sin x
+	</mrow>
+	</md>
+	This tells us that <m>-\cos x</m> is an antiderivative of <m>\sin x</m>.
+</li>
+<li>
+	Now it is straightforward to compute the integral:
+	<md>
+	<mrow>
+	\int_0^{\frac{\pi}{2}} \sin x\dee{x}
+	&amp;= \left.-\cos x \right|_0^{\frac{\pi}{2}}
+	&amp;\text{since $-\cos x$ is an antiderivative of $\sin x$}
+	</mrow><mrow>
+	&amp;= -\cos\frac{\pi}{2}+\cos 0
+	</mrow><mrow>
+	&amp;= 0+1=1
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+
+<example xml:id="eg_INTintegralC"><title>Compute <m>\int_1^2 \frac{1}{x}\dee{x}</m></title>
+<p>
+Find <m>\int_1^2 \frac{1}{x}\dee{x}</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	Once again, the crux of the solution is guessing a function whose derivative is <m>\frac{1}{x}</m>. Our standard way to differentiate powers of <m>x</m>, namely
+	<md>
+	<mrow>
+	\diff{}{x} x^n= n x^{n-1},
+	</mrow>
+	</md>
+	doesn't work in this case <mdash/> since it would require us to pick <m>n=0</m> and this would  give
+	<md>
+	<mrow>
+	  \diff{}{x} x^0 &amp;= \diff{}{x} 1 = 0.
+	</mrow>
+	</md>
+</li>
+<li>
+	Fortunately, we also know
+	<fn>
+		Recall that in most mathematics  courses (especially this one) we use <m>\log x</m> without any indicated base  to denote the natural logarithm <mdash/> the logarithm base <m>e</m>.  Many widely used computer languages, like Java, C, Python, MATLAB, <m>\cdots</m>, use <m>\log(x)</m> to denote the logarithm base <m>e</m> too. But many texts also use <m>\ln x</m> to denote the natural logarithm
+		<me>
+		\log x = \log_e x = \ln x.
+		</me>
+		The reader should be comfortable with all three notations for this function. They should  also be aware that in different contexts <mdash/> such as in chemistry or physics <mdash/> it is  common to use <m>\log x</m> to denote the logarithm base 10, while in computer science often  <m>\log x</m> denotes the logarithm base 2. Context is key.
+	</fn>
+	that
+	<md>
+	<mrow>
+	\diff{}{x}\log x = \frac{1}{x}
+	</mrow>
+	</md>
+	which is exactly the derivative we want.
+</li>
+<li>
+	We're now ready to compute the prescribed integral.
+	<md>
+	<mrow>
+	\int_1^2 \frac{1}{x}\dee{x}
+	&amp;= \left. \log x \right|_1^2 &amp; \text{since $\log x$ is an antiderivative of $1/x$}
+	</mrow><mrow>
+	&amp;= \log 2 - \log 1 &amp; \text{since $\log 1 = 0$}
+	</mrow><mrow>
+	&amp;= \log 2
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+
+<example xml:id="eg_INTintegralD"><title><m>\int_{-2}^{-1} \frac{1}{x}\dee{x}</m></title>
+<p>
+Find <m>\int_{-2}^{-1} \frac{1}{x}\dee{x}</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	As we saw in the last example,
+	<md>
+	<mrow>
+	\diff{}{x}\log x = \frac{1}{x}
+	</mrow>
+	</md>
+	and if we naively use this here, then we will obtain
+	<md>
+	<mrow>
+	  \int_{-2}^{-1} \frac{1}{x}\dee{x} &amp;= \log(-1)-\log(-2)
+	</mrow>
+	</md>
+	which makes no sense since the logarithm is only defined for positive  numbers
+	<fn>
+		This is not entirely true <mdash/> one can extend the definition of the  logarithm to negative numbers, but to do so one needs to understand complex numbers  which is a topic beyond the scope of this course.
+	</fn>.
+</li>
+<li>
+<p>
+	We can work around this problem using a slight variation of the logarithm <mdash/>  <m>\log|x|</m>.
+	<ul>
+	<li>
+		When <m>x \gt 0</m>, we know that <m>|x|=x</m> and so we have
+		<md>
+		<mrow>
+		  \log |x| &amp;= \log x &amp; \text{differentiating gives us}
+		</mrow><mrow>
+		  \diff{}{x}\log|x| &amp;= \diff{}{x} \log x = \frac{1}{x}.
+		</mrow>
+		</md>
+	</li>
+	<li>
+		When <m>x \lt 0</m> we have that <m>|x|=-x</m> and so
+		<md>
+		<mrow>
+		  \log |x| &amp;= \log(-x) \qquad \text{differentiating with the chain rule gives}
+		</mrow><mrow>
+		  \diff{}{x}\log|x| &amp;= \diff{}{x} \log(-x)
+		</mrow><mrow>
+		  &amp;= \frac{1}{(-x)} \cdot (-1) = \frac{1}{x}
+		</mrow>
+		</md>
+	</li>
+	<li>
+		Indeed, more generally we should write the indefinite integral of <m>1/x</m> as
+		<md>
+		<mrow>
+		  \int \frac{1}{x} \dee{x} &amp;= \log |x| + C
+		</mrow>
+		</md>
+		which is valid for all positive and negative <m>x</m>. It is, however, undefined at <m>x=0</m>.
+	</li>
+	</ul>
+</p>
+</li>
+<li>
+	We're now ready to compute the prescribed integral.
+	<md>
+	<mrow>
+	\int_{-2}^{-1} \frac{1}{x}\dee{x}
+	&amp;= \log|x| \bigg|_{-2}^{-1}
+	\qquad \text{since $\log|x|$ is an antiderivative of $1/x$}
+	</mrow><mrow>
+	&amp;= \log|-1| - \log|-2| = \log 1-\log 2
+	</mrow><mrow>
+	&amp;= -\log 2 = \log\frac12.
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+This next example raises a nasty issue that requires a little care. We know that the  function <m>1/x</m> is not defined at <m>x=0</m> <mdash/> so can we integrate over an interval that  contains <m>x=0</m> and still obtain an answer that makes sense? More generally can we  integrate a function over an interval on which that function has discontinuities?
+</p>
+
+<example xml:id="eg_INTintegralE"><title><m>\int_{-1}^1\frac{1}{x^2}\dee{x}</m></title>
+<p>
+Find <m>\int_{-1}^1\frac{1}{x^2}\dee{x}</m>.
+</p>
+
+<p>
+<alert>Solution:</alert> Beware that this is a particularly nasty example, which illustrates a booby trap hidden in the fundamental theorem of calculus. The booby trap explodes when the theorem is applied sloppily.
+<ul>
+<li>
+	The sloppy solution starts, as our previous examples have, by finding an  antiderivative of the integrand. In this case we know that
+	<md>
+	<mrow>
+	\diff{}{x}\frac{1}{x} = -\frac{1}{x^2}
+	</mrow>
+	</md>
+	which means that <m>-x^{-1}</m> is an antiderivative of <m>x^{-2}</m>.
+</li>
+<li>
+	This suggests (if we proceed naively) that
+	<md>
+	<mrow>
+	  \int_{-1}^1 x^{-2}\dee{x}
+	  &amp;= \left.-\frac{1}{x}\right|_{-1}^1
+	  &amp; \text{since $-1/x$ is an antiderivative of $1/x^2$}
+	</mrow><mrow>
+	  &amp;= -\frac{1}{1}-\Big(-\frac{1}{-1}\Big)
+	</mrow><mrow>
+	  &amp;=-2
+	</mrow>
+	</md>
+	Unfortunately,
+</li>
+<li>
+	At this point we should really start to be concerned. This answer cannot be  correct.  Our integrand, being a square, is positive everywhere. So our integral represents the  area  of a region above the <m>x</m>-axis and must be positive.
+</li>
+<li>
+	So what has gone wrong? The flaw in the computation is that the fundamental theorem  of calculus, which says that
+	<md>
+	<mrow>
+	\text{if } F'(x)=f(x) \text{ then } \int_a^b f(x)\dee{x}=F(b)-F(a),
+	</mrow>
+	</md>
+	is <em>only</em> applicable when <m>F'(x)</m> exists and equals <m>f(x)</m> for <em>all</em>
+	<m>x</m> between <m>a</m> and <m>b</m>.
+</li>
+<li>
+	In this case <m>F'(x)=\frac{1}{x^2}</m> does not exist for <m>x=0</m>. So we cannot apply the  fundamental theorem of calculus as we tried to above.
+</li>
+</ul>
+An integral, like <m>\int_{-1}^1\frac{1}{x^2}\dee{x}</m>, whose integrand  is undefined somewhere in the domain of integration is called improper. We'll give a more thorough treatment of improper integrals later in the text.  For now, we'll just say that the correct way to define (and evaluate) improper integrals  is as a limit of well-defined approximating integrals. We shall later see that, not only  is <m>\int_{-1}^1\frac{1}{x^2}\dee{x}</m> not negative, it is infinite.
+</p>
+
+<remark>
+<p>
+For completeness we'll show how to evaluate this integral by sneaking up on the point of  discontinuity in the interval of integration. As noted above, we will give a fuller  explanation of such integrals later in the text.
+<ul>
+<li>
+	Rather than evaluating the integral directly, we will approximate the integral  using definite integrals on intervals that avoid the discontinuity. In the current  example, the original domain of integration is <m>-1\le x\le 1</m>. The  domains of integration of the approximating integrals exclude from <m>[-1,1]</m> small  intervals around <m>x=0</m>.
+</li>
+<li>
+<p>
+	The shaded area in the figure below illustrates a typical approximating integral, whose domain of integration consists of the original domain of integration, <m>[-1,1]</m>, but with the interval <m>[-t,T]</m> excluded.
+</p>
+<sidebyside width="50%">
+<image source="text/figs/boobyTrap"/>
+</sidebyside>
+<p>
+	The full domain of integration is only recovered in the limit  <m>t,T\rightarrow 0</m>.
+</p>
+</li>
+<li>
+	For this example, the correct computation is
+	<md>
+	<mrow>
+	\int_{-1}^1\frac{1}{x^2}\dee{x} &amp;=\lim_{t\rightarrow 0^+}\int_{-1}^{-t}\frac{1}{x^2}\dee{x} \ +\ \lim_{T\rightarrow 0^+}\int_{T}^{1}\frac{1}{x^2}\dee{x}
+	</mrow><mrow>
+	&amp;=\lim_{t\rightarrow 0^+}\bigg[-\frac{1}{x}\bigg]_{-1}^{-t} +\lim_{T\rightarrow 0^+}\bigg[-\frac{1}{x}\bigg]_{T}^1
+	</mrow><mrow>
+	&amp;=\lim_{t\rightarrow 0^+} \Big[\Big(-\frac{1}{-t}\Big)-\Big(-\frac{1}{-1}\Big)\Big] +\lim_{T\rightarrow 0^+} \Big[\Big(-\frac{1}{1}\Big)-\Big(-\frac{1}{T}\Big)\Big]
+	</mrow><mrow>
+	&amp;=\lim_{t\rightarrow 0^+}\frac{1}{t} +\lim_{T\rightarrow 0^+}\frac{1}{T}-2
+	</mrow><mrow>
+	&amp;=+\infty
+	</mrow>
+	</md>
+</li>
+<li>
+	We can interpret this to mean that the signed area under the curve <m>x^{-2}</m> between  <m>x=-1</m> and <m>x=1</m> is infinite.
+</li>
+</ul>
+</p>
+</remark>
+
+
+</example>
+
+
+<p>
+The above examples have illustrated how we can use the fundamental  theorem of calculus to convert knowledge of derivatives into  knowledge of integrals. We are now in a position to easily built a table of integrals. Here is a short table of the most important derivatives that we know.
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell><m>F(x)</m></cell>
+<cell> <m>1</m> </cell>
+<cell> <m>x^n</m> </cell>
+<cell> <m>\sin x</m> </cell>
+<cell> <m>\cos x</m> </cell>
+<cell> <m>\tan x</m> </cell>
+<cell><m>e^x</m> </cell>
+<cell> <m>\log_e|x|</m></cell>
+<cell> <m>\arcsin x</m>  </cell>
+<cell> <m>\arctan x</m> </cell>
+</row><row>
+<cell><m>f(x)=F'(x)</m> </cell>
+<cell> <m>0</m> </cell>
+<cell> <m>nx^{n-1}</m> </cell>
+<cell> <m>\cos x</m> </cell>
+<cell> <m>-\sin x</m> </cell>
+<cell> <m>\sec^2 x</m> </cell>
+<cell><m>e^x</m> </cell>
+<cell> <m>\frac{1}{x}</m> </cell>
+<cell> <m>\frac{1}{\sqrt{1-x^2}}</m> </cell>
+<cell> <m>\frac{1}{1+x^2}</m> </cell>
+</row>
+</tabular>
+</sidebyside>
+
+<p>
+Of course we know other derivatives, such as those of <m>\sec x</m> and <m>\cot x</m>, however the
+ones listed above are arguably the most important ones. From this table (with a very
+little massaging) we can write down a short table of indefinite integrals.
+</p>
+<theorem xml:id="thm_imp_indef_int"><title>Important indefinite integrals</title>
+<statement>
+<p>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell> <m>f(x)</m> </cell><cell> <m> F(x)=\int f(x)\dee{x}</m> </cell>
+</row><row>
+<cell><m>1</m> </cell><cell> <m>x+C</m> </cell>
+</row><row>
+<cell><m>x^n</m> </cell><cell> <m>\frac{1}{n+1}x^{n+1}+C\text{ provided that }n \ne-1</m> </cell>
+</row><row>
+<cell><m>\dfrac{1}{x}</m> </cell><cell> <m>\log_e|x|+C</m> </cell>
+</row><row>
+<cell><m>e^x</m> </cell><cell> <m>e^x+C</m> </cell>
+</row><row>
+<cell><m>\sin x</m> </cell><cell> <m>-\cos x+C</m> </cell>
+</row><row>
+<cell><m>\cos x</m> </cell><cell> <m>\sin x+C</m> </cell>
+</row><row>
+<cell> <m>\sec^2 x</m> </cell><cell> <m>\tan x+C</m> </cell>
+</row><row>
+<cell> <m>\dfrac{1}{\sqrt{1-x^2}}</m> </cell><cell> <m>\arcsin x+C</m> </cell>
+</row><row>
+<cell><m>\dfrac{1}{1+x^2}</m> </cell><cell> <m>\arctan x+C</m> </cell>
+</row>
+</tabular>
+</p>
+</statement>
+</theorem>
+
+<example><title>Using Theorem <xref ref="thm_imp_indef_int"/> to compute some integrals</title>
+<p>
+ Find the following integrals
+<ol label="i">
+<li> <m>\int_2^7 e^x \dee{x}</m> </li>
+<li> <m>\int_{-2}^2 \frac{1}{1+x^2} \dee{x}</m> </li>
+<li> <m>\int_0^3 (2x^3+7x-2)\dee{x}</m> </li>
+</ol>
+</p>
+
+<p><alert>Solution:</alert>
+We can proceed with each of these as before <mdash/> find the antiderivative and then  apply the fundamental theorem. The third integral is a little more complicated, but we  can split it up into monomials using Theorem<nbsp/><xref ref="thm_Intarith"/> and do each separately.
+<ol label="i">
+<li>
+	An antiderivative of <m>e^x</m> is just <m>e^x</m>, so
+	<md>
+	<mrow>
+	  \int_2^7 e^x \dee{x} &amp;= e^x\bigg|_2^7
+	</mrow><mrow>
+	  &amp;= e^7-e^2 = e^2(e^5-1).
+	</mrow>
+	</md>
+</li>
+<li>
+	An antiderivative of <m>\frac{1}{1+x^2}</m> is <m>\arctan(x)</m>, so
+	<md>
+	<mrow>
+		\int_{-2}^2 \frac{1}{1+x^2} \dee{x} &amp;= \arctan(x) \bigg|_{-2}^2
+	</mrow><mrow>
+	  &amp;= \arctan(2) - \arctan(-2)
+	</mrow>
+	<intertext>We can simplify this a little further by noting that <m>\arctan(x)</m> is an  odd function, so <m>\arctan(-2)= -\arctan(2)</m> and thus our integral is</intertext>
+	<mrow>
+	  &amp;= 2\arctan(2)
+	</mrow>
+	</md>
+</li>
+<li>
+	We can proceed by splitting the integral using Theorem<nbsp/><xref ref="thm_Intarith"/>(d)
+	<md>
+	<mrow>
+	  \int_0^3 (2x^3+7x-2)\dee{x} &amp;= \int_0^3 2x^3\dee{x} + \int_0^3 7x\dee{x} - \int_0^3 2\dee{x}
+	</mrow><mrow>
+	&amp;= 2\int_0^3 x^3\dee{x} + 7\int_0^3 x\dee{x} - 2\int_0^3 \dee{x}
+	</mrow>
+	<intertext>and because we know that <m>x^4/4, x^2/2, x</m> are antiderivatives of <m>x^3, x, 1</m>  respectively, this becomes</intertext>
+	<mrow>
+	&amp;= \left[\frac{x^4}{2}\right]_0^3 + \left[\frac{7x^2}{2}\right]_0^3 - \left[2x\right]_0^3
+	</mrow><mrow>
+	&amp;= \frac{81}{2} + \frac{7\cdot 9}{2} -6
+	</mrow><mrow>
+	&amp;= \frac{81 + 63 - 12}{2} = \frac{132}{2} = 66.
+	</mrow>
+	</md>
+	We can also just find the antiderivative of the whole polynomial by finding the  antiderivatives of each term of the polynomial and then recombining them. This is  equivalent to what we have done above, but perhaps a little neater:
+	<md>
+	<mrow>
+	 \int_0^3 (2x^3+7x-2)\dee{x} &amp;= \left[ \frac{x^4}{2} + \frac{7x^2}{2} - 2x \right]_0^3
+	</mrow><mrow>
+	&amp;= \frac{81}{2} + \frac{7\cdot 9}{2} -6 = 66.
+	</mrow>
+	</md>
+</li>
+</ol>
+</p>
+
+</example>
+</subsection>
+
+
+<xi:include href="../problems/prob_s1.3.xml" />
+
+</section>

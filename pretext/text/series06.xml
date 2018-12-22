@@ -1,0 +1,1643 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Taylor Series</title>
+<introduction></introduction>
+
+<subsection>
+<title>Extending Taylor Polynomials</title>
+
+<p>
+Recall
+	<fn>Please review your notes from last term if this material is feeling a little unfamiliar.</fn>
+that Taylor polynomials provide a  hierarchy of approximations to a given function <m>f(x)</m> near a given point <m>a</m>.  Typically, the quality of these approximations improves as we move  up the hierarchy.
+<ul>
+<li> The crudest approximation is the constant approximation <m>f(x)\approx f(a)</m>. </li>
+<li> Then comes the linear, or tangent line, approximation <m>f(x)\approx f(a) + f'(a)\,(x-a)</m>. </li>
+<li> Then comes the quadratic approximation
+	<me>
+	f(x)\approx f(a) + f'(a)\,(x-a) +\frac{1}{2} f''(a)\,(x-a)^2
+	</me>
+</li>
+<li>
+	In general, the Taylor polynomial of degree <m>n</m>, for the  function <m>f(x)</m>, about the expansion point <m>a</m>, is the  polynomial, <m>T_n(x)</m>,  determined by the requirements that <m>f^{(k)}(a) = T_n^{(k)}(a)</m> for all <m>0\le k \le n</m>. That is, <m>f</m> and <m>T_n</m> have the same derivatives at <m>a</m>, up to order <m>n</m>. Explicitly,
+	<md>
+	<mrow>
+	f(x) \approx T_n(x) &amp;= f(a) + f'(a)\,(x-a) +\frac{1}{2} f''(a)\,(x-a)^2
+	+\cdots+\frac{1}{n!} f^{(n)}(a)\,(x-a)^n
+	</mrow><mrow>
+	&amp;=\sum_{k=0}^n\frac{1}{k!} f^{(k)}(a)\,(x-a)^k
+	</mrow>
+	</md>
+</li>
+</ul>
+These are, of course, approximations <mdash/> often very good approximations near <m>x=a</m> <mdash/> but still just approximations. One might hope that if we let  the degree, <m>n</m>, of the approximation go to infinity then the error in  the approximation might go to zero. If that is the case then the  <q>infinite</q> Taylor polynomial would be an exact representation  of the function. Let's see how this might work.
+</p>
+
+<p>
+Fix a real number <m>a</m> and suppose that all derivatives of the function <m>f(x)</m> exist. Then, for any natural number <m>n</m>,
+</p>
+
+<fact xml:id="eq_TaylorPolyPlusError">
+<statement><p>
+<md>
+<mrow>
+f(x) &amp;=T_n(x) +E_n(x)
+</mrow>
+</md>
+</p></statement>
+</fact>
+
+<p>
+where <m>T_n(x)</m> is the Taylor polynomial of degree <m>n</m>  for the function <m>f(x)</m> expanded about <m>a</m>, and  <m>E_n(x)=f(x)-T_n(x)</m>  is the error in our approximation. The Taylor polynomial
+	<fn> Did you  take a quick look at your notes?</fn>
+is given by the formula
+</p>
+
+<fact xml:id="eq_TaylorPolyPlusError_a">
+<statement><p>
+<md>
+<mrow>
+T_n(x)&amp;=f(a)+f'(a)\,(x-a)+\cdots+\tfrac{1}{n!}f^{(n)}(a)\, (x-a)^n
+</mrow>
+</md>
+</p></statement>
+</fact>
+<p>while the error satisfies</p>
+<fact xml:id="eq_TaylorPolyPlusError_b">
+<statement><p>
+<md>
+<mrow>
+E_n(x)=\tfrac{1}{(n+1)!}f^{(n+1)}(c)\, (x-a)^{n+1}
+</mrow>
+</md>
+for some <m>c</m> strictly between <m>a</m> and <m>x</m>.
+</p></statement>
+</fact>
+
+<p>
+Note that we typically  do not know the value of <m>c</m> in the formula for the error.  Instead we use the bounds on <m>c</m> to find bounds on <m>f^{(n+1)}(c)</m> and  so bound the error
+	<fn>
+		The discussion here is only supposed to  jog your memory. If it is feeling insufficiently jogged, then  please look at your notes from last term.
+	</fn>.
+</p>
+
+<p>
+In order for our Taylor polynomial to be an exact representation of  the function <m>f(x)</m> we need the error <m>E_n(x)</m> to be zero.   This will not happen when <m>n</m> is finite unless <m>f(x)</m> is a  polynomial. However it can happen in the limit as <m>n \to \infty</m>,  and in that case we can write <m>f(x)</m> as the limit
+<me>
+f(x)=\lim_{n\rightarrow\infty} T_n(x)
+=\lim_{n\rightarrow\infty} \sum_{k=0}^n \tfrac{1}{k!}f^{(k)}(a)\, (x-a)^k
+</me>
+This is really a limit of partial sums, and so we can write
+<md>
+<mrow>
+f(x)=\sum_{k=0}^\infty \tfrac{1}{k!}f^{(k)}(a)\, (x-a)^k
+</mrow>
+</md>
+which is a power series representation of the function. Let us  formalise this in a definition.
+</p>
+
+<definition xml:id="defn_taylorSeries"><title>Taylor series</title>
+<statement><p>
+The Taylor series for the function <m>f(x)</m> expanded around <m>a</m>  is the power series
+<md>
+<mrow>
+f(x)=\sum_{n=0}^\infty \tfrac{1}{n!}f^{(n)}(a)\, (x-a)^n
+</mrow>
+</md>
+provided the series converges. When <m>a=0</m> it is also called the Maclaurin series of <m>f(x)</m>.
+</p></statement>
+</definition>
+
+<p>
+This definition hides the discussion of whether or not <m>E_n(x) \to 0</m>  as <m>n\rightarrow\infty</m> within the caveat <q>provided the series converges</q>.  Demonstrating that for a given function can be difficult, but for many  of the standard functions you are used to dealing with, it turns out to be pretty easy. Let's compute a few Taylor series and see how we do it.
+</p>
+
+<example xml:id="eg_expSeries"><title>Exponential Series</title>
+<p>
+Find the Maclaurin series for <m>f(x)=e^x</m>.
+</p>
+
+<p>
+<alert>Solution:</alert> Just as was the case for computing Taylor polynomials, we need  to compute the derivatives of the function at the  particular choice of <m>a</m>. Since we are asked for a Maclaurin series,  <m>a=0</m>. So now we just need to find  <m>f^{(k)}(0)</m> for all integers <m>k\ge 0</m>.
+</p>
+
+<p>
+We know that <m>\diff{}{x}e^x = e^x</m> and so
+<md>
+<mrow>
+  e^x &amp;= f(x) = f'(x) = f''(x) = \cdots = f^{(k)}(x) = \cdots &amp; \text{which gives}
+</mrow><mrow>
+  1 &amp;= f(0) = f'(0) = f''(0) = \cdots = f^{(k)}(0) = \cdots.
+</mrow>
+</md>
+Equations<nbsp/><xref ref="eq_TaylorPolyPlusError"/> and<nbsp/><xref ref="eq_TaylorPolyPlusError_a"/> then give us
+<md>
+<mrow>
+e^x=f(x)&amp;= 1+x+\frac{x^2}{2!}+\cdots+\frac{x^n}{n!}+E_n(x)
+</mrow>
+</md>
+We shall see, in the optional Example <xref ref="eg_expSeriesB"/> below, that, for any fixed <m>x</m>, <m>\lim\limits_{n\rightarrow\infty}E_n(x)=0</m>.  Consequently, for all <m>x</m>,
+<me>
+e^x=\lim_{n\rightarrow\infty}\Big[1 +x + \frac{1}{2} x^2
+     +\frac{1}{3!} x^3+\cdots+\frac{1}{n!} x^n\Big]
+    =\sum_{n=0}^\infty \frac{1}{n!}x^n
+</me>
+</p>
+</example>
+
+<p>
+We have now seen power series representations for the functions
+<md>
+<mrow>
+  \frac{1}{1-x} &amp;&amp; \frac{1}{(1-x)^2} &amp;&amp; \log(1+x) &amp;&amp; \arctan(x) &amp;&amp; e^x.
+</mrow>
+</md>
+We do not think that you, the reader, will be terribly surprised to see  that we develop series for sine and cosine next.
+</p>
+
+<example xml:id="eg_sincosSeries"><title>Sine and Cosine Series</title>
+<p>
+The trigonometric functions <m>\sin x</m> and <m>\cos x</m> also have widely used  Maclaurin series expansions (i.e. Taylor series expansions about <m>a=0</m>).  To find them, we first compute all derivatives at general <m>x</m>.
+<md>
+<mrow>
+f(x)&amp;=\sin x &amp;
+f'(x)&amp;=\cos x &amp;
+f''(x)&amp;=-\sin x &amp;
+f^{(3)}(x)&amp;=-\cos x &amp;
+f^{(4)}(x)&amp;=\sin x &amp; \cdots
+</mrow>
+<mrow>
+g(x)&amp;=\cos x &amp;
+g'(x)&amp;=-\sin x &amp;
+g''(x)&amp;=-\cos x &amp;
+g^{(3)}(x)&amp;=\sin x &amp;
+g^{(4)}(x)&amp;=\cos x &amp; \cdots
+</mrow>
+</md>
+
+</p>
+
+<p>Now set <m>x=a=0</m>.
+<md>
+<mrow>
+f(x)&amp;=\sin x &amp;
+f(0)&amp;=0 &amp;
+f'(0)&amp;=1 &amp;
+f''(0)&amp;=0 &amp;
+f^{(3)}(0)&amp;=-1 &amp;
+f^{(4)}(0)&amp;=0 &amp; \cdots
+</mrow>
+<mrow>
+g(x)&amp;=\cos x &amp;
+g(0)&amp;=1 &amp;
+g'(0)&amp;=0 &amp;
+g''(0)&amp;=-1 &amp;
+g^{(3)}(0)&amp;=0 &amp;
+g^{(4)}(0)&amp;=1 &amp; \cdots
+</mrow>
+</md>
+For <m>\sin x</m>, all even numbered derivatives (at <m>x=0</m>) are zero,  while the odd numbered derivatives alternate between <m>1</m> and <m>-1</m>.  Very similarly, for <m>\cos x</m>, all odd numbered derivatives (at <m>x=0</m>) are zero,  while the even numbered derivatives alternate between <m>1</m> and <m>-1</m>.  So, the Taylor polynomials that best approximate <m>\sin x</m> and <m>\cos x</m>  near <m>x=a=0</m> are
+<md>
+<mrow>
+\sin x &amp;\approx x-\tfrac{1}{3!}x^3+\tfrac{1}{5!}x^5-\cdots
+</mrow><mrow>
+\cos x &amp;\approx 1-\tfrac{1}{2!}x^2+\tfrac{1}{4!}x^4-\cdots
+</mrow>
+</md>
+We shall see, in the optional Example <xref ref="eg_sincosSeriesB"/>  below, that, for both <m>\sin x</m> and <m>\cos x</m>,  we have <m>\lim\limits_{n\rightarrow\infty}E_n(x)=0</m> so that
+<md>
+<mrow>
+f(x)&amp;=\lim_{n\rightarrow\infty}\Big[f(0)+f'(0)\,x+\cdots
+                +\tfrac{1}{n!}f^{(n)}(0)\, x^n\Big]
+</mrow><mrow>
+g(x)&amp;=\lim_{n\rightarrow\infty}\Big[g(0)+g'(0)\,x+\cdots
+                +\tfrac{1}{n!}g^{(n)}(0)\, x^n\Big]
+</mrow>
+</md>
+Reviewing the patterns we found in the derivatives, we conclude that,  for all <m>x</m>,
+<me>
+\begin{alignedat}{2}
+\sin x &amp;= x-\tfrac{1}{3!}x^3+\tfrac{1}{5!}x^5-\cdots&amp;
+       &amp;=\sum_{n=0}^\infty(-1)^n\tfrac{1}{(2n+1)!}x^{2n+1}\\
+\cos x &amp;= 1-\tfrac{1}{2!}x^2+\tfrac{1}{4!}x^4-\cdots&amp;
+       &amp;=\sum_{n=0}^\infty(-1)^n\tfrac{1}{(2n)!}x^{2n}
+\end{alignedat}
+</me>
+and, in particular, both of the series on the right hand sides converge  for all <m>x</m>.
+</p>
+
+<p>
+We could also test for convergence of the series using  the ratio test. Computing the ratios of successsive terms in these  two series gives us
+<md>
+<mrow>
+  \left| \frac{A_{n+1}}{A_n} \right|
+        &amp;= \frac{|x|^{2n+3}/(2n+3)!}{|x|^{2n+1}/(2n+1)!}
+         = \frac{|x|^2}{(2n+3)(2n+2)}
+</mrow><mrow>
+  \left| \frac{A_{n+1}}{A_n} \right|
+        &amp;= \frac{|x|^{2n+2}/(2n+2)!}{|x|^{2n}/(2n)!}
+         = \frac{|x|^2}{(2n+2)(2n+1)}
+</mrow>
+</md>
+for sine and cosine respectively. Hence as <m>n \to \infty</m> these ratios go to zero and consequently both series are  convergent for all <m>x</m>. (This is very similar to what was observed in Example<nbsp/><xref ref="eg_PWRb"/>.)
+</p>
+</example>
+
+<p>
+We have developed power series representations for a number of important  functions
+	<fn>
+		The reader might ask whether or not we will give  the series for other trigonometric functions or their inverses. While  the tangent function has a perfectly well defined series, its  coefficients are not as simple as those of the series we have  seen <mdash/> they form a sequence of numbers known (perhaps unsurprisingly)  as the <q>tangent numbers</q>. They, and the related Bernoulli numbers,  have many interesting properties, links to which the interested reader  can find with their favourite search engine. The Maclaurin series for  inverse sine is
+		<me>
+			\arcsin(x) = \sum_{n=0}^\infty \frac{4^{-n}}{2n+1}\frac{(2n)!}{(n!)^2} x^{2n+1}
+		</me>
+		which is quite tidy, but proving it is beyond the scope of the course.
+	</fn>.
+Here is a theorem that summarizes them.
+</p>
+
+<theorem xml:id="thm_SRimportantTaylorSeries">
+<statement><p>
+<me>
+\begin{alignedat}{5}
+e^x &amp;= \sum_{n=0}^\infty\dfrac{x^n}{n!}
+    &amp;&amp;= 1 +x + \frac{1}{2!} x^2 +\frac{1}{3!} x^3+\cdots
+    &amp;&amp;\qquad\text{for all $-\infty \lt x \lt \infty$} \\
+\sin(x) &amp;= \sum_{n=0}^\infty(-1)^n\dfrac{x^{2n+1}}{(2n+1)!}
+    &amp;&amp;= x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-\cdots
+    &amp;&amp;\qquad\text{for all $-\infty \lt x \lt \infty$} \\
+\cos(x) &amp;= \sum_{n=0}^\infty(-1)^n\dfrac{x^{2n}}{(2n)!}
+    &amp;&amp;= 1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-\cdots
+    &amp;&amp;\qquad\text{for all $-\infty \lt x \lt \infty$} \\
+\frac{1}{1-x} &amp;= \sum_{n=0}^\infty x^n
+    &amp;&amp;= 1 + x+ x^2 + x^3 + \cdots
+    &amp;&amp;\qquad\text{for all $-1 \lt x \lt 1$} \\
+\log(1+x) &amp;= \sum_{n=0}^\infty (-1)^n\dfrac{x^{n+1}}{n+1}
+     &amp;&amp;= x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots
+    &amp;&amp;\qquad\text{for all $-1 \lt x\le 1$} \\
+\arctan x &amp;=  \sum_{n=0}^\infty (-1)^n\dfrac{x^{2n+1}}{2n+1}
+    &amp;&amp;= x -\frac{x^3}{3} +\frac{x^5}{5}-\cdots
+    &amp;&amp;\qquad\text{for all $-1\le x\le 1$}
+\end{alignedat}
+</me>
+</p></statement>
+</theorem>
+
+<p>
+Notice that the series for sine and cosine sum to something that looks very similar to the series for <m>e^x</m>:
+<md>
+<mrow>
+  \sin(x)+\cos(x) &amp;= \left(x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-\cdots\right)
+  +\left(1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-\cdots\right)
+</mrow><mrow>
+  &amp;= 1 + x - \frac{1}{2!}x^2 - \frac{1}{3!}x^3 + \frac{1}{4!}x^4 + \frac{1}{5!}x^5 - \cdots
+</mrow><mrow>
+  e^x
+  &amp;= 1 + x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \frac{1}{4!}x^4 + \frac{1}{5!}x^5 + \cdots
+</mrow>
+</md>
+So both series have coefficients with the same absolute value  (namely <m>\frac{1}{n!}</m>), but there are differences in  sign
+	<fn>
+		Warning: antique sign<ndash/>sine pun. No doubt the reader first saw it many years syne.
+	</fn>.
+This is not a coincidence and we direct the interested reader to the optional Section <xref ref="sec_Euler"/> where will show how these series are linked through <m>\sqrt{-1}</m>.
+</p>
+
+<example xml:id="eg_expSeriesB"><title>Optional <mdash/> Why  <m>\sum_{n=0}^\infty \frac{1}{n!}x^n</m> is <m>e^x</m>.</title>
+<p>
+We have already seen, in Example <xref ref="eg_expSeries"/>, that
+<me>
+e^x = 1+x+\frac{x^2}{2!}+\cdots+\frac{x^n}{n!}+E_n(x)
+</me>
+By (<xref ref="eq_TaylorPolyPlusError_b"/>)
+<me>
+E_n(x) = \frac{1}{(n+1)!}e^c x^{n+1}
+</me>
+for some (unknown) <m>c</m> between <m>0</m> and <m>x</m>. Fix any real number <m>x</m>. We'll now show that <m>E_n(x)</m> converges to zero as <m>n\rightarrow\infty</m>.
+</p>
+
+<p>
+To do this we need get bound the size of <m>e^c</m>, and to do this, consider what happens if <m>x</m> is positive or negative.
+<ul>
+<li>
+	If <m>x \lt 0</m> then <m>x \leq c \leq 0</m> and hence <m>e^x \leq e^c \leq e^0=1</m>.
+</li>
+<li>
+	On the other hand, if <m>x\geq 0</m> then <m>0\leq c \leq x</m> and so <m>1=e^0 \leq e^c \leq e^x</m>.
+</li>
+</ul>
+In either case we have that <m>0 \leq e^c \leq 1+e^x</m>. Because of this the error term
+<me>
+|E_n(x)|=\Big|\frac{e^c}{(n+1)!}x^{n+1}\Big| \le [e^x+1]\frac{|x|^{n+1}}{(n+1)!}
+</me>
+We claim that this upper bound, and hence the error <m>E_n(x)</m>, quickly shrinks to zero as <m>n \to \infty</m>.
+</p>
+
+<p>
+Call the upper bound (except for the factor <m>e^x+1</m>, which is independent of  <m>n</m>) <m>e_n(x)=\tfrac{|x|^{n+1}}{(n+1)!}</m>. To show that this shrinks to zero as <m>n\rightarrow\infty</m>, let's write it as follows.
+<md>
+<mrow>
+  e_n(x) &amp;= \frac{|x|^{n+1}}{(n+1)!}
+  = \overbrace{\frac{|x|}{1} \cdot \frac{|x|}{2} \cdot \frac{|x|}{3}
+         \cdots \frac{|x|}{n}\cdot \frac{|x|}{|n+1|}}^{\text{$n+1$ factors}}
+</mrow>
+<intertext>Now let <m>k</m> be an integer bigger than <m>|x|</m>. We can split the product</intertext>
+<mrow>
+  e_n(x)
+  &amp;= \overbrace{\left(\frac{|x|}{1} \cdot \frac{|x|}{2} \cdot \frac{|x|}{3} \cdots \frac{|x|}{k} \right)}^{
+  \text{$k$ factors}} \cdot  \left( \frac{|x|}{k+1} \cdots \frac{|x|}{|n+1|}\right)
+</mrow><mrow>
+  &amp;\leq \underbrace{\left(\frac{|x|}{1} \cdot \frac{|x|}{2} \cdot \frac{|x|}{3} \cdots \frac{|x|}{k} \right)}_{=Q(x)}
+\cdot
+  \left( \frac{|x|}{k+1} \right)^{n+1-k}
+</mrow><mrow>
+  &amp;= Q(x) \cdot \left( \frac{|x|}{k+1} \right)^{n+1-k}
+</mrow>
+</md>
+Since <m>k</m> does not depend not <m>n</m> (though it does depend on <m>x</m>),  the function <m>Q(x)</m> does not change as we increase <m>n</m>. Additionally,  we know that <m>|x| \lt k+1</m> and so <m>\frac{|x|}{k+1} \lt 1</m>. Hence as we let  <m>n \to \infty</m> the above bound must go to zero.
+</p>
+
+<p>
+Alternatively, compare <m>e_n(x)</m> and <m>e_{n+1}(x)</m>.
+<me>
+\frac{e_{n+1}(x)}{e_n(x)}
+     =\frac{\vphantom{\Big[}\tfrac{|x|^{n+2}}{(n+2)!}}
+           {\vphantom{\Big[}\tfrac{|x|^{n+1}}{(n+1)!}}
+     =\frac{|x|}{n+2}
+</me>
+When <m>n</m> is  bigger than, for example <m>2|x|</m>, we have <m>\tfrac{e_{n+1}(x)}{e_n(x)} \lt \half</m>. That is, increasing the index  on <m>e_n(x)</m> by one decreases the size of <m>e_n(x)</m> by a factor of at least two. As a result <m>e_n(x)</m> must tend to zero  as <m>n\rightarrow\infty</m>.
+</p>
+
+<p>
+Consequently, for all <m>x</m>,  <m>\lim\limits_{n\rightarrow\infty}E_n(x)=0</m>, as claimed, and we really have
+<me>
+e^x=\lim_{n\rightarrow\infty}\Big[1 +x + \frac{1}{2} x^2
+     +\frac{1}{3!} x^3+\cdots+\frac{1}{n!} x^n\Big]
+    =\sum_{n=0}^\infty \frac{1}{n!}x^n
+</me>
+</p>
+</example>
+
+<p>
+There is another way to prove that the series <m>\sum_{n=0}^\infty \frac{x^n}{n!}</m> converges to the function <m>e^x</m>.  Rather than looking at how the error term <m>E_n(x)</m> behaves as <m>n \to \infty</m>, we can show that the series  satsifies the same simple differential equation
+	<fn>
+		Recall, you studied that differential equation in the  section on separable differential equations (Theorem<nbsp/><xref ref="thm_linearODE"/> in Section<nbsp/><xref ref="sec_sep_de"/>) as well as  wayyyy back in the section on exponential growth and decay in differential calculus.
+	</fn>
+and the same initial condition as the function.
+</p>
+
+<example xml:id="eg_expSeriesC">
+<title>Optional <mdash/> Another approach to showing that  <m>\sum_{n=0}^\infty  \frac{1}{n!}x^n</m> is <m>e^x</m>.</title>
+<p>
+We already know from Example <xref ref="eg_PWRb"/>, that the series <m>\sum_{n=0}^\infty \frac{1}{n!}x^n</m> converges to some function <m>f(x)</m> for all values of <m>x</m> . All that remains to do is to show that <m>f(x)</m>  is really <m>e^x</m>. We will  do this by showing that <m>f(x)</m> and <m>e^x</m> satisfy the same differential  equation with the same initial conditions
+	<fn>
+		Recall that when we solve of a separable differential equation  our general solution will have an arbitrary constant  in it. That constant cannot be determined from the differential  equation alone and we need some extra data to find it.  This extra information is often information about the system  at its beginning (for example when position or time is zero) <mdash/>  hence <q>initial conditions</q>. Of course  the reader is already familiar with this because it  was covered back in Section<nbsp/><xref ref="sec_sep_de"/>.
+	</fn>.
+We know that <m>y=e^x</m> satisfies
+<md>
+<mrow>
+  \diff{y}{x} &amp;= y  &amp;\text{and} &amp;&amp; y(0)=1
+</mrow>
+</md>
+and by Theorem<nbsp/><xref ref="thm_linearODE"/> (with <m>a=1</m>, <m>b=0</m> and <m>y(0)=1</m>),  this is the only solution. So it suffices to show that <m>f(x)= \sum_{n=0}^\infty \frac{x^n}{n!}</m> satisfies
+<md>
+<mrow>
+ \diff{f}{x}&amp;=f(x) &amp;\text{and} &amp;&amp; f(0)&amp;=1.
+</mrow>
+</md>
+</p>
+
+<p>
+<ul>
+<li>
+	By Theorem <xref ref="thm_SRpsops"/>,
+	<md>
+	<mrow>
+	 \diff{f}{x} &amp;= \diff{}{x}\left\{\sum_{n=0}^\infty \frac{1}{n!}x^n\right\}
+				  = \sum_{n=1}^\infty \frac{n}{n!}x^{n-1}
+				  = \sum_{n=1}^\infty \frac{1}{(n-1)!}x^{n-1}
+	</mrow><mrow>
+				 &amp;= \overbrace{1}^{n=1} + \overbrace{x}^{n=2}
+					  + \overbrace{\frac{x^2}{2!}}^{n=3}
+					  + \overbrace{\frac{x^3}{3!}}^{n=4}
+					  + \cdots
+	</mrow><mrow>
+				 &amp;= f(x)
+	</mrow>
+	</md>
+</li>
+<li>
+	When we substitute <m>x=0</m> into the series we get (see the discussion  after Definition<nbsp/><xref ref="def_SRpowerSeries"/>)
+	<md>
+	<mrow>
+	  f(0) &amp;= 1 + \frac{0}{1!} + \frac{0}{2!} + \cdots = 1.
+	</mrow>
+	</md>
+</li>
+</ul>
+Hence <m>f(x)</m> solves the same initial value problem and we must have  <m>f(x)=e^x</m>.
+</p>
+</example>
+
+<p>
+We can show that the error terms in Maclaurin polynomials for  sine and cosine go to zero as <m>n \to \infty</m> using  very much the same approach as in Example<nbsp/><xref ref="eg_expSeriesB"/>.
+</p>
+<example xml:id="eg_sincosSeriesB"><title>
+Optional <mdash/> Why  <m>\sum_{n=0}^\infty\frac{(-1)^n}{(2n+1)!}x^{2n+1}=\sin x</m>
+and
+<m>\sum_{n=0}^\infty\frac{(-1)^n}{(2n)!}x^{2n}=\cos x</m>
+</title>
+<p>
+Let <m>f(x)</m> be either <m>\sin x</m> or <m>\cos x</m>. We know that every  derivative of <m>f(x)</m> will be one of <m>\pm \sin(x)</m> or <m>\pm \cos(x)</m>.  Consequently, when we compute the error term using  equation<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> we always have <m>\big|f^{(n+1)}(c)\big|\le 1</m> and hence
+<md>
+<mrow>
+|E_n(x)| &amp;\le \frac{|x|^{n+1}}{(n+1)!}.
+</mrow>
+</md>
+In Example<nbsp/><xref ref="eg_expSeries"/>, we showed that  <m>\frac{|x|^{n+1}}{(n+1)!} \to 0</m> as <m>n \to \infty</m> <mdash/> so all the  hard work is already done. Since the error term shrinks to zero for both <m>f(x)=\sin x</m> and <m>f(x)=\cos x</m>, and
+<md>
+<mrow>
+f(x)=\lim_{n\rightarrow\infty}\Big[f(0)+f'(0)\,x+\cdots +\tfrac{1}{n!}f^{(n)}(0)\, x^n\Big]
+</mrow>
+</md>
+as required.
+</p>
+
+
+</example>
+</subsection>
+
+<subsection>
+<title>Computing with Taylor Series</title>
+
+<p>
+Taylor series have a great many applications. (Hence their place in this  course.) One of the most immediate of these is that they give us an  alternate way of computing many functions. For example, the first  definition we see for the sine and cosine functions is in terms of  triangles. Those definitions, however, do not lend themselves to  computing sine and cosine except at very special angles. Armed with  power series representations, however, we can compute  them to very high precision at any angle. To illustrate this, consider the  computation of <m>\pi</m> <mdash/> a problem that dates back to the Babylonians.
+</p>
+
+<example xml:id="eg_pi"><title>Computing the number <m>\pi</m></title>
+<p>
+There are numerous methods for computing <m>\pi</m> to any desired degree of accuracy
+	<fn>
+		The computation of <m>\pi</m> has a very, very long  history and your favourite search engine will turn  up many sites that explore the topic. For a more comprehensive  history one can turn to books such as <q>A history of  Pi</q> by Petr Beckmann and <q>The joy of <m>\pi</m></q> by David Blatner.
+	</fn>.
+Many  of them use the Maclaurin expansion
+<md>
+<mrow>
+\arctan x &amp;= \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}
+</mrow>
+</md>
+of Theorem <xref ref="thm_SRimportantTaylorSeries"/>. Since <m>\arctan(1)=\frac{\pi}{4}</m>, the series gives us a very pretty  formula for <m>\pi</m>:
+<md>
+<mrow>
+\frac{\pi}{4} = \arctan 1 &amp;= \sum_{n=0}^\infty \frac{(-1)^n}{2n+1}
+</mrow><mrow>
+ \pi &amp;= 4 \left( 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \cdots \right)
+</mrow>
+</md>
+Unfortunately, this series is not very useful for computing <m>\pi</m> because it converges so slowly. If we approximate the  series by its <m>N^\mathrm{th}</m> partial sum, then the alternating series test (Theorem<nbsp/><xref ref="thm_SRalternating"/>) tells us  that the error is bounded by the first term we drop. To guarantee  that we have 2 decimal digits of <m>\pi</m> correct, we need to  sum about the first 200 terms!
+</p>
+
+<p>
+A much better way to compute <m>\pi</m> using this series is to take  advantage of the fact that <m>\tan\frac{\pi}{6}=\frac{1}{\sqrt{3}}</m>:
+<md>
+<mrow>
+\pi&amp;= 6\arctan\Big(\frac{1}{\sqrt{3}}\Big)
+= 6\sum_{n=0}^\infty (-1)^n\frac{1}{2n+1}\ \frac{1}{{(\sqrt{3})}^{2n+1}}
+</mrow><mrow>
+&amp;= 2\sqrt{3} \sum_{n=0}^\infty (-1)^n\frac{1}{2n+1}\ \frac{1}{3^n}
+</mrow><mrow>
+&amp;=2\sqrt{3}\Big(1-\frac{1}{3\times 3}+\frac{1}{5\times 9}-\frac{1}{7\times 27}
++\frac{1}{9\times 81}-\frac{1}{11\times 243}+\cdots\Big)
+</mrow>
+</md>
+Again, this is an alternating series and so (via Theorem <xref ref="thm_SRalternating"/>) the error we introduce by  truncating it is bounded by the first term dropped. For example,  if we keep ten terms, stopping at <m>n=9</m>, we get <m>\pi=3.141591</m>  (to 6 decimal places) with an error between zero and
+<me>
+\frac{2\sqrt{3}}{21\times 3^{10}} \lt 3\times 10^{-6}
+</me>
+In 1699, the English astronomer/mathematician Abraham Sharp (1653<ndash/>1742) used 150 terms of this series to compute 72 digits of <m>\pi</m> <mdash/> by hand!
+</p>
+
+<p>
+This is just one of very many ways to compute <m>\pi</m>. Another one, which still uses the Maclaurin expansion of <m>\arctan x</m>, but is much  more efficient, is
+<me>
+\pi= 16\arctan\frac{1}{5}-4\arctan\frac{1}{239}
+</me>
+This formula was used by John Machin in 1706 to compute <m>\pi</m> to 100 decimal digits <mdash/> again, by hand.
+</p>
+</example>
+
+<p>
+Power series also give us access to new functions which might not be  easily expressed in terms of the functions we have been introduced  to so far. The following is a good example of this.
+</p>
+
+<example xml:id="eg_erf"><title>Error function</title>
+<p>
+The <em>error function</em>
+<me>
+\erf(x) =\frac{2}{\sqrt{\pi}}\int_0^x e^{-t^2}\dee{t}
+</me>
+is used in computing <q>bell curve</q> probabilities. The indefinite integral of the integrand <m>e^{-t^2}</m> cannot be expressed in terms of standard functions. But we can still evaluate the integral to within any desired degree of accuracy by using the Taylor expansion of the exponential. Start with the Maclaurin series for <m>e^x</m>:
+<md>
+<mrow>
+  e^x &amp;= \sum_{n=0}^\infty \frac{1}{n!}x^n
+</mrow>
+<intertext>and then substitute <m>x = -t^2</m> into this:</intertext>
+<mrow>
+e^{-t^2} &amp;= \sum_{n=0}^\infty \frac{(-1)^n}{n!}t^{2n}
+</mrow>
+</md>
+We can then apply Theorem<nbsp/><xref ref="thm_SRpsops"/> to integrate term-by-term:
+<md>
+<mrow>
+\erf(x)
+  &amp;=\frac{2}{\sqrt{\pi}}\int_0^x
+           \left[\sum_{n=0}^\infty \frac{{(-t^2)}^n}{n!}\right]\dee{t}
+</mrow><mrow>
+  &amp;=\frac{2}{\sqrt{\pi}}\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{(2n+1)n!}
+</mrow>
+</md>
+For example, for the bell curve, the probability of being within one  standard deviation of the mean
+	<fn>
+		If you don't know what this means (forgive the pun) don't worry, because it is not part of the course.  Standard deviation a way of quantifying variation within a population.
+	</fn>,
+is
+<md>
+<mrow>
+\erf\big(\frac{1}{\sqrt{2}}\big)
+ &amp;= \frac{2}{\sqrt{\pi}}
+   \sum_{n=0}^\infty (-1)^n\frac{ {(\frac{1}{\sqrt{2}})}^{2n+1}}{(2n+1)n!}
+  = \frac{2}{\sqrt{2\pi}}
+          \sum_{n=0}^\infty (-1)^n\frac{1}{(2n+1) 2^n n!}
+</mrow><mrow>
+ &amp;=\sqrt{\frac{2}{\pi}}\Big(1-\frac{1}{3\times 2} +\frac{1}{5\times 2^2\times 2}
+         -\frac{1}{7\times 2^3\times 3!} + \frac{1}{9\times2^4\times 4!}-\cdots
+   \Big)
+</mrow>
+</md>
+This is yet another alternating series. If we keep five terms, stopping at <m>n=4</m>, we get <m>0.68271</m> (to 5 decimal places) with, by Theorem <xref ref="thm_SRalternating"/> again, an error between zero and the first dropped term, which is  minus
+<me>
+\sqrt{\frac{2}{\pi}}\ \frac{1}{11\times 2^5\times  5!} \lt  2\times 10^{-5}
+</me>
+</p>
+</example>
+
+<example xml:id="eg_lntwo"><title>Two nice series</title>
+<p>
+Evaluate
+<me>
+\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n3^n}\qquad\text{and}\qquad
+\sum_{n=1}^\infty \frac{1}{n3^n}
+</me>
+</p>
+
+<p>
+<em>Solution.</em>
+There are not very many series that can be easily evaluated exactly. But occasionally one encounters a series that can be evaluated simply  by realizing that it is exactly one of the series in  Theorem <xref ref="thm_SRimportantTaylorSeries"/>, just with a specific value of <m>x</m>. The left hand given series is
+<me>
+\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}\ \frac{1}{3^n}
+= \frac{1}{3}-\frac{1}{2}\ \frac{1}{3^2}+\frac{1}{3}\ \frac{1}{3^3}
+  -\frac{1}{4}\ \frac{1}{3^4}+\cdots
+</me>
+The series in Theorem <xref ref="thm_SRimportantTaylorSeries"/> that this  most closely resembles is
+<me>
+\log(1+x) = x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}-\cdots
+</me>
+Indeed
+<md>
+<mrow>
+\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}\ \frac{1}{3^n}
+&amp;= \frac{1}{3}-\frac{1}{2}\ \frac{1}{3^2}+\frac{1}{3}\ \frac{1}{3^3}
+  -\frac{1}{4}\ \frac{1}{3^4}+\cdots
+</mrow><mrow>
+&amp; = \bigg[x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}-\cdots\bigg]_{x=\frac{1}{3}}
+</mrow><mrow>
+&amp; = \Big[\log(1+x) \Big]_{x=\frac{1}{3}}
+</mrow><mrow>
+&amp; = \log \frac{4}{3}
+</mrow>
+</md>
+The right hand series above differs from the left hand series above only that the signs of the left hand series alternate while those of the right hand series do not. We can flip every second sign in a power series just by using a negative <m>x</m>.
+<md>
+<mrow>
+\Big[\log(1+x) \Big]_{x=-\frac{1}{3}}
+&amp;=\bigg[x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}-\cdots
+       \bigg]_{x=-\frac{1}{3}}
+</mrow><mrow>
+&amp;= -\frac{1}{3}-\frac{1}{2}\ \frac{1}{3^2}-\frac{1}{3}\ \frac{1}{3^3}
+  -\frac{1}{4}\ \frac{1}{3^4}+\cdots
+</mrow>
+</md>
+which is exactly minus the desired right hand series. So
+<me>
+\sum_{n=1}^\infty \frac{1}{n3^n}
+=- \Big[\log(1+x) \Big]_{x=-\frac{1}{3}}
+=-\log\frac{2}{3}
+=\log\frac{3}{2}
+</me>
+</p>
+
+</example>
+
+<example xml:id="eg_SRfindDeriv"><title>Finding a derivative from a series</title>
+<p>
+Let <m>f(x) = \sin(2x^3)</m>. Find <m>f^{(15)}(0)</m>, the fifteenth derivative of <m>f</m> at <m>x=0</m>.
+</p>
+
+<p><alert>Solution:</alert>
+This is a bit of a trick question. We could of course use the product and chain rules to directly apply fifteen derivatives and then set <m>x=0</m>, but that would be extremely tedious
+	<fn>
+		We could get a computer algebra system to do it for  us without much difficulty <mdash/> but we wouldn't learn much in the process. The point of this example is to illustrate  that one can do more than just represent a function with Taylor series. More on this in the next section.
+	</fn>.
+There is a much more efficient approach that exploits two pieces of knowledge that we have.
+<ul>
+<li>
+	From equation<nbsp/><xref ref="eq_TaylorPolyPlusError_a"/>, we see that the coefficient of <m>(x-a)^n</m> in the Taylor series of <m>f(x)</m> with expansion point <m>a</m> is exactly <m>\frac{1}{n!} f^{(n)}(a)</m>. So <m>f^{(n)}(a)</m> is exactly <m>n!</m> times the coefficient of <m>(x-a)^n</m> in the Taylor series of <m>f(x)</m> with expansion point <m>a</m>.
+</li>
+<li>
+	We know, or at least can easily find, the Taylor series for <m>\sin(2x^3)</m>.
+</li>
+</ul>
+Let's apply that strategy.
+<ul>
+<li>
+	First, we know that, for all <m>y</m>,
+	<me>
+	\sin y = y-\frac{1}{3!}y^3+\frac{1}{5!}y^5-\cdots
+	</me>
+</li>
+<li>
+	Just substituting <m>y= 2x^3</m>, we have
+	<md>
+	<mrow>
+	\sin(2 x^3) &amp;= 2x^3-\frac{1}{3!}{(2x^3)}^3+\frac{1}{5!}{(2x^3)}^5-\cdots
+	</mrow><mrow>
+	&amp;= 2x^3-\frac{8}{3!}x^9+\frac{2^5}{5!}x^{15}-\cdots
+	</mrow>
+	</md>
+</li>
+<li>
+	So the coefficient of <m>x^{15}</m> in the Taylor series of  <m>f(x)=\sin(2x^3)</m> with expansion point <m>a=0</m> is <m>\frac{2^5}{5!}</m>
+</li>
+</ul>
+and we have
+<me>
+f^{(15)}(0) = 15!\times \frac{2^5}{5!} = 348{,}713{,}164{,}800
+</me>
+</p>
+
+</example>
+
+
+<example xml:id="eg_exp"><title>Optional <mdash/>  Computing the number <m>e</m></title>
+<p>
+Back in Example<nbsp/><xref ref="eg_expSeriesB"/>, we saw that
+<me>
+e^x =1+x+\tfrac{x^2}{2!}+\cdots+\tfrac{x^n}{n!}+\tfrac{1}{(n+1)!}e^c x^{n+1}
+</me>
+for some (unknown) <m>c</m> between <m>0</m> and <m>x</m>. This can be used to approximate the number <m>e</m>, with any  desired degree of accuracy. Setting <m>x=1</m> in this equation gives
+<me>
+e=1+1+\tfrac{1}{2!}+\cdots+\tfrac{1}{n!}+\tfrac{1}{(n+1)!}e^c
+</me>
+for some <m>c</m> between <m>0</m> and <m>1</m>. Even though we don't know <m>c</m> exactly, we can bound that term quite readily. We do  know that <m>e^c</m> in an increasing function
+	<fn>Check the derivative!</fn>
+of <m>c</m>, and so <m>1=e^0 \leq e^c \leq e^1=e</m>.  Thus we know that
+<md>
+<mrow>
+\frac{1}{(n+1)!} \leq e - \left( 1+1+\tfrac{1}{2!}+\cdots+\tfrac{1}{n!} \right) \leq \frac{e}{(n+1)!}
+</mrow>
+</md>
+So we have a lower bound on the error, but our upper bound involves the <m>e</m> <mdash/> precisely the quantity we are trying to get a handle on.
+</p>
+
+<p>
+But all is not lost. Let's look a little more closely at the right-hand inequality when <m>n=1</m>:
+<md>
+<mrow>
+  e - (1+1) &amp;\leq \frac{e}{2}&amp; \text{move the $e$'s to one side}
+</mrow><mrow>
+  \frac{e}{2} &amp; \leq 2 &amp; \text{and clean it up}
+</mrow><mrow>
+  e &amp; \leq 4.
+</mrow>
+</md>
+Now this is a pretty crude bound
+	<fn>
+		The authors hope that by now we all <q>know</q> that <m>e</m> is between 2 and 3,  but maybe we don't know how to prove it.
+	</fn>
+but it isn't hard to improve. Try this again with <m>n=1</m>:
+<md>
+<mrow>
+  e - (1+1+\frac{1}{2}) &amp; \leq \frac{e}{6} &amp; \text{move $e$'s to one side}
+</mrow><mrow>
+  \frac{5e}{6} &amp; \leq \frac{5}{2}
+</mrow><mrow>
+  e &amp; \leq 3.
+</mrow>
+</md>
+Better. Now we can rewrite our bound:
+<md>
+<mrow>
+\frac{1}{(n+1)!} \leq e - \left( 1+1+\tfrac{1}{2!}+\cdots+\tfrac{1}{n!} \right) \leq \frac{e}{(n+1)!} \leq  \frac{3}{(n+1)!}
+</mrow>
+</md>
+If we set <m>n=4</m> in this we get
+<md>
+<mrow>
+\frac{1}{120}=\frac{1}{5!} &amp;\leq e - \left(1 + 1 + \frac{1}{2} + \frac{1}{6} + \frac{1}{24} \right) \leq \frac{3}{120}
+</mrow>
+</md>
+So the error is between <m>\frac{1}{120}</m> and <m>\frac{3}{120}=\frac{1}{40}</m> <mdash/>  this approximation isn't guaranteed  to give us the first 2 decimal places. If we ramp <m>n</m> up to <m>9</m> however, we get
+<md>
+<mrow>
+\frac{1}{10!} &amp;\leq e - \left(1 + 1 + \frac{1}{2} + \cdots + \frac{1}{9!} \right) \leq \frac{3}{10!}
+</mrow>
+</md>
+Since <m>10! = 3628800</m>, the upper bound on the error is <m>\frac{3}{3628800}  \lt  \frac{3}{3000000} = 10^{-6}</m>, and we  can approximate <m>e</m> by
+<me>
+\begin{alignedat}{10}
+&amp;1+1 +\ \tfrac{1}{2!} &amp;
+  &amp;+\ \ \tfrac{1}{3!}\ &amp;
+  &amp;+\hskip10pt\tfrac{1}{4!}\hskip10pt &amp;
+  &amp;+\hskip10pt\tfrac{1}{5!}\hskip10pt &amp;
+  &amp;+\hskip10pt\tfrac{1}{6!}\hskip10pt &amp;
+  &amp;+\hskip15pt\tfrac{1}{7!}\hskip15pt &amp;
+  &amp;+\hskip15pt\tfrac{1}{8!}\hskip15pt &amp;
+  &amp;+\hskip15pt\tfrac{1}{9!}
+\\
+ =&amp;1+1+0.5&amp;
+ &amp;+0.1\dot 6&amp;
+ &amp;+0.041\dot 6&amp;
+ &amp;+0.008\dot 3&amp;
+ &amp;+0.0013\dot 8&amp;
+ &amp;+0.0001984&amp;
+ &amp;+0.0000248&amp;
+ &amp;+0.0000028\\
+=&amp;2.718282
+\end{alignedat}
+</me>
+and it is correct to six decimal places.
+</p>
+</example>
+</subsection>
+
+
+<subsection xml:id="sec_Euler">
+<title>Optional <mdash/> Linking <m>e^x</m> with trigonometric functions</title>
+
+<p>
+Let us return to the observation that we made earlier about the Maclaurin series for sine, cosine and the exponential  functions:
+<md>
+<mrow>
+  \cos x + \sin x
+  &amp;= 1 + x - \frac{1}{2!}x^2 - \frac{1}{3!}x^3 + \frac{1}{4!}x^4 + \frac{1}{5!}x^5 - \cdots
+</mrow><mrow>
+  e^x
+  &amp;= 1 + x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \frac{1}{4!}x^4 + \frac{1}{5!}x^5 + \cdots
+</mrow>
+</md>
+We see that these series are identical except for the differences in the  signs of the coefficients.  Let us try to make them look even more alike by introducing extra constants  <m>A, B</m> and <m>q</m> into the equations. Consider
+<md>
+<mrow>
+  A \cos x + B \sin x
+  &amp;= A + Bx - \frac{A}{2!}x^2 - \frac{B}{3!}x^3 + \frac{A}{4!}x^4 + \frac{B}{5!}x^5 - \cdots
+</mrow><mrow>
+  e^{q x}
+  &amp;= 1 + qx + \frac{q^2}{2!}x^2 + \frac{q^3}{3!}x^3 + \frac{q^4}{4!}x^4 + \frac{q^5}{5!}x^5 + \cdots
+</mrow>
+</md>
+Let's try to choose <m>A</m>, <m>B</m> and <m>q</m> so that these to expressions are equal. To do so we must make sure that the coefficients of the various powers of  <m>x</m> agree. Looking just at the coefficients of <m>x^0</m> and <m>x^1</m>, we see  that we need
+<md>
+<mrow>
+  A&amp;=1 &amp; \text{and}&amp;&amp; B&amp;=q
+</mrow>
+</md>
+Substituting this into our expansions gives
+<md>
+<mrow>
+  \cos x + q\sin x
+  &amp;= 1 + qx - \frac{1}{2!}x^2 - \frac{q}{3!}x^3 + \frac{1}{4!}x^4 + \frac{q}{5!}x^5 - \cdots
+</mrow><mrow>
+  e^{q x}
+  &amp;= 1 + qx + \frac{q^2}{2!}x^2 + \frac{q^3}{3!}x^3 + \frac{q^4}{4!}x^4 + \frac{q^5}{5!}x^5 + \cdots
+</mrow>
+</md>
+Now the coefficients of <m>x^0</m> and <m>x^1</m> agree, but the coefficient of <m>x^2</m> tells us that we need <m>q</m> to be a number so  that <m>q^2 =-1</m>, or
+<md>
+<mrow>
+  q &amp;= \sqrt{-1}
+</mrow>
+</md>
+We know that no such <em>real</em> number <m>q</m> exists. But for the moment  let us see what happens if we just assume
+	<fn>
+		We do not wish to give a primer on imaginary and complex numbers here. The interested reader can find  many many resources with their favourite search engine.
+	</fn>
+that  we can find <m>q</m> so that <m>q^2=-1</m>. Then we will have that
+<md>
+<mrow>
+  q^3 &amp;= -q &amp; q^4 &amp;= 1 &amp; q^5 &amp;= q &amp; \cdots
+</mrow>
+</md>
+so that the series for <m>\cos x + q\sin x</m> and <m>e^{q x}</m> are identical. That is
+<md>
+<mrow>
+  e^{qx}
+  &amp;= \cos x + q\sin x
+</mrow>
+</md>
+If we now write this with the more usual notation <m>q=\sqrt{-1}=i</m> we  arrive at what is now known as Euler's formula
+</p>
+<fact>
+<statement><p>
+ <md>
+<mrow>
+  e^{i x} &amp;= \cos x + i \sin x
+</mrow>
+</md>
+</p></statement>
+</fact>
+
+<p>
+Euler's proof of this formula (in 1740) was based on Maclaurin expansions (much like our explanation above). Euler's  formula
+	<fn>
+		It is worth mentioning here that history of this topic is perhaps a little rough on Roger Cotes (1682<ndash/>1716) who was one of the strongest mathematicians of his time and a collaborator of Newton. Cotes published a paper on logarithms in 1714 in which he states
+		<me>
+		ix = \log( \cos x + i \sin x).
+		</me>
+		(after translating his results into more modern notation). He proved this result by computing in two different ways  the surface area of an ellipse rotated about one axis and equating the results. Unfortunately Cotes died only 2 years  later at the age of 33. Upon hearing of his death Newton is supposed to have said <q>If he had lived, we might have  known something.</q> The reader might think this a rather weak statement, however coming from Newton it was high praise.
+	</fn>
+is widely regarded as one of the most important and  beautiful in all of mathematics.
+</p>
+
+<p>
+Of course having established Euler's formula one can find slicker demonstations. For example, let
+<md>
+<mrow>
+  f(x) &amp;= e^{-ix} \left(\cos x + i\sin x \right)
+</mrow>
+</md>
+Differentiating (with product and chain rules and the fact that <m>i^2=-1</m>) gives us
+<md>
+<mrow>
+  f'(x) &amp;= -i e^{-ix} \left(\cos x + i\sin x \right) + e^{-ix} \left(-\sin x + i\cos x \right)
+</mrow><mrow>
+  &amp;= 0
+</mrow>
+</md>
+Since the derivative is zero, the function <m>f(x)</m> must be a constant. Setting <m>x=0</m> tells us that
+<md>
+<mrow>
+  f(0) &amp;= e^0 \left(\cos 0 + i\sin 0 \right) = 1.
+</mrow>
+</md>
+Hence <m>f(x)=1</m> for all <m>x</m>. Rearranging then arrives at
+<md>
+<mrow>
+  e^{ix} &amp;= \cos x + i \sin x
+</mrow>
+</md>
+as required.
+</p>
+
+<p>
+Substituting <m>x=\pi</m> into Euler's formula we get Euler's identity
+<md>
+<mrow>
+  e^{i \pi} &amp;= -1
+</mrow>
+</md>
+which is more often stated
+</p>
+<fact><title>Euler's identity</title>
+<statement><p>
+<md>
+<mrow>
+  e^{i\pi} + 1 &amp;= 0
+</mrow>
+</md>
+</p></statement>
+</fact>
+<p>
+which links the 5 most important constants in mathematics, <m>1,0,\pi,e</m> and <m>\sqrt{-1}</m>.
+</p>
+</subsection>
+
+<subsection>
+<title>Evaluating Limits using Taylor Expansions</title>
+
+<p>
+Taylor polynomials provide a good way to understand the behaviour of a function near a specified point and so are useful for evaluating complicated limits. Here are some examples.
+</p>
+
+<example xml:id="eg_TaylorlimitA"><title>A simple limit from a Taylor expansion</title>
+<p>
+In this example, we'll start with a relatively simple limit, namely
+<me>
+\lim_{x\rightarrow 0}\frac{\sin x}{x}
+</me>
+The first thing to notice about this limit is that, as <m>x</m> tends to zero, both the numerator, <m>\sin x</m>, and the denominator, <m>x</m>, tend to <m>0</m>. So we may not evaluate the limit of the ratio by simply dividing  the limits of the numerator and denominator.  To find the limit, or show that it does not exist, we are going to have to exhibit a cancellation between the numerator and the denominator. Let's start by taking a closer look at  the numerator. By Example <xref ref="eg_sincosSeries"/>,
+<me>
+\sin x = x-\frac{1}{3!}x^3+\frac{1}{5!}x^5 - \cdots
+</me>
+Consequently
+	<fn>
+		We are hiding some mathematics behind this <q>consequently</q>. What we are really using  our knowledge of Taylor polynomials to write
+		<me>
+		f(x) = \sin(x) = x-\frac{1}{3!}x^3+\frac{1}{5!}x^5 + E_5(x)
+		</me>
+		where <m>E_5(x) = \frac{f^{(6)}(c)}{6!} x^6</m> and <m>c</m> is between 0 and <m>x</m>. We are effectively hiding <q><m>E_5(x)</m></q> inside  the <q><m>\cdots</m></q>. Now we can divide both sides by <m>x</m> (assuming <m>x \neq 0</m>):
+		<md>
+		<mrow>
+		\frac{\sin(x)}{x} &amp;= 1-\frac{1}{3!}x^2+\frac{1}{5!}x^4 + \frac{E_5(x)}{x}.
+		</mrow>
+		</md>
+		and everything is fine provided the term <m>\frac{E_5(x)}{x}</m> stays well behaved.
+	</fn>
+<me>
+\frac{\sin x}{x}=1-\frac{1}{3!}x^2 + \frac{1}{5!}x^4 - \cdots
+</me>
+Every term in this series, except for the very first term, is proportional to a strictly positive power of <m>x</m>. Consequently, as <m>x</m> tends to zero, all terms in this series, except for the very first term, tend to zero. In fact the sum of all terms, starting with the second term, also tends to zero. That is,
+<me>
+\lim_{x\rightarrow 0}\Big[-\frac{1}{3!}x^2 + \frac{1}{5!}x^4 - \cdots\Big] =0
+</me>
+We won't justify that statement here, but it will be justified in the following (optional) subsection. So
+<md>
+<mrow>
+\lim_{x\rightarrow 0}\frac{\sin x}{x}
+&amp; =\lim_{x\rightarrow 0}\Big[1-\frac{1}{3!}x^2 + \frac{1}{5!}x^4 - \cdots\Big]
+</mrow><mrow>
+&amp;=1+\lim_{x\rightarrow 0}\Big[-\frac{1}{3!}x^2 + \frac{1}{5!}x^4 - \cdots\Big]
+</mrow><mrow>
+&amp;=1
+</mrow>
+</md>
+</p>
+</example>
+
+<p>
+The limit in the previous example can also be evaluated relatively easily using l'Hôpital's rule
+	<fn>
+		Many of you  learned about l'Hôptial's rule in school and all of you should have seen it last term in your differential calculus  course.
+	</fn>.
+While the following limit can also, in principal, be evaluated using l'Hôpital's rule, it is much more  efficient to use Taylor series
+	<fn>
+		It takes 3 applications of l'Hôpital's rule and some careful cleaning up of  the intermediate expressions. Oof!
+	</fn>.
+</p>
+
+<example xml:id="eg_TaylorlimitB"><title>A not so easy limit made easier</title>
+<p>
+In this example we evaluate
+<me>
+\lim_{x\rightarrow 0}\frac{\arctan x -x}{\sin x-x}
+</me>
+Once again, the first thing to notice about this limit is that,  as x tends to zero, the numerator tends to <m>\arctan 0 -0</m>, which is <m>0</m>, and the denominator tends to <m>\sin 0-0</m>, which is also <m>0</m>. So we may not evaluate the limit of the ratio by simply dividing the limits of the numerator and denominator.  Again, to find the limit, or show that it does not exist, we are going to have to exhibit a cancellation between the  numerator and the denominator. To get a more detailed understanding of the behaviour of the numerator and denominator near <m>x=0</m>, we find their Taylor expansions. By Example <xref ref="eg_SRpsrepD"/>,
+<me>
+\arctan x = x-\frac{x^3}{3}+\frac{x^5}{5}-\cdots
+</me>
+so the numerator
+<me>
+\arctan x -x = -\frac{x^3}{3}+\frac{x^5}{5}-\cdots
+</me>
+By Example <xref ref="eg_sincosSeries"/>,
+<me>
+\sin x = x-\frac{1}{3!}x^3+\frac{1}{5!}x^5 - \cdots
+</me>
+so the denominator
+<me>
+\sin x -x = -\frac{1}{3!}x^3+\frac{1}{5!}x^5 - \cdots
+</me>
+and the ratio
+<me>
+\frac{\arctan x -x}{\sin x - x}
+= \frac{-\frac{x^3}{3}+\frac{x^5}{5}-\cdots}
+       {-\frac{1}{3!}x^3+\frac{1}{5!}x^5 - \cdots}
+</me>
+Notice that every term in both the numerator and the denominator contains a common factor of <m>x^3</m>, which we can cancel out.
+<me>
+\frac{\arctan x -x}{\sin x - x}
+= \frac{-\frac{1}{3}+\frac{x^2}{5}-\cdots}
+       {-\frac{1}{3!}+\frac{1}{5!}x^2 - \cdots}
+</me>
+As <m>x</m> tends to zero,
+<ul>
+<li>
+	the numerator tends to <m>-\frac{1}{3}</m>, which is not <m>0</m>, and
+</li>
+<li>
+	the denominator tends to <m>-\frac{1}{3!}=-\frac{1}{6}</m>,  which is also not <m>0</m>.
+</li>
+</ul>
+so we may now legitimately evaluate the limit of the ratio by simply dividing the limits of the numerator and denominator.
+<md>
+<mrow>
+\lim_{x\rightarrow 0}\frac{\arctan x -x}{\sin x-x}
+&amp;=\lim_{x\rightarrow 0} \frac{-\frac{1}{3}+\frac{x^2}{5}-\cdots}
+       {-\frac{1}{3!}+\frac{1}{5!}x^2 - \cdots}
+</mrow><mrow>
+&amp;=\frac{\lim_{x\rightarrow 0} \big[-\frac{1}{3}+\frac{x^2}{5}-\cdots\big]}
+       {\lim_{x\rightarrow 0} \big[-\frac{1}{3!}+\frac{1}{5!}x^2 - \cdots\big]}
+</mrow><mrow>
+&amp;=\frac{-\frac{1}{3}}{-\frac{1}{3!}}
+</mrow><mrow>
+&amp;=2
+</mrow>
+</md>
+</p>
+</example>
+</subsection>
+
+<subsection>
+<title>Optional <mdash/> The Big O Notation</title>
+
+<p>
+In Example <xref ref="eg_TaylorlimitA"/> we used, without justification
+	<fn>
+		Though there were a few comments in a footnote.
+	</fn>,
+that, as <m>x</m> tends to zero, not only does every term in
+<me>
+\frac{\sin x}{x}-1
+= -\frac{1}{3!}x^2 + \frac{1}{5!}x^4 - \cdots
+=\sum_{n=1}^\infty (-1)^n\frac{1}{(2n+1)!}x^{2n}
+</me>
+converge to zero, but in fact the sum of all infinitely many terms also converges to zero. We did something similar twice in Example <xref ref="eg_TaylorlimitB"/>; once in computing the limit of the numerator and once in computing the limit of the denominator.
+</p>
+
+<p>
+We'll now develop some machinery that provides the  justification. We start by recalling, from equation<nbsp/><xref ref="eq_TaylorPolyPlusError"/>,  that if, for some natural number <m>n</m>, the function <m>f(x)</m> has  <m>n+1</m> derivatives near the point <m>a</m>, then
+<me>
+f(x) =T_n(x) +E_n(x)
+</me>
+where
+<me>
+T_n(x)=f(a)+f'(a)\,(x-a)+\cdots+\tfrac{1}{n!}f^{(n)}(a)\, (x-a)^n
+</me>
+is the Taylor polynomial of degree <m>n</m> for the function <m>f(x)</m> and expansion point <m>a</m> and
+<me>
+E_n(x)=f(x)-T_n(x)=\tfrac{1}{(n+1)!}f^{(n+1)}(c)\, (x-a)^{n+1}
+</me>
+is the error introduced when we approximate <m>f(x)</m> by the polynomial <m>T_n(x)</m>. Here <m>c</m> is some unknown number between <m>a</m> and <m>x</m>. As <m>c</m> is not known, we do not know exactly what the error <m>E_n(x)</m> is. But that is usually not a problem.
+</p>
+
+<p>
+In the present context
+	<fn>
+		It is worth pointing out that  our Taylor series must be expanded about the point to  which we are limiting <mdash/> i.e. a to work out a limit as  <m>x\to a</m> we need Taylor series expanded about <m>a</m> and not  some other point.</fn>
+we are interested in taking the limit as  <m>x \to a</m>.  So we are only interested in <m>x</m>-values that are  very close to <m>a</m>, and because <m>c</m> lies between <m>x</m> and <m>a</m>,  <m>c</m> is also very close to <m>a</m>. Now, as long as  <m>f^{(n+1)}(x)</m> is continuous at <m>a</m>, as <m>x \to a</m>,  <m>f^{(n+1)}(c)</m> must approach <m>f^{(n+1)}(a)</m> which is  some finite value. This, in turn,  means that there must be  constants <m>M,D \gt 0</m> such that <m>\big|f^{(n+1)}(c)\big|\le M</m>  for all <m>c</m>'s within a distance <m>D</m> of <m>a</m>. If so, there is  another constant <m>C</m> (namely <m>\tfrac{M}{(n+1)!}</m>) such that
+<me>
+\big|E_n(x)\big|\le C |x-a|^{n+1}\qquad\hbox{whenever }|x-a|\le D
+</me>
+There is some notation for this behavour.
+</p>
+
+<definition xml:id="def_bigoh"><title>Big O</title>
+<statement><p>
+Let <m>a</m> and <m>m</m> be real numbers. We say that the function  <q><m>g(x)</m> is of order <m>|x-a|^m</m> near <m>a</m></q> and we write  <m>g(x)=O\big(|x-a|^m\big)</m> if there exist constants
+	<fn>
+		To be precise, <m>C</m> and <m>D</m> do not depend on <m>x</m>, though they may, and usually do, depend on <m>m</m>.
+	</fn>
+<m>C,D \gt 0</m> such that
+
+<mdn>
+<mrow xml:id="eq_bigoh" tag="star">
+\big|g(x)\big|\le C |x-a|^m\qquad\hbox{whenever }|x-a|\le D
+</mrow>
+</mdn>
+
+Whenever <m>O\big(|x-a|^m\big)</m> appears in an algebraic expression,  it just stands for some (unknown) function <m>g(x)</m> that obeys <xref ref="eq_bigoh"/>. This is called <q>big O</q> notation.
+</p></statement>
+</definition>
+
+<p>
+How should we parse the big O notation when we see it? Consider  the following
+<md>
+<mrow>
+  g(x) &amp;= O( |x-3|^2 )
+</mrow>
+</md>
+First of all, we know from the definition that the notation only tells us something about <m>g(x)</m> for <m>x</m> near the  point <m>a</m>. The equation above contains <q><m>O(|x-3|^2)</m></q> which  tells us something about what the function looks like when <m>x</m>  is close to <m>3</m>. Further, because it is <q><m>|x-3|</m></q> squared,  it says that the graph of the function lies below a parabola <m>y=C(x-3)^2</m> and above a parabola <m>y=-C(x-3)^2</m> near <m>x=3</m>. The notation doesn't  tell us anything more than this <mdash/> we don't know, for example,  that the graph of <m>g(x)</m> is concave up or concave down. It also  tells us that Taylor expansion of <m>g(x)</m> around <m>x=3</m> does not  contain any constant or linear term <mdash/> the first nonzero term  in the expansion is of degree at least two.  For example, all of the  following functions are <m>O(|x-3|^2)</m>.
+<md>
+<mrow>
+5(x-3)^2 + 6(x-3)^3,\qquad
+-7(x-3)^2 - 8(x-3)^4,\qquad
+(x-3)^3,\qquad
+(x-3)^{\frac{5}{2}}
+</mrow>
+</md>
+</p>
+
+<p>
+In the next few examples we will rewrite a few of the Taylor  polynomials that we know using this big O notation.
+</p>
+
+<example xml:id="eg_bigohsincos"><title>Sine and the big O</title>
+<p>
+Let <m>f(x)=\sin x</m> and <m>a=0</m>. Then
+<md>
+<mrow>
+f(x)&amp;=\sin x &amp;
+f'(x)&amp;=\cos x &amp;
+f''(x)&amp;=-\sin x &amp;
+f^{(3)}(x)&amp;=-\cos x &amp;
+f^{(4)}(x)&amp;=\sin x &amp; &amp;\cdots
+</mrow><mrow>
+f(0)&amp;=0 &amp;
+f'(0)&amp;=1 &amp;
+f''(0)&amp;=0 &amp;
+f^{(3)}(0)&amp;=-1 &amp;
+f^{(4)}(0)&amp;=0 &amp; &amp;\cdots
+</mrow>
+</md>
+and the pattern repeats. So every derivative is plus or minus either  sine or cosine and, as we saw in previous examples,  this makes analysing the error term for the sine and cosine series quite straightforward. In particular, <m>\big|f^{(n+1)}(c)\big|\le 1</m> for all real numbers <m>c</m> and all  natural numbers <m>n</m>. So the Taylor polynomial of, for  example, degree 3 and its error term are
+<md>
+<mrow>
+\sin x &amp;= x-\tfrac{1}{3!}x^3+\tfrac{\cos c}{5!} x^5
+</mrow><mrow>
+       &amp;= x-\tfrac{1}{3!}x^3+O(|x|^5)
+</mrow>
+</md>
+under Definition <xref ref="def_bigoh"/>, with <m>C=\tfrac{1}{5!}</m> and any <m>D \gt 0</m>.  Similarly, for any natural number <m>n</m>,
+</p>
+<fact xml:id="eq_SRsincosExp">
+<statement><p>
+<md>
+<mrow>
+\sin x&amp;=x-\tfrac{1}{3!}x^3+\tfrac{1}{5!}x^5-\cdots+(-1)^{n}\tfrac{1}{(2n+1)!}
+x^{2n+1} +O\big( |x|^{2n+3}\big)
+</mrow><mrow>
+\cos x&amp;=1-\tfrac{1}{2!}x^2+\tfrac{1}{4!}x^4-\cdots+(-1)^{n}\tfrac{1}{(2n)!}
+x^{2n} +O\big( |x|^{2n+2}\big)
+</mrow>
+</md>
+</p></statement>
+</fact>
+
+</example>
+
+<p>
+When we studied the error in the expansion of the exponential function  (way back in optional Example<nbsp/><xref ref="eg_expSeriesB"/>), we had to go to  some length to understand the behaviour of the error term well enough  to prove convergence for all numbers <m>x</m>.  However, in the big O notation, we are free to assume that  <m>x</m> is close to <m>0</m>. Furthermore we do not need to derive an explicit bound on the size of the coefficient <m>C</m>. This makes it quite a bit easier to  verify that the big O notation is correct.
+</p>
+
+<example xml:id="eg_bigohexp"><title>Exponential and big O</title>
+<p>
+Let <m>n</m> be any natural number. Since <m>\diff{}{x} e^x = e^x</m>, we know that  <m>\ddiff{k}{}{x}\left\{ e^x \right\} = e^x</m> for every integer <m>k \geq 0</m>.  Thus
+<me>
+e^x=1+x+\tfrac{x^2}{2!}+\tfrac{x^3}{3!}+\cdots+\tfrac{x^n}{n!} +\tfrac{e^c}{(n+1)!} x^{n+1}
+</me>
+for some <m>c</m> between <m>0</m> and <m>x</m>. If, for example, <m>|x|\le 1</m>, then <m>|e^c|\le e</m>, so that the error term
+<me>
+\big|\tfrac{e^c}{(n+1)!} x^{n+1}\big| \le  C|x|^{n+1}\qquad\hbox{ with } C=\tfrac{e}{(n+1)!}\qquad\hbox{ whenever }|x|\le 1
+</me>
+So, under Definition <xref ref="def_bigoh"/>, with <m>C=\tfrac{e}{(n+1)!}</m>
+and <m>D=1</m>,
+</p>
+<fact xml:id="eq_SRexpExp">
+<statement><p>
+<me>
+e^x=1+x+\tfrac{x^2}{2!}+\tfrac{x^3}{3!}+\cdots+\tfrac{x^n}{n!}
+          +O\big( |x|^{n+1}\big)
+</me>
+</p></statement>
+</fact>
+
+<p>
+You can see that, because we only have to consider <m>x</m>'s that are close to the  expansion point (in this example, <m>0</m>) it is relatively easy to derive  the bounds that are required to justify the use of the big O notation.
+</p>
+</example>
+
+<example xml:id="eg_bigohlog"><title>Logarithms and the big O</title>
+<p>
+Let <m>f(x)=\log(1+x)</m> and <m>a=0</m>. Then
+<md>
+<mrow>
+f'(x)&amp;=\tfrac{1}{1+x} &amp;
+f''(x)&amp;=-\tfrac{1}{(1+x)^2} &amp;
+f^{(3)}(x)&amp;=\tfrac{2}{(1+x)^3} &amp;
+f^{(4)}(x)&amp;=-\tfrac{2\times 3}{(1+x)^4} &amp;
+f^{(5)}(x)&amp;=\tfrac{2\times 3\times 4}{(1+x)^5}
+</mrow><mrow>
+f'(0)&amp;=1 &amp;
+f''(0)&amp;=-1 &amp;
+f^{(3)}(0)&amp;=2 &amp;
+f^{(4)}(0)&amp;=-3! &amp;
+f^{(5)}(0)&amp;=4!
+</mrow>
+</md>
+We can see a pattern for <m>f^{(n)}(x)</m> forming here <mdash/> <m>f^{(n)}(x)</m> is a sign times a ratio with
+<ul>
+<li>
+	the sign being <m>+</m> when <m>n</m> is odd and being <m>-</m> when <m>n</m> is even. So the sign is <m>(-1)^{n-1}</m>.
+</li>
+<li>
+	The denominator is <m>(1+x)^n</m>.
+</li>
+<li>
+	The numerator
+		<fn>
+			remember that <m>n! = 1\times 2\times 3\times \cdots\times n</m>, and that we use the  convention <m>0!=1</m>.
+		</fn>
+	is the product <m>2\times 3\times 4\times \cdots \times (n-1) = (n-1)!</m>.
+</li>
+</ul>
+Thus
+	<fn>
+		It is not too hard to make this rigorous using the principle  of mathematical induction. The interested  reader should do a little search-engine-ing. Induction is a very standard technique for proving statements of the  form <q>For every natural number <m>n</m>,<ellipsis/></q>. For example
+		<md>
+		<mrow>
+		\text{For every natural number $n$, }&amp; \sum_{k=1}^n k = \frac{n(n+1)}{2} &amp; \text{or}
+		</mrow>
+		<mrow>
+		\text{For every natural number $n$, }&amp; \ddiff{n}{}{x} \left\{ \log(1+x)\right\} = (-1)^{n-1} \frac{(n-1)!}{(1+x)^n}
+		</mrow>
+		</md>
+		It was also used by Polya (1887<ndash/>1985) to give a very convincing (but subtly (and deliberately) flawed)  proof that all horses have the same colour.
+	</fn>,
+for any natural number <m>n</m>,
+<md>
+<mrow>
+f^{(n)}(x)&amp;=(-1)^{n-1}\tfrac{(n-1)!}{(1+x)^n} &amp; \text{which means that}
+</mrow><mrow>
+\tfrac{1}{n!}f^{(n)}(0)\,x^n &amp;= (-1)^{n-1}\tfrac{(n-1)!}{n!}x^n = (-1)^{n-1}\tfrac{x^n}{n}
+</mrow>
+</md>
+so
+<me>
+\log(1+x) = x-\tfrac{x^2}{2}+\tfrac{x^3}{3}-\cdots +(-1)^{n-1}\tfrac{x^n}{n} +E_n(x)
+</me>
+with
+<me>
+E_n(x)=\tfrac{1}{(n+1)!}f^{(n+1)}(c)\, (x-a)^{n+1} = \tfrac{1}{n+1} \cdot \tfrac{(-1)^n}{(1+c)^{n+1}} \cdot x^{n+1}
+</me>
+If we choose, for example <m>D=\half</m>, then
+	<fn>
+		Since <m>|c|\leq \half</m>,  <m>-\half \leq c \leq \half</m>. If we now add 1 to every term we get <m>\half \leq 1+c \leq \frac{3}{2}</m> and so <m>|1+c| \geq  \half</m>. You can also do this with the triangle inequality which tells us that for any <m>x,y</m> we know that <m>|x+y| \leq  |x|+|y|</m>. Actually, you want the reverse triangle inequality (which is a simple corollary of the triangle inequality)  which says that for any <m>x,y</m> we have <m>|x+y| \geq \big||x|-|y| \big|</m>.
+	</fn>
+for any <m>x</m> obeying <m>|x|\le D=\half</m>, we have  <m>|c|\le\half </m> and <m>|1+c|\ge\half</m> so that
+<me>
+|E_n(x)|\le \tfrac{1}{(n+1)(1/2)^{n+1}}|x|^{n+1} = O\big(|x|^{n+1}\big)
+</me>
+under Definition <xref ref="def_bigoh"/>, with <m>C=\tfrac{2^{n+1}}{n+1}</m> and <m>D=\half</m>. Thus we may write
+</p>
+<fact xml:id="eq_bigohlog">
+<statement><p>
+<me>
+\log(1+x) = x-\tfrac{x^2}{2}+\tfrac{x^3}{3}-\cdots +(-1)^{n-1}\tfrac{x^n}{n} +O\big(|x|^{n+1}\big)
+</me>
+</p></statement>
+</fact>
+
+</example>
+
+<remark xml:id="rem_bigohppties">
+<p>
+The big O notation has a few properties that are useful in computations and taking limits. All follow immediately from Definition <xref ref="def_bigoh"/>.
+<ol label="a">
+<li>
+	If <m>p \gt 0</m>, then
+	<me>
+	\lim\limits_{x\rightarrow 0} O(|x|^p)=0
+	</me>
+</li>
+<li>
+	For any real numbers <m>p</m> and <m>q</m>,
+     <me>
+     O(|x|^p)\  O(|x|^q)=O(|x|^{p+q})
+     </me>
+     (This is just because  <m>C|x|^p\times C'|x|^q= (CC')|x|^{p+q}</m>.)  In particular,
+     <me>
+     ax^m\,O(|x|^p)=O(|x|^{p+m})
+     </me>
+     for any constant <m>a</m> and any integer <m>m</m>.
+</li>
+<li>
+	For any real numbers <m>p</m> and <m>q</m>,
+     <me>
+     O(|x|^p) + O(|x|^q)=O(|x|^{\min\{p,q\}})
+     </me>
+     (For example, if <m>p=2</m> and <m>q=5</m>, then <m>C|x|^2+C'|x|^5 =\big(C+C'|x|^3\big) |x|^2\le (C+C')|x|^2</m> whenever <m>|x|\le 1</m>.)
+</li>
+<li>
+	For any real numbers <m>p</m> and <m>q</m> with <m>p \gt q</m>, any function which is <m>O(|x|^p)</m> is also <m>O(|x|^q)</m> because <m> C|x|^p= C|x|^{p-q}|x|^q\le C|x|^q</m> whenever <m>|x|\le 1</m>.
+</li>
+<li>
+	All of the above observations also hold for more general expressions  with <m>|x|</m> replaced by <m>|x-a|</m>, i.e. for <m>O(|x-a|^p)</m>. The only  difference being in (a) where we must take the limit as <m>x \to a</m>  instead of <m>x\to 0</m>.
+</li>
+</ol>
+</p>
+</remark>
+</subsection>
+
+
+
+<subsection>
+<title>Optional <mdash/> Evaluating Limits Using Taylor Expansions <mdash/> More Examples</title>
+
+<example xml:id="eg_bigohlimitAA"><title>Example <xref ref="eg_TaylorlimitA"/> revisited</title>
+<p>
+In this example, we'll return to the limit
+<me>
+\lim_{x\rightarrow 0}\frac{\sin x}{x}
+</me>
+of Example <xref ref="eg_TaylorlimitA"/> and treat it more carefully. By Example <xref ref="eg_bigohsincos"/>,
+<me>
+\sin x = x-\frac{1}{3!}x^3+O(|x|^5)
+</me>
+That is, for small <m>x</m>, <m>\sin x</m> is the same as <m>x-\frac{1}{3!}x^3</m>,  up to an error that is bounded by some constant times <m>|x|^5</m>. So, dividing by <m>x</m>, <m>\frac{\sin x}{x}</m> is the same as  <m>1-\frac{1}{3!}x^2</m>, up to an error that is bounded by some  constant times <m>x^4</m> <mdash/> see Remark <xref ref="rem_bigohppties"/>(b). That is
+<me>
+\frac{\sin x}{x}=1-\frac{1}{3!}x^2+O(x^4)
+</me>
+But any function that is bounded by some constant times <m>x^4</m> (for all <m>x</m> smaller than some constant <m>D \gt 0</m>) necessarily tends to <m>0</m> as <m>x\rightarrow 0</m> <mdash/> see Remark <xref ref="rem_bigohppties"/>(a). . Thus
+<me>
+\lim_{x\rightarrow 0}\frac{\sin x}{x}
+=\lim_{x\rightarrow 0}\Big[1-\frac{1}{3!}x^2+O(x^4)\Big]
+=\lim_{x\rightarrow 0}\Big[1-\frac{1}{3!}x^2\Big]
+=1
+</me>
+</p>
+
+<p>
+Reviewing the above computation, we see that we did a little more work than we had to. It wasn't necessary to keep track of the <m>-\frac{1}{3!}x^3</m> contribution to <m>\sin x</m> so carefully. We could have just said that
+<me>
+\sin x = x+O(|x|^3)
+</me>
+so that
+<me>
+\lim_{x\rightarrow 0}\frac{\sin x}{x}
+=\lim_{x\rightarrow 0}\frac{x+O(|x|^3)}{x}
+=\lim_{x\rightarrow 0}\big[1+O(x^2)\big]
+=1
+</me>
+We'll spend a little time in the later, more complicated, examples learning how to choose the number of terms we keep in our Tayor expansions so as to make our computations as efficient as possible.
+</p>
+</example>
+
+<example xml:id="eg_bigohlimitA"><title>Practicing using Taylor polynomials for limits</title>
+<p>
+In this example, we'll use the Taylor polynomial of Example <xref ref="eg_bigohlog"/>  to evaluate <m>\lim\limits_{x\rightarrow 0}\tfrac{\log(1+x)}{x}</m> and <m>\lim\limits_{x\rightarrow 0}(1+x)^{a/x}</m>. The Taylor expansion of equation<nbsp/><xref ref="eq_bigohlog"/> with <m>n=1</m> tells us that
+<me>
+\log(1+x)=x+O(|x|^2)
+</me>
+That is, for small <m>x</m>, <m>\log(1+x)</m> is the same as <m>x</m>, up to an error that  is bounded by some constant times <m>x^2</m>. So, dividing by <m>x</m>, <m>\frac{1}{x}\log(1+x)</m> is the same as <m>1</m>, up to an  error that is bounded by some constant times <m>|x|</m>. That is
+<me>
+\frac{1}{x}\log(1+x)=1+O(|x|)
+</me>
+But any function that is bounded by some constant times <m>|x|</m>, for all <m>x</m> smaller than some constant <m>D \gt 0</m>, necessarily tends to <m>0</m> as <m>x\rightarrow 0</m>. Thus
+<me>
+\lim_{x\rightarrow 0}\frac{\log(1+x)}{x}
+=\lim_{x\rightarrow 0}\frac{x+O(|x|^2)}{x}
+=\lim_{x\rightarrow 0}\big[1+O(|x|)\big]
+=1
+</me>
+</p>
+
+<p>
+We can now use this limit to evaluate
+<md>
+<mrow>
+\lim_{x\rightarrow 0}(1+x)^{a/x}.
+</mrow>
+</md>
+Now, we could either evaluate the limit of the logarithm of this  expression, or we can carefully rewrite the expression  as <m>e^\mathrm{(something)}</m>. Let us do the latter.
+<md>
+<mrow>
+\lim_{x\rightarrow 0}(1+x)^{a/x}
+&amp;=\lim_{x\rightarrow 0}e^{\frac{a}{x} \log(1+x) }
+</mrow><mrow>
+&amp;=\lim_{x\rightarrow 0}e^{\frac{a}{x}[x+O(|x|^2)]}
+</mrow><mrow>
+&amp;=\lim_{x\rightarrow 0}e^{a+O(|x|)}
+=e^a
+</mrow>
+</md>
+Here we have used that if <m>F(x)=O(|x|^2)</m> then <m>\frac{a}{x} F(x) = O(x)</m> <mdash/> see Remark<nbsp/><xref ref="rem_bigohppties"/>(b). We have also used that the exponential is continuous <mdash/> as <m>x</m>  tends to zero, the exponent of <m>e^{a+O(|x|)}</m> tends to <m>a</m>  so that <m>e^{a+O(|x|)}</m> tends to <m>e^a</m> <mdash/> see Remark<nbsp/><xref ref="rem_bigohppties"/>(a).
+</p>
+</example>
+
+
+<example xml:id="bigohlimitB"><title>A difficult limit</title>
+<p>
+In this example, we'll evaluate
+	<fn>
+		Use of l'Hôpital's rule here could be characterised as a <q>courageous  decision</q>. The interested reader should search-engine their way to Sir Humphrey Appleby and <q>Yes Minister</q> to better  understand this reference (and the workings of government in the Westminster system). Discretion being the better  part of valour, we'll stop and think a little before limiting (ha) our choices.
+	</fn>
+the harder limit
+<me>
+\lim_{x\rightarrow 0}\frac{\cos x -1 + \half x\sin x}{{[\log(1+x)]}^4}
+</me>
+The first thing to notice about this limit is that, as <m>x</m> tends to zero, the numerator
+<md>
+<mrow>
+\cos x -1 + \half x\sin x &amp;\to \cos 0 -1 +\half\cdot 0\cdot\sin 0=0
+</mrow>
+</md>
+and the denominator
+<md>
+<mrow>
+  [\log(1+x)]^4 &amp; \to [\log(1+0)]^4=0
+</mrow>
+</md>
+too. So both the numerator and denominator tend to zero and we may not simply evaluate  the limit of the ratio by taking  the limits of the numerator and denominator and dividing.
+</p>
+
+<p>
+To find the limit, or show that it does not exist, we are going to have to exhibit a cancellation between the numerator  and the denominator. To develop a strategy for evaluating this limit, let's do a <q>little scratch work</q>, starting by  taking a closer look at the denominator. By Example <xref ref="eg_bigohlog"/>,
+<md>
+<mrow>
+\log(1+x) = x+O(x^2)
+</mrow>
+</md>
+This tells us that <m>\log(1+x)</m> looks a lot like <m>x</m> for very small <m>x</m>. So the denominator <m>[x+O(x^2)]^4</m> looks a lot like <m>x^4</m> for very small <m>x</m>. Now, what about the numerator?
+<ul>
+<li>
+	If the numerator looks like some constant times <m>x^p</m> with <m>p \gt 4</m>,  for very small <m>x</m>, then the ratio will look like the constant times  <m>\frac{x^p}{x^4}=x^{p-4}</m> and, as <m>p-4 \gt 0</m>, will tend to <m>0</m> as <m>x</m>  tends to zero.
+</li>
+<li>
+	If the numerator looks like some constant times <m>x^p</m> with <m>p \lt 4</m>,  for very small <m>x</m>, then the ratio will look like the constant times  <m>\frac{x^p}{x^4}=x^{p-4}</m> and will, as <m>p-4 \lt 0</m>, tend to infinity,  and in particular diverge, as <m>x</m> tends to zero.
+</li>
+<li>
+	If the numerator looks like  <m>Cx^4</m>, for very small <m>x</m>, then  the ratio will look like <m>\frac{Cx^4}{x^4}=C</m> and will tend to <m>C</m> as  <m>x</m> tends to zero.
+</li>
+</ul>
+The moral of the above <q>scratch work</q> is that we need to know the  behaviour of the numerator, for small <m>x</m>, up to order <m>x^4</m>. Any  contributions of order <m>x^p</m> with <m>p \gt 4</m> may be put into error  terms <m>O(|x|^p)</m>.
+</p>
+
+<p>
+Now we are ready to evaluate the limit. Because the expressions  are a little involved, we will simplify the numerator  and denominator separately and then put things together. Using the expansions we developed in Example <xref ref="eg_bigohsincos"/>, the numerator,
+<md>
+<mrow>
+  \cos x -1 + \frac{1}{2} x\sin x
+  &amp;=
+  \left( 1 - \frac{1}{2!}x^2 + \frac{1}{4!}x^4 + O(|x|^6) \right)
+</mrow><mrow>
+  &amp;\phantom{=\ } -1  + \frac{x}{2}\left( x - \frac{1}{3!}x^3 + O(|x|^5) \right)
+  &amp; \text{expand}
+</mrow><mrow>
+  &amp;=  \left( \frac{1}{24}-\frac{1}{12} \right)x^4 + O(|x|^6) + \frac{x}{2} O(|x|^5)
+</mrow>
+<intertext>Then by Remark <xref ref="rem_bigohppties"/>(b)</intertext>
+<mrow>
+  &amp;=  - \frac{1}{24}x^4 + O(|x|^6) + O(|x|^6)
+</mrow>
+<intertext>and now by Remark<xref ref="rem_bigohppties"/>(c)</intertext>
+<mrow>
+  &amp;= - \frac{1}{24}x^4 + O(|x|^6)
+</mrow>
+</md>
+Similarly, using the expansion that we developed in Example <xref ref="eg_bigohlog"/>,
+<md>
+<mrow>
+  [ \log(1+x) ]^4 &amp;= \big[ x + O(|x|^2) \big]^4
+</mrow><mrow>
+  &amp;= \big[x + x O(|x|)\big]^4 &amp; \text{by Remark }<xref ref="rem_bigohppties"/>\text{(b)}
+</mrow><mrow>
+  &amp;= x^4 [1 +  O(|x|)]^4
+</mrow>
+</md>
+Now put these together and take the limit as <m>x \to 0</m>:
+<md>
+<mrow>
+\lim_{x \to 0}
+\frac{\cos x -1 + \half x\sin x}{[\log(1+x)]^4}
+&amp;= \lim_{x \to 0}
+\frac{ -\frac{1}{24}x^4 + O(|x|^6)}{x^4 [1+O(|x|)]^4}
+</mrow><mrow>
+&amp;= \lim_{x \to 0}
+\frac{-\frac{1}{24}x^4 + x^4O(|x|^2)}{x^4 [1+O(|x|)]^4}&amp; \text{by Remark }<xref ref="rem_bigohppties"/>\text{(b)}
+</mrow><mrow>
+&amp;= \lim_{x \to 0}
+\frac{-\frac{1}{24} + O(|x|^2)}{[1+O(|x|)]^4}
+</mrow><mrow>
+&amp;= -\frac{1}{24} &amp; \text{by Remark }<xref ref="rem_bigohppties"/>\text{(a)}.
+</mrow>
+</md>
+</p>
+</example>
+
+<p>
+The next two limts have much the same flavour as those above <mdash/> expand  the numerator and denominator to high enough order, do some cancellations  and then take the limit. We have increased the difficulty a little by  introducing <q>expansions of expansions</q>.
+</p>
+
+<example xml:id="eg_bigohlimitC"><title>Another difficult limit</title>
+<p>
+In this example we'll evaluate another harder limit, namely
+<me>
+\lim_{x\rightarrow 0}\frac{\log\big(\frac{\sin x}{x}\big)}{x^2}
+</me>
+The first thing to notice about this limit is that, as <m>x</m> tends to zero, the denominator <m>x^2</m> tends to <m>0</m>. So, yet again, to find the limit, we are going to have  to show that the numerator also tends to <m>0</m> and we are going to have  to exhibit a cancellation between the numerator and the denominator.
+</p>
+
+<p>
+Because the denominator is <m>x^2</m> any terms in the numerator, <m>\log\big(\frac{\sin x}{x}\big)</m> that are of order <m>x^3</m> or higher  will contribute terms in the ratio <m>\frac{\log(\frac{\sin x}{x})}{x^2}</m> that are of order <m>x</m> or higher. Those terms in the ratio will converge to  zero as <m>x\rightarrow 0</m>. The moral of this discussion is that we need to compute <m>\log\frac{\sin x}{x}</m> to order <m>x^2</m> with errors of order <m>x^3</m>. Now we saw, in Example <xref ref="eg_bigohlimitAA"/>, that
+<me>
+\frac{\sin x}{x}=1-\frac{1}{3!}x^2+O(x^4)
+</me>
+We also saw, in equation<nbsp/><xref ref="eq_bigohlog"/> with <m>n=1</m>, that
+<me>
+\log(1+X) = X +O(X^2)
+</me>
+Substituting
+	<fn>
+		In our derivation of <m>\log(1+X) = X +O(X^2)</m> in Example <xref ref="eg_bigohlog"/>, we required only that <m>|X|\le\frac{1}{2}</m>. So we are free to substitute <m>X= -\frac{1}{3!}x^2+O(x^4)</m> for any <m>x</m> that is small enough that <m>\big|-\frac{1}{3!}x^2+O(x^4)\big| \lt \frac{1}{2}</m>.
+	</fn>
+<m>X= -\frac{1}{3!}x^2+O(x^4)</m>, and using that <m>X^2=O(x^4)</m> (by Remark <xref ref="rem_bigohppties"/>(b,c)), we have that the numerator
+<me>
+\log\Big(\frac{\sin x}{x}\Big)
+=\log(1+X)
+= X +O(X^2)
+=-\frac{1}{3!}x^2+O(x^4)
+</me>
+and the limit
+<me>
+\lim_{x\rightarrow 0}\frac{\log\big(\frac{\sin x}{x}\big)}{x^2}
+=\lim_{x\rightarrow 0}\frac{-\frac{1}{3!}x^2+O(x^4)}{x^2}
+=\lim_{x\rightarrow 0}\Big[-\frac{1}{3!}+O(x^2)\Big]
+=-\frac{1}{3!}
+=-\frac{1}{6}
+</me>
+</p>
+</example>
+
+<example xml:id="eg_bigohlimitD"><title>Yet another difficult limit</title>
+<p>
+Evaluate
+<me>
+\lim_{x\rightarrow 0}\frac{e^{x^2}-\cos x}{\log(1+x)-\sin x}
+</me>
+</p>
+
+<p>
+<alert>Solution:</alert> <em>Step 1</em>: Find the limit of the denominator.
+<me>
+\lim_{x\rightarrow 0}\big[\log(1+x)-\sin x\big]
+=\log(1+0)-\sin 0
+=0
+</me>
+This tells us that we can't evaluate the limit just by  finding the limits of the numerator and denominator separately and then dividing.
+</p>
+
+<p>
+<em>Step 2</em>: Determine the leading order behaviour of the denominator near <m>x=0</m>. By equations<nbsp/><xref ref="eq_bigohlog"/>  and<nbsp/><xref ref="eq_SRsincosExp"/>,
+<md>
+<mrow>
+\log(1+x) &amp; = x-\tfrac{1}{2}x^2+\tfrac{1}{3}x^3-\cdots
+</mrow><mrow>
+\sin x &amp; = x-\tfrac{1}{3!}x^3+\tfrac{1}{5!}x^5-\cdots
+</mrow>
+</md>
+Taking the difference of these expansions gives
+<me>
+\log(1+x)-\sin x = -\tfrac{1}{2}x^2+\big(\tfrac{1}{3}
+                                 +\tfrac{1}{3!}\big)x^3 +\cdots
+</me>
+This tells us that, for <m>x</m> near zero, the denominator is  <m>-\tfrac{x^2}{2}</m> (that's the leading order term) plus contributions that are of order <m>x^3</m> and smaller. That is
+<me>
+\log(1+x)-\sin x = -\tfrac{x^2}{2}+ O(|x|^3)
+</me>
+</p>
+
+<p>
+<em>Step 3</em>: Determine the behaviour of the numerator near <m>x=0</m> to order <m>x^2</m> with errors of order <m>x^3</m> and smaller (just like the denominator). By equation<nbsp/><xref ref="eq_SRexpExp"/>
+<me>
+e^X=1+X+O\big(X^2\big)
+</me>
+Substituting <m>X=x^2</m>
+<md>
+<mrow>
+e^{x^2} &amp; = 1+x^2 +O\big(x^4\big)
+</mrow><mrow>
+\cos x &amp; = 1-\tfrac{1}{2}x^2+O\big(x^4\big)
+</mrow>
+</md>
+by equation<nbsp/><xref ref="eq_SRsincosExp"/>. Subtracting, the numerator
+<me>
+e^{x^2}-\cos x = \tfrac{3}{2}x^2+O\big(x^4\big)
+</me>
+</p>
+
+<p>
+<em>Step 4</em>: Evaluate the limit.
+<md>
+<mrow>
+\lim_{x\rightarrow 0}\frac{e^{x^2}-\cos x}{\log(1+x)-\sin x}
+&amp; =\lim_{x\rightarrow 0}\frac{\frac{3}{2}x^2+O(x^4)}
+                               {-\frac{x^2}{2}+ O(|x|^3)}
+</mrow>
+<mrow>
+&amp; =\lim_{x\rightarrow 0}\frac{\frac{3}{2}+O(x^2)}
+                               {-\frac{1}{2}+ O(|x|)}
+</mrow>
+<mrow>
+&amp;
+=\frac{\frac{3}{2}} {-\frac{1}{2}}
+=-3
+</mrow>
+</md>
+</p>
+</example>
+</subsection>
+
+<xi:include href="../problems/prob_s3.6.xml" />
+
+</section>

@@ -1,0 +1,1060 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+
+<exercises>
+
+<introduction>
+<p>
+Recall that we are using <m>\log x</m> to denote the logarithm of <m>x</m> with base <m>e</m>. In other courses it is often denoted <m>\ln x</m>.
+</p>
+</introduction>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+
+<exercise xml:id="p1_4_intbounds" purpose="RQS">
+<statement><p>
+<ol label="a">
+<li> True or False: <m>\displaystyle\int \sin(e^x)\cdot e^x\dee{x} = \left.\displaystyle\int \sin(u)\dee u\right|_{u=e^x} = -\cos(e^x)+C</m>
+</li>
+<li> True or False: <m>\displaystyle\int_0^1 \sin(e^x)\cdot e^x\dee{x} = \displaystyle\int_0^1 \sin(u)\dee u = 1-\cos(1)</m>
+</li>
+</ol>
+</p></statement>
+<hint><p>
+One is true, the other false.
+</p></hint>
+<answer><p>
+(a) true
+</p>
+<p>
+ (b) false
+</p></answer>
+<solution><p>
+(a) This is true: it is an application of Theorem<nbsp/><xref ref="thm_subs_indef"/> with <m>f(x)=\sin x</m> and <m>u(x)=e^x</m>.
+</p>
+
+<p>(b) This is false: the upper limit of integration is incorrect. Using Theorem<nbsp/><xref ref="thm_subs_def"/>, the correct form is <me>
+\displaystyle\int_0^1 \sin(e^x)\cdot e^x\dee{x} = \displaystyle\int_1^{e} \sin(u)\dee u = -\cos(e) + \cos(1) = \cos(1)-\cos(e).</me>
+</p>
+
+<p>Alternately, we can use the Fundamental Theorem of Calculus Part 2, and our answer from (a):
+<me>
+\int_0^1 \sin(e^x)\cdot e^x\dee{x}=\left[-\cos(e^x)+C\right]_{0}^1 = \cos(1)-\cos(e)\ .</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Is the following reasoning sound? If not, fix it.
+</p>
+
+<blockquote>
+<p>
+<em>Problem:</em> Evaluate <m>\displaystyle\int (2x+1)^2 \dee{x}</m>.
+<em>Work:</em> We use the substitution <m>u=2x+1</m>. Then:
+<md>
+<mrow>
+\int (2x+1)^2 \dee{x}&amp;=\int u^2\dee{u}
+</mrow><mrow>
+&amp;=\frac{1}{3}u^3+C
+</mrow><mrow>
+&amp;=\frac{1}{3}\left(2x+1\right)^3+C
+</mrow>
+</md>
+</p>
+</blockquote>
+</statement>
+<hint><p>
+You can check whether the final answer is correct by differentiating.
+</p></hint>
+<answer><p>
+The reasoning is not sound: when we do a substitution, we need to take care of the differential (<m>\dee{x}</m>). Remember the method of substitution comes from the chain rule: there should be a function <em>and its derivative</em>. Here's the way to do it:
+</p>
+<blockquote>
+<p>
+<em>Problem:</em> Evaluate <m>\displaystyle\int (2x+1)^2 \dee{x}</m>.
+<em>Work:</em> We use the substitution <m>u=2x+1</m>. Then <m>\dee{u}=2\dee{x}</m>, so <m>\dee{x} = \frac{1}{2}\dee{u}</m>:
+<md>
+<mrow>
+\int (2x+1)^2 \dee{x}&amp;=\int u^2\cdot \frac{1}{2}\dee{u}
+</mrow><mrow>
+&amp;=\frac{1}{6}u^3+C
+</mrow><mrow>
+&amp;=\frac{1}{6}\left(2x+1\right)^3+C
+</mrow>
+</md>
+</p>
+</blockquote>
+</answer>
+<solution><p>
+The reasoning is not sound: when we do a substitution, we need to take care of the differential (<m>\dee{x}</m>). Remember the method of substitution comes from the chain rule: there should be a function <em>and its derivative</em>. Here's the way to do it:
+</p>
+
+<blockquote>
+<p>
+<em>Problem:</em> Evaluate <m>\displaystyle\int (2x+1)^2 \dee{x}</m>.
+<em>Work:</em> We use the substitution <m>u=2x+1</m>. Then <m>\dee{u}=2\dee{x}</m>, so <m>\dee{x} = \frac{1}{2}\dee{u}</m>:
+<md>
+<mrow>
+\int (2x+1)^2 \dee{x}&amp;=\int u^2\cdot \frac{1}{2}\dee{u}
+</mrow><mrow>
+&amp;=\frac{1}{6}u^3+C
+</mrow><mrow>
+&amp;=\frac{1}{6}\left(2x+1\right)^3+C
+</mrow>
+</md>
+</p>
+</blockquote>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Is the following reasoning sound? If not, fix it.
+</p>
+
+<blockquote>
+<p>
+<em>Problem:</em> Evaluate <m>\displaystyle\int_{1}^{\pi} \dfrac{\cos(\log t)}{t}\dee{t}</m>.
+<em>Work:</em> We use the substitution <m>u=\log t</m>, so <m>\dee{u}=\frac{1}{t}\dee{t}</m>. Then:
+<md>
+<mrow>
+\int_{1}^{\pi} \dfrac{\cos(\log t)}{t}\dee{t}&amp;=\int_1^{\pi}\cos(u) \dee{u}
+</mrow><mrow>
+&amp;=\sin(\pi)-\sin(1)=-\sin(1)\, .
+</mrow>
+</md>
+</p>
+</blockquote>
+</statement>
+<hint><p>
+Check the limits.
+</p></hint>
+<answer><p>
+The problem is with the limits of integration, as in Question<nbsp/><xref ref="p1_4_intbounds" text="local"/>. Here's how it ought to go:
+</p>
+
+<blockquote>
+<p>
+<em>Problem:</em> Evaluate <m>\displaystyle\int_{1}^{\pi} \dfrac{\cos(\log t)}{t}\dee{t}</m>.
+<em>Work:</em> We use the substitution <m>u=\log t</m>, so <m>\dee{u}=\frac{1}{t}\dee{t}</m>. When <m>t=1</m>, we have <m>u=\log 1 =0</m> and when <m>t=\pi</m>, we have <m>u=\log(\pi)</m>.
+Then:
+<md>
+<mrow>
+\int_{1}^{\pi} \dfrac{\cos(\log t)}{t}\dee{t}&amp;=\int_{\log 1}^{\log(\pi)}\cos(u) \dee{u}
+</mrow><mrow>
+&amp;=\int_{0}^{\log(\pi)}\cos(u) \dee{u}
+</mrow><mrow>
+&amp;=\sin(\log(\pi))-\sin(0)=\sin(\log(\pi)) .
+</mrow>
+</md>
+</p>
+</blockquote>
+</answer>
+<solution><p>
+The problem is with the limits of integration, as in Question<nbsp/><xref ref="p1_4_intbounds" text="local"/>. Here's how it ought to go:
+</p>
+
+<blockquote>
+<p>
+<em>Problem:</em> Evaluate <m>\displaystyle\int_{1}^{\pi} \dfrac{\log(\log t)}{t}\dee{t}</m>.
+<em>Work:</em> We use the substitution <m>u=\log t</m>, so <m>\dee{u}=\frac{1}{t}\dee{t}</m>.
+When <m>t=1</m>, we have <m>u=\log 1 =0</m> and when <m>t=\pi</m>, we have <m>u=\log(\pi)</m>. Then:
+<md>
+<mrow>
+\int_{1}^{\pi} \dfrac{\cos(\log t)}{t}\dee{t}&amp;=\int_{\log 1}^{\log(\pi)}\cos(u) \dee{u}
+</mrow><mrow>
+&amp;=\int_{0}^{\log(\pi)}\cos(u) \dee{u}
+</mrow><mrow>
+&amp;=\sin(\log(\pi))-\sin(0)=\sin(\log(\pi)) .
+</mrow>
+</md>
+</p>
+</blockquote>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Is the following reasoning sound? If not, fix it.
+</p>
+
+<blockquote>
+<p>
+<em>Problem:</em> Evaluate <m>\displaystyle\int_{0}^{\pi/4} x\tan (x^2) \dee{x}</m>.
+<em>Work:</em> We begin with the substitution <m>u=x^2</m>,  <m>\dee{u} = 2x\dee{x}</m>:
+<md>
+<mrow>
+\int_{0}^{\pi/4} x\tan (x^2) \dee{x}&amp;= \int_{0}^{\pi/4} \frac{1}{2}\tan(x^2)\cdot 2x\dee{x}
+</mrow><mrow>
+&amp;=\int_{0}^{\pi^2/16} \frac{1}{2}\tan u\dee{u}
+</mrow><mrow>
+&amp;=\frac{1}{2}\int_{0}^{\pi^2/16} \dfrac{\sin u}{\cos u}\dee{u}
+</mrow>
+<intertext>Now we use the substitution <m>v=\cos u</m>, <m>\dee{v}=-\sin u \dee{u}</m>:
+</intertext><mrow>
+&amp;=\frac{1}{2}\int_{\cos 0}^{\cos(\pi^2/16)} -\dfrac{1}{v}\dee{v}
+</mrow><mrow>
+&amp;=-\frac{1}{2}\int_{1}^{\cos(\pi^2/16)} \dfrac{1}{v}\dee{v}
+</mrow><mrow>
+&amp;=-\frac{1}{2}\left[\log|v|\right]_{1}^{\pi^2/16}
+</mrow><mrow>
+&amp;=-\frac{1}{2}\left(\log\left(\frac{\pi^2}{16}\right)-\log(1)\right)
+</mrow><mrow>
+&amp;=-\frac{1}{2}\cdot2\log\left(\frac{\pi}{4}\right)
+</mrow><mrow>
+&amp;=-\log\left(\frac{\pi}{4}\right)
+</mrow><mrow>
+&amp;=\log\left(\frac{4}{\pi}\right)
+</mrow>
+</md>
+</p>
+</blockquote>
+</statement>
+<hint><p>
+Check every step. Do they all make sense?
+</p></hint>
+<answer><p>
+This one is OK.
+</p></answer>
+<solution><p>
+Perhaps shorter ways exist, but the reasoning here is valid.
+</p>
+
+<blockquote>
+<p>
+<em>Problem:</em> Evaluate <m>\displaystyle\int_{0}^{\pi/4} x\tan (x^2) \dee{x}</m>.
+<em>Work:</em> We begin with the substitution <m>u=x^2</m>,  <m>\dee{u} = 2x\dee{x}</m>:
+<textred>
+If <m>u=x^2</m>, then <m>\diff{u}{x} = 2x</m>, so indeed <m>\dee{u}=2x\dee{x}</m>.
+</textred>
+<md>
+<mrow>
+\int_{0}^{\pi/4} x\tan (x^2) \dee{x}&amp;= \int_{0}^{\pi/4} \frac{1}{2}\tan(x^2)\cdot 2x\dee{x}&amp;\color{red}{\text{algebra}}
+</mrow><mrow>
+&amp;=\int_{0}^{\pi^2/16} \frac{1}{2}\tan u\dee{u}
+</mrow>
+<intertext>
+<textred>Every piece is changed from <m>x</m> to <m>u</m>: integrand, differential, limits.</textred>
+</intertext>
+<mrow>
+&amp;=\frac{1}{2}\int_{0}^{\pi^2/16} \dfrac{\sin u}{\cos u}\dee{u}
+&amp;\color{red}{\tan u = \frac{\sin u}{\cos u}}
+</mrow>
+<intertext>Now we use the substitution <m>v=\cos u</m>, <m>\dee{v}=-\sin u \dee{u}</m>:
+</intertext><mrow>
+&amp;=\frac{1}{2}\int_{\cos 0}^{\cos(\pi^2/16)} -\dfrac{1}{v}\dee{v}
+</mrow>
+<intertext><textred>Every piece is changed from <m>u</m> to <m>v</m>: integrand, differential, limits.</textred>
+</intertext><mrow>
+&amp;=-\frac{1}{2}\int_{1}^{\cos(\pi^2/16)} \dfrac{1}{v}\dee{v}&amp;\color{red}{ \cos(0)=1}
+</mrow><mrow>
+&amp;=-\frac{1}{2}\bigg[\log|v|\bigg]_{1}^{\pi^2/16}&amp;\color{red}{\text{FTC Part 2}}
+</mrow><mrow>
+&amp;=-\frac{1}{2}\left(\log\left(\frac{\pi^2}{16}\right)-\log(1)\right)
+</mrow><mrow>
+&amp;=-\frac{1}{2}\cdot2\log\left(\frac{\pi}{4}\right)&amp;\color{red}{ \log(a^b)=b\log a}
+</mrow><mrow>
+&amp;=-\log\left(\frac{\pi}{4}\right)&amp;\color{red}{\text{algebra}}
+</mrow><mrow>
+&amp;=\log\left(\frac{4}{\pi}\right)&amp;\color{red}{\log(a^b)=b\log a}
+</mrow>
+</md>
+</p>
+</blockquote>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016A</fromexam></title>
+<statement><p>
+What is the integral that results when the substitution <m>u= \sin x</m>   is applied
+to the integral <m>\displaystyle \int_0^{\pi/2} f(\sin x)\,\dee{x}</m>?
+</p></statement>
+
+<answer><p>
+ <m>\displaystyle\int_{0}^{1} \frac{f(u)}{\sqrt{1-u^2}}\,\dee{u}</m>
+</p></answer>
+
+<solution><p>
+We substitute:
+<md>
+<mrow>
+u&amp;=\sin x,
+</mrow><mrow>
+\dee{u}&amp;=\cos x\,\dee{x},
+</mrow><mrow>
+\cos x &amp;= \sqrt{1-\sin^2 x}=\sqrt{1-u^2},
+</mrow><mrow>
+\dee{x} &amp;=\dfrac{\dee{u}}{\cos x} = \dfrac{\dee{u}}{\sqrt{1-u^2}}
+</mrow><mrow>
+u(0)&amp;=\sin 0 = 0
+</mrow><mrow>
+u\left(\frac{\pi}{2}\right)&amp;=\sin\left(\frac{\pi}{2}\right)=1
+</mrow>
+<intertext>So,</intertext><mrow>
+     \int_{x=0}^{x=\pi/2} f(\sin x)\,\dee{x}
+&amp;= \int_{u=0}^{u=1} f(u)\,\frac{\dee{u}}{\sqrt{1-u^2}}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>f</m> and <m>g</m> be functions that are continuous and differentiable everywhere. Simplify <me>
+\int f'(g(x))g'(x)\dee{x} - f(g(x)).</me>
+</p>
+
+</statement>
+<hint><p>
+What is <m>\diff{}{x}\{f(g(x))\}</m>?
+</p></hint>
+<answer><p>
+some constant <m>C</m>
+</p></answer>
+<solution><p>
+Using the chain rule, we see that
+<me>
+\diff{}{x}\{f(g(x))\}=f'(g(x))g'(x)</me>
+</p>
+
+<p>So, <m>\textcolor{red}{f(g(x))}</m> is an antiderivative of <m>\textcolor{red}{f'(g(x))g'(x)}</m>. All antiderivatives of <m>f'(g(x))g'(x)</m> differ by only a constant, so:
+<md>
+<mrow>
+\textcolor{red}{\int f'(g(x))g'(x)\dee{x}} - f(g(x))&amp;=\textcolor{red}{f(g(x))+C}-f(g(x))
+</mrow><mrow>
+&amp;=C
+</mrow>
+</md>
+That is, our expression simplifies to some constant <m>C</m>.
+</p>
+
+<p>Remark: since
+<me>
+\int f'(g(x))g'(x)\dee{t} - f(g(x))=C</me>
+</p>
+
+<p>we conclude
+<me>
+\int f'(g(x))g'(x)\dee{t} = f(g(x))+C</me>
+</p>
+
+<p>which is precisely how we perform substitution on integrals.
+</p></solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise><title><fromexam>2016Q2</fromexam></title>
+<statement><p>
+Use substitution to evaluate <m>\displaystyle\int_{0}^{1} x e^{x^2} \cos (e^{x^2}) \,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+What is the derivative of the argument of the cosine?
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{2}\big( \sin(e) - \sin(1) \big)</m>
+</p></answer>
+
+<solution><p>
+We write <m>\textcolor{red}{u(x) = e^{x^2}}</m> and find <m>\textcolor{blue}{\dee{u} = u'(x)\,\dee{x}=2x e^{x^2}\dee{x}}</m>. Note that <m>u(1)=e^{1^2}=e</m> when <m>x=1</m>, and <m>u(0)=e^{0^2}=1</m> when <m>x=0</m>. Therefore:
+<md>
+<mrow>
+\int_{0}^{1} \textcolor{blue}{x e^{x^2}} \cos (\textcolor{red}{e^{x^2}}) \,\textcolor{blue}{\dee{x}} &amp;= \textcolor{blue}{\frac{1}{2}}\int_{x=0}^{x=1} \cos (\textcolor{red}{u(x)}) \textcolor{blue}{u'(x)\,\dee{x} }
+</mrow><mrow>
+&amp;=\textcolor{blue}{ \frac{1}{2}}\int_{u=1}^{u=e} \cos(\textcolor{red}u)\,\color{blue}{\dee{u}}
+</mrow><mrow>
+&amp;= \frac{1}{2}\bigg[\sin(u) \bigg]_1^e
+= \frac{1}{2}\big( \sin(e) - \sin(1) \big).
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2001D</fromexam></title>
+<statement><p>
+Let <m>f(t)</m> be any function for which <m>\displaystyle\int_1^8 f(t)\,\dee{t}=1</m>.
+Calculate the integral <m>\displaystyle\int_1^2 x^2 f(x^3)\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+What is the title of the current section?
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{3}</m>
+</p></answer>
+
+<solution><p>
+Substituting <m>\textcolor{red}{y=x^3}</m>, <m>\textcolor{blue}{\dee{y}=3x^2\dee{x}}</m>:
+<md>
+<mrow>
+\int_1^2 \textcolor{blue}{x^2} f(\textcolor{red}{x^3})\,\textcolor{blue}{\dee{x}}
+=\textcolor{blue}{\frac{1}{3}}\int_1^8 f(\textcolor{red}{y})\,\textcolor{blue}{\dee{y}}
+=\frac{1}{3}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M121 2014A</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle \int  \frac{x^2}{{(x^3+1)}^{101}}\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+What is the derivative of <m>x^3+1</m>?
+</p></hint>
+
+<answer><p>
+<m>-\dfrac{1}{300{(x^3+1)}^{100}} + C</m>
+</p></answer>
+
+<solution><p>
+Setting <m>\textcolor{red}{u=x^3+1}</m>, we have <m>\textcolor{blue}{\dee{u} = 3x^2\,\dee{x}}</m> and so
+<md>
+<mrow>
+ \int  \frac{\textcolor{blue}{x^2\,\dee{x}}}{{(\textcolor{red}{x^3+1})}^{101}}
+  &amp;= \int \frac{\textcolor{blue}{\dee{u}/3}}{\textcolor{red}{u}^{101}}
+</mrow><mrow>
+  &amp;=\frac{1}{3}\int u^{-101}\dee{u}
+</mrow><mrow>
+&amp;=\frac{1}{3}\cdot\dfrac{u^{-100}}{-100}
+</mrow><mrow>
+  &amp;= -\frac{1}{3\times 100 u^{100}} + C
+</mrow><mrow>
+  &amp;=-\frac{1}{300{(x^3+1)}^{100}} + C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q2</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle \int_{e}^{e^4} \frac{\dee{x}}{x\log x}</m>.
+</p></statement>
+
+<hint><p>
+What is the derivative of <m>\log x</m>?
+</p></hint>
+
+<answer><p>
+<m>\log 4</m>
+</p></answer>
+
+<solution><p>
+Setting <m>\textcolor{red}{u=\log x}</m>, we have <m>\textcolor{blue}{\dee{u} = \frac{1}{x}\,\dee{x}}</m> and so
+<me>
+ \int_{e}^{e^4} \frac{\textcolor{blue}{\dee{x}}}{\textcolor{blue}x\cdot\textcolor{red}{\log x}}
+  = \int_{x=e}^{x=e^4} \frac1{\textcolor{red}{\log x}} \cdot \textcolor{blue}{\frac{1}{x}\,\dee{x} }
+  = \int_{u=1}^{u=4} \frac{1}{\textcolor{red}u}\,\textcolor{blue}{ \dee{u}},
+</me>
+since <m>u=\log(e)=1</m> when <m>x=e</m> and <m>u=\log(e^4)=4</m> when <m>x=e^4</m>.
+Then, by the Fundamental Theorem of Calculus Part 2,
+<me>
+\int_{1}^{4} \frac{1}{u}\, \dee{u}
+   = \Big[\log |u| \Big]_{1}^{4} = \log 4 - \log 1 = \log 4.
+</me>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle \int_{0}^{\pi/2} \frac{\cos x} {1+\sin x}\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+What is the derivative of <m>1+\sin x</m>?
+</p></hint>
+
+<answer><p>
+<m>\log 2 </m>
+</p></answer>
+
+<solution><p>
+Setting <m>\textcolor{red}{u=1+\sin x}</m>, we have <m>\textcolor{blue}{\dee{u} = \cos x\dee{x}}</m> and so
+<me>
+ \int_{0}^{\pi/2} \frac{\textcolor{blue}{\cos x}} {\textcolor{red}{1+\sin x}} \textcolor{blue}{\dee{x} }
+  = \int_{x=0}^{x=\pi/2} \frac{1}{\textcolor{red}{1+\sin x}}\, \textcolor{blue}{\cos x \dee{x} }
+   = \int_{u=1}^{u=2} \frac{\textcolor{blue}{\dee{u}}}{\textcolor{red}u}
+</me>
+since <m>u=1+\sin 0=1</m> when <m>x=0</m> and <m>u=1+\sin(\pi/2)=2</m> when <m>x=\pi/2</m>.
+Then, by the Fundamental Theorem of Calculus Part 2,
+<me>
+\int_{u=1}^{u=2} \frac{\dee{u}}{u}
+  = \Big[\log|u| \Big]_{1}^{2} = \log 2
+</me>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q2</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle \int_{0}^{\pi/2} \cos x \cdot (1+\sin^2 x)\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+<m>\cos x</m> is the derivative of what?
+</p></hint>
+
+<answer><p>
+<m>\dfrac{4}{3}</m>
+</p></answer>
+
+<solution><p>
+Setting <m>\textcolor{red}{u=\sin x}</m>, we have <m>\textcolor{blue}{\dee{u} = \cos x \dee{x}}</m> and so
+<me>
+ \int_{0}^{\pi/2} \textcolor{blue}{\cos x} \cdot (1+\textcolor{red}{\sin}^2 \textcolor{red}x)\textcolor{blue}{\dee{x} }
+  = \int_{x=0}^{x=\pi/2} (1+\textcolor{red}{\sin}^2 \textcolor{red}{x})\cdot \textcolor{blue}{\cos x \dee{x} }
+   = \int_{u=0}^{u=1} (1+\textcolor{red}{u}^2) \,\textcolor{blue}{\dee{u}},
+</me>
+since <m>u=\sin 0=0</m> when <m>x=0</m> and <m>u=\sin(\pi/2)=1</m> when <m>x=\pi/2</m>. Then, by the Fundamental Theorem of Calculus Part 2,
+<me>
+\int_{0}^{1} (1+u^2) \,\dee{u}
+  = \left[u+\frac{u^3}{3} \right]_{0}^{1} =\left(1+\frac{1}{3}\right) -0 = \frac{4}{3}.
+</me>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2013A</fromexam></title>
+<statement><p>
+Evaluate
+<m>\displaystyle\int_1^3(2x-1)e^{x^2-x}\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+What is the derivative of the exponent?
+</p></hint>
+
+<answer><p>
+<m>e^6-1</m>
+</p></answer>
+
+<solution><p>
+Substituting <m>\textcolor{red}{t=x^2-x}</m>,  <m>\textcolor{blue}{\dee{t} = (2x-1)\,\dee{x}}</m> and noting that <m>t=0</m>
+when <m>x=1</m> and <m>t=6</m> when <m>x=3</m>,
+<md>
+<mrow>
+\int_1^3 \textcolor{blue}{(2x-1)}e^{\textcolor{red}{x^2-x}}\textcolor{blue}{ \dee{x}}
+&amp;=  \int_0^6 e^{\textcolor{red}t}\ \textcolor{blue}{\dee{t} }
+=\big[e^t\big]_0^6
+=e^6-1
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q2</fromexam></title>
+<statement><p>
+Evaluate <m>{\displaystyle \int \frac{(x^2-4)x}{\sqrt{4-x^2}}\,\dee{x}}</m>.
+</p></statement>
+
+<hint><p>
+What is the derivative of the argument of the square root?
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{3}(4-x^2)^{3/2}+C</m>
+</p></answer>
+
+<solution><p>
+We use the substitution <m>\textcolor{red}{u=4-x^2}</m>, for which <m>\textcolor{blue}{\dee{u}=-2x\,\dee{x}}</m>:
+<md>
+<mrow>
+\int \frac{x^2-4}{\sqrt{4-x^2}}\,x\,\dee{x}
+&amp;=\int \frac{1}{2}\cdot\frac{\textcolor{red}{4-x^2}}{\sqrt{\textcolor{red}{4-x^2}}}\textcolor{blue}{ ({-}2x)\,\dee{x}}
+</mrow><mrow>
+&amp;=\frac{1}{2} \int \frac{\textcolor{red}u}{\sqrt{\textcolor{red}u}}\,\textcolor{blue}{\dee{u} }
+</mrow><mrow>
+&amp;=\frac{1}{2}\int \sqrt{u}\,\dee{u}
+</mrow><mrow>
+&amp;=\frac{1}{2}\frac{u^{3/2}}{3/2}+C
+</mrow><mrow>
+&amp;=\frac{1}{3}(4-x^2)^{3/2}+C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int \dfrac{e^{\sqrt{\log x}}}{2x\sqrt{\log x}}\dee{x}\,.</m>
+</p></statement>
+<hint><p>
+What is <m>\diff{}{x}\left\{\sqrt{\log x}\right\}</m>?
+</p></hint>
+<answer><p>
+<m>e^{\sqrt{\log x}}+C</m>
+</p></answer>
+<solution><p>
+<ul>
+<li>Solution 1:
+If we let <m>\textcolor{red}{u=\sqrt{\log x}}</m>, then <m>\textcolor{blue}{\dee{u}=\dfrac{1}{2x\sqrt{\log x}}\dee{x}}</m>, and:
+<md>
+<mrow>
+\int \dfrac{e^{\textcolor{red}{\sqrt{\log x}}}}{\textcolor{blue}{2x\sqrt{\log x}}}\ \textcolor{blue}{\dee{x}}&amp;=\int  e^{\textcolor{red}u}\ \textcolor{blue}{\dee{u}}=e^u+C=e^{\sqrt{\log x}}+C
+</mrow>
+</md>
+</li>
+<li>Solution 2: In Solution 1, we made a pretty slick choice. We might have tried to work with something a little less convenient. For example, it's not unnatural to think that <m>\textcolor{red}{u=\log x}</m>, <m>\textcolor{blue}{\dee{u}=\dfrac{1}{x}\dee{x}}</m> would be a good choice. In that case:
+<md>
+<mrow>
+\int \dfrac{e^{\sqrt{\textcolor{red}{\log x}}}}{2\textcolor{blue}{x}\sqrt{\textcolor{red}{\log x}}}\ \textcolor{blue}{\dee{x}}&amp;=
+\int \frac{e^{\sqrt{\textcolor{red}u}}}{2\sqrt{\textcolor{red}u}}\textcolor{blue}{\dee{u}}
+</mrow>
+<intertext>Now, we should be able to see that <m>\textcolor{orange!40!black}{w=\sqrt{u}}</m>, <m>\textcolor{purple}{\dee{w} = \dfrac{1}{2\sqrt{u}}\dee{u}}</m> is a good choice:</intertext><mrow>
+\int\frac{e^{\textcolor{orange!40!black}{\sqrt{u}}}}{\textcolor{purple}{2\sqrt{u}}}\
+\textcolor{purple}{\dee{u}}
+&amp;=\int e^{\textcolor{orange!40!black}{w}}\ \textcolor{purple}{\dee{w}}
+</mrow><mrow>
+&amp;=e^{\sqrt{u}}+C
+</mrow><mrow>
+&amp;=e^{\sqrt{\log x}}+C
+</mrow>
+</md>
+</li>
+</ul>
+</p></solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><application/></title><introduction/>
+
+
+<exercise><title><fromexam>2016A</fromexam></title>
+<statement><p>
+Calculate <m>\displaystyle\int_{-2}^2 xe^{x^2}\,dx</m>.
+</p></statement>
+
+<hint><p>
+There is a short, slightly sneaky method <mdash/> guess an antiderivative <mdash/>
+and a really short, still-more-sneaky method.
+</p></hint>
+
+<answer><p>
+<m>0</m>
+</p></answer>
+
+<solution><p>
+<ul>
+<li>The slightly sneaky method:
+We note that <m>\displaystyle\diff{}{x} \left\{e^{x^2} \right\}= 2x\, e^{x^2}</m>, so that <m>\dfrac{1}{2} e^{x^2}</m>
+is a antiderivative for the integrand <m>x e^{x^2}</m>. So
+<md>
+<mrow>
+\int_{-2}^2 xe^{x^2}\,dx = \bigg[\frac{1}{2}e^{x^2}\bigg]_{-2}^2
+=\frac{1}{2}e^4-\frac{1}{2}e^4=0
+</mrow>
+</md>
+</li>
+<li>The really sneaky method:
+The integrand <m>f(x) = x e^{x^2}</m> is an odd function (meaning that <m>f(-x)=-f(x)</m>).
+So by Theorem <xref ref="thm_INTevenodd"/> every integral
+of the form <m>\int_{-a}^a x e^{x^2}\,\dee{x}</m> is zero.
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2000D</fromexam></title>
+<statement><p>
+Calculate <m>\displaystyle\lim\limits_{n\rightarrow\infty}\sum\limits_{j=1}^n
+\dfrac{j}{n^2}\sin\left(1+\dfrac{j^2}{n^2}\right)</m>.
+</p></statement>
+
+<hint><p>
+Review the definition of the definite integral and in particular
+Definitions  <xref ref="def_INTintegral"/>  and
+                 <xref ref="def_INTthreeRiemannSums"/>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{2}[\cos 1-\cos 2]\approx0.478</m>
+</p></answer>
+
+<solution><p>
+The given sum is of the form
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\sum_{j=1}^n
+\frac{j}{n^2}\sin\Big(1+\frac{j^2}{n^2}\Big)
+=\lim_{n\rightarrow\infty}\sum_{j=1}^n
+f(x_j^*)\De x
+</mrow>
+</md>
+with <m>\De x=\frac{1}{n}</m>, <m>x_j^*=\frac{j}{n}</m> and <m>f(x)=x\sin(1+x^2)</m>.
+Since <m>x_0^*=0</m> and <m>x_n^*=1</m>, the right hand side is the definition
+(using the right Riemann sum) of
+<md>
+<mrow>
+\int_0^1 f(x)\,\dee{x}
+&amp;=\int_0^1 x\sin(1+x^2)\,\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{2}\int_1^2 \sin(y)\,\dee{y}\qquad\text{with $y=1+x^2$, $\dee{y}=2x\,\dee{x}$}
+</mrow><mrow>
+&amp;=\frac{1}{2}\Big[-\cos(y)\Big]_{y=1}^{y=2}
+</mrow><mrow>
+&amp;=\frac{1}{2}[\cos 1-\cos 2]
+</mrow>
+</md>
+Using a calculator, we see this is close to <m>0.478</m>.
+</p></solution>
+</exercise>
+
+<introduction><p>Questions<nbsp/><xref ref="p1_4_roughsuba" text="local"/> through <xref ref="p1_4_roughsubb" text="local"/> can be solved by substitution, but it may not be obvious which substitution will work. In general, when evaluating integrals, it is not always immediately clear which methods are appropriate. If this happens to you, don't despair, and definitely don't give up! Just guess a method and try it. Even if it fails, you'll probably learn something that you can use to make a better guess.
+<fn>This is also pretty decent life advice.</fn>
+</p></introduction>
+
+<exercise xml:id="p1_4_roughsuba" purpose="RQS">
+<statement><p> Evaluate <m>\displaystyle\int_{0}^1 \dfrac{u^3}{u^2+1}\dee{u}</m>.
+</p></statement>
+<hint><p>
+If <m>w=u^2+1</m>, then <m>u^2=w-1</m>.
+</p></hint>
+<answer><p>
+<m>\dfrac{1}{2}-\dfrac{1}{2}\log 2</m>
+</p></answer>
+<solution><p>
+Often, the denominator of a function is a good guess for the substitution. So, let's try setting <m>\textcolor{red}{w=u^2+1}</m>. Then <m>\textcolor{blue}{\dee{w}=2u\dee{u}}</m>:
+<md>
+<mrow>
+\int_{0}^1 \dfrac{u^3}{u^2+1}\dee{u}&amp;=
+\frac{1}{2}\int_{0}^1 \dfrac{u^2}{\textcolor{red}{u^2+1}}\ \textcolor{blue}{2u\dee{u}}
+</mrow>
+<intertext>The numerator now is <m>u^2</m>, and looking at our substitution, we see <m>\textcolor{red}{u^2=w-1}</m>:
+</intertext><mrow>
+&amp;=\frac{1}{2}\int_{1}^2 \dfrac{\textcolor{red}{w-1}}{\textcolor{red}{w}}\ \textcolor{blue}{\dee{w}}
+</mrow><mrow>
+&amp;=\frac{1}{2}\int_{1}^2 \left(1 - \frac{1}{w}\right)\dee{w}
+</mrow><mrow>
+&amp;=\frac{1}{2}\left[w - \log|w|\right]_{w=1}^{w=2}
+</mrow><mrow>
+&amp;=\frac{1}{2}\left(2-\log 2 - 1\right)=\frac{1}{2}-\frac{1}{2}\log 2
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p> Evaluate <m>\displaystyle\int \tan^3 \theta\  \dee{\theta}</m>.
+</p></statement>
+<hint><p>
+Using a trigonometric identity, this is similar (though not identical) to <m>\int \tan \theta \cdot \sec^2 \theta\dee{\theta}</m>.
+</p></hint>
+<answer><p>
+<m>\frac{1}{2}\tan^2\theta
+-\log|\sec \theta|+C</m>
+</p></answer>
+<solution><p>
+The only thing we really have to work with is a tangent, so it's worth considering what would happen if we substituted
+<m>\textcolor{red}{u=\tan \theta}</m>.
+Then <m>\textcolor{blue}{\dee{u}=\sec^2\theta\dee{\theta}}</m>. This doesn't show up in the integrand as it's written, but we can try and bring it out by using the identity <m>\tan^2 = \sec^2 \theta - 1</m>:
+<md>
+<mrow>
+\int \tan^3 \theta\  \dee{\theta}&amp;= \int \textcolor{red}{\tan \theta}\cdot \tan^2\ \theta \dee{\theta}
+</mrow><mrow>
+&amp;= \int \textcolor{red}{\tan \theta}\cdot \left(\sec^2\ \theta-1\right) \dee{\theta}
+</mrow><mrow>
+&amp;= \int \textcolor{red}{\tan \theta}\cdot \textcolor{blue}{\sec^2\ \theta \dee{\theta}}
+-\int \tan \theta \dee{\theta}
+</mrow>
+<intertext> In Example <xref ref="eg_substitution9"/>, we learned <m>\int \tan \theta \dee{\theta} = \log |\sec \theta|+C</m>
+</intertext><mrow>
+&amp;=\int \textcolor{red}{u}\ \textcolor{blue}{\dee{u}}
+-\log|\sec \theta|+C
+</mrow><mrow>
+&amp;=\frac{1}{2}u^2
+-\log|\sec \theta|+C
+</mrow><mrow>
+&amp;=\frac{1}{2}\tan^2\theta
+-\log|\sec \theta|+C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\int \dfrac{1}{e^x+e^{-x}}\dee{x}</m>
+</p></statement>
+<hint><p> If you multiply the top and the bottom by <m>e^x</m>, what does this look like the antiderivative of?
+</p></hint>
+<answer><p>
+<m>\arctan(e^x)+C</m>
+</p></answer>
+<solution><p>
+At first glance, it's not clear what substitution to use. If we try the denominator,  <m>u=e^x+e^{-x}</m>, then <m>\dee{u}=(e^x-e^{-x})\dee{x}</m>, but it's not clear how to make this work with our integral. So, we can try something else.
+</p>
+
+<p>If we want to tidy things up, we might think to take <m>\textcolor{red}{u=e^x}</m> as a substitution. Then <m>\textcolor{blue}{\dee{u}=e^x\dee{x}},</m> so we need an <m>e^x</m> in the numerator. That can be arranged.
+<md>
+<mrow>
+\int\dfrac{1}{e^x+e^{-x}}\cdot\left(\frac{e^x}{e^x}\right)\dee{x}&amp;=
+\int\frac{\textcolor{blue}{e^x}}{\left(\textcolor{red}{e^{x}}\right)^2+1}\ \textcolor{blue}{\dee{x}}
+</mrow><mrow>
+&amp;=\int \dfrac{1}{\textcolor{red}{u}^2+1}\ \textcolor{blue}{\dee{u}}
+</mrow><mrow>
+&amp;=\arctan(u)+C
+</mrow><mrow>
+&amp;=\arctan(e^x)+C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int_0^1 (1-2x)\sqrt{1-x^2}\dee{x}</m>
+</p></statement>
+<hint><p>
+You know methods other than substitution to evaluate definite integrals.
+</p></hint>
+<answer><p>
+<m> \dfrac{\pi}{4}-\dfrac{2}{3}</m>
+</p></answer>
+<solution><p>
+We often like to take the <q>inside</q> function as our substitution, in this case <m>\textcolor{red}{u=1-x^2}</m>, so <m>\textcolor{blue}{\dee{u}=-2x\dee{x}}</m>. This takes care of <em>part</em> of the integral:
+<md>
+<mrow>
+\int_0^1 (1-2x)\sqrt{\textcolor{red}{1-x^2}}\dee{x}&amp;=
+\int_0^1 \sqrt{1-x^2}\dee{x}+\int_0^1 \textcolor{blue}{(-2x)}\sqrt{\textcolor{red}{1-x^2}}\ \textcolor{blue}{\dee{x}}
+</mrow>
+<intertext>The left integral is tough to solve with substitution, but luckily we don't have to--it's the area of a quarter of a circle of radius 1.</intertext><mrow>
+&amp;=\frac{\pi}{4}+\int_1^0 \sqrt{\textcolor{red}{u}}\ \textcolor{blue}{\dee{u}}
+</mrow><mrow>
+&amp;=\frac{\pi}{4}+\left[\frac{2}{3}u^{3/2}\right]_{u=1}^{u=0}
+</mrow><mrow>
+&amp;=\frac{\pi}{4} + 0 - \frac{2}{3} = \frac{\pi}{4}-\frac{2}{3}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise xml:id="p1_4_roughsubb" purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\int\tan x \cdot \log\left(\cos x\right) \dee{x}</m>
+</p></statement>
+<hint><p>
+<m>\tan x = \dfrac{\sin x}{\cos x}</m>
+</p></hint>
+<answer><p>
+<m>-\frac{1}{2}\left(\log (\cos x)\right)^2+C</m>
+</p></answer>
+<solution><p>
+<ul>
+<li>Solution 1: We often find it useful to take <q>inside</q> functions as our substitutions, so let's try <m>\textcolor{red}{u=\cos x}</m>, <m>\textcolor{blue}{\dee{u} = -\sin x\dee{x}}</m>. In order to dig up a sine, we use the identity <m>\tan x = \dfrac{\sin x}{\cos x}</m>:
+<md>
+<mrow>
+\int\tan x \cdot \log\left(\textcolor{red}{\cos x}\right) \dee{x}&amp;=
+-\int\frac{\textcolor{blue}{-\sin x}}{\textcolor{red}{\cos x}} \cdot \log\left(\textcolor{red}{\cos x}\right) \textcolor{blue}{\dee{x}}
+</mrow><mrow>
+&amp;=-\int\frac{1}{\textcolor{red}u}\log(\textcolor{red}u)\textcolor{blue}{\dee{u}}
+</mrow>
+<intertext>Now, it is convenient to let <m>\textcolor{orange!40!black}{w=\log u}</m>, <m>\textcolor{purple}{\dee{w}=\frac{1}{u}\dee{u}}</m>:
+</intertext><mrow>
+-\int\textcolor{purple}{\frac{1}{u}}\textcolor{orange!40!black}{\log(u)}\textcolor{purple}{\dee{u}}
+&amp;=-\int \textcolor{orange!40!black}{w}\ \textcolor{purple}{\dee{w}}
+</mrow><mrow>
+&amp;=-\frac{1}{2}w^2+C
+</mrow><mrow>
+&amp;=-\frac{1}{2}\left(\log u\right)^2+C
+</mrow><mrow>
+&amp;=-\frac{1}{2}\left(\log (\cos x)\right)^2+C
+</mrow>
+</md>
+</li>
+<li>Solution 2: We might guess that it's useful to have <m>\textcolor{red}{u=\log(\cos x)}</m>, <m>\textcolor{blue}{\dee{u}=\dfrac{-\sin x}{\cos x}\dee{x} = -\tan x\dee{x}}</m>:
+<md>
+<mrow>
+\int\tan x \cdot \textcolor{red}{\log\left(\cos x\right)} \dee{x}&amp;=
+-\int\textcolor{blue}{-\tan x} \cdot \textcolor{red}{\log\left(\cos x\right) }\textcolor{blue}{\dee{x}}
+</mrow><mrow>
+&amp;=-\int \textcolor{red}{u}\ \textcolor{blue}{\dee{u}}
+</mrow><mrow>
+&amp;=-\frac{1}{2}u^2+C
+</mrow><mrow>
+&amp;=-\frac{1}{2}\left(\log(\cos x)\right)^2+C
+</mrow>
+</md>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2001A</fromexam></title>
+<statement><p>
+ Evaluate <m>\displaystyle\lim\limits_{n\rightarrow\infty}
+\sum\limits_{j=1}^n \dfrac{j}{n^2}\cos\left(\dfrac{j^2}{n^2}\right)</m>.
+</p></statement>
+
+<hint><p>
+Review the definition of the definite integral and in particular
+Definitions  <xref ref="def_INTintegral"/>  and
+                 <xref ref="def_INTthreeRiemannSums"/>.
+</p></hint>
+
+<answer><p>
+<m>\half\sin(1)</m>
+</p></answer>
+
+<solution><p>
+The given sum is of the form
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\sum_{j=1}^n
+\frac{j}{n^2}\cos\Big(\frac{j^2}{n^2}\Big)
+=\lim_{n\rightarrow\infty}\sum_{j=1}^n f(x_j^*)\De x
+</mrow>
+</md>
+with <m>\De x=\frac{1}{n}</m>, <m>x_j^*=\frac{j}{n}</m> and <m>f(x)=x\cos(x^2)</m>.
+Since <m>x_0^*=0</m> and <m>x_n^*=1</m>, the right hand side is the definition
+(using the right Riemann sum) of
+<md>
+<mrow>
+\int_0^1 f(x)\,\dee{x}
+&amp;=\int_0^1 \textcolor{blue}{x}\cos(\textcolor{red}{x^2})\,\textcolor{blue}{\dee{x}}
+</mrow><mrow>
+&amp;=\textcolor{blue}{\frac{1}{2}}\int_0^1 \cos(\textcolor{red}{y})\,\textcolor{blue}{\dee{y} }\qquad\text{with } textcolor{red}{y=x^2}, \textcolor{blue}{\dee{y}=2x\,\dee{x}}
+</mrow><mrow>
+&amp;=\frac{1}{2}\Big[\sin(y)\Big]_0^1
+</mrow><mrow>
+&amp;=\frac{1}{2}\sin 1
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2001D</fromexam></title>
+<statement><p>
+Calculate <m>\displaystyle\lim\limits_{n\rightarrow\infty}\sum\limits_{j=1}^n
+\frac{j}{n^2}\sqrt{1+\frac{j^2}{n^2}}</m>.
+</p></statement>
+
+<hint><p>
+Review the definition of the definite integral and in particular
+Definitions  <xref ref="def_INTintegral"/>  and
+                 <xref ref="def_INTthreeRiemannSums"/>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{3}[2\sqrt{2}-1]
+\approx0.609</m>
+</p></answer>
+
+<solution><p>
+The given sum is of the form
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\sum_{j=1}^n
+             \frac{j}{n^2}\sqrt{1+\frac{j^2}{n^2}}
+=\lim_{n\rightarrow\infty}\sum_{j=1}^n f(x_j^*)\De x
+</mrow>
+</md>
+with <m>\De x=\frac{1}{n}</m>, <m>x_j^*=\frac{j}{n}</m> and <m>f(x)=x\sqrt{1+x^2}</m>.
+Since <m>x_0^*=0</m> and <m>x_n^*=1</m>, the right hand side is the definition
+(using the right Riemann sum) of
+<md>
+<mrow>
+\int_0^1 f(x)\,\dee{x}
+&amp;=\int_0^1 \textcolor{blue}{x}\sqrt{\textcolor{red}{1+x^2}}\ \textcolor{blue}{\dee{x}}
+</mrow><mrow>
+&amp;=\textcolor{blue}{\frac{1}{2}}\int_1^2 \sqrt{\textcolor{red}{y}}\ \textcolor{blue}{\dee{y} }\qquad\text{with } \textcolor{red}{y=1+x^2}, \textcolor{blue}{\dee{y}=2x\,\dee{x}}
+</mrow><mrow>
+&amp;=\frac{1}{2}{\left[\frac{2}{3}y^{3/2}\right]}_{y=1}^{y=2}
+</mrow><mrow>
+&amp; =\frac{1}{3}[2\sqrt{2}-1]
+</mrow>
+</md>
+Using a calculator, we see this is approximately <m>0.609</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Using Riemann sums, prove that
+<me>
+\int_a^b 2f(2x)\dee{x} = \int_{2a}^{2b} f(x)\dee{x}</me>
+</p>
+
+</statement>
+<hint><p>
+Find the right Riemann sum for both definite integrals.
+</p></hint>
+<answer><p>
+Using the definition of a definite integral with right Riemann sums:
+<md>
+<mrow>
+\color{red}{\int_a^b 2f(2x)\dee{x}}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x \cdot 2f(2(a+i\Delta x))&amp;\Delta x = \frac{b-a}{n}
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}\sum_{i=1}^n \left(\frac{b-a}{n}\right)\cdot2 f\left(2\left(a+i\left(\frac{b-a}{n}\right)\right)\right)
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}\sum_{i=1}^n \left(\frac{2b-2a}{n}\right)\cdot f\left(2a+i\left(\frac{2b-2a}{n}\right)\right)
+</mrow><mrow>
+\color{blue}{\int_{2a}^{2b} f(x)\dee{x}}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x \cdot f(2a+i\Delta x)&amp;\Delta x = \frac{2b-2a}{n}
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}\sum_{i=1}^n \left(\frac{2b-2a}{n}\right) \cdot f\left(2a+i \left(\frac{2b-2a}{n}\right)\right)
+</mrow>
+<intertext>Since the Riemann sums are exactly the same,</intertext><mrow>
+\color{red}{\int_a^b 2f(2x)\dee{x}}&amp;=
+\color{blue}{\int_{2a}^{2b} f(x)\dee{x}}
+</mrow>
+</md>
+</p></answer>
+<solution><p>
+Using the definition of a definite integral with right Riemann sums:
+<md>
+<mrow>
+\color{red}{\int_a^b 2f(2x)\dee{x}}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x \cdot 2f(2(a+i\Delta x))&amp;\Delta x = \frac{b-a}{n}
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}\sum_{i=1}^n \left(\frac{b-a}{n}\right)\cdot2 f\left(2\left(a+i\left(\frac{b-a}{n}\right)\right)\right)
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}\sum_{i=1}^n \left(\frac{2b-2a}{n}\right)\cdot f\left(2a+i\left(\frac{2b-2a}{n}\right)\right)
+</mrow><mrow>
+\color{blue}{\int_{2a}^{2b} f(x)\dee{x}}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x \cdot f(2a+i\Delta x)&amp;\Delta x = \frac{2b-2a}{n}
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}\sum_{i=1}^n \left(\frac{2b-2a}{n}\right) \cdot f\left(2a+i \left(\frac{2b-2a}{n}\right)\right)
+</mrow>
+<intertext>Since the Riemann sums are exactly the same,</intertext><mrow>
+\color{red}{\int_a^b 2f(2x)\dee{x}}&amp;=
+\color{blue}{\int_{2a}^{2b} f(x)\dee{x}}
+</mrow>
+</md>
+</p>
+
+<p>Looking at the Riemann sum in this way is instructive, because it is very clear why the two integrals should be equal (without using substitution). The rectangles in the first Riemann sum are half as wide, but twice as tall, as the rectangles in the second Riemann sum. So, the two Riemann sums have rectangles of the same area.
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\color{red}
+\draw[thick, fill=red, fill opacity=0.5] (0,0) rectangle (2,5);
+\draw[decorate, decoration={brace, amplitude=10pt}] (2,-.2)--(0,-.2) node[midway, below, yshift=-10pt]{$\frac{b-a}{n}$};
+\draw[decorate, decoration={brace, amplitude=10pt}] (-.2,0)--(-.2,5) node[midway, left, xshift=-10pt]{$2f(x_i^*)$};
+\color{blue}
+\draw[thick, fill=blue, fill opacity=0.5] (6,0) rectangle (10,2.5);
+\draw[decorate, decoration={brace, amplitude=10pt}] (10,-.2)--(6,-.2) node[midway, below, yshift=-10pt]{$2\frac{b-a}{n}$};
+\draw[decorate, decoration={brace, amplitude=10pt}] (5.8,0)--(5.8,2.5) node[midway, left, xshift=-10pt]{$f(x_i^*)$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+(Not every substitution corresponds to such a simple picture.)
+</p></solution>
+</exercise></exercisegroup>
+
+</exercises>

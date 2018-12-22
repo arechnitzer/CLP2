@@ -1,0 +1,1338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<exercises>
+
+<introduction>
+<p>
+Recall that we are using <m>\log x</m> to denote the logarithm of <m>x</m> with
+base <m>e</m>. In other courses it is often denoted <m>\ln x</m>.
+</p>
+</introduction>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise purpose="RQS" xml:id="prob_s2_2_avgvalue">
+<statement><p>
+Below is the graph of a function <m>y=f(x)</m>. Its average value on the interval  <m>[0,5]</m> is <m>A</m>. Draw a rectangle on the graph with area <m>\int_0^5 f(x)\,\dee{x}</m>.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{7}{2}{3}
+\draw[thick, blue] plot[domain=0:6.28, samples=100](\x,{-.5*\x*sin(\x r)});
+\YExcoord{6.28}{5}
+\YEycoord{1}{A}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+See Definition<nbsp/><xref ref="def_AVaverage"/> and the discussion following it for the link between area under the curve and averages.
+</p></hint>
+<answer><p>
+The most straightforward of many possible answers is shown.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{7}{2}{3}
+\draw[thick, blue] plot[domain=0:6.28, samples=100](\x,{-.5*\x*sin(\x r)});
+\YExcoord{6.28}{5}
+\YEycoord{1}{A}
+\draw[very thick, red] (0,0) rectangle (6.28,1);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></answer>
+<solution><p>
+Since the average of <m>f(x)</m> on the interval <m>[0,5]</m> is <m>A</m>, using Definition<nbsp/><xref ref="def_AVaverage"/>,
+<md>
+<mrow>
+A&amp;=\frac{1}{5}\int_0^5 f(x)\,\dee{x}
+</mrow><mrow>
+5A&amp;=\int_0^5 f(x)\,\dee{x}
+</mrow>
+</md>
+So, a rectangle with width 5 and height <m>A</m> has area
+<m>\int_0^5 f(x)\,\dee{x}</m>.
+</p>
+
+<p>That is: if we replace <m>f(x)</m> with the constant function <m>g(x)=A</m>, then on the interval <m>[0,5]</m>, the area under the curve is unchanged.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{7}{2}{3}
+\draw[thick, blue] plot[domain=0:6.28, samples=100](\x,{-.5*\x*sin(\x r)});
+\YExcoord{6.28}{5}
+\YEycoord{1}{A}
+\draw[very thick, red] (0,0) rectangle (6.28,1);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+(There are many rectangles with area <m>5A</m>; we drew the one we consider to be the most straightforward in this context.)
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_2_vel">
+<statement><p>
+Suppose a car travels for 5 hours in a straight line, with an average velocity of 100 kph. How far did the car travel?
+</p></statement>
+<hint><p>
+Average velocity is discussed in Example<nbsp/><xref ref="eg_AVvelocity"/>. You don't need an integral for this.
+</p></hint>
+<answer><p>
+500 km
+</p></answer>
+<solution><p>
+Average velocity,  as discussed in Example<nbsp/><xref ref="eg_AVvelocity"/>, is change in position divided by change in time. So, the change in position (i.e. distance travelled) is (100 km/h)(5 h) = 500 km.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+A force <m>F(x)</m> acts on an object from position <m>x=a</m> metres to position <m>x=b</m> metres, for a total of <m>W</m> joules of work. What was the average force on the object?
+</p></statement>
+<hint><p>
+Much like Problem<nbsp/><xref ref="prob_s2_2_vel" text="local"/>, you don't need to do any integration here.
+</p></hint>
+<answer><p>
+<m>\dfrac{W}{b-a}</m> N
+</p></answer>
+<solution><p>
+The work done is
+<me>
+W=\int_a^b F(x)\,\dee{x}</me>
+</p>
+
+<p>so the average value of <m>F(x)</m> is
+<me>
+\frac{1}{b-a}\int_a^b F(x)\,\dee{x} =\frac{1}{b-a}(W).</me>
+</p>
+
+<p>We can quickly check our units: since <m>W</m> is in joules  (that is, newton-metres), and <m>b-a</m> is in metres, so <m>\frac{W}{b-a}</m> is in newtons.
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose we want to approximate the average value of the function <m>f(x)</m> on the interval <m>[a,b]</m>. To do this, we cut the interval <m>[a,b]</m> into <m>n</m> pieces, then take <m>n</m> samples by finding the function's output at the left endpoint of each piece, starting with <m>a</m>. Then, we average those <m>n</m> samples. (In the example below, <m>n=4</m>.)
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{6.5}{1}{3}
+\draw[thick, blue] plot[domain=-1:6.25, samples=100](\x,{sin(\x r)+\x*\x/15});
+\YExcoord{1}{a}
+\YExcoord{5}{b}
+\color{red}
+\draw (3,3) node[shape=rectangle, above](A){average these $y$-values};
+\foreach \x/\y in {1/0.91,2/1.18,3/0.74,4/0.31}
+	{\draw (\x,\y) node[vertex](v\x){};
+	\draw (v\x)+(0,.25) node(w\x){};
+	\draw[- \gt , thick] (A) -- (w\x);}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+<ol label="a">
+<li> Using <m>n</m> samples, what is the distance between two consecutive sample points <m>x_i</m> and <m>x_{i+1}</m>?
+</li>
+<li> Assuming <m>n \geq 4</m>, what is the <m>x</m>-coordinate of the fourth sample?
+</li>
+<li> Assuming <m>n \geq 4</m>, what is the <m>y</m>-value of the fourth sample?
+</li>
+<li> Write the approximation of the average value of <m>f(x)</m> over the interval <m>[a,b]</m> using sigma notation.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Part (a) is asking the length of the pieces we've cut our interval into. Part (c) should be given in terms of <m>f</m>.
+ Our final answer in (d) will resemble a Riemann sum, but without some extra manipulation it won't be in exactly the form of a Riemann sum we're used to.
+</p></hint>
+<answer><p>
+(a) <m>\dfrac{b-a}{n}</m>
+</p><p>
+ (b) <m>a+3\dfrac{b-a}{n} </m>
+</p><p>
+(c) <m>f\left(a+3\dfrac{b-a}{n} \right)</m>
+</p><p>
+ (d) <m>\dfrac{1}{n}\sum\limits_{i=1}^n f\left(a+(i-1)\frac{b-a}{n}\right)</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> The entire interval has length <m>b-a</m>, and we're cutting it into <m>n</m> pieces, so the length of one piece (and hence the distance between two consecutive samples) is <m>\frac{b-a}{n}</m>.
+</li>
+<li> The first sample, as given in the question statement, is taken at <m>x=a</m>. The second sample, then, is at <m>x=a+\frac{b-a}{n}</m>, this third is at <m>x=1+2\frac{b-a}{n}</m>, and the fourth is at <m>a+3\frac{b-a}{n}</m>.
+</li>
+<li> The <m>y</m>-value of the fourth sample is simply <m>f\left(a+3\frac{b-a}{n}\right)</m>. Note this is the number we use in our average, not the <m>x</m>-value.
+</li>
+<li> Our samples are <m>f(a)</m>, <m>f\left(a+\frac{b-a}{n}\right)</m>,
+<m>f\left(a+2\frac{b-a}{n}\right)</m>,
+<m>f\left(a+3\frac{b-a}{n}\right)</m>, etc. Since there are <m>n</m> of them, we divide their sum by <m>n</m>. So, the average is:
+<md>
+<mrow>
+&amp; \frac{f(a)+f\left(a+\frac{b-a}{n}\right)+
+f\left(a+2\frac{b-a}{n}\right)+\cdots + f\left(a+(n-1)\frac{b-a}{n}\right)}{n}
+</mrow><mrow>
+&amp;=\frac{1}{n}\left[f(a)+f\left(a+\frac{b-a}{n}\right)f\left(a+2\frac{b-a}{n}\right)+\cdots + f\left(a+(n-1)\frac{b-a}{n}\right)\right]
+</mrow><mrow>
+&amp;= \frac{1}{n}\sum_{i=1}^nf\left(a+(i-1)\frac{b-a}{n}\right)
+</mrow>
+<intertext>Remark: if we multiply and divide by <m>b-a</m>, we see this expression is equivalent to a left Riemann sum, divided by the length of our interval.</intertext><mrow>
+&amp;= \frac{1}{b-a}\sum_{i=1}^nf\left(a+(i-1)\frac{b-a}{n}\right)\frac{b-a}{n}
+</mrow><mrow>
+&amp;= \frac{1}{b-a}\sum_{i=1}^nf\left(a+(i-1)\De x\right)\De x
+</mrow>
+</md>
+As <m>n</m> gets larger and larger, using the definition of a definite integral, this expression gets closer and closer to <m>\frac{1}{b-a}\int_a^bf(x)\,\dee{x}</m>. This is one way of justifying our definition of an average of a function on an interval.
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose <m>f(x)</m> and <m>g(x)</m> are functions that are defined for all numbers in the interval <m>[0,10]</m>.
+<ol label="a">
+<li>  If <m>f(x) \leq g(x)</m> for all <m>x</m> in <m>[0,10]</m>, then is the average value of <m>f(x)</m> is less than or equal to the average value of <m>g(x)</m> on the interval <m>[0,10]</m>, or is there not enough information to tell?
+</li>
+<li> Suppose <m>f(x) \leq g(x)</m> for all <m>x</m> in <m>[0.01,10]</m>. Is the average value of <m>f(x)</m> less than or equal to the average value of <m>g(x)</m> over the interval <m>[0,10]</m>, or is there not enough information to tell?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+For (b), the value of <m>f(0)</m> could be much, much larger than <m>g(0)</m>.
+</p></hint>
+<answer><p>
+(a) yes
+</p><p>
+ (b) not enough information
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> Yes, the average of <m>f(x)</m> is less than or equal to the average of <m>g(x)</m> on <m>[0,10]</m>. The reason is that, if <m>f(x) \leq g(x)</m> for all <m>x</m> in <m>[0,10]</m>, then:
+<me>
+\frac{1}{10}\int_0^{10}f(x)\,\dee{x} \leq \frac{1}{10}\int_0^{10}g(x)\,\dee{x}.</me>
+</li>
+<li>
+<p>
+There is not enough information to tell. It's certainly possible: for instance, take <m>f(x)=0</m> and <m>g(x)=1</m> for all <m>x</m> in <m>[0,10]</m>. Then <m>f(x) \leq g(x)</m> and the average of <m>f(x)</m> is 0, which is less than 1, the average of <m>g(x)</m>.
+</p>
+
+<p>However, consider <m>f(x) = \begin{cases}
+100 &amp; \text{ if } 0 \le x \le 0.01\\
+0 &amp; \text{ else }
+\end{cases}</m> and <m>g(x) = 0</m>. Then <m>f(x) \le g(x)</m> for all <m>x</m> in <m>[0.01,10]</m>, but the average of <m>f(x)</m> is <m>0.1</m>, while the average of <m>g(x)</m> is 0.
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose <m>f</m> is an odd function, defined for all real numbers. What is the average of <m>f</m> on the interval <m>[-10,10]</m>?
+</p></statement>
+<hint><p>
+The answer is something very simple.
+</p></hint>
+<answer><p>
+0
+</p></answer>
+<solution><p>
+Recall the definition of an odd function: <m>f(-x)=-f(x)</m>. Since the domain of integration is symmetric, the signed area on one side of the <m>y</m>-axis <q>cancels out</q> the signed area on the other <mdash/> this is Theorem<nbsp/><xref ref="thm_INTevenodd"/> in the text.
+<md>
+<mrow>\frac{1}{20}\int_{-10}^{10}f(x)\,\dee{x}&amp;=\frac{1}{20}(0)=0
+</mrow>
+</md>
+</p></solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise purpose="RQS"><title><fromexam>2016Q3</fromexam></title>
+<statement><p>
+Find the average value of <m>f(x) = \sin(5x)+1</m> over the interval <m>-\pi/2 \le x \le \pi/2 </m>.
+</p></statement>
+
+<hint><p>
+Apply the definition of <q>average value</q> in Section<nbsp/><xref ref="sec_avg"/>.
+</p></hint>
+
+<answer><p>
+<m>1</m>
+</p></answer>
+
+<solution><p>
+By definition, the average value is
+<md>
+<mrow>
+ \frac{1}{\pi}\int_{-\pi/2}^{\pi/2} \big( \sin(5x)+1 \big) \,\dee{x}
+</mrow>
+</md>
+We now observe that <m>\sin(5x)</m> is an odd function, and hence its integral over the symmetric interval <m>[-\frac\pi2,\frac\pi2]</m> equals zero. So the average value of <m>f(x)</m> on this interval is <m>1</m>:
+<md>
+<mrow>
+ \frac{1}{\pi}\int_{-\pi/2}^{\pi/2} \big( \sin(5x)+1 \big) \,\dee{x}&amp;=
+  \frac{1}{\pi}\int_{-\pi/2}^{\pi/2}  \sin(5x) \,\dee{x}+ \frac{1}{\pi}\int_{-\pi/2}^{\pi/2}1 \,\dee{x}
+</mrow><mrow>
+  &amp;= \frac{1}{\pi}\int_{-\pi/2}^{\pi/2}1 \,\dee{x}=1
+</mrow>
+</md>
+Alternatively, using the fundamental theorem of calculus, the average equals:
+<md>
+<mrow>
+\frac{1}{\pi}\bigg[\frac{-\cos (5x) }{5} +x  \bigg]_{-\pi/2}^{\pi/2}
+= \frac{1}{\pi}\bigg\{\bigg[\frac{-\cos (5\pi/2) }{5} +\frac{\pi}{2}\bigg]
+   -\bigg[ \frac{-\cos (-5\pi/2) }{5} + \frac{-\pi}{2} \bigg]\bigg\}
+= \frac{\pi }{\pi}=1
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2015A</fromexam></title>
+<statement><p>
+Find the average value of the function <m>y= x^2\log x</m> on the interval
+<m>1 \le x\le e</m>.
+</p></statement>
+
+<hint><p>
+You can antidifferentiate <m>x^2\log x</m> using integration by parts.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\frac{1}{e-1}\Big[\frac{2}{9}e^3+\frac{1}{9}\Big]</m>
+</p></answer>
+
+<solution><p>
+By definition, the average is
+<md>
+<mrow>
+\frac{1}{e-1}\int_1^e x^2\log x\dee{x}
+  &amp;
+  </mrow>
+<intertext>To antidifferentiate, we use integration by parts with <m>u=\log x</m> and <m>\dee{v}=x^2\,\dee{x}</m>, hence <m>\dee{u}=\frac{1}{x}\,\dee{x}</m> and <m>v=\frac{1}{3}x^3</m>.
+</intertext><mrow>
+  \frac{1}{e-1}\int_1^e x^2\log x\dee{x}&amp;=
+\frac{1}{e-1}\left(\left[\frac{1}{3}x^3\log x\right]_1^e - \int_1^e \frac{1}{3}x^2\,\dee{x}  \right)
+</mrow><mrow>&amp;=
+  \frac{1}{e-1}\bigg[\frac{x^3}{3}\log x-\frac{x^3}{9}\bigg]_{x=1}^{x=e}
+</mrow><mrow>
+  &amp;=\frac{1}{e-1}\bigg[\frac{e^3}{3}-\frac{e^3}{9}+\frac{1}{9}\bigg]
+</mrow><mrow>
+  &amp;=\frac{1}{e-1}\bigg[\frac{2}{9}e^3+\frac{1}{9}\bigg]
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2016A</fromexam></title>
+<statement><p>
+Find the average value of the function <m>f(x) = 3\cos^3x + 2\cos^2x</m> on the interval <m>0\le x\le\frac\pi2</m>.
+</p></statement>
+
+<hint><p>
+You can antidifferentiate an odd power of cosine with a substitution; for an even power of cosine, use the identity <m>\cos^2 x = \frac{1}{2}\big(1+\cos(2x)\big)</m>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{4}{\pi}+1</m>
+</p></answer>
+
+<solution><p>
+By definition, the average value in question equals
+<me>
+\frac1{\pi/2-0} \int_0^{\pi/2} ( 3\cos^3x + 2\cos^2x ) \,\dee{x}
+= \frac2\pi \bigg( \int_0^{\pi/2} 3\cos^3x \,\dee{x} + \int_0^{\pi/2} 2\cos^2x \,\dee{x} \bigg)
+</me>
+For the first integral we use the substitution <m>u = \sin x</m>,
+<m>\dee{u}=\cos x\,\dee{x}</m>, <m>\cos^2 x=1-\sin^2 x = 1-u^2</m>.
+Note that the endpoints
+<m>x=0</m> and <m>x=\frac\pi2</m> become <m>u=0</m> and <m>u=1</m>, respectively.
+<md>
+<mrow>
+\int_0^{\pi/2} 3 \cos^3x \,\dee{x}
+&amp;= \int_0^{\pi/2} 3 \cos^2 x \cos x \,\dee{x}
+</mrow><mrow>
+&amp;= \int_0^{1} 3(1-u^2) \,\dee{u}
+</mrow><mrow>
+&amp;= (3u-u^3)\Big|_0^1 = 2.
+</mrow>
+</md>
+For the second integral we use the trigonometric identity
+<m>\cos^2x\,\dee{x} = \frac{1 + \cos(2x)}{2}</m>.
+<md>
+<mrow>
+2 \int_0^{\pi/2} \cos^2x\,\dee{x}
+&amp;= \int_0^{\pi/2} \big(1 + \cos(2x) \big) \,\dee{x}
+</mrow><mrow>
+&amp;= \bigg[ x + \frac{1}{2}\sin(2x) \bigg]_0^{\pi/2}
+= \frac\pi2
+</mrow>
+</md>
+Therefore, the average value in question is
+<me>
+\frac2\pi \bigg( \int_0^{\pi/2} 3\cos^3x \,\dee{x} + \int_0^{\pi/2} 2\cos^2x \,\dee{x} \bigg)
+= \frac2\pi \bigg( 2 + \frac\pi2 \bigg)
+= \frac{4}{\pi}+1.
+</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Let <m>k</m> be a positive constant.
+Find the average value of the function <m>f(x) = \sin(kx)</m> on the interval
+<m>0\le x\le \pi/k</m>.
+</p></statement>
+
+<hint><p>
+If you're not sure how to antidifferentiate, try the substitution <m>u=kx</m>, <m>\dee{u}=k\dee{x}</m>, keeping in mind that <m>k</m> is a constant. Interestingly, your final answer won't depend on <m>k</m>.
+</p></hint>
+
+<answer><p>
+ <m>\dfrac{2}{\pi}</m>
+</p></answer>
+
+<solution><p>
+By definition, the average value in question equals
+<me>
+\text{Ave}=\frac1{\pi/k-0} \int_0^{\pi/k} \sin(kx) \,\dee{x}
+</me>
+To evaluate the integral, we use the substitution <m>u = kx</m>,
+<m>\dee{u}=k\,\dee{x}</m>.
+Note that the endpoints
+<m>x=0</m> and <m>x=\pi/k</m> become <m>u=0</m> and <m>u=\pi</m>, respectively. So
+<md>
+<mrow>
+\text{Ave}=\frac{k}{\pi} \int_0^\pi \sin(u) \,\frac{\dee{u}}{k}
+=\frac{1}{\pi}\Big[-\cos(u)\Big]_0^\pi
+=\frac{2}{\pi}
+</mrow>
+</md>
+</p>
+
+<p>Remark: the average does not depend on <m>k</m>. To see why this is, note that <m>\sin(kx)</m> runs between <m>-1</m> and <m>1</m> as <m>x</m> changes. When <m>x=0</m>, <m>kx=0</m>, and when <m>x=\pi/k</m>, <m>kx=\pi</m>. So, our function <m>\sin (kx)</m> runs exactly from <m>\sin  0 =0</m> to <m>\sin(\pi/2)=1</m>, then back down to <m>\sin\pi=0</m>.
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{7}{1}{2.5}
+\YExcoord{6.28}{\frac{\pi}{k}}
+\YExcoord{3.14}{\frac{\pi}{2k}}
+\YEycoord{2}{1}
+\draw[thick, blue] plot[domain=0:3.14]({2*\x},{2*sin(\x r)}) node[above right]{$y=\sin(k x)$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>1997A</fromexam></title>
+<statement><p>
+ The temperature in Celsius in a 3 m long rod at a point <m>x</m>
+metres from the left end of the rod is given by the function <m>T(x)=\frac{80}{16-x^2}</m>.
+Determine the average temperature in the rod.
+</p></statement>
+
+<hint><p>
+The method of partial fractions can help you antidifferentiate.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{10}{3}\log 7</m> degrees Celsius
+</p></answer>
+
+<solution><p>
+By definition, the average temperature is
+<me>
+\frac{1}{3}\int_0^3 T(x)\,\dee{x}
+=\frac{1}{3}\int_0^3 \frac{80}{16-x^2}\,\dee{x}</me>
+</p>
+
+<p>We don't see an obvious substitution, but  integrand is a rational function. The degree of the numerator is strictly less than the degree of the denominator, so we factor the denominator and use a partial fraction decomposition.
+</p>
+
+<p><md>
+<mrow>
+\frac{80}{16-x^2}&amp;=\frac{80}{(4-x)(4+x)} = \frac{A}{4-x}+\frac{B}{4+x}
+</mrow><mrow>
+80&amp;=A(4+x)+B(4-x)
+</mrow>
+<intertext>
+Setting <m>x=4</m>, we see <m>80=8A</m>, so <m>\textcolor{red}{A=10}</m>. Setting <m>x=-4</m>, we see <m>80=8B</m>, so <m>\textcolor{red}{B=10}</m>.
+</intertext><mrow>
+\frac{1}{3}\int_0^3 \frac{80}{16-x^2}\,\dee{x}&amp;=\frac{1}{3}\int_0^3 \frac{80}{(4-x)(4+x)}\,\dee{x}=\frac{1}{3}\int_0^3 \Big[\frac{\textcolor{red}{10}}{4-x}+\frac{\textcolor{red}{10}}{4+x}\Big]\,\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{3}\int_0^3 \Big[-\frac{10}{x-4}+\frac{10}{4+x}\Big]\,\dee{x}
+</mrow><mrow>
+&amp;=\frac{10}{3}\Big[-\log|x-4|+\log|x+4|\Big]_0^3
+</mrow><mrow>
+&amp;=\frac{10}{3}\log\Big|\frac{x+4}{x-4}\Big|\bigg|_0^3
+=\frac{10}{3}[\log 7-\log 1]
+</mrow><mrow>
+&amp;=\frac{10}{3}\log 7\quad\text{ degrees Celsius}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1997D</fromexam></title>
+<statement><p>
+What is the average value of the function
+<m>f(x)=\dfrac{\log x}{x}</m> on the interval <m>[1,e]</m>?
+</p></statement>
+
+<hint><p>
+Try the substitution <m>u=\log x</m>, <m>\dee{u}=\frac{1}{x}\,\dee{x}</m>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{2(e-1)}</m>
+</p></answer>
+
+<solution><p>
+By definition, the average value is
+<md>
+<mrow>
+\frac{1}{e-1}\int_1^e\frac{\log x}{x}\dee{x}&amp;
+</mrow>
+<intertext>To integrate, we use the substitution <m>u=\log x</m>, <m>\dee{u}=\frac{1}{x}\,\dee{x}</m>.
+Then the limits of integration become 0 and 1, respectively.
+</intertext><mrow>
+\frac{1}{e-1}\int_1^e\frac{\log x}{x}\dee{x}&amp;
+=\frac{1}{e-1}\int_0^1u\dee{u}
+=\frac{1}{e-1}\bigg[\frac{u^2}{2}\bigg]_0^1
+=\frac{1}{2(e-1)}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2000D</fromexam></title>
+<statement><p>
+ Find the average value of <m>f(x)=\cos^2(x)</m> over <m>0\le x\le 2\pi</m>.
+</p></statement>
+
+<hint><p>
+Remember <m>\cos^2 x = \frac{1}{2}\big(1+\cos(2x)\big)</m>.
+</p></hint>
+
+<answer><p>
+<m>\dfrac12</m>
+</p></answer>
+
+<solution><p>
+By definition, the average value is:
+<md>
+<mrow>
+\frac{1}{2\pi}\int_0^{2\pi}\cos^2x\,\dee{x}
+=\frac{1}{2\pi}\cdot\frac{1}{2}\int_0^{2\pi}\big(\cos(2x)+1\big)\,\dee{x}
+=\frac{1}{4\pi}\Big[\frac{\sin(2x)}{2}+x\Big]_0^{2\pi}
+=\frac{1}{4\pi}\cdot 2\pi
+=\frac{1}{2}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+The carbon dioxide concentration in the air at a particular location over one year is approximated by <m>C(t) = 400+50\cos\left(\frac{t}{12}\pi\right)+200\cos\left(\frac{t}{4380}\pi\right)</m> parts per million, where  <m>t</m> is measured in hours.
+<ol label="a">
+<li>  What is the average carbon dioxide concentration for that location for that year?
+</li>
+<li> What is the average over the first day?
+</li>
+<li>
+<p>
+Suppose measurements were only made at noon every day: that is, when <m>t=12+24n</m>, where <m>n</m> is any whole number between 0 and 364.  Then the daily variation would cease: <m>50\cos\left(\frac{(12+24n)}{12}\pi\right) = 50\cos\left(\pi+2\pi n\right) = 50\cos\pi=-50</m>. So, the approximation for the concentration of carbon dioxide in the atmosphere might be given as
+<me>
+N(t) = 350 +200\cos\left(\frac{t}{4380}\pi\right)\quad\text{ ppm}</me>
+</p>
+
+<p>What is the relative error in the yearly average concentration of carbon dioxide involved in using <m>N(t)</m>, instead of <m>C(t)</m>?
+</p>
+</li>
+</ol>
+You may assume a day has exactly 24 hours, and a year has exactly 8760 hours.
+ </p></statement>
+<hint><p>
+Notice the term <m>50\cos\left(\frac{t}{12}\pi\right)</m> has a period of 24 hours, while the term
+<m>200\cos\left(\frac{t}{4380}\pi\right)</m> has a period of one year.
+</p>
+
+<p>If <m>n</m> is an approximation of <m>c</m>, then the relative error of <m>n</m> is <m>\frac{|n-c|}{c}</m>.
+</p></hint>
+<answer><p>
+(a) 400 ppm
+</p><p>
+ (b) <m>\approx 599.99</m> ppm
+</p><p>
+	(c) 0.125, or 12.5<m>\%</m>
+</p></answer>
+<solution><p>
+Before we start answering questions, let's look at our function a little more carefully.
+The term <m>50\cos\left(\frac{t}{12}\pi\right)</m> has a period of 24 hours, while the term
+<m>200\cos\left(\frac{t}{4380}\pi\right)</m> has a period of one year. So, the former term describes a standard daily variation, while the latter gives a seasonal variation over the year.
+</p>
+
+<p>(a) Using the definition of an average, the average concentration over one year (<m>t=0</m> to <m>8760</m>) is:
+<md>
+<mrow>
+&amp;\frac{1}{8760}\int_0^{8760}\left(400+\textcolor{red}{50\cos\left(\frac{t}{12}\pi\right)}+\textcolor{blue}{200\cos\left(\frac{t}{4380}\pi\right)}\right)\,\dee{t}
+</mrow><mrow>
+&amp;=\frac{1}{8760}\int_0^{8760}400\,\dee{t}
++
+\textcolor{red}{\frac{50}{8760}\int_0^{8760}\cos\left(\frac{t}{12}\pi\right)\,\dee{t}}
++
+\textcolor{blue}{\frac{200}{8760}\int_0^{8760}\cos\left(\frac{t}{4380}\pi\right)\,\dee{t}}
+</mrow><mrow>
+&amp;= 400 +\textcolor{red}{ \frac{5}{876}\left[\frac{12}{\pi}\sin\left(\frac{t}{12}\pi\right)\right]_0^{8760}}+
+\textcolor{blue}{\frac{5}{219}\left[\frac{4380}{\pi}\sin\left(\frac{t}{4380}\pi\right)\right]_0^{8760}}
+</mrow>
+<intertext>Since <m>\frac{8760}{12} = 730</m>, which is even, <m>\sin\left(\frac{8760}{12}\pi\right)=\sin(0)=0</m>. Also, <m>\sin\left(\frac{8760}{4380}\pi\right)=\sin(2\pi)=0</m>.
+</intertext><mrow>
+&amp;=400+\textcolor{red}{\frac{5}{876}(0}) + \textcolor{blue}{\frac{5}{219}(0)}
+</mrow><mrow>
+&amp;=400\quad\text{ ppm}
+</mrow>
+</md>
+Remark: for the portions of the integral in red and blue, we also could have noticed that the integrand goes through a whole (integer) number of periods. For every period, the net signed area between the curve and the <m>x</m>-axis is zero, so we could have seen from the very beginning these terms would contribute 0 to the final average.
+</p>
+
+<p>(b) Using the definition of an average, the average concentration over the first day (<m>t=0</m> to <m>t=24</m>) is:
+<md>
+<mrow>
+&amp;\frac{1}{24}\int_0^{24} \left(400+\textcolor{red}{50\cos\left(\frac{t}{12}\pi\right)}+\textcolor{blue}{200\cos\left(\frac{t}{4380}\pi\right)}\right)\,\dee{t}
+</mrow><mrow>
+&amp;=\frac{1}{24}\int_0^{24}400\,\dee{t}
++
+\textcolor{red}{\frac{50}{24}\int_0^{24}\cos\left(\frac{t}{12}\pi\right)\,\dee{t}}+
+\textcolor{blue}{\frac{200}{24}\int_0^{24}\cos\left(\frac{t}{4380}\pi\right)\,\dee{t}}
+</mrow>
+<intertext>Note <m>t=0</m> to <m>t=24</m> is one complete period for the integrand in red, so the red integral will evaluate to zero. However, <m>t=0</m> to <m>t=24</m> is <em>less</em> than one cycle for the integrand in blue, so we expect this will contribute some nonzero quantity to the average.</intertext><mrow>
+&amp;=400+\textcolor{red}{0} + \textcolor{blue}{\frac{200}{24}\left[\frac{4380}{\pi}\sin\left(\frac{t}{4380}\pi\right)\right]_0^{24}}
+</mrow><mrow>
+&amp;=400+\color{blue}{\frac{25}{3}\cdot\frac{4380}{\pi}\sin\left(\frac{24}{4380}\pi\right)}
+</mrow><mrow>
+&amp;=400+\color{blue}{\frac{25}{3}\cdot\frac{4380}{\pi}\sin\left(\frac{2}{365}\pi\right)}
+</mrow><mrow>
+&amp;\approx 400+\color{blue}{199.99}
+</mrow><mrow>
+&amp;=599.99 \quad\text{ ppm}
+</mrow>
+</md>
+Remark: <m>C(0) = 400+\textcolor{red}{50}+\textcolor{blue}{200}</m>. The red term comes from the daily variation, and over the first day this will have an average of 0. The blue term comes from the seasonal variation, which changes dramatically over the course of an entire year but won't change very much over the course of a single day. So, it is reasonable that the average concentration over the first day should be close to (but not exactly) <m>400+200</m> ppm.
+</p>
+
+<p> (c) The average of <m>N(t)</m> over <m>[0,8760]</m> is:
+<md>
+<mrow>
+\frac{1}{8760}\int_0^{8760} \left ( 350+200\cos\left(\frac{t}{4380}\pi\right)\right)\,\dee{t}&amp;=350 + \frac{200}{8760}\bigg[\frac{4380}{\pi}\sin\left(\frac{t}{4380}\pi\right)\bigg]_0^{8760}
+</mrow><mrow>&amp;=350+\frac{200}{8760}\left[\frac{4380}{\pi}\sin\left(\frac{8760}{4380}\pi\right)\right]
+</mrow><mrow>
+&amp;=350+\frac{100}{\pi}\sin\left(2\pi\right)
+</mrow><mrow>&amp;=350
+</mrow>
+</md>
+Since the average of <m>C(t)</m> was 400, this gives us an absolute error of <m>|400-350|=50</m> ppm, for a relative error of
+<me>
+\frac{50}{400} = 0.125,
+</me>
+or 12.5<m>\%</m>.
+</p>
+
+<p>That is: sampling at the same time every day, rather than throughout the day, lead to an error of <m>12.5\%</m> in the yearly average concentration of carbon dioxide.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_2_avgarea">
+<statement><p>
+Let <m>S</m> be the solid formed by rotating the line <m>y=x^2</m> from <m>x=0</m> to <m>x=2</m> about the <m>x</m>-axis.
+<ol label="a">
+<li> What is the average area of the circular cross-sections of <m>S</m>? Call this value <m>A</m>.
+</li>
+<li> What is the volume of <m>S</m>?
+</li>
+<li> What is the volume of a cylinder with circular cross-sectional area <m>A</m> and length 2?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+A cross section of <m>S</m> at location <m>x</m> is a circle with radius <m>x^2</m>, so area <m>\pi x^4</m>. Part (a) is asking for the average of this function on <m>[0,2]</m>.
+</p></hint>
+<answer><p>
+(a) <m>\dfrac{16\pi}{5}</m>
+</p><p>
+(b) <m>\dfrac{32\pi}{5}</m>
+</p><p>
+(c) <m>\dfrac{32\pi}{5}</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> The  cross-section of <m>S</m> at <m>x</m> is a circle with radius <m>x^2</m>, so area <m>\pi x^4</m>. The average of these values, <m>0 \leq x \leq 2</m>, is
+<me>
+A = \frac{1}{2-0}\int_0^2 \pi x^4\,\dee{x} = \frac{1}{2}\left[\frac{\pi}{5}x^5\right]_0^2=\frac{16\pi}{5}</me>
+</li>
+<li> To find the volume of <m>S</m>, imagine cutting it into thin circular disks of radius <m>x^2</m> and thickness <m>\dee{x}</m>. The volume of one such disk is <m>\pi x^4\,\dee{x}</m>, so the volume of <m>S</m> is
+<me>
+\int_0^2 \pi x^4\,\dee{x} = \left[\frac{\pi}{5}x^5\right]_0^2 = \frac{32\pi}{5} </me>
+</li>
+<li>
+<p>
+The volume of a cylinder is the product of its base area with its length. A cylinder with circular cross-sections of area <m>\frac{16\pi}{5}</m> and length 2 has volume <m>\frac{32\pi}{5}</m>.
+</p>
+
+<p>Remark: this is the same as the volume of <m>S</m>, so the average cross-sectional area  of <m>S</m> tells us the cross-sectional area of a cylinder with the same length and volume as <m>S</m>. Compare this to Question<nbsp/><xref ref="prob_s2_2_avgvalue" text="local"/>, where we saw the average value of a function gave the height of a rectangle with the same area as the function over the given interval.
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<introduction><p>For Questions <xref ref="prob_s2_2_RMS1" text="local"/> through <xref ref="prob_s2_2_RMS3" text="local"/>, let the root mean square of <m>f(x)</m> on <m>[a,b]</m> be <m>\displaystyle\sqrt{\frac{1}{b-a}\int_a^b f^2(x)\,\dee{x}}</m>. This is the formula used in Example<nbsp/><xref ref="eg_peakvsrms"/> in the text.
+</p></introduction>
+
+<exercise purpose="RQS" xml:id="prob_s2_2_RMS1">
+<statement><p>
+Let <m>f(x) = x</m>.
+<ol label="a">
+<li> Calculate the average of <m>f(x)</m> over <m>[-3,3]</m>.
+</li>
+<li> Calculate the root mean square of <m>f(x)</m> over <m>[-3,3]</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+(a) can be done without calculation
+</p></hint>
+<answer><p>
+(a) 0
+</p><p>
+ (b) <m>\sqrt3</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> We can see without calculation that the average will be zero, since <m>f(x)=x</m> is an odd function and <m>[-3,3]</m> is a symmetric interval. Alternately, we can use the definition of an average to calculate
+<me>
+\frac{1}{6}\int_{-3}^3 x\,\dee{x} = \left[\frac{1}{12}x^2\right]_{-3}^3 = \frac{1}{12}(9-9)=0</me>
+</li>
+<li> Using the definition provided for root mean square:
+<md>
+<mrow>
+\text{RMS}&amp;=\sqrt{\frac{1}{6}\int_{-3}^3 x^2\,\dee{x}} = \sqrt{\left[\frac{1}{18}x^3\right]_{-3}^3}
+= \sqrt{\frac{27}{18}-\frac{-27}{18}} = \sqrt{3}
+</mrow>
+</md>
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Calculate the root mean square of <m>f(x) = \tan x</m> over <m>\left[-\frac{\pi}{4},\frac{\pi}{4}\right]</m>.
+</p></statement>
+<hint><p>
+<m>\tan^2 x = \sec^2 x - 1</m>
+</p></hint>
+<answer><p>
+<m>\displaystyle\sqrt{\frac{1}{\pi} - \frac{1}{4}}\approx 0.26</m>
+</p></answer>
+<solution><p>
+Using the definition provided,
+<md>
+<mrow>
+\text{RMS}&amp;=\sqrt{\frac{1}{2\pi}\int_{-\pi/4}^{\pi/4}\tan^2x\,\dee{x}} = \sqrt{\frac{1}{2\pi}\int_{-\pi/4}^{\pi/4}\left(\sec^2x-1\right)\,\dee{x}}
+</mrow><mrow>
+&amp;=\sqrt{\frac{1}{2\pi}\Big[\tan x - x \Big]_{-\pi/4}^{\pi/4}} =
+\sqrt{\frac{1}{2\pi}\left[\left(1 - \frac{\pi}{4} \right)-\left(-1 + \frac{\pi}{4} \right)\right]}
+</mrow><mrow>
+&amp;=\sqrt{\frac{1}{2\pi}\left(2-\frac{\pi}{2}\right)} = \sqrt{\frac{1}{\pi} - \frac{1}{4}}\approx 0.26
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_2_RMS3">
+<statement><p>
+A force acts on a spring, and the spring stretches and contracts. The distance beyond its natural length at time <m>t</m> is <m>f(t) = \sin\left(t\pi\right)</m> cm, where <m>t</m> is measured in seconds. The spring constant is 3 N/cm.
+<ol label="a">
+<li> What is the force exerted by the spring at time <m>t</m>, if it obeys Hooke's law?
+</li>
+<li> Find the average of the force exerted by the spring from <m>t=0</m> to <m>t=6</m>.
+</li>
+<li> Find the root mean square of the force exerted by the spring from <m>t=0</m> to <m>t=6</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Remember force is the product of the spring constant with the distance it's stretched past its natural length. The units given in the question are not exactly standard, but they are compatible with each other.
+</p>
+
+<p>You can find part (b) without any calculation. For (c), remember <m>\sin^2 x = \frac{1}{2}\big(1-\cos(2x)\big)</m>.
+</p></hint>
+<answer><p>
+(a) <m>F(t) = 3f(t) = 3\sin\left(t\pi\right)</m> N
+</p><p>
+(b) 0
+</p><p>
+ (c) <m>\dfrac{3}{\sqrt{2}} \approx 2.12</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> Using Hooke's law, when the spring is stretched (or compressed) <m>f(t)</m> metres past its natural length, the force exerted is <m>kf(t)</m>, where <m>k</m> is the spring constant. In this case, the force is
+<me>
+F(x) = (3\text{ N/cm})(f(t)\text{ cm}) = 3 \sin\left(t\pi\right)\text{ N}</me>
+</li>
+<li>
+<p>
+Our interval encompasses three full periods of sine, so the  average will be zero.
+</p>
+
+<p>Alternately, we can compute, using the definition of an average:
+<md>
+<mrow>
+\text{Avg}&amp;=\frac{1}{6}\int_0^6 3\sin(t\pi)\,\dee{t}= \frac{1}{6}\left[-\frac{3}{\pi}\cos(t\pi)\right]_0^6=\frac{1}{2\pi}\left[\cos 0 - \cos (6\pi)\right]=0
+</mrow>
+</md>
+</p>
+
+<p>This it doesn't tell us very much about the <q>normal</q> amount of force from the spring during our time period. It only tells us that force in one direction at is <q>cancelled out</q> by force in the opposite direction at another time.
+</p>
+</li>
+<li> Using the definition given for root  mean square,
+<md>
+<mrow>
+\text{RMS}&amp;=\sqrt{\frac{1}{6}\int_0^6 \left(3\sin(t\pi)\right)^2\,\dee{t}} = \sqrt{\frac{3}{2}\int_0^6 \sin^2(t\pi)\,\dee{t}}
+</mrow><mrow>&amp; = \sqrt{\frac{3}{4}\int_0^6 \left(1-\cos(2t\pi)\right)\,\dee{t}}\\
+&amp;=\sqrt{\frac{3}{4}\left[t - \frac{1}{2\pi}\sin(2t\pi)\right]_0^6}
+</mrow><mrow>
+&amp;=\sqrt{\frac{3}{4}\left[6 - \frac{1}{2\pi}\sin(12\pi)-0\right]}
+</mrow><mrow>&amp;=\sqrt{\frac{3}{4}(6)}=\frac{3}{\sqrt2}\approx 2.12
+</mrow>
+</md>
+</li>
+</ol>
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise purpose="RQS"><title><fromexam>1997A</fromexam></title>
+<statement><p>
+A car travels two hours without stopping. The driver records
+the car's speed every 20 minutes, as indicated in the table below:
+</p>
+<sidebyside>
+<tabular left="minor" right="minor" bottom="minor" top="minor">
+<row>
+<cell>time in hours</cell><cell>0</cell><cell>1/3</cell><cell>2/3</cell><cell>1</cell><cell>4/3</cell><cell>5/3</cell><cell>2  </cell>
+</row><row>
+<cell>speed in km/hr</cell><cell>50</cell><cell>70</cell><cell>80</cell><cell>55</cell><cell>60</cell><cell>80</cell><cell>40 </cell>
+</row>
+</tabular>
+</sidebyside>
+
+<p><ol label="a">
+<li>
+ Use the trapezoidal rule to estimate the total distance traveled in the two hours.
+</li>
+<li>
+ Use the answer to part (a)  to estimate the average speed of the car during this period.
+</li>
+</ol>
+</p>
+</statement>
+<hint><p>
+The trapezoidal rule is found in  Section  <xref ref="sec_trapRule"/>.
+</p></hint>
+
+<answer><p>
+(a) <m>130\text{ km}</m>
+</p>
+<p>
+(b) <m>65\text{ km/hr}</m>
+</p>
+
+</answer>
+
+<solution><p> (a)
+ Let <m>v(t)</m> be the speed of the car at time <m>t</m>. Then,
+by the trapezoidal rule with <m>a=0</m>, <m>b=2</m>, <m>\De t=1/3</m>, the distance traveled
+is
+<md>
+<mrow>
+\int_0^2 v(t)\,dt
+&amp;\approx\De t\Big[\half v(0)+v(1/3)+v(2/3)+v(3/3)
+                      +v(4/3)+v(5/3)+\half v(2)\Big]
+</mrow><mrow>
+&amp;=\frac{1}{3}\Big[\half 50+70+80+55+60+80+\half 40\Big]
+=130\text{ km}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+The average speed is <m>\frac{\text{dist}}{\text{time}} \approx \frac{130\text{ km}}{2\text{ hr}} =  65\text{ km/hr}</m>.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_2_var">
+<statement><p>
+Let <m>s(t) = e^t</m>.
+<ol label="a">
+<li> Find the average of <m>s(t)</m> on the interval <m>[0,1]</m>. Call this quantity <m>A</m>.
+</li>
+<li> For any point <m>t</m>, the difference between <m>s(t)</m> and <m>A</m> is <m>s(t)-A</m>. Find the average value of <m>s(t)-A</m> on the interval <m>[0,1]</m>.
+</li>
+<li> For any point <m>t</m>, the  absolute difference between <m>s(t)</m> and <m>A</m> is <m>|s(t)-A|</m>. Find the average value of <m>|s(t)-A|</m> on the interval <m>[0,1]</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+To find a definite integral of the absolute value of a function, break up the interval of integration into regions where the function is positive, and intervals where it's negative.
+</p></hint>
+<answer><p>
+(a) <m>A=e-1</m>
+</p><p>
+ (b) 0
+</p><p>
+ (c) <m>\displaystyle4-2e+2(e-1)\log(e-1)
+\approx 0.42</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> Using the definition of an average,
+<me>
+A=\frac{1}{1-0}\int_0^1 e^t\,\dee{t} = e-1</me>
+</li>
+<li>
+<p>
+Since <m>s(t)-A = e^t-e+1</m>, its average on <m>[0,1]</m> is
+<me>
+\frac{1}{1-0}\int_0^1 \left(e^t-e+1\right)\,\dee{t} = \left[e^t -et+t\right]_0^1 = (e-e+1)-(1)=0</me>
+</p>
+
+<p>Remark: what's happening here is that the average difference between <m>s(t)</m> and <m>A</m> is zero, because the values of <m>s(t)</m> that are larger than <m>A</m> (and give a positive value of <m>s(t)-A</m>) exactly cancel out the values of <m>s(t)</m> that are smaller than <m>A</m> (and give a negative value of <m>s(t)-A</m>). However, knowing how far the average value is from our calculated average is a reasonable thing to measure. That's where (c) comes in.
+</p>
+</li>
+<li>
+<p>
+Using the definition of an average, the quantity we want is:
+<me>
+\frac{1}{1-0}\int_0^1\left| e^t-e+1\right|\,\dee{t}</me>
+</p>
+
+<p>To deal with the absolute value, we consider the integral over two intervals: one where <m>e^t-e+1</m> is positive, and one where it's negative. To decide where to break the limits of integration, notice <m>e^t-e+1 \gt 0</m> exactly when <m>e^t \gt e-1</m>, so <m>t \gt \log(e-1)</m>.
+<md>
+<mrow>
+&amp;\frac{1}{1-0}\int_0^1\left| e^t-e+1\right|\,\dee{t}=\int_0^{\log(e-1)}|\underbrace{e^t-e+1}_{\text{negative}}|\,\dee{t}+\int_{\log(e-1)}^1|\underbrace{e^t-e+1}_{\text{positive}}|\,\dee{t}
+</mrow><mrow>
+&amp;=\int_0^{\log(e-1)}\big(-e^t+e-1\big)\,\dee{t}+\int_{\log(e-1)}^1\big(e^t-e+1\big)\,\dee{t}
+</mrow><mrow>
+&amp;=\Big[-e^t+(e-1)t\Big]_0^{\log(e-1)}+
+\Big[e^t-(e-1)t\Big]_{\log(e-1)}^1
+</mrow><mrow>
+&amp;=\left[-(e-1)+(e-1)\log(e-1)+1\right]+
+\left[e-(e-1)-(e-1)+(e-1)\log(e-1)\right]
+</mrow><mrow>&amp;=4-2e+2(e-1)\log(e-1)
+</mrow><mrow>
+&amp;\approx 0.42
+</mrow>
+</md>
+Remark: what we just measured is how far <m>s(t)</m> is, on average, from <m>A</m>. We had to neglect whether <m>s(t)</m> was above or below <m>A</m>, because (as we saw in (b)) the values above <m>A</m> <q>cancel out</q> the values below <m>A</m>. That's where the absolute value came in.
+</p>
+
+<p> Knowing how well most of your function's values match the average is an important measure, but dealing with absolute values can be a little clumsy. Therefore, the <alert>variance</alert> of a function squares the differences, rather than taking their absolute value. (In our example, that means looking at <m>(s(t)-A)^2</m>, rather than <m>|s(t)-A|</m>.) To compensate for the change in magnitude involve in squaring, the <alert>standard deviation</alert> is the square root of the variance. These are two very commonly used measures of how similar a function is to its average. Compare standard deviation to root-square-mean voltage from Example<nbsp/><xref ref="eg_peakvsrms"/> and Questions<nbsp/><xref ref="prob_s2_2_RMS1" text="local"/> to <xref ref="prob_s2_2_RMS3" text="local"/>.
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Consider the two functions <m>f(x)</m> and <m>g(x)</m> below, both of which have average <m>A</m> on <m>[0,4]</m>.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{5}{1}{5}
+\YExcoord{4}{4}
+\YEycoord{0.8}{A}
+\draw[thick, blue] plot[domain=0:4, samples=50](\x,{pow({\x-2},4)/4})node[right]{$y=f(x)$};
+\draw[thick, red] (0,.6)--(4,1) node[right]{$y=g(x)$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+<ol label="a">
+<li> Which function has a larger average on <m>[0,4]</m>:  <m>f(x)-A</m> or  <m>g(x)-A</m>?
+</li>
+<li> Which function has a larger average on <m>[0,4]</m>:  <m>|f(x)-A|</m> or  <m>|g(x)-A|</m>?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+This is an application of the ideas in Question<nbsp/><xref ref="prob_s2_2_var" text="local"/>.
+</p></hint>
+<answer><p>
+(a) neither <mdash/> both are zero
+</p><p>
+(b) <m>|f(x)-A|</m> has the larger average on <m>[0,4]</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<p>
+Neither: the average of both these functions is zero. We saw this with a particular function in Question<nbsp/><xref ref="prob_s2_2_var" text="local"/> (b), but it's  actually true in general. It's a quick calculation to prove.
+</p>
+
+<p>The average of <m>f(x)-A</m> is:
+<md>
+<mrow>
+\frac{1}{4-0}\int_0^4 \big(f(x)-A\big)\,\dee{x}&amp;=\underbrace{\frac{1}{4}\int_0^4f(x)\,\dee{x}}_{A} - A=A-A=0
+</mrow>
+</md>
+Similarly, the average of <m>g(x)-A</m> is:
+<md>
+<mrow>
+\frac{1}{4-0}\int_0^4 \big(g(x)-A\big)\,\dee{x}&amp;=\underbrace{\frac{1}{4}\int_0^4g(x)\,\dee{x}}_{A} - A=A-A=0
+</mrow>
+</md>
+</p>
+</li>
+<li><p>
+The function <m>|f(x)-A|</m> tells us how far <m>f(x)</m> is from <m>A</m>, without worrying whether <m>f(x)</m> is larger or smaller. Looking at our graph, for most values of <m>x</m> in <m>[0,4]</m>, <m>f(x)</m> is quite far away from <m>A</m>, so <m>|f(x)-A|</m> is usually a large, positive quantity.
+</p>
+
+<p>By contrast, <m>|g(x)-A|</m> is a small positive quantity for most values of <m>x</m>. The function <m>g(x)</m> is quite close to <m>A</m> for all values of <m>x</m> in <m>[0,4]</m>.
+</p>
+
+<p>So, since <m>|g(x)-A|</m> generally has much smaller values than <m>|f(x)-A|</m>, the average of <m>|f(x)-A|</m> on <m>[0,4]</m> will be larger than
+the average of <m>|g(x)-A|</m> on <m>[0,4]</m>.
+</p>
+
+<p>As discussed in Question<nbsp/><xref ref="prob_s2_2_var" text="local"/>(c), the average of <m>|f(x)-A|</m> is a measure of how closely <m>f(x)</m> resembles its average. We see from the graph that <m>f(x)</m> doesn't resemble the constant function <m>y=A</m> much at all, while <m>g(x)</m> seems much more similar to the constant function <m>y=A</m>.
+</p>
+
+<p>This kind of measure <mdash/> how similar a function is to its average <mdash/> is also the idea behind the root square mean.
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose the root mean square of a function <m>f(x)</m> on the interval <m>[a,b]</m> is <m>R</m>. What is the volume of the solid formed by rotating the portion of <m>f(x)</m> from <m>a</m> to <m>b</m> about the <m>x</m>-axis?
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{2.5}{4}{2}{2}
+\YExcoord{-1}{a}
+\YEnxcoord{3}{b}
+\draw (-1,0) node[shape=ellipse, minimum width=0.5cm, minimum height = 2.08cm, draw]{};
+\draw (0,.65) arc(90:-90:.125cm and .65cm);
+\draw (3,1.21) arc(90:-90:.3cm and 1.21cm);
+\draw[dashed] (0,.65) arc(90:270:.125cm and .65cm);
+\draw[dashed] (3,1.21) arc(90:270:.3cm and 1.21cm);
+\fill[fill opacity=.4, top color=black, bottom color=black, middle color=white] (-1,-1.04) arc(-90:90:0.26 cm and 1.04cm) plot[samples=100,domain=-1:0](\x,{(sqrt(abs(\x)))*cos(\x r)+.5})--(0,.65) arc (90:-90:.125cm and .65 cm)
+--plot[domain=0:-1] (\x,{(-sqrt(abs(\x)))*cos(\x r)-.5});
+\fill[fill opacity=.4, top color=black, bottom color=black, middle color=white] (0,-.65) arc(-90:90:0.125 cm and 0.65cm) plot[samples=100,domain=0:1.9](\x,{(sqrt(abs(\x)))*cos(\x r)+.5})
+--plot[domain=1.9:0] (\x,{(-sqrt(abs(\x)))*cos(\x r)-.5});
+\fill[fill opacity=.4, top color=black, bottom color=black, middle color=white]  plot[samples=100,domain=1.9:3](\x,{(sqrt(abs(\x)))*cos(\x r)+.5})arc(-90:90:0.3 cm and 1.21cm)
+--plot[domain=3:1.9] (\x,{(-sqrt(abs(\x)))*cos(\x r)-.5});
+\draw (-1,0) node[fill, fill opacity=0.3, shape=ellipse, minimum height=2.08cm, minimum width=0.52cm]{};
+\draw[very thick, blue] plot[samples=100,domain=-1.5:3.2](\x,{(sqrt(abs(\x)))*cos(\x r)+.5});
+\draw plot[samples=100,domain=-1:3](\x,{-(sqrt(abs(\x)))*cos(\x r)-.5});
+\draw[blue] (3.25,-1)node[below right]{$y=f(x)$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+As in Example<nbsp/><xref ref="eg_peakvsrms"/>, let the root mean square of <m>f(x)</m> on <m>[a,b]</m> be <m>\displaystyle\sqrt{\frac{1}{b-a}\int_a^b f^2(x)\,\dee{x}}</m>.
+</p></statement>
+<hint><p>
+Slice the solid into circular disks of radius <m>|f(x)|</m> and thickness <m>\dee{x}</m>.
+</p></hint>
+<answer><p>
+<m>(b-a)\pi R^2</m>
+</p></answer>
+<solution><p>
+When we rotate <m>f(x)</m> about the <m>x</m>-axis, we form a solid whose radius at <m>x</m> is <m>|f(x)|</m>. So, its circular cross-sections have area <m>\pi|f(x)|^2 = \pi f^2(x)</m>. If we slice this solid into circular disks of thickness <m>\dee{x}</m>, then the disks have volume <m>\pi f^2(x)\,\dee{x}</m>. Therefore, the volume of the entire solid is <m>\displaystyle\int_a^b \pi f^2(x)\,\dee{x}</m>. All we need to do now is get this into a form where we can replace the integral with the root mean square, <m>R</m>.
+<md>
+<mrow>
+V&amp;=\int_a^b \pi f^2(x)\,\dee{x} = \pi\frac{b-a}{b-a}\int_a^b f^2(x)\,\dee{x}
+</mrow><mrow>
+&amp;=\pi(b-a)\left(\sqrt{\frac{1}{b-a}\int_a^b f^2(x)\,\dee{x}}\right)^2
+</mrow><mrow>
+&amp;=\pi(b-a)R^2
+</mrow>
+</md>
+Remark: the volume of a cylinder with length <m>b-a</m> and radius <m>r</m> is <m>\pi(b-a)r^2</m>. So, the root mean square of <m>f(x)</m> gave us the radius of a cylinder with the same volume as the solid formed by rotating <m>f(x)</m>. Recall the average of <m>f(x)</m> gave us the height of a rectangle with the same area as <m>f(x)</m>. Compare this to the geometric interpretations of averages in Questions <xref ref="prob_s2_2_avgvalue" text="local"/> and <xref ref="prob_s2_2_avgarea" text="local"/>.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_2_quadraticaverage">
+<statement><p>
+Suppose <m>f(x)=ax^2+bx+c</m>, and the average value of <m>f(x)</m> on the interval <m>[0,1]</m> is the same as the average of <m>f(0)</m> and <m>f(1)</m>. What is <m>a</m>?
+</p></statement>
+<hint><p>
+The question tells you <m>\frac{1}{1-0}\int_0^1 f(x)\,\dee{x} = \frac{f(0)+f(1)}{2}</m>.
+</p></hint>
+<answer><p>
+0
+</p></answer>
+<solution><p>
+The question tells you <m>\frac{1}{1-0}\int_0^1 f(x)\,\dee{x} = \frac{f(0)+f(1)}{2}</m>. Note <m>f(0)=c</m>, and <m>f(1) = a+b+c</m>.
+<md>
+<mrow>
+\frac{1}{1-0}\int_0^1 f(x)\,\dee{x} &amp;= \frac{f(0)+f(1)}{2} = \frac{c+(a+b+c)}{2}
+</mrow><mrow>
+\int_0^1 \big(ax^2+bx+c \big)\,\dee{x}&amp;=\frac{a+b+2c}{2}
+</mrow><mrow>
+\left[\frac{a}{3}x^3+\frac{b}{2}x^2+cx \right]_0^1&amp;=\frac{a}{2}+\frac{b}{2}+c
+</mrow><mrow>\frac{a}{3}+\frac{b}{2}+c&amp;=\frac{a}{2}+\frac{b}{2}+c
+</mrow><mrow>
+\frac{a}{3}&amp;=a
+</mrow><mrow>
+a&amp;=0
+</mrow>
+</md>
+That is, <m>f(x)</m> is linear.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose <m>f(x)=ax^2+bx+c</m>, and the average value of <m>f(x)</m> on the interval <m>[s,t]</m> is the same as the average of <m>f(s)</m> and <m>f(t)</m>. Is it possible that <m>a \neq 0</m>?
+</p>
+
+<p>That is <mdash/>
+does the result of Question<nbsp/><xref ref="prob_s2_2_quadraticaverage" text="local"/> generalize?
+</p></statement>
+<hint><p>
+Set up this question just like Question<nbsp/><xref ref="prob_s2_2_quadraticaverage" text="local"/>, but with variables for your limits of integration.
+</p>
+
+<p>Note <m>(s-t)^2=s^2-2st+t^2</m>.
+</p></hint>
+<answer><p>
+Yes, but if <m>a\neq0</m>, then <m>s=t</m>.
+</p></answer>
+<solution><p>
+The information given in the question is:
+<md>
+<mrow>
+\frac{\big(as^2+bs+c\big)+\big(at^2+bt+c\big)}{2}&amp;=\frac{1}{t-s}\int_s^t \big(ax^2+bx+c\big)\,\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{t-s}\left[\frac{a}{3}x^3+\frac{b}{2}x^2+cx\right]_s^t
+</mrow><mrow>&amp;=\frac{1}{t-s}\left[\frac{a}{3}(t^3-s^3)+\frac{b}{2}(t^2-s^2)+c(t-s)\right]
+</mrow><mrow>
+&amp;=\frac{a}{3}(t^2+st+s^2)+\frac{b}{2}(t+s)+c
+</mrow><mrow>
+\frac{a}{2}(s^2+t^2) +\textcolor{red}{ \frac{b}{2}(s+t)}+\textcolor{blue}{c}&amp;=\frac{a}{3}(t^2+st+s^2)+\textcolor{red}{\frac{b}{2}(t+s)}+\textcolor{blue}{c}
+</mrow><mrow>
+\frac{a}{2}(s^2+t^2)&amp;=\frac{a}{3}(t^2+st+s^2)
+</mrow><mrow>
+a\left[\frac{s^2+t^2}{2} - \frac{t^2+st+s^2}{3}\right]&amp;=0
+</mrow><mrow>
+a\left[\frac{s^2-2st+t^2}{6}\right]&amp;=0
+</mrow><mrow>a(s-t)^2&amp;=0
+</mrow><mrow>
+a&amp;=0 \quad\text{OR}\quad s=t
+</mrow>
+</md>
+So, unless <m>s=t</m> (and we're taking the very boring average of a single point!) then <m>a=0</m>. That is: <m>f(x)</m> is linear whenever <m>s \neq t</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>f(x)</m> be a function defined for all numbers in the interval <m>[a,b]</m>, with average value <m>A</m> over that interval. What is the average of <m>f(a+b-x)</m> over the interval <m>[a,b]</m>?
+</p></statement>
+<hint><p>
+What are the graphs of <m>f(x)</m> and <m>f(a+b-x)</m> like?
+</p></hint>
+<answer><p>
+<m>A</m>
+</p></answer>
+<solution><p>
+The function <m>g(x)=f(a+b-x)</m>, on the interval <m>[a,b]</m>, is a mirror of the function <m>f(x)</m>, with <m>g(a)=f(b)</m> and <m>g(b)=f(a)</m>. So, <m>\int_a^b f(a+b-x)\,\dee{x} = \int_a^bf(x)\,\dee{x}</m>, and hence <m>\frac{1}{b-a}\int_a^b f(a+b-x)\,\dee{x} = \frac{1}{b-a}\int_a^bf(x)\,\dee{x}</m>, so the average value of <m>f(a+b-x)</m> on <m>[a,b]</m> is <m>A</m>.
+</p>
+
+<p>Alternately, we can evaluate <m>\frac{1}{b-a}\int_a^b f(a+b-x)\,\dee{x}</m> directly, using the substitution <m>u=a+b-x</m>, <m>\dee{x}=-\dee{x}</m>:
+<md>
+<mrow>
+\frac{1}{b-a}\int_a^b f(a+b-x)\,\dee{x}&amp;=\frac{-1}{b-a}\int_{u(a)}^{u(b)} f(u)\,\dee{u}
+</mrow><mrow>
+&amp;=\frac{-1}{b-a}\int_{b}^{a} f(u)\,\dee{u}
+</mrow><mrow>&amp;=\frac{1}{b-a}\int_{a}^{b} f(u)\,\dee{u}
+</mrow><mrow>&amp;=A
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose <m>f(t)</m> is a continuous function, and
+<m>A(x)</m> is the average of <m>f(t)</m> on the interval from 0 to <m>x</m>.
+<ol label="a">
+<li> What is the average of <m>f(t)</m> on <m>[a,b]</m>, where <m>a \lt b</m>? Give your answer in terms of <m>A</m>.
+</li>
+<li> What is <m>f(t)</m>? Again, give your answer in terms of <m>A</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+For (b), express <m>A(x)</m> as an integral, then differentiate.
+</p></hint>
+<answer><p>
+(a) <m>\displaystyle\frac{bA(b) - aA(a)}{b-a}</m>
+</p><p>
+(b) <m>f(t)=A(t)+tA'(t) </m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>  The function <m>A(x)</m> only gives us information about an integral when one limit of integration is zero. We can get around this by using properties of definite integrals from Section 1.2 to break our integral into two integrals, each of which has 0 as one limit of integration. So, we find the average of <m>f(t)</m> on <m>[a,b]</m> as follows:
+<md>
+<mrow>
+\frac{1}{b-a}\int_a^b f(t)\,\dee{t}&amp;=
+\frac{1}{b-a}\left(\int_a^0 f(t)\,\dee{t} + \int_0^b f(t)\,\dee{t}\right)
+</mrow><mrow>
+&amp;=\frac{1}{b-a}\left(-\int_0^a f(t)\,\dee{t} + \int_0^b f(t)\,\dee{t} \right)
+</mrow><mrow>
+&amp;=\frac{1}{b-a}\left(-a\cdot\underbrace{\frac{1}{a}\int_0^a f(t)\,\dee{t}}_{A(a)} + b\cdot\underbrace{\frac{1}{b}\int_0^b f(t)\,\dee{t}}_{A(b)} \right)
+</mrow><mrow>
+&amp;=\frac{1}{b-a}\left(-aA(a)+bA(b) \right) = \frac{bA(b) - aA(a)}{b-a}
+</mrow>
+</md>
+</li>
+<li>
+<p>
+From the definition of <m>A(x)</m>, we know
+<me>
+A(x) = \frac{1}{x}\int_0^x f(t)\,\dee{t}</me>
+</p>
+
+<p>That is,
+<me>
+xA(x) =\int_0^x f(t)\,\dee{t}</me>
+</p>
+
+<p>To find <m>f(x)</m>, we differentiate both sides. For the left side, we use the product rule; for the right side, we use the Fundamental Theorem of Calculus part 1.
+<me>
+A(x)+xA'(x) = f(x)</me>
+</p>
+
+<p>So, <m>f(t)=A(t)+tA'(t)</m>.
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+<ol label="a">
+<li> Find a function <m>f(x)</m> with average <m>0</m> over <m>[-1,1]</m> but <m>f(x) \neq 0</m> for all <m>x</m> in <m>[-1,1]</m>, or show that no such function exists.
+</li>
+<li> Find a <em>continuous</em> function <m>f(x)</m> with average <m>0</m> over <m>[-1,1]</m> but <m>f(x) \neq 0</m> for all <m>x</m> in <m>[-1,1]</m>, or show that no such function exists.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+For (b), consider the cases that <m>f(x)</m> is always bigger or always smaller than 0. Then, use the intermediate value theorem (see the CLP-I text).
+</p></hint>
+<answer><p>
+<ol label="a">
+<li> One of many possible answers: <m>f(x) = \begin{cases}
+-1&amp;\text{ if } x \leq 0\\
+1&amp;\text{ if } x  \gt  0
+\end{cases}</m>.
+</li>
+<li>
+<p>
+No such function exists.
+<ul>
+<li>Note 1: Suppose <m>f(x) \gt 0</m> for all <m>x</m> in <m>[-1,1]</m>. Then <m>\frac{1}{2}\int_{-1}^1f(x)\,\dee{x}  \gt  \frac{1}{2}\int_{-1}^10\,\dee{x} =0 </m>. That is, the average value of <m>f(x)</m> on the interval <m>[-1,1]</m> is not zero <mdash/> it's something greater than zero.
+</li>
+<li>Note 2: Suppose <m>f(x) \lt 0</m> for all <m>x</m> in <m>[-1,1]</m>. Then <m>\frac{1}{2}\int_{-1}^1f(x)\,\dee{x}  \lt  \frac{1}{2}\int_{-1}^10\,\dee{x} =0 </m>. That is, the average value of <m>f(x)</m> on the interval <m>[-1,1]</m> is not zero <mdash/> it's something less than zero.
+</li>
+</ul>
+So, if the average value of <m>f(x)</m> is zero, then <m>f(x)\ge 0</m> for some <m>x</m> in <m>[-1,1]</m>, and <m>f(y) \le 0</m> for some <m>y \in [-1,1]</m>. Since <m>f</m> is a continuous function, and 0 is between <m>f(x)</m> and <m>f(y)</m>, by the intermediate value theorem (see the CLP-I text) there is some value <m>c</m> between <m>x</m> and <m>y</m> such that <m>f(c)=0</m>. Since <m>x</m> and <m>y</m> are both in <m>[-1,1]</m>, then <m>c</m> is as well. Therefore, no function exists as described in the question.
+</p>
+</li>
+</ol>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> One of many possible answers: <m>f(x) = \begin{cases}
+-1&amp;\text{ if } x \leq 0\\
+1&amp;\text{ if } x  \gt  0
+\end{cases}</m>.
+</li>
+<li>
+<p>
+No such function exists.
+<ul>
+<li>Note 1: Suppose <m>f(x) \gt 0</m> for all <m>x</m> in <m>[-1,1]</m>. Then <m>\frac{1}{2}\int_{-1}^1f(x)\,\dee{x}  \gt  \frac{1}{2}\int_{-1}^10\,\dee{x} =0 </m>. That is, the average value of <m>f(x)</m> on the interval <m>[-1,1]</m> is not zero <mdash/> it's something greater than zero.
+</li>
+<li>Note 2: Suppose <m>f(x) \lt 0</m> for all <m>x</m> in <m>[-1,1]</m>. Then <m>\frac{1}{2}\int_{-1}^1f(x)\,\dee{x}  \lt  \frac{1}{2}\int_{-1}^10\,\dee{x} =0 </m>. That is, the average value of <m>f(x)</m> on the interval <m>[-1,1]</m> is not zero <mdash/> it's something less than zero.
+</li>
+</ul>
+So, if the average value of <m>f(x)</m> is zero, then <m>f(x)\ge 0</m> for some <m>x</m> in <m>[-1,1]</m>, and <m>f(y) \le 0</m> for some <m>y \in [-1,1]</m>. Since <m>f</m> is a continuous function, and 0 is between <m>f(x)</m> and <m>f(y)</m>, by the intermediate value theorem (see the CLP-I text) there is some value <m>c</m> between <m>x</m> and <m>y</m> such that <m>f(c)=0</m>. Since <m>x</m> and <m>y</m> are both in <m>[-1,1]</m>, then <m>c</m> is as well. Therefore, no function exists as described in the question.
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_2_limitavg">
+<statement><p>
+Suppose <m>f(x)</m> is a positive, continuous function with <m>\lim\limits_{x \to \infty} f(x)=0</m>, and let <m>A(x)</m> be the average of <m>f(x)</m> on <m>[0,x]</m>.
+</p>
+
+<p>True or false: <m>\lim\limits_{x \to \infty} A(x) = 0</m>.
+</p></statement>
+<hint><p>
+Try l'Hôpital's rule.
+</p></hint>
+<answer><p>
+true
+</p></answer>
+<solution><p>
+This seems like it might be true: if <m>f</m> is getting closer and closer to zero, as <m>x</m> grows towards infinity, then over time the later values will become a larger and larger portion of the total interval we're looking at, and so the average should look more and more like <m>f(x)</m> when <m>x</m> is large <mdash/> that is, like 0. That's some intuition to start us out, but it isn't a rigorous argument. To be sure we haven't overlooked something, let's use the definition of an average to express <m>A(x)</m>.
+<md>
+<mrow>
+A(x)&amp;=\frac{1}{x}\int_0^x f(t)\,\dee{t}
+</mrow><mrow>
+\lim_{x \to \infty}A(x)&amp;=\lim_{x \to \infty}\frac{1}{x}\int_0^x f(t)\,\dee{t}
+</mrow>
+<intertext>If <m>\int_0^\infty f(t) \,\dee{t}</m> converges, then this limit is 0, and the statement is true. So, suppose it does not converge. Since <m>f(x)</m> is positive, that means <m>\lim\limits_{x \to \infty} \int_0^x f(t)\,\dee(t) = \infty</m>, so we can use l'Hôpital's rule. To differentiate the numerator, we use the Fundamental Theorem of Calculus part 1.
+</intertext><mrow>
+\lim_{x \to \infty}A(x)&amp;=\lim_{x \to \infty}\frac{\int_0^x f(t)\,\dee{t}}{x} = \lim_{x \to \infty}\frac{f(t)}{1}=0
+</mrow>
+</md>
+So, the statement is true whether <m>\int_0^xf(t)\,\dee{t}</m> converges or not.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>A(x)</m> be the average of the function <m>f(t)=e^{-t^2}</m> on the interval <m>[0,x]</m>. What is <m>\displaystyle\lim_{x \to \infty} A(x)</m>?
+</p></statement>
+<hint><p>
+Use the result of Question<nbsp/><xref ref="prob_s2_2_limitavg" text="local"/>.
+</p></hint>
+<answer><p>
+0
+</p></answer>
+<solution><p>
+Note <m>f(t)</m> is a continuous function that takes only positive values, and <m>\lim\limits_{t \to \infty} f(t)=0</m>. By  the result of Question<nbsp/><xref ref="prob_s2_2_limitavg" text="local"/>, <m>\displaystyle\lim_{x \to \infty} A(x)=0</m>.
+</p></solution>
+</exercise></exercisegroup>
+
+</exercises>

@@ -1,0 +1,1501 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_numeric_int">
+<title>Numerical Integration</title>
+<introduction>
+
+<p>
+By now the reader will have come to appreciate that integration is generally quite a bit  more difficult than differentiation. There are a great many simple-looking integrals,  such as <m>\int e^{-x^2}\dee{x}</m>, that are either very difficult or even impossible to  express in terms of standard functions
+	<fn>
+		We apologise for being a little sloppy  here <mdash/> but we just want to say that it can be very hard or even impossible to write some  integrals as some finite sized expression involving polynomials, exponentials, logarithms  and trigonometric functions. We don't want to get into a discussion of computability,  though that is a very interesting topic.
+	</fn>.
+Such integrals are not merely mathematical  curiosities, but arise very naturally in many contexts. For example, the error function
+<md>
+<mrow>
+ \mathrm{erf}(x) = \frac{2}{\sqrt{\pi}}\int_0^x e^{-t^2}\dee{t}
+</mrow>
+</md>
+is extremely important in many areas of mathematics, and also in many practical  applications of statistics.
+</p>
+
+<p>
+In such applications we need to be able to evaluate this integral (and many others) at a  given numerical value of <m>x</m>. In this section we turn to the problem of how to find  (approximate) numerical values for integrals, without having to evaluate them  algebraically. To develop these methods we return to Riemann sums and our  geometric interpretation of the definite integral as the signed area.
+</p>
+
+<p>
+We start by describing (and applying) three simple algorithms for generating,  numerically, approximate values for the definite integral <m>\int_a^b f(x)\,\dee{x}</m>. In  each algorithm, we begin in much the same way as we approached Riemann sums.
+<ul>
+<li>
+	We first select an integer <m>n \gt 0</m>, called the <q>number of steps</q>.
+</li>
+<li>
+	We then divide the interval of integration, <m>a\le x\le b</m>, into <m>n</m> equal subintervals, each of length <m>\De x=\frac{b-a}{n}</m>. The first subinterval runs  from <m>x_0=a</m> to <m>x_1=a+\De x</m>. The second runs from <m>x_1</m> to <m>x_2=a+2\De x</m>, and so on.  The last runs from <m>x_{n-1}=b-\De x</m> to <m>x_n=b</m>.
+</li>
+</ul>
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/decomposition"/>
+</sidebyside>
+
+<p>
+This splits the original integral into <m>n</m> pieces:
+<me>
+\int_a^b f(x)\,\dee{x}
+=\int_{x_0}^{x_1} f(x)\,\dee{x}
++\int_{x_1}^{x_2} f(x)\,\dee{x}
++\cdots
++\int_{x_{n-1}}^{x_n} f(x)\,\dee{x}
+</me>
+Each subintegral <m>\int_{x_{j-1}}^{x_j} f(x)\,\dee{x}</m> is approximated by the area of a simple geometric figure. The three algorithms we consider approximate the area  by rectangles, trapezoids and parabolas (respectively).
+</p>
+
+<sidebyside width="80%">
+ <image source="text/figs/three_shapes"/>
+</sidebyside>
+<p>
+
+We will explain these rules in detail below, but we give a brief overview here:
+<ol label="1">
+<li>
+	The midpoint rule approximates each subintegral by the area of a rectangle of  height given by the value of the function at the midpoint of the subinterval
+	<md>
+	<mrow>
+	  \int_{x_{j-1}}^{x_{j}} f(x) \dee{x} &amp; \approx f\left( \frac{x_{j-1}+x_{j}}{2} \right)  \De x
+	</mrow>
+	</md>
+	This is illustrated in the leftmost figure above.
+</li>
+<li>
+	The trapezoidal rule approximates each subintegral by the area of a trapezoid with  vertices at <m>(x_{j-1},0), (x_{j-1},f(x_{j-1})), (x_{j},f(x_{j})), (x_{j},0)</m>:
+	<md>
+	<mrow>
+	  \int_{x_{j-1}}^{x_{j}} f(x) \dee{x}
+	  &amp; \approx \frac{1}{2} \left(f(x_{j-1})+f(x_j \right) \De x
+	</mrow>
+	</md>
+	The trapezoid is illustrated in the middle figure above. We shall derive the formula  for the area shortly.
+</li>
+<li>
+	Simpson's rule approximates two adjacent subintegrals by the area under  a parabola that passes through the points <m>(x_{j-1},f(x_{j-1}))</m>, <m>(x_{j},f(x_{j}))</m> and <m>(x_{j+1},f(x_{j+1}))</m>:
+	<md>
+	<mrow>
+	  \int_{x_{j-1}}^{x_{j+1}} f(x) \dee{x}
+	  &amp; \approx \frac{1}{3} \left(f(x_{j-1})+4f(x_j)+f(x_{j+1} \right) \De x
+	</mrow>
+	</md>
+	The parabola is illustrated in the right hand figure above. We shall derive the  formula for the area shortly.
+</li>
+</ol>
+</p>
+
+<definition><title>Midpoints</title>
+<statement><p>
+In what follows we need to refer to the midpoint between <m>x_{j-1}</m> and <m>x_j</m> very  frequently. To save on writing (and typing) we introduce the notation
+<md>
+<mrow>
+  \bar x_j &amp;= \frac{1}{2} \left(x_{j-1}+x_j \right).
+</mrow>
+</md>
+</p></statement>
+</definition>
+</introduction>
+
+<subsection xml:id="sec_midpointRule">
+<title>The midpoint rule</title>
+
+<p>
+The integral <m>\int_{x_{j-1}}^{x_j} f(x)\,\dee{x}</m> represents the area between the curve <m>y=f(x)</m> and the <m>x</m>-axis with <m>x</m> running from <m>x_{j-1}</m>  to <m>x_j</m>. The width of this region is <m>x_j-x_{j-1}=\De x</m>. The height varies  over the different values that <m>f(x)</m> takes as <m>x</m> runs from <m>x_{j-1}</m>  to <m>x_j</m>.
+</p>
+
+<p>
+The midpoint rule approximates this area by the area of a rectangle  of width <m>x_j-x_{j-1}=\De x</m> and height <m>f(\bar x_j)</m> which  is the exact height at the midpoint of the range covered by <m>x</m>.
+</p>
+
+<sidebyside width="80%">
+<image source="text/figs/midPt"/>
+</sidebyside>
+
+<p>
+The area of the approximating rectangle is <m>f(\bar x_j)\De x</m>, and the midpoint rule  approximates each subintegral by
+<me>
+\int_{x_{j-1}}^{x_j} f(x)\,\dee{x}\approx f(\bar x_j)\De x
+</me>.
+</p>
+
+<p>
+Applying this approximation to each subinterval and summing gives us the following  approximation of the full integral:
+<md>
+<mrow>
+\int_a^b f(x)\,\dee{x}&amp;=
+\int_{x_0}^{x_1}\!\! f(x)\,\dee{x} +
+\int_{x_1}^{x_2}\!\! f(x)\,\dee{x} +\cdots +
+\int_{x_{n-1}}^{x_n} f(x)\,\dee{x}
+</mrow>
+<mrow>
+&amp;\approx
+f(\bar x_1)\De x +
+f(\bar x_2)\De x
++ \cdots +
+f(\bar x_n)\De x
+</mrow>
+</md>
+So notice that the approximation is the sum of the function evaluated at the midpoint of  each interval and then multiplied by <m>\De x</m>. Our other approximations will have similar  forms.
+</p>
+
+<p>
+In summary:
+</p>
+<fact xml:id="eq_MPrule"><title>The midpoint rule</title>
+<statement><p>
+The midpoint rule approximation is
+<md>
+<mrow>
+\int_a^b f(x)\,\dee{x}\approx\Big[f(\bar x_1)+f(\bar x_2)+\cdots +f(\bar x_n)\Big]\De x
+</mrow>
+</md>
+where <m>\De x = \tfrac{b-a}{n}</m> and
+<md>
+<mrow>
+x_0&amp;=a&amp;\quad
+x_1&amp;=a+\De x&amp;\quad
+x_2&amp;=a+2\De x&amp;\quad
+&amp;\cdots&amp;\quad
+x_{n-1}&amp;=b-\De x&amp;\quad
+x_n&amp;=b
+</mrow>
+<mrow>
+&amp; &amp;
+\bar x_1&amp;=\tfrac{x_0+x_1}{2}&amp;
+\bar x_2&amp;=\tfrac{x_1+x_2}{2}&amp;
+&amp;\cdots&amp;
+\bar x_{n-1}&amp;=\tfrac{x_{n-2}+x_{n-1}}{2}&amp;
+\bar x_n&amp;=\tfrac{x_{n-1}+x_n}{2}
+</mrow>
+</md>
+</p></statement>
+</fact>
+
+<example xml:id="eg_MidpointB"><title><m>\int_0^1 \frac{4}{1+x^2}\,\dee{x}</m></title>
+<p>
+We approximate the above integral using the midpoint rule with <m>n=8</m> step.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	First we set up all the <m>x</m>-values that we will need. Note that <m>a=0</m>, <m>b=1</m>, <m>\De x=\tfrac{1}{8}</m> and
+	<md>
+	<mrow>
+	x_0&amp;=0 &amp; x_1&amp;=\tfrac{1}{8} &amp; x_2&amp;=\tfrac{2}{8}
+	&amp;&amp; \cdots &amp;
+	x_7&amp;=\tfrac{7}{8}&amp;
+	x_8&amp;=\tfrac{8}{8}=1
+	</mrow>
+	</md>
+	Consequently
+	<md>
+	<mrow>
+	\bar x_1&amp;= \tfrac{1}{16} &amp;
+	\bar x_2&amp;= \tfrac{3}{16} &amp;
+	\bar x_3&amp;= \tfrac{5}{16} &amp;
+	\cdots&amp;&amp;
+	\bar x_8 &amp;= \tfrac{15}{16}
+	</mrow>
+	</md>
+</li>
+<li>
+	We now apply Equation<nbsp/><xref ref="eq_MPrule"/> to the integrand <m>f(x)=\frac{4}{1+x^2}</m>:
+	<md>
+	<mrow>
+	&amp;\int_0^1 \frac{4}{1+x^2}\,\dee{x} \approx
+	\bigg[\overbrace{\frac{4}{1+\bar x_1^2}}^{f(\bar x_1)}
+				+\overbrace{\frac{4}{1+\bar x_2^2}}^{f(\bar x_2)}
+				+\!\cdots\!
+			   +\overbrace{\frac{4}{1+\bar x_7^2}}^{f(\bar x_{n-1})}
+			   +\overbrace{\frac{4}{1+\bar x_8^2}}^{f(\bar x_n)}
+				 \bigg]\De x
+	</mrow><mrow>
+	&amp;=\bigg[\frac{4}{1+\tfrac{1}{16^2}}+
+				 \frac{4}{1+\tfrac{3^2}{16^2}}+
+				 \frac{4}{1+\tfrac{5^2}{16^2}}+
+				 \frac{4}{1+\tfrac{7^2}{16^2}}
+				  +\frac{4}{1+\tfrac{9^2}{16^2}}+
+				 \frac{4}{1+\tfrac{11^2}{16^2}}+
+				 \frac{4}{1+\tfrac{13^2}{16^2}}+
+				 \frac{4}{1+\tfrac{15^2}{16^2}}\bigg]\frac{1}{8}
+	</mrow><mrow>
+	&amp;=\big[      3.98444 +
+				 3.86415 +
+				 3.64413 +
+				 3.35738 +
+				 3.03858 +
+				 2.71618 +
+				 2.40941 +
+				 2.12890 \big]\frac{1}{8}
+	</mrow><mrow>
+	&amp;=  3.1429
+	</mrow>
+	</md>
+	where we have rounded to four decimal places.
+</li>
+<li>
+	In this case we can compute the integral exactly (which is one of the reasons it  was chosen as a first example):
+	<md>
+	<mrow>
+	\int_0^1\frac{4}{1+x^2}\dee{x} =4\arctan x\Big|_0^1 = \pi
+	</mrow>
+	</md>
+</li>
+<li>
+	So the error in the approximation generated by eight steps of the midpoint rule is
+	<md>
+	<mrow>
+	|3.1429-\pi| &amp;=0.0013
+	</mrow>
+	</md>
+</li>
+<li>
+	The relative error is then
+	<md>
+	<mrow>
+	  \frac{|\text{approximate}-\text{exact}|}{\text{exact}}
+	  &amp;= \frac{|3.1429-\pi|}{\pi}=0.0004
+	</mrow>
+	</md>
+	That is the error is <m>0.0004</m> times the actual value of the integral.
+</li>
+<li>
+	We can write this as a percentage error by multiplying it by 100
+	<md>
+	<mrow>
+	  \text{percentage error} &amp;= 100 \times
+	\frac{|\text{approximate}-\text{exact}|}{\text{exact}}
+	  = 0.04 \%
+	</mrow>
+	</md>
+	That is, the error is about <m>0.04\%</m> of the exact value.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+The midpoint rule gives us quite good estimates of the integral without too much work  <mdash/> though it is perhaps a little tedious to do by hand
+	<fn>
+		Thankfully it is very easy to write a program to apply the midpoint rule.
+	</fn>.
+Of course, it would be very helpful  to quantify what we mean by <q>good</q> in this context and that requires us to discuss  errors.
+</p>
+
+<definition xml:id="def_errorType">
+<statement><p>
+Suppose that <m>\alpha</m> is an approximation to <m>A</m>. This approximation has
+<ul>
+<li> absolute error <m>|A-\alpha|</m> and </li>
+<li> relative error <m>\frac{|A-\alpha|}{A}</m> and </li>
+<li> percentage error <m>100\frac{|A-\alpha|}{A}</m> </li>
+</ul>
+</p></statement>
+</definition>
+
+<p>
+We will discuss errors further in Section<nbsp/><xref ref="ssec_num_int_err"/> below.
+</p>
+
+<example xml:id="eg_Midpoint"><title><m>\int_0^\pi\sin x\,\dee{x}</m></title>
+<p>
+As a second example, we apply the midpoint rule with <m>n=8</m> steps to the above integral.
+</p>
+
+<p>
+<ul>
+<li>
+	We again start by setting up all the <m>x</m>-values that we will need. So <m>a=0</m>,  <m>b=\pi</m>, <m>\De x=\tfrac{\pi}{8}</m> and
+	<md>
+	<mrow>
+	x_0&amp;=0&amp; x_1&amp;=\tfrac{\pi}{8}&amp;
+	x_2&amp;=\tfrac{2\pi}{8}&amp; \cdots&amp;&amp;
+	x_7&amp;=\tfrac{7\pi}{8}&amp;
+	x_8&amp;=\tfrac{8\pi}{8}=\pi
+	</mrow>
+	</md>
+	Consequently,
+	<md>
+	<mrow>
+	\bar x_1&amp;=\tfrac{\pi}{16}&amp;
+	\bar x_2&amp;=\tfrac{3\pi}{16} &amp; \cdots&amp;&amp;
+	\bar x_7&amp;=\tfrac{13\pi}{16} &amp;
+	\bar x_8&amp;=\tfrac{15\pi}{16}
+	</mrow>
+	</md>
+</li>
+<li>
+	Now apply Equation<nbsp/><xref ref="eq_MPrule"/> to the integrand <m>f(x)=\sin x</m>:
+	<md>
+	<mrow>
+	&amp;\int_0^\pi\sin x\,\dee{x}
+	\approx\Big[\sin(\bar x_1)+\sin(\bar x_2)+\cdots+\sin(\bar x_8)\Big]\De x
+	</mrow><mrow>
+	&amp;=\Big[\sin(\tfrac{\pi}{16})+
+				 \sin(\tfrac{3\pi}{16})+
+				 \sin(\tfrac{5\pi}{16})+
+				 \sin(\tfrac{7\pi}{16})+
+				 \sin(\tfrac{9\pi}{16})+
+				 \sin(\tfrac{11\pi}{16})+
+				 \sin(\tfrac{13\pi}{16})+
+				 \sin(\tfrac{15\pi}{16})\Big]\tfrac{\pi}{8}
+	</mrow><mrow>
+	&amp;=\Big[0.1951+
+				 0.5556+
+				 0.8315+
+				 0.9808+
+				 0.9808+
+				 0.8315+
+				 0.5556+
+				 0.1951\Big]\times 0.3927
+	</mrow><mrow>
+	&amp;=5.1260\times 0.3927
+	=2.013
+	</mrow>
+	</md>
+</li>
+<li>
+	Again, we have chosen this example so that we can compare it against the exact  value:
+	<md>
+	<mrow>
+	  \int_0^\pi \sin x \dee{x} &amp;= \big[ -\cos x \big]_0^\pi = -\cos\pi + \cos 0 = 2.
+	</mrow>
+	</md>
+</li>
+<li>
+	So with eight steps of the midpoint rule we achieved
+	<md>
+	<mrow>
+	  \text{absolute error} &amp;= |2.013-2|=0.013
+	</mrow><mrow>
+	  \text{relative error} &amp;= \frac{|2.013-2|}{2} = 0.0065
+	</mrow><mrow>
+	  \text{percentage error} &amp;= 100 \times \frac{|2.013-2|}{2} = 0.65 \%
+	</mrow>
+	</md>
+	With little work we have managed to estimate the integral to within <m>1\%</m> of its true value.
+</li>
+</ul>
+</p>
+</example>
+</subsection>
+
+
+<subsection xml:id="sec_trapRule">
+<title>The trapezoidal rule</title>
+
+<p>
+Consider again the area represented by the integral <m>\int_{x_{j-1}}^{x_j} f(x)\,\dee{x}</m>.  The trapezoidal rule
+	<fn>
+		This method is also called the <q>trapezoid rule</q> and  <q>trapezium rule</q>.
+	</fn>
+(unsurprisingly) approximates this area by a trapezoid
+	<fn>
+		A  trapezoid is a four sided polygon, like a rectangle. But, unlike a rectangle, the top and  bottom of a trapezoid need not be parallel.
+	</fn>
+whose vertices lie at
+<md>
+<mrow>
+  (x_{j-1},0), (x_{j-1},f(x_{j-1})), (x_{j},f(x_{j})) \text{ and } (x_{j},0).
+</mrow>
+</md>
+</p>
+
+<sidebyside width="80%">
+<image source="text/figs/trap"/>
+</sidebyside>
+
+<p>
+The trapezoidal approximation of the integral <m>\int_{x_{j-1}}^{x_j} f(x)\,\dee{x}</m> is the  shaded region in the figure on the right above. It has width <m>x_j-x_{j-1}=\De x</m>. Its left hand side has height <m>f(x_{j-1})</m> and its right hand side has height <m>f(x_j)</m>.
+</p>
+
+<p>
+As the figure below shows, the area of a trapezoid is its width times its average height.
+</p>
+
+<sidebyside width="60%">
+<image source="text/figs/trapArea"/>
+</sidebyside>
+
+
+<p>
+So the trapezoidal rule approximates each subintegral by
+<me>
+\int_{x_{j-1}}^{x_j} f(x)\,\dee{x}\approx \tfrac{f(x_{j-1})+f(x_j)}{2}\De x
+</me>
+Applying this approximation to each subinterval and then summing the result gives us the  following approximation of the full integral
+<md>
+<mrow>
+\int_a^b f(x)\,\dee{x}&amp;=
+\int_{x_0}^{x_1} f(x)\,\dee{x} + \int_{x_1}^{x_2} f(x)\,\dee{x}
++\cdots+\int_{x_{n-1}}^{x_n} f(x)\,\dee{x}
+</mrow>
+<mrow>
+&amp; \approx \tfrac{f(x_0)+f(x_1)}{2}\De x +  \tfrac{f(x_1)+f(x_2)}{2}\De x
++ \cdots +
+\tfrac{f(x_{n-1})+f(x_n)}{2}\De x
+</mrow>
+<mrow>
+&amp;=
+\Big[\half f(x_0)+f(x_1)+f(x_2)+\cdots+ f(x_{n-1})+\half f(x_n)\Big]\De x
+</mrow>
+</md>
+So notice that the approximation has a very similar form to the midpoint rule, excepting
+that
+<ul>
+<li> we evaluate the function at the <m>x_j</m>'s rather than at the midpoints, and </li>
+<li> we multiply the value of the function at the endpoints <m>x_0,x_n</m> by <m>\frac12</m>. </li>
+</ul>
+</p>
+
+<p>
+In summary:
+</p>
+<fact xml:id="eq_TRPrule"><title>The trapezoidal rule</title>
+<statement><p>
+The trapezoidal rule approximation is
+<md>
+<mrow>
+\int_a^b f(x)\,\dee{x}
+&amp;\approx\Big[\half f(x_0)+f(x_1)+f(x_2)+\cdots+ f(x_{n-1})+\half f(x_n)\Big]\De x
+</mrow>
+</md>
+where
+<md>
+<mrow>
+\De x = \tfrac{b-a}{n},\quad
+x_0=a,\quad x_1=a+\De x,\quad
+ x_2=a+2\De x,\quad
+\cdots,\quad x_{n-1}=b-\De x,\quad
+ x_n=b
+</mrow>
+</md>
+</p></statement>
+</fact>
+
+<p>
+To compare and contrast we apply the trapezoidal rule to the examples we did above with the midpoint rule.
+</p>
+
+<example xml:id="eg_TrapB">
+<title><m>\int_0^1 \frac{4}{1+x^2}\,\dee{x}</m> <mdash/> using the trapezoidal rule</title>
+
+<p>
+<alert>Solution:</alert> We proceed very similarly to Example<nbsp/><xref ref="eg_MidpointB"/> and again use <m>n=8</m> steps.
+<ul>
+<li>
+	We again have <m>f(x)=\frac{4}{1+x^2}</m>, <m>a=0</m>, <m>b=1</m>, <m>\De x=\tfrac{1}{8}</m> and
+	<md>
+	<mrow>
+	x_0&amp;=0 &amp; x_1&amp;=\tfrac{1}{8} &amp; x_2&amp;=\tfrac{2}{8}
+	&amp;&amp; \cdots &amp;
+	x_7&amp;=\tfrac{7}{8}&amp;
+	x_8&amp;=\tfrac{8}{8}=1
+	</mrow>
+	</md>
+</li>
+<li>
+	Applying the trapezoidal rule, Equation<nbsp/><xref ref="eq_TRPrule"/>, gives
+	<md>
+	<mrow>
+	\int_0^1 \frac{4}{1+x^2}\,\dee{x}
+	&amp;\approx
+	\bigg[\frac{1}{2}\overbrace{\frac{4}{1+x_0^2}}^{f(x_0)}
+				+\overbrace{\frac{4}{1+x_1^2}}^{f(x_1)}
+				+\!\cdots\!
+				 +\overbrace{\frac{4}{1+x_7^2}}^{f(x_{n-1})}
+				 +\frac{1}{2}\overbrace{\frac{4}{1+x_8^2}}^{f(x_n)}
+				 \bigg]\De x
+	</mrow><mrow>
+	&amp;=\bigg[\frac{1}{2}\frac{4}{1+0^2}+
+				 \frac{4}{1+\tfrac{1}{8^2}}+
+				 \frac{4}{1+\tfrac{2^2}{8^2}}+
+				 \frac{4}{1+\tfrac{3^2}{8^2}}
+	</mrow><mrow>
+	&amp; +\frac{4}{1+\tfrac{4^2}{8^2}}+
+				 \frac{4}{1+\tfrac{5^2}{8^2}}+
+				 \frac{4}{1+\tfrac{6^2}{8^2}}+
+				 \frac{4}{1+\tfrac{7^2}{8^2}}+
+			\frac{1}{2}\frac{4}{1+\tfrac{8^2}{8^2}}\bigg]\frac{1}{8}
+	</mrow><mrow>
+	&amp;=\Big[\frac{1}{2}\times 4+
+				 3.939+
+				 3.765+
+				 3.507
+	</mrow><mrow>
+	&amp; +3.2+
+				 2.876+
+				 2.56+
+				 2.266+
+			\frac{1}{2}\times 2\Big]\frac{1}{8}
+	</mrow><mrow>
+	&amp;=3.139
+	</mrow>
+	</md>
+	to three decimal places.
+</li>
+<li>
+	The exact value of the integral is still <m>\pi</m>. So the error in the approximation  generated by eight steps  of the trapezoidal rule is  <m>|3.139-\pi|=0.0026</m>, which is  <m>100\tfrac{|3.139-\pi|}{\pi}\% =0.08\%</m> of the exact answer. Notice that this is roughly twice the error that we achieved using the midpoint  rule in Example<nbsp/><xref ref="eg_MidpointB"/>.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+Let us also redo Example<nbsp/><xref ref="eg_Midpoint"/> using the trapezoidal rule.
+</p>
+
+<example xml:id="eg_Trap"><title><m>\int_0^\pi\sin x\,\dee{x}</m> <mdash/> using the trapezoidal rule</title>
+
+<p>
+<alert>Solution:</alert>
+We proceed very similarly to Example<nbsp/><xref ref="eg_Midpoint"/> and again use <m>n=8</m> steps.
+<ul>
+<li>
+	We again have <m>a=0</m>, <m>b=\pi</m>, <m>\De x=\tfrac{\pi}{8}</m> and
+	<md>
+	<mrow>
+	x_0&amp;=0&amp; x_1&amp;=\tfrac{\pi}{8}&amp;
+	x_2&amp;=\tfrac{2\pi}{8}&amp; \cdots&amp;&amp;
+	x_7&amp;=\tfrac{7\pi}{8}&amp;
+	x_8&amp;=\tfrac{8\pi}{8}=\pi
+	</mrow>
+	</md>
+</li>
+<li>
+	Applying the trapezoidal rule, Equation<nbsp/><xref ref="eq_TRPrule"/>, gives
+	<md>
+	<mrow>
+	&amp;\int_0^\pi\sin x\,\dee{x}
+	\approx
+	\Big[\half\sin(x_0)+\sin(x_1)+\cdots+\sin(x_7)+\half\sin(x_8)\Big]\De x
+	</mrow><mrow>
+	&amp;=\Big[\half\sin0 +
+				 \sin\tfrac{\pi}{8}+
+				 \sin\tfrac{2\pi}{8}+
+				 \sin\tfrac{3\pi}{8}+
+				 \sin\tfrac{4\pi}{8}+
+				 \sin\tfrac{5\pi}{8}+
+				 \sin\tfrac{6\pi}{8}+
+				 \sin\tfrac{7\pi}{8}+
+			\half\sin\tfrac{8\pi}{8}\Big]\tfrac{\pi}{8}
+	</mrow><mrow>
+	&amp;=\Big[\half\!\times\! 0+
+				 0.3827+
+				 0.7071+
+				 0.9239+
+				 1.0000+
+				 0.9239+
+				 0.7071+
+				 0.3827+
+			\half\!\times\! 0\Big]\times 0.3927
+	</mrow><mrow>
+	&amp;=5.0274\times 0.3927
+	=1.974
+	</mrow>
+	</md>
+</li>
+<li>
+	The exact answer is <m>\int_0^\pi\sin x\,\dee{x}=-\cos x\Big|_0^\pi=2</m>. So with eight steps  of the trapezoidal rule we  achieved <m>100\tfrac{|1.974-2|}{2}=1.3\%</m>  accuracy. Again this is approximately twice the error we achieved in  Example<nbsp/><xref ref="eg_Midpoint"/> using the midpoint rule.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+These two examples suggest that the midpoint rule is more accurate than the  trapezoidal rule. Indeed, this observation is born out by a rigorous analysis of  the error <mdash/> see Section<nbsp/><xref ref="ssec_num_int_err"/>.
+</p>
+
+</subsection>
+
+<subsection xml:id="sec_Simpson"><title>Simpson's Rule</title>
+
+<p>
+When we use the trapezoidal rule we approximate the area  <m>\int_{x_{j-1}}^{x_j}f(x)\dee{x}</m>  by the area between the <m>x</m>-axis and a straight line that runs from  <m>(x_{j-1},f(x_{j-1}))</m> to <m>(x_j, f(x_j))</m> <mdash/> that is, we approximate the function <m>f(x)</m>  on this interval by a linear function that agrees with the function at each  endpoint. An obvious way to extend this <mdash/> just as we did when extending linear  approximations to quadratic approximations in our differential calculus course <mdash/> is to  approximate the function with a quadratic. This is  precisely what Simpson's
+	<fn>
+		Simpson's rule is named after the 18th century English  mathematician Thomas Simpson, despite its use a century earlier by the German  mathematician and astronomer Johannes Kepler. In many German texts the rule is often  called Kepler's rule.
+	</fn>
+rule does.
+</p>
+
+<p>
+Simpson's rule approximates the integral over two neighbouring subintervals by the area  between a parabola and the <m>x</m>-axis. In order to describe this parabola we need 3  distinct points (which is why we approximate two subintegrals at a time). That is, we  approximate
+<md>
+<mrow>
+  \int_{x_0}^{x_1} f(x)\,\dee{x} + \int_{x_1}^{x_2} f(x)\,\dee{x}  &amp;= \int_{x_0}^{x_2} f(x)\,\dee{x}
+</mrow>
+</md>
+by the area bounded by the parabola that passes through the three points  <m>\big(x_0,f(x_0)\big)</m>, <m>\big(x_1,f(x_1)\big)</m> and <m>\big(x_2,f(x_2)\big)</m>, the <m>x</m>-axis  and the vertical lines <m>x=x_0</m> and <m>x=x_2</m>.
+</p>
+
+<sidebyside width="33%">
+<image source="text/figs/Simpson"/>
+</sidebyside>
+
+<p>
+We repeat this on the next pair of subintervals and approximate <m>\int_{x_2}^{x_4} f(x)\,\dee{x}</m> by the area between the <m>x</m>-axis and the part of a parabola with <m>x_2\le x\le x_4</m>. This parabola passes  through the three points <m>\big(x_2,f(x_2)\big)</m>, <m>\big(x_3,f(x_3)\big)</m> and <m>\big(x_4,f(x_4)\big)</m>. And so on. Because Simspon's rule does the approximation two slices at a time, <m>n</m> <em>must be even</em>.
+</p>
+
+<p>
+To derive Simpson's rule formula, we first find the equation of the parabola that passes through the three points <m>\big(x_0,f(x_0)\big)</m>, <m>\big(x_1,f(x_1)\big)</m> and <m>\big(x_2,f(x_2)\big)</m>. Then we find the area between the <m>x</m>-axis and the part of that parabola with <m>x_0\le x\le x_2</m>. To simplify  this computation consider a parabola passing through the points <m>(-h,y_{-1}), (0,y_0)</m> and  <m>(h,y_1)</m>.
+</p>
+
+<p>
+Write the equation of the parabola as
+<md>
+<mrow>
+  y &amp;= Ax^2 + Bx +C
+</mrow>
+</md>
+Then the area between it and the <m>x</m>-axis with <m>x</m> running from <m>-h</m> to <m>h</m> is
+<md>
+<mrow>
+  \int_{-h}^h \big[ Ax^2 + Bx +C \big] \dee{x}
+  &amp;= \left[ \frac{A}{3}x^3 + \frac{B}{2}x^2 + Cx \right]_{-h}^h
+</mrow><mrow>
+  &amp;= \frac{2A}{3}h^3 + 2Ch &amp; \text{it is helpful to write it as}
+</mrow><mrow>
+  &amp;= \frac{h}{3}\left( 2Ah^2 + 6C \right)
+</mrow>
+</md>
+</p>
+
+<p>
+Now, the the three points <m>(-h,y_{-1}), (0,y_0)</m> and <m>(h,y_1)</m> lie on this parabola if and  only if
+<md>
+<mrow>
+A h^2 - Bh + C &amp;= y_{-1} &amp; \text{at $(-h,y_{-1})$}
+</mrow><mrow>
+C &amp;= y_{0} &amp; \text{at $(0,y_{0})$}
+</mrow><mrow>
+A h^2 + Bh + C &amp;= y_{1} &amp; \text{at $(h,y_{1})$}
+</mrow>
+</md>
+Adding the first and third equations together gives us
+<md>
+<mrow>
+  2Ah^2 + (B-B)h + 2C &amp;= y_{-1}+y_{1}
+</mrow>
+</md>
+To this we add four times the middle equation
+<md>
+<mrow>
+  2Ah^2 + 6C &amp;= y_{-1}+4y_0+y_1.
+</mrow>
+</md>
+This means that
+<md>
+<mrow>
+  \text{area} &amp;=  \int_{-h}^h \big[ Ax^2 + Bx +C \big] \dee{x}   = \frac{h}{3}\left( 2Ah^2 + 6C \right)
+</mrow><mrow>
+  &amp;= \frac{h}{3}\left(y_{-1}+4y_0+y_1\right)
+</mrow>
+</md>
+Note that here
+<ul>
+	<li>
+		<m>h</m> is one half of the length of the <m>x</m>-interval under consideration
+	</li>
+	<li>
+		<m>y_{-1}</m> is the height of the parabola at the left hand end of the interval under  consideration
+	</li>
+	<li>
+		<m>y_0</m> is the height of the parabola at the middle point of the interval under  consideration
+	</li>
+	<li>
+		<m>y_{1}</m> is the height of the parabola at the right hand end of the interval under  consideration
+	</li>
+</ul>
+</p>
+
+<p>So Simpson's rule approximates
+<me>
+\int_{x_0}^{x_2} f(x)\,\dee{x}
+\approx \tfrac{1}{3}\De x\big[f(x_0)+4f(x_1)+f(x_2)\big]
+</me>
+and
+<me>
+\int_{x_2}^{x_4} f(x)\,\dee{x}
+\approx \tfrac{1}{3}\De x\big[f(x_2)+4f(x_3)+f(x_4)\big]
+</me>
+and so on. Summing these all together gives:
+<md>
+<mrow>
+\int_a^b&amp; f(x)\,\dee{x}
+=\int_{x_0}^{x_2} f(x)\,\dee{x}
++\int_{x_2}^{x_4} f(x)\,\dee{x}
++\int_{x_4}^{x_6} f(x)\,\dee{x}
++\cdots
++\int_{x_{n-2}}^{x_n} f(x)\,\dee{x}
+</mrow><mrow>
+&amp;\approx\,\tfrac{\De x}{3}\big[f(x_0)+4f(x_1)+f(x_2)\big]
++\,\tfrac{\De x}{3}\big[f(x_2)+4f(x_3)+f(x_4)\big] \cr
+&amp;\ \ \ +\,\tfrac{\De x}{3}\big[f(x_4)+4f(x_5)+f(x_6)\big]
++\,\cdots\
++\,\tfrac{\De x}{3}\big[f(x_{n-2})+4f(x_{n-1})+f(x_n)\big]
+</mrow><mrow>
+&amp;=\Big[f(x_0)\!+4f(x_1)\!+2f(x_2)\!+4f(x_3)\!+2f(x_4)\!
++\cdots+ 2f(x_{n-2})\!+4f(x_{n-1})\!+ f(x_n)\Big]\tfrac{\De x}{3}
+</mrow>
+</md>
+</p>
+
+<p>
+In summary
+</p>
+<fact xml:id="eq_SIMPrule"><title>Simpson's rule</title>
+<statement><p>
+The Simpson's rule approximation is
+<md>
+<mrow>
+\int_a^b f(x)\,\dee{x}
+&amp;\approx\Big[f(x_0)\!+4f(x_1)\!+2f(x_2)\!+4f(x_3)\!+2f(x_4)\!
++\cdots
+</mrow><mrow>
+&amp; \cdots + 2f(x_{n-2})\!+4f(x_{n-1})\!+ f(x_n)\Big]\tfrac{\De x}{3}
+</mrow>
+</md>
+where <m>n</m> is even and
+<md>
+<mrow>
+\De x = \tfrac{b-a}{n},\quad
+x_0=a,\quad x_1=a+\De x,\quad
+ x_2=a+2\De x,\quad
+\cdots,\quad x_{n-1}=b-\De x,\quad
+ x_n=b
+</mrow>
+</md>
+</p></statement>
+</fact>
+
+<p>
+Notice that Simpson's rule requires essentially no more work than the trapezoidal rule.  In both rules we must evaluate <m>f(x)</m> at <m>x=x_0,x_1,<ellipsis/>,x_n</m>, but we add those terms  multiplied by different constants
+	<fn>
+		There is an easy generalisation of Simpson's  rule that uses cubics instead of parabolas. It leads to the formula
+		<md>
+		<mrow>
+		\int_a^b f(x)\dee{x} &amp;
+		= \left[ f(x_0)+3f(x_1)+3f(x_2)+2f(x_3)+ 2f(x_4)+3f(x_5)+3f(x_6)+2f(x_7)+\cdots+f(x_n) \right]\frac{3\De x}{8}
+		</mrow>
+		</md>
+		where <m>n</m> is a multiple of 3. This result is known as Simpson's second rule and Simpson's  <m>\frac38</m> rule. While one can push this approach further (using quartics, quintics  etc), it can sometimes lead to larger errors <mdash/> the interested reader should look up  Runge's phenomenon.
+	</fn>.
+</p>
+
+<p>
+Let's put it to work on our two running examples.
+</p>
+
+<example xml:id="eg_SimpsonB"><title><m>\int_0^1 \frac{4}{1+x^2}\,\dee{x}</m> <mdash/> using Simpson's rule</title>
+<p>
+<alert>Solution:</alert>
+We proceed almost identically to Example<nbsp/><xref ref="eg_TrapB"/> and again use <m>n=8</m> steps.
+<ul>
+<li> We have the same <m>\De,a,b,x_0,\cdots, x_n</m> as Example<nbsp/><xref ref="eg_TrapB"/>. </li>
+<li>
+	Applying Equation<nbsp/><xref ref="eq_SIMPrule"/> gives
+	<md>
+	<mrow>
+	\int_0^1 \frac{4}{1+x^2}\,\dee{x}
+	&amp;\approx
+	\bigg[\frac{4}{1+0^2}+
+				 4\frac{4}{1+\tfrac{1}{8^2}}+
+				 2\frac{4}{1+\tfrac{2^2}{8^2}}+
+				 4\frac{4}{1+\tfrac{3^2}{8^2}}
+	</mrow><mrow>
+	&amp; +2\frac{4}{1+\tfrac{4^2}{8^2}}+
+				 4\frac{4}{1+\tfrac{5^2}{8^2}}+
+				 2\frac{4}{1+\tfrac{6^2}{8^2}}+
+				 4\frac{4}{1+\tfrac{7^2}{8^2}}+
+				\frac{4}{1+\tfrac{8^2}{8^2}}\bigg]\frac{1}{8\times 3}
+	</mrow><mrow>
+	&amp;=\Big[         4 +
+			4\times 3.938461538 +
+			2\times 3.764705882 +
+			4\times 3.506849315
+	</mrow><mrow>
+	&amp; +2\times 3.2 +
+			  4\times 2.876404494 +
+			 2\times 2.56 +
+			 4\times 2.265486726 +
+				2\Big]\frac{1}{8\times 3}
+	</mrow><mrow>
+	&amp;=3.14159250
+	</mrow>
+	</md>
+	to eight decimal places.
+</li>
+<li>
+	This agrees with <m>\pi</m> (the exact value of the integral) to six decimal places. So the error in the approximation generated by eight steps  of Simpson's  rule is <m>|3.14159250-\pi|=1.5\times 10^{-7}</m>, which is  <m>100\tfrac{|3.14159250-\pi|}{\pi}\% =5\times 10^{-6}\%</m> of the exact answer.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+It is striking that the absolute error approximating with Simpson's rule is so much  smaller than the error from the midpoint and trapezoidal rules.
+<md>
+<mrow>
+&amp;\text{midpoint error} &amp;&amp;= 0.0013
+</mrow>
+<mrow>
+&amp;\text{trapezoid error} &amp;&amp;= 0.0026
+</mrow>
+<mrow>
+&amp;\text{Simpson error} &amp;&amp;= 0.00000015
+</mrow>
+</md>
+</p>
+
+<p>
+Buoyed by this success, we will also redo Example<nbsp/><xref ref="eg_Trap"/> using Simpson's rule.
+</p>
+
+<example xml:id="eg_Simpson"><title><m>\int_0^\pi\sin x\,\dee{x}</m> <mdash/> Simpson's rule</title>
+<p>
+<alert>Solution:</alert> We proceed almost identically to Example<nbsp/><xref ref="eg_Trap"/> and again use <m>n=8</m> steps.
+<ul>
+<li>
+	We have the same <m>\De,a,b,x_0,\cdots, x_n</m> as Example<nbsp/><xref ref="eg_TrapB"/>.
+</li>
+<li>
+	Applying Equation<nbsp/><xref ref="eq_SIMPrule"/> gives
+	<md>
+	<mrow>
+	\int_0^\pi\sin x\,\dee{x}
+	&amp;\approx
+	\Big[\sin(x_0)+4\sin(x_1)+2\sin(x_2)+\cdots+4\sin(x_7)+\sin(x_8)\Big]\tfrac{\De x}{3}
+	</mrow><mrow>
+	&amp;=\Big[\sin(0)+
+				 4\sin(\tfrac{\pi}{8})+
+				 2\sin(\tfrac{2\pi}{8})+
+				 4\sin(\tfrac{3\pi}{8})+
+				 2\sin(\tfrac{4\pi}{8})\cr
+	&amp;\phantom{=\Big[\sin(0)\,}
+	+4\sin(\tfrac{5\pi}{8})+
+				 2\sin(\tfrac{6\pi}{8})+
+				 4\sin(\tfrac{7\pi}{8})+
+				 \sin(\tfrac{8\pi}{8})\Big]\tfrac{\pi}{8\times 3}\cr
+	&amp;=\Big[ 0+
+				4\times 0.382683+
+				2\times 0.707107+
+				4\times 0.923880+
+				2\times 1.0
+	</mrow><mrow>
+	&amp;\phantom{=\Big[ 0\,}+
+				4\times 0.923880+
+				2\times 0.707107+
+				4\times 0.382683+0\Big]\tfrac{\pi}{8\times 3}
+	</mrow><mrow>
+	&amp;=15.280932\times 0.130900
+	</mrow><mrow>
+	&amp;=2.00027
+	</mrow>
+	</md>
+</li>
+<li>
+	With only eight steps  of Simpson's rule we  achieved  <m>100\tfrac{2.00027-2}{2}=0.014\%</m> accuracy.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+Again we contrast the error we achieved with the other two rules:
+<md>
+<mrow>
+&amp;\text{midpoint error} &amp;&amp;= 0.013
+</mrow>
+<mrow>
+&amp;\text{trapezoid error} &amp;&amp;= 0.026
+</mrow>
+<mrow>
+&amp;\text{Simpson error} &amp;&amp;= 0.00027
+</mrow>
+</md>
+</p>
+
+<p>
+This completes our derivation of the midpoint, trapezoidal and  Simpson's rules for approximating the values of definite integrals.  So far we have not  attempted to see how efficient and how accurate the algorithms are in general. That's our next task.
+</p>
+
+</subsection>
+
+<subsection xml:id="ssec_num_int_err">
+<title>Three Simple Numerical Integrators <mdash/> Error Behaviour</title>
+
+<p>
+Now we are armed with our three (relatively simple) method for numerical integration we  should give thought to how practical they might be in the real world
+	<fn>
+		Indeed,  even beyond the <q>real world</q> of many applications in first year calculus texts, some of  the methods we have described are used by actual people (such as ship builders, engineers  and surveyors) to estimate areas and volumes of actual objects!
+	</fn>.
+Two obvious  considerations when deciding whether or not  a given algorithm is of any practical value are
+<ol label="a">
+<li>
+	the amount of computational effort required to execute the algorithm and
+</li>
+<li>
+	the accuracy that this computational effort yields.
+</li>
+</ol>
+For algorithms like our simple integrators, the bulk of the computational effort usually  goes into evaluating the function <m>f(x)</m>. The number of evaluations of <m>f(x)</m> required for  <m>n</m> steps of the midpoint rule is <m>n</m>, while the number required for <m>n</m> steps of the  trapezoidal and Simpson's rules is <m>n+1</m>. So all three of our rules require essentially the same amount of effort <mdash/> one evaluation of <m>f(x)</m> per step.
+</p>
+
+<p>
+To get a first impression of the error behaviour of these methods, we apply them to a  problem whose answer we know exactly:
+<md>
+<mrow>
+  \int_0^\pi\sin x\,\dee{x}=-\cos x\big|_0^\pi = 2.
+</mrow>
+</md>
+To be a little more precise, we would like to understand how the errors of the three  methods change as we increase the effort we put in (as measured by the number  of steps <m>n</m>). The following table lists the error in the approximate value  for this number generated by our three rules applied with three different  choices of <m>n</m>. It also lists the number of evaluations of <m>f</m> required to compute the approximation.
+</p>
+
+<sidebyside>
+<tabular left="minor" right="minor" bottom="minor" top="minor">
+<row>
+<cell></cell>
+<cell colspan="2"><alert>Midpoint</alert></cell>
+<cell colspan="2"><alert>Trapezoidal</alert></cell>
+<cell colspan="2"><alert>Simpson's</alert></cell>
+</row><row>
+<cell>n </cell><cell> error </cell><cell> #  evals </cell><cell> error </cell><cell> #  evals
+                </cell><cell> error </cell><cell> # evals </cell>
+</row><row>
+<cell>10 </cell><cell> <m>4.1\times 10^{-1}</m> </cell><cell> 10 </cell><cell> <m>8.2\times 10^{-1}</m> </cell><cell> 11 </cell><cell><m>5.5\times 10^{-3}</m> </cell><cell> 11 </cell>
+</row><row>
+<cell>100 </cell><cell> <m>4.1\times 10^{-3}</m> </cell><cell> 100 </cell><cell> <m>8.2\times 10^{-3}</m> </cell><cell> 101 </cell><cell><m>5.4\times 10^{-7}</m> </cell><cell> 101 </cell>
+</row><row>
+<cell>1000 </cell><cell> <m>4.1\times 10^{-5}</m> </cell><cell> 1000 </cell><cell> <m>8.2\times 10^{-5}</m> </cell><cell> 1001 </cell><cell><m>5.5\times 10^{-11}</m> </cell><cell> 1001 </cell>
+</row>
+</tabular>
+</sidebyside>
+
+
+<p>
+Observe that
+<ul>
+<li>
+   Using 101 evaluations of <m>f</m> worth of Simpson's rule gives an error 80 times smaller than 1000 evaluations of <m>f</m> worth of the midpoint rule.
+</li>
+<li>
+   The trapezoidal rule error with <m>n</m> steps is about twice the midpoint rule  error with <m>n</m> steps.
+</li>
+<li>
+    With the midpoint rule, increasing the number of steps by a factor of 10 appears to reduce the error by about a factor of  <m>100=10^2=n^2</m>.
+</li>
+<li>
+  With the trapezoidal rule, increasing the number of steps by a factor of 10 appears to reduce the error by about a factor of <m>10^2=n^2</m>.
+</li>
+<li>
+   With Simpson's rule, increasing the number of steps by a factor of 10 appears to reduce the error by about a factor of <m>10^4=n^4</m>.
+</li>
+</ul>
+</p>
+
+<p>
+So it looks like
+<md>
+<mrow>
+&amp;\hbox{approx value of $\ds\int_a^b f(x)\,\dee{x}$ given by $n$ midpoint steps  }
+&amp;&amp;\approx \int_a^b f(x)\,\dee{x}+K_M\cdot \frac{1}{n^2}
+</mrow>
+<mrow>
+&amp;\hbox{approx value of $\ds\int_a^b f(x)\,\dee{x}$ given by $n$ trapezoidal steps  }
+&amp;&amp;\approx  \int_a^b f(x)\,\dee{x}+K_T\cdot \frac{1}{n^2}
+</mrow>
+<mrow>
+&amp;\hbox{approx value of $\ds\int_a^b f(x)\,\dee{x}$ given by $n$ Simpson's steps  }
+&amp;&amp;\approx  \int_a^b f(x)\,\dee{x}+K_M\cdot \frac{1}{n^4}
+</mrow>
+</md>
+with some constants <m>K_M,\ K_T</m> and <m>K_S</m>. It also seems that <m>K_T\approx 2 K_M</m>.
+</p>
+
+<figure xml:id="fig_INTerror">
+<caption>A log-log plot of the error in the <m>n</m> step approximation to <m>\ds \int_0^\pi \sin  x\,\dee{x}</m>.</caption>
+<sidebyside width="40%" valign="middle">
+<image source="text/figs/midPtError"/><image source="text/figs/SimpsonError"/>
+</sidebyside>
+</figure>
+
+<p>
+To test these conjectures for the behaviour of the errors we apply our three rules with about ten different choices of <m>n</m> of the form <m>n=2^m </m> with <m>m</m> integer.  Figure <xref ref="fig_INTerror"/> contains two graphs of the results. The left-hand plot  shows the results for the midpoint and trapezoidal rules and the right-hand plot shows the results for Simpson's rule.
+</p>
+
+<p>
+For each rule we are expecting (based on our conjectures above) that the error
+<md>
+<mrow>
+  e_n &amp;= | \text{exact value } - \text{ approximate value}|
+</mrow>
+</md>
+with <m>n</m> steps is (roughly) of the form
+<md>
+<mrow>
+e_n=K\frac{1}{n^k}
+</mrow>
+</md>
+for some constants <m>K</m> and <m>k</m>. We would like to test if this is really the case, by  graphing <m>Y=e_n</m> against <m>X=n</m> and seeing if the graph <q>looks right</q>.  But it is not easy to tell whether or not a given curve really  is <m>Y=\frac{K}{X^k}</m>, for some specific <m>k</m>, by just looking at it. However, your eye is  pretty good at determining whether or not a graph is a straight line. Fortunately, there  is a little trick that turns the curve <m>Y=\tfrac{K}{X^k}</m> into a straight line <mdash/> no  matter what <m>k</m> is.
+</p>
+
+<p>
+Instead of plotting <m>Y</m> against <m>X</m>, we plot <m>\log Y</m> against <m>\log X</m>. This  transformation
+	<fn>
+		There is a variant of this trick that works even when you don't  know the answer to the integral ahead of time. Suppose that you suspect that the  approximation satisfies
+		<me>
+			M_n=A+K\tfrac{1}{n^k}
+		</me>
+		where <m>A</m> is the exact value of the integral and suppose that you  don't know the values of <m>A</m>, <m>K</m> and <m>k</m>. Then
+		<md>
+		<mrow>
+		M_{n}-M_{2n}  &amp;=K\tfrac{1}{n^k}-K\tfrac{1}{(2n)^k} =K\big(1-\tfrac{1}{2^k}\big)\tfrac{1}{n^k}
+		</mrow>
+		</md>
+		so plotting <m>y=\log(M_{n}-M_{2n})</m> against <m>x=\log n</m> gives the straight  line <m>y=\log \big[K\big(1-\frac{1}{2^k}\big)\big] -kx</m>.
+	</fn>
+works because when
+<m>Y=\frac{K}{X^k}</m>
+<md>
+<mrow>
+  \log Y &amp;= \log K - k \log X
+</mrow>
+</md>
+So plotting <m>y=\log Y</m> against <m>x=\log X</m> gives the straight line <m>y=\log K -kx</m>, which  has slope <m>-k</m> and <m>y</m>-intercept <m>\log K</m>.
+</p>
+
+<p>
+The three graphs in Figure <xref ref="fig_INTerror"/> plot <m>y=\log_2 e_n</m>  against <m>x=\log_2 n</m> for our three rules. Note that we have chosen to use  logarithms
+	<fn>
+		Now is a good time for a quick revision of logarithms <mdash/> see  <q>Whirlwind review of logarithms</q> in Section<nbsp/>2.7 of the CLP-I notes.
+	</fn>
+with  this <q>unusual base</q> because it makes it very clear how much the error is improved if we  <em>double</em> the number of steps used. To be more precise <mdash/> one unit step along the  <m>x</m>-axis represents changing <m>n \mapsto 2n</m>. For example, applying Simpson's rule with  <m>n=2^4</m> steps results in an error of <m>0000166</m>, so the point <m>(x=\log_2 2^4=4, y=\log_2  0000166 = \frac{\log 0000166}{\log 2} = -15.8)</m> has been included on the graph. Doubling  the effort used <mdash/> that is, doubling the number of steps to <m>n=2^5</m><mdash/> results in an  error of <m>0.00000103</m>. So, the data point <m>(x=\log_2 2^5=5\ ,\  y=\log_2 0.00000103 =\frac{\ln 0.00000103}{\ln 2}=-19.9)</m> lies on the graph. Note that the <m>x</m>-coordinates of  these points differ by 1 unit.
+</p>
+
+<p>
+For each of the three sets of data points, a straight line has also been plotted <q>through</q> the data points. A procedure called linear  regression
+	<fn>
+		Linear regression is not part of  this course as its derivation  requires some multivariable calculus. It is a very standard technique in statistics.
+	</fn>
+has  been used to decide precisely which straight line to plot. It provides a formula for the slope and <m>y</m>-intercept of the straight  line which <q>best fits</q> any given set of data points. From the three lines,  it sure looks like <m>k=2</m> for the midpoint and trapezoidal rules and  <m>k=4</m> for Simpson's rule. It also looks like the ratio between the value of <m>K</m> for the trapezoidal rule,  namely <m>K=2^{0.7253}</m>, and the value of <m>K</m> for the midpoint rule,  namely <m>K=2^{-0.2706}</m>, is pretty close to 2:  <m>2^{0.7253}/2^{-0.2706}=2^{0.9959}</m>.
+</p>
+
+<p>
+The intuition, about the error behaviour, that we have just developed  is in fact correct <mdash/> provided the integrand <m>f(x)</m> is reasonably smooth. To be more  precise
+</p>
+
+<theorem xml:id="thm_num_int_err"><title>Numerical integration errors</title>
+<statement><p>
+Assume that <m>|f''(x)| \leq M</m> for all <m>a\leq x \leq b</m>. Then
+<md>
+<mrow>
+&amp;\text{the total error introduced by the midpoint rule is bounded by } &amp; \frac{M}{24} \frac{(b-a)^3}{n^2}
+</mrow>
+<mrow>
+&amp;\text{and}
+</mrow>
+<mrow>
+&amp;\text{the total error introduced by the trapezoidal rule is bounded by } &amp;
+\frac{M}{12} \frac{(b-a)^3}{n^2}
+</mrow>
+<intertext>
+	when approximating <m>\ds \int_a^b f(x)\dee{x}</m>. Further, if <m>|f^{(4)}(x)|\leq L</m>  for all <m>a\leq x \leq b</m>, then
+</intertext>
+<mrow>
+&amp;\text{the total error introduced by Simpson's rule is bounded by } &amp; \frac{L}{180} \frac{(b-a)^5}{n^4}.
+</mrow>
+</md>
+</p></statement>
+</theorem>
+
+<p>
+The first of these error bounds in proven in the following (optional) section. Here are some examples which illustrate how they are used. First let us check that the  above result is consistent with our data in Figure<nbsp/><xref ref="fig_INTerror"/>
+</p>
+<example xml:id="eg_MidpointErr"><title>Midpoint rule error approximating <m>\int_0^\pi \sin  x\,\dee{x}</m></title>
+<p>
+<ul>
+<li>
+	The integral <m>\int_0^\pi \sin x\,\dee{x}</m>  has <m>b-a=\pi</m>.
+</li>
+<li>
+	The second derivative of the integrand satisfies
+	<md>
+	<mrow>
+	  \left|\ddiff{2}{}{x}\sin x\right| &amp;= |-\sin x| \leq 1
+	</mrow>
+	</md>
+	So we take <m>M=1</m>.
+</li>
+<li>
+	So the error, <m>e_n</m>, introduced when <m>n</m> steps are used is bounded by
+	<md>
+	<mrow>
+	|e_n|&amp;\le\frac{M}{24}\frac{(b-a)^3}{n^2}
+	</mrow><mrow>
+	  &amp;=\frac{\pi^3}{24}\frac{1}{n^2}
+	</mrow><mrow>
+	 &amp;\approx 1.29\frac{1}{n^2}
+	</mrow>
+	</md>
+</li>
+<li>
+	The data in the graph  in Figure<nbsp/><xref ref="fig_INTerror"/> gives
+	<md>
+	<mrow>
+	|e_n| &amp;\approx 2^{-.2706}\frac{1}{n^2}=0.83\frac{1}{n^2}
+	</mrow>
+	</md>
+	which is consistent with the bound <m>|e_n|\le \frac{\pi^3}{24}\frac{1}{n^2}</m>.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+In a typical application we would be asked to evaluate a given integral  to some specified accuracy. For example, if you are manufacturer and your machinery can only cut materials to an accuracy of <m>{\tfrac{1}{10}}^{\rm th}</m> of a millimeter, there is no point in making design specifications more accurate than  <m>{\tfrac{1}{10}}^{\rm th}</m> of a millimeter.
+</p>
+
+<example xml:id="eg_MidpointErr2"><title>How many steps  for a given accuracy?</title>
+<p>
+Suppose, for example, that we wish to use the midpoint rule to evaluate
+	<fn>
+		This is  our favourite running example of an integral that cannot be evaluated algebraically <mdash/>  we need to use numerical methods.
+	</fn>
+<md>
+<mrow>
+  \int_0^1 e^{-x^2}\dee{x}
+</mrow>
+</md>
+to within an accuracy of <m>10^{-6}</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li> The integral has <m>a=0</m> and <m>b=1</m>. </li>
+<li>
+	The first two derivatives of the integrand are
+	<md>
+	<mrow>
+	\diff{}{x}e^{-x^2}&amp;=-2xe^{-x^2} &amp; \text{and}
+	</mrow><mrow>
+	\ddiff{2}{}{x}e^{-x^2}  &amp;=\diff{}{x}\big(-2xe^{-x^2}\big)  =-2e^{-x^2}+4x^2e^{-x^2}=2(2x^2-1)e^{-x^2}
+	</mrow>
+	</md>
+</li>
+<li>
+	As <m>x</m> runs from 0 to 1, <m>2x^2-1</m> increases from <m>-1</m> to <m>1</m>, so that
+	<md>
+	<mrow>
+	0\le x\le 1\implies |2x^2-1|\le 1,\ e^{-x^2}\le 1\implies \big|2(2x^2-1)e^{-x^2}\big|\le 2
+	</mrow>
+	</md>
+	So we take <m>M=2</m>.
+</li>
+<li>
+	The error introduced by the <m>n</m> step midpoint rule is at most
+	<md>
+	<mrow>
+	  e_n &amp; \leq \frac{M}{24}\frac{(b-a)^3}{n^2}
+	</mrow><mrow>
+	  &amp;\leq \frac{2}{24}\frac{(1-0)^3}{n^2} = \frac{1}{12n^2}
+	</mrow>
+	</md>
+</li>
+<li>
+	We need this error to be smaller than <m>10^{-6}</m> so
+	<md>
+	<mrow>
+	  e_n &amp; \leq \frac{1}{12n^2} \leq 10^{-6} &amp; \text{and so }
+	</mrow><mrow>
+	  12n^2 &amp;\geq 10^6 &amp; \text{clean up}
+	</mrow><mrow>
+	  n^2 &amp;\geq \frac{10^6}{12} = 83333.3<ellipsis/> &amp; \text{square root both sides}
+	</mrow><mrow>
+	  n &amp;\geq 288.7
+	</mrow>
+	</md>
+	So <m>289</m> steps of the midpoint rule will do the job.
+</li>
+<li>
+	In fact <m>n=289</m> results in an error of about <m>3.7\times 10^{-7}</m>.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+That seems like far too much work, and the trapezoidal rule will have twice the error. So  we should look at Simpson's rule.
+</p>
+<example xml:id="eg_SimpsonErr"><title>How many steps using Simpson's rule?</title>
+<p>
+Suppose now that we wish evaluate <m>\int_0^1 e^{-x^2}\,\dee{x}</m> to within an accuracy of  <m>10^{-6}</m> <mdash/> but now using Simpson's rule. How many steps should we use?
+</p>
+
+<p>
+<alert>Solution:</alert>
+<ul>
+<li> Again we have <m>a=0,b=1</m>. </li>
+<li>
+	We then need to bound <m>\ddiff{4}{}{x}e^{-x^2}</m> on the domain of integration, <m>0\leq  x\leq 1</m>.
+	<md>
+	<mrow>
+	\ddiff{3}{}{x}e^{-x^2}
+	   &amp;=\diff{}{x}\big\{2(2x^2-1)e^{-x^2}\big\}
+		=8xe^{-x^2}-4x(2x^2-1)e^{-x^2}
+	</mrow><mrow>
+	   &amp;=4(-2x^3+3x)e^{-x^2}
+	</mrow><mrow>
+	\ddiff{4}{}{x}e^{-x^2}
+	   &amp;=\diff{}{x}\big\{4(-2x^3+3x)e^{-x^2}\big\}
+	   </mrow>
+	   <mrow>
+	  &amp;=4(-6x^2+3)e^{-x^2}\hskip-4pt-8x(-2x^3+3x)e^{-x^2}
+	</mrow>
+	<mrow>
+	  &amp;=4(4x^4-12x^2+3)e^{-x^2}
+	</mrow>
+	</md>
+</li>
+<li>
+	Now, for any <m>x</m>,  <m>e^{-x^2}\le 1</m>. Also, for <m>0\le x\le 1</m>,
+	<md>
+	<mrow>
+	  0 &amp; \leq x^2, x^4 \leq 1 &amp; \text{ so}
+	</mrow><mrow>
+	  3 &amp; \leq 4x^4+3 \leq 7 &amp; \text{ and }
+	</mrow><mrow>
+	  -12 &amp; \leq -12x^2 \leq 0 &amp; \text{adding these together gives}
+	</mrow><mrow>
+	  -9 &amp; \leq 4x^4-12x^2 + 3 \leq 7
+	</mrow>
+	</md>
+	 Consequently, <m>|4x^4-12x^2+3|</m> is bounded by <m>9</m> and so
+	<md>
+	<mrow>
+	\left|\ddiff{4}{}{x}e^{-x^2}\right| \leq 4\times 9=36
+	</mrow>
+	</md>
+	So take <m>L=36</m>.
+</li>
+<li>
+	The error introduced by the <m>n</m> step Simpson's rule is at most
+	<md>
+	<mrow>
+	  e_n &amp; \leq \frac{L}{180}\frac{(b-a)^5}{n^4}
+	</mrow><mrow>
+	  &amp; \leq \frac{36}{180} \frac{(1-0)^5}{n^4} = \frac{1}{5n^4}
+	</mrow>
+	</md>
+</li>
+<li>
+	In order for this error to be no more than <m>10^{-6}</m> we require <m>n</m> to satisfy
+	<md>
+	<mrow>
+	  e_n &amp;\leq \frac{1}{5n^4} \leq 10^{-6} &amp; \text{and so}
+	</mrow><mrow>
+	  5n^4 &amp; \geq 10^6
+	</mrow><mrow>
+	  n^4 &amp;\geq 200000 &amp; \text{take fourth root}
+	</mrow><mrow>
+	  n &amp; \geq 21.15
+	</mrow>
+	</md>
+	So <m>22</m> steps of Simpson's rule will do the job.
+</li>
+<li>
+	<m>n=22</m> steps actually results in an error of <m>3.5\times 10^{-8}</m>. The reason that  we get an error so much smaller than we need is that we have overestimated the number of  steps required. This, in turn, occurred because we made quite a rough bound of  <m>\left|\ddiff{4}{}{x}f(x)\right|\leq 36</m>. If we are more careful then we will get a  slightly smaller <m>n</m>. It actually turns out
+		<fn>
+			The authors tested this  empirically.
+		</fn>
+	that you only need <m>n=10</m> to approximate within <m>10^{-6}</m>.
+</li>
+</ul>
+</p>
+</example>
+
+
+</subsection>
+
+
+<subsection><title>Optional <mdash/> An error bound for the midpoint rule</title>
+
+<p>
+We now try develop some understanding as to why we got the above experimental results. We start with the error generated by a single step of the midpoint rule. That is, the error introduced by the approximation
+<me>
+\int_{x_0}^{x_1}f(x)\,\dee{x}\approx f(\bar x_1)\De x \qquad\hbox{ where }
+\De x=x_1-x_0,\ \bar x_1=\tfrac{x_0+x_1}{2}
+</me>
+To do this we are going to need to apply integration by parts in a sneaky way. Let us  start by considering
+	<fn>
+		We chose this interval so that we didn't have lots of  subscripts floating around in the algebra.
+	</fn>
+a subinterval <m>\alpha \leq x \leq  \beta</m> and let's call the width of the subinterval <m>2q</m> so that  <m>\beta=\alpha+2q</m>. If we were to now apply the midpoint rule to this  subinterval, then we would write
+<md>
+<mrow>
+  \int_\alpha^\beta f(x) \dee{x} &amp; \approx 2q \cdot f(\alpha+q) = q f(\alpha+q)  + q f(\beta-q)
+</mrow>
+</md>
+since the interval has width <m>2q</m> and the midpoint is <m>\alpha+q=\beta-q</m>.
+</p>
+
+<p>
+The sneaky trick we will employ is to write
+<md>
+<mrow>
+  \int_\alpha^\beta f(x) \dee{x} &amp;= \int_\alpha^{\alpha+q}f(x)\dee{x} +  \int_{\beta-q}^\beta f(x)\dee{x}
+</mrow>
+</md>
+and then examine each of the integrals on the right-hand side (using integration by  parts) and show that they are each of the form
+<md>
+<mrow>
+  \int_\alpha^{\alpha+q}f(x)\dee{x} &amp; \approx q f(\alpha+q)  + \text{small error term}
+</mrow><mrow>
+  \int_{\beta-q}^\beta f(x)\dee{x} &amp;\approx q f(\beta-q)  + \text{small error term}
+</mrow>
+</md>
+</p>
+
+<p>
+Let us apply integration by parts to <m>\int_\alpha^{\alpha+q} f(x)\dee{x}</m> <mdash/>  with <m>u=f(x),  \dee{v}=\dee{x}</m> so <m>\dee{u}=f'(x)\dee{x}</m> and we will make the slightly  non-standard  choice of <m>v=x-\alpha</m>:
+<md>
+<mrow>
+  \int_\alpha^{\alpha+q} f(x)\dee{x}
+  &amp;= \big[ (x-\alpha)f(x)\big]_\alpha^{\alpha+q}
+  - \int_\alpha^{\alpha+q} (x-\alpha) f'(x) \dee{x}
+</mrow><mrow>
+  &amp;= q f(\alpha+q) - \int_\alpha^{\alpha+q} (x-\alpha) f'(x) \dee{x}
+</mrow>
+</md>
+Notice that the first term on the right-hand side is the term we need, and that our  non-standard choice of <m>v</m> allowed us to avoid introducing an <m>f(\alpha)</m> term.
+</p>
+
+<p>
+Now integrate by parts again using <m>u=f'(x), \dee{v}=(x-\alpha)\dee{x}</m>, so  <m>\dee{u}=f''(x),  v = \frac{(x-\alpha)^2}{2}</m>:
+<md>
+<mrow>
+  \int_\alpha^{\alpha+q} f(x)\dee{x}
+  &amp;= q f(\alpha+q) - \int_\alpha^{\alpha+q} (x-\alpha)f'(x)\dee{x}
+</mrow><mrow>
+  &amp;= q f(\alpha+q)
+  - \left[ \frac{(x-\alpha)^2}{2} f'(x) \right]_\alpha^{\alpha+q}
+  + \int_\alpha^{\alpha+q} \frac{(x-\alpha)^2}{2}f''(x)\dee{x}
+</mrow><mrow>
+  &amp;= q f(\alpha+q) - \frac{q^2}{2}f'(\alpha+q)
+  + \int_\alpha^{\alpha+q} \frac{(x-\alpha)^2}{2}f''(x)\dee{x}
+</mrow>
+</md>
+To obtain a similar expression for the other integral, we repeat the above steps and  obtain:
+<md>
+<mrow>
+  \int_{\beta-q}^\beta f(x)\dee{x}
+  &amp;= q f(\beta-q) + \frac{q^2}{2}f'(\beta-q)
+  + \int_{\beta-q}^\beta \frac{(x-\beta)^2}{2}f''(x)\dee{x}
+</mrow>
+</md>
+Now add together these two expressions
+<md>
+<mrow>
+  \int_\alpha^{\alpha+q} f(x)\dee{x} + \int_{\beta-q}^\beta f(x)\dee{x}
+  &amp;= q f(\alpha+q) + q f(\beta-q)
+  + \frac{q^2}{2}\left( f'(\beta-q)-f'(\alpha+q) \right)
+</mrow><mrow>
+  &amp; + \int_\alpha^{\alpha+q} \frac{(x-\alpha)^2}{2}f''(x)\dee{x} +
+  \int_{\beta-q}^\beta \frac{(x-\beta)^2}{2}f''(x)\dee{x}
+</mrow>
+<intertext>
+	Then since <m>\alpha+q=\beta-q</m> we can combine the integrals on the  left-hand side and eliminate some terms from the right-hand side:
+</intertext>
+<mrow>
+  \int_\alpha^\beta f(x)\dee{x}
+  &amp;= 2q f(\alpha+q)
+  + \int_\alpha^{\alpha+q} \frac{(x-\alpha)^2}{2}f''(x)\dee{x}
+  +  \int_{\beta-q}^\beta \frac{(x-\beta)^2}{2}f''(x)\dee{x}
+</mrow>
+</md>
+Rearrange this expression a little and take absolute values
+<md>
+<mrow>
+ \left| \int_\alpha^\beta f(x)\dee{x} - 2q f(\alpha+q) \right|
+  &amp;\leq \left| \int_\alpha^{\alpha+q} \frac{(x-\alpha)^2}{2}f''(x)\dee{x} \right|
+  + \left|\int_{\beta-q}^\beta \frac{(x-\beta)^2}{2}f''(x)\dee{x}\right|
+</mrow>
+</md>
+where we have also made use of the triangle inequality
+	<fn>
+		The  triangle inequality says that for any real numbers <m>x,y</m>
+		<me>
+		|x+y| \leq |x| + |y|.
+		</me>
+	</fn>.
+By assumption <m>|f''(x)| \leq M</m> on the interval <m>\alpha \leq x \leq \beta</m>,  so
+<md>
+<mrow>
+  \left| \int_\alpha^\beta f(x)\dee{x} - 2q f(\alpha+q) \right|
+  &amp; \leq M \int_\alpha^{\alpha+q} \frac{(x-\alpha)^2}{2} \dee{x}
+  + M \int_{\beta-q}^\beta \frac{(x-\beta)^2}{2} \dee{x}
+</mrow><mrow>
+  &amp;= \frac{Mq^3}{3} = \frac{M(\beta-\alpha)^3}{24}
+</mrow>
+</md>
+where we have used <m>q = \frac{\beta-\alpha}{2}</m> in the last step.
+</p>
+
+<p>
+Thus on any interval <m>x_i \leq x \leq x_{i+1}=x_i+\De x</m>
+<md>
+<mrow>
+\left| \int_{x_i}^{x_{i+1}} f(x)\dee{x} - \De x f\left(\frac{x_i+x_{i+1}}{2}\right)  \right|
+&amp; \leq \frac{M}{24} ( \De x)^3
+</mrow>
+</md>
+</p>
+
+<p>
+Putting everything together we see that the error using the midpoint rule is bounded by
+<md>
+<mrow>
+ \left| \int_a^b f(x) \dee{x} - \left[
+f(\bar x_1)+f(\bar x_2)+\cdots +f(\bar x_n)
+\right]\De x \right|
+</mrow>
+<mrow>
+\leq
+\left| \int_{x_0}^{x_1} f(x)\dee{x} - \De x f(\bar x_1) \right|
++\cdots+
+\left| \int_{x_{n-1}}^{x_n} f(x)\dee{x} - \De x f(\bar x_n) \right|
+</mrow>
+<mrow>
+\leq n \times \frac{M}{24} ( \De x)^3
+= n \times \frac{M}{24} \left( \frac{b-a}{n}\right)^3
+= \frac{M(b-a)^3}{24 n^2}
+</mrow>
+</md>
+as required.
+</p>
+
+<p>
+A very similar analysis shows that, as was stated in Theorem<nbsp/><xref ref="thm_num_int_err"/>  above,
+<ul>
+<li>
+	the total error introduced by the trapezoidal rule is bounded by <m>\ds \frac{M}{12}\frac{(b-a)^3}{n^2}</m>,
+</li>
+<li>
+	the total error introduced by Simpson's rule is bounded by <m>\ds \frac{M}{180}\frac{(b-a)^5}{n^4}</m>
+</li>
+</ul>
+</p>
+
+</subsection>
+
+<xi:include href="../problems/prob_s1.11.xml" />
+
+
+</section>

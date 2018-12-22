@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Absolute and Conditional Convergence</title>
+<introduction>
+
+
+<p>
+We have now seen examples of series that converge and of series that diverge.  But we haven't really discussed how robust the convergence of series  is <mdash/> that is, can we tweak the coefficients in some way while  leaving the convergence unchanged. A good example of this is the  series
+<md>
+<mrow>
+  \sum_{n=1}^\infty \left(\frac{1}{3} \right)^n
+</mrow>
+</md>
+This is a simple geometric series and we know it converges.  We have also seen, as examples<nbsp/><xref ref="eg_SRratioA"/> and<nbsp/><xref ref="eg_SRratioB"/>  showed us, that we can multiply or divide the <m>n^{\rm th}</m> term by <m>n</m> and it  will still converge. We can even multiply the <m>n^{\rm th}</m> term  by <m>(-1)^n</m> (making it an alternating series), and it will still converge. Pretty robust.
+</p>
+
+<p>
+On the other hand, we have explored the Harmonic series and its  relatives quite a lot and we know it is much more delicate. While
+<md>
+<mrow>
+  \sum_{n=1}^\infty \frac{1}{n}
+</mrow>
+</md>
+diverges, we also know the following two series converge:
+<md>
+<mrow>
+  \sum_{n=1}^\infty \frac{1}{n^{1.00000001}} &amp;&amp;  \sum_{n=1}^\infty (-1)^n \frac{1}{n}.
+</mrow>
+</md>
+This suggests that the divergence of the Harmonic series is much more  delicate. In this section, we discuss one way to characterise this  sort of delicate convergence <mdash/> especially in the presence of changes  of sign.
+</p>
+
+</introduction>
+
+<subsection xml:id="sec_abs_conv">
+<title>Definitions</title>
+<definition xml:id="def_SRabsCond"><title>Absolute and conditional convergence</title>
+<statement><p>
+<ol label="a">
+<li>
+	A series <m>\sum\limits_{n=1}^\infty a_n</m> is said to converge absolutely if the series <m>\sum\limits_{n=1}^\infty |a_n|</m> converges.
+</li>
+<li>
+	If <m>\sum\limits_{n=1}^\infty a_n</m> converges but   <m>\sum\limits_{n=1}^\infty |a_n|</m> diverges we say that <m>\sum\limits_{n=1}^\infty a_n</m> is conditionally convergent.
+</li>
+</ol>
+</p></statement>
+</definition>
+
+<p>
+If you consider these definitions for a moment, it should be clear  that absolute convergence is a stronger condition than just simple  convergence. All the terms in <m>\sum_n |a_n|</m> are  forced to be positive (by the absolute value signs), so that  <m>\sum_n |a_n|</m> must be bigger than <m>\sum_n a_n</m><mdash/> making it easier for  <m>\sum_n |a_n|</m> to diverge. This is formalised  by the following theorem, which is an immediate consequence of the comparison test, Theorem <xref ref="thm_SRcomparisonTest"/>.a,  with <m>c_n=|a_n|</m>.
+</p>
+
+<theorem xml:id="thm_SRabs"><title>Absolute convergence implies convergence</title>
+<statement><p>
+If the series <m>\sum\limits_{n=1}^\infty |a_n|</m> converges then the series <m>\sum\limits_{n=1}^\infty a_n</m> also converges. That is,  absolute convergence implies convergence.
+</p></statement>
+</theorem>
+
+<p>
+Recall that some of our convergence tests (for example, the integral test) may only be applied to series with positive  terms. Theorem <xref ref="thm_SRabs"/> opens up the possibility of applying <q>positive only</q> convergence tests to series whose  terms are not all positive, by checking for <q>absolute convergence</q> rather than for plain <q>convergence</q>.
+</p>
+
+<example xml:id="eg_SRabsCond"><title><m>\sum_{n=1}^\infty(-1)^{n-1}\frac{1}{n}</m></title>
+<p>
+The alternating harmonic series <m>\sum\limits_{n=1}^\infty(-1)^{n-1}\frac{1}{n}</m> of Example <xref ref="eg_SRaltharmonic"/> converges (by the alternating series test). But the harmonic series <m>\sum\limits_{n=1}^\infty\frac{1}{n}</m> of Example <xref ref="eg_SRpTest"/> diverges (by the integral test). So the alternating harmonic series <m>\sum\limits_{n=1}^\infty(-1)^{n-1}\frac{1}{n}</m> converges conditionally.
+</p>
+
+</example>
+
+<example xml:id="eg_SRabsCondB"><title><m>\sum_{n=1}^\infty(-1)^{n-1}\frac{1}{n^2}</m></title>
+<p>
+Because the series <m>\sum_{n=1}^\infty\big|(-1)^{n-1}\frac{1}{n^2}\big| =\sum\limits_{n=1}^\infty\frac{1}{n^2}</m> of Example <xref ref="eg_SRpTest"/> converges (by the integral test), the series <m>\sum\limits_{n=1}^\infty(-1)^{n-1}\frac{1}{n^2}</m> converges absolutely, and hence converges.
+</p>
+
+</example>
+
+<example xml:id="eg_SRabsCondC"><title>Random signs</title>
+<p>
+Imagine flipping a coin infinitely many times. Set <m>\sigma_n=+1</m> if the <m>n^{\mathrm th}</m> flip comes up heads and <m>\sigma_n=-1</m> if the <m>n^{\mathrm th}</m> flip comes up tails. The series <m>\sum_{n=1}^\infty(-1)^{\sigma_n}\frac{1}{n^2}</m> is not in general an alternating series. But we know that the series <m>\sum_{n=1}^\infty\big|(-1)^{\sigma_n}\frac{1}{n^2}\big| =\sum\limits_{n=1}^\infty\frac{1}{n^2}</m> converges. So <m>\sum_{n=1}^\infty(-1)^{\sigma_n}\frac{1}{n^2}</m> converges absolutely, and hence converges.
+</p>
+</example>
+</subsection>
+
+<subsection>
+<title>Optional <mdash/> The delicacy of conditionally convergent series</title>
+
+<p>
+Conditionally convergent series have to be treated with great care.  For example, switching the order of the terms in a finite sum does not change its value.
+<me>
+1+2+3+4+5+6 = 6+3+5+2+4+1
+</me>
+The same is true for absolutely convergent series. But it is <em>not true</em>  for conditionally convergent series. In fact by reordering <em>any</em>  conditionally convergent series, you can make it add up to <em>any</em>  number you like, including <m>+\infty</m> and <m>-\infty</m>. This very strange  result is known as Riemann's rearrangement theorem, named after  Bernhard Riemann (1826<ndash/>1866). The following example illustrates the  phenomenon.
+</p>
+
+<example><title>The alternating Harmonic series</title>
+<p>
+The alternating Harmonic series
+<md>
+<mrow>
+  \sum_{n=1}^ \infty (-1)^{n-1} \frac{1}{n}
+</mrow>
+</md>
+is a very good example of conditional convergence. We can show,  quite explicitly, how we can rearrange the terms to make it add up  to two different numbers. Later, in Example<nbsp/><xref ref="eg_SRpsrepC"/>, we'll  show that this series is equal to <m>\log 2</m>. However, by rearranging the  terms we can make it sum to <m>\frac{1}{2}\log 2</m>. The usual order is
+<md>
+<mrow>
+\frac{1}{1} - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} + \cdots
+</mrow>
+</md>
+For the moment think of the terms being paired as follows:
+<md>
+<mrow>
+  \left(\frac{1}{1} - \frac{1}{2}\right)
+  + \left(\frac{1}{3} - \frac{1}{4}\right)
+  + \left(\frac{1}{5} - \frac{1}{6}\right)
+  + \cdots
+</mrow>
+</md>
+so the denominators go odd-even odd-even. Now rearrange the terms so the denominators are odd-even-even  odd-even-even:
+<md>
+<mrow>
+  \left( 1 - \frac{1}{2}-\frac{1}{4} \right)
+  + \left(\frac{1}{3} - \frac{1}{6} - \frac{1}{8} \right)
+  + \left(\frac{1}{5} - \frac{1}{10} - \frac{1}{12} \right)
+  + \cdots
+</mrow>
+</md>
+Now notice that the first term in each triple is exactly twice the second term. If we now combine those terms we get
+<md>
+<mrow>
+  &amp;\phantom{=}\left( \underbrace{1 - \frac{1}{2}}_{=1/2} -\frac{1}{4} \right)
+  + \left(\underbrace{\frac{1}{3} - \frac{1}{6}}_{=1/6} - \frac{1}{8} \right)
+  + \left(\underbrace{\frac{1}{5} - \frac{1}{10}}_{=1/10} - \frac{1}{12} \right)
+  + \cdots
+</mrow><mrow>
+  &amp;=
+  \left( \frac{1}{2}-\frac{1}{4} \right)
+  + \left( \frac{1}{6} - \frac{1}{8} \right)
+  + \left(\frac{1}{10} - \frac{1}{12} \right)
+  + \cdots
+</mrow><mrow>
+  </mrow>
+<intertext>We can now extract a factor of <m>\frac{1}{2}</m> from each term, so</intertext><mrow>
+  &amp;= \frac{1}{2}
+  \left( \frac{1}{1}-\frac{1}{2} \right)
+  + \frac{1}{2}\left( \frac{1}{3} - \frac{1}{4} \right)
+  + \frac{1}{2}\left(\frac{1}{5} - \frac{1}{6} \right)
+  + \cdots
+</mrow><mrow>
+  &amp;= \frac{1}{2} \left[
+  \left(\frac{1}{1} - \frac{1}{2}\right)
+  + \left(\frac{1}{3} - \frac{1}{4}\right)
+  + \left(\frac{1}{5} - \frac{1}{6}\right)
+  + \cdots
+  \right]
+</mrow>
+</md>
+So by rearranging the terms, the sum of the series is now exactly half  the original sum!
+</p>
+</example>
+
+<p>
+In fact, we can go even further, and show how we can rearrange the terms  of the alternating harmonic series to add  up to any given number
+	<fn>
+		This  is reminiscent of the accounting trick of pushing all the  company's debts off to next year so that this year's accounts look  really good and you can collect your bonus.
+	</fn>.
+For the purposes of the example we have chosen <m>1.234</m>, but it could really be any number.  The example below can actually be formalised to give a proof of the rearrangement theorem.
+</p>
+
+<example xml:id="eg_SRccreorder"><title>Reorder summands to get <m>1.234</m></title>
+
+<p>
+We'll show how to  reorder the conditionally convergent series <m>\sum\limits_{n=1}^\infty(-1)^{n-1}\frac{1}{n}</m> so  that it adds up to exactly <m>1.234</m> (but the reader should keep in mind  that any fixed number will work).
+<ul>
+<li>
+	First create two lists of numbers <mdash/> the first list consisting of the positive terms of the series, in order,  and the second consisting of the negative numbers of the series, in order.
+	<md>
+	<mrow>
+	1,\ \frac{1}{3},\ \frac{1}{5},\ \frac{1}{7},\ \cdots
+	&amp;&amp; \text{and}
+	&amp;&amp;
+	-\frac{1}{2},\ -\frac{1}{4},\ -\frac{1}{6},\ \cdots
+	</mrow>
+	</md>
+</li>
+<li>
+<p>
+	Notice that  that if we add together the numbers in the second  list,we get
+	<md>
+	<mrow>
+	-\frac{1}{2}\Big[1+\frac{1}{2}+\frac{1}{3}+\cdots\Big]
+	</mrow>
+	</md>
+	which is just <m>-\frac{1}{2}</m> times the harmonic series. So the numbers  in the second list add up to <m>-\infty</m>.
+	</p>
+
+	<p>
+	Also, if we add together the numbers in the first list, we get
+	<md>
+	<mrow>
+	1+\frac{1}{3}+\frac{1}{5}+\frac{1}{7}\cdots
+	&amp;&amp; \text{which is greater than}
+	&amp;&amp;\frac{1}{2}+\frac{1}{4}+\frac{1}{6}+\frac{1}{8}+\cdots
+	</mrow>
+	</md>
+	That is, the sum of the first set of numbers must be bigger than  the sum of the second set of numbers (which is just <m>-1</m> times the  second list). So the numbers in the first list add up to <m>+\infty</m>.
+</p>
+</li>
+<li>
+	Now we build up our reordered series. Start by moving just  enough numbers from the beginning of the first list  into the reordered series to get a sum bigger than <m>1.234</m>.
+	<me>
+	1+\frac{1}{3} = 1.3333
+	</me>
+	We know that we can do this, because the sum of the terms in  the first list diverges to <m>+\infty</m>.
+</li>
+<li>
+	Next move just enough numbers from the beginning of the second  list into the reordered series to get a number less than 1.234.
+	<me>
+	1+\frac{1}{3}-\frac{1}{2} = 0.8333
+	</me>
+	Again, we know that we can do this because the sum of the numbers in  the second list diverges to <m>-\infty</m>.
+</li>
+<li>
+	Next move just enough numbers from the beginning of the remaining part  of the first list into the reordered series to get a number bigger than 1.234.
+	<me>
+	1+\frac{1}{3}-\frac{1}{2} +\frac{1}{5}+\frac{1}{7}+\frac{1}{9} = 1.2873
+	</me>
+	Again, this is possible because the sum of the numbers in the first  list diverges. Even though we have already used the first few numbers,  the sum of the rest of the list will still diverge.
+</li>
+<li>
+	Next move just enough numbers from the beginning of the remaining  part of the second list into the reordered series to get a number  less than 1.234.
+	<me>
+	1+\frac{1}{3}-\frac{1}{2} +\frac{1}{5}+\frac{1}{7}+\frac{1}{9} -\frac{1}{4}  = 1.0373
+	</me>
+</li>
+<li>
+	At this point the idea is clear, just keep going like this. At  the end of each step, the difference between the sum and 1.234 is smaller  than the magnitude of the first unused number in the lists. Since  the numbers in both lists tend to zero as you go farther and farther  up the list, this procedure will generate a series whose sum is  exactly 1.234. Since in each step we remove at least one number from  a list and we alternate between the two lists, the reordered series  will contain all of the terms from <m>\sum\limits_{n=1}^\infty(-1)^{n-1}\frac{1}{n}</m>, with each term appearing exactly once.
+</li>
+</ul>
+</p>
+
+</example>
+
+</subsection>
+
+
+
+<xi:include href="../problems/prob_s3.4.xml" />
+
+</section>

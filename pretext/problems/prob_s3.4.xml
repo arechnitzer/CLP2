@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<exercises>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+<exercise><title><fromexam>2015A</fromexam></title>
+<statement><p>
+Decide whether the following statement is true or false.
+If false, provide a counterexample. If true provide a brief justification.
+
+<ul>
+<li><textblue>
+If <m>\displaystyle\sum_{n=1}^{\infty}(-1)^{n+1}b_n</m> converges, then <m>\displaystyle\sum_{n=1}^{\infty} b_n</m> also converges.
+</textblue>
+</li>
+</ul>
+</p>
+</statement>
+
+<hint><p>
+What is conditional convergence?
+</p></hint>
+
+<answer><p>
+False. For example, <m>b_n=\frac{1}{n}</m> provides a counterexample.
+</p></answer>
+
+<solution><p>
+False. For example if <m>b_n=\frac{1}{n}</m>, then
+<m>\sum\limits_{n=1}^{\infty}(-1)^{n+1}b_n
+   =\sum\limits_{n=1}^{\infty}(-1)^{n+1}\frac{1}{n}</m>
+converges by the alternating series test, but
+<m>\sum\limits_{n=1}^{\infty} \frac{1}{n}</m> diverges by the <m>p</m>--test.
+</p>
+
+<p>Remark: if we had added that <m>\{b_n\}</m> is a sequence of <em>alternating terms</em>, then by Theorem<nbsp/><xref ref="thm_SRabs"/> in the CLP-II text, the statement would have been true. This is because <m>\displaystyle\sum_{n=1}^{\infty}(-1)^{n+1}b_n</m> would either be equal to <m>\displaystyle\sum_{n=1}^{\infty} |b_n|</m> or <m>-\displaystyle\sum_{n=1}^{\infty} |b_n|</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Describe the sequence <m>\displaystyle\sum_{n=1}^\infty a_n</m> based on whether
+<m>\displaystyle\sum_{n=1}^\infty a_n</m> and <m>\displaystyle\sum_{n=1}^\infty |a_n|</m> converge or diverge, using vocabulary from this section where possible.
+</p>
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell></cell><cell><m>\sum  a_n</m> converges</cell><cell> <m>\sum a_n</m> diverges </cell></row>
+<row>
+<cell> <m>\sum  |a_n|</m> converges</cell><cell></cell><cell></cell>
+</row>
+<row>
+<cell> <m>\sum |a_n|</m> diverges</cell><cell></cell><cell></cell>
+</row>
+</tabular>
+</sidebyside>
+</statement>
+<hint><p>
+If <m>\sum |a_n|</m> converges, then <m>\sum a_n</m> is guaranteed to converge as well.
+</p>
+<p>
+(That's Theorem<nbsp/><xref ref="thm_SRabs"/> in the CLP-II text.) So, one of the blank spaces describes an impossible sequence.
+</p></hint>
+<answer>
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell></cell><cell> <m>\sum a_n</m> converges</cell><cell><m>\sum a_n</m> diverges</cell>
+</row>
+<row>
+<cell> <m>\sum  |a_n|</m> converges</cell><cell>converges absolutely</cell><cell>not possible</cell>
+</row>
+<row>
+<cell><m>\sum  |a_n|</m> diverges</cell><cell>converges conditionally</cell><cell>diverges</cell>
+</row>
+</tabular>
+</sidebyside>
+</answer>
+
+<solution><p>
+Absolute convergence describes the situation where <m>\sum |a_n|</m> converges (see Definition<nbsp/><xref ref="def_SRabsCond"/> in the CLP-II text). By Theorem<nbsp/><xref ref="thm_SRabs"/> in the CLP-II text, this guarantees that also <m>\sum a_n</m> converges.
+</p>
+
+<p>Conditional convergence describes the situation where <m>\sum |a_n|</m> diverges but <m>\sum a_n</m> converges (see again Definition<nbsp/><xref ref="def_SRabsCond"/> in the CLP-II text).
+</p>
+
+<p>If <m>\sum a_n</m> diverges, we just say it diverges. The reason is that if <m>\sum a_n</m> diverges, we automatically know <m>\sum |a_n|</m> diverges as well, so there's no need for a special name.
+</p>
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell></cell><cell> <m>\sum a_n</m> converges</cell><cell><m>\sum a_n</m> diverges</cell>
+</row>
+<row>
+<cell> <m>\sum  |a_n|</m> converges</cell><cell>converges absolutely</cell><cell>not possible</cell>
+</row>
+<row>
+<cell><m>\sum  |a_n|</m> diverges</cell><cell>converges conditionally</cell><cell>diverges</cell>
+</row>
+</tabular>
+</sidebyside>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise purpose="RQS"><title><fromexam>2015A</fromexam></title>
+<statement><p>
+Determine whether the series <m>\displaystyle\sum_{n=1}^{\infty}\displaystyle\frac{(-1)^n}{9n+5}</m> is absolutely convergent, conditionally convergent, or divergent; justify your answer.
+</p></statement>
+
+<answer><p>
+Conditionally convergent
+</p></answer>
+
+<solution><p>
+The series <m>\sum\limits_{n=1}^{\infty}\frac{(-1)^n}{9n+5}</m>
+converges by the alternating series test. On the other hand the
+series <m>\sum\limits_{n=1}^{\infty}\big|\frac{(-1)^n}{9n+5}\big|
+=\sum_{n=1}^{\infty}\frac{1}{9n+5}</m> diverges by the limit
+comparison test with <m>b_n=\frac{1}{n}</m>. So the given series is
+conditionally convergent.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q6</fromexam></title>
+<statement><p>
+Determine whether the series
+<m>\displaystyle\sum_{n=1}^\infty\frac{(-1)^{2n+1}}{1+n}</m>
+is absolutely convergent, conditionally convergent, or divergent.
+</p></statement>
+
+<hint><p>
+Be careful about the signs.
+</p></hint>
+
+<answer><p>
+The series diverges.
+</p></answer>
+
+<solution><p>
+Note that <m>(-1)^{2n+1}=(-1)\cdot(-1)^{2n}=-1</m>. So we can simplify
+<md>
+<mrow>
+  \sum_{n=1}^\infty\frac{(-1)^{2n+1}}{1+n}=-\sum_{n=1}^\infty\frac{1}{1+n}
+</mrow>
+</md>
+Since <m>\displaystyle \frac{1}{1+n} \geq \frac{1}{n+n} = \frac{1}{2n}</m>,
+<m>\ \ \displaystyle \sum_{n=1}^\infty\frac{1}{1+n}</m>
+diverges by the comparison test with the divergent harmonic series <m>\sum\limits_{n=1}^\infty\frac{1}{n}</m>. The extra overall factor of <m>-1</m> in the original series
+does not change the conclusion of divergence.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q6</fromexam></title>
+<statement><p>
+The series <m>\displaystyle \sum_{n=1}^{\infty} (-1)^{n-1} \frac{1+4^n}{3+2^{2n}}</m> either:
+<ul>
+<li>converges absolutely;</li>
+<li>converges conditionally;</li>
+<li>diverges; </li>
+<li> or   none of the above.</li>
+</ul>
+Determine which  is correct.
+</p>
+
+</statement>
+
+<hint><p>
+Does the alternating series test really apply?
+</p></hint>
+
+<answer><p>
+It diverges.
+</p></answer>
+
+<solution><p>
+Since
+<md>
+<mrow>
+ \lim_{n\to\infty} \frac{1+4^n}{3+2^{2n}}
+=\lim_{n\to\infty} \frac{1+4^n}{3+4^n}
+= 1
+</mrow>
+</md>
+the alternating series test cannot be used. Indeed,
+<m>\displaystyle \lim_{n\to\infty} (-1)^{n-1} \frac{1+4^n}{3+2^{2n}}</m> does not exist
+(for very large <m>n</m>,   <m> (-1)^{n-1} \frac{1+4^n}{3+2^{2n}}</m> alternates between a number
+close to <m>+1</m> and a number close to <m>-1</m>)
+so the divergence test says that the series diverges.
+(Note that <q>none of the above</q> cannot possibly be the correct answer <mdash/>
+<em>every</em> series either converges absolutely, converges conditionally, or diverges.)
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+Does the series <m>\displaystyle \sum_{n=5}^\infty \frac{\sqrt{n}\cos n}{n^2-1}</m>
+converge conditionally, converge absolutely, or diverge?
+</p></statement>
+
+<hint><p>
+What does the summand look like when <m>n</m> is very large?
+</p></hint>
+
+<answer><p>
+It converges absolutely.
+</p></answer>
+
+<solution><p>
+First, we'll develop some intuition. For very large <m>n</m>
+<md>
+<mrow>
+\left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right|
+&amp;\approx \left|\frac{\sqrt{n}\cos(n)}{n^2}\right|
+= \left|\frac{\cos(n)}{n^{3/2}}\right|
+\le \frac{1}{n^{3/2}}
+</mrow>
+</md>
+since <m>\left|\cos(n)\right| \leq 1</m> for all <m>n</m>. By the <m>p</m>--test, the series
+<m>\displaystyle \sum_{n=5}^\infty \frac{1}{n^p}</m> converges for all <m>p \gt 1</m>. So we would
+expect the given series to converge absolutely.
+</p>
+
+<p>Now, to confirm that our intuition is correct, we'll first try setting
+<m>a_n=\left| \frac{\sqrt{n}\cos(n)}{n^2-1}\right|</m>
+and <m>b_n = \frac{1}{n^{3/2}}</m>.
+<md>
+<mrow>
+\lim_{n \to \infty}\frac{a_n}{b_n}&amp;=\lim_{n \to \infty} \frac{\left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right| }{\frac{1}{n^{3/2}}} = \lim_{n \to \infty}\frac{\sqrt{n}\cdot\sqrt{n}^3|\cos n|}{n^2-1}
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}\frac{n^2|\cos n|}{n^2-1} = \lim_{n \to \infty}\left(\frac{n^2}{n^2-1}\right)|\cos n|
+</mrow><mrow>
+&amp; = \lim_{n \to \infty}1\cdot|\cos n|
+</mrow>
+</md>
+Unfortunately, this limit doesn't exist, so we can't use the limit comparison theorem. We'll need a slightly different tactic.
+</p>
+
+<p>
+<ul>
+<li><p>
+Solution 1: Let's try the limit comparison test with a different <m>p</m>-series. The question is, which one. Let's start by leaving <m>p</m> as a variable, then see what happens.
+</p>
+
+<p>We  apply the limit comparison test with  <m>a_n=\left| \frac{\sqrt{n}\cos(n)}{n^2-1}\right|</m>
+and  <m>b_n=\frac{1}{n^p}</m>. We'll choose a specific <m>p</m> shortly.
+<md>
+<mrow>
+\lim_{n\to\infty} \frac{a_n}{b_n}
+&amp;=\lim_{n\to\infty} \frac{\big|\sqrt n\,\cos n/(n^2-1)\big|}{1/n^p}
+</mrow><mrow>
+&amp;=\lim_{n\to\infty} \frac{n^{p+0.5}|\cos n|}
+                                   {n^2(1-1/n^2)}
+= \lim_{n\to\infty} \frac{|\cos n|}{n^{(3/2-p)}(1-1/n^2)}
+</mrow><mrow>
+&amp;=0\quad\text{ if <m>p \lt \frac{3}{2}</m>}
+</mrow>
+</md>
+the limit comparison test says that if <m>p \lt \frac{3}{2}</m> and the series
+<m>\sum\limits_{n=5}^\infty b_n</m> converges (which is the case if <m>p \gt 1</m>) then the series
+<m>\sum\limits_{n=5}^\infty  \left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right|</m> also converges.
+So choosing any <m>1 \lt p \lt \frac{3}{2}</m>, for example <m>p=\frac{5}{4}</m>, we conclude that
+the given series converges absolutely.
+</p>
+</li>
+<li><p>
+Solution 2:
+Let's try to use the direct comparison test. When we were trying to develop intuition, we noticed the following:
+<md>
+<mrow>
+\left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right|
+&amp;\approx \left|\frac{\sqrt{n}\cos(n)}{n^2}\right|
+= \left|\frac{\cos(n)}{n^{3/2}}\right|
+\le \frac{1}{n^{3/2}}
+</mrow>
+</md>
+It's not the case that our terms are less than <m>\frac{1}{n^{3/2}}</m>, but perhaps they would be less than, say <m>\frac{2}{n^{3/2}}</m>. Let's trace our reasoning above backwards.
+<md>
+<mrow>
+\frac{2}{n^{3/2}} &amp;\geq \left|\frac{2\cos n}{n^{3/2}}\right|
+=\left|\frac{\sqrt{n}\cos n}{(1/2)n^{2}}\right|
+\geq \left|\frac{\sqrt{n}\cos n}{n^{2}-1}\right|
+</mrow>
+</md>
+where the final inequality holds for all <m>n \ge 2</m>.
+</p>
+
+<p>Since <m>\sum\limits_{n=1}^\infty \frac{2}{n^{3/2}}</m> converges by the <m>p</m>-test, our series  converges as well by the direct comparison test.
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Determine (with justification!) whether the series
+<m>\displaystyle\sum_{n=1}^\infty\frac{n^2-\sin n}{n^6+n^2}</m>
+converges absolutely, converges but not absolutely, or diverges.
+</p></statement>
+
+<hint><p>
+What does the summand look like when <m>n</m> is very large?
+</p></hint>
+
+<answer><p>
+It converges absolutely.
+</p></answer>
+
+<solution><p>
+We first develop some intuition about <m>\displaystyle\sum_{n=1}^\infty\left|\frac{n^2-\sin n}{n^6+n^2}\right|</m>, where we take the absolute value of the summands to consider whether the series converges <em>absolutely</em>. For very large <m>n</m>, <m>n^2</m> dominates
+<m>\sin n</m> and <m>n^6</m> dominates <m>n^2</m> so that
+<md>
+<mrow>
+\left|\frac{n^2-\sin n}{n^6+n^2}\right|
+\approx \frac{n^2}{n^6}
+=\frac{1}{n^4}
+</mrow>
+</md>
+The series <m>\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^4}</m>
+converges by the <m>p</m>-test with <m>p=4 \gt 1</m>.
+We expect the given series to converge too.
+</p>
+
+<p>To verify that  our intuition is correct,
+we apply the limit comparison test with
+<md>
+<mrow>
+a_n= \frac{n^2-\sin n}{n^6+n^2} \quad\text{and}\quad b_n= \frac{1}{n^4}
+</mrow>
+</md>
+which is valid since
+<me>
+\lim_{n\rightarrow\infty} \frac{a_n}{b_n}
+=\lim_{n\rightarrow\infty}\left|\frac{(n^2-\sin n)}{n^6+n^2}\right|\cdot\frac{n^4}{1}
+=\lim_{n\rightarrow\infty}\frac{|n^6-n^4\sin n|}{n^6+n^2}
+=\lim_{n\rightarrow\infty}\frac{1-n^{-2}\sin n}{1+n^{-4}}
+=1
+</me>
+exists and is nonzero. Since the series <m>\sum\limits_{n=1}^\infty b_n</m>
+converges, the series <m>\sum\limits_{n=1}^\infty\dfrac{|n^2-\sin n|}{n^6+n^2}</m> converges too. Therefore, the series <m>\sum\limits_{n=1}^\infty\dfrac{n^2-\sin n}{n^6+n^2}</m> converges absolutely.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Determine (with justification!) whether the series
+<m>\displaystyle\sum_{n=0}^\infty\frac{(-1)^n(2n)!}{(n^2+1)(n!)^2}</m>
+converges absolutely, converges but not absolutely, or diverges.
+</p></statement>
+
+<hint><p>
+This is a trick question. Be sure to verify <em>all</em> of the hypotheses
+of any convergence test you apply.
+</p></hint>
+
+<answer><p>
+It diverges.
+</p></answer>
+
+<solution><p>
+You might think that this series converges by the alternating series test.
+But you would be wrong. The problem is that <m>\{a_n\}</m> does not converge to zero as <m>n\rightarrow\infty</m>, so that the series actually
+diverges by the divergence test. To verify that the <m>n^{\text{th}}</m> term does not converge to zero as <m>n\rightarrow\infty</m> let's write
+<m>a_n= \frac{(2n)!}{(n^2+1)(n!)^2}</m> (i.e. <m>a_n</m> is the <m>n^{\text{th}}</m> term
+without the sign) and check to see whether <m>a_{n+1}</m> is bigger than or smaller than <m>a_n</m>.
+<md>
+<mrow>
+\frac{a_{n+1}}{a_n}
+&amp;=\frac{(2n+2)!}{((n+1)^2+1)((n+1)!)^2}
+\frac{(n^2+1)(n!)^2}{(2n)!}
+=\frac{(2n+2)(2n+1)}{(n+1)^2}\frac{n^2+1}{(n+1)^2+1}
+</mrow><mrow>
+&amp;=\frac{2(2n+1)}{(n+1)}\frac{1+1/n^2}{(1+1/n)^2+1/n^2}
+=4\frac{1+1/2n}{1+1/n}\frac{1+1/n^2}{(1+1/n)^2+1/n^2}
+</mrow>
+</md>
+So
+<me>
+\lim_{n\rightarrow\infty}\frac{a_{n+1}}{a_n}=4
+</me>
+and, in particular, for large <m>n</m>, <m>a_{n+1} \gt a_n</m>. Thus, for large <m>n</m>,
+<m>a_n</m> increases with <m>n</m> and so cannot converge to <m>0</m>. So the series
+diverges by the divergence test.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Determine (with justification!) whether the series
+<m>\displaystyle\sum_{n=2}^\infty\frac{(-1)^n}{n(\log n)^{101}}</m>
+converges absolutely, converges but not absolutely, or diverges.
+</p></statement>
+
+<hint><p>
+Try the substitution <m>u=\log x</m>.
+</p></hint>
+
+<answer><p>
+It converges absolutely.
+</p></answer>
+
+<solution><p>
+This series converges by the alternating series test. We want to know whether it converges absolutely, so we consider the seris<m>\displaystyle\sum_{n=2}^\infty\left|\frac{(-1)^n}{n(\log n)^{101}}\right|=\sum_{n=2}^\infty\frac{1}{n(\log n)^{101}}</m>.
+</p>
+
+<p>We've seen similar function before (e.g. Example <xref ref="eg_SRlnpTest"/> in the CLP-II text, with <m>p=101 \gt 1</m>) and it yields nicely to the integral test. Let <m>f(x) = \frac{1}{x(\log x)^{101}}</m>. Note <m>f(x)</m> is positive and decreasing for <m>n \ge 3</m>. Then by the integral test, the series
+<m>\sum_{n=2}^\infty\frac{1}{n(\log n)^{101}}</m> converges if and only if the integral
+<m>\int_2^\infty \frac{1}{x(\log x)^{101}}\dee{x}</m> does. We evaluate the integral using the substitution <m>u=\log x</m>, <m>\dee{u}=\frac{1}{x}\,\dee{x}</m>.
+<md>
+<mrow>
+\int_2^\infty \frac{1}{x(\log x)^{101}}\dee{x}&amp;=\lim_{b \to \infty}\int_2^b \frac{1}{x(\log x)^{101}}\dee{x}
+</mrow><mrow>
+&amp;=\lim_{b \to \infty}\int_{\log 2}^{\log b}\frac{1}{u^{101}}\,\dee{u}
+</mrow><mrow>
+&amp;=\lim_{b \to \infty}\left[\frac{-1}{100 u^{100}}\right]_{\log 2}^{\log b}\\
+</mrow><mrow>
+&amp;=\frac{1}{100(\log 2)^{100}}
+</mrow>
+</md>
+Since the integral converges, the series
+<m>\sum\limits_{n=2}^\infty\frac{1}{n(\log n)^{101}}</m> converges, and therefore the series
+<m>\sum\limits_{n=2}^\infty\frac{(-1)^n}{n(\log n)^{101}}</m> converges absolutely.
+</p></solution>
+</exercise>
+
+<exercise xml:id="nonalt1">
+<statement><p>
+Show that the series
+<m>\displaystyle\sum_{n=1}^\infty \dfrac{\sin n}{n^2}</m> converges.
+</p></statement>
+<hint><p>
+Show that it converges absolutely.
+</p></hint>
+<answer><p>
+See solution.
+</p></answer>
+<solution><p>
+The sequence has some positive terms and some negative terms, which limits the tests we can use. However, if we consider the series <m>\displaystyle\sum_{n=1}^\infty \left|\dfrac{\sin n}{n^2}\right|</m>, we can use the direct comparison test.
+</p>
+
+<p>For every <m>n</m>, <m>| \sin n|  \lt 1</m>, so <m>0\le \left|\dfrac{\sin n}{n^2}\right| \lt \dfrac{1}{n^2}</m>. Since
+<m>\displaystyle\sum_{n=1}^\infty \dfrac{1}{n^2}</m> converges, then by the direct comparison test, <m>\displaystyle\sum_{n=1}^\infty \left|\dfrac{\sin n}{n^2}\right|</m> converges as well. Then <m>\displaystyle\sum_{n=1}^\infty \dfrac{\sin n}{n^2}</m> converges absolutely <mdash/> in particular, it converges.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Show that the series
+<m>\displaystyle\sum_{n=1}^\infty\left(\frac{\sin n}{4}-\frac{1}{8}\right)^n</m> converges.
+</p></statement>
+<hint><p>
+Use a similar method to Queston<nbsp/><xref ref="nonalt1" text="local"/>.
+</p></hint>
+<answer><p>
+See solution.
+</p></answer>
+<solution><p>
+The terms of this series are sometimes negative (for odd values of <m>n</m> where  <m>\sin n  \lt \frac{1}{2}</m>) and sometimes positive. But, they are not strictly alternating, so we can't use the alternating series test. Instead, we use a direct comparison test to show the series converges absolutely.
+</p>
+
+<p><md>
+<mrow>
+-\frac14&amp;\le \frac{\sin n}{4} \le \frac14
+</mrow><mrow>
+\Rightarrow \qquad\left(-\frac{1}{4}-\frac{1}{8}\right)&amp;\le\left( \frac{\sin x}{4} -\frac18\right) \lt  \left(\frac14-\frac18\right)
+</mrow><mrow>
+\Rightarrow \qquad -\frac{3}{8} &amp;\le\left( \frac{\sin x}{4} -\frac18\right) \lt  \frac{1}{8}
+</mrow><mrow>
+\Rightarrow \qquad 0 &amp;\le\left| \frac{\sin x}{4} -\frac18\right| \lt  \frac{3}{8}
+</mrow><mrow>
+\Rightarrow \qquad 0 &amp;\le\left|\left( \frac{\sin x}{4} -\frac18\right)^n\right| \lt  \left(\frac{3}{8}\right)^n
+</mrow>
+</md>
+Since <m>\displaystyle\sum_{n=1}^{\infty} \left(\frac{3}{8}\right)^n</m> converges (it's a geometric sum with <m>|r| \lt 1</m>), by the direct comparison test,
+<m>\displaystyle\sum_{n=1}^{\infty} \left|\left( \frac{\sin x}{4} -\frac18\right)^n\right|</m>
+converges as well.
+</p>
+
+<p>Then <m>\displaystyle\sum_{n=1}^{\infty} \left( \frac{\sin x}{4} -\frac18\right)^n</m> converges absolutely <mdash/> and so it converges.
+</p></solution>
+</exercise>
+
+<exercise xml:id="nonalt2">
+<statement><p>
+Show that the series
+<m>\displaystyle\sum_{n=1}^\infty\dfrac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}</m> converges.
+</p></statement>
+<hint><p>
+Show it converges absolutely using a direct comparison test.
+</p></hint>
+<answer><p>
+See solution.
+</p></answer>
+<solution><p>
+The terms of this series are sometimes negative and sometimes positive. But, they are not strictly alternating, so we can't use the alternating series test. Instead, we use a direct comparison test to show the series converges absolutely.
+</p>
+
+<p><md>
+<mrow>
+0&amp;\leq \sin^2 n \le 1
+</mrow><mrow>
+0&amp;\leq \cos^2 n \le 1
+</mrow><mrow>
+\text{So,}\qquad -1&amp;\leq \sin^2 n - \cos^2 n \le 1
+</mrow><mrow>
+-\frac12=\left(-1+\frac12\right)&amp;\leq \left(\sin^2 n - \cos^2 n+\frac12\right) \le \left(1+\frac12\right)=\frac32
+</mrow><mrow>
+-\frac{1}{2}\cdot \frac{ 1}{2^n}&amp;\leq \frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n} \le \frac{3}{2}\cdot\frac{1}{2^n}
+</mrow><mrow>
+0&amp;\leq \left|\frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}\right| \le \frac{3}{2^{n+1}}
+</mrow>
+</md>
+</p>
+
+<p>The series <m>\displaystyle\sum_{n=1}^\infty \frac{3}{2^{n+1}}</m> converges, because it's a geometric series with <m>r=\frac{1}{2}</m>. By the direct comparison test,
+<m>\displaystyle\sum_{n=1}^\infty \left|\frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}\right| </m> converges as well. Then <m>\displaystyle\sum_{n=1}^\infty \frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}</m> converges absolutely, so it converges.
+</p>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise><title><fromexam>2016A</fromexam></title>
+<statement><p>
+Both parts of this question concern the series <m>\displaystyle S = \sum_{n=1}^\infty (-1)^{n-1}24n^2 e^{-n^3}</m>.
+<ol label="a">
+<li>
+Show that the series <m>S</m> converges absolutely.
+</li>
+<li>
+Suppose that you approximate the series <m>S</m> by its fifth partial sum <m>S_5</m>. Give an upper bound for the error resulting from this approximation.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+For part (a), replace <m>n</m> by <m>x</m> in the absolute value of the summand.
+Can you integrate the resulting function?
+</p></hint>
+
+<answer><p>
+(a) See the solution.
+</p>
+<p>
+ (b)
+<m>|S - S_5 | \le  24 \times 36 e^{-6^3}</m>
+</p>
+
+</answer>
+
+<solution><p> (a)
+<ul>
+<li><p>
+Solution 1:
+We need to show that
+<m>\sum\limits_{n=1}^\infty 24n^2 e^{-n^3}</m> converges.
+If we replace <m>n</m> by <m>x</m> in the summand, we get <m>f(x) = 24x^2 e^{-x^3}</m>,
+which we can integate. (Just substitute <m>u=x^3</m>.)
+So let's try the integral test.
+First, we have to check that <m>f(x)</m> is positive and decreasing.
+It is certainly positive. To determine if it is decreasing, we compute
+<md>
+<mrow>
+\diff{f}{x} = 48x e^{-x^3} - 24\times 3 x^4 e^{-x^3}
+= 24x (2-3x^3) e^{-x^3}
+</mrow>
+</md>
+which is negative for <m>x\ge1</m>. Therefore <m>f(x)</m> is decreasing for <m>x\ge1</m>,
+and the integral test applies. The substitution <m>u=x^3</m>,
+<m>\dee{u}=3x^2\,\,\dee{x}</m>, yields
+<md>
+<mrow>
+\int f(x) \,\dee{x}
+= \int 24x^2 e^{-x^3} \,\dee{x} = \int 8 e^{-u}\,\dee{u} = -8e^{-u} + C = -8e^{-x^3} + C.
+</mrow>
+</md>
+Therefore
+<md>
+<mrow>
+\int_1^\infty f(x) \,\dee{x} &amp;= \lim_{R \to \infty} \int_1^R f(x) \,\dee{x}
+  = \lim_{R \to \infty} \bigg[ {-}8 e^{-x^3} \bigg]_1^R
+</mrow><mrow>
+   &amp;= \lim_{R \to \infty} ( - 8 e^{-R^3} + 8 e^{-1}  ) = 8 e^{-1}
+</mrow>
+</md>
+Since the integral is convergent, the series
+<m>\sum\limits_{n=1}^\infty 24n^2 e^{-n^3}</m> converges
+and the series <m>\displaystyle \sum_{n=1}^\infty (-1)^{n-1}24n^2 e^{-n^3}</m>
+converges absolutely.
+</p>
+</li>
+<li><p>
+Solution 2:
+Alternatively, we can use the ratio test with <m>a_n=24n^2 e^{-n^3}</m>.
+We calculate
+<md>
+<mrow>
+\lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|
+&amp;= \lim_{n\to\infty} \left|\frac{24 (n+1)^2e^{-(n+1)^3}}{24 n^2e^{-n^3}} \right|
+</mrow><mrow>
+&amp;= \lim_{n\to\infty} \left( \frac{(n+1)^2}{n^2} \frac{e^{n^3}}{e^{(n+1)^3}} \right)
+</mrow><mrow>
+&amp;= \lim_{n\to\infty} \left(1+\frac{1}{n}\right)^2 e^{-(3n^2+3n+1)} = 1\cdot0=0  \lt  1,
+</mrow>
+</md>
+and therefore the series converges absolutely.
+</p>
+</li>
+<li>
+<p>Solution 3:
+Alternatively, alternatively, we can use the limiting comparison test.
+First a little intuition building. Recall that we need to show that
+<m>\sum\limits_{n=1}^\infty 24n^2 e^{-n^3}</m> converges. The <m>n^{\rm th}</m>
+term in this series is
+<me>
+a_n = 24n^2 e^{-n^3} =\frac{24 n^2}{e^{n^3}}
+</me>
+It is a ratio with both the numerator and denominator growing with <m>n</m>.
+A good rule of thumb is that exponentials grow a lot faster than powers.
+For example, if <m>n=10</m> the numerator is <m>2400=2.4\times 10^3</m>
+and the denominator is about <m>2\times 10^{434}</m>.
+So we would guess that <m>a_n</m> tends to zero as <m>n\rightarrow\infty</m>.
+The question is <q>does <m>a_n</m> tend to zero fast enough with <m>n</m> that our series converges?</q>. For example, we know that <m>\sum_{n=1}^\infty \frac{1}{n^2}</m>
+converges (by the <m>p</m>-test with <m>p=2</m>). So if <m>a_n</m> tends to zero faster
+than <m>\frac{1}{n^2}</m> does, our series will converge. So let's try the limiting convergence test with <m>a_n = 24n^2 e^{-n^3} =\frac{24 n^2}{e^{n^3}}</m>
+and <m>b_n=\frac{1}{n^2}</m>.
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\frac{a_n}{b_n}
+=\lim_{n\rightarrow\infty}\frac{24n^2 e^{-n^3}}{1/n^2}
+=\lim_{n\rightarrow\infty}\frac{24n^4 }{e^{n^3}}
+</mrow>
+</md>
+By l'Hôpital's rule, twice,
+<md>
+<mrow>
+\lim_{x\rightarrow\infty} \frac{24x^4 }{e^{x^3}}
+&amp;=\lim_{x\rightarrow\infty} \frac{4\times 24x^3 }{3 x^2e^{x^3}}
+&amp;\text{by l'Hôpital}
+</mrow><mrow>
+&amp;=\lim_{x\rightarrow\infty} \frac{32x }{e^{x^3}}
+&amp;\text{just cleaning up}
+</mrow><mrow>
+&amp;=\lim_{x\rightarrow\infty} \frac{32 }{3x^2e^{x^3}}
+&amp;\text{by l'Hôpital, again}
+</mrow><mrow>
+&amp;=0
+</mrow>
+</md>
+That's it. The limit comparison test now tells us that
+<m>\sum_{n=1}^\infty a_n</m> converges.
+</p>
+</li>
+</ul>
+</p>
+
+<p> (b)
+In part (a) we saw that <m>24n^2 e^{-n^3}</m> is positive and decreasing.
+The limit of this sequence equals <m>0</m> (as can be shown with l'Hôpital's
+Rule, just as we did at the end of the third solution of part (a)). Therefore, we can
+use the alternating series test, so that the
+error made in approximating the infinite sum
+<m>S= \sum\limits_{n=1}^\infty a_n
+= \sum\limits_{n=1}^\infty  (-1)^{n-1} 24n^2 e^{-n^3}</m> by the sum of its first <m>N</m> terms,
+<m>S_N=\sum\limits_{n=1}^N a_n</m>,  lies between <m>0</m>
+and the first omitted term, <m>a_{N+1}</m>.
+If we use <m>5</m> terms, the error satisfies
+<md>
+<mrow>
+   |S - S_5 | \le |a_6| = 24 \times 36 e^{-6^3}\approx 1.3 \times 10^{-91}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+You may assume without proof the following:
+<me>
+\sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} = \cos(1)</me>
+</p>
+
+<p>Using this fact, approximate <m>\cos 1</m> as a rational number, accurate to within <m>\frac1{1000}</m>.
+</p>
+
+<p>Check your answer against a calculator's approximation of <m>\cos(1)</m>: what was your actual error?
+</p></statement>
+<hint><p>
+You don't need to add up very many terms for this level of accuracy.
+</p></hint>
+<answer><p>
+<m>\cos 1 \approx \frac{389}{720}</m>; the actual associated error (using a calculator) is about
+<m>0.000025</m>.
+</p></answer>
+<solution><p>
+The error in our approximation using through term <m>N</m> is at most <m>\frac{1}{(2(N+1))!}</m>. We want <m>\frac{1}{(2(N+1))!} \lt \frac{1}{1000}</m>. By checking small values of <m>N</m>, we see that <m>8!=40320 \gt 1000</m>, so if <m>N=3</m>, then <m>\frac{1}{2(N+1)!}=\frac{1}{40320} \lt \frac{1}{1000}</m>. So, for our approximation, it suffices to consider the first four terms of our series.
+</p>
+
+<p><md>
+<mrow>
+\cos(2)&amp;\approx \sum_{N=0}^3 \frac{(-1)^n}{(2n)!} = \frac{1}{0!}-\frac{1}{2!}+\frac{1}{4!}-\frac{1}{6!}
+</mrow><mrow>
+&amp;=1-\frac12+\frac{1}{24}-\frac{1}{720}
+</mrow><mrow>
+&amp;=\frac{720-360+30-1}{720}=\frac{379}{720}
+</mrow>
+</md>
+When we use a calculator, we see
+<md>
+<mrow>
+\frac{389}{720}&amp;=0.5402\overline{77}
+</mrow><mrow>
+\cos(1)&amp;\approx  0.540302
+</mrow><mrow>
+\cos(1) - \frac{389}{720}&amp;\approx 0.000024528\approx \frac{1}{40770}
+</mrow>
+</md>
+So, our error is reasonably close to our bound of <m>\frac{1}{40320}</m>, and far smaller than <m>\frac{1}{1000}</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Let <m>a_n</m> be defined as
+<me>
+a_n=\begin{cases}
+-e^{n/2} &amp; \text{ if $n$ is prime}\\
+n^2 &amp; \text{ if $n$ is not prime}
+\end{cases}</me>
+</p>
+
+<p>Show that the series
+<m>\displaystyle\sum_{n=1}^\infty\dfrac{a_n}{e^n}</m>  converges.
+</p></statement>
+<hint><p>
+Use the direct comparison test to show that the series converges absolutely.
+</p></hint>
+<answer><p>
+See solution.
+</p></answer>
+<solution><p>
+The terms of this series are sometimes negative and sometimes positive. But, they are not strictly alternating, so we can't use the alternating series test. Instead, we use a direct comparison test to show the series converges absolutely.
+</p>
+
+<p>If <m>n</m> is prime, then
+<me>
+\left| \frac{a_n}{e^n}\right|=\left|-\frac{e^{n/2}}{e^n}\right|=\frac{1}{e^{n/2}}=\left(\frac{1}{\sqrt e}\right)^n</me>
+</p>
+
+<p>If <m>n</m> is not prime, then
+<me>
+\left| \frac{a_n}{e^n}\right|=\left|-\frac{n^2}{e^n}\right|=\frac{n^2}{e^n}</me>
+</p>
+
+<p>For <m>n</m> sufficiently large, <m>n^2 \lt e^{n/2}</m>, so for <m>n</m> sufficiently large,
+<me>
+\frac{n^2}{e^n}\le \left(\frac{1}{\sqrt{e}}\right)^n.</me>
+</p>
+
+<p>Since <m>e \gt 1</m>, then <m>\sqrt{e} \gt 1</m>, so the geometric series <m>\displaystyle\sum \left(\frac{1}{\sqrt{e}}\right)^n</m> has <m>|r|=r=\frac{1}{\sqrt{e}} \lt 1</m>, so it converges. By the direct comparison test, <m>\displaystyle\sum_{n=1}^\infty\left|\dfrac{a_n}{e^n}\right|</m> converges as well. Then
+<m>\displaystyle\sum_{n=1}^\infty\dfrac{a_n}{e^n}</m> converges absolutely, so it converges.
+</p></solution>
+</exercise>
+
+
+</exercisegroup>
+
+</exercises>

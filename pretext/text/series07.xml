@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_RatIrr">
+<title>Optional <mdash/> Rational and irrational numbers</title>
+<introduction>
+
+<p>
+In this optional section we shall use series techniques to look a little at rationality and irrationality of real numbers. We shall see the following results.
+<ul>
+<li>
+	A real number is rational (i.e. a ratio of two integers) if and only if its decimal expansion is eventually periodic.  <q>Eventually periodic</q> means that, if we denote the <m>n^{\rm th}</m> decimal place by <m>d_n</m>, then there are two positive integers <m>k</m> and <m>p</m> such that <m>d_{n+p}=d_n</m> whenever <m>n \gt k</m>.  So the part of the decimal  expansion after the decimal point looks like
+	<md>
+	<mrow>
+	 .\underbrace{a_1 a_2 a_3 \cdots a_k}
+			  \underbrace{b_1 b_2\cdots b_p}
+			  \underbrace{b_1 b_2\cdots b_p}
+			  \underbrace{b_1 b_2\cdots b_p} \cdots
+	</mrow>
+	</md>
+	It is possible that a finite number of decimal places right after the decimal  point do not participate in the periodicity. It is also possible that <m>p=1</m> and <m>b_1=0</m>, so that the decimal expansion ends with an infinite string of  zeros.
+</li>
+<li>
+	<m>e</m> is irrational.
+</li>
+<li>
+	<m>\pi</m> is irrational.
+</li>
+</ul>
+</p>
+</introduction>
+
+<subsection>
+<title>Decimal expansions of rational numbers</title>
+<p>
+We start by showing that a real number is rational if and only if its decimal expansion is eventually periodic. We need only consider the expansions of numbers <m>0 \lt x \lt 1</m>. If a number is negative then we can just multiply it by <m>-1</m>  and not change the expansion. Similarly if the number is larger than <m>1</m> then we can just subtract off the integer part  of the number and leave the expansion unchanged.
+</p>
+</subsection>
+
+<subsection><title>Eventually periodic implies rational</title>
+<p>
+Let us assume that a number <m>0 \lt x \lt 1</m> has a decimal expansion that is eventually periodic. Hence we can  write
+<md>
+<mrow>
+  x &amp;= 0.\underbrace{a_1 a_2 a_3 \cdots a_k} \underbrace{b_1 b_2\cdots b_p} \underbrace{b_1  b_2\cdots b_p}
+  \underbrace{b_1 b_2\cdots b_p} \cdots
+</mrow>
+</md>
+Let <m>\alpha = a_1 a_2 a_3\cdots a_k</m> and <m>\beta = b_1 b_2\cdots b_p</m>.  In particular, <m>\alpha</m> has at most <m>k</m> digits and <m>\beta</m> has at most  <m>p</m> digits. Then we can (carefully) write
+<md>
+<mrow>
+x &amp;= \frac{\alpha}{10^k}
++ \frac{\beta}{10^{k+p}}
++ \frac{\beta}{10^{k+2p}}
++ \frac{\beta}{10^{k+3p}}
++ \cdots
+</mrow><mrow>
+&amp;= \frac{\alpha}{10^k}  + \frac{\beta}{10^{k+p}} \sum_{j=0}^\infty 10^{-p}
+</mrow>
+<intertext>
+This sum is just a geometric series (see Lemma<nbsp/><xref ref="lem_geomsum"/>) and we can evaluate it
+</intertext>
+<mrow>
+&amp;= \frac{\alpha}{10^k}  + \frac{\beta}{10^{k+p}} \cdot \frac{1}{1-10^{-p}}
+= \frac{\alpha}{10^k}  + \frac{\beta}{10^k} \cdot \frac{1}{10^p-1}
+</mrow><mrow>
+&amp;= \frac{1}{10^k} \left( \alpha + \frac{\beta}{10^p-1} \right) =\frac{\alpha(10^p-1)+\beta}{10^k(10^p-1)}
+</mrow>
+</md>
+This is a ratio of integers, so <m>x</m> is a rational number.
+</p>
+</subsection>
+
+<subsection><title>Rational implies eventually periodic</title>
+<p>
+Let <m>0 \lt x \lt 1</m> be rational with <m>x=\frac{a}{b}</m>, where <m>a</m> and <m>b</m> are positive integers.  We wish to show that <m>x</m>'s decimal expansion is eventually periodic. Start by looking at the last formula we derived in the  <q>eventually periodic implies rational</q> subsection.  If we can express the denominator <m>b</m> in the form <m>\frac{10^k(10^p-1)}{q}</m> with <m>k</m>, <m>p</m> and <m>q</m> integers, we will be in business because <m> \frac{a}{b}=\frac{aq}{10^k(10^p-1)}. </m> From this we can generate the desired decimal expansion by running the  argument of the last subsection backwards. So we want to find integers  <m>k</m>, <m>p</m>, <m>q</m> such that <m>10^{k+p} -10^k = b\cdot q</m>. To do so consider  the powers of <m>10</m> up to <m>10^b</m>:
+<md>
+<mrow>
+  1, 10^1, 10^2, 10^3, \cdots , 10^b
+</mrow>
+</md>
+For each <m>j=0,1,2,\cdots,b</m>, find integers <m>c_j</m> and <m>0\leq r_j  \lt  b</m>  so that
+<md>
+<mrow>
+  10^j = b \cdot c_j + r_j
+</mrow>
+</md>
+To do so, start with <m>10^j</m> and repeatedly subtract <m>b</m> from it  until the remainder drops strictly below <m>b</m>. The <m>r_j</m>'s can take at most <m>b</m> different values, namely <m>0</m>, <m>1</m>,  <m>2</m>, <m>\cdots</m>, <m>b-1</m>, and we now have <m>b+1</m> <m>r_j</m>'s, namely <m>r_0</m>, <m>r_1</m>, <m>\cdots</m>, <m>r_b</m>. So we must be able to find two powers  of 10 which give the same remainder
+	<fn>
+		This is an application of  the pigeon hole principle <mdash/> the very simple but surprisingly useful  idea that if you have <m>n</m> items which you have to put in <m>m</m> boxes,  and if <m>n \gt m</m>, then at least one box must contain more than one item.
+	</fn>.
+That is there must be <m>0 \leq k  \lt  l \leq b</m> so that <m>r_k =  r_l</m>. Hence
+<md>
+<mrow>
+  10^l - 10^k &amp;= (bc_l +r_l) - (bc_k + r_k)
+</mrow><mrow>
+    &amp;= b (c_l-c_k) &amp; \text{since $r_k=r_l$.}
+</mrow>
+</md>
+and we have
+<md>
+<mrow>
+  b &amp;= \frac{10^k(10^p-1)}{q}
+</mrow>
+</md>
+where <m>p=l-k</m> and <m>q=c_l-c_k</m> are both strictly positive integers, since <m>l \gt k</m> so that <m>10^l-10^k \gt 0</m>. Thus we can write
+<md>
+<mrow>
+  \frac{a}{b} &amp;= \frac{aq}{10^k (10^p-1)}
+</mrow>
+</md>
+Next divide the numerator <m>aq</m> by <m>10^p-1</m> and compute the remainder. That is, write <m>aq =\alpha (10^p-1) + \beta</m> with  <m>0\leq \beta  \lt  10^p-1</m>. Notice that <m>0\leq \alpha  \lt  10^k</m>, as  otherwise <m>x=\frac{a}{b} \geq 1</m>. That is, <m>\alpha</m> has at most <m>k</m> digits and <m>\beta</m> has at most <m>p</m> digits. This, finally, gives us
+<md>
+<mrow>
+  x &amp;= \frac{a}{b} = \frac{\alpha(10^p-1) + \beta}{10^k (10^p-1)}
+</mrow><mrow>
+  &amp;= \frac{\alpha}{10^k} + \frac{\beta}{10^k(10^p-1)}
+</mrow><mrow>
+  &amp;= \frac{\alpha}{10^k} + \frac{\beta}{10^{k+p}(1-10^{-p})}
+</mrow><mrow>
+  &amp;= \frac{\alpha}{10^k} + \frac{\beta}{10^{k+p}}\sum_{j=0}^\infty 10^{-pj}
+</mrow>
+</md>
+which gives the required eventually periodic expansion.
+</p>
+
+</subsection>
+
+<subsection><title>Irrationality of <m>e</m></title>
+<introduction>
+<p>
+We will give 2 proofs that the number <m>e</m> is irrational, the first  due to Fourier (1768<ndash/>1830) and the second due to  Pennisi (1918<ndash/>2010). Both are proofs by contradiction
+	<fn>
+		Proof by contradiction is a standard and very powerful method of proof in  mathematics. It relies on the law of the excluded middle which states that any  given mathematical statement <m>P</m> is either true or false. Because of this, if  we can show that the statement <m>P</m> being false implies something contradictory  <mdash/> like <m>1=0</m> or <m>a \gt a</m> <mdash/> then we can conclude that <m>P</m> must be true. The  interested reader can certainly find many examples (and a far more detailed  explanation) using their favourite search engine.
+	</fn>
+<mdash/> we first assume that <m>e</m> is rational and then  show that this implies a contradiction. In both cases we reach the  contradiction by showing that a given quantity (related to the series  expression for <m>e</m>) must be both a positive integer and also  strictly less than 1.
+</p>
+</introduction>
+
+<subsubsection><title>Proof 1</title>
+<p>
+This proof is due to Fourier. Let us assume that the number <m>e</m> is rational so we can write it as
+<md>
+<mrow>
+e &amp;= \dfrac{a}{b}
+</mrow>
+</md>
+where <m>a,b</m> are positive integers. Using the Maclaurin series for <m>e^x</m> we have
+<md>
+<mrow>
+\frac{a}{b} &amp;= e^1 = \sum_{n=0}^\infty \frac{1}{n!}
+</mrow>
+</md>
+Now multiply both sides by <m>b!</m> to get
+<md>
+<mrow>
+a \frac{b!}{b} &amp;= \sum_{n=0}^\infty \frac{b!}{n!}
+</mrow>
+</md>
+The left-hand side of this expression is an integer. We complete the proof by showing that the  right-hand side cannot be an integer (and hence that we have a contradiction).
+</p>
+
+<p>
+First split the series on the right-hand side into two piece as follows
+<md>
+<mrow>
+\sum_{n=0}^\infty \frac{b!}{n!} &amp;=
+\underbrace{\sum_{n=0}^b \frac{b!}{n!}}_{=A} +
+\underbrace{\sum_{n=b+1}^\infty \frac{b!}{n!}}_{=B}
+</mrow>
+</md>
+</p>
+
+<p>
+The first sum, <m>A</m>, is finite sum of integers:
+<md>
+<mrow>
+A &amp;= \sum_{n=0}^b \frac{b!}{n!} = \sum_{n=0}^b (n+1)(n+2)\cdots(b-1)b.
+</mrow>
+</md>
+Consequently <m>A</m> must be an integer. Notice that we simplified the  ratio of factorials using the fact that when <m>b\geq n</m> we have
+<md>
+<mrow>
+  \frac{b!}{n!}
+ &amp;= \frac{1 \cdot 2 \cdots n (n+1)(n+2) \cdots (b-1) b}{1 \cdot 2 \cdots n}
+  = (n+1) (n+2)\cdots (b-1) b.
+</mrow>
+</md>
+</p>
+
+<p>
+Now we turn to the second sum. Since it is a sum of strictly positive  terms we must have
+<md>
+<mrow>
+  B &amp;  \gt  0
+</mrow>
+</md>
+We complete the proof by showing that <m>B \lt 1</m>. To do this we bound each term  from above:
+<md>
+<mrow>
+  \frac{b!}{n!}
+   &amp;= \frac{1}{
+               \underbrace{(b+1)(b+2)\cdots (n-1)n}_{n-b\ \text{factors}}
+              }
+</mrow><mrow>
+    &amp; \leq \frac{1}{
+               \underbrace{(b+1)(b+1)\cdots (b+1)(b+1)}_{n-b\ \text{factors}}
+                }
+    = \frac{1}{(b+1)^{n-b}}
+</mrow>
+</md>
+Indeed the inequality is strict except when <m>n=b+1</m>. Hence we have that
+<md>
+<mrow>
+  B &amp;  \lt  \sum_{n=b+1}^\infty \frac{1}{(b+1)^{n-b}}
+</mrow><mrow>
+&amp; =
+\frac{1}{(b+1)} +\frac{1}{(b+1)^2} +\frac{1}{(b+1)^3} +\cdots
+</mrow>
+<intertext>
+	This is just a  geometric series (see Lemma<nbsp/><xref ref="lem_geomsum"/>) and equals
+</intertext>
+<mrow>
+&amp;= \frac{1}{(b+1)}\frac{1}{1-\frac{1}{b+1}}
+</mrow><mrow>
+&amp;= \frac{1}{b+1-1} = \frac{1}{b}
+</mrow>
+</md>
+And since <m>b</m> is a positive integer, we have shown that
+<md>
+<mrow>
+  0  \lt  B   \lt  1
+</mrow>
+</md>
+and thus <m>B</m> cannot be an integer.
+</p>
+
+<p>
+Thus we have that
+<md>
+<mrow>
+  \underbrace{a \frac{b!}{b}}_{\text{integer}} &amp;=
+  \underbrace{A}_{\text{integer}} + \underbrace{B}_{\text{not integer}}
+</mrow>
+</md>
+which gives a contradiction. Thus <m>e</m> cannot be rational.
+</p>
+</subsubsection>
+<subsubsection><title>Proof 2</title>
+<p>
+This proof is due to Pennisi (1953). Let us (again) assume that  the number <m>e</m> is rational. Hence it can be written as
+<md>
+<mrow>
+  e &amp;= \dfrac{a}{b},
+</mrow>
+</md>
+where <m>a,b</m> are positive integers. This means that we can write
+<md>
+<mrow>
+  e^{-1} &amp;= \dfrac{b}{a}.
+</mrow>
+</md>
+Using the Maclaurin series for <m>e^x</m> we have
+<md>
+<mrow>
+  \dfrac{b}{a} &amp;= e^{-1} = \sum_{n=0}^\infty \frac{(-1)^n}{n!}
+</mrow>
+</md>
+Before we do anything else, we multiply both sides by <m>(-1)^{a+1} a!</m> <mdash/>  this might seem a little strange at this point, but the reason will  become clear as we proceed through the proof. The expression is now
+<md>
+<mrow>
+  (-1)^{a+1} b \dfrac{a!}{a} &amp;=  \sum_{n=0}^\infty \frac{(-1)^{n+a+1} a!}{n!}
+</mrow>
+</md>
+The left-hand side of the expression is an integer. We again complete  the proof by showing that the right-hand side cannot be an integer.
+</p>
+
+<p>
+We split the series on the right-hand side into two pieces:
+<md>
+<mrow>
+  \sum_{n=0}^\infty \frac{(-1)^{n+a+1} a!}{n!}
+  &amp;=
+  \underbrace{\sum_{n=0}^a \frac{(-1)^{n+a+1} a!}{n!}}_{=A}
+  + \underbrace{\sum_{n=a+1}^\infty \frac{(-1)^{n+a+1} a!}{n!}}_{=B}
+</mrow>
+</md>
+We will show that <m>A</m> is an integer while <m>0 \lt B \lt 1</m>; this gives the required contradiction.
+</p>
+
+<p>
+Every term in the sum <m>A</m> is an integer. To see this we simplify  the ratio of factorials as we did in the previous proof:
+<md>
+<mrow>
+A &amp;=
+\sum_{n=0}^a \frac{(-1)^{n+a+1} a!}{n!}
+=
+\sum_{n=0}^a (-1)^{n+a+1} (n+1)(n+2)\cdots (a-1) a
+</mrow>
+</md>
+Let us now examine the series <m>B</m>. Again clean up the ratio of factorials:
+<md>
+<mrow>
+  B &amp;= \sum_{n=a+1}^\infty \frac{(-1)^{n+a+1} a!}{n!}
+  = \sum_{n=a+1}^\infty \frac{(-1)^{n+a+1} }
+              {(a+1)\cdot (a+2)\cdots (n-1) \cdot n}
+</mrow><mrow>
+&amp;= \frac{(-1)^{2a+2}}{a+1}
++ \frac{(-1)^{2a+3}}{(a+1)(a+2)}
++ \frac{(-1)^{2a+4}}{(a+1)(a+2)(a+3)}
++ \cdots
+</mrow><mrow>
+&amp;=
+\frac{1}{a+1} - \frac{1}{(a+1)(a+2)} + \frac{1}{(a+1)(a+2)(a+3)} - \cdots
+</mrow>
+</md>
+Hence <m>B</m> is an alternating series of decreasing terms and by the alternating series test  (Theorem<nbsp/><xref ref="thm_SRalternating"/>) it converges. Further, it must converge to a number  between its first and second partial sums (see the discussion before  Theorem<nbsp/><xref ref="thm_SRalternating"/>). Hence the right-hand side lies between
+<md>
+<mrow>
+\frac{1}{a+1}
+&amp;&amp; \text{and} &amp;&amp;
+\frac{1}{a+1} - \frac{1}{(a+1)(a+2)} = \frac{1}{a+2}
+</mrow>
+</md>
+Since <m>a</m> is a positive integer the above tells us that <m>B</m> converges to a real number strictly  greater than <m>0</m> and strictly less than 1. Hence it cannot be an integer.
+</p>
+
+<p>
+This gives us a contradiction and hence <m>e</m> cannot be rational.
+</p>
+</subsubsection>
+</subsection>
+
+<subsection><title>Irrationality of <m>\pi</m></title>
+<introduction>
+<p>
+This proof is due to Niven (1946) and doesn't require any mathematics  beyond the level of this course. Much like the proofs above we will start  by assuming that <m>\pi</m> is rational and then reach a contradiction. Again  this contradiction will be that a given quantity must be an integer but  at the same time must lie strictly between <m>0</m> and <m>1</m>.
+</p>
+
+<p>
+Assume that <m>\pi</m> is a rational number and so can be written as <m>\pi = \frac{a}{b}</m> with <m>a,b</m> positive integers. Now  let <m>n</m> be a positive integer and define the polynomial
+<md>
+<mrow>
+  f(x) &amp;= \frac{x^n(a-bx)^n}{n!}.
+</mrow>
+</md>
+It is certainly not immediately obvious why and how Niven chose this polynomial, but you will see that it has been  very carefully crafted to make the proof work. In particular we will show <mdash/> under our assumption that <m>\pi</m> is  rational <mdash/> that, if <m>n</m> is really big, then
+<md>
+<mrow>
+  I_n=\int_0^\pi f(x) \sin(x) \dee{x}
+</mrow>
+</md>
+is an integer and it also lies strictly between <m>0</m> and <m>1</m>,  giving the required contradiction.
+</p>
+</introduction>
+<subsubsection><title>Bounding the integral</title>
+<p>
+Consider again the polynomial
+<md>
+<mrow>
+  f(x) &amp;= \frac{x^n(a-bx)^n}{n!}.
+</mrow>
+</md>
+Notice that
+<md>
+<mrow>
+f(0) &amp;= 0
+</mrow><mrow>
+f(\pi) &amp;= f(a/b) = 0.
+</mrow>
+</md>
+Furthermore, for <m>0 \leq x \leq \pi=a/b</m>,  we have <m>x\le\frac{a}{b}</m> and <m>a-bx\le a</m> so that
+<md>
+<mrow>
+  0 \leq x(a-bx) \leq a^2/b.
+</mrow>
+</md>
+We could work out a more precise
+	<fn>
+		You got lots of practice  finding the maximum and minimum values of continuous functions on  closed intervals when you took calculus last term.
+	</fn>
+upper bound,  but this one is sufficient for the analysis that follows. Hence
+<md>
+<mrow>
+  0 \leq f(x) \leq \left( \frac{a^2}{b} \right)^n \frac{1}{n!}
+</mrow>
+</md>
+We also know that for <m>0\leq x \leq \pi=a/b</m>, <m>0\leq \sin(x) \leq 1</m>. Thus
+<md>
+<mrow>
+  0 \leq f(x)\sin(x) \leq \left( \frac{a^2}{b} \right)^n \frac{1}{n!}
+</mrow>
+</md>
+for all <m>0 \leq x \leq 1</m>. Using this inequality we bound
+<md>
+<mrow>
+0  \lt  I_n=\int_0^\pi f(x)\sin(x) \dee{x}  \lt   \left( \frac{a^2}{b} \right)^n \frac{1}{n!}.
+</mrow>
+</md>
+We will later show that, if <m>n</m> is really big, then  <m>\big( \frac{a^2}{b} \big)^n \frac{1}{n!} \lt 1</m>. We'll first show,  starting now, that <m>I_n</m> is an integer.
+</p>
+</subsubsection>
+
+<subsubsection><title>Integration by parts</title>
+<p>
+In order to show that the value of this integral is an integer we will use  integration by parts. You have already practiced using  integration by parts to integrate quantities like
+<md>
+<mrow>
+  \int x^2\sin(x)\,\dee{x}
+</mrow>
+</md>
+and this integral isn't much different. For the moment let us just  use the fact that <m>f(x)</m> is a polynomial of degree  <m>2n</m>. Using integration by parts with <m>u=f(x)</m>, <m>\dee{v}=\sin(x)</m> and <m>v=-\cos(x)</m> gives us
+<md>
+<mrow>
+  \int f(x) \sin(x) \,\dee{x}
+  &amp;= -f(x)\cos(x)  + \int f'(x)\cos(x)\,\dee{x}
+  </mrow>
+<intertext>
+Use integration by parts again with <m>u=f'(x)</m>, <m>\dee{v}=\cos(x)</m> and <m>v=\sin(x)</m>.
+</intertext>
+<mrow>
+  &amp;= -f(x)\cos(x)  + f'(x)\sin(x) - \int f''(x)\sin(x)\,\dee{x}
+</mrow>
+<intertext>
+Use integration by parts yet again, with <m>u=f''(x)</m>,  <m>\dee{v}=\sin(x)</m> and <m>v=-\cos(x)</m>.
+</intertext>
+<mrow>
+  &amp;= -f(x)\cos(x)  + f'(x)\sin(x) + f''(x)\cos(x)  - \int f'''(x)\cos(x)\,\dee{x}
+</mrow>
+</md>
+And now we can see the pattern; we get alternating signs, and then derivatives multiplied by sines and cosines:
+<md>
+<mrow>
+  \int f(x) \sin(x) \dee{x}
+&amp;= \cos(x)\left(-f(x)+f''(x)-f^{(4)}(x)+f^{(6)}(x) - \cdots \right)
+</mrow><mrow>
+&amp;\phantom{=} + \sin(x)\left(f'(x)-f'''(x)+f^{(5)}(x)-f^{(7)}(x) + \cdots \right)
+</mrow>
+</md>
+This terminates at the <m>2n^\mathrm{th}</m> derivative since <m>f(x)</m> is a polynomial of degree <m>2n</m>.  We can check this  computation by differentiating the terms on the right-hand side:
+<md>
+<mrow>
+\diff{}{x}\left(
+\cos(x)\left(-f(x)+f''(x)-f^{(4)}(x)+f^{(6)}(x) - \cdots \right)
+\right)
+</mrow>
+<mrow>
+= -\sin(x)\left(-f(x)+f''(x)-f^{(4)}(x)+f^{(6)}(x) - \cdots \right)
+</mrow>
+<mrow>
++ \cos(x)\left(-f'(x)+f'''(x)-f^{(5)}(x)+f^{(7)}(x) - \cdots \right)
+</mrow>
+</md>
+and similarly
+<md>
+<mrow>
+\diff{}{x} \left(
+\sin(x)\left(f'(x)-f'''(x)+f^{(5)}(x)-f^{(7)}(x) + \cdots \right)
+\right)
+</mrow>
+<mrow>
+= \cos(x)\left(f'(x)-f'''(x)+f^{(5)}(x)-f^{(7)}(x) + \cdots \right)
+</mrow>
+<mrow>
++ \sin(x) \left(f''(x)-f^{(4)}(x)+f^{(6)}(x) - \cdots \right)
+</mrow>
+</md>
+When we add these two expressions together all the terms cancel except <m>f(x)\sin(x)</m>, as required.
+</p>
+
+<p>
+Now when we take the definite integral from <m>0</m> to <m>\pi</m> , all the sine terms  give <m>0</m> because <m>\sin(0)=\sin(\pi)=0</m>. Since <m>\cos(\pi)=-1</m> and <m>\cos(0)=+1</m>, we are just left with:
+<md>
+<mrow>
+  \int_0^\pi f(x) \sin(x) \dee{x}
+  &amp;= \left( f(0) -f''(0) + f^{(4)}(0) - f^{(6)}(0) + \cdots + (-1)^n f^{(2n)}(0) \right)
+</mrow><mrow>
+  &amp;\phantom{=} + \left( f(\pi) -f''(\pi) + f^{(4)}(\pi) - f^{(6)}(\pi) + \cdots + (-1)^n f^{(2n)}(\pi) \right)
+</mrow>
+</md>
+So to show that <m>I_n</m> is an integer, it now suffices to show that <m>f^{(j)}(0)</m> and  <m>f^{(j)}(\pi)</m> are integers.
+</p>
+</subsubsection>
+
+<subsubsection>
+<title>The derivatives are integers</title>
+<p>Recall that
+<md>
+<mrow>
+  f(x) &amp;= \frac{x^n (a-bx)^n}{n!}
+</mrow>
+</md>
+and expand it:
+<md>
+<mrow>
+  f(x) &amp;= \frac{c_0}{n!} x^0 + \frac{c_1}{n!} x^1 + \cdots + \frac{c_n}{n!} x^n + \cdots + \frac{c_{2n}}{n!} x^{2n}
+</mrow>
+</md>
+All the <m>c_j</m> are integers, and clearly <m>c_j=0</m> for all <m>j=0,1,\cdots,n-1</m>, because of the factor <m>x^n</m> in <m>f(x)</m>.
+</p>
+
+<p>
+Now take the <m>k^{th}</m> derivative and set <m>x=0</m>. Note that, if <m>j \lt k</m>, then <m>\frac{\dee{}^k\ }{\dee{}x^k}x^j=0</m> for all <m>x</m> and, if <m>j \gt k</m>,   then <m>\frac{\dee{}^k\ }{\dee{}x^k}x^j</m> is some number times <m>x^{j-k}</m>  which evaluates to zero when we set <m>x=0</m>. So
+<md>
+<mrow>
+  f^{(k)}(0) &amp;= \frac{\dee{}^k\ }{\dee{}x^k}\left(\frac{c_k}{k!}x^k\right) = \frac{k! c_k}{n!}
+</mrow>
+</md>
+If <m>k \lt n</m>, then this is zero since <m>c_k=0</m>. If <m>k \gt n</m>, this is an integer because <m>c_k</m> is an integer and <m>k!/n! = (n+1)(n+2)\cdots(k-1)k</m> is an integer.  If <m>k=n</m>, then <m>f^{(k)}(0)=c_n</m> is again an integer. Thus all the derivatives of <m>f(x)</m> evaluated at <m>x=0</m> are integers.
+</p>
+
+<p>
+But what about the derivatives at <m>\pi=a/b</m>? To see this, we can make use of a handy symmetry. Notice that
+<md>
+<mrow>
+  f(x) &amp;= f(\pi-x) = f(a/b - x)
+</mrow>
+</md>
+You can confirm this by just grinding through the algebra:
+<md>
+<mrow>
+  f(x) &amp;= \frac{x^n(a-bx)^n}{n!} &amp; \text{now replace $x$ with $a/b-x$}
+</mrow><mrow>
+  f(a/b-x) &amp;= \frac{(a/b-x)^n(a-b(a/b-x))^n}{n!} &amp; \text{start cleaning this up:}
+</mrow><mrow>
+&amp;= \frac{ \left( \frac{a-bx}{b} \right)^n (a-a+bx)^n }{n!}
+</mrow><mrow>
+&amp;= \frac{ \left( \frac{a-bx}{b} \right)^n (bx)^n }{n!}
+</mrow><mrow>
+&amp;= \frac{ (a-bx)^n x^n }{n!} = f(x)
+</mrow>
+</md>
+Using this symmetry (and the chain rule) we see that
+<md>
+<mrow>
+f'(x) &amp;=  - f'(\pi-x)
+</mrow>
+<intertext>and if we keep differentiating</intertext>
+<mrow>
+f^{(k)}(x) &amp;= (-1)^k f^{(k)}(\pi-x)
+</mrow>
+</md>
+Setting <m>x=0</m> in this tells us that
+<md>
+<mrow>
+f^{(k)}(0) &amp;= (-1)^k f^{(k)}(\pi)
+</mrow>
+</md>
+So because all the derivatives at <m>x=0</m> are integers, we know that all the derivatives at <m>x=\pi</m> are also integers.
+</p>
+
+<p>
+Hence the integral we are interested in
+<md>
+<mrow>
+\int_0^\pi f(x) \sin(x) \dee{x}
+</mrow>
+</md>
+must be an integer.
+</p>
+</subsubsection>
+
+<subsubsection><title>Putting it together</title>
+<p>
+Based on our assumption that <m>\pi =a/b</m> is rational, we have shown that the integral
+<md>
+<mrow>
+  I_n &amp;= \int_0^\pi \frac{x^n(a-bx)}{n!} \sin(x) \dee{x}
+</mrow>
+</md>
+satisfies
+<md>
+<mrow>
+  0  \lt  I_n  \lt  \left(\frac{a^2}{b} \right)^n\frac{1}{n!}
+</mrow>
+</md>
+and also that <m>I_n</m> is an integer.
+</p>
+
+<p>
+We are, however, free to choose <m>n</m> to be any positive integer we want. If we take <m>n</m> to be very large <mdash/> in particular much much larger than <m>a</m> <mdash/>  then <m>n!</m> will be much much larger than <m>a^{2n}</m> (we showed this in  Example <xref ref="eg_expSeriesB"/>), and consequently
+<md>
+<mrow>
+  0  \lt  I_n  \lt  \left(\frac{a^2}{b} \right)^n\frac{1}{n!} \lt 1
+</mrow>
+</md>
+Which means that the integral cannot be an integer. This gives the required contradiction, showing that <m>\pi</m> is irrational.
+</p>
+</subsubsection>
+</subsection>
+</section>

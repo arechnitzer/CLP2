@@ -1,0 +1,1910 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<exercises>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise>
+<statement><p>
+Write out the first five partial sums corresponding to the series
+<m>\displaystyle\sum_{n=1}^{\infty} \frac{1}{n}</m>.
+</p>
+
+<p>You don't need to simplify the terms.
+</p></statement>
+<hint><p>
+<m>S_N</m> is the sum of the terms corresponding to <m>n=1</m> through <m>n=N</m>.
+</p></hint>
+<answer>
+
+<p><me>
+\begin{array}{l|l}
+\mathbf{N}&amp;\mathbf{S_N}\\
+\hline
+1 &amp; 1\\
+2 &amp; 1+\frac12\\
+3 &amp; 1+\frac12 + \frac13\\
+4 &amp; 1+\frac12 + \frac13+\frac14\\
+5 &amp; 1+\frac12 + \frac13+\frac14+\frac15\\
+\end{array}</me>
+</p></answer>
+<solution><p>
+The <m>N</m>th term of the sequence of partial sums, <m>S_N</m>, is the sum of the first <m>N</m> terms of the series <m>\displaystyle\sum_{n=1}^{\infty} \frac{1}{n}</m>.
+<me>
+\begin{array}{l|l}
+\mathbf{N}&amp;\mathbf{S_N}\\
+\hline
+1 &amp; 1\\
+2 &amp; 1+\frac12\\
+3 &amp; 1+\frac12 + \frac13\\
+4 &amp; 1+\frac12 + \frac13+\frac14\\
+5 &amp; 1+\frac12 + \frac13+\frac14+\frac15\\
+\end{array}
+</me>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s3_2_cookies" purpose="RQS">
+<statement><p>
+Every student who comes to class brings their instructor cookies, and leaves them on the instructor's desk. Let <m>C_k</m> be the total number of cookies on the instructor's desk after the <m>k</m>th student comes.
+</p>
+
+<p>If <m>C_{11}=20</m>, and <m>C_{10}=17</m>, how many cookies did the 11th student bring to class?
+</p></statement>
+<hint><p>
+Note <m>C_k</m> is the cumulative number of cookies.
+</p></hint>
+<answer><p>
+3
+</p></answer>
+<solution><p>
+If there were a total of 17 cookies before Student 11 came, and 20 cookies after, then Student 11 brought 3 cookies.
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\foreach \x in {1,...,17}{
+	\draw[fill=red] (\x/2,0) arc(0:360:1.5mm);}
+\foreach \x in {18,19,20}{
+	\draw[fill=blue] (\x/2,0) arc(0:360:1.5mm);}
+\draw[red, decorate, decoration={brace, amplitude=10pt}] (0,.5)--(8.5,0.5) node[midway, yshift=7mm]{$C_{10}$};
+\draw[decorate, decoration={brace, amplitude=10pt, mirror}] (0,-.5)--(10,-0.5) node[midway, yshift=-7mm]{$C_{11}$};
+\begin{scope}[scale=0.5]
+\color{red}
+\foreach \x in {1,...,10}{
+	\YEstickfig{\x*1.7}{4}{\x}
+	\draw(\x*1.7,4.5) node[above]{\footnotesize $\x$};}
+\color{blue}
+	\YEstickfig{19}{4}{11}
+	\draw(19,4.5) node[above]{\footnotesize $11$};
+\end{scope}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise xml:id="prob_s3_2_partsums" purpose="RQS">
+<statement><p>
+Suppose the sequence of partial sums of the series <m>\displaystyle\sum_{n=1}^\infty a_n</m>
+is <m>\{S_N\} = \left\{\dfrac{N}{N+1}\right\}</m>.
+<ol label="a">
+<li> What is <m>\{a_n\}</m>?
+</li>
+<li> What is <m>\lim\limits_{n \to \infty} a_n </m>?
+</li>
+<li> Evaluate <m>\displaystyle\sum_{n=1}^\infty a_n</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+How is (a) related to Question<nbsp/><xref ref="prob_s3_2_cookies" text="local"/>?
+</p></hint>
+<answer><p>
+(a) <m>\displaystyle a_n = \begin{cases}
+\frac12 &amp;\mbox{ if } n=1\\
+\dfrac{1}{n(n+1)} &amp;\mbox{ else }\\
+\end{cases}</m>
+(b) 0
+(c) 1
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> We find <m>\{a_n\}</m> from <m>\{S_N\}</m> using the same logic as Question<nbsp/><xref ref="prob_s3_2_cookies" text="local"/>. <m>S_N</m> is the sum of the first <m>N</m> terms of <m>\{a_n\}</m>, and <m>S_{N-1}</m> is the sum of all the same terms <em>except</em> <m>a_N</m>. So, <m>a_N = S_N-S_{N-1}</m> when <m>N \geq 2</m>. Written another way:
+<md>
+<mrow>
+\color{blue}{S_N}&amp;\color{blue}{=a_1+a_2+a_3+\cdots+a_{N-2}+a_{N-1}+a_N}
+</mrow><mrow>
+\color{red}{S_{N-1}}&amp;\color{red}{=a_1+a_2+a_3+\cdots+a_{N-2}+a_{N-1}}
+</mrow><mrow>
+</mrow>
+<intertext>So,</intertext><mrow>
+\color{blue}{S_N}
+-\color{red}{S_{N-1}}
+&amp;=\color{blue}{\Big[a_1+a_2+a_3+\cdots+a_{N-2}+a_{N-1}+a_N\Big]}
+</mrow><mrow>
+&amp;- \color{red}{\Big[a_1+a_2+a_3+\cdots+a_{N-2}+a_{N-1} \Big]}
+</mrow><mrow>
+&amp;=\color{blue}{a_N}
+</mrow>
+<intertext>So, we calculate</intertext><mrow>
+a_N&amp;=S_N-S_{N-1}=\left(\dfrac{N}{N+1}\right)-\left(\dfrac{N-1}{N-1+1}\right)
+</mrow><mrow>
+&amp;=\frac{N^2}{N(N+1)}-\frac{N^2-1}{N(N+1)}
+</mrow><mrow>
+&amp;=\frac{1}{N(N+1)}
+</mrow>
+<intertext>Therefore,</intertext><mrow>
+a_n&amp;=\frac{1}{n(n+1)}
+</mrow>
+</md>
+Remark: the formula given for <m>S_N</m> has <m>S_0=0</m>, which makes sense: the sum of no terms at all should be 0. However, it is common for a sequence of partial sums to start at <m>N=1</m>. (This fits our definition of a partial sum--we don't really define the <q>sum of no terms.</q>) In this case, <m>a_1</m> must be calculated separately from the other terms of <m>\{a_n\}</m>. To find <m>a_1</m>, we simply set <m>a_1=S_1</m>, which (to reiterate) might not be the same as <m>S_1-S_0</m>.
+</li>
+<li> <p>
+<me>
+\lim\limits_{n \to \infty} a_n =\lim\limits_{n \to \infty} \dfrac{1}{n(n+1)}=0.
+</me>
+</p>
+
+<p>That is, the terms we're adding up are getting very, very small as we go along.
+</p>
+</li>
+<li> By Definition<nbsp/><xref ref="def_SRseries"/> in the CLP-II text,
+<me>
+\sum_{n=1}^\infty a_n = \lim_{N \to \infty}S_N = \lim_{N \to \infty}\dfrac{N}{N+1}=1
+</me>
+That is, as we add more and more terms of our series, our cumulative sum gets very, very close to 1.
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose the sequence of partial sums of the series <m>\displaystyle\sum_{n=1}^\infty a_n</m>
+is <m>\{S_N\} = \left\{(-1)^N+\dfrac{1}{N}\right\}</m>.
+</p>
+
+<p>What is <m>\{a_n\}</m>?
+</p>
+
+</statement>
+<hint><p>
+You'll have to calculate <m>a_1</m> separately from the other terms.
+</p></hint>
+<answer><p>
+ <m>a_n=\begin{cases}
+0 &amp; \mbox{ if } n=1\\
+2(-1)^{n}  -\frac{1}{n(n-1)} &amp;\mbox{ else}
+\end{cases}</m>
+</p></answer>
+<solution><p>
+As in Question<nbsp/><xref ref="prob_s3_2_partsums" text="local"/>,
+<md>
+<mrow>
+a_N&amp;=S_N-S_{N-1}=\left[(-1)^N+\dfrac{1}{N}\right]-\left[(-1)^{N-1}+\dfrac{1}{N-1}\right]
+</mrow><mrow>
+&amp;=(-1)^N-(-1)^{N-1} + \frac{1}{N}-\frac{1}{N-1}
+</mrow><mrow>
+&amp;=(-1)^N+(-1)^{N} + \frac{N-1}{N(N-1)}-\frac{N}{N(N-1)}
+</mrow><mrow>
+&amp;=2(-1)^{N}  -\frac{1}{N(N-1)}
+</mrow>
+<intertext>Note, however, that <m>a_N</m> is only the same as <m>S_N-S_{N-1}</m> when <m>N \geq 2</m>: otherwise, we're trying to calculate <m>S_1-S_0</m>, but <m>S_0</m> is not defined. So, we find <m>a_1</m> separately:</intertext><mrow>
+a_1&amp;=S_1=(-1)^1+\frac{1}{1}=0
+</mrow>
+<intertext>All together:</intertext><mrow>
+a_n&amp;=\begin{cases}
+0 &amp; \mbox{ if } n=1
+</mrow><mrow>
+2(-1)^{n}  -\frac{1}{n(n-1)} &amp;\mbox{ else}
+\end{cases}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Let <m>f(N)</m> be a formula for the <m>N</m>th partial sum of <m>\displaystyle\sum_{n=1}^\infty a_n</m>. (That is, <m>f(N)=S_N</m>.) If <m>f'(N) \lt 0</m> for all <m>N  \gt  1</m>, what does that say about <m>a_n</m>?
+</p></statement>
+<hint><p>
+When does adding a number decrease the total sum?
+</p></hint>
+<answer><p>
+<m>a_n  \lt  0</m> for all <m>n \geq 2</m>
+</p></answer>
+<solution><p>
+If <m>f'(N) \lt 0</m>, that means <m>f(N)</m> is decreasing. So, adding more terms makes for a smaller sum. That means the terms we're adding are negative. That is,
+<m>a_n  \lt  0</m> for all <m>n \geq 2</m>.
+</p></solution>
+</exercise>
+
+</exercisegroup>
+
+<exercisegroup>
+
+<introduction><p>Questions<nbsp/><xref ref="prob_s3_2_pic1" text="local"/> through <xref ref="prob_s3_2_pic3" text="local"/> invite you to explore geometric sums in a geometric way. This is complementary to than the algebraic method discussed in the text.</p></introduction>
+
+<exercise xml:id="prob_s3_2_pic1">
+<statement><p>
+Suppose the triangle outlined in red in the picture below has area one.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\foreach \x in {0,1,2}{
+	\draw (0,0)+(-30+120*\x:8cm) coordinate(o\x){};}
+\filldraw (o0)--(o1)--(o2)--(o0);
+\foreach \y in {1,...,10}{
+\SUBTRACT{3}{\y}{\w}
+\POWER{2}{\w}{\l};
+\SUBTRACT{4}{\y}{\z}
+\POWER{2}{\z}{\t}
+\SUBTRACT{8}{\t}{\h}
+		\foreach \x in {0,1,2}{
+			\draw (0,\h)+(30-120*\x:\l cm) coordinate(g\x\y){};
+}
+\filldraw[white, fill=white] (g0\y)--(g1\y)--(g2\y)--(g0\y);}
+\draw[line width=5pt, red] (o0)--(o1)--(o2)--cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+<ol label="a">
+<li> Express the combined area of the black triangles as a series, assuming the pattern continues forever.
+</li>
+<li> Evaluate the series using the picture (<em>not</em> the formula from your book).
+</li>
+</ol>
+</p></statement>
+<hint><p>
+For (b), imagine cutting up the triangle into its black and white parts, then sharing it equally among a certain number of friends. What is the easiest number of friends to share with, making sure each has the same area in their pile?
+</p></hint>
+<answer><p>
+(a) <m>\displaystyle\sum_{n=1}^\infty \frac{2}{4^n}</m>  (b) <m>\dfrac23</m>
+</p></answer>
+<solution><p>
+(a)
+To generate the pattern, we repeat the following steps:
+<ul>
+<li> divide the top triangle into four triangles of equal area,
+</li>
+<li> colour the bottom two of them black, and
+</li>
+<li> leave the middle one white.
+</li>
+</ul>
+Every time we repeat this sequence, we divide up a triangle with an area one-quarter the size of our previous triangle, and take two of the four resulting pieces. So, our area should end up as a geometric sum with common ratio <m>r=\dfrac14</m>, and coefficient <m>a=2</m>. This is shown more explicitly below.
+</p>
+
+<p>Since the entire triangle (outlined in red) has area 1, the four smaller triangles below each have area <m>\dfrac14</m>. The two black triangles will be added to our total black area; the blue triangle will be subdivided.
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\foreach \x in {0,1,2}{
+	\draw (0,0)+(-30+120*\x:8cm) coordinate(o\x){};}
+\filldraw (o0)--(o1)--(o2)--(o0);
+\foreach \y in {1}{
+\SUBTRACT{3}{\y}{\w}
+\POWER{2}{\w}{\l};
+\SUBTRACT{4}{\y}{\z}
+\POWER{2}{\z}{\t}
+\SUBTRACT{8}{\t}{\h}
+		\foreach \x in {0,1,2}{
+			\draw (0,\h)+(30-120*\x:\l cm) coordinate(g\x\y){};
+}
+\filldraw[white, fill=white] (g0\y)--(g1\y)--(g2\y)--(g0\y);}
+\filldraw[blue, fill=blue] (g01)--(g21)--(o1)--(g01);
+\draw[line width=5pt,  red] (o0)--(o1)--(o2)--cycle;
+\draw[white] (-3.5,-1.5) node{$\frac{1}{4}$};
+\draw[white] (3.5,-1.5) node{$\frac{1}{4}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The blue triangle had area <m>\dfrac{1}{4}</m>, so each of the small black triangles below has area <m>\left(\dfrac14\right)\left(\dfrac14\right)=\dfrac{1}{4^2}</m>.
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\foreach \x in {0,1,2}{
+	\draw (0,0)+(-30+120*\x:8cm) coordinate(o\x){};}
+\filldraw (o0)--(o1)--(o2)--(o0);
+\foreach \y in {1,2}{
+\SUBTRACT{3}{\y}{\w}
+\POWER{2}{\w}{\l};
+\SUBTRACT{4}{\y}{\z}
+\POWER{2}{\z}{\t}
+\SUBTRACT{8}{\t}{\h}
+		\foreach \x in {0,1,2}{
+			\draw (0,\h)+(30-120*\x:\l cm) coordinate(g\x\y){};
+}
+\filldraw[white, fill=white] (g0\y)--(g1\y)--(g2\y)--(g0\y);}
+\filldraw[blue, fill=blue] (g02)--(g22)--(o1)--(g02);
+\draw[line width=5pt,  red] (o0)--(o1)--(o2)--cycle;
+\draw[white] (-3.5,-1.5) node{$\frac{1}{4}$};
+\draw[white] (3.5,-1.5) node{$\frac{1}{4}$};
+\draw[white] (-2,3) node{$\frac{1}{4^2}$};
+\draw[white] (2,3) node{$\frac{1}{4^2}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Each time we make another subdivision, we add two black triangles, each with <m>\dfrac{1}{4}</m> the area of the previous black triangles. So, our total black area is:
+<me>
+2\left(\frac14\right)+2\left(\frac{1}{4^2}\right)+2\left(\frac{1}{4^3}\right)+2\left(\frac{1}{4^4}\right)+\cdots = \sum_{n=1}^\infty \frac{2}{4^n}</me>
+</p>
+
+<p>(b) To evalutate the series,  we imagine gathering up all our little triangles and sorting them into three identical piles: the bottom three triangles go in three different piles, the three triangles directly above them go in three different piles, etc. (In the picture below, different colours correspond to different piles.)
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\foreach \x in {0,1,2}{
+	\draw (0,0)+(-30+120*\x:8cm) coordinate(o\x){};}
+\filldraw[red] (o0)--(o1)--(o2)--(o0);
+\draw (o0)--(o2) coordinate[midway](b){};
+\filldraw[blue] (o0)--(b)--(o1)--(o0);
+\foreach \y in {1,...,10}{
+\SUBTRACT{3}{\y}{\w}
+\POWER{2}{\w}{\l};
+\SUBTRACT{4}{\y}{\z}
+\POWER{2}{\z}{\t}
+\SUBTRACT{8}{\t}{\h}
+		\foreach \x in {0,1,2}{
+			\draw (0,\h)+(30-120*\x:\l cm) coordinate(g\x\y){};
+}
+\filldraw[white, fill=white] (g0\y)--(g1\y)--(g2\y)--(g0\y);}
+\draw[line width=5pt,  red] (o0)--(o1)--(o2)--cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Since the piles all have equal area, each pile has a total area of <m>\dfrac 13</m>. The  black area shaded in the problem corresponds to <em>two</em> piles (red and blue above), so
+<me>
+\sum_{n=1}^\infty \frac{2}{4^n}=\frac23</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise xml:id="prob_s3_2_pic2" purpose="RQS">
+<statement><p>
+Suppose the square outlined in red in the picture below has area one.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0) grid[step=3cm] (9,9);
+\draw (3,3) grid[step=1cm] (6,6);
+\draw (4,4) grid[step=0.3333cm] (5,5);
+\draw (4.3333,4.3333) grid[step=0.111111cm] (4.6667,4.6667);
+\draw (4.4444,4.4444) grid[step=0.037037037cm] (4.5555,4.5555);
+\draw[fill] (0,0) rectangle (3,3);
+\draw[fill] (3,3) rectangle (4,4);
+\draw[fill] (4,4) rectangle (4.3333,4.3333);
+\draw[fill] (4.3333,4.3333) rectangle (4.4444,4.4444);
+\draw[fill] (4.4444,4.4444) rectangle (4.4814,4.4814);
+\draw[line width=5pt,  red] (0,0) rectangle (9,9);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+<ol label="a">
+<li> Express the combined area of the black square as a series, assuming the pattern continues forever.
+</li>
+<li> Evaluate the series using the picture (<em>not</em> the formula from your book).
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Compare to Question<nbsp/><xref ref="prob_s3_2_pic1" text="local"/>.
+</p></hint>
+<answer><p>
+(a) <m>\displaystyle\sum_{n=1}^\infty \frac{1}{9^n}</m>  (b) <m>\dfrac{1}{8}</m>
+</p></answer>
+<solution><p>
+(a) The pattern can be described as follows: divide the innermost square into 9 equal parts (a <m>3\times 3</m> grid), choose one square to be black, and another square to subdivide.
+</p>
+
+<p>The area of the red (outermost) square is 1, so the area of the largest black square is <m>\dfrac19</m>. The area of the central, blue square below is also <m>\dfrac19</m>.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0) grid[step=3cm] (9,9);
+\draw[fill] (0,0) rectangle (3,3);
+\draw[fill=blue] (3,3) rectangle (6,6);
+\draw[white] (1.5,1.5) node{$\dfrac19$};
+\draw[white] (4.5,4.5) node{$\dfrac19$};
+\draw[line width=5pt,  red] (0,0) rectangle (9,9);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+When we subdivide the blue square, the subdivisions each have one-ninth its area, or <m>\dfrac{1}{9^2}</m>.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0) grid[step=3cm] (9,9);
+\draw (3,3) grid[step=1cm] (6,6);
+\draw[fill] (0,0) rectangle (3,3);
+\draw[white] (1.5,1.5) node{$\dfrac19$};
+\draw[fill] (3,3) rectangle (4,4);
+\draw[white] (3.5,3.5) node{\footnotesize $\dfrac1{9^2}$};
+\draw[fill=blue] (4,4) rectangle (5,5);
+\draw[white] (4.5,4.5) node{\footnotesize $\dfrac1{9^2}$};
+\draw[line width=5pt,  red] (0,0) rectangle (9,9);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+We continue taking squares that are one-ninth the area of the previous square. So, our total black area is
+<me>
+\frac{1}{9}+\frac{1}{9^2}+\frac{1}{9^3}+\cdots = \sum_{n=1}^\infty \frac{1}{9^n}</me>
+</p>
+
+<p>(b) If we cut up this square along the marks, we can easily share it equally among 8 friends: there are eight squares of area <m>\dfrac19</m> along the outer ring,
+eight squares of area <m>\dfrac1{9^2}</m> along the next ring in, and so on.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\fill[red] (0,0) rectangle (9,9);
+\fill[green] (3,3) rectangle (6,6);
+\fill[blue] (4,4) rectangle (5,5);
+\fill[purple] (4.3333,4.3333) rectangle (4.6667,4.6667);
+\draw (0,0) grid[step=3cm] (9,9);
+\draw (3,3) grid[step=1cm] (6,6);
+\draw (4,4) grid[step=0.3333cm] (5,5);
+\draw (4.3333,4.3333) grid[step=0.111111cm] (4.6667,4.6667);
+\draw (4.4444,4.4444) grid[step=0.037037037cm] (4.5555,4.5555);
+\draw[line width=5pt, red] (0,0) rectangle (9,9);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Since the eight friends all get the same total area, the area each friend gets is <m>\dfrac{1}{8}</m>. The area shaded in black in the question corresponds to the pile given to one friend. So,
+<me>
+\sum_{n=1}^\infty \frac{1}{9^n}=\frac18</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise xml:id="prob_s3_2_pic3" purpose="RQS">
+<statement><p>
+In the style of Questions<nbsp/><xref ref="prob_s3_2_pic1" text="local"/> and <xref ref="prob_s3_2_pic2" text="local"/>, draw a picture that represents
+<m>\displaystyle\sum_{n=1}^{\infty}\frac{1}{3^n}</m>
+as an area.
+</p></statement>
+<hint><p>
+Iteratively divide a shape into thirds.
+</p></hint>
+<answer><p>
+Two possible pictures:
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[red, thick] (0,0) rectangle (9,5);
+\foreach \a in {1,...,5}{
+	\POWER{3}{\a}{\pow}
+	\SUBTRACT{\pow}{1}{\num}
+	\MULTIPLY{2}{\pow}{\den}
+	\DIVIDE{\num}{\den}{\Sa}
+	\MULTIPLY{9}{\Sa}{\left}
+	\SUBTRACT{9}{\left}{\right}
+	\filldraw[fill opacity=0.2] (\left,0) rectangle (0,5);
+	\draw (\right,0)--(\right,5);
+	}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[red, thick] (0,0) rectangle (9,9);
+\foreach \a in {1,...,4}{
+	\POWER{3}{\a}{\pow}
+	\SUBTRACT{\pow}{1}{\num}
+	\MULTIPLY{2}{\pow}{\den}
+	\DIVIDE{\num}{\den}{\Sa}
+	\MULTIPLY{9}{\Sa}{\left}
+	\SUBTRACT{9}{\left}{\right}
+	\SUBTRACT{\right}{\left}{\dx}
+	\MULTIPLY{\dx}{3}{\dy}
+	\filldraw[fill opacity={1-\a/5}] (\left,4.5-\dy/2) rectangle (\left-\dx,4.5+\dy/2);
+	\draw (\right,4.5-\dy/2)--(\right,4.5+\dy/2);
+	\filldraw[fill opacity={1-\a/5}] (\left,4.5-\dy/2) rectangle (\left+\dx,4.5-\dy/2+\dx);
+	\draw (\left,4.5+\dy/2-\dx)--(\right,4.5+\dy/2-\dx);
+	}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></answer>
+<solution>
+
+<p>If we start with a shape of area 1, and iteratively divide it into thirds, taking one of the three newly created pieces each time, then the area we take will be equal to the desired series, <m>\displaystyle\sum_{n=1}^\infty \frac{1}{3^n}</m>.
+</p>
+
+<p>One way to do this is to start with a rectangle, make three vertical strips, then keep the left strip and subdivide the middle strip.
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[red, thick] (0,0) rectangle (9,5);
+\foreach \a in {1}{
+	\POWER{3}{\a}{\pow}
+	\SUBTRACT{\pow}{1}{\num}
+	\MULTIPLY{2}{\pow}{\den}
+	\DIVIDE{\num}{\den}{\Sa}
+	\MULTIPLY{9}{\Sa}{\left}
+	\SUBTRACT{9}{\left}{\right}
+	\filldraw[fill opacity=0.2] (\left,0) rectangle (0,5);
+	\draw (\right,0)--(\right,5);
+	}
+\draw[thick, - \gt , red] (10,2.5)--(11,2.5);
+\begin{scope}[xshift=12cm]
+\draw[red, thick] (0,0) rectangle (9,5);
+\foreach \a in {1,2}{
+	\POWER{3}{\a}{\pow}
+	\SUBTRACT{\pow}{1}{\num}
+	\MULTIPLY{2}{\pow}{\den}
+	\DIVIDE{\num}{\den}{\Sa}
+	\MULTIPLY{9}{\Sa}{\left}
+	\SUBTRACT{9}{\left}{\right}
+	\filldraw[fill opacity=0.2] (\left,0) rectangle (0,5);
+	\draw (\right,0)--(\right,5);
+	}
+\end{scope}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick, - \gt , red] (-2,2.5)--(-1,2.5);
+\draw[red, thick] (0,0) rectangle (9,5);
+\foreach \a in {1,...,3}{
+	\POWER{3}{\a}{\pow}
+	\SUBTRACT{\pow}{1}{\num}
+	\MULTIPLY{2}{\pow}{\den}
+	\DIVIDE{\num}{\den}{\Sa}
+	\MULTIPLY{9}{\Sa}{\left}
+	\SUBTRACT{9}{\left}{\right}
+	\filldraw[fill opacity=0.2] (\left,0) rectangle (0,5);
+	\draw (\right,0)--(\right,5);
+	}
+\draw[thick, - \gt , red] (10,2.5)--(11,2.5);
+\begin{scope}[xshift=12cm]
+\draw[red, thick] (0,0) rectangle (9,5);
+\foreach \a in {1,2,3,4}{
+	\POWER{3}{\a}{\pow}
+	\SUBTRACT{\pow}{1}{\num}
+	\MULTIPLY{2}{\pow}{\den}
+	\DIVIDE{\num}{\den}{\Sa}
+	\MULTIPLY{9}{\Sa}{\left}
+	\SUBTRACT{9}{\left}{\right}
+	\filldraw[fill opacity=0.2] (\left,0) rectangle (0,5);
+	\draw (\right,0)--(\right,5);
+	}
+\end{scope}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+We see that the total area we take approaches one-half the total area of the figure, so
+<m>\displaystyle\sum_{n=1}^\infty \frac{1}{3^n} = \frac12</m>.
+</p>
+
+<p>Alternately, instead of always taking vertical strips, we could alternate vertical and horizontal slices.
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[red, thick] (0,0) rectangle (9,9);
+\foreach \a in {1}{
+	\POWER{3}{\a}{\pow}
+	\SUBTRACT{\pow}{1}{\num}
+	\MULTIPLY{2}{\pow}{\den}
+	\DIVIDE{\num}{\den}{\Sa}
+	\MULTIPLY{9}{\Sa}{\left}
+	\SUBTRACT{9}{\left}{\right}
+	\SUBTRACT{\right}{\left}{\dx}
+	\MULTIPLY{\dx}{3}{\dy}
+	\filldraw[fill opacity={1-\a/5}] (\left,4.5-\dy/2) rectangle (\left-\dx,4.5+\dy/2);
+	\draw (\right,4.5-\dy/2)--(\right,4.5+\dy/2);
+	}
+\draw[thick, - \gt , red] (10,4.5)--(11,4.5);
+\begin{scope}[xshift=12cm]
+\draw[red, thick] (0,0) rectangle (9,9);
+\foreach \a in {1}{
+	\POWER{3}{\a}{\pow}
+	\SUBTRACT{\pow}{1}{\num}
+	\MULTIPLY{2}{\pow}{\den}
+	\DIVIDE{\num}{\den}{\Sa}
+	\MULTIPLY{9}{\Sa}{\left}
+	\SUBTRACT{9}{\left}{\right}
+	\SUBTRACT{\right}{\left}{\dx}
+	\MULTIPLY{\dx}{3}{\dy}
+	\filldraw[fill opacity={1-\a/5}] (\left,4.5-\dy/2) rectangle (\left-\dx,4.5+\dy/2);
+	\draw (\right,4.5-\dy/2)--(\right,4.5+\dy/2);
+	\filldraw[fill opacity={1-\a/5}] (\left,4.5-\dy/2) rectangle (\left+\dx,4.5-\dy/2+\dx);
+	\draw (\left,4.5+\dy/2-\dx)--(\right,4.5+\dy/2-\dx);
+	}
+\end{scope}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick, - \gt , red] (-2,4.5)--(-1,4.5);
+\draw[red, thick] (0,0) rectangle (9,9);
+\foreach \a in {1,2}{
+	\POWER{3}{\a}{\pow}
+	\SUBTRACT{\pow}{1}{\num}
+	\MULTIPLY{2}{\pow}{\den}
+	\DIVIDE{\num}{\den}{\Sa}
+	\MULTIPLY{9}{\Sa}{\left}
+	\SUBTRACT{9}{\left}{\right}
+	\SUBTRACT{\right}{\left}{\dx}
+	\MULTIPLY{\dx}{3}{\dy}
+	\filldraw[fill opacity={1-\a/5}] (\left,4.5-\dy/2) rectangle (\left-\dx,4.5+\dy/2);
+	\draw (\right,4.5-\dy/2)--(\right,4.5+\dy/2);
+	\filldraw[fill opacity={1-\a/5}] (\left,4.5-\dy/2) rectangle (\left+\dx,4.5-\dy/2+\dx);
+	\draw (\left,4.5+\dy/2-\dx)--(\right,4.5+\dy/2-\dx);
+	}
+
+	\draw[thick, - \gt , red] (10,4.5)--(11,4.5);
+\begin{scope}[xshift=12cm]
+\draw[red, thick] (0,0) rectangle (9,9);
+\foreach \a in {1,2,3}{
+	\POWER{3}{\a}{\pow}
+	\SUBTRACT{\pow}{1}{\num}
+	\MULTIPLY{2}{\pow}{\den}
+	\DIVIDE{\num}{\den}{\Sa}
+	\MULTIPLY{9}{\Sa}{\left}
+	\SUBTRACT{9}{\left}{\right}
+	\SUBTRACT{\right}{\left}{\dx}
+	\MULTIPLY{\dx}{3}{\dy}
+	\filldraw[fill opacity={1-\a/5}] (\left,4.5-\dy/2) rectangle (\left-\dx,4.5+\dy/2);
+	\draw (\right,4.5-\dy/2)--(\right,4.5+\dy/2);
+	\filldraw[fill opacity={1-\a/5}] (\left,4.5-\dy/2) rectangle (\left+\dx,4.5-\dy/2+\dx);
+	\draw (\left,4.5+\dy/2-\dx)--(\right,4.5+\dy/2-\dx);
+	}
+\end{scope}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+In this setup, we notice that our strips come in pairs: two large vertical strips, two smaller horizontal strips, two smaller vertical strips, etc. We shaed exactly one of each, so the shaded area is one-half the total area: <m>\displaystyle\sum_{n=1}^\infty \frac{1}{3^n} = \frac12</m>.
+</p>
+
+<p>Other solutions are possible, as well.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\sum_{n=0}^{100}\frac{1}{5^n}</m>.
+</p></statement>
+<hint><p>
+Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text tells us
+<m>\displaystyle\sum_{n=0}^N ar^n = a\dfrac{1-r^{N+1}}{1-r}</m>, for <m>r \neq 1</m>.
+</p></hint>
+<answer><p>
+<m>\dfrac{5^{101}-1}{4\cdot 5^{100}}</m>
+</p></answer>
+<solution><p>
+Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text tells us
+<m>\displaystyle\sum_{n=0}^N ar^n = a\dfrac{1-r^{N+1}}{1-r}</m>, for <m>r \neq 1</m>.
+Our geometric sum has <m>a=1</m>, <m>r=\frac{1}{5}</m>, and <m>N=100</m>. So:
+<me>
+\displaystyle\sum_{n=0}^{100}\frac{1}{5^n} =
+\frac{1-\frac{1}{5^{101}}}{1-\frac{1}{5}} = \dfrac{5^{101}-1}{4\cdot 5^{100}}</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise xml:id="prob_s3_2_cookies2" purpose="RQS">
+<statement><p>
+Every student who comes to class brings their instructor cookies, and leaves them on the instructor's desk. Let <m>C_k</m> be the total number of cookies on the instructor's desk after the <m>k</m>th student comes.
+</p>
+
+<p>If <m>C_{20}=53</m>, and <m>C_{10}=17</m>, what does <m>C_{20}-C_{10}=36</m> represent?
+</p></statement>
+<hint><p>
+Note <m>C_k</m> is the cumulative number of cookies.
+</p></hint>
+<answer><p>
+All together, there were 36 cookies brought by Student 11 through Student 20.
+</p></answer>
+<solution><p>
+After twenty students have brought their cookies, the pile numbers 53 cookies. 17 of these cookies were brought by students one through ten. So, the remainder (<m>53-17=36</m>) is the number of cookies brought by students 11, 12, 13, 14, 15, 16, 17, 18, 19, and 20, together.
+</p>
+
+<sidebyside width="80%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\foreach \x in {1,...,17}{
+	\draw[fill=red] (\x/3.75,0) arc(0:360:1mm);}
+\foreach \x in {18,...,53}{
+	\draw[fill=blue] (\x/3.75,0) arc(0:360:1mm);}
+\draw[red, decorate, decoration={brace, amplitude=10pt}] (0,.5)--(4.5,0.5) node[midway, yshift=7mm]{$C_{10}$};
+\draw[decorate, decoration={brace, amplitude=10pt, mirror}] (0,-.5)--(14.2,-0.5) node[midway, yshift=-7mm]{$C_{20}$};
+\begin{scope}[scale=0.25]
+\color{red}
+\foreach \x in {1,...,10}{
+	\YEstickfig{\x*1.7}{8}{\x}
+	\draw(\x*1.7,9) node[above]{\footnotesize $\x$};}
+\color{blue}
+\foreach \x in {11,...,20}{
+	\YEstickfig{\x*3.75-20}{8}{\x}
+	\draw(\x*3.75-20,9) node[above]{\footnotesize $\x$};}
+\end{scope}
+</p>
+
+<p>\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\sum_{n=50}^{100}\frac{1}{5^n}</m>. (Note the starting index.)
+</p></statement>
+<hint><p>
+To adjust the starting index, either factor out the first term in the series, or subtract two series. For the subtraction option, consider Question<nbsp/><xref ref="prob_s3_2_cookies2" text="local"/>.
+</p></hint>
+<answer><p>
+<m>\dfrac{5^{51}-1}{4\cdot 5^{100}}</m>
+</p></answer>
+<solution><p>
+<ul>
+<li>Solution 1: Using the ideas of Question<nbsp/><xref ref="prob_s3_2_cookies2" text="local"/>, we see:
+<md>
+<mrow>
+\sum_{n={50}}^{100} \frac{1}{5^n}&amp;=\sum_{n=0}^{100}\frac{1}{5^n}-\sum_{n=0}^{49}\frac{1}{5^n}
+</mrow>
+<intertext>That is, we want start with the sum of all the terms up to <m>\dfrac{1}{5^{100}}</m>, and then subtract off the ones we actually don't want, which is everything up to <m>\dfrac{1}{5^{49}}</m>. Now, both series are in a form appropriate for Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text.</intertext><mrow>
+\sum_{n=0}^{100}\frac{1}{5^n}-\sum_{n=0}^{49}\frac{1}{5^n}&amp;=\frac{1-\frac{1}{5^{101}}}{1-\frac15}-\frac{1-\frac{1}{5^{50}}}{1-\frac15}
+</mrow><mrow>
+&amp;=\frac{5^{101}-1}{4\cdot 5^{100}}-\frac{5^{50}-1}{4\cdot 5^{49}}\left(\frac{5^{51}}{5^{51}}\right)
+</mrow><mrow>
+&amp;=\frac{5^{101}-1}{4\cdot 5^{100}}-\frac{5^{101}-5^{51}}{4\cdot 5^{100}}
+</mrow><mrow>
+&amp;=\frac{5^{51}-1}{4\cdot 5^{100}}
+</mrow>
+</md>
+</li>
+<li>Solution 2:
+If we write out the first few terms of our series, we see we can factor out a constant to change the starting index.
+<md>
+<mrow>
+\sum_{n={50}}^{100} \frac{1}{5^n}&amp;= \frac{1}{5^{50}}+
+\frac{1}{5^{51}}+\frac{1}{5^{52}}+\frac{1}{5^{53}}+\cdots +\frac{1}{5^{100}}
+</mrow><mrow>
+&amp;=\frac{1}{5^{50}}\left(\frac{1}{5^0}+\frac{1}{5^1}+\frac{1}{5^2}+\frac{1}{5^3}+\cdots +\frac{1}{5^{50}}\right)
+</mrow><mrow>
+&amp;=\sum_{n=0}^{50}\frac{1}{5^{50}}\cdot\frac{1}{5^n}
+</mrow>
+<intertext>Now, our sum is in the form of Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text
+with <m>a=\dfrac{1}{5^{50}},</m> <m>r=\dfrac15</m>, and <m>N=50</m>.</intertext>
+<mrow>
+\sum_{n=0}^{50}\frac{1}{5^{50}}\cdot\frac{1}{5^n}&amp;=\frac{1}{5^{50}}\cdot\frac{1-\frac{1}{5^{51}}}{1-\frac15}=\frac{1-\frac{1}{5^{51}}}{4\cdot 5^{49}}\left(\frac{5^{51}}{5^{51}}\right)
+</mrow><mrow>
+&amp;=\frac{5^{51}-1}{4\cdot 5^{100}}
+</mrow>
+</md>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+<ol label="a">
+<li> Starting on day <m>d=1</m>, every day you give your friend <dollar/><m>\frac{1}{d+1}</m>, and they give <dollar/><m>\frac{1}{d}</m> back to you.  After a long time, how much money have you gained by this arrangement?
+</li>
+<li> Evaluate <m>\displaystyle\sum_{d=1}^\infty \left(\frac{1}{d}-\frac{1}{(d+1)}\right)</m>.
+</li>
+<li> Starting on day <m>d=1</m>, every day your friend gives you <dollar/><m>(d+1)</m>, and they take <dollar/><m>(d+2)</m> from you.  After a long time, how much money have you gained by this arrangement?
+</li>
+<li> Evaluate <m>\displaystyle\sum_{d=1}^\infty \left((d+1)-(d+2)\right)</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Express your gains in (a) and (c) as series.
+</p></hint>
+<answer><p>
+(a) As time passes, your gains increase, approaching <dollar/>1.
+(b) 1
+</p>
+<p>
+(c) As time passes, you <em>lose</em> more and more money, without bound.
+(d) <m>-\infty</m>
+</p></answer>
+<solution><p>
+(a) The table below is a record of our account, with black entries representing the money your friend gives you, and red entries representing the money you give them (which is why the red entries are negative).
+<me>
+\begin{array}{c||c|c||c}
+\mathbf{d}&amp;\color{red}{\mathbf{-\frac{1}{d+1}}}&amp;\mathbf{\frac1d}&amp;\text{<alert>total after day <m>d</m></alert>}\\
+\hline
+1 &amp; \color{red}{-\frac{1}{2}} &amp; 1 &amp; \frac{1}{2}\\
+2&amp;\color{red}{-\frac{1}{3}} &amp; \frac{1}{2}&amp;\frac{2}{3}\\
+3&amp;\color{red}{-\frac{1}{4}} &amp; \frac{1}{3}&amp;\frac{3}{4}\\
+4&amp;\color{red}{-\frac{1}{5}} &amp; \frac{1}{4}&amp;\frac{4}{5}\\
+5&amp;\color{red}{-\frac{1}{6}} &amp; \frac{1}{5}&amp;\frac{5}{6}\\
+6&amp;\color{red}{-\frac{1}{7}} &amp; \frac{1}{6}&amp;\frac{6}{7}
+\end{array}
+</me>
+</p>
+
+<p>After the exchange of day <m>n</m>, the amount you're left with is <m><dollar/>\left(1-\frac{1}{n+1}\right)</m>. We see this by the cancellation in the table: the <dollar/><m>\frac12</m> you gave your friend on day 1 was returned on day 2; the  <dollar/><m>\frac13</m> you gave your friend on day 2 was returned on day 3, etc.
+</p>
+
+<p>So, after a long time, you'll have gained close to (but always slightly less than) one dollar.
+</p>
+
+<p>(b) The series <m>\displaystyle\sum_{d=1}^\infty \left(\frac{1}{d}-\frac{1}{(d+1)}\right)</m> describes the scenario in (a), so by our reasoning there,
+<me>
+\displaystyle\sum_{d=1}^\infty \left(\frac{1}{d}-\frac{1}{(d+1)}\right) = \lim_{n \to \infty}\left(1-\frac{1}{n+1}\right)=1</me>
+</p>
+
+<p>(c) Again, let's set up an account book.
+</p>
+
+<p><me>
+\begin{array}{c||c|c||c}
+\mathbf{d}&amp;\mathbf{d+1}&amp;\color{red}{\mathbf{-(d+2)}}&amp;\text{<alert>total</alert>}\\
+\hline
+1 &amp; 2&amp; \color{red}{ -3} &amp; -1\\
+2 &amp; 3&amp; \color{red}{ -4} &amp; -2\\
+3 &amp; 4&amp; \color{red}{ -5} &amp; -3\\
+4 &amp; 5&amp; \color{red}{ -6} &amp; -4\\
+5 &amp; 6&amp; \color{red}{ -7} &amp; -5\\
+6 &amp; 7&amp; \color{red}{ -8} &amp; -6\\
+\end{array}
+</me>
+</p>
+
+<p>By day <m>d</m>, you've <em>lost</em> <dollar/> <m>d</m> to your so-called friend. As time goes on, you lose more and more.
+</p>
+
+<p>(d) The series <m>\displaystyle\sum_{d=1}^\infty ((d+1)-(d+2))</m> exactly describes the scenario in part (c), so it diverges to <m>-\infty</m>. You can also see this by writing
+<m>\displaystyle\sum_{d=1}^\infty ((d+1)-(d+2)) =\sum_{d=1}^\infty (-1)=-1-1-1-1-1-\cdots</m>.
+</p>
+
+<p>Be careful to avoid a common mistake with telescoping series: if we look back at our account book, we see that every negative term will cancel with a positive term, with the initial <m>+2</m> as the only term that never cancels. Your friend takes <dollar/>3, which they return the next day; then they take <dollar/>4, which they return the next day; then they take <dollar/>5, which they return the next day, and so on. It's extremely tempting to say that the series adds up to <dollar/>2, since every other term cancels out eventually. This is where we lean on Definition<nbsp/><xref ref="def_SRseries"/> in the CLP-II text:
+we evaluate the <em>partial sums</em>, which always leave your friend's last withdrawal unreturned. This definition makes sense: saying <q>I gained two bucks from this exchange</q> doesn't really capture the reality of your increasing debt.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose <m>\displaystyle\sum_{n=1}^\infty a_n = A</m>,
+<m>\displaystyle\sum_{n=1}^\infty b_n = B</m>,  and
+<m>\displaystyle\sum_{n=1}^\infty c_n = C</m>.
+</p>
+
+<p>Evaluate <m>\displaystyle\sum_{n=1}^\infty\left( a_n+b_n+c_{n+1}\right)</m>.
+</p></statement>
+<hint><p>
+To find the difference between <m>\displaystyle\sum_{n=1}^\infty c_n</m> and
+<m>\displaystyle\sum_{n=1}^\infty c_{n+1}</m>, try writing out the first few terms.
+</p></hint>
+<answer><p>
+<m>A+B+C-c_1</m>
+</p></answer>
+<solution><p>
+Using arithmetic of series, Theorem<nbsp/><xref ref="thm_SRseriesarith"/> in the CLP-II text, we see
+<me>
+\sum_{n=1}^\infty\left( a_n+b_n+c_{n+1}\right) = A+B+\sum_{n=1}^\infty c_{n+1}</me>
+</p>
+
+<p>The question remaining is what do to with the last series. If we write out the terms, we see the difference between <m>\displaystyle\sum_{n=1}^\infty c_n</m> and
+<m>\displaystyle\sum_{n=1}^\infty c_{n+1}</m> is simply that the latter is missing <m>c_1</m>:
+<md>
+<mrow>
+\sum_{n=1}^\infty c_{n+1}&amp;=c_2+c_3+c_4+c_5+\cdots
+</mrow><mrow>
+&amp;=\textcolor{red}{-c_1+c_1}+c_2+c_3+c_4+c_5+\cdots
+</mrow><mrow>
+&amp;=\textcolor{red}{-c_1}+\sum_{n=1}^\infty c_{n}
+</mrow>
+<intertext>So,</intertext><mrow>
+\sum_{n=1}^\infty\left( a_n+b_n+c_{n+1}\right)&amp;=A+B+C-\textcolor{red}{c_1}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose <m>\displaystyle\sum_{n=1}^\infty a_n = A</m>,
+<m>\displaystyle\sum_{n=1}^\infty b_n = B \neq 0</m>, and
+<m>\displaystyle\sum_{n=1}^\infty c_n = C</m>.
+</p>
+
+<p>True or false: <textblue><m>\displaystyle\sum_{n=1}^\infty\left(\dfrac{ a_n}{b_n}+c_{n}\right) = \frac{A}{B}+C</m></textblue>.
+</p></statement>
+<hint><p>
+You might want to first consider a simpler true or false: <textblue><m>\displaystyle\sum_{n=1}^\infty \dfrac{ a_n}{b_n} \stackrel{?}{=} \dfrac{A}{B}</m></textblue>.
+</p></hint>
+<answer><p>
+in general, false
+</p></answer>
+<solution><p>
+Theorem<nbsp/><xref ref="thm_SRseriesarith"/> in the CLP-II text, arithmetic of series, doesn't mention division, because in general it doesn't work the way the question suggests. For example, let <m>\{a_n\}=\{b_n\} = \frac{1}{2^n}</m>. Then:
+<ul>
+<li> <m>\sum_{n=0}^{\infty} a_n = \sum_{n=0}^\infty b_n = \frac{1}{1-\frac12}=2</m>, while
+</li>
+<li> <m>\sum_{n=0}^{\infty}\dfrac{a_n}{b_n} = \sum_{n=0}^{\infty}1 =\infty </m>.
+</li>
+</ul>
+For the  statement in the question, we can take <m>\{a_n\}=\{b_n\} = \frac{1}{2^n}</m>, <m>A=B=2</m>, <m>\{c_n\}=\{0,0,0,\ldots\}</m>, and <m>C=0</m>. We see the statement is false in this case.
+</p>
+
+<p>So, in general, the statement given is false.
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+To what value does the series
+<m>\displaystyle 1 + \frac{1}{3} + \frac{1}{9} + \frac{1}{27}+ \frac{1}{81}+ \frac{1}{243} + \cdots</m> converge?
+</p></statement>
+
+<hint><p>
+What kind of a series is this?
+</p></hint>
+
+<answer><p>
+<m> \dfrac{3}{2}</m>
+</p></answer>
+
+<solution><p>
+We recognize that this is a geometric series:
+ <md>
+<mrow>
+ 1 + \frac{1}{3} + \frac{1}{9} + \frac{1}{27}+ \frac{1}{81}+ \frac{1}{243} + \cdots&amp;=\frac{1}{3^0}+\frac{1}{3^1}+\frac{1}{3^2}+\frac{1}{3^3}+\frac{1}{3^4}+\frac{1}{3^5}+\cdot
+</mrow><mrow>
+ &amp;=\sum_{n=0}^\infty \frac{1}{3^n}
+ </mrow>
+<intertext>Using Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text with <m>r=\dfrac13</m> and <m>a=1</m>,</intertext>
+<mrow>
+ &amp;=\frac{1}{1-\frac13}=\frac{3}{2}.
+ </mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M105 2015A</fromexam></title>
+<statement><p>
+Evaluate
+<m>\displaystyle \sum_{k=7}^{\infty} \frac{1}{8^k}</m>
+</p></statement>
+
+<hint><p>
+This is a special kind of series, that you should recognize.
+</p></hint>
+
+<answer><p>
+<m> \dfrac{1}{7\times 8^6}</m>
+</p></answer>
+
+<solution><p>
+This is a geometric series, with ratio <m>r=\dfrac18</m>. However, it doesn't start at <m>k=0</m>, which is what we're used to.
+<ul>
+<li>Solution 1: We write out the first few terms of the series to figure out a convenient constant to factor out.
+<md>
+<mrow>
+\sum_{k=7}^{\infty} \frac{1}{8^k}&amp;=\frac{1}{8^7}+\frac{1}{8^8}+\frac{1}{8^9}+\cdots
+</mrow><mrow>
+&amp;=\frac{1}{8^7}\left(\frac{1}{8^0}+\frac{1}{8^1}+\frac{1}{8^2}+\cdots\right)
+</mrow><mrow>
+&amp;=\sum_{k=0}^\infty \frac{1}{8^7}\cdot \frac{1}{8^n}
+</mrow>
+<intertext>We now evaluate the series using Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text  with <m>r=\dfrac18</m>, <m>a=\dfrac{1}{8^7}</m>.</intertext><mrow>
+&amp;=\frac{1}{8^7}\cdot\dfrac{1}{1-\frac18} = \dfrac{1}{7\times 8^6}
+</mrow>
+</md>
+</li>
+<li>Solution 2: Using the idea of Question<nbsp/><xref ref="prob_s3_2_cookies2" text="local"/>, we express the series we're interested in as the difference of two series that we can easily evaluate.
+<md>
+<mrow>
+ \sum_{k=7}^{\infty} \frac{1}{8^k}&amp;= \sum_{k=0}^{\infty} \frac{1}{8^k}- \sum_{k=0}^{6} \frac{1}{8^k}
+ </mrow>
+<intertext>Using Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text,
+</intertext>
+<mrow>
+ &amp;=\frac{1}{1-\frac18}-\frac{1-\frac{1}{8^7}}{1-\frac18}
+</mrow><mrow>
+ &amp;=\frac{1}{7\times 8^6}
+</mrow>
+</md>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+Show that the series
+<m>\displaystyle \sum_{k=1}^{\infty} \bigg( \frac{6}{k^2} - \frac{6}{(k+1)^2} \bigg)</m>
+converges and find its limit.
+</p></statement>
+
+<hint><p>
+When you see <m>\displaystyle\sum_k \Big(\cdots \textcolor{red}{k}\cdots \ \ -\ \ \cdots \textcolor{red}{k+1}\cdots\Big)</m>,
+you should  think <q>telescoping series.</q>
+</p></hint>
+
+<answer><p>
+<m>6</m>
+</p></answer>
+
+<solution><p>
+We recognize this as a telescoping series.
+</p>
+
+<p><me>
+\begin{array}{c||cc||r}
+\mathbf{k}&amp;\mathbf{\frac{6}{k^2}}&amp;\mathbf{-\frac{6}{(k+1)^2}}&amp;\mathbf{s_k}\\
+\hline
+1&amp;6&amp;\color{red}{-\frac{6}{4}}&amp;6-\color{red}{\frac64}\\
+2&amp;\color{red}{\frac{6}{4}}&amp;\color{orange}{-\frac{6}{9}}&amp;6-\color{orange}{\frac69}\\
+3&amp;\color{orange}{\frac{6}{9}}&amp;\color{green}{-\frac{6}{16}}&amp;6-\color{green}{\frac{6}{16}}\\
+4&amp;\color{green}{\frac{6}{16}}&amp;\color{blue}{-\frac{6}{25}}&amp;6-\color{blue}{\frac{6}{25}}\\
+5&amp;\color{blue}{\frac{6}{25}}&amp;\color{purple}{-\frac{6}{36}}&amp;6-\color{purple}{\frac{6}{36}}\\
+6&amp;\color{purple}{\frac{6}{36}}&amp;-\frac{6}{47}&amp;6-\frac{6}{47}\\
+\vdots&amp;&amp;&amp;
+\end{array}</me>
+</p>
+
+<p>When we compute  the <m>n^{\rm th}</m>
+partial sum, i.e. the sum of of the first <m>n</m> terms, successive terms cancel and only
+the first half of the first term, <m>\Big( \frac{6}{k^2} - \frac{6}{(k+1)^2} \Big)\Big|_{k=1}</m>,
+and the second half of the <m>n^{\rm th}</m> term,
+<m>\Big( \frac{6}{k^2} - \frac{6}{(k+1)^2} \Big)\Big|_{k=n}</m>, survive. That is:
+<md>
+<mrow>
+s_n = \sum_{k=1}^{n} \bigg( \frac{6}{k^2} - \frac{6}{(k+1)^2} \bigg)
+      = \frac6{1^2} - \frac{6}{(n+1)^2}
+</mrow>
+</md>
+Therefore, we can see directly that the sequence of partial sums <m>\{ s_n \}</m> is convergent:
+<md>
+<mrow>
+\lim_{n\to\infty} s_n = \lim_{n\to\infty}  \bigg( 6- \frac{6}{(n+1)^2} \bigg) = 6
+</mrow>
+</md>
+By Definition<nbsp/><xref ref="def_SRseries"/> in the CLP-II text the series is also convergent, with limit <m>6</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016A</fromexam></title>
+<statement><p>
+Find the sum of the convergent series <m>\displaystyle\sum\limits_{n=3}^\infty \bigg( \!\cos\Big( \frac \pi n \Big) - \cos\Big( \frac \pi{n+1} \Big) \bigg)</m>.
+</p></statement>
+
+<hint><p>
+When you see <m>\displaystyle\sum_n \Big(\cdots \textcolor{red}{n}\cdots \ \ -\ \ \cdots \textcolor{red}{n+1}\cdots\Big)</m>,
+you should immediately think <q>telescoping series</q>.
+But be careful not to jump to conclusions <mdash/> evaluate the <m>n^{\rm th}</m>
+partial sum explicitly.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\cos\left( \frac \pi 3 \right) - \cos(0) = -\frac{1}{2}</m>
+</p></answer>
+
+<solution><p>
+We recognize that this is a telescoping series, and set up a table to find the sequence of partial sums.
+</p>
+
+<p><me>
+\begin{array}{c||cc||r}
+\mathbf{n}&amp;\mathbf{\cos\left(\frac{\pi}{n}\right)}&amp;\mathbf{-\cos\left(\frac{\pi}{n+1}\right)}&amp;\mathbf{s_n}\\
+\hline
+3&amp;\cos\left(\frac{\pi}{3} \right)&amp;\color{red}{-\cos\left(\frac{\pi}{4}\right)}&amp;\frac12-\color{red}{\cos\left(\frac{\pi}{4}\right)}\\
+4&amp;\color{red}{\cos\left(\frac{\pi}{4}\right)}&amp;\color{orange}{-\cos\left(\frac{\pi}{5}\right)}&amp;\frac12-\color{orange}{\cos\left(\frac{\pi}{5}\right)}\\
+5&amp;\color{orange}{\cos\left(\frac{\pi}{5}\right)}&amp;\color{green}{-\cos\left(\frac{\pi}{6}\right)}&amp;\frac12-\color{green}{\cos\left(\frac{\pi}{6}\right)}\\
+6&amp;\color{green}{\cos\left(\frac{\pi}{6}\right)}&amp;\color{blue}{-\cos\left(\frac{\pi}{7}\right)}&amp;\frac12-\color{blue}{\cos\left(\frac{\pi}{7}\right)}\\
+7&amp;\color{blue}{\cos\left(\frac{\pi}{7}\right)}&amp;\color{purple}{-\cos\left(\frac{\pi}{8}\right)}&amp;\frac12-\color{purple}{\cos\left(\frac{\pi}{8}\right)}\\
+8&amp;\color{purple}{\cos\left(\frac{\pi}{8}\right)}&amp;-\cos\left(\frac{\pi}{9}\right)&amp;\frac12-\cos\left(\frac{\pi}{9}\right)\\
+\vdots&amp;&amp;&amp;
+\end{array}</me>
+</p>
+
+<p>The <m>N</m>th partial sum sees every term cancel except the first part of the first term (<m>\tfrac12</m>) and the second part of the last term (<m>-\cos(\tfrac{\pi}{n+1})</m>).
+<md>
+<mrow>
+\hskip-8mm
+s_N &amp;= \sum_{n=3}^N \bigg( \!\cos\Big( \frac \pi n \Big) - \cos\Big( \frac \pi{n+1} \Big) \bigg)
+</mrow><mrow>
+&amp;=\cos\Big( \frac \pi 3 \Big)  - \cos\Big( \frac \pi{N+1} \Big)
+</mrow><mrow>
+&amp;=\frac12  - \cos\Big( \frac \pi{N+1} \Big).
+</mrow>
+<intertext>As <m>N\to\infty</m>, the argument <m>\frac{\pi}{N+1}</m>
+converges to <m>0</m>, and <m>\cos x</m> is continuous at <m>x=0</m>. By
+Definition<nbsp/><xref ref="def_SRseries"/> in the CLP-II text,
+the value of the series is</intertext>
+<mrow>
+\lim_{N\to\infty} s_N &amp;= \lim_{N\to\infty}\left[\frac12  - \cos\Big( \frac \pi{N+1} \Big) \bigg) \right]
+</mrow><mrow>&amp;=
+\frac12 - \cos(0) = -\frac{1}{2}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+The <m>n^{\rm th}</m> partial sum of a series  <m>\displaystyle \sum_{n=1}^{\infty}a_n </m> is known to
+have the formula <m>\displaystyle s_n = \frac{1+3n}{5+4n}</m>.
+<ol label="a">
+<li>(a) Find an expression for <m>a_n</m>, valid for <m>n\ge2</m>.
+</li>
+<li>(b) Show that the series <m>\displaystyle \sum_{n=1}^{\infty}a_n </m> converges and find its value.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+Review Definition  <xref ref="def_SRseries"/> in the CLP-II text.
+</p></hint>
+
+<answer><p>
+(a) <m>\displaystyle a_n= \frac{11}{16n^2 + 24n +5}</m>
+(b) <m> \dfrac{3}{4}</m>
+</p>
+
+</answer>
+
+<solution><p> (a)
+As in Question<nbsp/><xref ref="prob_s3_2_cookies" text="local"/>, since
+<md>
+<mrow>
+s_{n-1}&amp; = a_1+a_2+ \cdots + a_{n-1}
+</mrow><mrow>
+s_{n}&amp; = a_1+a_2+ \cdots + a_{n-1} +a_n
+</mrow>
+</md>
+we can find <m>a_n</m> by subtracting:
+<md>
+<mrow>
+a_n &amp;= s_n - s_{n-1}
+</mrow><mrow>
+&amp;=\frac{1 + 3n}{5+4n} - \frac{1 + 3(n-1)}{5+4(n-1)}
+= \frac{3n+1}{4n+5} - \frac{3n - 2}{4n+1}
+</mrow><mrow>
+&amp;=  \frac{(3n+1)(4n+1) - (3n - 2) (4n+5)}{(4n+1)(4n+5)}
+</mrow><mrow>
+&amp;= \frac{11}{16n^2 + 24n +5}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+Using Definition<nbsp/><xref ref="def_SRseries"/> in the CLP-II text,
+<md>
+<mrow>
+\sum_{n=1}^\infty a_n&amp;= \lim_{n \to \infty}  s_n
+  = \lim_{n \to \infty} \frac{1 + 3n}{5+4n}
+  = \lim_{n \to \infty} \frac{1/n + 3}{5/n+4}
+  = \frac{0+3}{0+4}
+  = \frac{3}{4}
+</mrow>
+</md>
+The series converges to <m>\dfrac{3}{4}</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2013A</fromexam></title>
+<statement><p>
+Find the sum of the series
+<m> \displaystyle\sum\limits_{n=2}^\infty \frac{3\cdot 4^{n+1}}{8\cdot 5^n}</m>.
+Simplify your answer completely.
+</p></statement>
+
+<hint><p>
+This is a special case of a general series whose sum we know.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{24}{5}</m>
+</p></answer>
+
+<solution><p>
+What we have is a geometric series, but we need to get it into the proper form before we can evaluate it.
+<md>
+<mrow>
+\sum_{n=2}^\infty \frac{3\cdot 4^{n+1}}{8\cdot 5^n}
+&amp;=
+\sum_{n=2}^\infty \frac{3\cdot4\cdot  4^{n}}{8\cdot 5^n}=
+\frac{3}{2}\sum_{n=2}^\infty \Big(\frac{4}{5}\Big)^n
+</mrow>
+</md>
+<ul>
+<li>Solution 1: If we factor our  <m>\left(\frac45\right)^2</m>, we can change our index to something more convenient.
+<md>
+<mrow>
+\frac{3}{2}\sum_{n=2}^\infty \left(\frac{4}{5}\right)^n&amp;=
+\frac{3}{2}\sum_{n=2}^\infty \left(\frac{4}{5}\right)^2\left(\frac45\right)^{n-2}
+</mrow><mrow>
+&amp;=\frac{3}{2}\sum_{n=0}^\infty \left(\frac{4}{5}\right)^2\left(\frac45\right)^{n}
+</mrow>
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text with <m>r=\dfrac45</m>.</intertext>
+<mrow>
+&amp;=\frac{3}{2}\left(\frac{4}{5}\right)^2\cdot\frac{1}{1-\frac45}=\frac{24}{5}
+</mrow>
+</md>
+</li>
+<li>Solution 2:
+Using the idea of Question<nbsp/><xref ref="prob_s3_2_cookies2" text="local"/>, we view our series as a more convenient series, minus a few initial terms.
+<md>
+<mrow>
+\frac{3}{2}\sum_{n=2}^\infty \left(\frac{4}{5}\right)^n&amp;=
+\frac{3}{2}\left(\left[\sum_{n=0}^\infty \left(\frac{4}{5}\right)^n\right] - \left(\frac{4}{5}\right)^1- \left(\frac{4}{5}\right)^0\right)
+</mrow><mrow>&amp;=
+\frac{3}{2}\left(\sum_{n=0}^\infty \left(\frac{4}{5}\right)^n - \frac{9}{5}\right)
+</mrow>
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text with <m>r=\dfrac45</m>.</intertext>
+<mrow>
+&amp;=\frac{3}{2}\left(\frac{1}{1-\frac45} - \frac{9}{5}\right)=\frac{24}{5}
+</mrow>
+</md>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+Relate the number <m>0.2\bar{3} = 0.233333\ldots</m> to the sum of a geometric
+series, and use that to represent it as a rational number (a fraction or combination of
+fractions, with no decimals).
+</p></statement>
+
+<hint><p>
+Review Example  <xref ref="eg_SRgeomB"/> in the CLP-II text. To write the number as a geometric series, the first few terms might not fit the pattern of the rest of the terms.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{7}{30}</m>
+</p></answer>
+
+<solution><p>
+The number is:
+<md>
+<mrow>
+0.2 + \frac{3}{100} + \frac{3}{1000} + \frac{3}{10000} + \cdots
+&amp;=\frac{1}{5}+\frac{3}{10^2}+\frac{3}{10^3}+\frac{3}{10^4}+\cdots
+</mrow><mrow>
+&amp;=\frac{1}{5}+\frac{3}{10^2}\left(\frac{1}{10^0}+\frac{1}{10^1}+\frac{1}{10^2}+\cdots\right)
+</mrow><mrow>
+&amp; =\frac15 + \frac{3}{10^2}\sum_{n=0}^{\infty} \frac{1}{10^{n}}
+</mrow>
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text with <m>r=\dfrac{1}{10}</m>.
+</intertext>
+<mrow>
+&amp;=\frac{1}{5}+\frac{3}{10^2}\cdot\frac{1}{1-\frac{1}{10}}
+</mrow><mrow>
+&amp;=\frac15+\frac{1}{30} = \frac{7}{30}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Express <m>2.656565\ldots</m> as a rational number, i.e. in the form <m>p/q</m> where <m>p</m> and <m>q</m> are integers.
+</p></statement>
+
+<hint><p>
+Start by writing it as a geometric series.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{263}{99}</m>
+</p></answer>
+
+<solution><p>
+The number is:
+<md>
+<mrow>
+2+\frac{65}{100}+\frac{65}{10000}+\frac{65}{1000000}+\cdots&amp;=
+2 + \frac{65}{100} + \frac{65}{100^2} + \frac{65}{100^3} + \cdots
+</mrow><mrow>
+ &amp;= 2 + \frac{65}{100}\sum\limits_{n=0}^{\infty} \frac{1}{100^n}
+ </mrow>
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text with <m>r=\dfrac{1}{100}</m>.</intertext>
+<mrow>
+ &amp;= 2 + \frac{65}{100}\cdot\frac{1}{1-\frac{1}{100}}
+</mrow><mrow>
+ &amp;=2+\frac{65}{99} = \frac{263}{99}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016A</fromexam></title>
+<statement><p>
+Express the decimal <m>0.\overline{321}=0.321321321\ldots</m> as a fraction.
+</p></statement>
+
+<hint><p>
+Review Example  <xref ref="eg_SRgeomB"/> in the CLP-II text. Since the pattern repeats every three decimals, your common ratio <m>r</m> will be <m>\dfrac{1}{10^3}</m>.
+</p></hint>
+
+<answer><p>
+<m> \dfrac{321}{999}= \dfrac{107}{333}</m>
+</p></answer>
+
+<solution><p>
+The number is:
+<md>
+<mrow>
+0.\overline{321}&amp;=0.321321321\ldots
+</mrow><mrow>
+&amp;= \frac{321}{1000} + \frac{321}{10^6} + \frac{321}{10^9} + \cdots
+</mrow><mrow>
+&amp;= \frac{321}{1000} \left(\left(\frac{1}{10^3}\right)^0+ \left(\frac{1}{10^3}\right)^1 + \left(\frac{1}{10^3}\right)^2 + \cdots \right)
+</mrow><mrow>
+ &amp;= \frac{321}{1000} \sum_{n=0}^{\infty} \left(\frac{1}{10^3}\right)^n
+  </mrow>
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text with <m>r=\dfrac{1}{10^3}</m>.
+</intertext>
+<mrow>
+  &amp;=\frac{321}{1000} \cdot\frac{1}{1-\frac{1}{10^3}}=\frac{321}{999}=\frac{107}{333}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2015A</fromexam></title>
+<statement><p>
+Find the <em>value</em> of the convergent series
+<md>
+<mrow>
+\sum_{n=2}^\infty \bigg( \frac{2^{n+1}}{3^n} + \frac1{2n-1} - \frac1{2n+1} \bigg)
+</mrow>
+</md>
+Simplify your answer completely.
+</p></statement>
+
+<hint><p>
+Split the series into two parts.
+</p></hint>
+
+<answer><p>
+<m>3</m>
+</p></answer>
+
+<solution><p>
+We split the sum into two parts.
+</p>
+
+<p><md>
+<mrow>
+\sum_{n=2}^\infty \bigg( \frac{2^{n+1}}{3^n} + \frac1{2n-1} - \frac1{2n+1} \bigg)&amp;=
+\color{blue}{ \sum_{n=2}^\infty \frac{2^{n+1}}{3^n}} \quad
+\textcolor{black}{+}\quad
+\color{red}{ \sum_{n=2}^\infty \bigg(  \frac1{2n-1} - \frac1{2n+1} \bigg) }
+</mrow>
+</md>
+</p>
+
+<p> The first part is a geometric series.
+ <md>
+<mrow>
+ \color{blue}{ \sum_{n=2}^\infty \frac{2^{n+1}}{3^n} } &amp;=
+\sum_{n=0}^\infty \frac{2^{n+3}}{3^{n+2}} =
+\sum_{n=0}^\infty \frac{2^3}{3^2}\cdot\left( \frac{2}{3}\right)^n
+  </mrow>
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text with <m>r=\dfrac{2}{3}</m> and <m>a=\dfrac{8}{9}</m>.</intertext>
+<mrow>
+  &amp;=\frac{8}{9}\cdot\frac{1}{1-\frac23}=\color{blue}{\frac{8}{3}}
+ </mrow>
+</md>
+</p>
+
+<p>The second part is a telescoping series. Let's make a table to see how it cancels.
+</p>
+
+<p><me>
+\begin{array}{c||cc||r}
+\mathbf{n}&amp;\mathbf{\frac{1}{2n-1}}&amp;\mathbf{-\frac{1}{2n+1}}&amp;\mathbf{s_n}\\
+\hline
+2&amp;\frac{1}{3}&amp;\color{red}{-\frac{1}{5}} &amp;\frac{1}{3}-\color{red}{\frac{1}{5}}\\
+3&amp;\color{red}{\frac{1}{5}} &amp;\color{orange}{-\frac{1}{7}}&amp;\frac{1}{3}-\color{orange}{\frac{1}{7}}\\
+4&amp;\color{orange}{\frac{1}{7}} &amp;\color{green}{-\frac{1}{9}}&amp;\frac{1}{3}-\color{green}{\frac{1}{9}}\\
+5&amp;\color{green}{\frac{1}{9}} &amp;\color{blue}{-\frac{1}{11}}&amp;\frac{1}{3}-\color{blue}{\frac{1}{11}}\\
+6&amp;\color{blue}{\frac{1}{11}} &amp;\color{purple}{-\frac{1}{13}}&amp;\frac{1}{3}-\color{purple}{\frac{1}{13}}\\
+7&amp;\color{purple}{\frac{1}{13}} &amp;\color{black}{-\frac{1}{15}}&amp;\frac{1}{3}-\color{black}{\frac{1}{15}}\\
+\vdots&amp;&amp;&amp;
+\end{array}</me>
+</p>
+
+<p>After adding terms <m>n=2</m> through <m>n=N</m>, the partial sum is
+</p>
+
+<p><md>
+<mrow>
+s_N&amp;=\frac{1}{3}-\frac{1}{2N+1}
+</mrow>
+<intertext>because all the terms except the first part of the <m>n=2</m> term, and the last part of the <m>n=N</m> term, cancel. Then:</intertext>
+<mrow>
+\color{red}{\sum_{n=2}^\infty \bigg(\frac1{2n-1} - \frac1{2n+1}\bigg)}
+&amp;=\lim_{N \to \infty}s_N = \lim_{N \to \infty}\frac{1}{3}-\frac{1}{2N+1}
+</mrow><mrow>
+&amp;=\color{red}{\frac{1}{3}}
+</mrow>
+<intertext>All together,</intertext><mrow>
+\sum_{n=2}^\infty \bigg( \frac{2^{n+1}}{3^n} + \frac1{2n-1} - \frac1{2n+1} \bigg)&amp;=
+\color{blue}{ \sum_{n=2}^\infty \frac{2^{n+1}}{3^n} } \quad
+\textcolor{black}{+} \quad
+\color{red}{ \sum_{n=2}^\infty \bigg(  \frac1{2n-1} - \frac1{2n+1} \bigg) }
+</mrow><mrow>
+&amp;=\textcolor{blue}{\frac83}+\textcolor{red}{\frac13}=3
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2014A</fromexam></title>
+<statement><p>
+Evaluate
+<md>
+<mrow>
+\sum_{n=1}^\infty\bigg[{\Big(\frac{1}{3}\Big)}^n  + {\Big(-\frac{2}{5}\Big)}^{n-1}\bigg]
+</mrow>
+</md>
+</p></statement>
+
+<hint><p>
+Split the series into two parts.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{1}{2}+\dfrac{5}{7}
+=\dfrac{17}{14}</m>
+</p></answer>
+
+<solution><p>
+We split the sum into two parts.
+<md>
+<mrow>
+\sum_{n=1}^\infty\bigg[{\Big(\frac{1}{3}\Big)}^n  + {\Big(-\frac{2}{5}\Big)}^{n-1}\bigg]
+&amp;= \sum_{n=1}^\infty {\Big(\frac{1}{3}\Big)}^n + \sum_{n=1}^\infty {\Big(-\frac{2}{5}\Big)}^{n-1}
+</mrow>
+<intertext>Both are geometric series. </intertext><mrow>
+&amp;= \sum_{n=0}^\infty {\Big(\frac{1}{3}\Big)}^{n+1}  + \sum_{n=0}^\infty {\Big(-\frac{2}{5}\Big)}^{n}
+</mrow><mrow>&amp;= \frac{1}{3}\sum_{n=0}^\infty {\Big(\frac{1}{3}\Big)}^{n}
+ + \sum_{n=0}^\infty {\Big(-\frac{2}{5}\Big)}^{n}
+   </mrow>
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text with <m>a_1=\dfrac{1}{3}</m> and <m>r_1=\dfrac{1}{3}</m>, then with <m>a_2=1</m> and <m>r_2=-\dfrac{2}{5}</m>.
+</intertext><mrow>
+   &amp;=\frac{1}{3}\cdot\frac{1}{1-\frac13}+\frac{1}{1+\frac25}
+</mrow><mrow>
+   &amp;=\frac{1}{2}+\frac{5}{7}=\frac{17}{14}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2014D</fromexam></title>
+<statement><p>
+Find the sum of the series
+<m>\displaystyle\sum_{n=0}^\infty\frac{1+3^{n+1}}{4^n}</m>.
+</p></statement>
+
+<hint><p>
+Split the series into two parts.
+</p></hint>
+
+<answer><p>
+<m>\dfrac{40}{3}</m>
+</p></answer>
+
+<solution><p>
+We split the sum into two parts.
+<md>
+<mrow>
+\sum_{n=0}^\infty\frac{1+3^{n+1}}{4^n}
+&amp;= \sum_{n=0}^\infty \frac{1}{4^n} + \sum_{n=0}^\infty \frac{3^{n+1}}{4^n}
+</mrow><mrow>
+&amp;= \sum_{n=0}^\infty \frac{1}{4^n} +3 \sum_{n=0}^\infty\left( \frac{3}{4}\right)^n
+ </mrow>
+<intertext>Using Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text,</intertext>
+<mrow>
+&amp;=\frac{1}{1-\frac14}+\frac{3}{1-\frac{3}{4}}
+</mrow><mrow>
+&amp;=\frac{4}{3}+12=\frac{40}{3}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\sum_{n=5}^\infty \log\left(\frac{n-3}{n}\right)</m>.
+</p></statement>
+<hint><p>
+Use logarithm rules to turn this into a more obvious telescoping series.
+</p></hint>
+<answer><p>
+The series diverges to <m>-\infty</m>.
+</p></answer>
+<solution><p>
+Using logarithm rules, we see
+<me>
+\displaystyle\sum_{n=5}^\infty \log\left(\frac{n-3}{n}\right)=
+\displaystyle\sum_{n=5}^\infty \big[\log(n-3)-\log n\big]</me>
+</p>
+
+<p>which looks like a telescoping series. Let's make a table to figure out the partial sums.
+</p>
+
+<p><me>
+\begin{array}{c||cc||c}
+\mathbf{n}&amp;\mathbf{\log(n-3)}&amp;\mathbf{-\log n}&amp;\mathbf{s_n}\\
+\hline
+5&amp;\log 2&amp;\color{red}{-\log 5}&amp;\log 2 - \color{red}{\log 5}\\
+6&amp;\log 3&amp;\color{green}{-\log 6}&amp;\log 2 +\log 3- \color{red}{\log 5}\color{green}{-\log 6}\\
+7&amp;\log 4&amp;\color{purple}{-\log 7}&amp;\log 2 +\log 3+\log 4- \color{red}{\log 5}\color{green}{-\log 6}
+\color{purple}{-\log 7}\\
+8&amp;\color{red}{\log 5} &amp;\color{blue}{-\log 8} &amp;\log 2 +\log 3+\log 4 \color{green}{-\log 6}
+\color{purple}{-\log 7}\color{blue}{-\log 8}\\
+9&amp;\color{green}{\log 6}&amp;\color{orange}{-\log 9}&amp;\log 2 +\log 3+\log 4
+\color{purple}{-\log 7}\color{blue}{-\log 8}\color{orange}{-\log 9}\\
+10&amp;\color{purple}{\log 7}&amp;\color{brown}{-\log 10}&amp;\log 2 +\log 3+\log 4
+\color{blue}{-\log 8}\color{orange}{-\log 9}\color{brown}{-\log 10}\\
+11&amp;\color{blue}{\log 8}&amp;\color{yellow}{-\log 11}&amp;\log 2 +\log 3+\log 4
+\color{orange}{-\log 9}\color{brown}{-\log 10}\color{yellow}{-\log 11}\\
+\vdots&amp;&amp;&amp;
+\end{array}</me>
+</p>
+
+<p>There is a <q>lag</q> before the terms cancel, which is why they <q>build up</q> more than we saw in past examples. Still, we can clearly see the <m>N</m>th partial sum:
+<md>
+<mrow>
+\sum_{n=5}^N \Big(\log(n-3)-\log(n)\Big)&amp;=\log 2+\log 3 + \log 4 - \log(N-2)-\log(N-1)-\log(N)
+</mrow><mrow>
+&amp;=\log \left(\frac{24}{N(N-1)(N-2)}\right)
+</mrow>
+<intertext>when <m>N \geq 7</m>. So,</intertext><mrow>
+\sum_{n=5}^\infty \Big(\log(n-3)-\log(n)\Big)&amp;=
+\lim_{N \to \infty}s_N
+</mrow><mrow>
+&amp;=\lim_{N \to \infty}\log \left(\frac{24}{N(N-1)(N-2)}\right)
+</mrow><mrow>
+&amp;=-\infty
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\sum_{n=2}^\infty \left(\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1} \right)</m>.
+</p></statement>
+<hint><p>
+This is a telescoping series.
+</p></hint>
+<answer><p>
+<m>-\dfrac12</m>
+</p></answer>
+<solution><p>
+This is a telescoping series. Let's investigate it in the usual way. We leave the fractions in the middle of the table unsimplified, to make the pattern of cancellation clearer, since terms with the same denominator cancel.
+</p>
+
+<p><me>
+\begin{array}{c||ccc||c}
+\mathbf{n}&amp;\mathbf{\dfrac2n}&amp;\mathbf{-\dfrac{1}{n+1}}&amp;\mathbf{-\dfrac{1}{n-1}}&amp;\mathbf{s_n}\\
+\hline
+2&amp;\dfrac{2}{2}&amp;\textcolor{red}{-\dfrac{1}{3}}&amp;-\dfrac{1}{1}
+&amp;\textcolor{red}{-\dfrac{1}{3}}
+\\
+3&amp;\textcolor{red}{\dfrac{2}{3}}&amp;\textcolor{blue}{-\dfrac{1}{4}}
+&amp;-\dfrac{1}{2}&amp;\textcolor{red}{\dfrac13}\textcolor{blue}{-\dfrac14}-\dfrac12
+\\
+4&amp;\textcolor{blue}{\dfrac{2}{4}}&amp;\textcolor{orange}{-\dfrac{1}{5}}
+&amp;\textcolor{red}{-\dfrac{1}{3}}&amp;\textcolor{blue}{\dfrac14}\textcolor{orange}{-\dfrac15}-\dfrac12
+\\
+5&amp;\textcolor{orange}{\dfrac{2}{5}}&amp;\textcolor{purple}{-\dfrac{1}{6}} &amp;\textcolor{blue}{-\dfrac{1}{4}}&amp;
+\textcolor{orange}{\dfrac15}\textcolor{purple}{-\dfrac16}-\dfrac12\\
+6&amp;\textcolor{purple}{\dfrac{2}{6}}&amp;\textcolor{green}{-\dfrac{1}{7}}&amp;\textcolor{orange}{-\dfrac{1}{5}}&amp;
+\textcolor{purple}{\dfrac16}\textcolor{green}{-\dfrac17}-\dfrac12
+\\
+7&amp;\textcolor{green}{\dfrac{2}{7}} &amp;\textcolor{brown}{-\dfrac{1}{8}}&amp;\textcolor{purple}{-\dfrac{1}{6}} &amp;
+\textcolor{green}{\dfrac17}\textcolor{brown}{-\dfrac18}-\dfrac12
+\\
+8&amp;\textcolor{brown}{\dfrac{2}{8}} &amp;-\dfrac{1}{9} &amp;\textcolor{green}{-\dfrac{1}{7}} &amp;
+\textcolor{brown}{\dfrac{1}{8}}-\dfrac{1}{9}-\dfrac12\\
+\vdots&amp;&amp;&amp;
+\end{array}</me>
+</p>
+
+<p>In general, there are three terms with the same denominator, and these cancel out to zero, but it takes a while to gather all three. So, some are left over in the partial sum.
+</p>
+
+<p><md>
+<mrow>
+s_N=\sum_{n=2}^N \left(\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1} \right)&amp;=
+\frac{1}{N}-\frac{1}{N+1}-\frac{1}{2}
+</mrow>
+<intertext>Therefore,</intertext><mrow>
+\sum_{n=2}^\infty \left(\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1} \right)&amp;=\lim_{N \to \infty}s_N
+</mrow><mrow>&amp;=\lim_{N \to \infty} \left[\frac{1}{N}-\frac{1}{N+1}-\frac{1}{2}\right]\\
+&amp;=-\frac{1}{2}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise>
+<statement><p>
+An infinitely long, flat cliff has stones hanging off it, attached to thin wire of negligible mass. Starting at position <m>x=1</m>, every metre (at position <m>x</m>, where <m>x</m> is some whole number) the stone has mass <m>\dfrac{1}{4^x}</m> kg and is hanging <m>2^x</m> metres  below the top of the cliff.
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[  \lt - \gt ] (.5,0)--(13,0);
+\foreach \x in {1,...,6}
+	{
+	\POWER{2}{\x}{\y}
+	\DIVIDE{\y}{6}{\y}
+	\draw (2*\x,.2) node[above]{\x}--(2*\x,-\y) node[](s\x){};
+	\POWER{1.5}{\x}{\m}
+	\DIVIDE{1}{\m}{\m}
+	\draw[fill, fill opacity=0.3] (s\x) arc (90:450:\m cm);}
+\draw (0,-5)[right] node{How much work in joules does it take};
+\draw (0,-5.5) node[right]{ to pull up all the stones to the top of the cliff?
+};
+\draw (0,-6.5) node[right]{You may use $g=9.8$ m/sec$^2$.
+};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+The stone at position <m>x</m> has mass <m>\dfrac{1}{4^x}</m> kg, and we have to pull it a distance of <m>2^x</m> metres. From this, you can find the work involved in pulling up a single stone. Then, add up the work involved in pulling up all the stones.
+</p></hint>
+<answer><p>
+9.8 J
+</p></answer>
+<solution><p>
+The stone at position <m>x</m> has mass <m>\dfrac{1}{4^x}</m> kg, and we have to pull it a distance of <m>2^x</m> metres, so the work involved in moving that one stone is
+<me>
+\left(\frac{1}{4^x}\text{ kg}\right)\left(2^x\text{ m}\right)\left(9.8 <nbsp/>\frac{\text{m}}{\text{sec}^2}\right) = \frac{9.8}{2^x}\text{ J}</me>
+</p>
+
+<p>Therefore, the work to move <em>all</em> the stones is:
+<md>
+<mrow>
+\sum_{x=1}^{\infty}\frac{9.8}{2^x}&amp;
+=\sum_{x=0}^{\infty}\frac{9.8}{2^{x+1}}
+</mrow><mrow>
+&amp;=\sum_{x=0}^{\infty}\frac{9.8}{2}\cdot\frac{1}{2^{x}}
+=\frac{9.8}{2}\cdot\frac{1}{1-\frac12}=9.8 \text{ J}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Find the combined volume of an infinite collection of spheres, where for each whole number <m>n=1,\,2,\,3,\,\ldots</m> there is exactly one sphere of radius <m>\dfrac{1}{\pi^n}</m>.
+</p></statement>
+<hint><p>
+The volume of a sphere of radius <m>r</m> is <m>\dfrac{4}{3}\pi r^3</m>.
+</p></hint>
+<answer><p>
+ <m>\dfrac{4\pi}{3\left(\pi^3-1\right)}</m>
+</p></answer>
+<solution><p>
+The volume of a sphere of radius <m>\dfrac{1}{\pi^n}</m> is
+<md>
+<mrow>
+v_n&amp;=\dfrac{4}{3}\pi \left(\dfrac{1}{\pi^n}\right)^3=\frac{4\pi}{3}\left(\frac{1}{\pi^3}\right)^{n}
+</mrow>
+<intertext>So, the volume of all the spheres together is:</intertext><mrow>
+\sum_{n=1}^\infty v_n&amp;=\sum_{n=1}^\infty \frac{4\pi}{3}\left(\frac{1}{\pi^3}\right)^{n}
+</mrow><mrow>
+&amp;=\sum_{n=0}^\infty \frac{4\pi}{3}\left(\frac{1}{\pi^3}\right)^{n+1}
+</mrow><mrow>
+&amp;=\sum_{n=0}^\infty \frac{4}{3\pi^2}\left(\frac{1}{\pi^3}\right)^{n}
+</mrow>
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text
+with <m>a= \dfrac{4}{3\pi^2}</m> and <m>r=\dfrac{1}{\pi^3}</m>.
+</intertext>
+<mrow>
+&amp;= \dfrac{4}{3\pi^2}\cdot\frac{1}{1-\frac{1}{\pi^3}} = \frac{4\pi}{3\left(\pi^3-1\right)}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\sum_{n=3}^\infty \left(\frac{\sin^2 n}{2^n}+\frac{\cos^2(n+1)}{2^{n+1}} \right)</m>.
+</p></statement>
+<hint><p>
+Use the properties of a telescoping series to simplify the terms.
+</p><p>
+ Recall <m>\sin^2\theta+\cos^2\theta=1</m>.
+</p></hint>
+<answer><p>
+<m>\displaystyle \frac{\sin^23}{8}+32\approx 32.0025</m>
+</p></answer>
+<solution><p>
+Let's make a table. Keep in mind <m>\cos^2\theta+\sin^2\theta=1</m>.
+<me>
+\begin{array}{c||cc||c}
+\mathbf{n}&amp;\mathbf{\dfrac{\sin^2n}{2^n}}&amp;\mathbf{\dfrac{\cos^2(n+1)}{2^{n+1}}}&amp;\mathbf{s_n}\\
+\hline
+3&amp;\dfrac{\sin^23}{2^3}&amp;\textcolor{red}{\dfrac{\cos^24}{2^4}} &amp;
+\dfrac{\sin^23}{2^3}+\textcolor{red}{\dfrac{\cos^24}{2^4}} \\
+4&amp;\textcolor{red}{\dfrac{\sin^24}{2^4}} &amp;\textcolor{green}{\dfrac{\cos^25}{2^5}} &amp;
+\dfrac{\sin^23}{2^3}+\textcolor{red}{\dfrac{1}{2^4}}+\textcolor{green}{\dfrac{\cos^25}{2^5}} \\
+5&amp;\textcolor{green}{\dfrac{\sin^25}{2^5}} &amp;\textcolor{blue}{\dfrac{\cos^26}{2^6}} &amp;
+\dfrac{\sin^23}{2^3}+\textcolor{red}{\dfrac{1}{2^4}}+\textcolor{green}{\dfrac{1}{2^5}}+\textcolor{blue}{\dfrac{\cos^26}{2^6}} \\
+6&amp;\textcolor{blue}{\dfrac{\sin^26}{2^6}} &amp;\textcolor{orange}{\dfrac{\cos^27}{2^7}} &amp;
+\dfrac{\sin^23}{2^3}+\textcolor{red}{\dfrac{1}{2^4}}+\textcolor{green}{\dfrac{1}{2^5}}
++\textcolor{blue}{\dfrac{1}{2^6}}+\textcolor{orange}{\dfrac{\cos^27}{2^7}}\\
+7&amp;\textcolor{orange}{\dfrac{\sin^27}{2^7}} &amp;\textcolor{brown}{\dfrac{\cos^28}{2^8}} &amp;
+\dfrac{\sin^23}{2^3}+ \textcolor{red}{\dfrac{1}{2^4}} + \textcolor{green}{\dfrac{1}{2^5}}+
+\textcolor{blue}{\dfrac{1}{2^6}}+ \textcolor{orange}{\dfrac{1}{2^7}}+\textcolor{brown}{\dfrac{\cos^28}{2^8}}\\
+\vdots&amp;&amp;&amp;
+\end{array}
+</me>
+</p>
+
+<p>This gives us an equation for the partial sum <m>s_N</m>, when <m>N \geq 4</m>:
+<md>
+<mrow>
+s_N&amp;=\sum_{n=3}^N\left(\frac{\sin^2 n}{2^n}+\frac{\cos^2(n+1)}{2^{n+1}} \right)
+</mrow><mrow>
+&amp;=\frac{\sin^23}{2^3} +\left( \sum_{n=4}^{N}\frac{1}{2^n} \right)+\frac{\cos^2(N+1)}{2^{N+1}}
+</mrow>
+<intertext>Using Definition<nbsp/><xref ref="def_SRseries"/> in the CLP-II text, our series evaluates to:</intertext>
+<mrow>
+\lim_{N \to \infty}s_N
+&amp;=\lim_{N \to \infty}\left[\frac{\sin^23}{2^3} +\left( \sum_{n=4}^{N}\frac{1}{2^n} \right)+\frac{\cos^2(N+1)}{2^{N+1}}\right]
+</mrow><mrow>
+&amp;=\frac{\sin^23}{8}+\left[\lim_{N \to \infty}\frac{\cos^2(N+1)}{2^{N+1}}\right] +\sum_{n=4}^\infty \frac{1}{2^n}
+</mrow>
+<intertext>We evaluate the limit using the squeeze theorem; the series is geometric.</intertext><mrow>
+&amp;=\frac{\sin^23}{8}+0+\sum_{n=0}^\infty \frac{1}{2^{n+4}}
+</mrow><mrow>
+&amp;=\frac{\sin^23}{8}+\frac{1}{2^4}\sum_{n=0}^\infty \frac{1}{2^{n}}
+ </mrow>
+<intertext>Using Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-II text,</intertext><mrow>
+ &amp;=\frac{\sin^23}{8}+\frac{1}{2^4} \frac{1}{1-\frac12}
+</mrow><mrow>
+ &amp;=\frac{\sin^23}{8}+\frac{1}{8} \approx 0.1275
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose a series <m>\displaystyle\sum_{n=1}^\infty a_n</m> has sequence of partial sums <m>\{S_N\}</m>, and the series <m>\displaystyle\sum_{N=1}^\infty S_N</m> has sequence of partial sums <m>\{\mathscr S_M \}=\left\{ \displaystyle\sum_{N=1}^M S_N\right\}</m>.
+</p>
+
+<p>If <m>\mathscr S_M = \dfrac{M+1}{M}</m>, what is <m>a_n</m>?
+</p></statement>
+<hint><p>
+Review Question<nbsp/><xref ref="prob_s3_2_partsums" text="local"/> for using the sequence of partial sums.
+</p></hint>
+<answer><p>
+<m>\displaystyle a_n =\begin{cases}
+\frac{2}{n(n-1)(n-2)} &amp;\text{ if }n \ge 3,\\
+-\frac52 &amp;\text{ if }n=2,\\
+2 &amp;\text{ if }n=1
+\end{cases}</m>
+</p></answer>
+<solution><p>
+Since <m>\{\mathscr S_M\}</m> is the sequence of partial sums of <m>\displaystyle\sum_{N=1}^\infty S_N</m>, we can find <m>\{S_N\}</m> from <m>\{\mathscr S_M\}</m> as in Question<nbsp/><xref ref="prob_s3_2_partsums" text="local"/>:
+<md>
+<mrow>
+S_N&amp;=\mathscr S_{N}-\mathscr S_{N-1}=\frac{N+1}{N} - \frac{N}{N-1}=-\frac{1}{N(N-1)}
+&amp;\text{if }N \geq 2,
+</mrow><mrow>
+S_1&amp;=\mathscr S_1 = 2
+</mrow>
+<intertext>Similarly, we find <m>\{a_n\}</m> from <m>\{S_N\}</m>. Do be careful: <m>S_N</m> only follows the formula we found above when <m>N \geq 2</m>. In the next line, we use an expression containing <m>S_{n-1}</m>; in order for the subscript to be at least two (so the formula fits), we need <m>n \geq 3</m>.</intertext>
+<mrow>
+a_n&amp;=S_n-S_{n-1}=-\frac{1}{n(n-1)}-\frac{-1}{(n-1)(n-2)}
+</mrow><mrow>
+&amp;=\frac{2}{n(n-1)(n-2)} &amp;\text{if }n \ge 3,
+</mrow><mrow>
+a_2&amp;=S_2-S_1=-\frac{1}{2(2-1)} - 2=-\frac52,
+</mrow><mrow>
+a_1&amp;=S_1=2
+</mrow>
+<intertext>All together,</intertext><mrow>
+a_n &amp;=\begin{cases}
+\frac{2}{n(n-1)(n-2)} &amp;\text{ if }n \ge 3,
+</mrow><mrow>
+-\frac52 &amp;\text{ if }n=2,
+</mrow><mrow>
+2 &amp;\text{ if }n=1
+\end{cases}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Create a bullseye using the following method:
+</p>
+
+<p>Starting with a red circle of area 1, divide the radius into thirds, creating two rings and a circle. Colour the middle ring blue.
+</p>
+
+<p>Continue the pattern with the inside circle: divide its radius into thirds, and colour the middle ring blue.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[ultra thick, fill=red] (0,0)--(3,0)  arc (0:360:3cm);
+\filldraw[fill=blue] (1,0) arc (0:360:1cm)--(2,0) arc (360:0:2cm)--(1,0);
+\fill[pattern=crosshatch, pattern color=white] (1,0) arc (0:360:1cm);
+\draw[line width=5pt] (1,-.2)--(1,.2) (2,-.2)--(2,.2);
+\draw (0,-3.25) node[below]{Step 1};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[ultra thick, fill=red] (3,0)  arc (0:360:3cm);
+\fill[fill=blue] (1,0) arc (0:360:1cm)--(2,0) arc (360:0:2cm)--(1,0);
+</p>
+
+<p>\filldraw[fill=blue] (.33,0) arc (0:360:.33cm)--(.67,0) arc (360:0:.67cm)--(.33,0);
+\fill[pattern=crosshatch, pattern color=white] (.33,0) arc (0:360:.33cm);
+\draw[line width=5pt] (.33,-.2)--(.33,.2) (.67,-.2)--(.67,.2);
+\draw[ultra thick](0,0)--(.33,0);
+\draw (0,-3.25) node[below]{Step 2};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Continue in this way indefinitely: dividing the radius of the innermost circle into thirds, creating two rings and another circle, and colouring the middle ring blue.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\foreach \level in {1,...,5}{
+	\POWER{3}{\level}{\expo}
+	\DIVIDE{81}{\expo}{\R}
+	\MULTIPLY{\R}{.6667}{\r}
+	\fill[red] (\R,0) arc(0:360:\R cm);
+	\fill[blue] (\r,0) arc(0:360:\r cm);
+	}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+What is the area of the red  portion?
+</p>
+
+</statement>
+<hint><p>
+What is the ratio of areas between the outermost (red) ring and the next (blue) ring?
+</p></hint>
+<answer><p>
+<m>\dfrac{5}{8}</m>
+</p></answer>
+<solution><p>
+We consider a circle of radius <m>R</m>, with an <q>inner ring</q> from <m>\frac{R}{3}</m> to <m>\frac{2R}{3}</m> and an <q>outer ring</q> from <m>\frac{2R}{3}</m> to <m>R</m>.
+</p>
+
+<p>The area of the outer ring is:
+<me>
+\pi R^2 - \pi \left(\frac{2R}{3}\right)^2=\frac{5}{9}\pi R^2</me>
+</p>
+
+<p>The area of the inner ring is:
+<me>
+\pi \left(\frac{2R}{3}\right)^2 - \pi \left(\frac{R}{3}\right)^2=\frac{3}{9}\pi R^2</me>
+</p>
+
+<p>So, the ratio of the inner ring's area to the outer ring's area is <m>\frac{3}{5}</m>.
+</p>
+
+<p>In our bullseye diagram,  if we pair up any red ring with the blue ring just inside it, the blue ring has <m>\frac{3}{5}</m> the area of the red ring. So, the blue portion of the bullseye has <m>\frac{3}{5}</m> the area of the red portion.
+</p>
+
+<p>Since the circle has area 1, if we let the red portion have area <m>A</m>, then
+<me>
+1=A+\frac{3}{5}A=\frac{8}{5}A</me>
+</p>
+
+<p> So, the red portion has area <m>\frac{5}{8}</m>.
+</p>
+
+</solution>
+</exercise></exercisegroup>
+
+</exercises>

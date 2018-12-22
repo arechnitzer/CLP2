@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_trigsub">
+<title>Trigonometric Substitution</title>
+<introduction></introduction>
+<subsection><title>Trigonometric Substitution</title>
+
+<p>
+In this section we discuss substitutions that simplify integrals containing  square roots of the form
+<md>
+<mrow>
+\sqrt{a^2-x^2} &amp;&amp; \sqrt{a^2+x^2} &amp;&amp; \sqrt{x^2-a^2}.
+</mrow>
+</md>
+When the integrand contains one of these square roots, then we can us  trigonometric substitutions to eliminate them. That is, we substitute
+<md>
+<mrow>
+x&amp;=a\sin u&amp;\text{or}&amp;&amp;
+x&amp;=a\tan u&amp;\text{or}&amp;&amp;
+x&amp;=a\sec u
+</mrow>
+</md>
+and then use trigonometric identities
+<md>
+<mrow>
+\sin^2\theta + \cos^2\theta =1 \quad\text{and}\quad 1+\tan^2\theta= \sec^2\theta
+</mrow>
+</md>
+to simplify the result.  To be more precise, we can
+<ul>
+<li>
+	eliminate <m>\sqrt{a^2-x^2}</m> from an integrand by substituting <m>x=a\sin u</m> to give
+	<md>
+	<mrow>
+	\sqrt{a^2-x^2}=\sqrt{a^2-a^2\sin^2 u}
+	=\sqrt{a^2\cos^2 u}=|a\cos u|
+	</mrow>
+	</md>
+</li>
+<li>
+	eliminate <m>\sqrt{a^2+x^2}</m> from an integrand by substituting <m>x=a\tan u</m> to give
+	<md>
+	<mrow>
+	\sqrt{a^2+x^2}=\sqrt{a^2+a^2\tan^2 u}
+	=\sqrt{a^2\sec^2 u}=|a\sec u|
+	</mrow>
+	</md>
+</li>
+<li>
+	eliminate <m>\sqrt{x^2-a^2}</m> from an integrand by substituting <m>x=a\sec u</m> to give
+	<md>
+	<mrow>
+	\sqrt{x^2-a^2}=\sqrt{a^2\sec^2u-a^2}
+	=\sqrt{a^2\tan^2 u}=|a\tan u|
+	</mrow>
+	</md>
+	</li>
+</ul>
+</p>
+
+<p>
+When we have used substitutions before, we usually gave the new integration variable, <m>u</m>, as a function of the old integration variable <m>x</m>. Here we are doing the  reverse <mdash/> we are giving the old integration variable, <m>x</m>, in terms of the new  integration variable <m>u</m>. We may do so, as long as we may invert to get <m>u</m> as a function of <m>x</m>. For example, with <m>x=a\sin u</m>, we may take <m>u=\arcsin\frac{x}{a}</m>. This is a good time for you to review the definitions of <m>\arcsin\theta</m>, <m>\arctan\theta</m> and <m>\arcsec\theta</m>. See Section 2.12, <q>Inverse Functions</q>,  of the CLP-I notes.
+</p>
+
+<p>
+As a warm-up, consider the area of a quarter of the unit circle.
+</p>
+
+<example xml:id="eg_first_trigsub"><title>Quarter of the unit circle</title>
+<p>
+ Compute the area of the unit circle lying in the first quadrant.
+</p>
+
+<p>
+<alert>Solution:</alert> We know that the answer is <m>\frac\pi4</m>, but we can also compute this as an  integral <mdash/> we saw this way back in Example<nbsp/><xref ref="eg_quarter_circle"/>:
+<md>
+<mrow>
+  \text{area} &amp;= \int_0^1 \sqrt{1-x^2} \dee{x}
+</mrow>
+</md>
+<ul>
+<li>
+	To simplify the integrand we substitute <m>x=\sin u</m>. With this choice  <m>\diff{x}{u}=\cos u</m> and so <m>\dee{x}=\cos u \dee{u}</m>.
+</li>
+<li>
+	We also need to translate the limits of integration and it is perhaps  easiest to do this by writing <m>u</m> as a function of <m>x</m> <mdash/> namely <m>u(x)=\arcsin  x</m>. Hence <m>u(0)=0</m> and <m>u(1)=\frac{\pi}{2}</m>.
+</li>
+<li>
+	Hence the integral becomes
+	<md>
+	<mrow>
+	  \int_0^1 \sqrt{1-x^2}\dee{x}
+	&amp;= \int_0^{\frac{\pi}{2}} \sqrt{1-\sin^2u} \cdot \cos u \dee{u}
+	</mrow><mrow>
+	&amp;= \int_0^{\frac{\pi}{2}} \sqrt{\cos^2u} \cdot \cos u \dee{u}
+	</mrow><mrow>
+	&amp;= \int_0^{\frac{\pi}{2}} \cos^2 u \dee{u}
+	</mrow>
+	</md>
+	Notice that here we have used that the <em>positive</em> square root <m>\sqrt{\cos^2  u} = |\cos u|=\cos u</m> because  <m>\cos(u)\geq 0</m> for <m>0 \leq u \leq  \frac\pi2</m>.
+</li>
+<li>
+	To go further we use the techniques of Section<nbsp/><xref ref="sec_trigint"/>.
+	<md>
+	<mrow>
+	\int_0^1 \sqrt{1-x^2}\dee{x}
+	&amp;= \int_0^{\frac{\pi}{2}}\cos^2 u \dee{u} \qquad\qquad \text{and since $\cos^2u=\frac{1+\cos2u}{2}$}
+	</mrow><mrow>
+	&amp;= \frac{1}{2}\int_0^{\frac{\pi}{2}} (1+\cos(2 u)) \dee{u}
+	</mrow><mrow>
+	&amp;= \frac{1}{2} \bigg[u + \frac{1}{2}\sin(2u) \bigg]_0^{\frac{\pi}{2}}
+	</mrow><mrow>
+	&amp;= \frac{1}{2} \left(\frac{\pi}{2}-0 + \frac{\sin\pi}{2}-\frac{\sin 0}{2} \right)
+	</mrow><mrow>
+	&amp;= \frac{\pi}{4}\checkmark
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_trigsub2"><title><m>\int \frac{x^2}{\sqrt{1-x^2}}\dee{x}</m></title>
+
+<p>
+<alert>Solution:</alert> We proceed much as we did in the previous example.
+<ul>
+<li>
+	To simplify the integrand we substitute <m>x=\sin u</m>. With this choice  <m>\diff{x}{u}=\cos u</m> and so <m>\dee{x}=\cos u \dee{u}</m>. Also note that <m>u=\arcsin x</m>.
+</li>
+<li>
+	The integral becomes
+	<md>
+	<mrow>
+	 \int \frac{x^2}{\sqrt{1-x^2}}\dee{x}
+	&amp;= \int \frac{\sin^2u}{\sqrt{1-\sin^2u}} \cdot \cos u \dee{u}
+	</mrow><mrow>
+	&amp;= \int \frac{\sin^2u}{\sqrt{\cos^2u}} \cdot \cos u \dee{u}
+	</mrow>
+	</md>
+</li>
+<li>
+	To proceed further we need to get rid of the square-root. Since <m>u=\arcsin x</m> has  domain <m>-1\leq x \leq 1</m> and range <m>-\frac\pi2 \leq u \leq \frac\pi2</m>, it follows  that <m>\cos u \geq 0</m> (since cosine is non-negative on these inputs). Hence
+	<md>
+	<mrow>
+	\sqrt{\cos^2u} &amp;= \cos u &amp; \text{when $-\frac\pi2 \leq u \leq \frac\pi2 $}
+	</mrow>
+	</md>
+</li>
+<li>
+	So our integral now becomes
+	<md>
+	<mrow>
+	 \int \frac{x^2}{\sqrt{1-x^2}}\dee{x}
+	&amp;= \int \frac{\sin^2u}{\sqrt{\cos^2u}} \cdot \cos u \dee{u}
+	</mrow><mrow>
+	&amp;= \int \frac{\sin^2u}{\cos u} \cdot \cos u \dee{u}
+	</mrow><mrow>
+	&amp;= \int \sin^2u \dee{u}
+	</mrow><mrow>
+	&amp;= \frac{1}{2} \int (1-\cos 2u) \dee{u} &amp;
+	\text{by Equation }<xref ref="eq_TRGINTtrigidentityF"/>
+	</mrow><mrow>
+	&amp;= \frac{u}{2} - \frac{1}{4}\sin 2u +C
+	</mrow><mrow>
+	&amp;= \frac{1}{2}\arcsin x - \frac{1}{4} \sin(2\arcsin x) +C
+	</mrow>
+	</md>
+</li>
+<li>
+	We can simplify this further using a double-angle identity. Recall that <m>u =  \arcsin  x</m> and that <m>x=\sin u</m>. Then
+	<md>
+	<mrow>
+	\sin 2u &amp;= 2 \sin u \cos u
+	</mrow><mrow>
+	</mrow>
+	<intertext>
+		We can replace <m>\cos u</m> using <m>\cos^2u = 1 - \sin^2u</m>. Taking a  square-root of this formula gives <m>\cos u= \pm \sqrt{1-\sin^2u}</m>. We need the  positive branch here since <m>\cos u \geq 0</m> when <m>-\frac\pi2 \leq u  \leq \frac\pi2</m> (which is exactly the range of <m>\arcsin x</m>). Continuing along:
+	</intertext>
+	<mrow>
+	  \sin2u
+	  &amp;= 2 \sin u \cdot \sqrt{1-\sin^2 u}
+	</mrow><mrow>
+	  &amp;= 2 x \sqrt{1-x^2}
+	</mrow>
+	</md>
+	Thus our solution is
+	<md>
+	<mrow>
+	\int \frac{x^2}{\sqrt{1-x^2}}\dee{x}
+	&amp;= \frac{1}{2}\arcsin x - \frac{1}{4} \sin(2\arcsin x) +C
+	</mrow><mrow>
+	&amp;= \frac{1}{2}\arcsin x - \frac{1}{2} x \sqrt{1-x^2} +C
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+</example>
+
+
+<p>
+The above two example illustrate the main steps of the approach. The next example is  similar, but with more complicated  limits of integration.
+</p>
+
+<example xml:id="eg_INVTRIGa"><title><m>\int_a^r\sqrt{r^2-x^2}\dee{x}</m></title>
+<p>
+Let's find the area of the shaded region in the sketch below.
+</p>
+
+<sidebyside width="33%">
+<image source="text/figs/diskTip"/>
+</sidebyside>
+
+<p>
+We'll set up the integral using vertical strips. The strip in the figure has width <m>\dee{x}</m> and height <m>\sqrt{r^2-x^2}</m>. So the area is given by the integral
+<md>
+<mrow>
+\text{area} &amp;= \int_a^r \sqrt{r^2-x^2}\dee{x}
+</mrow>
+</md>
+Which is very similar to the previous example.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	To evaluate the integral we substitute
+	<md>
+	<mrow>
+	x&amp;=x(u)=r\sin u &amp; \dee{x} &amp;= \diff{x}{u} \dee{u}  =r\cos u\dee{u}
+	</mrow>
+	</md>
+	It is also helpful to write <m>u</m> as a function of <m>x</m> <mdash/> namely <m>u  =\arcsin\frac{x}{r}</m>.
+</li>
+<li>
+	The integral runs from <m>x=a</m> to <m>x=r</m>. These correspond to
+	<md>
+	<mrow>
+	  u(r) &amp;= \arcsin \frac{r}{r} = \arcsin 1 = \frac{\pi}{2}
+	</mrow><mrow>
+	  u(a) &amp;= \arcsin \frac{a}{r} \quad \text{ which does not simplify further}
+	</mrow>
+	</md>
+</li>
+<li>
+	The integral then becomes
+	<md>
+	<mrow>
+	  \int_a^r \sqrt{r^2-x^2} \dee{x}
+	&amp;= \int_{\arcsin(a/r)}^{\frac\pi2} \sqrt{r^2-r^2\sin^2u} \cdot r \cos u \dee{u}
+	</mrow><mrow>
+	&amp;= \int_{\arcsin(a/r)}^{\frac\pi2} r^2 \sqrt{1-\sin^2u} \cdot \cos u \dee{u}
+	</mrow><mrow>
+	&amp;= r^2\int_{\arcsin(a/r)}^{\frac\pi2} \sqrt{\cos^2u} \cdot \cos u \dee{u}
+	</mrow>
+	</md>
+	To proceed further (as we did in Examples<nbsp/><xref ref="eg_first_trigsub"/> and<nbsp/><xref ref="eg_trigsub2"/>)  we
+	need to think about whether <m>\cos u</m> is positive or negative.
+</li>
+<li>
+	Since <m>a</m> (as shown in the diagram) satisfies <m>0 \leq a \leq r</m>, we know that  <m>u(a)</m> lies between <m>\arcsin(0)=0</m> and <m>\arcsin(1)=\frac\pi2</m>. Hence the variable <m>u</m>  lies between <m>0</m> and <m>\frac\pi2</m>, and on this range <m>\cos u \geq 0</m>. This allows us  get rid of the square-root:
+	<md>
+	<mrow>
+	\sqrt{\cos^2u} = |\cos u| = \cos u
+	</mrow>
+	</md>
+</li>
+<li>
+	Putting this fact into our integral we get
+	<md>
+	<mrow>
+	\int_a^r \sqrt{r^2-x^2} \dee{x}
+	&amp;= r^2\int_{\arcsin(a/r)}^{\frac\pi2} \sqrt{\cos^2u} \cdot \cos u \dee{u}
+	</mrow><mrow>
+	&amp;= r^2 \int_{\arcsin(a/r)}^{\frac\pi2} \cos^2 u \dee{u}
+	</mrow>
+	<intertext>
+		Recall the identity <m>\cos^2u=\frac{1+\cos2u}{2}</m> from Section<nbsp/><xref ref="sec_trigint"/>
+	</intertext>
+	<mrow>
+	&amp;= \frac{r^2}{2} \int_{\arcsin(a/r)}^{\frac\pi2} (1 +\cos 2u) \dee{u}
+	</mrow><mrow>
+	&amp;= \frac{r^2}{2} \bigg[u + \frac{1}{2}\sin(2u) \bigg]_{\arcsin(a/r)}^{\frac\pi2}
+	</mrow><mrow>
+	&amp;= \frac{r^2}{2} \left(\frac{\pi}{2} +\frac{1}{2}\sin\pi - \arcsin(a/r) -
+	\frac{1}{2}\sin( 2\arcsin(a/r)) \right)
+	</mrow><mrow>
+	&amp;= \frac{r^2}{2} \left(\frac{\pi}{2} - \arcsin(a/r) - \frac{1}{2}\sin( 2\arcsin(a/r))
+	\right)
+	</mrow>
+	</md>
+	Oof! But there is a little further to go before we are done.
+</li>
+<li>
+<p>
+	We can again simplify the term <m>\sin( 2\arcsin(a/r))</m> using a double angle  identity. Set <m>\theta = \arcsin(a/r)</m>. Then <m>\theta</m> is the angle in the triangle  on the right below. By the double angle formula for <m>\sin(2\theta)</m>  (Equation<nbsp/><xref ref="eq_TRGINTtrigidentityB"/>)
+	<md>
+	<mrow>
+	\sin(2\theta)&amp;=2\sin\theta\ \cos\theta
+	</mrow><mrow>
+	&amp;=2\ \frac{a}{r}\ \frac{\sqrt{r^2-a^2}}{r}.
+	</mrow>
+	</md>
+</p>
+<sidebyside width="33%">
+	<image source="text/figs/triangleAsin"/>
+</sidebyside>
+</li>
+<li>
+	So finally the area is
+	<md>
+	<mrow>
+	\text{area} &amp;= \int_a^r \sqrt{r^2-x^2} \dee{x}
+	</mrow><mrow>
+	&amp;= \frac{r^2}{2} \left(\frac{\pi}{2} - \arcsin(a/r) - \frac{1}{2}\sin( 2\arcsin(a/r))
+	\right)
+	</mrow><mrow>
+	&amp;= \frac{\pi r^2}{4} - \frac{r^2}{2} \arcsin(a/r) - \frac{a}{2} \sqrt{r^2-a^2}
+	</mrow>
+	</md>
+</li>
+<li>
+<p>
+	This is a relatively complicated formula, but we can make some <q>reasonableness</q> checks, by looking at special values of <m>a</m>.
+	<ul>
+	<li>
+		If <m>a=0</m> the shaded region, in the figure at the beginning of this example,  is exactly one quarter of a disk of radius <m>r</m> and so has area <m>\frac{1}{4}\pi r^2</m>.  Substituting <m>a=0</m> into our answer does indeed give <m>\frac{1}{4}\pi r^2</m>.
+	</li>
+	<li>
+		At the other extreme, if <m>a=r</m>, the shaded region disappears completely and so has  area <m>0</m>. Subbing <m>a=r</m> into our answer does indeed give <m>0</m>, since <m>\arcsin  1=\frac{\pi}{2}</m>.
+	</li>
+	</ul>
+</p>
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_INVTRIGaa"><title><m>\int_a^r x\sqrt{r^2-x^2}\dee{x}</m></title>
+<p>
+The integral <m>\int_a^r x\sqrt{r^2-x^2}\dee{x}</m> looks a lot like the integral we just did in the previous 3 examples. It can also be evaluated  using the trigonometric substitution <m>x= r\sin u</m> <mdash/> but that is unnecessarily  complicated. Just because you have now learned how to use trigonometric substitution
+	<fn>
+		To paraphrase the Law of the Instrument, possibly Mark Twain and  definitely some psychologists, when you have a shiny new hammer, everything looks like a  nail.
+	</fn>
+doesn't mean that you should forget everything you learned before.
+</p>
+
+<p>
+<alert>Solution:</alert> This integral is <em>much</em> more easily evaluated using the simple substitution <m>u=r^2-x^2</m>.
+<ul>
+<li>
+	Set <m>u=r^2-x^2</m>. Then <m>\dee{u}=-2x\dee{x}</m>, and so
+	<md>
+	<mrow>
+	\int_a^r x\sqrt{r^2-x^2}\dee{x} &amp;=\int_{r^2-a^2}^0 \sqrt{u}\ \frac{\dee{u}}{-2}
+	</mrow><mrow>
+	&amp;=-\frac{1}{2}\bigg[\frac{u^{3/2}}{3/2}\bigg]_{r^2-a^2}^0
+	</mrow><mrow>
+	&amp;=\frac{1}{3}\big[r^2-a^2\big]^{3/2}
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+Enough sines and cosines <mdash/> let us try a tangent substitution.
+</p>
+
+<example xml:id="eg_INVTRIGb"><title><m>\int\frac{\dee{x}}{x^2\sqrt{9+x^2}}</m></title>
+<p>
+<alert>Solution:</alert> As per our guidelines at the start of this section, the presence of the square root  term <m>\sqrt{3^2+x^2}</m> tells us to substitute <m>x=3\tan u</m>.
+<ul>
+<li>
+	Substitute
+	<md>
+	<mrow>
+	x&amp;=3\tan u &amp;
+	\dee{x} &amp;= 3\sec^2 u\dee{u}
+	</mrow>
+	</md>
+	This allows us to remove the square root:
+	<md>
+	<mrow>
+	\sqrt{9+x^2}
+	&amp;=\sqrt{9+9\tan^2u}
+	=3\sqrt{1+\tan^2u}
+	=3\sqrt{\sec^2 u}
+	=3|\sec u|
+	</mrow>
+	</md>
+</li>
+<li>
+	Hence our integral becomes
+	<md>
+	<mrow>
+	 \int \frac{\dee{x}}{x^2\sqrt{9+x^2}}
+	  &amp;= \int \frac{3\sec^2 u}{9\tan^2u \cdot 3|\sec u|} \dee{u}
+	</mrow>
+	</md>
+</li>
+<li>
+	To remove the absolute value we must consider the range of values of <m>u</m> in  the integral. Since <m>x=3\tan u</m> we have <m>u = \arctan(x/3)</m>. The range
+	<fn>
+		To be  pedantic, we mean the range of the <q>standard</q> arctangent function or its <q>principle  value</q>. One can define other arctangent functions with different ranges.
+	</fn>
+	of arctangent  is <m>-\frac{\pi}{2} \leq \arctan  \leq \frac{\pi}{2}</m> and so <m>u=\arctan(x/3)</m>  will always like between <m>-\frac{\pi}{2}</m> and <m>+\frac{\pi}{2}</m>. Hence <m>\cos u</m>  will always be positive, which in turn implies that <m>|\sec u|=\sec u</m>.
+</li>
+<li>
+	Using this fact our integral becomes:
+	<md>
+	<mrow>
+	 \int \frac{\dee{x}}{x^2\sqrt{9+x^2}}
+	  &amp;= \int \frac{3\sec^2 u}{27 \tan^2u |\sec u|} \dee{u}
+	</mrow><mrow>
+	  &amp;= \frac{1}{9}\int \frac{\sec u}{\tan^2u} \dee{u} &amp; \text{since $\sec u  \gt  0$}
+	</mrow>
+	</md>
+</li>
+<li>
+	Rewrite this in terms of sine and cosine
+	<md>
+	<mrow>
+	\int \frac{\dee{x}}{x^2\sqrt{9+x^2}}
+	&amp;= \frac{1}{9}\int \frac{\sec u}{\tan^2u} \dee{u}\\
+	&amp;= \frac{1}{9} \int \frac{1}{\cos u}\cdot \frac{\cos^2u}{\sin^2 u}\dee{u}
+	= \frac{1}{9} \int \frac{\cos u}{\sin^2 u}\dee{u}
+	</mrow>
+	<intertext>
+		Now we can use the substitution rule with <m>y=\sin u</m> and <m>\dee{y}=\cos u\dee{u}</m>
+	</intertext>
+	<mrow>
+	&amp;= \frac{1}{9} \int \frac{\dee{y}}{y^2} \\
+	&amp;= -\frac{1}{9y} +C \\
+	&amp;= -\frac{1}{9\sin u}+C
+	</mrow>
+	</md>
+</li>
+<li>
+<p>
+	The original integral was a function of <m>x</m>, so we still have to rewrite <m>\sin u</m> in terms of <m>x</m>. Remember that <m>x=3 \tan u</m> or  <m>u=\arctan(x/3)</m>. So <m>u</m> is the angle shown in the triangle below and we can read off the triangle that
+	<md>
+	<mrow>
+	\sin u &amp;= \frac{x}{\sqrt{9+x^2}}
+	</mrow>
+	<mrow>
+	\implies \int\frac{\dee{x}}{x^2\sqrt{9+x^2}} &amp;= -\frac{\sqrt{9+x^2}}{9x}  +C
+	</mrow>
+	</md>
+</p>
+<sidebyside width="33%">
+<image source="text/figs/triangleAtan"/>
+</sidebyside>
+</li>
+</ul>
+</p>
+</example>
+
+<example><title><m>\int \frac{x^2}{\sqrt{x^2-1}} \dee{x}</m></title>
+<p>
+<alert>Solution:</alert> This one requires a secant substitution, but otherwise is very similar to those
+above.
+<ul>
+<li>
+	Set <m>x = \sec u</m> and <m>\dee{x}=\sec u \tan u \dee{u}</m>. Then
+	<md>
+	<mrow>
+	  \int \frac{x^2}{\sqrt{x^2-1}} \dee{x}
+	&amp;= \int \frac{\sec^2 u}{\sqrt{\sec^2u-1}} \sec u \tan u \dee{u}
+	</mrow><mrow>
+	&amp;= \int \sec^3 u \cdot \frac{ \tan u}{\sqrt{\tan^2u}}  \dee{u}
+	\qquad\qquad \text{since $\tan^2u = \sec^2u-1$}
+	</mrow><mrow>
+	&amp;= \int \sec^3u \cdot \frac{\tan u}{|\tan u|} \dee{u}
+	</mrow>
+	</md>
+</li>
+<li>
+<p>
+	As before we need to consider the range of <m>u</m> values in order to determine the  sign of <m>\tan u</m>. Notice that the integrand is only defined when either <m>x \lt -1</m> or <m>x \gt 1</m>;  thus we should treat the cases <m>x \lt -1</m> and <m>x \gt 1</m> separately. Let us assume that <m>x \gt 1</m> and  we will come back to the case <m>x \lt -1</m> at the end of the example.
+</p>
+
+<p>
+	When <m>x \gt 1</m>, the standard <m>u=\arcsec x</m> takes values in <m>(0,\frac\pi2)</m>. This follows  since when <m>0 \lt u \lt \frac\pi2</m>, we have <m>0 \lt \cos u \lt 1</m> and so <m>\sec u \gt 1</m>. Further, when  <m>0 \lt u \lt \frac\pi2</m>, we have <m>\tan u \gt 0</m>. Thus <m>|\tan u|=\tan u</m>.
+</p>
+</li>
+<li>
+	Back to our integral:
+	<md>
+	<mrow>
+	  \int \frac{x^2}{\sqrt{x^2-1}} \dee{x}
+	&amp;= \int \sec^3u \cdot \frac{\tan u}{|\tan u|} \dee{u}
+	</mrow><mrow>
+	&amp;= \int \sec^3u \dee{u} &amp; \text{since } \tan u\geq 0
+	</mrow>
+	<intertext>
+		This is exactly Example <xref ref="eg_TRGINToptd"/>
+	</intertext>
+	<mrow>
+	&amp;= \frac{1}{2}\sec u \tan u + \frac{1}{2} \log| \sec u + \tan u| +C
+	</mrow>
+	</md>
+</li>
+<li>
+	Since we started with a function of <m>x</m> we need to finish with one. We know that  <m>\sec u = x</m> and then we can use trig identities
+	<md>
+	<mrow>
+	  \tan^2 u &amp;= \sec^2 u - 1 = x^2-1 &amp; \text{so }
+	  \tan u &amp;= \pm \sqrt{x^2-1}
+	</mrow>
+	<intertext>However we know that <m>\tan u \geq 0</m>, so</intertext>
+	<mrow>
+	  \tan u &amp;= \sqrt{x^2-1}
+	</mrow>
+	</md>
+	Thus
+	<md>
+	<mrow>
+	\int \frac{x^2}{\sqrt{x^2-1}} \dee{x}
+	&amp;= \frac{1}{2}x\sqrt{x^2-1} + \frac{1}{2}\log| x +\sqrt{x^2-1}| +C
+	</mrow>
+	</md>
+</li>
+<li>
+	The above holds when <m>x \gt 1</m>. We can confirm that it is also true when <m>x \lt -1</m> by  showing the right-hand side is a valid antiderivative of the integrand. To do so we must  differentiate our answer. Notice that we do not need to consider the sign of  <m>x+\sqrt{x^2-1}</m> when we differentiate since we have already seen that
+	<md>
+	<mrow>
+	  \diff{}{x} \log|x| &amp;= \frac{1}{x}
+	</mrow>
+	</md>
+	when either <m>x \lt 0</m> or <m>x \gt 0</m>. So the computation that follows applies to both <m>x \gt 1</m> and  <m>x \lt -1</m>. The expressions become quite long so we differentiate each term  separately:
+	<md>
+	<mrow>
+	\diff{}{x} \left[ x\sqrt{x^2-1} \right]
+	&amp;=\left[ \sqrt{x^2-1} +  \frac{x^2}{\sqrt{x^2-1}} \right]
+	</mrow><mrow>
+	&amp;= \frac{1}{\sqrt{x^2-1}} \left[(x^2-1) + x^2 \right]
+	</mrow><mrow>
+	\diff{}{x} \log\bigg| x +\sqrt{x^2-1} \bigg|
+	&amp;= \frac{1}{x+\sqrt{x^2-1}} \cdot \left[ 1+\frac{x}{\sqrt{x^2-1}} \right]
+	</mrow><mrow>
+	&amp;= \frac{1}{x+\sqrt{x^2-1}} \cdot \frac{x+\sqrt{x^2-1}}{\sqrt{x^2-1}}
+	</mrow><mrow>
+	&amp;= \frac{1}{\sqrt{x^2-1}}
+	</mrow>
+	</md>
+	Putting things together then gives us
+	<md>
+	<mrow>
+	&amp; \diff{}{x} \left[ \frac{1}{2}x\sqrt{x^2-1} + \frac{1}{2}\log| x +\sqrt{x^2-1}| +C  \right]
+	</mrow>
+	<mrow>
+	&amp;= \frac{1}{2\sqrt{x^2-1}} \left[(x^2-1) + x^2 + 1 \right]+0
+	</mrow><mrow>
+	&amp;= \frac{x^2}{\sqrt{x^2-1}}
+	</mrow>
+	</md>
+	This tells us that our answer for <m>x \gt 1</m> is also valid when <m>x \lt 1</m> and so
+	<md>
+	<mrow>
+	\int \frac{x^2}{\sqrt{x^2-1}} \dee{x} &amp;= \frac{1}{2}x\sqrt{x^2-1} + \frac{1}{2}\log| x +\sqrt{x^2-1}| +C
+	</mrow>
+	</md>
+	when <m>x \lt -1</m> and when <m>x \gt 1</m>.
+</li>
+</ul>
+</p>
+
+</example>
+
+<p>
+The method, as we have demonstrated it above, works when our integrand contains the  square root of very specific families of quadratic polynomials. In fact, the same  method works for more general quadratic polynomials <mdash/> all we need to do is complete  the square
+	<fn>
+		If you have not heard of <q>completing the square</q> don't worry. It  is not a difficult method and it will only take you a few moments to learn. It refers to  rewriting a quadratic polynomial
+		<md>
+		<mrow>
+		P(x) &amp;= ax^2 + bx + c &amp;\text{as}&amp;&amp; P(x)= a(x+d)^2 +e
+		</mrow>
+		</md>
+		for new constants <m>d,e</m>.
+	</fn>.
+</p>
+<example xml:id="eg_INVTRIGc"><title><m>\int_3^5\frac{\sqrt{x^2-2x-3}}{x-1}\dee{x}</m></title>
+<p>
+This time we have an integral with a square root in the integrand, but the argument of the square root, while a quadratic function of <m>x</m>, is not in  one of the standard forms <m>\sqrt{a^2-x^2}</m>, <m>\sqrt{a^2+x^2}</m>, <m>\sqrt{x^2-a^2}</m>. The reason that it is not in one of those forms is that the argument, <m>x^2-2x-3</m>, contains a term , namely <m>-2x</m> that is of degree one in <m>x</m>. So we try to manipulate it into one of the standard forms by completing the square.
+</p>
+
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	We first rewrite the quadratic polynomial <m>x^2-2x-3</m> in the form <m>(x-a)^2+b</m> for  some constants <m>a,b</m>. The easiest way to do this is to expand both expressions and  compare coefficients of <m>x</m>:
+	<md>
+	<mrow>
+	  x^2-2x-3 &amp;= (x-a)^2+b = (x^2-2ax+a^2)+b
+	</mrow>
+	</md>
+	So <mdash/> if we choose <m>-2a=-2</m> (so the coefficients of <m>x^1</m> match) and <m>a^2+b=-3</m> (so the  coefficients of <m>x^0</m> match), then both expressions are equal. Hence we set <m>a=1</m> and  <m>b=-4</m>. That is
+	<md>
+	<mrow>
+	x^2-2x-3 &amp;= (x-1)^2-4
+	</mrow>
+	</md>
+	Many of you may have seen this method when learning to sketch parabolas.
+</li>
+<li>
+	Once this is done we can convert the square root of the integrand into a standard  form by making the simple substitution <m>y=x-1</m>. Here goes
+	<md>
+	<mrow>
+	&amp; \int_3^5\frac{\sqrt{x^2-2x-3}}{x-1}\dee{x}
+	</mrow>
+	<mrow>
+	&amp;=\int_3^5\frac{\sqrt{(x-1)^2-4}}{x-1}\dee{x}
+	</mrow><mrow>
+	&amp;=\int_2^4\frac{\sqrt{y^2-4}}{y}\dee{y}
+	&amp;\text{with } y=x-1, \dee{y} = \dee{x}
+	</mrow><mrow>
+	&amp;=\int_0^{\pi/3}\frac{\sqrt{4\sec^2u-4}}{2\sec u}\ 2\sec u\tan u\dee{u}
+	&amp;\text{with } y=2\sec u
+	</mrow><mrow>
+	&amp;&amp; \text{and }\dee{y} = 2\sec u\tan u\dee{u}
+	</mrow>
+	</md>
+	Notice that we could also do this in fewer steps by setting <m>(x-1)=2\sec u,  \dee{x}=2\sec u\tan u\dee{u}</m>.
+</li>
+<li>
+<p>
+	To get the limits of integration we used that
+	<ul>
+	<li>
+		the value of <m>u</m> that corresponds to <m>y=2</m> obeys <m>2=y=2\sec u=\frac{2}{\cos u}</m> or <m>\cos u=1</m>, so that <m>u=0</m> works and
+	</li>
+	<li>
+		the value of <m>u</m> that corresponds to <m>y=4</m> obeys <m>4=y=2\sec u=\frac{2}{\cos u}</m> or <m>\cos u=\half</m>, so that  <m>u=\frac{\pi}{3}</m> works.
+	</li>
+	</ul>
+</p>
+</li>
+<li>
+	Now returning to the evaluation of the integral, we simplify and continue.
+	<md>
+	<mrow>
+	\int_3^5\frac{\sqrt{x^2-2x-3}}{x-1}\dee{x}
+	&amp;=\int_0^{\pi/3} 2\sqrt{\sec^2 u -1}\ \tan u\dee{u}
+	</mrow><mrow>
+	&amp;=2\int_0^{\pi/3} \tan^2 u\dee{u}
+	\qquad\qquad\text{since } \sec^2u=1+\tan^2u
+	</mrow>
+	<intertext>
+		In taking the square root of <m>\sec^2u-1=\tan^2u</m> we used that <m>\tan u\ge 0</m> on  the range <m>0\le u\le \frac{\pi}{3}</m>.
+	</intertext>
+	<mrow>
+	&amp;=2\int_0^{\pi/3}\big[ \sec^2 u-1\big]\dee{u}
+	\qquad\quad\text{since $\sec^2u=1+\tan^2u$, again}
+	</mrow><mrow>
+	&amp;=2\Big[\tan u - u\Big]_0^{\pi/3}
+	</mrow><mrow>
+	&amp;=2\big[\sqrt{3}-\frac{\pi}{3}\big]
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+</subsection>
+
+
+<xi:include href="../problems/prob_s1.9.xml" />
+
+
+</section>

@@ -1,0 +1,1638 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<exercises>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise purpose="RQS">
+<statement><p>
+Assuming the sequences continue as shown, estimate the limit of each sequence from its graph.
+</p>
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.25}{6.3}{1.5}{1.7}
+\YEycoord{.5}{1}
+\draw[dotted] (0,-1.5) grid[step=0.5] (6,1.5);
+\draw (-1.5,0) node{(a)};
+\foreach \x in {0,...,12}{
+	\draw (\x/2,{1.5/(\x+1)-1}) node[vertex]{};}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.25}{6.3}{1.5}{1.7}
+\YEycoord{.5}{1}
+\draw[dotted] (0,-1.5) grid[step=0.5] (6,1.5);
+\draw (-1.5,0) node{(b)};
+\foreach \x in {0,...,5}{
+	\draw (\x,{.5/(\x+1)}) node[vertex]{};
+	\draw (\x+.5,{-1.5/(\x+1)}) node[vertex]{};}
+\draw (6,1/14) node[vertex]{};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.25}{6.3}{1.5}{1.7}
+\YEycoord{.5}{1}
+\draw[dotted] (0,-1.5) grid[step=0.5] (6,1.5);
+\draw (-1.5,0) node{(c)};
+\foreach \x in {0,...,2}{
+	\draw (2*\x,-1) node[vertex]{};
+	\foreach \n in {0,...,2}{
+	\draw (2*\x+\n/2+.5,{0}) node[vertex]{};}}
+\draw (6,-1) node[vertex]{};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+Not every limit exists.
+</p></hint>
+<answer><p>
+(a) <m>-2</m> (b) 0  (c) the limit does not exist
+</p></answer>
+<solution><p>
+(a) The values of the sequence seem to be getting closer and closer to -2, so we guess the limit of this sequence is -2.
+</p>
+<p>
+(b) Overall, the values of the sequence seem to be getting extremely close to 0, so we approximate the limit of this sequence as 0. It doesn't matter that the sequence changes signs, or that the numbers are sometimes farther from 0, sometimes closer.
+</p>
+<p>
+(c) This limit does not exist. The sequence is sometimes 0, sometimes -2, and not consistently staying extremely near to either one.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose <m>a_n</m> and <m>b_n</m> are sequences, and <m>a_n=b_n</m> for all <m>n \geq 100</m>, but <m>a_n \neq b_n</m> for <m>n  \lt  100</m>.
+</p>
+
+<p>True or false: <m>\displaystyle\lim_{n \to \infty} a_n = \lim_{n \to \infty} b_n</m>.
+</p></statement>
+<hint><p>
+100 isn't all that big when you're contemplating infinity. (Neither is any other number.)
+</p></hint>
+<answer><p>
+true
+</p></answer>
+<solution><p>
+True. We consider the end behaviour of the sequences, which does not depend on any finite number of terms at their beginning.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>\{a_n\}_{n=1}^{\infty}</m>, <m>\{b_n\}_{n=1}^{\infty}</m>,  and <m>\{c_n\}_{n=1}^{\infty}</m>,  be sequences with
+<m>\lim\limits_{n \to \infty}a_n=A</m>, <m>\lim\limits_{n \to \infty}b_n=B</m>, and <m>\lim\limits_{n \to \infty}c_n=C</m>. Assume <m>A</m>, <m>B</m>, and <m>C</m> are nonzero real numbers.
+</p>
+
+<p>Evaluate the limits of the following sequences.
+<ol label="a">
+<li> <m>\dfrac{a_n-b_n}{c_n}</m>
+</li>
+<li> <m>\dfrac{c_n}{n}</m>
+</li>
+<li> <m>\dfrac{a_{2n+5}}{b_n}</m>
+</li>
+</ol>
+</p></statement>
+<hint><p>
+<m>\displaystyle\lim_{n \to \infty}a_{2n+5}=\lim_{n \to \infty}a_{n}</m>
+</p></hint>
+<answer><p>
+(a) <m>\dfrac{A-B}{C}</m>  (b) 0  (c) <m>\dfrac{A}{B}</m>
+</p></answer>
+<solution><p>
+(a) We follow the arithmetic of limits, Theorem<nbsp/><xref ref="thm_SRlimarith"/> in the CLP-II text:
+<m>\dfrac{A-B}{C}</m>
+</p>
+<p>
+(b) Since <m>\lim\limits_{n \to \infty}{c_n}</m> is some real number, and <m>n</m> grows without bound, <m>\lim\limits_{n \to \infty}\dfrac{c_n}{n}=0</m>.
+</p>
+<p>
+(c) We note <m>\displaystyle\lim_{n \to \infty}a_{2n+5}=\lim_{n \to \infty}a_{n}</m>, so
+<m>\displaystyle\dfrac{a_{2n+5}}{b_n} = \frac{A}{B}</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Give an example of a sequence <m>\{a_n\}_{n=1}^{\infty}</m> with the following properties:
+<ul>
+<li> <m>a_n \gt 1000</m> for all <m>n \leq 1000</m>,
+</li>
+<li> <m>a_{n+1} \lt a_n</m> for all <m>n</m>, and
+</li>
+<li> <m>\lim\limits_{n \to \infty} a_n = -2</m>
+</li>
+</ul>
+</p></statement>
+<hint><p>
+The sequence might be defined by different functions when <m>n</m> is large than when <m>n</m> is small.
+</p></hint>
+<answer><p>
+Two possible answers, of many:
+<ul>
+<li> <m>a_n = \begin{cases}
+3000-n &amp; \text{ if }n \leq 1000\\
+-2+\frac{1}{n} &amp; \text{ if }n  \gt  1000
+\end{cases}</m>
+</li>
+<li> <m>a_n=\dfrac{1,002,001}{n}-2</m>
+</li>
+</ul>
+</p></answer>
+<solution><p>
+There are many possible answers. One is:
+<me>
+a_n = \begin{cases}
+3000-n &amp; \text{ if }n \leq 1000\\
+-2+\frac{1}{n} &amp; \text{ if }n  \gt  1000
+\end{cases}</me>
+</p>
+
+<p>where we have a series that looks different before and after its thousandth term. Note every term is smaller than the term preceding it.
+</p>
+
+<p>Another sequence with the desired properties is:
+<me>
+a_n=\frac{1,002,001}{n}-2</me>
+</p>
+
+<p>When <m>n \leq 1000</m>, <m>a_n \geq \frac{1,002,001}{1000}-2 \gt \frac{1,002,000}{1,000}-2=1000</m>. That is, <m>a_n \gt 1000</m> when <m>n \le 1000</m>. As <m>n</m> gets larger, <m>a_n</m> gets smaller, so <m>a_{n+1} \lt a_n</m> for all <m>n</m>. Finally, <m>\lim\limits_{n \to \infty} a_n = 0-2=-2</m>.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s3_1_alternating" purpose="RQS">
+<statement><p>
+Give an example of a sequence <m>\{a_n\}_{n=1}^{\infty}</m> with the following properties:
+<ul>
+<li> <m>a_n \gt 0</m> for all even <m>n</m>,
+</li>
+<li> <m>a_n \lt 0</m> for all odd <m>n</m>,
+</li>
+<li> <m>\lim\limits_{n \to \infty} a_n</m> does not exist.
+</li>
+</ul>
+</p></statement>
+<hint><p>
+Recall <m>(-1)^n</m> is positive when <m>n</m> is even, and negative when <m>n</m> is odd.
+</p></hint>
+<answer><p>
+One possible answer is <m>a_n=(-1)^{n} = \{-1, 1,-1,1,-1,1,-1,\ldots\}</m>.
+</p><p>
+Another is
+<m>a_n=n(-1)^{n} = \{-1, 2,-3,4,-5,6,-7,\ldots\}</m>.
+</p></answer>
+<solution><p>
+One possible answer is <m>a_n=(-1)^{n} = \{-1, 1,-1,1,-1,1,-1,\ldots\}</m>.
+</p><p>
+Another is
+<m>a_n=n(-1)^{n} = \{-1, 2,-3,4,-5,6,-7,\ldots\}</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Give an example of a sequence <m>\{a_n\}_{n=1}^{\infty}</m> with the following properties:
+<ul>
+<li> <m>a_n \gt 0</m> for all even <m>n</m>,
+</li>
+<li> <m>a_n \lt 0</m> for all odd <m>n</m>,
+</li>
+<li> <m>\lim\limits_{n \to \infty} a_n</m> exists.
+</li>
+</ul>
+</p></statement>
+<hint><p>
+Modify your answer from Question<nbsp/><xref ref="prob_s3_1_alternating" text="local"/>, but make the terms approach zero.
+</p></hint>
+<answer><p>
+One  sequence of many possible is
+<m>\displaystyle a_n = \frac{(-1)^n}{n} = \left\{-1,\ \frac12,\ -\frac13,\ \frac14,\ -\frac15,\ \frac16,\ \ldots \right\}</m>.
+</p></answer>
+<solution><p>
+If the terms of a sequence are alternating sign, but the limit of the sequence exists, the limit must be zero. (If it were a positive number, the negative terms would not get very close to it; if it were a negative number, the positive terms would not get very close to it.)
+</p>
+
+<p>This gives us the idea to modify an answer from Question<nbsp/><xref ref="prob_s3_1_alternating" text="local"/>. One possible sequence:
+<me>
+a_n = \frac{(-1)^n}{n} = \left\{-1,\ \frac12,\ -\frac13,\ \frac14,\ -\frac15,\ \frac16,\ \ldots \right\}</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+The limits of the sequences below can be evaluated using the squeeze theorem. For each sequence, choose an upper bounding sequence and lower bounding sequence that will work with the squeeze theorem. You do not have to evaluate the limits.
+<ol label="a">
+<li> <m>a_n = \dfrac{\sin n}{n}</m>
+</li>
+<li> <m>b_n = \dfrac{n^2}{e^n(7+\sin n - 5\cos n)}</m>
+</li>
+<li> <m>c_n = (-n)^{-n}</m>
+</li>
+</ol>
+</p></statement>
+<hint><p>
+<m>(-n)^{-n} = \dfrac{(-1)^n}{n^n}</m>
+</p></hint>
+<answer><p>
+Some possible answers:
+<ol label="a">
+<li> <m>\dfrac{-1}{n}\le \dfrac{\sin n}{n}\le \dfrac{1}{n}</m>
+</li>
+<li> <m>\dfrac{n^2}{13e^n} \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}</m>
+</li>
+<li> <m> \dfrac{-1}{n^n} \le (-n)^{-n} \le \dfrac{1}{n^n}</m>
+</li>
+</ol>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+Since <m>-1 \leq \sin n \leq 1</m> for all <m>n</m>, one potential set of upper and lower bound is
+<me>
+\dfrac{-1}{n}\le \dfrac{\sin n}{n}\le \dfrac{1}{n}</me>
+Note <m>\lim\limits_{n \to \infty}\dfrac{-1}{n} = \lim\limits_{n \to \infty}\dfrac{1}{n}</m>, so these are valid comparison sequences for the squeeze theorem.
+</li>
+<li> Since <m>\textcolor{red}{-1\leq \sin n \leq 1}</m> and <m>\textcolor{blue}{-5 \leq -5\cos n \leq 5}</m> for all <m>n</m>, we see
+<md>
+<mrow>
+7\textcolor{red}{-1}\textcolor{blue}{-5}&amp;\leq 7+\textcolor{red}{\sin n} -\textcolor{blue}{ 5 \cos n} \leq 7+\textcolor{red}1+\textcolor{blue}5
+</mrow><mrow>
+1&amp;\leq 7+\textcolor{red}{\sin n} -\textcolor{blue}{ 5 \cos n} \leq13
+</mrow>
+</md>
+This gives us the idea to try the bounds
+<me>
+\dfrac{n^2}{13e^n} \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}
+</me>
+We check that <m>\lim\limits_{n \to \infty}\dfrac{n^2}{13e^n}  = \lim\limits_{n \to \infty}\dfrac{n^2}{e^n} </m> (they're both 0 <mdash/> you can verify using l'Hôpital's rule), so these are indeed reasonable bounds to choose to use with the squeeze theorem.
+</li>
+<li> Since <m>(-n)^{-n} = \dfrac{1}{(-n)^n} = \dfrac{(-1)^n}{n^n}</m>, we see
+<me>
+ \dfrac{-1}{n^n} \le (-n)^{-n} \le \dfrac{1}{n^n}
+ </me>
+Since both <m>\lim\limits_{n \to \infty}\dfrac{-1}{n^n} </m>  and <m>\lim\limits_{n \to \infty}\dfrac{1}{n^n} </m>  are 0, these are reasonable bounds to use with the squeeze theorem.
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Below is a list of sequences, and a list of functions.
+<ol label="a">
+<li> Match each sequence <m>a_n</m> to any and all functions <m>f(x)</m> such that <m>f(n)=a_n</m> for all whole numbers <m>n</m>.
+</li>
+<li> Match each sequence <m>a_n</m> to any and all functions <m>f(x)</m> such that <m>\displaystyle\lim_{n \to \infty}a_n = \lim_{x \to \infty}f(x)</m>.
+</li>
+</ol>
+<md>
+<mrow>
+a_n &amp;= 1+\dfrac{1}{n} &amp; f(x) &amp;= \cos(\pi x)
+</mrow><mrow>
+b_n &amp;= 1+\dfrac{1}{|n|}   &amp; g(x) &amp;= \dfrac{\cos (\pi x)}{x}
+</mrow><mrow>
+c_n&amp;=e^{-n}  &amp; h(x)&amp;=\begin{cases}\frac{x+1}{x}&amp;x\text{ is a whole number}
+</mrow><mrow> 1&amp;\text{else} \end{cases}\\
+d_n&amp;=(-1)^n  &amp; i(x)&amp;=\begin{cases}\frac{x+1}{x}&amp;x\text{ is a whole number}
+</mrow><mrow> 0 &amp; \text{else}\end{cases}\\
+e_n&amp;=\dfrac{(-1)^n}{n}  &amp;   j(x)&amp;=\dfrac{1}{e^x}
+</mrow>
+</md>
+</p></statement>
+<hint><p>
+What might cause your answers in (a) and (b) to differ? Carefully read Theorem<nbsp/><xref ref="thm_SRxlimtoanlim"/> in the CLP-II text about convergent functions and their corresponding sequences.
+</p></hint>
+<answer><p>
+(a) <m>a_n=b_n=h(n)=i(n)</m>,  <m>c_n = j(n)</m>, <m>d_n=f(n)</m>, <m>e_n=g(n)</m>
+</p>
+<p>
+(b) <m>\lim\limits_{n \to \infty} a_n=\lim\limits_{n \to \infty} b_n  = \lim\limits_{x \to \infty} h(x)=1</m>,  <m>\lim\limits_{n \to \infty} c_n=\lim\limits_{n \to \infty} e_n=\lim\limits_{x \to \infty} g(x) = \lim\limits_{x \to \infty} j(x) =0</m>, <m>\lim\limits_{n \to \infty} d_n</m>,  <m>\lim\limits_{x\rightarrow\infty} f(x)</m>  and <m>\lim\limits_{x\rightarrow\infty} i(x)</m> do not exist.
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<ul>
+<li> Note <m>a_n=b_n</m>, since (in the absence of evidence to the contrary) we assume <m>n</m> begins at one, hence <m>n=|n|</m>. Then <m>a_n=b_n=1+\dfrac{1}{n}=\dfrac{n+1}{n}</m>. So, whenever <m>n</m> is a whole number, <m>a_n</m> and <m>b_n</m> are the same as <m>h(n)</m> and <m>i(n)</m>. (Be careful here: <m>h(x) \neq i(x)</m> when <m>x</m> is not a whole number.)
+</li>
+<li> <m>c_n=e^{-n}=\dfrac{1}{e^n}=j(n)</m>
+</li>
+<li> For any integer <m>n</m>, <m>\cos(\pi n) = (-1)^n</m>. So, <m>d_n = f(n)</m>.
+</li>
+<li> Similarly, <m>e_n=g(n)</m>.
+</li>
+</ul>
+</li>
+<li>
+<p>
+According to Theorem<nbsp/><xref ref="thm_SRxlimtoanlim"/> in the CLP-II text, if any of the functions on the right have limits that exist as <m>x \to \infty</m>, then these limits match the limits of their corresponding sequences. So, we only have to be suspicious of <m>f(x)</m> and <m>i(x)</m>, since these do not converge.
+</p>
+
+<p>The limit <m>\lim\limits_{x \to \infty}f(x)</m> does not exist, and <m>f(n)=d_n</m>; the limit <m>\lim\limits_{n \to \infty}d_n</m> also does not exist. (We generally don't write equality for two things that don't exist: equality refers to numerical value, and these have none.
+	<fn>
+		The idea  <q>two things that both don't exist are equal</q> is also rejected because it can lead to contradictions. For example, in the real numbers <m>\sqrt{-1} </m> and <m>\sqrt{-2}</m> don't exist; if we write <m>\sqrt{-1}=\sqrt{-2}</m>, then squaring both sides yields the inanity <m>-1=-2</m>.
+	</fn>)
+</p>
+
+<p>The limit <m>\lim\limits_{x \to \infty}i(x)</m> does not exist, because <m>i(x)=0</m> when <m>x</m> is not a whole number, while <m>i(x)</m> approaches 1 when <m>x</m> is a whole number. However, <m>\lim\lim\limits_{n \to \infty}a_n=\lim\limits_{n \to \infty}b_n=1</m>.
+</p>
+
+<p>So, using our answers from part (a), we match the following:
+<ul>
+<li> <m>\lim\limits_{n \to \infty}a_n=\lim\limits_{n \to \infty}b_n=\lim\limits_{x \to \infty}h(x)=1</m>
+</li>
+<li> <m>\lim\limits_{n \to \infty}c_n=\lim\limits_{n \to \infty}e_n=\lim\limits_{x \to \infty}g(x)=\lim\limits_{x \to \infty}j(x)=0</m>
+</li>
+<li> <m>\lim\limits_{n \to \infty} d_n</m>,  <m>\lim\limits_{x\rightarrow\infty} f(x)</m>  and <m>\lim\limits_{x\rightarrow\infty} i(x)</m> do not exist.
+</li>
+</ul>
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>\{a_n\}_{n=1}^\infty</m> be a sequence defined by <m>a_n = \cos n</m>.
+<ol label="a">
+<li> Give three different whole numbers <m>n</m> that are
+within 0.1 of an odd integer multiple of <m>\pi</m>, and find the corresponding values of <m>a_n</m>.
+</li>
+<li> Give three different whole numbers <m>n</m> such that <m>a_n</m> is close to <m>0</m>. Justify your answers.
+</li>
+</ol>
+Remark: this demonstrates intuitively, though not rigorously, why <m>\lim\limits_{n \to \infty}\cos n</m> is undefined. We consistently find terms in the series that are close to <m>-1</m>, and also consistently find terms in the series that are close to 1. Contrast this to a series like <m>\big\{\cos(2\pi n)\big\}</m>, whose terms are always 1, and whose limit therefore is 1.
+</p></statement>
+<hint><p>
+You can use the fact that <m>\pi</m> is somewhat close to <m>\dfrac{22}{7}</m>, or you can use trial and error.
+</p></hint>
+<answer><p>
+(a) Some possible answers: <m>a_{22}\approx -0.99996</m>, <m>a_{66}\approx -0.99965</m>, and <m>a_{110}\approx -0.99902</m>.
+</p>
+
+<p>(b) Some possible answers: <m>a_{11}\approx 0.0044</m>, <m>a_{33}\approx -0.0133</m>, and <m>a_{55}\approx 0.0221</m>.
+</p>
+<p>
+The integers 11, 33, and 55 were found by approximating <m>\pi</m> by <m>\dfrac{22}{7}</m> and finding when an odd multiple of <m>\dfrac{11}{7}</m> (which is the corresponding approximation of <m>\dfrac{\pi}{2}</m>) is an integer.
+</p></answer>
+<solution><p>
+(a) We want to find odd multiples of <m>\pi</m> that are close to integers.
+<ul>
+<li><p>
+Solution 1:
+One way to do that is to remember that <m>\pi</m> is somewhat close to <m>\dfrac{22}{7}</m>. Then when we multiply <m>\pi</m> by a multiple of 7, we should get something close to an integer. In particular, <m>7\pi</m>, <m>21\pi</m>, and <m>35\pi</m> should be reasonably close to <m>7\left(\dfrac{22}{7}\right)=22</m>, <m>21\left(\dfrac{22}{7}\right)=66</m>, and <m>35\left(\dfrac{22}{7}\right)=110</m>, respectively. We check whether they are close enough:
+<md>
+<mrow>
+7\pi&amp;\approx 21.99 &amp;\qquad 21\pi &amp;\approx 65.97 &amp; \qquad 35\pi &amp;\approx 109.96
+</mrow>
+</md>
+So indeed, <m>22</m>, <m>66</m>, and <m>110</m> are all within 0.1 of some odd multiple of <m>\pi</m>.
+</p>
+
+<p>Since the cosine of an odd multiple of <m>\pi</m> is <m>-1</m>, we expect all of the sequence values to be close to <m>-1</m>. Using a calculator:
+<md>
+<mrow>a_{22} &amp;= \cos(22) \approx -0.99996,
+</mrow><mrow>
+a_{66} &amp;= \cos(66) \approx -0.99965,
+</mrow><mrow>
+a_{110} &amp;= \cos(110) \approx -0.99902
+</mrow>
+</md>
+</p>
+</li>
+<li><p>Solution 2:
+Alternately, we could have just listed odd multiple of <m>\pi</m> until we found  three that are close to integers.
+<me>
+\begin{array}{c|c}
+\hline
+\mathbf{2k+1}&amp;\mathbf{(2k+1)\pi}\\
+\hline
+1&amp;3.14\\
+3&amp;9.42\\
+5&amp;15.71\\
+7&amp;\textcolor{red}{21.99}\\
+9&amp;28.27\\
+11&amp;34.56\\
+13&amp;40.84\\
+15&amp;47.12\\
+17&amp;53.41\\
+19&amp;59.69\\
+21&amp;\textcolor{red}{65.97}\\
+23&amp;72.26\\
+25&amp;78.54\\
+27&amp;84.82\\
+29&amp;91.11\\
+31&amp;97.39\\
+33&amp;103.67\\
+35&amp;\textcolor{red}{109.96}
+\end{array}</me>
+</p>
+
+<p>Some earlier odd multiples of <m>\pi</m> (like <m>15\pi</m> and <m>29\pi</m>) get fairly close to integers, but not within 0.1.
+</p>
+</li>
+</ul>
+</p>
+
+<p>
+(b) If <m>x  = \dfrac{2k+1}{\vphantom{_1}2}\pi</m>  for some integer <m>k</m> (that is, <m>x</m> is an odd multiple of <m>\pi/2</m>), then <m>\cos x =0</m>. So, we can either list out the first few terms of <m>a_n</m> until we find three that are very close to <m>0</m>, or we can use our approximation <m>\pi\approx \dfrac{22\vphantom{^1}}{7}</m> to choose values of <m>n</m> that are close to
+<m>\dfrac{2k+1}{2}\pi</m>.
+</p>
+
+<p><ul>
+<li><p>
+Solution 1:
+<md>
+<mrow>
+\dfrac{2k+1}{2}\pi&amp;\approx \frac{(2k+1)\times 22}{2\times 7}=11\frac{2k+1}{7}
+</mrow>
+</md>
+So, we expect our values to be close to integers when
+<m>2k+1</m> is a multiple of 7. For example, <m>2k+1=7</m>, <m>2k+1=21</m>, and <m>2k+1=35</m>.
+</p>
+
+<p>We check:
+<me>
+\begin{array}{l| l| l}
+\mathbf{x}&amp;\mathbf{n}  &amp; \mathbf{a_n}\\
+\hline
+7\times \dfrac{\pi\vphantom{^A}}{2}\approx 10.99557 &amp; 11&amp;a_{11}\approx0.0044 \\
+21\times \dfrac{\pi}{2} \approx 32.98672&amp;33&amp;a_{33}\approx-0.0133 \\
+35\times \dfrac{\pi}{2} \approx 54.97787&amp;55&amp; a_{55}\approx 0.0221 \\
+\end{array}
+</me>
+</p>
+
+<p>These seem like values of <m>a_n</m> that are all pretty close to 0.</p>
+</li>
+<li>
+<p>
+Solution 2:
+We could have listed the first several values of <m>a_n</m>, and looked for some that are close to 0.
+</p>
+
+<p><me>
+\begin{array}{c|c}
+\mathbf{n}&amp;\mathbf{a_n}\\
+\hline
+1&amp;0.54\\
+2&amp;-0.42\\
+3&amp;-0.99\\
+4&amp;-0.65\\
+5&amp;0.28\\
+6&amp;0.96\\
+7&amp;0.75\\
+8&amp;-0.15\\
+9&amp;-0.91\\
+10&amp;-0.84
+\end{array}
+</me>
+</p>
+
+<p>Oof. Nothing very close yet. Maybe a better way is  to list values of <m>\frac{2k+1}{2}\pi</m>, and see which ones are close to integers.
+</p>
+
+<p><me>
+\begin{array}{c|c}
+\mathbf{2k+1}&amp;\mathbf{\frac{2k+1}{2}\pi}\\
+\hline
+1&amp;1.57\\
+3&amp;4.71\\
+5&amp;7.85\\
+7&amp;\textcolor{red}{10.996}\\
+9&amp;14.14\\
+11&amp;17.28\\
+13&amp;20.42\\
+15&amp;23.56\\
+17&amp;26.70\\
+19&amp;29.85\\
+21&amp;\textcolor{red}{32.99}\\
+23&amp;36.13\\
+25&amp;39.27\\
+27&amp;42.41\\
+29&amp;45.55\\
+31&amp;48.69\\
+33&amp;51.84\\
+35&amp;\textcolor{red}{54.98}
+\end{array}
+</me>
+</p>
+
+<p>We find roughly the same candidates we did in Solution 1, depending on what we're ready to accept as <q>close</q>.
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise purpose="RQS">
+<statement><p>
+Determine the limits of the following sequences.
+<ol label="a">
+<li> <m>a_n = \dfrac{3n^2-2n+5}{4n+3}</m>
+</li>
+<li> <m>b_n = \dfrac{3n^2-2n+5}{4n^2+3}</m>
+</li>
+<li> <m>c_n = \dfrac{3n^2-2n+5}{4n^3+3}</m>
+</li>
+</ol>
+</p></statement>
+<hint><p>
+You can compare the leading terms, or factor a high power of <m>n</m> from the numerator and denominator.
+</p></hint>
+<answer><p> (a) <m>\infty</m>  (b) <m>\dfrac{3}{4}</m>
+ (c) 0
+</p></answer>
+<solution><p>
+When determining the end behaviour of rational functions, recall from last semester that we can either cancel out the highest power of <m>n</m> from the numerator and denominator, or skip this step and compare the highest powers of the numerator and denominator.
+</p>
+
+<p><ol label="a">
+<li><p>
+Since the numerator has a higher degree than the denominator, this sequence will diverge to positive or negative infinity; since its terms are positive for large <m>n</m>, its limit is (positive) infinity. (You can imagine that the numerator is growing much, much faster than the denominator, leading the terms to have a very, very large absolute value.)
+</p>
+
+<p>Calculating the longer way:
+<md>
+<mrow>
+a_n &amp;= \dfrac{3n^2-2n+5}{4n+3}\left(\dfrac{\frac1n}{\frac1n}\right)=\dfrac{3n-2+\frac5n}{4+\frac3n}
+</mrow><mrow>
+\lim_{n \to \infty}a_n &amp;= \lim_{n \to \infty}\dfrac{3n-2+\frac5n}{4+\frac3n} =
+\lim_{n \to \infty}\dfrac{3n-2+0}{4+0} = \infty
+</mrow>
+</md>
+</p>
+</li>
+<li>
+<p>
+Since the numerator has the same degree as the denominator, as <m>n</m> goes to infinity, this sequence will converge to the ratio of their leading coefficients: <m>\dfrac{3}{4}</m>.  (You can imagine that the numerator is growing at roughly the same rate as the denominator, so the terms settle into an almost-constant ratio.)
+</p>
+
+<p>Calculating the longer way:
+<md>
+<mrow>
+b_n &amp;= \dfrac{3n^2-2n+5}{4n^2+3}\left(\dfrac{\frac{1}{n^2}}{\frac{1}{n^2}}\right)=\dfrac{3-\frac2n+\frac{5}{n^2}}{4+\frac{3}{n^2}}
+</mrow><mrow>
+\lim_{n \to \infty}b_n &amp;= \lim_{n \to \infty}\dfrac{3-\frac2n+\frac{5}{n^2}}{4+\frac{3}{n^2}} = \frac{3-0+0}{4+0}=\frac{3}{4}
+</mrow>
+</md>
+</p>
+</li>
+<li><p>
+Since the numerator has a lower degree than the denominator, this sequence will converge to 0 as <m>n</m> goes to infinity. (You can imagine that the denominator is growing much, much faster than the numerator, leading the terms to be very, very small.)
+</p>
+
+<p>Calculating the longer way:
+<md>
+<mrow>
+c_n &amp;= \dfrac{3n^2-2n+5}{4n^3+3}\left(\dfrac{\frac{1}{n^3}}{\frac{1}{n^3}}\right)=\dfrac{\frac{3}{n}-\frac{2}{n^2}+\frac{5}{n^3}}{4+\frac{3}{n^3}}
+</mrow><mrow>
+\lim_{n \to \infty}c_n &amp;= \lim_{n \to \infty}\dfrac{\frac{3}{n}-\frac{2}{n^2}+\frac{5}{n^3}}{4+\frac{3}{n^3}} = \dfrac{0-0+0}{4+0}=0
+</mrow>
+</md>
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Determine the limit of the sequence
+<m>a_n = \dfrac{4n^3-21}{n^e+\frac{1}{n}}</m>.
+</p></statement>
+<hint><p>
+This isn't a rational expression, but you can treat it in a similar way. Recall <m>e \lt 3</m>.
+</p></hint>
+<answer><p> <m>\infty</m>
+</p></answer>
+<solution><p>
+At first glance, we see both the numerator and denominator grow huge as <m>n</m> increases, so we'll need to think a little further to find the limit.
+</p>
+
+<p>We don't have a rational function, but we can still divide the top and bottom by <m>n^e</m> to get a clearer picture.
+<md>
+<mrow>
+a_n&amp;=\dfrac{4n^3-21}{n^e+\frac{1}{n}}\left(\frac{\frac{1}{n^e}}{\frac{1}{n^e}}\right) =
+\dfrac{4n^{3-e}-\frac{21}{n^e}}{1+\frac{1}{n^{e+1}}}
+</mrow>
+<intertext>Since <m>e \lt 3</m>, we see <m>3-e</m> is positive, so <m>\lim\limits_{n \to \infty}n^{3-e}=\infty</m>.</intertext>
+<mrow>
+\lim_{n \to \infty}a_n&amp;=\lim_{n \to \infty}
+\dfrac{4n^{3-e}-\frac{21}{n^e}}{1+\frac{1}{n^{e+1}}} =\lim_{n \to \infty}
+\dfrac{4n^{3-e}-0}{1+0}
+= \infty
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Determine the limit of the sequence
+<m>b_n = \dfrac{\sqrt[4]{n}+1}{\sqrt{9n+3}}</m>.
+</p></statement>
+<hint><p>
+The techniques of evaluating limits of rational sequences are again useful here.
+</p></hint>
+<answer><p> 0
+</p></answer>
+<solution><p>
+This isn't a rational sequence, but factoring out <m>\sqrt{n}</m> from the top and bottom will still clear things up.
+<md>
+<mrow>
+b_n &amp;= \dfrac{\sqrt[4]{n}+1}{\sqrt{9n+3}}\left(\dfrac{\frac{1}{\sqrt n}}{\frac{1}{\sqrt n}}\right)=
+\dfrac{\frac{1}{\sqrt[4]{n}}+\frac{1}{\sqrt{n}}}{\sqrt{9+\frac{3}{n}}}
+</mrow><mrow>
+\lim_{n \to \infty}b_n &amp;= \lim_{n \to \infty}
+\dfrac{\frac{1}{\sqrt[4]{n}}+\frac{1}{\sqrt{n}}}{\sqrt{9+\frac{3}{n}}} = \dfrac{0+0}{\sqrt{9+0}}=0
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Determine the limit of the sequence
+<m>c_n = \dfrac{\sin n}{n}</m>.
+</p></statement>
+<hint><p>
+Use the squeeze theorem.
+</p></hint>
+<answer><p>
+0
+</p></answer>
+<solution><p>
+First, let's start with a  tempting fallacy.
+<blockquote>
+<p><textred>
+The denominator grows without bound, so
+<m>\lim\limits_{n \to \infty}\dfrac{\sin n}{n}=0</m>.</textred>
+</p></blockquote>
+</p>
+
+<p>It's certainly true that <em>if the limit of the numerator is a real number</em>, and the denominator grows without bound, then the limit of the sequence is zero. However, in our case, the limit of the numerator does not exist. To apply the limit arithmetic rules from the CLP-II text (Theorem<nbsp/><xref ref="thm_SRlimarith"/>), our limits must actually exist.
+</p>
+
+<p>A better reasoning looks something like this:
+<blockquote>
+<p><textred>
+The denominator grows without bound, and the numerator never gets very large, so
+<m>\lim\limits_{n \to \infty}\dfrac{\sin n}{n}=0</m>.</textred>
+</p></blockquote>
+</p>
+
+<p>To quantify this reasoning more precisely, we use the squeeze theorem, Theorem<nbsp/><xref ref="thm_SRsqueeze"/> in the CLP-II text. There are two parts to the squeeze theorem: finding two bounding functions, and making sure these functions have the same limit.
+<ul>
+<li> Since <m>-1\leq \sin n \leq 1</m> for all <m>n</m>, we choose functions <m>a_n = \frac{-1}{n}</m> and <m>b_n = \frac{1}{n}</m>.  Then <m>a_n \leq c_n \leq b_n</m> for all <m>n</m>.
+</li>
+<li> Both <m>\lim\limits_{n \to \infty}a_n=0</m> and  <m>\lim\limits_{n \to \infty}b_n=0</m>.
+</li>
+</ul>
+So, by the squeeze theorem, <m>\lim\limits_{n \to \infty}\dfrac{\sin n}{n}=0</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Determine the limit of the sequence
+<m>a_n = \dfrac{n^{\sin n}}{n^2}</m>.
+</p></statement>
+<hint><p>
+<m>\displaystyle\frac{1}{n}\leq n^{\sin n}\leq n</m>
+</p></hint>
+<answer><p>
+0
+</p></answer>
+<solution><p>
+The denominator of this sequence grows without bound. The numerator is unpredictable: imagine that <m>n</m> is large. When <m>\sin n</m> is close to <m>-1</m>, <m>n^{\sin n}</m> puts a power of <m>n</m> <q>in the denominator,</q> so we can have <m>n^{\sin n}</m> very close to 0. When <m>\sin n</m> is close to 1, <m>n^{\sin n}</m> is close to <m>n</m>, which is large.
+</p>
+
+<p>To control for these variations, we'll use the squeeze theorem.
+<ul>
+<li> Since <m>-1 \leq \sin n \leq n</m> for all <m>n</m>, let <m>b_n = \frac{n^{-1}}{n^2} = \frac{1}{n^3}</m> and
+<m>c_n = \frac{n}{n^2}=\frac{1}{n}</m>. Then <m>b_n \leq a_n \leq c_n</m>.
+</li>
+<li> Both <m>\lim\limits_{n \to \infty}b_n=0</m> and <m>\lim\limits_{n \to \infty}c_n=0</m>.
+</li>
+</ul>
+So, by the squeeze theorem,
+<m>\lim\limits_{n \to \infty}\dfrac{n^{\sin n}}{n^2}=0</m> as well.
+</p>
+
+<p>Remark: we also could have used <m>b_n=0</m> for our lower bound, since <m>a_n \geq 0</m> for all <m>n</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Determine the limit of the sequence
+<m>d_n = e^{-1/n}</m>.
+</p></statement>
+<hint><p>
+<m>e^{-1/n} = \dfrac{1}{e^{1/n}}</m>; what happens to <m>\dfrac{1}{n}</m> as <m>n</m> grows?
+</p></hint>
+<answer><p>
+1
+</p></answer>
+<solution><p>
+<md>
+<mrow>
+d_n&amp;=e^{-1/n}=\frac{1}{e^{1/n}}
+</mrow><mrow>
+\lim_{n \to \infty }d_n&amp;=\lim_{n \to \infty }\frac{1}{e^{1/n}} = \frac{1}{e^0}=\frac11=1
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Determine the limit of the sequence
+<m>a_n = \dfrac{1+3\sin(n^2)-2\sin n}{n}</m>.
+</p></statement>
+<hint><p>
+Use the squeeze theorem.
+</p></hint>
+<answer><p>
+0
+</p></answer>
+<solution><p>
+<ul>
+<li>
+<p>
+Solution 1: Let's use the squeeze theorem. Since <m>\textcolor{blue}{\sin (n^2)}</m> and <m>\textcolor{red}{\sin n}</m> are both between <m>-1</m> and 1 for all <m>n</m>, we note:
+<md>
+<mrow>
+1 +3\textcolor{blue}{(-1)}-2\textcolor{red}{(1)}&amp;\leq 1+3\,\textcolor{blue}{\sin(n^2)}-2\,\textcolor{red}{\sin n} \leq 1 +3\textcolor{blue}{(1)}-2\textcolor{red}{(-1)}
+</mrow><mrow>
+-4&amp;\leq 1+3\,{\sin(n^2)}-2\,{\sin n} \leq 6
+</mrow>
+</md>
+This allows us to choose suitable bounding functions for the squeeze theorem.
+<ul>
+<li> Let <m>b_n = -\dfrac{4}{n}</m> and <m>c_n = \dfrac{6}{n}</m>. From the work above, we see
+<m>b_n \leq a_n \leq c_n</m> for all <m>n</m>.
+</li>
+<li> Both <m>\lim\limits_{n \to \infty}b_n=0</m> and <m>\lim\limits_{n \to \infty}c_n=0</m>.
+</li>
+</ul>
+So, by the squeeze theorem,
+<m>\lim\limits_{n \to \infty} \dfrac{1+3\sin(n^2)-2\sin n}{n}=0</m>.
+</p>
+</li>
+<li>
+<p>
+Solution 2: We simplify slightly to begin.
+<md>
+<mrow>
+a_n &amp;= \dfrac{1+3\sin(n^2)-2\sin n}{n} = \dfrac{1}{n}+3\cdot\frac{\sin (n^2)}{n} - 2\cdot\frac{\sin n}{n}
+</mrow>
+</md>
+We  apply the squeeze theorem to the pieces <m>\textcolor{blue}{\dfrac{\sin (n^2)}{n} }</m> and <m>\textcolor{red}{\dfrac{\sin n}{n}}</m>.
+<ul>
+<li> Let <m>b_n = \dfrac{-1}{n}</m> and <m>c_n = \dfrac{1}{n}</m>. Then <m>\textcolor{blue}{b_n \leq \dfrac{\sin (n^2)}{n}  \leq c_n}</m>, and <m>\textcolor{red}{ b_n \leq  \dfrac{\sin n}{n} \leq c_n }</m>.
+</li>
+<li> Both <m>\lim\limits_{n \to \infty} b_n=0</m> and <m>\lim\limits_{n \to \infty} c_n=0</m>.
+</li>
+</ul>
+So, by the squeeze theorem, <m>\textcolor{blue}{ \lim\limits_{n \to \infty}\dfrac{\sin (n^2)}{n} =0 }</m> and <m>\textcolor{red}{ \lim\limits_{n \to \infty}\dfrac{\sin n}{n}=0 }</m>.
+</p>
+
+<p>Now, using the arithmetic of limits from Theorem<nbsp/><xref ref="thm_SRlimarith"/> in the CLP-II text,
+<md>
+<mrow>
+\lim_{n \to \infty}a_n &amp;=\lim_{n \to \infty}\left[ \dfrac{1}{n}+3\cdot\frac{\sin (n^2)}{n} - 2\cdot\frac{\sin n}{n}\right]
+</mrow><mrow>
+&amp;=0+3\cdot 0 - 2\cdot 0 =0
+</mrow>
+</md>
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Determine the limit of the sequence <m>b_n=\dfrac{e^n}{2^n+n^2}</m>.
+</p></statement>
+<hint><p>
+L'Hôpital's rule might help you decide what happens if you are unsure.
+</p></hint>
+<answer><p>
+<m>\infty</m>
+</p></answer>
+<solution><p>
+First, we note that both numerator and denominator grow without bound. So, we have to decide whether one outstrips the other, or whether they reach a stable ratio.
+</p>
+
+<p><ul>
+<li><p>
+Solution 1:
+Let's try dividing the numerator and denominator by <m>2^n</m> (the dominant term in the denominator; this is the same idea behind factoring out the leading term in rational expressions).
+<me>
+b_n = \frac{e^n}{2^n+n^2}\left(\frac{\frac{1}{2^n}}{\frac{1}{2^n}}\right) = \frac{\left(\frac{e}{2}\right)^n}{1+\frac{n^2}{2^n}}</me>
+</p>
+
+<p>Since <m>e \gt 2</m>, we see <m>\dfrac{e}{2} \gt 1</m>, and so <m>\lim\limits_{n \to \infty}\left(\dfrac{e}{2}\right)^n=\infty</m>. Since exponential functions grow much, much faster than polynomial functions, we also see <m>\lim\limits_{n \to \infty}\frac{n^2}{2^n}=0</m>. So,
+<me>
+\lim\limits_{n \to \infty}b_n = \lim\limits_{n \to \infty}  \frac{\left(\frac{e}{2}\right)^n}{1+\frac{n^2}{2^n}}  = \lim\limits_{n \to \infty}  \frac{\left(\frac{e}{2}\right)^n}{1+0} = \infty
+</me>
+</p>
+</li>
+<li><p>
+Solution 2:
+Since the numerator and denominator both increase without bound, we apply l'Hôpital's rule. Recall <m>\diff{}{x}\{2^x\} = 2^x\log 2</m>.
+<md>
+<mrow>
+\lim_{n \to \infty}b_n&amp;=\lim_{n \to \infty}\underbrace{\dfrac{e^n}{2^n+n^2}}_{\atp{\mathrm{num}\to \infty}{\mathrm{den}\to\infty}}
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}\underbrace{\frac{e^n}{2^n\log 2 + 2n}}_{\atp{\mathrm{num}\to \infty}{\mathrm{den}\to\infty}}
+</mrow><mrow>
+&amp;=\lim_{n \to \infty} \underbrace{\frac{e^n}{2^n(\log 2)^2 + 2}}_{\atp{\mathrm{num}\to\infty}{\mathrm{den}\to\infty}}
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}\frac{e^n}{2^n(\log 2)^3}
+</mrow><mrow>
+&amp;=\frac{1}{(\log 2)^3}\lim_{n \to \infty}{\left(\frac{e}{2}\right)^n}
+</mrow><mrow>
+&amp;=\infty
+</mrow>
+</md>
+Since <m>e \gt 2</m>, we see <m>\dfrac{e}{2} \gt 1</m>, and so <m>\lim\limits_{n \to \infty}\left(\dfrac{e}{2}\right)^n=\infty</m>.
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2012A</fromexam></title>
+<statement><p>
+Find the limit, if it exists, of the sequence <m>\big\{a_k\big\}</m>, where
+<me>
+a_k=\frac{k!\sin^3 k}{(k+1)!}
+</me>
+</p></statement>
+
+<hint><p>
+Simplify <m>a_k</m>.
+</p></hint>
+
+<answer><p>
+<m>\lim\limits_{k\rightarrow\infty}a_k= 0</m>.
+</p></answer>
+
+<solution><p>
+First, we simplify.  Remember <m>n! = n(n-1)(n-2)\cdots(2)(1)</m> for any whole number <m>n</m>, so <m>(k+1)!=(k+1)k!</m><nbsp/>.
+<md>
+<mrow>
+a_k&amp;=\frac{k!\sin^3k}{(k+1)!}=\frac{k!\sin^3k}{(k+1)k!} = \frac{\sin^3 k}{k+1}
+</mrow>
+</md>
+Now, we can use the squeeze theorem.
+<ul>
+<li> <m>-1 \leq \sin k \leq 1</m> for all <m>k</m>, so <m>-1 \leq \sin^3k \leq 1</m>. Let <m>b_k = \frac{-1}{k+1}</m> and <m>c_k = \frac{1}{k+1}</m>. Then <m>b_k \leq a_k \leq c_k</m>.
+</li>
+<li> Both <m>\lim\limits_{k \to \infty}b_k=0</m> and <m>\lim\limits_{k \to \infty}c_k=0</m>.
+</li>
+</ul>
+So, by the squeeze theorem, also <m>\displaystyle\lim_{k\to\infty} a_k=0</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2013A</fromexam></title>
+<statement><p>
+Consider the sequence <m>\Big\{(-1)^n\sin\big(\frac{1}{n}\big)\Big\}</m>.
+State whether this sequence converges or diverges, and if it converges
+give its limit.
+</p></statement>
+
+<hint><p>
+What happens to <m>\dfrac{1}{n}</m> as <m>n</m> gets very big?
+</p></hint>
+
+<answer><p>
+The sequence converges to <m>0</m>.
+</p></answer>
+
+<solution><p>
+Note <m>\lim\limits_{n\to \infty} (-1)^n</m> doesn't exist, but <m>-1 \leq (-1)^n\leq 1</m> for all <m>n</m>. Let's use the squeeze theorem.
+<ul>
+<li> Let <m>a_n=-\sin\left(\frac{1}{n}\right)</m> and <m>b_n=\sin\left(\frac{1}{n}\right)</m>. Then
+<m>a_n\leq (-1)^n\sin\left(\frac{1}{n}\right) \leq b_n</m>.
+</li>
+<li> Both <m>\lim\limits_{n \to \infty} -\sin\left(\frac{1}{n}\right)=0</m> and <m>\lim\limits_{n \to \infty} \sin\left(\frac{1}{n}\right)=0</m>, since <m>\lim\limits_{n \to \infty} \frac{1}{n}=0</m> and <m>\sin 0=0.</m>
+</li>
+</ul>
+By the squeeze theorem,
+the sequence <m>\left\{(-1)^n\sin\frac{1}{n}\right\}</m> converges to <m>0</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+Evaluate
+<m>
+\displaystyle\lim_{n\rightarrow\infty}\left[\frac{6n^2+5n}{n^2+1} +3\cos(1/n^2) \right]
+</m>.
+</p></statement>
+
+<hint><p>
+<m>\cos 0 =1</m>
+</p></hint>
+
+<answer><p>
+<m>9</m>
+</p></answer>
+
+<solution><p>
+First, we note that <m>\lim\limits_{n \to \infty}\dfrac{6n^2+5n}{n^2+1}=6</m>. We see this either by comparing the leading terms in the numerator and denominator, or by factoring out <m>n^2</m> from the top and the bottom.
+</p>
+
+<p>Second, since <m>\lim\limits_{n \to \infty}\dfrac{1}{n^2}=0</m>, we see
+<m>\lim\limits_{n \to \infty}\cos\left(\dfrac{1}{n^2}\right)=\cos0=1</m>.
+</p>
+
+<p>
+Using  arithmetic of limits, Theorem<nbsp/><xref ref="thm_SRlimarith"/> in the CLP-II text, we conclude
+<me>
+\displaystyle\lim_{n\rightarrow\infty}\left[\frac{6n^2+5n}{n^2+1} +3\cos(1/n^2) \right]
+=6+3(1)=9.
+</me>
+</p>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise><title><fromexam>M105 2015A</fromexam></title>
+<statement><p>
+Find the limit of the sequence
+<m>
+\displaystyle\left\{\log\left(\sin\frac{1}{n}\right)+\log(2n)\right\}
+</m>.
+</p></statement>
+
+<hint><p>
+This is trickier than it looks. Write <m>\dfrac{1}{n}=x</m> and look at the limit
+as <m>x\rightarrow 0</m>.
+</p></hint>
+
+<answer><p>
+<m>\log 2</m>
+</p></answer>
+
+<solution><p>
+Let's take stock: <m>\sin(1/n) \to \sin (0)=0</m> as <m>n \to \infty</m>, so <m>\log\left(\sin(1/n)\right)
+ \to -\infty</m>. However, <m>\log(2n) \to \infty</m>. So, we have some tension here: the two pieces behave in ways that pull the terms of the sequence in different directions. (Recall we <em>cannot</em> conclude anything like <q><m>-\infty+\infty=0</m>.</q>)
+</p>
+
+<p> We try using logarithm rules to get a clearer picture.
+ <md>
+<mrow>
+ \log\left(\sin\frac{1}{n}\right)+\log(2n)&amp;=\log\left(2n\sin\left(\frac1n\right)\right)
+ </mrow>
+</md>
+ Still, we have  indeterminate behaviour: <m>2n\sin(1/n)</m> is the product of <m>2n</m>, which grows without bound, and <m>\sin(1/n)</m>, which approaches zero. In the past, we learned that we can handle the indeterminate form <m>0\cdot\infty</m> with l'Hôpital's rule (after a little algebra), but there's a slicker way.  Note <m>1/n \to 0</m> as <m>n \to \infty</m>. If we write <m>\frac{1}{n}=x</m>, then this piece of our limit resembles something familiar.
+</p>
+
+<p><md>
+<mrow>
+2n\sin\left(\frac{1}{n}\right)&amp;=2\left(\frac{\sin x}{x}\right)
+</mrow>
+<intertext>If <m>n \to \infty</m>, then <m>x = \frac{1}{n}\to 0</m>.</intertext>
+<mrow>
+\lim_{n \to \infty}2n\sin\left(\frac{1}{n}\right)&amp;=2\lim_{x \to 0}\frac{\sin x}{x}
+</mrow>
+<intertext>That limit is familiar:</intertext><mrow>
+&amp;=2(1)=2
+</mrow>
+<intertext>Then:</intertext><mrow>
+\lim_{n \to \infty}\log\left(2n\sin\left(\frac{1}{n}\right)\right)&amp;=\log 2
+</mrow>
+</md>
+</p>
+
+<p>Note: if you have forgotten that <m>\displaystyle\lim_{x \to 0}\frac{\sin x}{x}=1</m>, you can also evaluate this limit using l'Hôpital's rule:
+<md>
+<mrow>
+\underbrace{\lim_{x \to 0}\frac{\sin x}{x}}_{\atp{\mathrm{num}\to 0}{\mathrm{den}\to0}} &amp;=\lim_{x \to 0}\frac{\cos x}{1}=\cos 0 =1
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s3_1_conj" purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\lim_{n \to \infty}\left[\sqrt{n^2+5n}-\sqrt{n^2-5n}\right]</m>.
+</p></statement>
+<hint><p>
+Multiply and divide by the conjugate.
+</p></hint>
+<answer><p>
+5
+</p></answer>
+<solution><p>
+First, although this sequence is not defined for some small values of <m>n</m>, it is defined as long as <m>n \geq 5</m>, so it's not a problem to take the limit as <m>n \to \infty</m>. Second, we notice that our limit has the indeterminate form <m>\infty-\infty</m>. Since this form is indeterminate, more work is needed to find our limit, if it exists.
+</p>
+
+<p>A standard trick we saw last semester with functions of this form was to multiply and divide by the conjugate of the expression, <m>\sqrt{n^2+5n}+\sqrt{n^2-5n}</m>. Then the denominator will be the <em>sum</em> of two similar things, rather than their difference. See the work below to find out why that is helpful.
+<md>
+<mrow>
+\sqrt{n^2+5n}-\sqrt{n^2-5n}&amp;=\big(\sqrt{n^2+5n}-\sqrt{n^2-5n}\big)\left(\frac{\sqrt{n^2+5n}+\sqrt{n^2-5n}}{\sqrt{n^2+5n}+\sqrt{n^2-5n}}\right)
+</mrow><mrow>
+&amp;=\frac{(n^2+5n)-(n^2-5n)}{\sqrt{n^2+5n}+\sqrt{n^2-5n}}
+</mrow><mrow>
+&amp;=\frac{10n}{\sqrt{n^2+5n}+\sqrt{n^2-5n}}
+</mrow>
+<intertext>Now, we'll cancel out <m>n</m> from the top and the bottom. Note <m>n=\sqrt{n^2}</m>.</intertext>
+<mrow>
+&amp;=\frac{10n}{\sqrt{n^2+5n}+\sqrt{n^2-5n}}\left(\frac{\frac1n}{\frac1n}\right)
+</mrow><mrow>
+&amp;=\frac{10n}{\sqrt{n^2+5n}+\sqrt{n^2-5n}}\left(\frac{\frac1n}{\frac{1}{\sqrt{n^2}}}\right)
+</mrow><mrow>
+&amp;=\frac{10}{\sqrt{1+\frac5n}+\sqrt{1-\frac5n}}
+</mrow>
+<intertext>Now, the limit is clear.</intertext><mrow>
+\lim_{n \to \infty}\frac{10}{\sqrt{1+\frac5n}+\sqrt{1-\frac5n}}&amp;=\frac{10}{\sqrt{1+0}+\sqrt{1+0}}=\frac{10}{1+1}=5
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\lim_{n \to \infty}\left[\sqrt{n^2+5n}-\sqrt{2n^2-5}\right]</m>.
+</p></statement>
+<hint><p>
+Compared to Question<nbsp/><xref ref="prob_s3_1_conj" text="local"/>, there's an easier path.
+</p></hint>
+<answer><p>
+<m>-\infty</m>
+</p></answer>
+<solution><p>
+First, although this sequence is not defined for some small values of <m>n</m>, it is defined as long as <m>n \geq \sqrt{2.5}</m>, so it's not a problem to take the limit as <m>n \to \infty</m>. Second, we notice that our limit has the indeterminate form <m>\infty-\infty</m>. Since this form is indeterminate, more work is needed to find our limit, if it exists.
+</p>
+
+<p>In Question<nbsp/><xref ref="prob_s3_1_conj" text="local"/>, we saw a similar limit, and made use of the conjugate. However, in this case, there's an easier path: let's factor out <m>n</m> from each term.
+<md>
+<mrow>
+\sqrt{n^2+5n}-\sqrt{2n^2-5}&amp;=\sqrt{n^2\left(1+\frac5n\right)}-\sqrt{n^2\left(2-\frac{5}{n^2}\right)}
+</mrow><mrow>
+&amp;=n\sqrt{1+\frac{5}{n}} - n\sqrt{2-\frac{5}{n^2}}
+</mrow><mrow>
+&amp;=n\left(\sqrt{1+\frac{5}{n}} - \sqrt{2-\frac{5}{n^2}}\right)
+</mrow>
+<intertext>Now, the limit is clear.</intertext><mrow>
+\lim_{n \to \infty}\left[\sqrt{n^2+5n}-\sqrt{2n^2-5}\right]&amp;=
+\lim_{n \to \infty}\left[n\left(\sqrt{1+\frac{5}{n}} - \sqrt{2-\frac{5}{n^2}}\right)
+\right]
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}\left[n\left(\sqrt{1+0} - \sqrt{2-0}\right)
+\right]
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}\left[n\left(-1\right)
+\right]=-\infty
+</mrow>
+</md>
+</p>
+
+<p>Remark: check Question<nbsp/><xref ref="prob_s3_1_conj" text="local"/> to see whether a similar trick would work there. Why or why not?
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s3_1_deriv">
+<statement><p>
+Evaluate the limit of the sequence <m>\left\{n\left[\left(2+\frac1n\right)^{100}-2^{100}\right]\right\}_{n=1}^{\infty}</m>.
+</p></statement>
+<hint><p>
+Consider <m>f'(x)</m>, when <m>f(x)=x^{100}</m>.
+</p></hint>
+<answer><p>
+<m>100\cdot 2^{99}</m>.
+</p></answer>
+<solution><p>
+First, we note that we have in indeterminate form: as <m>n</m> grows, <m>2+\frac1n \to 2</m>, so
+<m>n\left[\left(2+\frac1n\right)^{100}-2^{100}\right]</m> has the form <m>\infty \cdot 0</m>. To overcome this difficulty, we could use some algebra and l'Hôpital's rule, but there's a slicker way. If we let <m>h = \frac{1}{n}</m>, then <m>h \to 0</m> as <m>n\to\infty</m>, and our limit looks like:
+<md>
+<mrow>
+\lim_{n \to \infty}n\left[\left(2+\frac1n\right)^{100}-2^{100}\right]&amp;=
+\lim_{h \to 0}\frac{\left(2+h\right)^{100}-2^{100}}{h}
+</mrow>
+<intertext>This reminds us of the definition of a derivative.</intertext><mrow>
+\diff{}{x}\left\{x^{100}\right\}&amp;=\lim_{h \to 0}\frac{(x+h)^{100}-x^{100}}{h}
+</mrow>
+</md>
+So, if we set <m>f(x)=x^{100}</m>, our limit is simply <m>f'(2)</m>. That is, <m>\left[100x^{99}\right]_{x=2}= 100\cdot 2^{99}</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Write a sequence <m>\{a_n\}_{n=1}^\infty</m> whose limit is <m>f'(a)</m> for a function <m>f(x)</m> that is differentiable at the point <m>a</m>.
+</p>
+
+<p> Your answer will depend on <m>f</m> and <m>a</m>.
+</p></statement>
+<hint><p>
+Look to Question<nbsp/><xref ref="prob_s3_1_deriv" text="local"/> for inspiration.
+</p></hint>
+<answer><p>
+Possible answers are <m>\{a_n\}=\left\{\displaystyle n\left[f\left(a+\frac{1}{n}\right)-f(a)\right]\right\}</m>
+ or
+ <m>\{a_n\}=\left\{\displaystyle n\left[f(a)-f\left(a-\frac{1}{n}\right)\right]\right\}</m>.
+</p></answer>
+<solution><p>
+Using the definition of a derivative,
+<md>
+<mrow>
+f'(a)&amp;=\lim_{h \to 0}\frac{f(a+h)-f(a)}{h}
+</mrow>
+<intertext>We want <m>n\to \infty</m>, so we set <m>h = \frac{1}{n}</m>.</intertext><mrow>
+&amp;=\lim_{\frac{1}{n}\to 0}\frac{f\left(a+\frac{1}{n}\right)-f(a)}{\frac{1}{n}}
+</mrow><mrow>
+&amp;=\lim_{n\to \infty}n\left[f\left(a+\frac{1}{n}\right)-f(a)\right]
+</mrow>
+<intertext>We also could have chosen <m>h=-\frac{1}{n}</m>, which leads to the following:</intertext>
+<mrow>
+\lim_{h \to 0}\frac{f(a+h)-f(a)}{h}&amp;=
+\lim_{-\frac1n \to 0}\frac{f\left(a-\frac{1}{n}\right)-f(a)}{-1/n}
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}-n\left(f\left(a-\frac{1}{n}\right)-f(a)\right)
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}n\left(f(a)-f\left(a-\frac{1}{n}\right)\right)
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>\{A_n\}_{n=3}^\infty</m> be the area of a regular polygon with <m>n</m> sides, with the distance from the centroid of the polygon to each corner equal to 1.
+</p>
+
+<sidebyside width="80%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\foreach \x in {0,1,2}{
+	\draw (0,0)+(-30+120*\x:2cm) coordinate (a\x);
+	\draw[dashed] (0,0)--(a\x);}
+\draw (a0)--(a1)--(a2)--(a0);
+\draw (0,.75) node[left]{1};
+\draw (0,-1.5) node[below]{$A(3)=\frac{3\sqrt{3}}{4}$};
+\begin{scope}[xshift=5cm]
+\foreach \x in {0,1,2,3}{
+	\draw (0,0.5)+(45+90*\x:2cm) coordinate (a\x);
+	\draw[dashed] (0,0.5)--(a\x);}
+\draw (a0)--(a1)--(a2)--(a3)--(a0);
+\draw (-0.5,1) node[left]{1};
+\draw (0,-1.5) node[below]{$A(4)=2$};
+\end{scope}
+\begin{scope}[xshift=10cm]
+\foreach \x in {0,1,2,3,4}{
+	\draw (0,0.5)+(18+72*\x:2cm) coordinate (a\x);
+	\draw[dashed] (0,0.5)--(a\x);}
+\draw (a0)--(a1)--(a2)--(a3)--(a4)--(a0);
+\draw (-0.5,1) node[left]{1};
+\draw (0,-1.5) node[below]{$A(5)=2.5\sin(0.4\pi)$};
+\end{scope}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+<ol label="a">
+<li> By dividing the polygon into <m>n</m> triangles, give a formula for <m>A_n</m>.
+</li>
+<li> What is <m>\lim\limits_{n \to \infty} A_n</m>?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+The area of an isosceles triangle with two sides of length 1, meeting at an angle <m>\theta</m>, is <m>\frac{1}{2}\sin\theta</m>.
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0)--(4,0)--(2.8,2.8)--cycle;
+\draw (.5,0) arc (0:45:5mm) node[midway,  right]{$\theta$};
+\draw[dashed] (2.8,0)--(2.8,2.8) node[midway, rotate=90, yshift=3mm]{$\sin\theta$};
+\draw (1.5,2) node{1};
+\draw (2,-.5) node{1};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></hint>
+<answer><p>
+(a) <m>A_n = \dfrac{n}{2}\sin\left(\dfrac{2\pi}{n}\right)</m>  (b) <m>\pi</m>
+</p></answer>
+<solution><p>
+(a)
+To find the area <m>A_n</m>, note that the figure with <m>n</m> sides can be divided up into <m>n</m> isosceles triangles, each with two sides of length 1 and angle between them of <m>\frac{2\pi}{n}</m>:
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\foreach \x in {0,1,2,3,4}{
+	\draw (0,0.5)+(18+72*\x:2cm) coordinate (a\x);
+	\draw[dashed] (0,0.5)--(a\x);}
+\draw (a0)--(a1)--(a2)--(a3)--(a4)--(a0);
+\draw (0.5,1) node[right]{1};
+\draw (0.25,-.5) node[right]{1};
+\draw[blue] (0,0.5)+(18:.5cm) arc (18:-54:.5cm) node[midway, right]{$\frac{2\pi}{n}$};
+\fill[red, fill opacity=0.1] (0,0.5)--(a0)--(a4)--cycle;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Each of these triangles has area <m>\frac{1}{2}\sin\left(\frac{2\pi}{n}\right)</m>:
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[fill, fill=red, fill opacity=0.1] (0,0)--(4,0)--(2.8,2.8)--cycle;
+\draw (.5,0) arc (0:45:5mm) node[midway, right]{$\frac{2\pi}{n\vphantom{\frac12}}$};
+\draw[dashed] (2.8,0)--(2.8,2.8) node[midway, rotate=90, yshift=3mm]{$\sin\frac{2\pi}{n}$};
+\draw (1.5,2) node{1};
+\draw (2,-.5) node{1};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+All together, the area of the <m>n</m>-sided figure is <m>A_n = \displaystyle\frac{n}{2}\sin\left(\frac{2\pi}{n}\right)</m>.
+</p>
+
+<p>
+(b)
+We will discuss two ways to find <m>\displaystyle\lim_{n \to \infty} A_n</m>, which has the indeterminate form <m>\infty \times 0</m>.
+</p>
+
+<p>First, note that as <m>n \to \infty</m>, our figures look more and more like a circle of radius 1. So, we see <m>A_n</m> is approaching the area of a circle of radius 1. That is, <m>\displaystyle\lim_{n \to \infty}A_n = \pi</m>.
+</p>
+
+<p>Alternately, we can make use of the limit <m>\lim\limits_{x \to 0}\frac{\sin x}{x}=1</m>. Let <m>x=\frac{2\pi}{n}</m>. Note if <m>n \to \infty</m>, then <m>x \to 0</m>.
+<md>
+<mrow>
+\lim_{n \to \infty}A_n&amp;=\lim_{n \to \infty}\frac{n}{2}\sin\left(\frac{2\pi}{n}\right)
+ = \lim_{n \to \infty}\frac{\pi}{\frac{2\pi}{n}}\sin\left(\frac{2\pi}{n}\right)
+</mrow><mrow>
+ &amp;=\lim_{x \to 0}\pi\frac{\sin x}{x} =\pi\times 1=\pi
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement>
+
+<p>Suppose we define a sequence <m>\{f_n\}</m>, which depends on some constant <m>x</m>, as the following:
+<me>
+f_n(x) = \begin{cases}
+1 &amp; n \leq x  \lt  n+1\\
+0 &amp; \text{else}
+\end{cases}</me>
+</p>
+
+<p>For a fixed constant <m>x \ge 1</m>, <m>\{f_n\}</m> is the sequence <m>\{0,0,0,\ldots,0,1,0,\ldots,0,0,0,\ldots\}</m>. The sole nonzero element comes in position <m>k</m>, where <m>k</m> is what we get when we round <m>x</m> <em>down</em> to a whole number. If <m>x \lt 1</m>, then the sequence consists of all zeroes.
+</p>
+
+<p>Since we can plug in different values of <m>x</m>, we can think of <m>f_n(x)</m> as a function of sequences: a different <m>x</m> gives you a different sequence. On the other hand, if we imagine fixing <m>n</m>, then <m>f_n(x)</m> is just a function, where <m>f_n(x)</m> gives the <m>n</m>th term in the sequence corresponding to <m>x</m>.
+</p>
+
+<p><ol label="a">
+<li> Sketch the curve <m>y=f_2(x)</m>.
+</li>
+<li> Sketch the curve <m>y=f_3(x)</m>.
+</li>
+<li> Define <m>A_n = \int_0^\infty f_n(x)\,\dee{x}</m>. Give a simple description of the sequence <m>\{A_n\}_{n=1}^\infty</m>.
+</li>
+<li> Evaluate <m>\displaystyle\lim_{n \to \infty}A_n</m>.
+</li>
+<li> Evaluate <m>\displaystyle\lim_{n \to \infty}  f_n(x)</m> for a constant <m>x</m>, and call the result <m>g(x)</m>.
+</li>
+<li> Evaluate <m>\displaystyle \int_0^\infty g(x)\,\dee{x}</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Every term of <m>A_n</m> is the same, and <m>g(x)</m> is a constant function.
+</p></hint>
+<answer><p>
+<ol label="a">
+<li>
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{5}{.5}{2}
+\YEycoord{1}{1}
+\YExcoord{2}{2}
+\YExcoord{3}{3}
+\draw[thick, blue] (-.5,0)--(2,0) node[opendot]{};
+\draw[thick, blue] (3,0) node[vertex]{}--(5,0);
+\draw[thick, blue] (2,1) node[vertex]{} --(3,1) node[opendot]{};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li>
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{5}{.5}{2}
+\YEycoord{1}{1}
+\YExcoord{4}{4}
+\YExcoord{3}{3}
+\draw[thick, blue] (-.5,0)--(3,0) node[opendot]{};
+\draw[thick, blue] (4,0) node[vertex]{}--(5,0);
+\draw[thick, blue] (3,1) node[vertex]{} --(4,1) node[opendot]{};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li> <m>A_n=1</m> for all <m>n</m>
+</li>
+<li>  <m>\displaystyle\lim_{n \to \infty}A_n=1</m>.
+</li>
+<li> <m>g(x)=0</m>
+</li>
+<li> <m>\displaystyle \int_0^\infty g(x)\,\dee{x} =0</m>.
+</li>
+</ol>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<p>
+<m>f_2(x) = \begin{cases}
+1 &amp; 2 \leq x  \lt  3\\
+0 &amp; \text{else}
+\end{cases}
+</m>
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{5}{.5}{2}
+\YEycoord{1}{1}
+\YExcoord{2}{2}
+\YExcoord{3}{3}
+\draw[thick, blue] (-.5,0)--(2,0) node[opendot]{};
+\draw[thick, blue] (3,0) node[vertex]{}--(5,0);
+\draw[thick, blue] (2,1) node[vertex]{} --(3,1) node[opendot]{};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li> <p>
+<m>f_3(x) = \begin{cases}
+1 &amp; 3 \leq x  \lt  4\\
+0 &amp; \text{else}
+\end{cases}</m>
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{5}{.5}{2}
+\YEycoord{1}{1}
+\YExcoord{4}{4}
+\YExcoord{3}{3}
+\draw[thick, blue] (-.5,0)--(3,0) node[opendot]{};
+\draw[thick, blue] (4,0) node[vertex]{}--(5,0);
+\draw[thick, blue] (3,1) node[vertex]{} --(4,1) node[opendot]{};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li><p>
+For any <m>n</m>, <m>f_n(x)=1</m> for an interval of length 1, and <m>f_n(x)=0</m> for all other <m>x</m>. So, the area under the curve is a square of side length one.
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{5}{.5}{2}
+\YEycoord{1}{1}
+\draw[thick, blue] (-.5,0)--(3,0) node[opendot]{};
+\draw[thick, blue] (4,0) node[vertex]{}--(5,0);
+\draw[thick, blue] (3,1) node[vertex]{} --(4,1) node[opendot]{};
+\fill[blue, fill opacity=0.1] (3,0) rectangle (4,1);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+<p>
+Then
+<m>A_n = \int_0^\infty f_n(x)\,\dee{x}=1</m> for all <m>n</m>. That is, the sequence <m>\{A_n\}</m> is simply <m>\{1,1,\ldots,1\}</m>, a sequence of all 1s.
+</p>
+</li>
+<li> Given the description above, <m>\displaystyle\lim_{n \to \infty}A_n=1</m>.
+</li>
+<li> For any fixed <m>x</m>, recall <m>\{f_n(x)\} = \{0,\ldots,0,1,0,\ldots 0,0,0,0,0,\ldots\}</m>. In particular, there are infinitely many zeroes at its end.
+So, <m>\displaystyle\lim_{n \to \infty}  f_n(x)=0</m>.
+Then  <m>g(x)=0</m> for every <m>x</m>.
+</li>
+<li> Given the description above, <m>\displaystyle \int_0^\infty g(x)\,\dee{x} = \int_0^{\infty}0\,\dee{x}=0</m>.
+</li>
+</ol>
+Remark: what we've shown here is that, for this particular <m>f_n(x)</m>,
+<me>
+\lim_{n \to \infty}\int_0^{\infty}f_n(x)\,\dee{x} \neq
+\int_0^{\infty}\lim_{n \to \infty} f_n(x)\,\dee{x} </me>
+</p>
+
+<p>That is, we can't necessarily swap a limit with an integral (which is, in this case, another limit, since the integral is improper). The interested reader can look up <q>uniform convergence</q> to learn about the conditions under which these <em>can</em> be swapped.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Determine the limit of the sequence <m>\displaystyle b_n=\left(1+\frac{3}{n}+\frac{5}{n^2}\right)^n</m>.
+</p></statement>
+<hint><p>
+You'll need to use a logarithm before you can apply l'Hôpital's rule.
+</p></hint>
+<answer><p>
+<m>e^3</m>
+</p></answer>
+<solution><p>
+If we naively try to find the limit, we run up against the indeterminate form <m>1^{\infty}</m>. We'd like to use l'Hôpital's rule, but we don't have the form <m>\frac{\infty}{\infty}</m> or <m>\frac{0}{0}</m> <mdash/> we'll need to use a logarithm. Additionally, l'Hôpital's rule applies to differentiable functions defined for real numbers <mdash/> so we'll consider a function, rather than the sequence.
+</p>
+
+<p>Note the terms of the sequence are all positive.
+</p>
+
+<p><ul>
+<li><p>
+Solution 1: Define <m>x=\frac{1}{n}</m>, and <m>f(x)=\left(1+3x+5x^2\right)^{1/x}</m>. Then <m>b_n=f\left(\frac{1}{n}\right)=f(x)</m>, and
+ <me>
+\lim_{n \to \infty} f\left(\frac{1}{n}\right) = \lim_{x \to 0^+}f(x).
+</me>
+If this limit exists, it is equal to <m>\lim\limits_{n \to \infty}b_n</m>.
+ <md>
+<mrow>
+  \lim_{x \to 0^+}f(x)&amp;= \lim_{x \to 0^+} \left(1+3x+5x^2\right)^{1/x}
+</mrow><mrow>
+  \lim_{x \to 0^+}\log[f(x)]&amp;= \lim_{x \to 0^+} \log\left[\left(1+3x+5x^2\right)^{1/x}\right]
+  =\underbrace{ \lim_{x \to 0^+}\frac{ \log\left[1+3x+5x^2 \right]}{x}}_{\atp{\mathrm{num}\to 0}{\mathrm{den}\to0}}
+</mrow><mrow>
+  &amp;=\lim_{x \to 0^+}\frac{\frac{3+10x}{1+3x+5x^2}}{1}=3
+</mrow><mrow>
+  \lim_{x \to 0^+}f(x)&amp;=e^3
+ </mrow>
+</md>
+ Since the limit exists, <m>\lim\limits_{n \to \infty}b_n=e^3</m>.
+ </p>
+</li>
+<li><p>
+Solution 2:
+ If we didn't see the nice simplifying trick of letting <m>x=\frac{1}{n}</m>, we can still solve the problem using <m>g(x)=\left(1+\frac{3}{x}+\frac{5}{x^2}\right)^{x}</m>:
+<md>
+<mrow>
+g(x)&amp;=\left(1+\frac{3}{x}+\frac{5}{x^2}\right)^x
+</mrow><mrow>
+\log [g(x)]&amp;= x\log\left[1+\frac{3}{x}+\frac{5}{x^2}\right]
+=\underbrace{\frac{\log\left[1+\frac{3}{x}+\frac{5}{x^2}\right]}{1/x}}_{\atp{\mathrm{num}\to 0}{\mathrm{den}\to0}}
+</mrow><mrow>
+\lim_{x \to \infty} \log[g(x)]&amp;=\lim_{x \to \infty}\dfrac{\frac{-\frac{3}{x^2}-\frac{10}{x^3}}{1+\frac{3}{x}+\frac{5}{x^2}}}{\frac{-1}{x^2}}=
+\lim_{x \to \infty}x^2\frac{\frac{3}{x^2}+\frac{10}{x^3}}{1+\frac{3}{x}+\frac{5}{x^2}}
+=
+\lim_{x \to \infty}\frac{3+\frac{10}{x}}{1+\frac{3}{x}+\frac{5}{x^2}} = \frac{3+0}{1+0+0}=3
+</mrow><mrow>
+\lim_{x \to \infty} f(x)&amp;=e^3</mrow>
+</md>
+</p>
+
+<p>Since the limit exists, <m>\lim\limits_{n \to \infty} b_n =e^3</m>
+</p>
+</li>
+</ul>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+A sequence <m>\big\{a_n\big\}_{n=1}^\infty</m> of real numbers satisfies the
+recursion relation <m>a_{n+1} = \dfrac{a_n+8}{3}</m> for <m>n\ge 2</m>.
+<ol label="a">
+<li> Suppose <m>a_1=4</m>. What is <m>\lim\limits_{n \to \infty}a_n</m>?
+</li>
+<li> Find <m>x</m> if  <m>x=\dfrac{x+8}{3}</m>.
+</li>
+<li> Suppose <m>a_1=1</m>. Show that <m>\lim\limits_{n\rightarrow\infty} a_n = L</m>,
+where <m>L</m> is the solution to equation above.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+(a) Write out the first few terms of the sequence.
+</p>
+<p>
+(c) Consider how <m>a_{n+1}-L</m> relates to <m>a_{n}-L</m>. What should happen to these numbers if <m>a_n</m> converges to <m>L</m>?
+</p></hint>
+
+<answer><p>
+(a) 4  (b) <m>x=4</m>
+(c) see solution
+</p></answer>
+
+<solution><p>
+<ol label="a">
+<li> When <m>a_1=4</m>, we see <m>a_2=\dfrac{4+8}{3}=4</m>, and so on. That is, <m>a_n=4</m> for every <m>n</m>. So, <m>\lim\limits_{n \to \infty} a_n=4</m>.
+</li>
+<li> Cross-multiplying, we see <m>3x=x+8</m>, hence <m>x=4</m>.
+</li>
+<li> In order for our sequence to converge to 4, the terms should be getting infinitely close to 4. So, we find the relationship between <m>\textcolor{red}{a_{n+1}-4}</m> and <m>\textcolor{blue}{a_n-4}</m>.
+<md>
+<mrow>
+a_{n+1}&amp;= \frac{a_n+8}{3}
+</mrow><mrow>
+\textcolor{red}{a_{n+1}-4}&amp;= \frac{a_n+8}{3} -4=\frac{\textcolor{blue}{a_n-4}}{8}
+</mrow>
+</md>
+So, the distance between our sequence terms and the number 4 is decreasing by a factor of 8 each term. This implies that the terms get infinitely close to 4 as <m>n</m> grows. That is, <m>\lim\limits_{n \to \infty}a_n=4</m>.
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+	Zipf's Law applied to word frequency can be phrased as follows:
+	<blockquote>
+<p>
+		The most-used word in a language is used <m>n</m> times as frequently as the <m>n</m>-th most word used in a language.
+	</p></blockquote>
+</p>
+
+<p>	<ol label="a">
+<li> Suppose the sequence <m>\{w_1,w_2,w_3,\ldots\}</m> is a list of all words in a language, where <m>w_n</m> is the word that is the <m>n</m>th most frequently used. Let <m>f_n</m> be the frequency of word <m>w_n</m>. Is <m>\{f_1,f_2,f_3,\ldots\}</m> an increasing sequence or a decreasing sequence?
+</li>
+<li> Give a general formula for <m>f_n</m>, treating <m>f_1</m> as a constant.
+</li>
+<li> Suppose in a language, <m>w_1</m> (the most frequently used word) has frequency <m>6\%</m>. If the language follows Zipf's Law, then what frequency does <m>w_3</m> have?
+</li>
+<li> Suppose <m>f_6=0.3\%</m> for a language following Zipf's law. What is <m>f_{10}</m>?
+</li>
+<li> The word <q>the</q> is the most-used word in contemporary American English. In a collection of about 450 million words, <q>the</q> appeared 22,038,615 times. The second-most used word is <q>be,</q> followed by <q>and.</q> About how many usages of these words do you expect in the same collection of 450 million words?
+</li>
+</ol>
+	Sources:
+<ul>
+<li> <url href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4176592/">Zipf’s word frequency law in natural language: A critical review and future directions, Steven T. Piantadosi. Psychon Bull Rev. 2014 Oct; 21(5): 1112–1130</url>. Accessed online 11 October 2017.
+</li>
+<li>
+<url href="https://www.wordfrequency.info/free.asp?s=y">Word Frequency Data</url>. Accessed online 11 October 2017.
+</li>
+</ul>
+</p></statement>
+<hint><p>
+	Your answer from (b) will help you a lot with the subsequent parts.
+</p></hint>
+<answer><p>
+	(a) decreasing (b)<m>f_n=\frac{1}{n}f_1</m> (c)  <m>2\%</m>(d) <m>0.18\%</m>
+	</p><p>
+	(e) <q>be</q>:  11,019,308; <q>and</q>:  7,346,205
+</p></answer>
+<solution><p>
+	<ol label="a">
+<li> Since <m>w_1</m> has the highest frequency, <m>w_2</m> has the next-highest frequency, and so on, we know <m>f_1</m> is larger than the other members of its sequence, <m>f_2</m> is the next largest, etc. So, <m>\{f_n\}</m> is a decreasing sequence.
+</li>
+<li> The most-used word in a language is <m>w_1</m>, while the <m>n</m>-th most used word in a language is <m>w_n</m>. So, we re-state the law as:
+		<me>
+f_1=nf_n</me>
+ Then we can rewrite this fomula a little more naturally as <m>f_n=\frac{1}{n}f_1</m>.
+</li>
+<li> Then <m>f_3=\frac{1}{3}f_1</m>. In this case, we expect the third-most used word to account for  <m>\frac{1}{3}(6\%) = 2\%</m> of all words.
+</li>
+<li><p>
+From (b), we know <m>f_{10}=\frac{1}{10}f_1</m>. Note <m>f_1=6f_6=6(0.3\%)</m>. Then:
+<me>
+f_{10}=\frac{1}{10}f_1 = \frac{1}{10}6f_6=\frac{1}{10}(6)(0.3\%)=\frac{1.8}{10}\%=0.18\%
+</me>
+</p>
+
+<p>
+So, <m>f_{10}</m> should be <m>0.18\%</m> of all words.
+</p>
+</li>
+<li><p>
+The use of the word <q>frequency</q> in the statement of Zipf's law implies <m>f_n = \frac{\text{uses of $w_n$}}{\text{total number of words}}</m>. The question asks for the total uses of <m>w_n</m>. If we call this quantity <m>t_n</m>, and the total number of all words is <m>T</m>, then Zipf's law tells us <m>\frac{t_n}{T}=\frac{1}{n}\frac{t_1}{T}</m>, hence <m>t_n=\frac{1}{n}t_1</m>.
+</p>
+
+<p>
+With this notation, the problem states <m>t_1=22,038,615</m>, <m>w_1=\texttt{the}</m>, <m>w_2=\texttt{be}</m>, and  <m>w_3=\texttt{and}</m>.
+</p>
+
+<p>
+Following Zipf's law, <m>t_n=\frac1nt_1</m>. So, we expect <m>t_2=\frac{t_1}{2} = 11,019,307.5</m>; since this isn't an integer, let's say we expect <m>t_2\approx 11,019,308</m>. Similarly, we expect  <m>t_3=\frac{t_1}{3} = 7,346,205</m>.
+</p>
+
+<p>
+Remark: The 450-million-word source material that used <q>the</q> 22,038,615 times also contained 12,545,825 instances of <q>be,</q> and 10,741,073 instances of <q>and.</q> While Zipf's Law might be a nice model for our data overall, in these few instances it does not appear to be extremely accurate.
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise></exercisegroup>
+
+</exercises>

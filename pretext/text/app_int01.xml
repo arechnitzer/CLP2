@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_work">
+<title>Work</title>
+<introduction></introduction>
+<subsection><title>Work</title>
+
+<p>
+While computing areas and volumes are nice mathematical applications of integration we  can also use integration to compute quantities of importance in physics and statistics.  One such quantity is work. Work is a way of quantifying the amount of energy that is  required to act against a force
+	<fn>
+		For example <mdash/> if your expensive closed-source  textbook has fallen on the floor, work quantifies the amount of energy required to lift  the object from the floor acting against the force of gravity.
+	</fn>.
+In SI
+	<fn>
+		SI is  short for <q>le système international d'unités</q> which is French for <q>the  international system of units</q>. It is the most recent internationally sanctioned version  of the metric system, published in 1960. It aims to establish sensible units of  measurement (no cubic furlongs per hogshead-Fahrenheit). It defines seven base units <mdash/>  metre (length), kilogram (mass), second (time), kelvin (temperature), ampere (electric  current), mole (quantity of substance) and candela (luminous intensity). From these one  can then establish derived units <mdash/> such as metres per second for velocity and speed.
+	</fn>
+metric units the force <m>F</m> has units newtons (which are kilogram-metres per second  squared), <m>x</m> has units metres and the work <m>W</m> has units joules (which are newton-metres  or kilogram-metres squared per second squared).
+</p>
+
+<definition xml:id="def_WKwork">
+<statement><p>
+The work done by a force <m>F(x)</m> in moving an object from <m>x=a</m> to <m>x=b</m> is
+<md>
+<mrow>
+W=\int_a^b F(x)\dee{x}
+</mrow>
+</md>
+In particular, if the force is a constant, <m>F</m>, independent of <m>x</m>, the work is <m>F\cdot(b-a)</m>.
+</p></statement>
+</definition>
+
+
+<p>
+Here is some motivation for this definition. Consider a particle of mass <m>m</m> moving along the <m>x</m>-axis. Let the position of the particle at time <m>t</m> be <m>x(t)</m>.  The particle starts at position <m>a</m> at time <m>\alpha</m>, moves to the right, finishing at  position <m>b \gt a</m> at time <m>\beta</m>. While the particle moves, it is subject to a  position-dependent force <m>F(x)</m>. Then Newton's law of motion
+	<fn>
+		Specifically, the  second of Newton's three law of motion. These were first published in 1687 in his  <q>Philosophiæ Naturalis Principia Mathematica</q>.
+	</fn>
+says
+	<fn>
+		It actually says  something more graceful in latin - Mutationem motus proportionalem esse vi motrici  impressae, et fieri secundum lineam rectam qua vis illa imprimitur. Or <mdash/>  The alteration of motion is ever proportional to the motive force impressed; and is made  in the line in which that force is impressed. It is amazing what you can find on the internet.
+	</fn>
+that force is mass times acceleration
+<md>
+<mrow>
+m\ddiff{2}{x}{t}(t) = F\big(x(t)\big)
+</mrow>
+</md>
+Now consider our definition of work above. It tells us that the work done in moving the  particle from <m>x=a</m> to <m>x=b</m> is
+<md>
+<mrow>
+  W &amp;= \int_a^b F(x) \dee{x}
+</mrow>
+</md>
+However, we know the position as a function of time, so we can substitute <m>x=x(t)</m>,  <m>\dee{x}=\diff{x}{t}\dee{t}</m> (using Theorem<nbsp/><xref ref="thm_subs_def"/>) and rewrite  the above integral:
+<md>
+<mrow>
+  W = \int_a^b F(x) \dee{x}
+  &amp;= \int_{t=\alpha}^{t=\beta} F(x(t))\diff{x}{t} \dee{t}
+</mrow>
+<intertext>Using Newton's second law we can rewrite our integrand:</intertext>
+<mrow>
+&amp;= m \int_\alpha^\beta \ddiff{2}{x}{t} \diff{x}{t} \dee{t}
+</mrow><mrow>
+&amp;= m \int_\alpha^\beta \diff{v}{t} v(t)\dee{t} &amp; \text{since $v(t)=\diff{x}{t}$}
+</mrow><mrow>
+&amp;= m \int_\alpha^\beta \diff{}{t} \left( \frac{1}{2} v(t)^2 \right) \dee{t}
+</mrow>
+</md>
+What happened here? By the chain rule, for any function <m>f(t)</m>:
+<md>
+<mrow>
+  \diff{}{t}\left( \frac{1}{2} f(t)^2 \right) &amp;= f(t) f'(t).
+</mrow>
+</md>
+In the above computation we have used this fact with <m>f(t) = v(t)</m>. Now using the  fundamental theorem of calculus (Theorem<nbsp/><xref ref="thm_INTfundthmofcalc"/> part 2), we have
+<md>
+<mrow>
+W&amp;= m \int_\alpha^\beta \diff{}{t} \left( \frac{1}{2} v(t)^2 \right) \dee{t}
+</mrow><mrow>
+&amp;= \frac{1}{2} mv(\beta)^2 - \frac{1}{2}mv(\alpha)^2.
+</mrow>
+</md>
+By definition, the function <m>\frac{1}{2} mv(t)^2</m> is the kinetic energy
+	<fn>
+		This is not a physics text so we will not be too precise. Roughly  speaking, kinetic energy is the energy an object possesses due to it being in motion, as  opposed to potential energy, which is the energy of the object due to its position in a  force field. Leibniz and Bernoulli determined that kinetic energy is proportional to the  square of the velocity, while the modern term <q>kinetic energy</q> was first used by Lord  Kelvin (back while he was still William Thompson).
+	</fn>
+of the particle at time <m>t</m>. So the  work <m>W</m> of Definition <xref ref="def_WKwork"/> is the change in kinetic energy from the time the particle was at <m>x=a</m> to the time it was at <m>x=b</m>.
+</p>
+
+<example xml:id="eg_WKhookes"><title>Hooke's Law</title>
+<p>
+Imagine that a spring lies along the <m>x</m>-axis. The left hand end is fixed to a wall, but the right hand end lies freely at <m>x=0</m>. So the spring is at its <q>natural length</q>.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/spring"/>
+</sidebyside>
+
+<p>
+<ul>
+<li> Now suppose that we wish to stretch out the spring so that its right hand end is at <m>x=L</m>. </li>
+<li> Hooke's Law
+	<fn>
+		Robert Hooke (1635<ndash/>1703) was an English contemporary of Isaac Newton (1643<ndash/>1727). It was in a 1676 letter to Hooke that Newton wrote  <q>If I have seen further it is by standing on the  shoulders of Giants.</q> There is some  thought that this was sarcasm and Newton was actually making fun of Hooke,  who had a spinal deformity. However at that time Hooke and Newton were still friends.  Several years later they did have a somewhat public falling-out over some of Newton's work  on optics.
+	</fn>
+	says that when a (linear) spring is stretched (or compressed) by <m>x</m> units beyond its natural length, it exerts a force of  magnitude <m>kx</m>, where the constant <m>k</m> is the spring constant of that spring.
+</li>
+<li>
+	In our case, once we have stretched the spring by <m>x</m> units to the right, the spring will be trying to pull back the right hand end by applying a force of magnitude <m>kx</m> directed to the left.
+</li>
+<li>
+	For us to continue stretching the spring we will have to apply a compensating force of magnitude <m>kx</m> directed to the right. That is, we have to apply  the force <m>F(x) = +kx</m>.
+</li>
+<li>
+	So to stretch a spring by <m>L</m> units from its natural length we have to supply the  work
+	<md>
+	<mrow>
+	W &amp;=\int_0^L k x\dee{x} =\frac{1}{2}kL^2
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_WKspring"><title>Spring</title>
+<p>
+A spring has a natural length of <m>0.1</m>m. If a <m>12</m>N force is  needed to keep it stretched to a length of <m>0.12</m>m, how much work is required to stretch it from <m>0.12</m>m to <m>0.15</m>m?
+</p>
+
+<p>
+<alert>Solution:</alert> In order to answer this question we will need to determine the spring constant and  then integrate the appropriate function.
+<ul>
+<li>
+	Our first task is to determine the spring constant <m>k</m>. We are told that when the spring is stretched to a length of <m>0.12</m>m, i.e. to a length of <m>0.12-0.1=0.02</m>m beyond its natural length, then the spring generates a force of magnitude <m>12</m>N.
+</li>
+<li>
+	Hooke's law states that the force exerted by the spring, when it is stretched by <m>x</m> units, has magnitude <m>k x</m>, so
+	<md>
+	<mrow>
+	  12 &amp;= k \cdot 0.02 = k \cdot \frac{2}{100} &amp; \text{thus}
+	</mrow><mrow>
+	  k &amp;=600.
+	</mrow>
+	</md>
+</li>
+<li>
+<p>
+	So to stretch the spring
+	<ul>
+	<li>
+		from a length of <m>0.12</m>m, i.e. a length of <m>x=0.12-0.1=0.02</m>m beyond its natural length,
+	</li>
+	<li>
+		to a length of <m>0.15</m>m, i.e. a length of <m>x=0.15-0.1=0.05</m>m beyond its natural length,
+	</li>
+	</ul>
+	takes work
+	<md>
+	<mrow>
+	W &amp;=\int_{0.02}^{0.05} k x \dee{x}  =  \left[\frac{1}{2}kx^2\right]_{0.02}^{0.05}
+	</mrow><mrow>
+	&amp;=300\big(0.05^2-0.02^2\big)
+	</mrow><mrow>
+	&amp;=0.63\mathrm{J}
+	</mrow>
+	</md>
+</p>
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_WKdrum"><title>Pumping Out a Reservoir</title>
+<p>
+A cylindrical reservoir
+	<fn>
+		We could assign units to these measurements <mdash/> such as  metres for the lengths <m>h</m> and <m>r</m>, and kilograms per cubic metre for the density <m>\rho</m>.
+	</fn>
+of height <m>h</m> and radius <m>r</m> is filled with a fluid of density <m>\rho</m>. We would like to know how much work is required to pump all of the fluid out the top of the reservoir.
+</p>
+
+<sidebyside width="33%" valign="middle">
+<image source="text/figs/drum"/>
+<image source="text/figs/drumX"/>
+</sidebyside>
+
+<p>
+<alert>Solution:</alert>
+We are going to tackle this problem by applying the standard integral calculus <q>slice into small pieces</q> strategy. This is how we computed areas and  volumes <mdash/> slice the problem into small pieces, work out how much each piece contributes,  and then add up the contributions using an integral.
+</p>
+
+<p>
+<ul>
+<li>
+	Start by slicing the reservoir (or rather the fluid inside it) into thin,  horizontal, cylindrical pancakes, as in the figure above. We proceed by detemining how  much work is required to pump out this pancake volume of fluid
+	<fn>
+		Potential for a bad <q>work out how much work out</q> pun here.
+	</fn>.
+</li>
+<li>
+	Each pancake is a squat cylinder with thickness <m>\dee{x}</m> and circular cross  section of radius <m>r</m> and area <m>\pi r^2</m>. Hence it has volume <m>\pi r^2 \dee{x}</m> and mass  <m>\rho \times \pi r^2\dee{x}</m>.
+</li>
+<li>
+	Near the surface of the Earth gravity exerts a downward force of  <m>mg</m> on a body of mass <m>m</m>. The constant <m>g=9.8</m>m/<m>\mathrm{sec}^2</m>  is called the <em>standard acceleration due to gravity</em>
+		<fn>
+			This quantity is not  actually constant <mdash/> it varies slightly across the surface of earth depending on local  density, height above sea-level and centrifugal force from the earth's rotation. It  is, for example, slightly higher in Oslo and slightly lower in Singapore. It is  actually <em>defined</em> to be <m>9.80665</m> m/<m>\mathrm{sec}^2</m> by the International  Organisation for Standardization.
+		</fn>.
+	For us to raise the pancake we have to apply a  compensating upward force of <m>mg</m>, which, for our pancake, is
+	<md>
+	<mrow>
+	  F &amp;= g \rho \times \pi r^2\dee{x}
+	</mrow>
+	</md>
+</li>
+<li>
+	To remove the pancake at height <m>x</m> from the reservoir we need to  raise it to height <m>h</m>. So we have to lift it a distance <m>h-x</m> using the force <m>F=\pi \rho  g r^2\dee{x}</m>, which takes work <m> \pi\rho g r^2\,(h-x)\, \dee{x}</m>.
+</li>
+<li>
+	The total work to empty the whole reservoir is
+	<md>
+	<mrow>
+	W&amp;= \int_0^h \pi\,\rho g\,r^2 (h-x)\dee{x}
+	= \pi\,\rho g\,r^2 \int_0^h  (h-x)\dee{x}
+	</mrow><mrow>
+	&amp;=\pi\,\rho g\,r^2  \Big[hx -\frac{x^2}{2}\Big]_0^h
+	</mrow><mrow>
+	&amp;=\frac{\pi}{2}\,\rho g\, r^2 h^2
+	</mrow>
+	</md>
+</li>
+<li>
+	If we measure lengths in metres and mass in kilograms, then this  quantity has units of Joules. If we instead used feet and pounds
+	<fn>
+		It is extremely mysterious to both authors why a person would do science  or engineering in imperial units. One of the authors still has nightmares  about having had to do so as a student. The other  author is thankful that he escaped such tortures.
+	</fn>
+	then this would  have units of <q>foot-pounds</q>. One foot-pound is equal to 1.355817<ellipsis/> Joules.
+</li>
+</ul>
+</p>
+
+</example>
+
+<example xml:id="eg_WKgravity"><title>Escape Velocity</title>
+<p>
+Suppose that you shoot a probe straight up from the surface of the Earth <mdash/> at what  initial speed must the probe move in order to escape Earth's gravity?
+</p>
+
+<p>
+<alert>Solution:</alert>
+We determine this by computing how much work must be done in order to escape  Earth's gravity. If we assume that all of this work comes from the probe's initial  kinetic energy, then we can establish the minimum initial velocity required.
+</p>
+
+<p>
+<ul>
+<li>
+	The work done by gravity when a mass moves from the surface of  the Earth to a height <m>h</m> above the surface is
+	<md>
+	<mrow>
+	  W &amp;= \int_0^h F(x) \dee{x}
+	</mrow>
+	</md>
+	where <m>F(x)</m> is the gravitational force acting on the mass at height <m>x</m> above the  Earth's surface.
+</li>
+<li>
+	The gravitational force
+	<fn>
+		Newton published his inverse square law of  universal gravitation in his Principia in 1687. His law states that the  gravitational force between two masses <m>m_1</m> and <m>m_2</m> is
+		<me>
+		F = -G \frac{m_1 m_2}{r^2}
+		</me>
+		where <m>r</m> is the distance separating the (centres of the) masses and <m>G=  6.674\times10^{-11} \mathrm{N}\mathrm{m}^2/\mathrm{kg}^2</m> is the gravitational constant.  Notice that <m>r</m> measures the separation between the centres of the masses not the  distance between the surfaces of the objects.
+		<me>\mbox{ }</me> <!-- a hack to get a paragraph break -->
+		Also, do not confuse <m>G</m> with <m>g</m> <mdash/> standard acceleration due to gravity. The first  measurement of <m>G</m> was performed by Henry Cavendish in 1798 <mdash/> the interested reader  should look up the <q>Cavendish experiment</q> for details of this very impressive work.
+	</fn>
+	of  the Earth acting on a particle of mass <m>m</m> at a height <m>x</m> above the surface of the Earth  is
+	<md>
+	<mrow>
+	F=-\frac{GMm}{(R+x)^2},
+	</mrow>
+	</md>
+	where <m>G</m> is the gravitational constant, <m>M</m> is the mass of the Earth and <m>R</m> is the radius of the Earth. Note that <m>R+x</m> is the distance from the object to  the centre of the Earth. Additionally, note that this force is negative because gravity acts downward.
+</li>
+<li>
+	So the work done by gravity on the probe, as it travels from the surface of the  Earth to a height <m>h</m>, is
+	<md>
+	<mrow>
+	W&amp;=-\int_0^h \frac{GMm}{(R+x)^2}\dee{x}
+	</mrow><mrow>
+	&amp;=-GMm\int_0^h \frac{1}{(R+x)^2}\dee{x}
+	</mrow>
+	<intertext>A quick application of the substitution rule with <m>u=R+x</m> gives</intertext>
+	<mrow>
+	&amp;=-GMm \int_{u(0)}^{u(h)} \frac{1}{u^2} \dee{u}
+	</mrow><mrow>
+	&amp;= -GMm \left[ -\frac{1}{u} \right]_{u=R}^{u=R+h}
+	</mrow><mrow>
+	&amp;= \frac{GMm}{R+h} - \frac{GMm}{R}
+	</mrow>
+	</md>
+</li>
+<li>
+	So if the probe completely escapes the Earth and travels all the way to <m>h=\infty</m>, gravity does work
+	<md>
+	<mrow>
+	\lim_{h\rightarrow\infty}\Big[\frac{GMm}{R+h} - \frac{GMm}{R}\Big]
+	=- \frac{GMm}{R}
+	</mrow>
+	</md>
+	The minus sign means that gravity has removed energy <m>\frac{GMm}{R}</m> from the probe.
+</li>
+<li>
+	To finish the problem we need one more assumption. Let us assume that all of this  energy comes from the probe's initial kinetic energy and that the probe is not  fitted with any sort of rocket engine. Hence the initial kinetic energy <m>\frac{1}{2}mv^2</m>  (coming from an initial velocity <m>v</m>) must be at least as large as the work computed  above. That is we need
+	<md>
+	<mrow>
+	\frac{1}{2}mv^2 &amp;\ge \frac{GMm}{R} &amp; \text{which rearranges to give}
+	</mrow><mrow>
+	v &amp;\ge \sqrt{\frac{2GM}{R}}
+	</mrow>
+	</md>
+</li>
+<li>
+	The right hand side of this inequality, <m>\sqrt{\frac{2GM}{R}}</m>, is called the  escape velocity.
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_WKcable"><title>Lifting a Cable</title>
+<p>
+A <m>10</m>-metre-long cable of mass <m>5</m>kg is used to lift a bucket of water,  with mass 8kg, out of a well. Find the work done.
+</p>
+
+<p>
+<alert>Solution:</alert>
+Denote by <m>y</m> the height of the bucket above the top of the water in the well.  So the bucket is raised from <m>y=0</m> to <m>y=10</m>. The cable has mass density <m>0.5</m>kg/m. So when the bucket is at height <m>y</m>,
+<ul>
+<li> the cable that remains to be lifted has mass <m>0.5(10-y)</m> kg and </li>
+<li>
+	the remaining cable and water is subject to a downward gravitational  force of magnitude <m>\big[0.5(10-y) + 8\big]g=\big[13-\frac{y}{2}\big]g</m>,  where <m>g=9.8</m> m/sec<m>^2</m>.
+</li>
+</ul>
+So to raise the bucket from height <m>y</m> to height <m>y+\dee{y}</m> we need to apply a compensating upward force of <m>\big[13-\frac{y}{2}\big]g</m> through distance <m>\dee{y}</m>. This takes work   <m>\big[13-\frac{y}{2}\big]g\dee{y}</m>.
+So the total work required is
+<me>
+\int_0^{10}\Big[13-\frac{y}{2}\Big]g\dee{y} =g\left[13 y-\frac{y^2}{4}\right]_0^{10} =\big[130-25\big]g =105 g\ \mathrm{J}
+</me>
+</p>
+
+</example>
+
+</subsection>
+
+
+<xi:include href="../problems/prob_s2.1.xml" />
+
+
+</section>

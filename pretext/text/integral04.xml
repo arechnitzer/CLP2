@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_subs">
+<title>Substitution</title>
+<introduction></introduction>
+
+<subsection><title>Substitution</title>
+
+<p>
+In the previous section we explored the fundamental theorem of calculus and the link it  provides between definite integrals and antiderivatives. Indeed, integrals with simple  integrands are usually evaluated via this link. In this section we start to explore  methods for integrating more complicated integrals. We have already seen <mdash/>  via Theorem<nbsp/><xref ref="thm_Intarith"/> <mdash/> that integrals interact very nicely with  addition, subtraction and multiplication by constants:
+<md>
+<mrow>
+  \int_a^b \left( Af(x) + B g(x) \right) \dee{x} &amp;= A\int_a^b f(x)\dee{x} + B\int_a^b g(x)\dee{x}
+</mrow>
+</md>
+for <m>A,B</m> constants. By combining this with the list of indefinite integrals in  Theorem<nbsp/><xref ref="thm_imp_indef_int"/>, we can compute integrals of linear combinations of  simple functions. For example
+<md>
+<mrow>
+  \int_1^4\left(e^x - 2\sin x + 3x^2 \right)\dee{x} &amp;= \int_1^4e^x\dee{x} -2\int_1^4 \sin x \dee{x} +3 \int_1^4x^2 \dee{x}
+</mrow><mrow>
+  &amp;= \left(e^x  + (-2)\cdot(-\cos x) + 3\frac{x^3}{3} \right)\bigg|_1^4  &amp;\text{and so on}
+</mrow>
+</md>
+Of course there are a great many functions that can be approached in this way, however  there are some very simple examples that cannot.
+<md>
+<mrow>
+  \int \sin(\pi x) \dee{x} &amp;&amp; \int x e^x \dee{x} &amp;&amp; \int \frac{x}{x^2-5x+6}\dee{x}
+</mrow>
+</md>
+In each case the integrands are not linear combinations of simpler functions; in order to  compute them we need to understand how integrals (and antiderivatives) interact with  compositions, products and quotients. We reached a very similar point in our differential  calculus course where we understood the linearity of the derivative,
+<md>
+<mrow>
+  \diff{}{x}\left(Af(x)+ Bg(x)\right) &amp;= A\diff{f}{x} + B\diff{g}{x},
+</mrow>
+</md>
+but had not yet seen the chain, product and quotient rules
+	<fn>
+		If your memory of  these rules is a little hazy then you really should go back and revise them before  proceeding. You will definitely need a good grasp of the chain rule for what follows in this section.
+	</fn>.
+While we will develop tools to find the second and third integrals in  later sections, we should really start with how to integrate compositions of functions.
+</p>
+
+<p>
+It is important to state up front, that in general one cannot write down the integral of  the composition of two functions <mdash/> even if those functions are simple. This is not  because the integral does not exist. Rather it is because the integral cannot be written  down as a finite combination of the standard functions we know. A very good example of  this, which we encountered in Example<nbsp/><xref ref="eg_INTftocA"/>, is the composition of <m>e^x</m> and  <m>-x^2</m>. Even though we know
+<md>
+<mrow>
+  \int e^x \dee{x} &amp;= e^x+C &amp; \text{and}&amp;&amp;  \int -x^2 \dee{x} &amp;= -\frac13 x^3 +C
+</mrow>
+</md>
+there is no simple function that is equal to the indefinite integral
+<md>
+<mrow>
+\int e^{-x^2}\dee{x}.
+</mrow>
+</md>
+even though the indefinite integral exists. In this way integration is very different  from differentiation.
+</p>
+
+<p>
+With that caveat out of the way, we can introduce the substitution rule. The substitution  rule is obtained by antidifferentiating the chain rule. In some sense it is the chain  rule  in reverse. For completeness, let us restate the chain rule:
+</p>
+
+<theorem><title>The chain rule</title>
+<statement><p>
+  Let <m>F(u)</m> and <m>u(x)</m> be differentiable functions and form their composition <m>F(u(x))</m>.  Then
+<md>
+<mrow>
+  \diff{}{x} F\big( u( x) \big) &amp;= F'\big(u(x)\big) \cdot u'(x)
+</mrow>
+</md>
+Equivalently, if <m>y(x)=F(u(x))</m>, then
+<md>
+<mrow>
+  \diff{y}{x} &amp;= \diff{F}{u} \cdot \diff{u}{x}.
+</mrow>
+</md>
+</p></statement>
+</theorem>
+
+
+<p>
+Consider a function <m>f(u)</m>, which has antiderivative <m>F(u)</m>. Then we know  that
+<md>
+<mrow>
+  \int f(u) \dee{u} &amp;= \int F'(u) \dee{u} = F(u) +C
+</mrow>
+</md>
+Now take the above equation and substitute into it <m>u=u(x)</m> <mdash/> i.e. replace the  variable <m>u</m> with any (differentiable) function of <m>x</m> to get
+<md>
+<mrow>
+\int f(u) \dee{u}\bigg|_{u=u(x)} &amp;= F(u(x)) +C
+</mrow>
+</md>
+But now the right-hand side is a function of <m>x</m>, so we can differentiate it with respect  to <m>x</m> to get
+<md>
+<mrow>
+  \diff{}{x} F(u(x)) &amp;= F'(u(x)) \cdot u'(x)
+</mrow>
+</md>
+This tells us that <m>F(u(x))</m> is an antiderivative of the function <m>F'(u(x))\cdot u'(x)  = f(u(x))u'(x)</m>. Thus we know
+<md>
+<mrow>
+    \int f\big(u(x)\big) \cdot u'(x)\,\dee{x}  &amp;= F\big(u(x)\big) +C = \int f(u)\,\dee{u}\bigg|_{u=u(x)}
+</mrow>
+</md>
+This is the substitution rule for indefinite integrals.
+</p>
+
+<theorem xml:id="thm_subs_indef"><title>The substitution rule <mdash/> indefinite integral version</title>
+<statement><p>
+For any differentiable function <m>u(x)</m>:
+<md>
+<mrow>
+  \int f(u(x)) u'(x) \dee{x} &amp;= \int f(u)\dee{u}\bigg|_{u=u(x)}
+</mrow>
+</md>
+</p></statement>
+</theorem>
+
+<p>
+In order to apply the substitution rule successfully we will have to write the integrand  in the form <m>f(u(x))\cdot u'(x)</m>. To do this we need to make a good choice of the  function <m>u(x)</m>; after that it is not hard to then find <m>f(u)</m> and <m>u'(x)</m>.   Unfortunately there is no one strategy for choosing <m>u(x)</m>. This can make applying the  substitution rule more art than science
+	<fn>
+		Thankfully this does become easier with  experience and we recommend that the reader read some examples and then practice a LOT.
+	</fn>.
+Here we suggest two possible strategies for picking <m>u(x)</m>:
+<ol label="1">
+<li>
+	Factor the integrand and choose one of the factors to be <m>u'(x)</m>. For this to work,  you must be able to easily find the antiderivative of the chosen factor. The  antiderivative will be <m>u(x)</m>.
+</li>
+<li>
+	Look for a factor in the integrand that is a function with an argument that is more  complicated than just <q><m>x</m></q>. That factor will play the role of <m>f\big(u(x)\big)</m> Choose  <m>u(x)</m> to be the complicated argument.
+</li>
+</ol>
+Here are two examples which illustrate each of those strategies in turn.
+</p>
+
+<example><title><m>\int 9\sin^8(x) \cos(x) \dee{x}</m></title>
+<p>
+Consider the integral
+<md>
+<mrow>
+  \int 9\sin^8(x) \cos(x) \dee{x}
+</mrow>
+</md>
+We want to massage this into the form of the integrand in the substition rule <mdash/> namely  <m>f(u(x))\cdot u'(x)</m>. Our integrand can be written as the product of the two factors
+<md>
+<mrow>
+\underbrace{9 \sin^8(x)}_\text{first factor} \cdot  \underbrace{\cos(x)}_\text{second factor}
+</mrow>
+</md>
+and we start by determining (or guessing) which factor plays the role of  <m>u'(x)</m>. We can choose <m>u'(x)=9\sin^8(x)</m> or <m>u'(x)=\cos(x)</m>.
+<ul>
+<li>
+	If we choose <m>u'(x)=9\sin^8(x)</m>, then antidifferentiating this to find <m>u(x)</m> is  really not very easy. So it is perhaps better to investigate the other choice before  proceeding further with this one.
+</li>
+<li>
+	If we choose <m>u'(x)=\cos(x)</m>, then we know (Theorem<nbsp/><xref ref="thm_imp_indef_int"/>) that  <m>u(x)=\sin(x)</m>. This also works nicely because it makes the other factor  simplify quite a bit <m>9\sin^8(x) = 9u^8</m>. This looks like the right way to go.
+</li>
+</ul>
+So we go with the second choice. Set <m>u'(x)=\cos(x), u(x)=\sin(x)</m>, then
+<md>
+<mrow>
+  \int 9\sin^8(x) \cos(x) \dee{x}
+  &amp;= \int 9u(x)^8 \cdot u'(x) \dee{x}
+</mrow><mrow>
+  &amp;= \int 9u^8 \dee{u} \bigg|_{u=\sin(x)} &amp; \text{by the substitution rule}
+</mrow>
+<intertext>We are now left with the problem of  antidifferentiating a monomial; this we can  do with Theorem <xref ref="thm_imp_indef_int"/>. </intertext>
+<mrow>
+  &amp;= \left( u^9 +C \right)\bigg|_{u=\sin(x)}
+</mrow><mrow>
+  &amp;= \sin^9(x) +C
+</mrow>
+</md>
+Note that <m>9\sin^8(x) \cos(x)</m> is a function of <m>x</m>. So our answer, which is the  indefinite integral of  <m>9\sin^8(x) \cos(x)</m>, must also be a function of <m>x</m>.  This is why we have substituted <m>u=\sin(x)</m> in the last step of our solution <mdash/> it  makes our solution a function of <m>x</m>.
+</p></example>
+
+<example><title><m>\int 3x^2 \cos(x^3) \dee{x}</m></title>
+<p>
+Evaluate the integral
+<md>
+<mrow>
+\int 3x^2 \cos(x^3) \dee{x}
+</mrow>
+</md>
+</p>
+
+<p>
+<alert>Solution:</alert> Again we are going to use the substitution rule and helpfully our integrand is a  product of two factors
+<md>
+<mrow>
+\underbrace{3x^2}_\text{first factor} \cdot  \underbrace{\cos(x^3)}_\text{second factor}
+</mrow>
+</md>
+The second factor, <m>\cos\big(x^3\big)</m> is a function, namely <m>\cos</m>, with a complicated  argument, namely <m>x^3</m>. So we try <m>u(x)= x^3</m>. Then <m>u'(x) = 3x^2</m>, which is the other  factor in the integrand. So the integral becomes
+<md>
+<mrow>
+  \int 3x^2 \cos(x^3) \dee{x} &amp;= \int u'(x) \cos\big(u(x)\big) \dee{x} &amp;\text{just swap order of factors}
+</mrow><mrow>
+&amp;= \int \cos\big(u(x)\big) u'(x) \dee{x} &amp; \text{by the substitution rule}
+</mrow><mrow>
+&amp;= \int \cos(u) \dee{u}\bigg|_{u=x^3}
+</mrow><mrow>
+&amp;= \left( \sin(u) + C\right)\bigg|_{u=x^3}  &amp; \text{using Theorem }<xref ref="thm_imp_indef_int"/>)
+</mrow><mrow>
+&amp;= \sin(x^3)+C
+</mrow>
+</md>
+</p>
+</example>
+
+<p>
+One more <mdash/> we'll use this to show how to use the substitution rule with definite  integrals.
+</p>
+
+<example xml:id="eg_substitution1"><title><m>\int_0^1 e^x\sin(e^x)\dee{x}</m></title>
+<p>
+Compute
+<md>
+<mrow>
+  \int_0^1 e^x\sin\big(e^x\big)\dee{x}.
+</mrow>
+</md>
+</p>
+
+<p><alert>Solution:</alert>
+Again we use the substitution rule.
+<ul>
+<li>
+	The integrand is again the product of two factors and we can choose <m>u'(x)=e^x</m> or  <m>u'(x)=\sin(e^x)</m>.
+</li>
+<li>
+	If we choose <m>u'(x)=e^x</m> then <m>u(x)=e^x</m> and the other factor becomes <m>\sin(u)</m> <mdash/>  this looks promising. Notice that if we applied the other strategy of looking for a  complicated argument then we would arrive at the same choice.
+</li>
+<li>
+	So we try <m>u'(x)=e^x</m> and <m>u(x)=e^x</m>. This gives (if we ignore the limits of  integration for a moment)
+	<md>
+	<mrow>
+	  \int e^x \sin\big(e^x\big)\dee{x}
+	&amp;= \int \sin\big(u(x)\big) u'(x) \dee{x} &amp;\text{apply the substitution rule}
+	</mrow><mrow>
+	&amp;= \int \sin(u)\dee{u} \bigg|_{u=e^x}
+	</mrow><mrow>
+	&amp;= \left(-\cos(u)+C \right)\bigg|_{u=e^x}
+	</mrow><mrow>
+	&amp;= -\cos\big(e^x\big) +C
+	</mrow>
+	</md>
+</li>
+<li>
+	But what happened to the limits of integration? We can incorporate them now. We  have just shown that the indefinite integral is <m>-\cos(e^x)</m>, so by the fundamental  theorem of calculus
+	<md>
+	<mrow>
+	  \int_0^1 e^x\sin\big(e^x\big)\dee{x}
+	  &amp;= \big[-\cos\big(e^x\big)\big]_0^1
+	</mrow><mrow>
+	  &amp;= -\cos(e^1)-(-\cos(e^0))
+	</mrow><mrow>
+	  &amp;= -\cos(e)+\cos(1)
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+Theorem<nbsp/><xref ref="thm_subs_indef"/>, the substitution rule for indefinite integrals, tells us  that if <m>F(u)</m> is any antiderivative for <m>f(u)</m>, then <m>F\big(u(x)\big)</m> is an  antiderivative for <m>f\big(u(x)\big) u'(x)</m>. So the fundamental theorem of calculus gives  us
+<md>
+<mrow>
+  \int_a^b f\big(u(x)\big) u'(x)\,\dee{x} &amp;= F\big(u(x)\big)\bigg|_{x=a}^{x=b}
+</mrow><mrow>
+  &amp;= F\big(u(b)\big) - F\big(u(a)\big)
+</mrow><mrow>
+  &amp;= \int_{u(a)}^{u(b)} f(u)\,\dee{u} &amp; \text{since $F(u)$ is an antiderivative for $f(u)$}
+</mrow>
+</md>
+and we have just found
+</p>
+
+<theorem xml:id="thm_subs_def"><title>The substitution rule <mdash/> definite integral version</title>
+<statement><p>
+For any differentiable function <m>u(x)</m>:
+<md>
+<mrow>
+  \int_a^b f(u(x)) u'(x) \dee{x} &amp;= \int_{u(a)}^{u(b)} f(u)\dee{u}
+</mrow>
+</md>
+</p></statement>
+</theorem>
+
+<p>
+Notice that to get from the integral on the left hand side to the integral on the right  hand side you
+<ul>
+<li>
+	substitute
+	<fn>
+		A good way to remember this last step is that we  replace <m>\diff{u}{x} \dee{x}</m> by just <m>\dee{u}</m> <mdash/> which looks  like we cancelled out the <m>\dee{x}</m> terms: <m>\frac{\dee{u}}{\cancel{\dee{x}}}\cancel{\dee{x}} = \dee{u}</m>. While using <q>cancel the  <m>\dee{x}</m></q> is a good mnemonic (memory aid), you should not think of the derivative  <m>\diff{u}{x}</m> as a fraction <mdash/> you are not dividing <m>\dee{u}</m> by <m>\dee{x}</m>.
+	</fn>
+	<m>u(x)\rightarrow u</m> and  <m>u'(x)\dee{x}\rightarrow \dee{u}</m>,
+</li>
+<li>
+	set the lower limit for the <m>u</m> integral to the value of <m>u</m> (namely <m>u(a)</m>) that corresponds to the lower limit of the <m>x</m>  integral (namely <m>x=a</m>), and
+</li>
+<li>
+	set the upper limit for the <m>u</m> integral to the value of <m>u</m> (namely <m>u(b)</m>) that corresponds to the upper limit of the <m>x</m>  integral (namely <m>x=b</m>).
+</li>
+</ul>
+Also note that we now have two ways to evaluate definite integrals of the form <m>\int_a^b f\big(u(x)\big)u'(x)\,\dee{x}</m>.
+<ul>
+<li>
+	We can find the indefinite integral <m>\int f\big(u(x)\big) u'(x)\,\dee{x}</m>, using  Theorem<nbsp/><xref ref="thm_subs_indef"/>, and then evaluate the result between <m>x=a</m> and <m>x=b</m>. This  is what was done in Example<nbsp/><xref ref="eg_substitution1"/>.
+</li>
+<li>
+	Or we can apply Theorem<nbsp/><xref ref="thm_subs_indef"/>. This entails finding the  indefinite integral <m>\int f(u)\,\dee{u}</m> and evaluating the result between <m>u=u(a)</m> and  <m>u=u(b)</m>. This is what we will do in the following example.
+</li>
+</ul>
+</p>
+
+<example xml:id="eg_substitution2"><title><m> \int_0^1 x^2\sin(x^3+1)\dee{x}</m></title>
+<p>
+Compute
+<md>
+<mrow>
+  \int_0^1 x^2\sin\big(x^3+1\big)\dee{x}
+</mrow>
+</md>
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	In this example the integrand is already neatly factored into two pieces. While we  could deploy either of our two strategies, it is perhaps easier in this case to  choose <m>u(x)</m> by looking for a complicated argument.
+</li>
+<li>
+	The second factor of the integrand is <m>\sin\big(x^3+1\big)</m>, which is the function  <m>\sin</m> evaluated at <m>x^3+1</m>. So set <m>u(x)=x^3+1</m>, giving <m>u'(x)=3x^2</m> and <m>f(u)=\sin(u)</m>
+</li>
+<li>
+	The first factor of the integrand is <m>x^2</m> which is not quite <m>u'(x)</m>, however we  can easily massage the integrand into the required form by multiplying and dividing by
+	<m>3</m>:
+	<md>
+	<mrow>
+	  x^2\sin\big(x^3+1\big) &amp;= \frac{1}{3} \cdot 3x^2\cdot \sin\big(x^3+1\big).
+	</mrow>
+	</md>
+</li>
+<li>
+	We want this in the form of the substitution rule, so we do a little massaging:
+	<md>
+	<mrow>
+	  \int_0^1 x^2\sin\big(x^3+1\big)\dee{x}
+	  &amp;= \int_0^1 \frac{1}{3}\cdot 3x^2 \cdot \sin\big(x^3+1\big)\dee{x}
+	</mrow><mrow>
+	  &amp;= \frac{1}{3}\int_0^1 \sin\big(x^3+1\big)\cdot 3x^2 \dee{x}
+	&amp;\text{by Theorem }<xref ref="thm_Intarith"/>\text{(c)}
+	</mrow>
+	</md>
+</li>
+<li>
+	Now we are ready for the substitution rule:
+	<md>
+	<mrow>
+	\frac{1}{3}\int_0^1 \sin\big(x^3+1\big)\cdot 3x^2 \dee{x}
+	&amp;=\frac{1}{3}\int_0^1 \underbrace{\sin\big(x^3+1\big)}_{=f(u(x))}\cdot
+	\underbrace{3x^2}_{=u'(x)} \dee{x}
+	</mrow>
+	<intertext>Now set <m>u(x)=x^3+1</m> and <m>f(u)=\sin(u)</m></intertext>
+	<mrow>
+	&amp;= \frac{1}{3}\int_0^1 f(u(x)) u'(x) \dee{x}
+	</mrow><mrow>
+	&amp;= \frac{1}{3} \int_{u(0)}^{u(1)} f(u) \dee{u} &amp; \text{by the substitution rule}
+	</mrow><mrow>
+	&amp;= \frac{1}{3} \int_{1}^{2} \sin(u) \dee{u}  &amp; \text{since $u(0)=1$ and
+	$u(1)=2$}
+	</mrow><mrow>
+	&amp;= \frac{1}{3} \big[-\cos(u)\big]_1^2
+	</mrow><mrow>
+	&amp;= \frac{1}{3}\big( -\cos(2) -(-\cos(1)) \big)
+	</mrow><mrow>
+	&amp;= \frac{\cos(1)-\cos(2)}{3}.
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+There is another, and perhaps easier, way to view the manipulations in the previous  example. Once you have chosen <m>u(x)</m> you
+<ul>
+<li> make the substitution <m>u(x) \rightarrow u</m>, </li>
+<li> replace <m>\dee{x} \rightarrow \dfrac{1}{u'(x)} \dee{u}</m>. </li>
+</ul>
+In so doing, we take the integral
+<md>
+<mrow>
+  \int_a^b f(u(x)) \cdot u'(x) \dee{x}
+&amp;= \int_{u(a)}^{u(b)} f(u) \cdot u'(x) \cdot \frac{1}{u'(x)} \dee{u}
+</mrow><mrow>
+&amp;= \int_{u(a)}^{u(b)} f(u) \dee{u} &amp; \text{exactly the substitution rule}
+</mrow>
+</md>
+but we do not have to manipulate the integrand so as to make <m>u'(x)</m> explicit.  Let us  redo the previous example by this approach.
+</p>
+
+
+<example  xml:id="eg_substitution3"><title>Example <xref ref="eg_substitution2"/> revisited</title>
+<p>
+Compute the integral
+<md>
+<mrow>
+\int_0^1 x^2\sin\big(x^3+1\big)\dee{x}
+</mrow>
+</md>
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	We have already observed that one factor of the integrand is  <m>\sin\big(x^3+1\big)</m>, which is <m>\sin</m> evaluated at <m>x^3+1</m>. Thus we try setting  <m>u(x)=x^3+1</m>.
+</li>
+<li>
+	This makes <m>u'(x)=3x^2</m>, and we replace <m>u(x)=x^3+1\rightarrow u</m> and  <m>\dee{x}\rightarrow\frac{1}{u'(x)}\dee{u} = \frac{1}{3x^2}\dee{u}</m>:
+	<md>
+	<mrow>
+	  \int_0^1 x^2\sin\big(x^3+1\big)\dee{x}
+	&amp;= \int_{u(0)}^{u(1)} x^2\underbrace{\sin\big(x^3+1\big)}_{=\sin(u)}
+	\frac{1}{3x^2}\dee{u}
+	</mrow><mrow>
+	&amp;= \int_{1}^{2} \sin(u) \frac{x^2}{3x^2}\dee{u}
+	</mrow><mrow>
+	&amp;= \int_{1}^{2} \frac{1}{3}\sin(u) \dee{u}
+	</mrow><mrow>
+	&amp;= \frac{1}{3}\int_{1}^{2} \sin(u) \dee{u}
+	</mrow>
+	</md>
+	which is precisely the integral we found in Example<nbsp/><xref ref="eg_substitution2"/>.
+</li>
+</ul>
+</p>
+</example>
+
+<example><title>Some more substitutions</title>
+<p>
+Compute the indefinite integrals
+<md>
+<mrow>
+  \int \sqrt{2x+1}\dee{x} &amp;&amp; \text{and} &amp;&amp; \int e^{3x-2}\dee{x}
+</mrow>
+</md>
+</p>
+
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	Starting with the first integral, we see that it is not too hard to spot  the complicated argument. If we set <m>u(x)=2x+1</m> then the integrand is just <m>\sqrt{u}</m>.
+</li>
+<li>
+	Hence we substitute <m>2x+1 \rightarrow u</m> and <m>\dee{x} \rightarrow  \frac{1}{u'(x)}\dee{u}=\frac{1}{2}\dee{u}</m>:
+	<md>
+	<mrow>
+	  \int \sqrt{2x+1}\dee{x}
+	&amp;= \int \sqrt{u} \frac{1}{2} \dee{u}
+	</mrow><mrow>
+	&amp;= \int u^{1/2} \frac{1}{2} \dee{u}
+	</mrow><mrow>
+	&amp;= \left( \frac{2}{3}u^{3/2}\cdot\frac{1}{2}  +C\right)\bigg|_{u=2x+1}
+	</mrow><mrow>
+	&amp;= \frac{1}{3} (2x+1)^{3/2} + C
+	</mrow>
+	</md>
+</li>
+<li>
+	We can evaluate the second integral in much the same way. Set <m>u(x)=3x-2</m> and  replace <m>\dee{x}</m> by <m>\frac{1}{u'(x)}\dee{u} = \frac{1}{3}\dee{u}</m>:
+	<md>
+	<mrow>
+	  \int e^{3x-2}\dee{x}
+	&amp;= \int e^u \frac{1}{3}\dee{u}
+	</mrow><mrow>
+	&amp;= \left( \frac{1}{3} e^u + C\right)\bigg|_{u=3x-2}
+	</mrow><mrow>
+	&amp;= \frac{1}{3} e^{3x-2} +C
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+This last example illustrates that substitution can be used to easily deal with arguments  of the form <m>ax+b</m>, i.e. that are linear functions of <m>x</m>, and suggests the following  theorem.
+</p>
+
+<theorem xml:id="thm_subs_linear">
+<statement><p>
+Let <m>F(u)</m> be an antiderivative of <m>f(u)</m> and let <m>a,b</m> be constants. Then
+<md>
+<mrow>
+  \int f(ax+b)\dee{x} &amp;= \frac{1}{a} F(ax+b) +C
+</mrow>
+</md>
+</p></statement>
+</theorem>
+
+<proof>
+<p>
+We can show this using the substitution rule. Let <m>u(x)=ax+b</m> so <m>u'(x)=a</m>, then
+<md>
+<mrow>
+  \int f(ax+b) \dee{x}
+&amp;= \int f(u) \cdot \frac{1}{u'(x)}\dee{u}
+</mrow><mrow>
+&amp;= \int \frac{1}{a} f(u) \dee{u}
+</mrow><mrow>
+&amp;= \frac{1}{a} \int f(u) \dee{u} &amp; \text{since $a$ is a constant}
+</mrow><mrow>
+&amp;= \frac{1}{a} F(u)\bigg|_{u=ax+b} +C &amp; \text{since $F(u)$ is an antiderivative of
+$f(u)$}
+</mrow><mrow>
+&amp;= \frac{1}{a} F(ax+b) +C.
+</mrow>
+</md>
+</p>
+</proof>
+
+
+<p>
+Now we can do the following example using the substitution rule or the above theorem:
+</p>
+
+<example xml:id="eg_substitution4"><title><m>\int_0^{\frac{\pi}{2}}\cos(3x)\dee{x}</m></title>
+<p>
+Compute <m>\int_0^{\frac{\pi}{2}}\cos(3x)\dee{x}</m>.
+</p>
+
+<p>
+<ul>
+<li>
+	In this example we should set <m>u=3x</m>, and substitute <m>\dee{x} \rightarrow  \frac{1}{u'(x)}\dee{u} = \frac{1}{3}\dee{u}.</m> When we do this we also have to convert  the limits of the integral: <m>u(0)=0</m> and <m>u(\pi/2)=3\pi/2</m>. This gives
+	<md>
+	<mrow>
+	  \int_0^{\frac{\pi}{2}}\cos(3x)\dee{x}
+	&amp;= \int_0^{\frac{3\pi}{2}} \cos(u) \frac{1}{3}\dee{u}
+	</mrow><mrow>
+	&amp;= \left[\frac{1}{3} \sin(u) \right]_0^{\frac{3\pi}{2}}
+	</mrow><mrow>
+	&amp;= \frac{\sin(3\pi/2)-\sin(0)}{3}
+	</mrow><mrow>
+	&amp;= \frac{-1-0}{3} = - \frac{1}{3}.
+	</mrow>
+	</md>
+</li>
+<li>
+	We can also do this example more directly using the above theorem. Since <m>\sin(x)</m>  is an antiderivative of <m>\cos(x)</m>, Theorem<nbsp/><xref ref="thm_subs_linear"/> tells us that  <m>\frac{\sin(3x)}{3}</m> is an antiderivative of <m>\cos(3x)</m>. Hence
+	<md>
+	<mrow>
+	  \int_0^{\frac{\pi}{2}}\cos(3x)\dee{x}
+	&amp;= \left[ \frac{\sin(3x)}{3} \right]_0^{\frac{\pi}{2}}
+	</mrow><mrow>
+	&amp;= \frac{\sin(3\pi/2)-\sin(0)}{3}
+	</mrow><mrow>
+	&amp;= -\frac{1}{3}.
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+</example>
+
+
+<p>
+The rest of this section is just more examples of the substitution rule. We recommend  that you after reading these that you practice many examples by yourself under exam  conditions.
+</p>
+
+<example xml:id="eg_substitution3neg"><title><m> \int_0^1 x^2\sin(1-x^3)\dee{x}</m></title>
+<p>
+This integral looks a lot like that of Example <xref ref="eg_substitution2"/>. It makes  sense to try <m>u(x)=1-x^3</m> since it is the argument of <m>\sin(1-x^3)</m>. We
+<ul>
+<li> substitute <m>u=1-x^3</m> and </li>
+<li> replace <m>\dee{x}</m> with <m>\frac{1}{u'(x)}du = \frac{1}{-3x^2}\dee{u}</m>, </li>
+<li>  when <m>x=0</m>, we have <m>u=1-0^3=1</m> and </li>
+<li>  when <m>x=1</m>, we have <m>u=1-1^3=0</m>. </li>
+</ul>
+So
+<md>
+<mrow>
+  \int_0^1 x^2 \sin\big(1-x^3\big)\cdot \dee{x} &amp;=\int_1^0 x^2 \sin(u) \cdot \frac{1}{-3x^2}\dee{u}
+</mrow><mrow>
+  &amp;= \int_1^0 -\frac{1}{3}\sin(u)\dee{u}.
+</mrow>
+<intertext>Note that the lower limit of the <m>u</m>-integral, namely <m>1</m>, is larger than the upper limit, which is <m>0</m>. There is absolutely nothing wrong with that. We can simply evaluate the <m>u</m>-integral in the normal way. Since <m>-\cos(u)</m> is an antiderivative  of <m>\sin(u)</m>:</intertext>
+<mrow>
+&amp;=  \left[\frac{\cos(u)}{3} \right]_1^0
+</mrow><mrow>
+&amp;= \frac{\cos(0)-\cos(1)}{3}
+</mrow><mrow>
+&amp;= \frac{1-\cos(1)}{3}.
+</mrow>
+</md>
+</p>
+</example>
+
+<example xml:id="eg_substitution5"><title><m>\int_0^1\frac{1}{(2x+1)^3}\dee{x}</m></title>
+<p>
+Compute <m>\int_0^1\frac{1}{(2x+1)^3}\dee{x}</m>.
+</p>
+
+<p>
+We could do this one using Theorem<nbsp/><xref ref="thm_subs_linear"/>, but its not too hard to do  without. We can think of the integrand as the function <q>one over a cube</q> with the argument <m>2x+1</m>. So it makes sense to substitute <m>u=2x+1</m>. That is
+<ul>
+<li> set <m>u=2x+1</m> and </li>
+<li> replace <m>\dee{x} \rightarrow \frac{1}{u'(x)}\dee{u} =  \frac{1}{2}\dee{u}</m>. </li>
+<li> When <m>x=0</m>, we have <m>u=2\times 0+1=1</m> and </li>
+<li> when <m>x=1</m>, we have <m>u=2\times 1+1=3</m>. </li>
+</ul>
+So
+<md>
+<mrow>
+  \int_0^1\frac{1}{(2x+1)^3}\dee{x} &amp;=\int_1^{3} \frac{1}{u^3} \cdot \frac{1}{2}\dee{u}
+</mrow><mrow>
+  &amp;=\frac{1}{2}\int_1^{3}u^{-3}\dee{u}
+</mrow><mrow>
+  &amp;=\frac{1}{2}\left[\frac{u^{-2}}{-2}\right]_1^{3}
+</mrow><mrow>
+  &amp;=\frac{1}{2}\left( \frac{1}{-2}\cdot \frac{1}{9} - \frac{1}{-2}\cdot\frac{1}{1}  \right)
+</mrow><mrow>
+  &amp;=\frac{1}{2}\left( \frac{1}{2} - \frac{1}{18}\right) = \frac{1}{2}\cdot \frac{8}{18}
+</mrow><mrow>
+  &amp;=\frac{2}{9}
+</mrow>
+</md>
+</p>
+</example>
+
+
+<example xml:id="eg_substitution6"><title><m>\int_0^1\frac{x}{1+x^2}\dee{x}</m></title>
+<p>
+Evaluate <m>\int_0^1\frac{x}{1+x^2}\dee{x}</m>.
+</p>
+
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	The integrand can be rewritten as <m>x \cdot \frac{1}{1+x^2}</m>. This second factor  suggests that we should try setting <m>u=1+x^2</m> <mdash/> and so we interpret the  second factor as the function <q>one over</q> evaluated at argument <m>1+x^2</m>.
+</li>
+<li>
+<p>
+	With this choice we
+	<ul>
+	<li> set <m>u=1+x^2</m>, </li>
+	<li> substitute <m>\dee{x} \rightarrow \frac{1}{2x}\dee{u}</m>, and </li>
+	<li> translate the limits of integration: when <m>x=0</m>, we have <m>u=1+0^2=1</m> and when  <m>x=1</m>, we have <m>u=1+1^2=2</m>.
+	</li>
+	</ul>
+</p>
+</li>
+<li>
+	The integral then becomes
+	<md>
+	<mrow>
+	\int_0^1\frac{x}{1+x^2}\dee{x}
+	&amp;= \int_1^2 \frac{x}{u} \frac{1}{2x}\dee{u}
+	</mrow><mrow>
+	&amp;= \int_1^2 \frac{1}{2u} \dee{u}
+	</mrow><mrow>
+	&amp;= \frac{1}{2} \big[ \log|u| \big]_1^2
+	</mrow><mrow>
+	&amp;= \frac{\log 2 - \log 1}{2} = \frac{\log 2}{2}.
+	</mrow>
+	</md>
+</li>
+</ul>
+Remember that we are using the notation <q><m>\log</m></q> for the natural logarithm, i.e. the logarithm with base <m>e</m>. You might also see it written as <q><m>\ln  x</m></q>, or with the base made explicit as <q><m>\log_e x</m></q>.
+</p>
+</example>
+
+<example xml:id="eg_substitution7"><title><m>\int x^3\cos\big(x^4+2\big)\dee{x}</m></title>
+<p>
+Compute the integral <m>\int x^3\cos\big(x^4+2\big)\dee{x}</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	The integrand is the product of <m>\cos</m> evaluated at the argument <m>x^4+2</m> times  <m>x^3</m>, which aside from a factor of <m>4</m>, is the derivative of the argument <m>x^4+2</m>.
+</li>
+<li>
+	Hence we set <m>u=x^4+2</m> and then substitute <m>\dee{x} \rightarrow  \frac{1}{u'(x)}\dee{u} = \frac{1}{4x^3}\dee{u}</m>.
+</li>
+<li>
+	Before proceeding further, we should note that  this is an indefinite integral so  we  don't have to worry about the limits of integration. However we do need to make sure our  answer is a function of <m>x</m> <mdash/> we cannot leave it as a function of <m>u</m>.
+</li>
+<li>
+	With this choice of <m>u</m>, the integral then becomes
+	<md>
+	<mrow>
+	  \int x^3\cos\big(x^4+2\big)\dee{x} &amp;= \int x^3 \cos(u) \frac{1}{4x^3}\dee{u} \bigg|_{u=x^4+2}
+	</mrow><mrow>
+	&amp;=  \int\frac{1}{4} \cos(u) \dee{u} \bigg|_{u=x^4+2}
+	</mrow><mrow>
+	&amp;= \left(\frac{1}{4}\sin(u)+C\right)\bigg|_{u=x^4+2}
+	</mrow><mrow>
+	&amp;= \frac{1}{4}\sin(x^4+2) +C.
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+The next two examples are more involved and require more careful thinking.
+</p>
+
+<example xml:id="eg_substitution8"><title><m>\int \sqrt{1+x^2}\,x^3\dee{x}</m></title>
+<p>
+Compute <m>\int \sqrt{1+x^2}\,x^3\dee{x}</m>.
+</p>
+
+<p>
+<ul>
+<li>
+	An obvious choice of <m>u</m> is the argument inside the square root. So substitute  <m>u=1+x^2</m> and <m>\dee{x} \rightarrow \frac{1}{2x}\dee{u}</m>.
+</li>
+<li>
+	When we do this we obtain
+	<md>
+	<mrow>
+	  \int \sqrt{1+x^2}\cdot x^3\dee{x}
+	  &amp;= \int \sqrt{u}\cdot x^3 \cdot \frac{1}{2x}\dee{u}
+	</mrow><mrow>
+	  &amp;= \int \frac{1}{2} \sqrt{u}\cdot x^2 \dee{u}
+	</mrow>
+	</md>
+	Unlike all our previous examples, we have not cancelled out all of the <m>x</m>'s from the  integrand. However before we do the integral with respect to <m>u</m>, the integrand must be  expressed solely in terms of <m>u</m> <mdash/> no <m>x</m>'s are allowed. (Look that integrand on the  right hand side of Theorem<nbsp/><xref ref="thm_subs_indef"/>.)
+</li>
+<li>
+	But all is not lost. We can rewrite the factor <m>x^2</m> in terms of the variable <m>u</m>.  We know that <m>u=1+x^2</m>, so this means <m>x^2 = u-1</m>. Substituting this into our integral  gives
+	<md>
+	<mrow>
+	  \int \sqrt{1+x^2}\cdot x^3\dee{x}
+	&amp;= \int \frac{1}{2} \sqrt{u}\cdot x^2 \dee{u}
+	</mrow><mrow>
+	&amp;= \int \frac{1}{2} \sqrt{u}\cdot (u-1) \dee{u}
+	</mrow><mrow>
+	&amp;= \frac{1}{2} \int \left(u^{3/2}-u^{1/2}\right) \dee{u}
+	</mrow><mrow>
+	&amp;= \frac{1}{2} \left( \frac{2}{5} u^{5/2} - \frac{2}{3}u^{3/2} \right)\bigg|_{u=x^2+1}
+	+C
+	</mrow><mrow>
+	&amp;= \left(\frac{1}{5} u^{5/2} - \frac{1}{3}u^{3/2}\right) \bigg|_{u=x^2+1}  +C
+	</mrow><mrow>
+	&amp;= \frac{1}{5}(x^2+1)^{5/2} - \frac{1}{3} (x^2+1)^{3/2} +C.
+	</mrow>
+	</md>
+	Oof!
+</li>
+<li>
+	Don't forget that you can always check the answer by differentiating:
+	<md>
+	<mrow>
+	&amp; \diff{}{x} \left( \frac{1}{5}(x^2+1)^{5/2} - \frac{1}{3} (x^2+1)^{3/2} +C\right)
+	</mrow>
+	<mrow>
+	&amp;= \diff{}{x} \left( \frac{1}{5}(x^2+1)^{5/2} \right) -
+	\diff{}{x} \left( \frac{1}{3}(x^2+1)^{3/2} \right)
+	</mrow><mrow>
+	&amp;= \frac{1}{5} \cdot 2x \cdot \frac{5}{2} \cdot (x^2+1)^{3/2} -
+	\frac{1}{3} \cdot 2x \cdot \frac{3}{2} \cdot (x^2+1)^{1/2}
+	</mrow><mrow>
+	&amp;= x (x^2+1)^{3/2} - x(x^2+1)^{1/2}
+	</mrow><mrow>
+	&amp;= x  \big[ (x^2+1)-1 \big] \cdot\sqrt{x^2+1}
+	</mrow><mrow>
+	&amp;= x^3 \sqrt{x^2+1}.
+	</mrow>
+	</md>
+	which is the original integrand <m>\checkmark</m>.
+</li>
+</ul>
+</p>
+
+</example>
+
+
+<example xml:id="eg_substitution9"><title><m>\int \tan x\dee{x}</m></title>
+<p>
+Evaluate the indefinite integral <m>\int \tan(x) \dee{x}</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	At first glance there is nothing to manipulate here and so very little to go on.  However we can rewrite <m>\tan x</m> as <m>\frac{\sin x}{\cos x}</m>, making the integral <m>\int  \frac{\sin x}{\cos x}\dee{x}</m>. This gives us more to work with.
+</li>
+<li>
+	Now think of the integrand as being the product <m>\frac{1}{\cos x}\cdot \sin  x</m>. This suggests that we set <m>u=\cos x</m> and that we interpret the first factor as the  function <q>one over</q> evaluated at <m>u=\cos x</m>.
+</li>
+<li>
+	Substitute <m>u = \cos x</m> and <m>\dee{x} \rightarrow \frac{1}{-\sin x}\dee{u}</m> to give:
+	<md>
+	<mrow>
+	  \int \frac{\sin x}{\cos x}\dee{x}
+	&amp;=\int \frac{\sin x}{u} \frac{1}{-\sin x} \dee{u} \bigg|_{u=\cos x}
+	</mrow><mrow>
+	&amp;= \int -\frac{1}{u}\dee{u}  \bigg|_{u=\cos x}
+	</mrow><mrow>
+	&amp;= -\log|\cos x| +C &amp; \text{and if we want to go further}
+	</mrow><mrow>
+	&amp;= \log\left|\frac{1}{\cos x} \right|+C
+	</mrow><mrow>
+	&amp;= \log|\sec x| +C.
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+</subsection>
+
+
+<xi:include href="../problems/prob_s1.4.xml" />
+
+
+</section>

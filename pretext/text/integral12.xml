@@ -1,0 +1,1156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_improp_int">
+<title>Improper Integrals</title>
+<introduction>
+</introduction>
+
+<subsection><title>Definitions</title>
+
+<p>
+To this point we have only considered nicely behaved integrals <m>\int_a^b f(x)\dee{x}</m>.  Though the algebra involved in some of our examples was quite difficult, all the  integrals had
+<ul>
+<li> finite limits of integration <m>a</m> and <m>b</m>, and </li>
+<li>
+	a bounded integrand <m>f(x)</m> (and in fact continuous except possibly for finitely many jump discontinuities).
+</li>
+</ul>
+Not all integrals we need to study are quite so nice.
+</p>
+
+<definition>
+<statement><p>
+An integral having either an infinite limit of integration or an unbounded integrand is called an improper integral.
+</p></statement>
+</definition>
+
+<p>
+Two examples are
+<md>
+<mrow>
+\int_0^\infty\frac{dx}{1+x^2}&amp;&amp; \text{and}&amp;&amp; \int_0^1\frac{dx}{x}
+</mrow>
+</md>
+The first has an infinite domain of integration and the integrand of the second tends to <m>\infty</m> as <m>x</m> approaches the left end of the domain of integration. We'll start with an example that illustrates the traps that you can fall into if you treat such integrals sloppily. Then we'll see how to treat them carefully.
+</p>
+
+<example xml:id="eg_IMPtrap"><title><m>\int_{-1}^1 \frac{1}{x^2}\dee{x}</m></title>
+<p>
+Consider the integral
+<md>
+<mrow>
+  \int_{-1}^1 \frac{1}{x^2}\dee{x}
+</mrow>
+</md>
+If we <q>do</q> this integral completely naively then we get
+<md>
+<mrow>
+  \int_{-1}^1\frac{1}{x^2}\ dx &amp;= \frac{x^{-1}}{-1}\bigg|_{-1}^1
+</mrow><mrow>
+  &amp;= \frac{1}{-1}-\frac{-1}{-1}
+</mrow><mrow>
+  &amp;=-2
+</mrow>
+</md>
+which is <alert>wrong</alert>
+	<fn>
+		Very wrong. But it is not an example of  <q>not even wrong</q> <mdash/> which is a phrase attributed to the physicist Wolfgang Pauli who  was known for his harsh critiques of sloppy arguments. The phrase is typically  used to describe arguments that are so incoherent that not only can one  not prove they are true, but they lack enough coherence to be able to  show they are false. The interested reader should do a little searchengineing  and look at the concept of falisfyability.
+	</fn>.
+In fact, the answer is ridiculous.  The integrand <m>\frac{1}{x^2} \gt 0</m>, so  the integral has to be positive.
+</p>
+
+<p>
+The flaw in the argument is that the fundamental theorem of calculus, which says that
+</p>
+<blockquote>
+<p>
+ if <m>F'(x)=f(x)</m> then <m>\int_a^b f(x)\,\dee{x}=F(b)-F(a)</m>
+</p>
+</blockquote>
+<p>
+is applicable only when <m>F'(x)</m> exists and equals <m>f(x)</m> for <em>all</em> <m>a\le x\le b</m>.  In this case <m>F'(x)=\frac{1}{x^2}</m> does not exist for <m>x=0</m>. The given integral is improper. We'll see later that the correct answer is <m>+\infty</m>.
+</p>
+</example>
+
+
+<p>
+Let us put this example to one side for a moment and turn to the integral <m>\int_a^\infty\frac{\dee{x}}{1+x^2}</m>. In this case, the integrand is bounded but the  domain of integration extends to <m>+\infty</m>. We can evaluate this integral by sneaking up  on it. We compute it on a  bounded domain of integration, like  <m>\int_a^R\frac{\dee{x}}{1+x^2}</m>, and then take the limit <m>R\rightarrow\infty</m>.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/impInfDomain"/>
+</sidebyside>
+
+<p>
+Let us put this into practice:
+</p>
+
+<example><title><m>\int_a^\infty\frac{\dee{x}}{1+x^2}</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	Since the domain extends to <m>+\infty</m> we first integrate on a finite  domain
+	<md>
+	<mrow>
+	  \int_a^R\frac{\dee{x}}{1+x^2}
+	  &amp;= \arctan x\bigg|_a^R
+	</mrow><mrow>
+	  &amp;= \arctan R - \arctan a
+	</mrow>
+	</md>
+</li>
+<li>
+	We then take the limit as <m>R \to +\infty</m>:
+	<md>
+	<mrow>
+	 \int_a^\infty \frac{\dee{x}}{1+x^2}
+	&amp;= \lim_{R\to\infty} \int_a^R\frac{\dee{x}}{1+x^2}
+	</mrow><mrow>
+	&amp;= \lim_{R\to\infty} \big[ \arctan R - \arctan a\big]
+	</mrow><mrow>
+	&amp;= \frac{\pi}{2} - \arctan a.
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+</example>
+
+<p>
+To be more precise, we actually formally <em>define</em> an integral with an infinite domain  as the limit of the integral with a finite domain as we take one or more of the limits of  integration to infinity.
+</p>
+
+<definition xml:id="def_IItype1"><title>Improper integral with infinite domain of integration</title>
+<statement><p>
+<ol label="a">
+<li>
+	If the integral <m>\int_a^R f(x)\dee{x}</m> exists for all <m>R \gt a</m>, then
+	<me>
+	\int_a^\infty f(x)\dee{x}=\lim_{R\rightarrow\infty}\int_a^R f(x)\dee{x}
+	</me>
+	when the limit exists (and is finite).
+</li>
+<li>
+	If the integral <m>\int_r^b f(x)\dee{x}</m> exists for all <m>r \lt b</m>, then
+	<me>
+	\int_{-\infty}^b f(x)\dee{x}=\lim_{r\rightarrow-\infty}\int_r^b f(x)\dee{x}
+	</me>
+	when the limit exists (and is finite).
+</li>
+<li>
+	If the integral <m>\int_r^R f(x)\dee{x}</m> exists for all <m>r \lt R</m>, then
+	<me>
+	\int_{-\infty}^\infty f(x)\dee{x}=\lim_{r\rightarrow-\infty}\int_r^c f(x)\dee{x}
+	+\lim_{R\rightarrow\infty}\int_c^R f(x)\dee{x}
+	</me>
+	when both limits exist (and are finite). Any <m>c</m> can be used.
+</li>
+</ol>
+When the limit(s) exist, the integral is said to be convergent. Otherwise it is said to be divergent.
+</p></statement>
+</definition>
+
+<p>
+We must also be able to treat an integral like <m>\int_0^1\frac{\dee{x}}{x}</m> that has a finite domain of integration but whose integrand is unbounded near one limit of integration
+	<fn>
+		This will, in turn, allow us to  deal with integrals whose integrand is unbounded somewhere inside the domain of  integration.
+	</fn>
+Our approach is similar <mdash/> we sneak up on the problem.  We compute the integral on a smaller domain, such as <m>\int_t^1\frac{\dee{x}}{x}</m>, with  <m>t \gt 0</m>, and then take the limit <m>t\rightarrow 0+</m>.
+</p>
+
+<example><title><m>\int_0^1 \frac{1}{x}\dee{x}</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	Since the integrand is unbounded near <m>x=0</m>, we integrate on the smaller domain  <m>t\leq x \leq 1</m> with <m>t \gt 0</m>:
+	<md>
+	<mrow>
+	  \int_t^1 \frac{1}{x}\dee{x}
+	  &amp;= \log|x| \bigg|_t^1 = -\log|t|
+	</mrow>
+	</md>
+</li>
+<li>
+	We then take the limit as <m>t \to 0^+</m> to obtain
+	<md>
+	<mrow>
+	  \int_0^1 \frac{1}{x}\dee{x}
+	&amp;= \lim_{t=0^+}\int_t^1 \frac{1}{x}\dee{x} = \lim_{t=0^+} -\log|t|
+	= +\infty
+	</mrow>
+	</md>
+	Thus this integral diverges to <m>+\infty</m>.
+</li>
+</ul>
+</p>
+
+</example>
+
+<sidebyside width="50%">
+<image source="text/figs/impSing"/>
+</sidebyside>
+
+
+<p>
+Indeed, we <em>define</em> integrals with unbounded integrands via this process:
+</p>
+
+<definition xml:id="def_IItype2"><title>Improper integral with unbounded integrand</title>
+<statement><p>
+<ol label="a">
+<li>
+	If the integral <m>\int_t^b f(x)\dee{x}</m> exists for all <m>a \lt t \lt b</m>, then
+	<me>
+	\int_a^b f(x)\dee{x}=\lim_{t\rightarrow a+}\int_t^b f(x)\dee{x}
+	</me>
+	when the limit exists (and is finite).
+</li>
+<li>
+	If the integral <m>\int_a^T f(x)\dee{x}</m> exists for all <m>a \lt T \lt b</m>, then
+	<me>
+	\int_a^b f(x)\dee{x}=\lim_{T\rightarrow b-}\int_a^T f(x)\dee{x}
+	</me>
+	when the limit exists (and is finite).
+</li>
+<li>
+	Let <m>a \lt c \lt b</m>. If the integrals <m>\int_a^T f(x)\dee{x}</m> and <m>\int_t^b f(x)\dee{x}</m> exist for all <m>a \lt T \lt c</m> and <m>c \lt t \lt b</m>, then
+	<me>
+	\int_a^b f(x)\dee{x}=\lim_{T\rightarrow c-}\int_a^T f(x)\dee{x}
+	+\lim_{t\rightarrow c+}\int_t^b f(x)\dee{x}
+	</me>
+	when both limit exist (and are finite).
+</li>
+</ol>
+When the limit(s) exist, the integral is said to be convergent. Otherwise it is said to be divergent.
+</p></statement>
+</definition>
+
+<p>
+Notice that (c) is used when the integrand is unbounded at some point in the middle of  the domain of integration, such as was the case in our original example
+<md>
+<mrow>
+  \int_{-1}^1 \frac{1}{x^2} \dee{x}
+</mrow>
+</md>
+A quick computation shows that this integral diverges to <m>+\infty</m>
+<md>
+<mrow>
+  \int_{-1}^1 \frac{1}{x^2} \dee{x}
+  &amp;= \lim_{a \to 0^-} \int_{-1}^a \frac{1}{x^2} \dee{x}
+  + \lim_{b \to 0^+} \int_b^1 \frac{1}{x^2}\dee{x}
+</mrow><mrow>
+  &amp;= \lim_{a \to 0^-} \left[1-\frac{1}{a} \right]
++ \lim_{b \to 0^+} \left[\frac{1}{b}-1 \right]
+</mrow><mrow>
+  &amp;= + \infty
+</mrow>
+</md>
+</p>
+
+<p>
+More generally, if an integral has more than one <q>source of impropriety</q> (for example an infinite domain of integration and an integrand with an unbounded integrand or multiple  infinite discontinuities) then you split it up into a sum of integrals with a single  <q>source of impropriety</q> in each. For the integral, as a whole, to converge every term in  that sum has to converge.
+</p>
+
+<p>
+For example
+</p>
+
+<example><title><m>\int_{-\infty}^\infty\frac{\dee{x}}{(x-2)x^2}</m></title>
+<p>
+Consider the integral
+<md>
+<mrow>
+  \int_{-\infty}^\infty\frac{\dee{x}}{(x-2)x^2}
+</mrow>
+</md>
+<ul>
+<li>
+	The domain of integration that extends to both <m>+\infty</m> and <m>-\infty</m>.
+</li>
+<li>
+	The integrand is singular (i.e. becomes infinite) at <m>x=2</m> and at <m>x=0</m>.
+</li>
+<li>
+<p>
+	So we would write the integral as
+	<md>
+	<mrow>
+	\int_{-\infty}^\infty\frac{\dee{x}}{(x-2)x^2}
+	=\int_{-\infty}^{a} \frac{\dee{x}}{(x-2)x^2}
+	 \ +\ \int_{a}^0 \frac{\dee{x}}{(x-2)x^2}
+	 \ +\ \int_0^b \frac{\dee{x}}{(x-2)x^2}
+	 </mrow>
+	 <mrow>
+	 \ +\ \int_b^2 \frac{\dee{x}}{(x-2)x^2}
+	 \ +\ \int_2^c \frac{\dee{x}}{(x-2)x^2}
+	 \ +\ \int_c^\infty \frac{\dee{x}}{(x-2)x^2}
+	 </mrow>
+	</md>
+	where
+	<ul>
+	<li> <m>a</m> is any number strictly less than <m>0</m>, </li>
+	<li> <m>b</m> is any number strictly between <m>0</m> and <m>2</m>, and </li>
+	<li> <m>c</m> is any number strictly bigger than <m>2</m>. </li>
+	</ul>
+	So, for example, take <m>a=-1, b=1, c=3</m>.
+</p>
+</li>
+<li>
+<p>
+	When we examine the right-hand side we see that
+	<ul>
+	<li> the first integral has domain of integration extending to <m>-\infty</m> </li>
+	<li> the second integral has an integrand that becomes unbounded as   <m>x\rightarrow 0-</m>, </li>
+	<li> the third integral has an integrand that becomes unbounded as   <m>x\rightarrow 0+</m>, </li>
+	<li> the fourth integral has an integrand that becomes unbounded as   <m>x\rightarrow 2-</m>, </li>
+	<li> the fifth integral has an integrand that becomes unbounded as   <m>x\rightarrow 2+</m>, and </li>
+	<li> the last integral has domain of integration extending to <m>+\infty</m>. </li>
+	</ul>
+</p>
+</li>
+<li> Each of these integrals can then be expressed as a limit of an integral on a small
+domain.
+</li>
+</ul>
+</p>
+</example>
+</subsection>
+
+<subsection><title>Examples</title>
+
+
+<p>
+With the more formal definitions out of the way, we are now ready for some (important)  examples.
+</p>
+<example xml:id="eg_IMPp1"><title><m>\int_1^\infty\frac{\dee{x}}{x^p}</m> with <m>p \gt 0</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li> Fix any <m>p \gt 0</m>. </li>
+<li>
+	The domain of the integral <m>\int_1^\infty\frac{\dee{x}}{x^p}</m> extends to <m>+\infty</m> and the integrand <m>\frac{1}{x^p}</m> is continuous and bounded on the whole domain.
+</li>
+<li>
+	So we write this integral as the limit
+	<md>
+	<mrow>
+	\int_1^\infty\frac{\dee{x}}{x^p}
+	&amp;=\lim_{R\rightarrow\infty} \int_1^R\frac{\dee{x}}{x^p}
+	</mrow>
+	</md>
+</li>
+<li>
+	The antiderivative of <m>1/x^p</m> changes when <m>p=1</m>, so we will split the problem into  three cases, <m>p \gt 1</m>, <m>p=1</m> and <m>p \lt 1</m>.
+</li>
+<li>
+	When <m>p \gt 1</m>,
+	<md>
+	<mrow>
+	  \int_1^R \frac{\dee{x}}{x^p}
+	  &amp;= \frac{1}{1-p} x^{1-p} \bigg|_1^R
+	</mrow><mrow>
+	  &amp;= \frac{R^{1-p}-1}{1-p}
+	</mrow>
+	</md>
+	Taking the limit as <m>R \to \infty</m> gives
+	<md>
+	<mrow>
+	  \int_1^\infty\frac{\dee{x}}{x^p}
+	  &amp;= \lim_{R \to \infty} \int_1^R\frac{\dee{x}}{x^p}
+	</mrow><mrow>
+	  &amp;= \lim_{R \to \infty} \frac{R^{1-p}-1}{1-p}
+	</mrow><mrow>
+	  &amp;= \frac{-1}{1-p} = \frac{1}{p-1}
+	</mrow>
+	</md>
+	since <m>1-p \lt 0</m>.
+</li>
+<li>
+	Similarly when <m>p \lt 1</m> we have
+	<md>
+	<mrow>
+	\int_1^\infty\frac{\dee{x}}{x^p}
+	&amp;= \lim_{R \to \infty} \int_1^R \frac{\dee{x}}{x^p}
+	&amp;= \lim_{R \to \infty} \frac{R^{1-p}-1}{1-p}
+	</mrow><mrow>
+	  &amp;= +\infty
+	</mrow>
+	</md>
+	because <m>1-p \gt 0</m> and the term <m>R^{1-p}</m> diverges to <m>+\infty</m>.
+</li>
+<li>
+	Finally when <m>p=1</m>
+	<md>
+	<mrow>
+	\int_1^R\frac{\dee{x}}{x} &amp;= \log|R|-\log 0 = \log R
+	</mrow>
+	</md>
+	Then taking the limit as <m>R \to \infty</m> gives us
+	<md>
+	<mrow>
+	\int_1^\infty\frac{\dee{x}}{x^p} &amp;= \lim_{R \to \infty} \log|R| = +\infty.
+	</mrow>
+	</md>
+</li>
+<li>
+	So summarising, we have
+	<md>
+	<mrow>
+	\int_1^\infty\frac{\dee{x}}{x^p}
+	&amp;=\begin{cases}
+	   \text{divergent} &amp; \text {if } p\le 1 \\
+	   \frac{1}{p-1} &amp; \text{if } p \gt 1
+	  \end{cases}
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+</example>
+
+<example xml:id="eg_IMPp2"><title><m>\int_0^1\frac{\dee{x}}{x^p}</m> with <m>p \gt 0</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li> Again fix any <m>p \gt 0</m>. </li>
+<li>
+	The domain of integration of the integral  <m>\int_0^1\frac{\dee{x}}{x^p}</m> is  finite, but the integrand <m>\frac{1}{x^p}</m> becomes unbounded as <m>x</m> approaches the left  end, <m>0</m>, of the domain of integration.
+</li>
+<li>
+	So we write this integral as
+	<md>
+	<mrow>
+	\int_0^1\frac{\dee{x}}{x^p} &amp;=\lim_{t\rightarrow 0+} \int_t^1\frac{\dee{x}}{x^p}
+	</mrow>
+	</md>
+</li>
+<li>
+	Again, the antiderivative changes at <m>p=1</m>, so we split the problem into three  cases.
+</li>
+<li>
+	When <m>p \gt 1</m> we have
+	<md>
+	<mrow>
+	  \int_t^1\frac{\dee{x}}{x^p} &amp;= \frac{1}{1-p}x^{1-p}\bigg|_t^1
+	</mrow><mrow>
+	  &amp;= \frac{1-t^{1-p}}{1-p}
+	</mrow>
+	</md>
+	Since <m>1-p \lt 0</m> when we take the limit as <m>t\to 0</m> the term <m>t^{1-p}</m> diverges to  <m>+\infty</m> and we obtain
+	<md>
+	<mrow>
+	  \int_0^1\frac{\dee{x}}{x^p} &amp;= \lim_{t\to0^+} \frac{1-t^{1-p}}{1-p} = +\infty
+	</mrow>
+	</md>
+</li>
+<li>
+	When <m>p=1</m> we similarly obtain
+	<md>
+	<mrow>
+	  \int_0^1\frac{\dee{x}}{x}
+	&amp;= \lim_{t\to0+} \int_t^1\frac{\dee{x}}{x}
+	</mrow><mrow>
+	&amp;= \lim_{t\to0+} \big( -\log|t| \big)
+	</mrow><mrow>
+	&amp;= +\infty
+	</mrow>
+	</md>
+</li>
+<li>
+	Finally, when <m>p \lt 1</m> we have
+	<md>
+	<mrow>
+	  \int_0^1\frac{\dee{x}}{x^p}
+	&amp;= \lim_{t\to0^+}\int_t^1\frac{\dee{x}}{x^p}
+	</mrow><mrow>
+	&amp;= \lim_{t\to0^+} \frac{1-t^{1-p}}{1-p} = \frac{1}{1-p}
+	</mrow>
+	</md>
+	since <m>1-p \gt 0</m>.
+</li>
+<li>
+	In summary
+	<md>
+	<mrow>
+	\int_0^1\frac{\dee{x}}{x^p}
+	&amp;=\begin{cases}
+	   \frac{1}{1-p} &amp; \text{if } p \lt 1 \\
+	   \text{divergent} &amp; \text {if } p\ge 1
+	  \end{cases}
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_IMPp3"><title><m>\int_0^\infty\frac{\dee{x}}{x^p}</m> with <m>p \gt 0</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li> Yet again fix <m>p \gt 0</m>. </li>
+<li>
+	This time the domain of integration of the integral  <m>\int_0^\infty\frac{\dee{x}}{x^p}</m> extends to <m>+\infty</m>, and in addition  the integrand <m>\frac{1}{x^p}</m> becomes unbounded as <m>x</m> approaches  the left end, <m>0</m>, of the domain of integration.
+</li>
+<li>
+	So we split the domain in two  <mdash/> given our last two examples, the obvious  place to cut is at <m>x=1</m>:
+	<me>
+	\int_0^\infty\frac{\dee{x}}{x^p}
+	=\int_0^1\frac{\dee{x}}{x^p} + \int_1^\infty\frac{\dee{x}}{x^p}
+	</me>
+</li>
+<li>
+	We saw, in Example <xref ref="eg_IMPp2"/>, that the first integral diverged whenever <m>p\ge 1</m>, and we also saw, in Example <xref ref="eg_IMPp1"/>, that the second integral  diverged whenever <m>p\le 1</m>.
+</li>
+<li>
+	So the integral <m>\int_0^\infty\frac{\dee{x}}{x^p}</m> diverges for all values of <m>p</m>.
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_IMPp4"><title><m>\int_{-1}^1\frac{\dee{x}}{x}</m></title>
+<p>
+This is a pretty subtle example. Look at the sketch below:
+</p>
+
+<sidebyside width="40%">
+<image source="text/figs/impPlusMinus"/>
+</sidebyside>
+
+<p>
+This suggests that the signed area to the left of the <m>y</m>-axis should exactly cancel the area to the right of the <m>y</m>-axis making the value of the integral <m>\int_{-1}^1\frac{\dee{x}}{x}</m> exactly zero.
+</p>
+
+<p>
+But both of the integrals
+<md>
+<mrow>
+\int_0^1\frac{\dee{x}}{x}
+&amp;=\lim_{t\rightarrow 0+}\int_t^1\frac{\dee{x}}{x}
+&amp;&amp;=\lim_{t\rightarrow 0+}\Big[\log x\Big]_t^1
+&amp;&amp;=\lim_{t\rightarrow 0+}\log\frac{1}{t}
+&amp;=+\infty
+</mrow>
+<mrow>
+\int_{-1}^0\frac{\dee{x}}{x}
+&amp;=\lim_{T\rightarrow 0-}\int_{-1}^T\frac{\dee{x}}{x}
+&amp;&amp;=\lim_{T\rightarrow 0-}\Big[\log|x|\Big]_{-1}^T
+&amp;&amp;=\lim_{T\rightarrow 0-}\log|T|\
+&amp;=-\infty
+</mrow>
+</md>
+diverge so <m>\int_{-1}^1\frac{\dee{x}}{x}</m> diverges. Don't make the mistake of thinking  that <m>\infty-\infty=0</m>. <alert>It is undefined</alert>. And it is undefined for good  reason.
+</p>
+
+<p>
+For example, we have just seen that the area to the right of the <m>y</m>-axis is
+<me>
+\lim_{t\rightarrow 0+}\int_t^1\frac{\dee{x}}{x}=+\infty
+</me>
+and that the area to the left of the <m>y</m>-axis is (substitute <m>-7t</m> for <m>T</m> above)
+<me>
+\lim_{t\rightarrow 0+}\int_{-1}^{-7t}\frac{\dee{x}}{x}=-\infty
+</me>
+If <m>\infty-\infty=0</m>, the following limit should be <m>0</m>.
+<md>
+<mrow>
+\lim_{t\rightarrow 0+}\bigg[\int_t^1\frac{\dee{x}}{x}
+                +\int_{-1}^{-7t}\frac{\dee{x}}{x}\bigg]
+&amp;=\lim_{t\rightarrow 0+}\Big[\log\frac{1}{t}+\log |-7t|\Big]
+</mrow><mrow>
+&amp;=\lim_{t\rightarrow 0+}\Big[\log\frac{1}{t}+\log (7t)\Big]
+</mrow><mrow>
+&amp;=\lim_{t\rightarrow 0+}\Big[-\log t+\log7 +\log t\Big]
+=\lim_{t\rightarrow 0+}\log 7
+</mrow><mrow>
+&amp;=\log 7
+</mrow>
+</md>
+This appears to give <m>\infty-\infty=\log 7</m>. Of course the number <m>7</m>  was picked at random. You can make <m>\infty-\infty</m> be any number at all,  by making a suitable replacement for <m>7</m>.
+</p>
+</example>
+
+
+<example xml:id="eg_IMPtrapB"><title>Example <xref ref="eg_IMPtrap"/> revisited</title>
+<p>
+The careful computation of the integral of Example <xref ref="eg_IMPtrap"/> is
+<md>
+<mrow>
+\int_{-1}^1\frac{1}{x^2}\dee{x}
+&amp;=\lim_{T\rightarrow 0- }\int_{-1}^T\frac{1}{x^2}\dee{x}
+  +\lim_{t\rightarrow 0+} \int_t^1\frac{1}{x^2}\dee{x}
+</mrow><mrow>
+&amp;=\lim_{T\rightarrow 0- }\Big[-\frac{1}{x}\Big]_{-1}^T
+  +\lim_{t\rightarrow 0+}\Big[-\frac{1}{x}\Big]_t^1
+</mrow><mrow>
+&amp;=\infty+\infty
+</mrow>
+</md>
+Hence the integral diverges to <m>+\infty</m>.
+</p>
+</example>
+
+<example xml:id="eg_IMPp5"><title><m>\int_{-\infty}^\infty\frac{\dee{x}}{1+x^2}</m></title>
+<p>
+Since
+<md>
+<mrow>
+\lim_{R\rightarrow\infty}\int_0^R\frac{\dee{x}}{1+x^2}
+&amp;=\lim_{R\rightarrow\infty}\Big[\arctan x\Big]_0^R
+&amp;=\lim_{R\rightarrow\infty} \arctan R
+&amp;=\frac{\pi}{2}
+</mrow>
+<mrow>
+\lim_{r\rightarrow-\infty}\int_r^0\frac{\dee{x}}{1+x^2}
+&amp;=\lim_{r\rightarrow-\infty}\Big[\arctan x\Big]_r^0
+&amp;=\lim_{r\rightarrow-\infty} -\arctan r
+&amp;=\frac{\pi}{2}
+</mrow>
+</md>
+The integral <m>\int_{-\infty}^\infty\frac{\dee{x}}{1+x^2}</m> converges and takes
+the value <m>\pi</m>.
+</p>
+</example>
+
+<example xml:id="eg_IMPp11"><title>When does <m>\int_e^\infty\frac{\dee{x}}{x(\log x)^p}</m> converge?</title>
+<p>
+For what values of <m>p</m> does <m>\int_e^\infty\frac{\dee{x}}{x(\log x)^p}</m> converge?
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	For <m>x\ge e</m>, the denominator <m>x(\log x)^p</m> is never zero.  So the integrand is bounded on the entire domain of integration and this integral is improper only because the domain of integration extends to <m>+\infty</m> and we proceed as usual.
+</li>
+<li>
+	We have
+	<md>
+	<mrow>
+	\int_e^\infty\frac{\dee{x}}{x(\log x)^p}
+	&amp;=\lim_{R\rightarrow \infty} \int_e^R\frac{\dee{x}}{x(\log x)^p}
+	\qquad\qquad\qquad \text{use substitution}
+	</mrow><mrow>
+	&amp;=\lim_{R\rightarrow \infty} \int_1^{\log R}\frac{\dee{u}}{u^p}
+	\qquad\qquad\text{with }u=\log x,\dee{u}=\frac{\dee{x}}{x}
+	</mrow><mrow>
+	&amp;=\lim_{R\rightarrow\infty}
+	   \begin{cases}
+		   \frac{1}{1-p}\Big[(\log R)^{1-p}-1\Big] &amp; \text{if } p\ne 1
+	</mrow><mrow>
+		   \log(\log R) &amp; \text{if } p=1
+	   \end{cases}
+	</mrow><mrow>
+	&amp;=\begin{cases}
+	   \text{divergent} &amp; \text {if } p\le 1
+	</mrow><mrow>
+	   \frac{1}{p-1} &amp; \text{if } p \gt 1
+	  \end{cases}
+	</mrow>
+	</md>
+	In this last step we have used similar logic that that used in Example<nbsp/><xref ref="eg_IMPp1"/>, but  with <m>R</m> replaced by <m>\log R</m>.
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_IMPgamma"><title>The gamma function</title>
+<p>
+The gamma function <m>\Gamma(x)</m> is defined by the improper integral
+<me>
+\Gamma(t) = \int_0^\infty x^{t-1}e^{-x}\dee{x}
+</me>
+We shall now compute <m>\Gamma(n)</m> for all natural numbers <m>n</m>.
+</p>
+
+<p>
+<ul>
+<li>
+	To get started, we'll compute
+	<md>
+	<mrow>
+	\Gamma(1) &amp;= \int_0^\infty e^{-x}\dee{x}
+			   = \lim_{R\rightarrow\infty}\int_0^R e^{-x}\dee{x}
+			   = \lim_{R\rightarrow\infty}\Big[-e^{-x}\Big]_0^R
+			  = 1
+	</mrow>
+	</md>
+</li>
+<li>
+	Then compute <md>
+	<mrow>
+	\Gamma(2) &amp;= \int_0^\infty x e^{-x}\dee{x}
+	</mrow><mrow>
+	  &amp;=\lim_{R\rightarrow\infty} \int_0^R  x e^{-x}\dee{x}
+	  </mrow>
+	  <intertext>Use integration by parts with <m>u=x, \dee{v}=e^{-x}\dee{x},</m> so <m>v=-e^{-x}, \dee{u}=\dee{x}</m></intertext>
+	<mrow>
+	&amp; = \lim_{R\rightarrow\infty}\bigg[- xe^{-x} \Big|_0^R
+									 + \int_0^R  e^{-x}\dee{x}\bigg]
+	</mrow><mrow>
+			  &amp; = \lim_{R\rightarrow\infty}\Big[- xe^{-x} - e^{-x}\Big]_0^R
+	</mrow><mrow>
+			  &amp; = 1
+	</mrow>
+	</md>
+	For the last equality, we used that  <m>\lim\limits_{x\rightarrow\infty}x e^{-x}=0</m>.
+</li>
+<li>
+	Now we move on to general <m>n</m>, using the same type of computation as we just used to evaluate <m>\Gamma(2)</m>. For any natural number <m>n</m>,
+	<md>
+	<mrow>
+	\Gamma(n+1)
+	  &amp;= \int_0^\infty x^n e^{-x}\dee{x}
+	</mrow><mrow>
+	  &amp;=\lim_{R\rightarrow\infty} \int_0^R  x^n e^{-x}\dee{x}
+	</mrow>
+	<intertext>Again integrate by parts with <m>u=x^n,\dee{v}= e^{-x}\dee{x}</m>, so <m>v=-e^{-x}, \dee{u}=nx^{n-1}\dee{x}</m>
+	</intertext>
+	<mrow>
+	  &amp; = \lim_{R\rightarrow\infty}\bigg[- x^ne^{-x}\Big|_0^R +
+			  \int_0^R  nx^{n-1}e^{-x}\dee{x}\bigg]
+	</mrow><mrow>
+			  &amp; = \lim_{R\rightarrow\infty} n\int_0^R  x^{n-1} e^{-x}\dee{x}
+	</mrow><mrow>
+			  &amp; = n\Gamma(n)
+	</mrow>
+	</md>
+	To get to the third row, we used that  <m>\lim\limits_{x\rightarrow\infty}x^n e^{-x}=0</m>.
+</li>
+<li>
+	Now that we know <m>\Gamma(2)=1</m> and <m>\Gamma(n+1)= n\Gamma(n)</m>, for all  <m>n\in\bbbn</m>, we can compute all of the <m>\Gamma(n)</m>'s.
+	<md alignment="alignat">
+	<mrow>
+	\Gamma(2)&amp;=1
+	</mrow>
+	<mrow>
+	\Gamma(3)&amp;=\Gamma(2+1)=2\Gamma(2)=2\cdot 1
+	</mrow>
+	<mrow>
+	\Gamma(4)&amp;=\Gamma(3+1)=3\Gamma(3)=3\cdot2\cdot 1
+	</mrow>
+	<mrow>
+	\Gamma(5)&amp;=\Gamma(4+1)=4\Gamma(4)=4\cdot3\cdot 2\cdot 1
+	</mrow>
+	<mrow>
+			 &amp;\vdots
+	</mrow>
+	<mrow>
+	\Gamma(n)&amp;=(n-1)\cdot(n-2)\cdots 4\cdot 3\cdot 2\cdot 1 = (n-1)!
+	</mrow>
+	</md>
+	That is, the factorial is just
+	<fn>
+		The Gamma function is far more  important than just a generalisation of the factorial. It appears all over  mathematics, physics, statistics and beyond. It has all sorts of interesting  properties and its definition can be extended from natural numbers <m>n</m> to all  numbers excluding <m>0,-1,-2,-3,\cdots</m>. For example, one can show that
+		<me>
+		\Gamma(1-z)\Gamma(z) = \frac{\pi}{\sin \pi z}.
+		</me>
+	</fn>
+	the Gamma function shifted by one.
+</li>
+</ul>
+</p>
+</example>
+</subsection>
+
+<subsection>
+<title>Convergence Tests for Improper Integrals</title>
+
+<p>
+It is very common to encounter integrals that are too complicated to  evaluate explicitly. Numerical approximation schemes, evaluated by computer, are  often used instead (see Section<nbsp/><xref ref="sec_numeric_int"/>). You want to be sure that  at least the integral converges before feeding it into a  computer
+	<fn>
+		Applying numerical integration methods to a divergent integral  may result in perfectly reasonably looking but very wrong answers.
+	</fn>.
+Fortunately  it is usually possible to determine whether or not an improper integral  converges even when you cannot evaluate it explicitly.
+</p>
+
+<remark  xml:id="rmk_singularities">
+<p>
+For pedagogical purposes, we are going to concentrate on the problem of  determining whether or not an integral <m>\int_a^\infty f(x)\dee{x}</m> converges,  when <m>f(x)</m> has no singularities for <m>x\ge a</m>. Recall that the first step in  analyzing any improper integral is to write it as a sum of integrals each of has  only a single <q>source of impropriety</q> <mdash/> either a domain of integration that  extends to <m>+\infty</m>, or a domain of integration that extends to <m>-\infty</m>, or  an integrand which is singular at one end of the domain of integration. So we  are now going to consider only the first of these three possibilities. But the  techniques that we are about to see have obvious analogues for the other two  possibilities.
+</p>
+</remark>
+
+<p>
+Now let's start. Imagine that we have an improper integral  <m>\int_a^\infty f(x)\dee{x}</m>, that <m>f(x)</m> has no singularities for <m>x\ge a</m>  and that <m>f(x)</m> is complicated enough that we cannot evaluate the  integral explicitly
+	<fn>
+		You could, for example, think of something like  our running example <m>\int_a^\infty e^{-t^2} \dee{t}</m>.
+	</fn>.
+The idea is find another  improper integral <m>\int_a^\infty g(x)\dee{x}</m>
+<ul>
+<li>
+	with <m>g(x)</m> simple enough that we can evaluate the integral  <m>\int_a^\infty g(x)\dee{x}</m> explicitly, or at least determine easily whether or not <m>\int_a^\infty g(x)\dee{x}</m> converges, and
+</li>
+<li>
+	with <m>g(x)</m> behaving enough like <m>f(x)</m> for large <m>x</m> that the integral <m>\int_a^\infty f(x)\dee{x}</m> converges if and only if <m>\int_a^\infty g(x)\dee{x}</m> converges.
+</li>
+</ul>
+So far, this is a pretty vague strategy. Here is a theorem which starts to make it more precise.
+</p>
+
+<theorem xml:id="thm_IMPcomparison"><title>Comparison</title>
+<statement><p>
+Let <m>a</m> be a real number. Let <m>f</m> and <m>g</m> be functions that are  defined and continuous for all <m>x\ge a</m> and assume that  <m>g(x)\ge 0</m>  for all  <m>x\ge a</m>.
+<ol label="a">
+<li>
+	If <m>|f(x)|\le g(x)</m> for all <m>x\ge a</m> and if <m>\int_a^\infty g(x)\dee{x}</m> converges then <m>\int_a^\infty f(x)\dee{x}</m> also converges.
+</li>
+<li>
+	If <m>f(x)\ge g(x)</m> for all <m>x\ge a</m> and if <m>\int_a^\infty g(x)\dee{x}</m> diverges then <m>\int_a^\infty f(x)</m> diverges.
+</li>
+</ol>
+</p></statement>
+</theorem>
+
+<p>
+We will not prove this theorem, but, hopefully, the following supporting arguments should at least appear reasonable to you. Consider the figure below:
+</p>
+
+<sidebyside width="90%">
+<image source="text/figs/int_comparison"/>
+</sidebyside>
+
+
+<p>
+<ul>
+<li>
+	If <m>\int_a^\infty g(x)\dee{x}</m> converges, then the area of
+	<md>
+	<mrow>
+	\big\{\ (x,y)\ \big|\ x\ge a,\ 0\le y\le g(x)\ \big\} \text{ is finite.}
+	</mrow>
+	</md>
+	When <m>|f(x)|\le g(x)</m>, the region
+	<md>
+	<mrow>
+	\big\{\ (x,y)\ \big|\ x\ge a,\ 0\le y\le |f(x)|\ \big\}
+	\text{ is contained inside }
+	\big\{\ (x,y)\ \big|\ x\ge a,\ 0\le y\le g(x)\big\}
+	</mrow>
+	</md>
+	and so must also have finite area. Consequently the areas  of both the regions
+	<md>
+	<mrow>
+	\big\{\ (x,y)\ \big|\ x\ge a,\ 0\le y\le f(x)\ \big\}
+	\text{ and }
+	\big\{\ (x,y)\ \big|\ x\ge a,\ f(x)\le y\le 0 \big\}
+	</mrow>
+	</md>
+	are finite too
+	<fn>
+		We have separated the regions in which <m>f(x)</m> is  positive and negative, because the integral <m>\int_a^\infty f(x)\dee{x} </m>  represents the signed area of the union of  <m>\big\{\ (x,y)\ \big|\ x\ge a,\ 0\le  y\le f(x)\ \big\}</m> and <m>\big\{\ (x,y)\ \big|\ x\ge a,\ f(x)\le y\le 0\  \big\}</m>.
+	</fn>.
+</li>
+<li>
+	If <m>\int_a^\infty g(x)\dee{x}</m> diverges, then the area of
+	<md>
+	<mrow>
+	\big\{\ (x,y)\ \big|\ x\ge a,\ 0\le y\le g(x)\ \big\} \text{ is infinite.}
+	</mrow>
+	</md>
+	When <m>f(x)\ge g(x)</m>, the region
+	<md>
+	<mrow>
+	\big\{\ (x,y)\ \big|\ x\ge a,\ 0\le y\le f(x)\ \big\}
+	\text{ contains the region }
+	\big\{\ (x,y)\ \big|\ x\ge a,\ 0\le y\le g(x)\ \big\}
+	</mrow>
+	</md>
+	and so also has infinite area.
+</li>
+</ul>
+</p>
+
+<example xml:id="eg_IMPp6"><title><m>\int_1^\infty e^{-x^2}\dee{x}</m></title>
+<p>
+We cannot evaluate the integral <m>\int_1^\infty e^{-x^2}\dee{x}</m> explicitly
+	<fn>
+		It has been the subject of many remarks and footnotes.
+	</fn>,
+however we would still like to understand if it is finite or not <mdash/> does it  converge or diverge?
+</p>
+
+<p>
+<alert>Solution:</alert> We will use Theorem<nbsp/><xref ref="thm_IMPcomparison"/> to answer the question.
+<ul>
+<li>
+	So we want to find another integral that we can compute and that we can compare to <m>\int_1^\infty e^{-x^2}\dee{x}</m>. To do so we pick an integrand that looks like <m>e^{-x^2}</m>, but whose indefinite integral we know <mdash/> such as <m>e^{-x}</m>.
+</li>
+<li>
+	When <m>x\ge 1</m>, we have <m>x^2\ge x</m> and hence <m>e^{-x^2}\le e^{-x}</m>. Thus we  can use Theorem<nbsp/><xref ref="thm_IMPcomparison"/> to compare
+	<md>
+	<mrow>
+	  \int_1^\infty e^{-x^2}\dee{x} \text{ with }
+	\int_1^\infty e^{-x}\dee{x}
+	</mrow>
+	</md>
+</li>
+<li>
+	The integral
+	<md>
+	<mrow>
+	\int_1^\infty e^{-x}\dee{x}
+	&amp;=\lim_{R\rightarrow\infty}\int_1^R e^{-x}\dee{x}
+	</mrow><mrow>
+	&amp;=\lim_{R\rightarrow\infty}\Big[-e^{-x}\Big]_1^{R}
+	</mrow><mrow>
+	&amp;=\lim_{R\rightarrow\infty}\Big[e^{-1}-e^{-R}\Big]
+	=e^{-1}
+	</mrow>
+	</md>
+	converges.
+</li>
+<li>
+	So, by Theorem <xref ref="thm_IMPcomparison"/>, with <m>a=1</m>,  <m>f(x)=e^{-x^2}</m> and <m>g(x)=e^{-x}</m>, the integral <m>\int_1^\infty e^{-x^2}\dee{x}</m> converges too (it is approximately equal to <m>0.1394</m>).
+</li>
+</ul>
+</p>
+</example>
+
+<example xml:id="eg_IMPp7"><title><m>\int_{1/2}^\infty e^{-x^2}\dee{x}</m></title>
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+	The integral <m>\int_{1/2}^\infty e^{-x^2}\dee{x}</m> is quite similar to the integral <m>\int_1^\infty e^{-x^2}\dee{x}</m> of Example <xref ref="eg_IMPp6"/>. But we cannot just repeat the argument of Example <xref ref="eg_IMPp6"/> because it is not true that <m>e^{-x^2}\le e^{-x}</m> when <m>0 \lt x \lt 1</m>.
+</li>
+<li>
+	In fact, for <m>0 \lt x \lt 1</m>, <m>x^2 \lt x</m> so that <m>e^{-x^2} \gt e^{-x}</m>.
+</li>
+<li>
+	However the difference between the current example and Example  <xref ref="eg_IMPp6"/> is
+	<md>
+	<mrow>
+	  \int_{1/2}^\infty e^{-x^2}\dee{x}-\int_1^\infty e^{-x^2}\dee{x}
+	  &amp;= \int_{1/2}^1 e^{-x^2}\dee{x}
+	</mrow>
+	</md>
+	which is clearly a well defined finite number (its actually about <m>0.286</m>).  It is important to note that we are being a little sloppy by taking the  difference of two integrals like this <mdash/> we are assuming that both integrals  converge.  More on this below.
+</li>
+<li>
+	So we would expect that <m>\int_{1/2}^\infty e^{-x^2}\dee{x}</m> should be the sum of the proper integral integral <m>\int_{1/2}^1 e^{-x^2}\dee{x}</m> and the convergent integral  <m>\int_1^\infty e^{-x^2}\dee{x}</m> and so should be a convergent integral. This is indeed the case. The Theorem below provides the justification.
+</li>
+</ul>
+</p>
+</example>
+
+<theorem xml:id="thm_IMPfiniteSHift">
+<statement><p>
+Let <m>a</m> and <m>c</m> be real numbers with <m>a \lt c</m> and let the function <m>f(x)</m> be  continuous for all <m>x\ge a</m>. Then the improper integral <m>\int_a^\infty f(x)\  \dee{x}</m> converges if and only if the improper integral <m>\int_c^\infty f(x)\  \dee{x}</m> converges.
+</p></statement>
+</theorem>
+
+<proof>
+<p>
+By definition the improper integral <m>\int_a^\infty f(x)\dee{x}</m> converges if and only if the limit
+<md>
+<mrow>
+\lim_{R\rightarrow\infty}\int_a^R f(x)\dee{x}
+&amp;=\lim_{R\rightarrow\infty}\bigg[\int_a^c f(x)\dee{x} +\int_c^R f(x)\dee{x}\bigg]
+</mrow><mrow>
+&amp;=\int_a^c f(x)\dee{x} + \lim_{R\rightarrow\infty}\int_c^R f(x)\dee{x}
+</mrow>
+</md>
+exists and is finite. (Remember that, in computing the limit,   <m>\int_a^c f(x)\dee{x}</m> is a finite constant independent of <m>R</m> and so can be pulled out of the limit.) But that is the case if and only if the limit <m>\lim_{R\rightarrow\infty}\int_c^R f(x)\dee{x}</m> exists and is finite, which in turn is the case if and only if the integral <m>\int_c^\infty f(x)\dee{x}</m> converges.
+</p>
+</proof>
+
+
+<example xml:id="eg_IMPp10"><title>Does <m>\int_1^\infty\frac{\sqrt{x}}{x^2+x}\dee{x}</m> converge?</title>
+<p>
+Does the integral <m>\int_1^\infty\frac{\sqrt{x}}{x^2+x}\dee{x}</m> converge or diverge?
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	Our first task is to identify the potential sources of impropriety for this integral.
+</li>
+<li>
+	The domain of integration extends to <m>+\infty</m>, but we must also check to  see if the integrand contains any singularities. On the domain of integration  <m>x\ge 1</m> so the denominator is never zero and the integrand is continuous. So  the only problem is at <m>+\infty</m>.
+</li>
+<li>
+	Our second task is to develop some intuition
+	<fn>
+		This takes  practice, practice and more practice. At the risk of alliteration <mdash/> please  perform plenty of practice problems
+	.</fn>.
+	As the only problem is that the domain of integration extends to infinity, whether or not the integral converges will be determined by the behavior of the integrand for very large <m>x</m>.
+</li>
+<li>
+	When <m>x</m> is very large, <m>x^2</m> is much much larger than <m>x</m> (which we can  write as <m>x^2\gg x</m>) so that the denominator <m>x^2+x\approx x^2</m> and the integrand
+	<md>
+	<mrow>
+	\frac{\sqrt{x}}{x^2+x} &amp; \approx \frac{\sqrt{x}}{x^2} =\frac{1}{x^{3/2}}
+	</mrow>
+	</md>
+</li>
+<li>
+	By Example <xref ref="eg_IMPp1"/>, with <m>p=\frac{3}{2}</m>, the integral  <m>\int_1^\infty \frac{\dee{x}}{x^{3/2}}</m> converges. So we would expect that  <m>\int_1^\infty\frac{\sqrt{x}}{x^2+x}\dee{x}</m> converges too.
+</li>
+<li>
+	Our final task is to verify that our intuition is correct. To do so, we want to apply part (a) of Theorem <xref ref="thm_IMPcomparison"/> with <m>f(x)= \frac{\sqrt{x}}{x^2+x}</m> and <m>g(x)</m> being <m>\frac{1}{x^{3/2}}</m>, or possibly some constant times <m>\frac{1}{x^{3/2}}</m>. That is, we need to show  that for all <m>x \geq 1</m> (i.e. on the domain of integration)
+	<md>
+	<mrow>
+	  \frac{\sqrt{x}}{x^2+x} \leq \frac{A}{x^{3/2}}
+	</mrow>
+	</md>
+	for some constant <m>A</m>. Let's try this.
+</li>
+<li>
+	Since <m>x\geq 1</m> we know that
+	<md>
+	<mrow>
+	x^2+x &amp; \gt  x^2
+	</mrow>
+	<intertext>Now take the reciprocal of both sides:</intertext>
+	<mrow>
+	\frac{1}{x^2+x} &amp; \lt  \frac{1}{x^2}
+	</mrow>
+	<intertext>
+		Multiply both sides by <m>\sqrt{x}</m> (which is always positive, so the  sign of the inequality does not change)
+	</intertext>
+	<mrow>
+	\frac{\sqrt{x}}{x^2+x} &amp; \lt  \frac{\sqrt{x}}{x^2} = \frac{1}{x^{3/2}}
+	</mrow>
+	</md>
+</li>
+<li>
+	So Theorem <xref ref="thm_IMPcomparison"/>(a) and Example <xref ref="eg_IMPp1"/>, with <m>p=\frac{3}{2}</m> do indeed show that the integral  <m>\int_1^\infty\frac{\sqrt{x}}{x^2+x}\dee{x}</m> converges.
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+Notice that in this last example we managed to show that the integral exists by  finding an integrand that behaved the same way for large <m>x</m>. Our  intuition then had to be bolstered with some careful inequalities to apply  the comparison Theorem<nbsp/><xref ref="thm_IMPcomparison"/>. It would be nice to avoid this  last step and be able jump from the intuition to the conclusion without messing  around with inequalities. Thankfully there is a variant of  Theorem<nbsp/><xref ref="thm_IMPcomparison"/> that is often easier to apply and that also fits  well with the sort of intuition that we developed to solve  Example<nbsp/><xref ref="eg_IMPp10"/>.
+</p>
+
+<p>
+A key phrase in the previous paragraph is <q>behaves the same way for large  <m>x</m></q>. A good way to formalise this expression <mdash/> <q><m>f(x)</m> behaves like <m>g(x)</m>  for large <m>x</m></q> <mdash/> is to require that the limit
+<md>
+<mrow>
+\lim_{x\rightarrow\infty}\frac{f(x)}{g(x)} &amp; \text{ exists and is a finite  nonzero number.}
+</mrow>
+</md>
+Suppose that this is the case and call the limit <m>L\ne 0</m>. Then
+<ul>
+<li>
+	the ratio <m>\frac{f(x)}{g(x)}</m> must approach <m>L</m> as <m>x</m>  tends to <m>+\infty</m>.
+</li>
+<li>
+	So when <m>x</m> is very large <mdash/> say <m>x \gt B</m>, for some  big number <m>B</m> <mdash/> we must have that
+	<md>
+	<mrow>
+	  \frac{1}{2}L \leq \frac{f(x)}{g(x)} \leq 2L &amp;&amp; \text{for all $x \gt B$}
+	</mrow>
+	</md>
+	Equivalently, <m>f(x)</m> lies between <m>\frac{L}{2}g(x)</m> and <m>2Lg(x)</m>, for all  <m>x\ge B</m>.
+</li>
+<li>
+	Consequently, the integral of <m>f(x)</m> converges if and only if the  integral of <m>g(x)</m> converges, by Theorems <xref ref="thm_IMPcomparison"/> and  <xref ref="thm_IMPfiniteSHift"/>.
+</li>
+</ul>
+These considerations lead to the following variant of Theorem  <xref ref="thm_IMPcomparison"/>.
+</p>
+
+<theorem xml:id="thm_IMPcomparisonLim"><title> Limiting comparison</title>
+<statement><p>
+Let <m>-\infty \lt a \lt \infty</m>. Let <m>f</m> and <m>g</m> be functions that are defined and continuous for all <m>x\ge a</m> and assume that  <m>g(x)\ge 0</m> for all  <m>x\ge a</m>.
+<ol label="a">
+<li>
+	If  <m>\int_a^\infty g(x)\dee{x}</m> converges and the limit
+	<md>
+	<mrow>
+	\lim_{x\rightarrow\infty}\frac{f(x)}{g(x)}
+	</mrow>
+	</md>
+	exists, then <m>\int_a^\infty f(x)\dee{x}</m> converges.
+</li>
+<li>
+	If <m>\int_a^\infty g(x)\dee{x}</m>  diverges and the limit
+	<md>
+	<mrow>
+	\lim_{x\rightarrow\infty}\frac{f(x)}{g(x)}
+	</mrow>
+	</md>
+	exists and <alert>is nonzero</alert>, then <m>\int_a^\infty f(x)</m> diverges.
+</li>
+</ol>
+Note that in (b) the limit must exist and be nonzero, while in (a) we only  require that the limit exists (it can be zero).
+</p></statement>
+</theorem>
+
+<p>
+Here is an example of how Theorem <xref ref="thm_IMPcomparisonLim"/> is used.
+</p>
+
+<example xml:id="eg_IMPp8"><title><m>\int_1^\infty\frac{x+\sin x}{e^{-x}+x^2}\dee{x}</m></title>
+<p>
+Does the integral <m>\ds \int_1^\infty\frac{x+\sin x}{e^{-x}+x^2}\dee{x}</m> converge or diverge?
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+	Our first task is to identify the potential sources of impropriety for  this integral.
+</li>
+<li>
+	The domain of integration extends to <m>+\infty</m>. On the domain of  integration the denominator is never zero so the integrand is continuous. Thus  the only problem is at <m>+\infty</m>.
+</li>
+<li>
+	Our second task is to develop some intuition about the behavior of  the integrand for very large <m>x</m>. A good way to start is to think about the  size of each term when <m>x</m> becomes big.
+</li>
+<li>
+<p>
+	When <m>x</m> is very large:
+	<ul>
+	<li> <m>e^{-x} \ll x^2</m>, so that the denominator <m>e^{-x}+x^2\approx x^2</m>, and </li>
+	<li> <m>|\sin x|\le 1 \ll x</m>, so that the numerator <m>x+\sin x\approx x</m>, and </li>
+	<li> the integrand <m>\frac{x+\sin x}{e^{-x}+x^2} \approx \frac{x}{x^2}  =\frac{1}{x}</m>. </li>
+	</ul>
+	Notice that we are using <m>A \ll B</m> to mean that <q><m>A</m> is much much  smaller than <m>B</m></q>. Similarly <m>A\gg B</m> means <q><m>A</m> is much much bigger than  <m>B</m></q>. We don't really need to be too precise about its meaning beyond  this in the present context.
+</p>
+</li>
+<li>
+	Now, since <m>\int_1^\infty\frac{\dee{x}}{x}</m> diverges, we would expect <m>\int_1^\infty\frac{x+\sin x}{e^{-x}+x^2}\dee{x}</m> to diverge too.
+</li>
+<li>
+	Our final task is to verify that our intuition is correct. To do so, we  set
+	<md>
+	<mrow>
+	f(x) &amp;= \frac{x+\sin x}{e^{-x}+x^2} &amp;
+	g(x) &amp;= \frac{1}{x}
+	</mrow>
+	</md>
+	and compute
+	<md>
+	<mrow>
+	\lim_{x\rightarrow\infty}\frac{f(x)}{g(x)}
+	&amp;=\lim_{x\rightarrow\infty} \frac{x+\sin x}{e^{-x}+x^2}\div\frac{1}{x}
+	</mrow><mrow>
+	&amp;=\lim_{x\rightarrow\infty} \frac{(1+\sin x/x)x}{(e^{-x}/x^2+1)x^2}\times x
+	</mrow><mrow>
+	&amp;=\lim_{x\rightarrow\infty} \frac{1+\sin x/x}{e^{-x}/x^2+1}
+	</mrow><mrow>
+	&amp;=1
+	</mrow>
+	</md>
+</li>
+<li>
+	Since <m>\int_1^\infty g(x)\dee{x} = \int_1^\infty\frac{\dee{x}}{x}</m>  diverges, by Example <xref ref="eg_IMPp1"/> with <m>p=1</m>, Theorem  <xref ref="thm_IMPcomparisonLim"/>(b) now tells us that <m>\int_1^\infty f(x)\dee{x}  = \int_1^\infty\frac{x+\sin x}{e^{-x}+x^2}\dee{x}</m>  diverges too.
+</li>
+</ul>
+</p>
+</example>
+</subsection>
+
+
+<xi:include href="../problems/prob_s1.12.xml" />
+
+
+</section>

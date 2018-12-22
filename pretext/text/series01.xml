@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Sequences</title>
+<introduction></introduction>
+<subsection><title>Sequences</title>
+
+<p>
+In the discussion above we used the term <q>sequence</q> without giving  it a precise mathematical meaning. Let us rectify this now.
+</p>
+
+<definition xml:id="def_SRsequence">
+<statement><p>
+A sequence is a list of infinitely
+	<fn>
+		For the more pedantic reader,  here we mean a list of countably infinitely many numbers. The interested (pedantic or otherwise) reader should look up countable and uncountable sets.
+	</fn>
+many numbers with a specified order.  It is denoted
+<me>
+\big\{a_1,\ a_2,\ a_3,\  \cdots,\ a_n,\ \cdots\big\}
+\quad\text{or}\quad
+\big\{a_n\big\}
+\quad\text{or}\quad
+\big\{a_n\big\}_{n=1}^\infty
+</me>
+</p></statement>
+</definition>
+
+<p>
+We will often specify a sequence by writing it more explicitly, like
+<md>
+<mrow>
+\Big\{ a_n = f(n) \Big\}_{n=1}^\infty
+</mrow>
+</md>
+where <m>f(n)</m> is some function from the natural numbers to the real numbers.
+</p>
+
+<example xml:id="eg_SRsequence"><title>Three sequences and another one</title>
+<p>
+Here are three sequences.
+<md>
+<mrow>
+&amp;\Big\{1,\ \frac{1}{2},\ \frac{1}{3},\ \cdots,\ \frac{1}{n},\ \cdots\Big\}
+&amp;&amp;\text{or}
+&amp;&amp;\Big\{a_n=\frac{1}{n}\Big\}_{n=1}^\infty
+</mrow><mrow>
+&amp;\Big\{1,\ 2,\ 3,\ \cdots,\ n,\ \cdots\Big\}
+&amp;&amp;\text{or}
+&amp;&amp;\Big\{a_n=n\Big\}_{n=1}^\infty
+</mrow><mrow>
+&amp;\Big\{1,\ -1,\ 1,\ -1,\ \cdots,\ (-1)^{n-1},\ \cdots\Big\}
+&amp;&amp;\text{or}
+&amp;&amp;\Big\{a_n=(-1)^{n-1}\Big\}_{n=1}^\infty
+</mrow>
+</md>
+It is not necessary that there be a simple explicit formula for the  <m>n^{\rm th}</m> term of a sequence. For example the decimal digits of  <m>\pi</m> is a perfectly good sequence
+<me>
+\big\{3,\ 1,\ 4,\ 1,\ 5,\ 9,\ 2,\ 6,\ 5,\ 3,\ 5,\ 8,\ 9,\ 7,\ 9,\ 3,\ 2,\ 3,\
+8,\ 4,\ 6,\ 2,\ 6,\ 4,\ 3,\ 3,\ \cdots\ \big\}
+</me>
+but there is no simple formula
+	<fn>
+		There is, however, a remarkable  result due to Bailey, Borwein and Plouffe that can be used to compute  the <m>n^{\rm th}</m> binary digit of <m>\pi</m> (i.e. writing <m>\pi</m> in base 2 rather than base 10) without having to work out the preceeding digits.
+	</fn>
+for the <m>n^{\rm th}</m> digit.
+</p>
+
+</example>
+
+<p>
+Our primary concern with sequences will be the behaviour of <m>a_n</m> as <m>n</m> tends to infinity and, in particular, whether or not <m>a_n</m> <q>settles down</q> to some value as <m>n</m> tends to infinity.
+</p>
+
+<definition xml:id="def_SRsequenceLimit">
+<statement><p>
+A sequence <m>\big\{a_n\big\}_{n=1}^\infty</m> is said to converge to the limit <m>A</m> if <m>a_n</m> approaches <m>A</m> as <m>n</m> tends to infinity. If so, we write
+<me>
+\lim_{n\rightarrow\infty} a_n=A\qquad\hbox{or}\qquad a_n\rightarrow A\text{ as }n\rightarrow\infty
+</me>
+A sequence is said to converge if it converges to some limit. Otherwise it is said to diverge.
+</p></statement>
+</definition>
+
+<p>
+The reader should immediately recognise the similarity with limits at infinity
+<md>
+<mrow>
+  \lim_{x \to \infty} f(x) = L \qquad\hbox{if}\qquad
+    f(x) \to L \text{ as } x \to \infty
+</mrow>
+</md>
+</p>
+
+<example xml:id="eg_SRsequenceLimA"><title>Convergence in Example <xref ref="eg_SRsequence"/></title>
+<p>
+Three of the four sequences in Example <xref ref="eg_SRsequence"/> diverge:
+<ul>
+<li>
+	The sequence <m>\big\{a_n=n\big\}_{n=1}^\infty</m> diverges because  <m>a_n</m> grows without bound, rather than approaching some finite value,  as <m>n</m> tends to infinity.
+</li>
+<li>
+	The sequence <m>\big\{a_n=(-1)^{n-1}\big\}_{n=1}^\infty</m> diverges because <m>a_n</m> oscillates between <m>+1</m> and <m>-1</m>  rather than approaching a singe value as <m>n</m> tends to infinity.
+</li>
+<li>
+	The sequence of the decimal digits of <m>\pi</m> also diverges, though the proof that this is the case is a  bit beyond us right now
+	<fn>
+		If the digits of <m>\pi</m> were to converge,  then <m>\pi</m> would have to be a rational number. The irrationality of <m>\pi</m>  (that it cannot be written as a fraction) was first proved by Lambert in 1761.  Niven's 1947 proof is more accessible and we invite the interested reader  to use their favourite search engine to find step-by-step guides to that proof.
+	</fn>
+.
+</li>
+</ul>
+The other sequence in Example <xref ref="eg_SRsequence"/> has <m>a_n=\frac{1}{n}</m>. As <m>n</m> tends to infinity, <m>\frac{1}{n}</m> tends  to zero. So
+<me>
+\lim_{n\rightarrow\infty} \frac{1}{n}=0
+</me>
+</p>
+</example>
+
+
+<example xml:id="eg_SRsequenceLimB"><title><m>\lim\limits_{n\rightarrow\infty}\frac{n}{2n+1}</m></title>
+
+<p>
+Here is a little less trivial example. To study the behaviour of <m>\frac{n}{2n+1}</m> as <m>n\rightarrow\infty</m>, it is a good  idea to write it as
+<me>
+\frac{n}{2n+1}=\frac{1}{2+\frac{1}{n}}
+</me>
+As <m>n\rightarrow\infty</m>, the <m>\frac{1}{n}</m> in the denominator tends to zero, so that the denominator <m>2+\frac{1}{n}</m> tends to <m>2</m> and  <m>\frac{1}{2+\frac{1}{n}}</m> tends to <m>\frac{1}{2}</m>. So
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\frac{n}{2n+1}
+=\lim_{n\rightarrow\infty}\frac{1}{2+\frac{1}{n}}
+=\frac{1}{2}
+</mrow>
+</md>
+</p>
+</example>
+
+<p>
+Notice that in this last example, we are really using techniques that  we used before to study infinite limits like  <m>\ds \lim_{x\rightarrow\infty}f(x)</m>.  This experience can be easily transferred to dealing with   <m>\lim\limits_{n\rightarrow\infty}a_n</m> limits by using the following result.
+</p>
+
+<theorem xml:id="thm_SRxlimtoanlim">
+<statement><p>
+If
+<me>
+\lim_{x\rightarrow\infty} f(x) = L
+</me>
+and if <m>a_n=f(n)</m> for all positive integers <m>n</m>, then
+<me>
+\lim_{n\rightarrow\infty} a_n = L
+</me>
+</p></statement>
+</theorem>
+
+<example xml:id="eg_SRsequenceLimC"><title><m>\lim\limits_{n\rightarrow\infty}e^{-n}</m></title>
+<p>
+Set <m>f(x)=e^{-x}</m>. Then <m>e^{-n}=f(n)</m> and
+<md>
+<mrow>
+\text{since }
+\lim_{x\rightarrow\infty}e^{-x}&amp;=0
+&amp;\text{ we know that }&amp;&amp;
+\lim\limits_{n\rightarrow\infty}e^{-n}&amp;=0
+</mrow>
+</md>
+</p>
+</example>
+
+<p>
+The bulk of the rules for the arithmetic of limits of functions  that you already know also apply to the limits of sequences.  That is, the rules you learned to work with limits such as  <m>\ds \lim_{x\rightarrow\infty}f(x)</m>  also apply to limits like  <m>\ds\lim_{n\rightarrow\infty}a_n</m>.
+</p>
+
+<theorem xml:id="thm_SRlimarith"><title>Arithmetic of limits</title>
+<statement><p>
+Let <m>A</m>, <m>B</m> and <m>C</m> be real numbers and let the two sequences <m>\big\{a_n\big\}_{n=1}^\infty</m> and  <m>\big\{b_n\big\}_{n=1}^\infty</m> converge to <m>A</m> and <m>B</m> respectively. That is, assume that
+<md>
+<mrow>
+  \lim_{n \to \infty} a_n&amp;=A &amp; \lim_{n \to \infty} b_n &amp;=B
+</mrow>
+</md>
+Then the following limits hold.
+<ol label="a">
+<li>
+	<p><m>\ds \lim_{n \to \infty} \big[a_n+b_n\big] = A+B</m></p>
+    <p>(The limit of the sum is the  sum of the limits.)</p>
+</li>
+<li>
+	<p><m>\ds \lim_{n \to \infty} \big[a_n-b_n\big] = A-B</m></p>
+    <p>(The limit of the difference is the difference of the limits.)</p>
+</li>
+<li> <m>\ds \lim_{n \to \infty} C a_n = C A</m>. </li>
+<li>
+	<p><m>\ds \lim_{n \to \infty} a_n\,b_n = A\,B</m></p>
+    <p> (The limit of the product is the product of the limits.)</p>
+</li>
+<li>
+	<p>If <m>B \neq 0</m> then <m>\ds \lim_{n \to \infty}\frac{a_n}{b_n} = \frac{A}{B}</m></p>
+	<p>(The limit of the quotient is the quotient of the limits <em>provided</em> the limit of the denominator is not zero.)</p>
+</li>
+</ol>
+</p>
+</statement>
+</theorem>
+
+<p>
+We use these rules to evaluate limits of more complicated sequences  in terms of the limits of simpler sequences <mdash/> just as we did for limits of functions.
+</p>
+
+<example xml:id="eg_SRlimarith"><title>Arithmetic of limits</title>
+<p>
+Combining Examples <xref ref="eg_SRsequenceLimB"/> and <xref ref="eg_SRsequenceLimC"/>,
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\Big[\frac{n}{2n+1} + 7 e^{-n}\Big]
+&amp;= \lim_{n\rightarrow\infty}\frac{n}{2n+1}
+   +\lim_{n\rightarrow\infty} 7 e^{-n}
+&amp; \text{by Theorem }<xref ref="thm_SRlimarith"/>\text{(a)}
+</mrow><mrow>
+&amp;= \lim_{n\rightarrow\infty}\frac{n}{2n+1}
+   +7\lim_{n\rightarrow\infty} e^{-n}
+&amp; \text{by Theorem }<xref ref="thm_SRlimarith"/>\text{(c)}
+</mrow>
+<intertext>And then using Examples<nbsp/><xref ref="eg_SRsequenceLimB"/> and <xref ref="eg_SRsequenceLimC"/>
+</intertext>
+<mrow>
+&amp;=\frac{1}{2} + 7\cdot 0
+</mrow><mrow>
+&amp;=\frac{1}{2}
+</mrow>
+</md>
+</p>
+
+</example>
+
+<p>
+There is also a squeeze theorem for sequences.
+</p>
+
+<theorem xml:id="thm_SRsqueeze"><title>Squeeze theorem</title>
+<statement><p>
+If <m>a_n\le c_n\le b_n</m> for all natural numbers <m>n</m>, and if
+<me>
+\lim_{n\rightarrow\infty}a_n=\lim_{n\rightarrow\infty}b_n=L
+</me>
+then
+<me>
+\lim_{n\rightarrow\infty}c_n=L
+</me>
+</p></statement>
+</theorem>
+
+<example xml:id="eg_SRsqueeze"><title>A simple squeeze</title>
+<p>
+In this example we use the squeeze theorem to evaluate
+<me>
+\lim_{n\rightarrow\infty}\Big[1+\frac{\pi_n}{n}\Big]
+</me>
+where <m>\pi_n</m> is the <m>n^{\mathrm{th}}</m> decimal digit of <m>\pi</m>. That is,
+<me>
+\pi_1=3\quad \pi_2=1 \quad \pi_3=4 \quad \pi_4=1 \quad \pi_5=5 \quad\pi_6=9\quad\cdots
+</me>
+We do not have a simple formula for <m>\pi_n</m>. But we do know that
+<me>
+0\le\pi_n\le 9
+\implies 0 \le \frac{\pi_n}{n} \le \frac{9}{n}
+\implies 1 \le 1+\frac{\pi_n}{n} \le 1+\frac{9}{n}
+</me>
+and we also know that
+<md>
+<mrow>
+\lim_{n\rightarrow\infty} 1 = 1\qquad
+\lim_{n\rightarrow\infty} \Big[1+\frac{9}{n}\Big] = 1
+</mrow>
+</md>
+So the squeeze theorem with <m>a_n=1</m>, <m>b_n=1+\frac{\pi_n}{n}</m>, and <m>c_n=1+\frac{9}{n}</m> gives
+<me>
+\lim_{n\rightarrow\infty}\Big[1+\frac{\pi_n}{n}\Big] = 1
+</me>
+</p>
+</example>
+
+<p>
+Finally, recall that we can compute the limit of the composition  of two functions using continuity. In the same  way, we have the following result:
+</p>
+
+<theorem xml:id="thm_SRcontfn"><title>Continuous functions of limits</title>
+<statement><p>
+If  <m>\lim\limits_{n\rightarrow\infty}a_n=L </m> and if the function <m>g(x)</m> is continuous at <m>L</m>, then
+<me>
+\lim_{n\rightarrow\infty}g(a_n)=g(L)
+</me>
+</p></statement>
+</theorem>
+
+<example xml:id="eg_SRsequenceLimD"><title><m>\lim\limits_{n\rightarrow\infty}\sin\frac{\pi n}{2n+1}</m></title>
+<p>
+Write <m>\sin\frac{\pi n}{2n+1}=g\big(\frac{n}{2n+1}\big)</m> with  <m>g(x)=\sin(\pi x)</m>. We saw, in Example <xref ref="eg_SRsequenceLimB"/> that
+<me>
+\lim_{n\rightarrow\infty}\frac{n}{2n+1} = \frac{1}{2}
+</me>
+Since <m>g(x) = \sin (\pi x)</m> is continuous at <m>x=\frac{1}{2}</m>, which  is the limit of <m>\frac{n}{2n+1}</m>, we have
+<me>
+\lim_{n\rightarrow\infty}\sin\frac{\pi n}{2n+1}
+=\lim_{n\rightarrow\infty}g\Big(\frac{n}{2n+1}\Big)
+=g\Big(\frac{1}{2}\Big)
+=\sin\frac{\pi}{2}
+=1
+</me>
+</p>
+</example>
+
+<p>
+With this introduction to sequences and some tools to determine their limits,  we can now return to the problem of understanding infinite sums.
+</p>
+
+</subsection>
+
+
+<xi:include href="../problems/prob_s3.1.xml" />
+
+
+</section>

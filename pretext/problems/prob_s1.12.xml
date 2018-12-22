@@ -1,0 +1,1445 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<exercises>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise purpose="RQS">
+<statement><p>
+For which values of <m>b</m> is the integral
+<m>\displaystyle\int_0^b \frac{1}{x^2-1} \dee{x}</m> improper?
+</p></statement>
+<hint><p>
+There are two kinds of impropreity in an integral: an infinite discontinuity in the integrand, and an infinite limit of integration.
+</p></hint>
+<answer><p>
+Any real number in <m>[1,\infty)</m> or <m>(-\infty,-1]</m>, and <m>b = \pm \infty</m>.
+</p></answer>
+<solution><p>
+If <m> = \pm \infty</m>, then our integral is improper because one limit is not a real number.
+</p>
+
+<p>Furthermore, our integral will be improper if its domain of integration contains either of its infinite discontinuities, <m>x=1</m> and <m>x=-1</m>. Since one limit of integration is 0, the integral is improper if <m>b \geq 1</m> or if <m>b \leq -1</m>.
+</p>
+
+<p>Below, we've graphed <m>\frac{1}{x^2-1}</m> to make it clearer why values of <m>b</m> in <m>(-1,1)</m> are the only values that <em>don't</em> result in an improper integral when the other limit of integration is <m>a=0</m>.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3.3}{3.3}{3}{2.5}
+\draw[thick, blue] plot[domain=-.8:.8](\x,{1/(\x*\x-1)});
+\draw[thick, blue] plot[domain=-3:-1.2](\x,{1/(\x*\x-1)});
+\draw[thick, blue] plot[domain=1.2:3](\x,{1/(\x*\x-1)}) node[above]{$y = \frac{1}{x^2-1}$};
+\draw[ blue, dashed] (-1,-2.8)-- (-1,-.7) (-1,.3)--(-1,2.3) (1,-2.8)--(1,-.7) (1,.3)--(1,2.3);
+\YExcoord{-1}{-1}
+\YExcoord{1}{1}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+For which values of <m>b</m> is the integral
+<m>\displaystyle\int_0^b \frac{1}{x^2+1} \dee{x}</m> improper?
+</p></statement>
+<hint><p>
+The integrand is continuous for all <m>x</m>.
+</p></hint>
+<answer><p>
+<m>b = \pm\infty</m>
+</p></answer>
+<solution><p>
+Since the integrand is continuous for all real <m>x</m>, the only kind of impropriety available to us is to set <m>b = \pm\infty</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Below are the graphs <m>y=f(x)</m> and <m>y=g(x)</m>. Suppose <m>\displaystyle\int_0^\infty f(x) \dee{x}</m> converges, and <m>\displaystyle\int_0^\infty g(x) \dee{x}</m> diverges. Assuming the graphs continue on as shown as <m>x \to \infty</m>, which graph is <m>f(x)</m>, and which is <m>g(x)</m>?
+</p><sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{7}{1}{3}
+\draw[thick, red] plot[domain=-1:6.75, samples=50](\x,{1/exp(\x)});
+\draw[thick, blue] plot[domain=-1:6.75, samples=100](\x,{\x*(\x-1)/(\x^3+2)});
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+What matters is which function is bigger for large values of <m>x</m>, not  near the origin.
+</p></hint>
+<answer><p>
+The red function is <m>f(x)</m>, and the blue function is <m>g(x)</m>.
+</p></answer>
+<solution><p>
+For large values of <m>x</m>, <m>|\text{red function}|\leq \text{(blue function)}</m> and <m>0 \leq \text{(blue function)}</m>. If the blue function's integral converged, then the red function's integral would as well (by the comparison test, Theorem<nbsp/><xref ref="thm_IMPcomparison"/> in the text). Since one integral converges and the other diverges, the blue function is <m>g(x)</m> and the red function is <m>f(x)</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2015A</fromexam></title>
+<statement><p>
+Decide whether the following statement is true or false.
+If false, provide a counterexample. If true, provide a brief justification.
+(Assume that <m>f(x)</m> and <m>g(x)</m> are continuous functions.)
+</p>
+
+<p>
+If <m>\displaystyle\int_{1}^{\infty} f(x) \,\dee{x}</m> converges and <m>g(x)\ge f(x)\ge 0</m> for all <m>x</m>, then <m>\displaystyle\int_{1}^{\infty} g(x) \,\dee{x}</m> converges.
+</p></statement>
+
+<hint><p>
+Read both the question and Theorem <xref ref="thm_IMPcomparison"/> <em>very</em> carefully.
+</p></hint>
+
+<answer><p>
+False. For example, the functions <m>f(x)=e^{-x}</m> and <m>g(x)=1</m> provide a counterexample.
+</p>
+
+</answer>
+
+<solution><p>
+False. The inequality goes the <q>wrong way</q> for Theorem <xref ref="thm_IMPcomparison"/>: the area under the curve <m>f(x)</m> is finite, but the area under <m>g(x)</m> could be much larger, even infinitely larger.
+</p>
+
+<p> For example, if <m>f(x)=e^{-x}</m> and <m>g(x)=1</m>,
+then <m>0 \leq f(x) \leq g(x)</m> and <m>\displaystyle\int_{1}^{\infty} f(x) \,\dee{x}</m> converges, but
+<m>\displaystyle\int_{1}^{\infty} g(x) \,\dee{x}</m> diverges.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>f(x) = e^{-x}</m> and <m>g(x)=\dfrac{1}{x+1}</m>. Note <m>\int_{0}^\infty f(x) \dee{x}</m> converges while
+<m>\int_{0}^\infty g(x) \dee{x}</m> diverges.
+</p>
+
+<p>For each of the functions <m>h(x)</m> described below, decide whether <m>\int_{0\vphantom{\frac12}}^\infty h(x) \dee{x}</m> converges or diverges, or whether there isn't enough information to decide. Justify your decision.
+</p>
+
+<p><ol label="a">
+<li> <m>h(x)</m>, continuous and defined for all <m>x \ge0</m>, <m>h(x) \leq f(x)</m>.
+</li>
+<li> <m>h(x)</m>, continuous and defined for all <m>x\ge 0</m>, <m>f(x) \leq h(x) \leq g(x)</m>.
+</li>
+<li> <m>h(x)</m>, continuous and defined for all <m>x\ge 0</m>, <m>-2f(x) \leq h(x) \leq f(x)</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+(a) What if <m>h(x)</m> is negative? What if it's not?
+</p><p>
+(b) What if <m>h(x)</m> is very close to <m>f(x)</m> or <m>g(x)</m>, rather than right in the middle?
+</p><p>
+(c) Note <m>|h(x)| \leq 2f(x)</m>.
+</p></hint>
+<answer><p>
+<ol label="a">
+<li> Not enough information to decide. For example, consider <m>h(x) = 0</m> versus <m>h(x) = -1</m>.
+</li>
+<li> Not enough information to decide. For example, consider <m>h(x)= f(x)</m> versus <m>h(x) = g(x)</m>.
+</li>
+<li> <m>\displaystyle\int_{0\vphantom{\frac12}}^{\infty}h(x) \dee{x}</m> converges by the comparison test, since <m>|h(x)| \leq 2f(x)</m> and <m>\displaystyle\int_0^\infty 2f(x) \dee{x}</m> converges.
+</li>
+</ol>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<p>
+Not enough information to decide. For example, consider <m>h(x) = 0</m> versus <m>h(x) = -1</m>. In both cases, <m>h(x) \leq f(x)</m>. However, <m>\displaystyle\int_0^\infty 0 \dee{x}</m> converges to 0, while <m>\displaystyle\int_0^\infty -1 \dee{x}</m> diverges.
+</p>
+
+<p>Note: if we had also specified <m>0 \leq h(x)</m>, then we would be able to conclude that <m> \int_0^\infty h(x) \dee{x}</m> converges by the comparison test.
+</p>
+</li>
+<li> Not enough information to decide. For example, consider <m>h(x)= f(x)</m> versus <m>h(x) = g(x)</m>. In both cases, <m>f(x) \leq h(x) \leq g(x)</m>.
+</li>
+<li>
+<p>
+<m>\displaystyle\int_{0\vphantom{\frac12}}^{\infty}h(x) \dee{x}</m> converges.
+<ul>
+<li> From the given information, <m>|h(x)| \leq 2f(x)</m>.
+</li>
+<li><p>
+We claim <m>\displaystyle\int_{0\vphantom{\frac12}}^{\infty} 2f(x) \dee{x} </m> converges.
+<ul>
+<li> We can see this by writing <m>\displaystyle\int_{0\vphantom{\frac12}}^{\infty} 2f(x) \dee{x}= 2\int_0^{\infty} f(x) \dee{x} </m>  and noting that the second integral converges.
+</li>
+<li> Alternately, we can use  the limiting comparison test, Theorem<nbsp/><xref ref="thm_IMPcomparisonLim"/>. Since <m>f(x) \geq 0</m>,  <m>\displaystyle\int_0^\infty f(x) \dee{x}</m> converges, and <m>\lim\limits_{x \to \infty}\dfrac{2f(x)}{f(x)}=2</m> (the limit exists), we conclude <m>\displaystyle\int_0^\infty 2f(x) \dee{x}</m> converges.
+</li>
+</ul>
+</p>
+</li>
+<li> So, comparing <m>h(x)</m> to <m>2f(x)</m>, by the comparison test (Theorem<nbsp/><xref ref="thm_IMPcomparison"/>)
+<m>\displaystyle\int_0^{\vphantom{\frac12}\infty}h(x) \dee{x}</m> converges.
+</li>
+</ul>
+</p>
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise purpose="RQS"><title><fromexam>M105 2015A</fromexam></title>
+<statement><p>
+Evaluate the integral
+<m>\displaystyle\int_0^1\frac{x^4}{x^5-1}\,\dee{x}</m> or state that
+it diverges.
+</p></statement>
+
+<hint><p>
+First: is the integrand unbounded, and if so, where?
+</p>
+
+<p>Second: when evaluating integrals, always check to see if you can use a simple
+substitution before trying a complicated procedure like partial fractions.
+</p></hint>
+
+<answer><p>
+The integral diverges.
+</p></answer>
+
+<solution><p>
+The denominator is zero when <m>x=1</m>, but the numerator is not, so the integrand has a
+singularity (infinite discontinuity) at <m>x=1</m>. Let's replace the limit <m>x=1</m> with a variable that creeps toward 1.
+<me>
+\int_0^1\frac{x^4}{x^5-1}\,\dee{x}
+=\lim_{t\rightarrow 1^-}\int_0^t\frac{x^4}{x^5-1}\,\dee{x}
+</me>
+To evaluate this integral we use the substitution
+<m>u=x^5</m>, <m>\dee{u}=5x^4\dee{x}</m>. When <m>x=0</m> we have <m>u=0</m>, and when <m>x=t</m>
+we have <m>u=t^5</m>, so
+<md>
+<mrow>
+\int_0^1\frac{x^4}{x^5-1}\,\dee{x}&amp;=\lim_{t \to 1^-}\int_{0}^{t}\frac{x^4}{x^5-1}\,\dee{x}
+=\lim_{t \to 1^-}\int_{u=0}^{u=t^5}\frac{1}{5(u-1)}\,\dee{u}
+</mrow><mrow>
+&amp;=\lim_{t \to 1^-}\left( \left[\frac{1}{5}\log|u-1|\right]_0^{t^5}\right)
+=\lim_{t \to 1^-}\frac{1}{5}\log|t^5-1|=-\infty
+</mrow>
+</md>
+The limit diverges, so the integral diverges as well.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q4</fromexam></title>
+<statement><p>
+Determine whether the integral
+<m>\displaystyle\int_{-2}^2\frac{1}{(x+1)^{4/3}}\,\dee{x}</m> is convergent
+or divergent. If it is convergent, find its value.
+</p></statement>
+
+<hint><p>
+Is the integrand bounded?
+</p></hint>
+
+<answer><p>
+The integral diverges.
+</p></answer>
+
+<solution><p>
+The denominator of the integrand is zero when <m>x=-1</m>, but the numerator is not. So, the integrand has a singularity (infinite discontinuity) at <m>x=-1</m>. This is the only <q>source of impropriety</q> in this integral, so we only need to make one break in the domain of integration.
+<me>
+\int_{-2}^2\frac{1}{(x+1)^{4/3}}\,\dee{x}
+=\lim_{t\rightarrow -1^-}\int_{-2}^t \frac{1}{(x+1)^{4/3}}\,\dee{x}
+  +\lim_{t\rightarrow -1^+}\int_t^2 \frac{1}{(x+1)^{4/3}}\,\dee{x}
+</me>
+Let's start by considering the left limit.
+<md>
+<mrow>
+\lim_{t \to -1^-}\int_{-2}^t \frac{1}{(x+1)^{4/3}}\,\dee{x}
+&amp;=\lim_{t \to -1^-}\left(\left[-\frac{3}{(x+1)^{1/3}}\right|_{-2}^t\right)
+</mrow><mrow>
+&amp;=\lim_{t \to -1^-}\left(-\frac{3}{(t+1)^{1/3}}+\frac{3}{(-1)^{1/3}}\right)=\infty
+</mrow>
+</md>
+Since this limit diverges, the integral diverges. (A similar argument shows
+that the second integral diverges. Either one of them diverging is enough to conclude that the
+original integral diverges.)
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1997D</fromexam></title>
+<statement><p>
+ Does the improper integral
+<m>\displaystyle\int_1^\infty\frac{1}{\sqrt{4x^2-x}}\,\dee{x}</m> converge? Justify your
+answer.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_IMPp10"/>. Rather than antidifferentiating, you can find a nice comparison.
+</p></hint>
+
+<answer><p>
+The integral does not converge.
+</p></answer>
+
+<solution><p>
+First, let's identify all <q>sources of impropriety.</q> The integrand has a singularity when <m>4x^2-x=0</m>, that is, when <m>x(4x-1)=0</m>, so at <m>x=0</m> and <m>x=\frac{1}{4}</m>. Neither of these are in our domain of integration, so the only <q>source of impropriety</q> is the unbounded domain of integration.
+</p>
+
+<p>We could antidifferentiate this function (it looks like a nice candidate for a trig substitution), but is seems easier to use a comparison. For large values of <m>x</m>, the term <m>x^2</m> will be much larger than <m>x</m>, so we might guess that our integral behaves similarly to <m>\int_1^\infty \frac{1}{\sqrt{4x^2}} \dee{x}=\int_1^\infty \frac{1}{2x} \dee{x}</m>.
+</p>
+
+<p>For all <m>x\ge 1</m>, <m>\sqrt{4x^2-x}\le\sqrt{4x^2}=2x</m>. So, <m>\frac{1}{\sqrt{4x^2-x}} \geq \frac{1}{2x}</m>. Note <m>\int_1^\infty \frac{1}{2x} \dee{x}</m> diverges:
+<md>
+<mrow>\lim_{t\rightarrow\infty}\int_1^t\frac{1}{2x}\,\dee{x}
+=\lim_{t\rightarrow\infty}\left(\frac{1}{2} \big[\log x\big]_1^t\right)
+=\lim_{t\rightarrow\infty}\frac{1}{2} \log t
+=\infty
+</mrow>
+</md>
+So:
+<ul>
+<li> <m>\frac{1}{2x}</m> and <m>\frac{1}{\sqrt{4x^2-x}}</m> are defined and continuous for all <m>x \geq 1</m>,
+</li>
+<li> <m>\frac{1}{2x} \geq 0</m> for all <m>x \geq 1</m>,
+</li>
+<li> <m>\frac{1}{\sqrt{4x^2-x}} \ge\frac{1}{\sqrt{4x^2}} = \frac{1}{2x} </m> for all <m>x \ge 1</m>, and
+</li>
+<li> <m>\int_1^\infty \frac{1}{2x} \dee{x}</m> diverges.
+</li>
+</ul>
+By the comparison test, Theorem<nbsp/><xref ref="thm_IMPcomparison"/> in the text, the integral does not converge.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2001A</fromexam></title>
+<statement><p>
+Does the integral <m>\displaystyle\int_0^\infty\frac{\dee{x}}{x^2+\sqrt{x}}</m>
+converge or diverge? Justify your claim.
+</p></statement>
+
+<hint><p>
+Which of the two terms in the denominator is more important when <m>x\approx
+0</m>? Which one is more important when <m>x</m> is very large?
+</p></hint>
+
+<answer><p>
+The integral converges.
+</p></answer>
+
+<solution><p>
+The integrand is positive everywhere. So, either the integral
+converges to some finite number, or it is infinite. We want to generate a guess as to which it is.
+</p>
+
+<p>When <m>x</m> is small, <m>\sqrt{x} \gt x^2</m>, so we might guess that our integral behaves like the integral of <m>\frac{1}{\sqrt{x}}</m> when <m>x</m> is near to 0. On the other hand, when <m>x</m> is large, <m>\sqrt{x} \lt x^2</m>, so we might guess that our integral behaves like the integral of <m>\frac{1}{x^2}</m> as <m>x</m> goes to infinity.  This is the hunch that drives the following work:
+<md>
+<mrow>
+0\le\frac{1}{x^2+\sqrt{x}}
+&amp;\le \frac{1}{\sqrt{x}}\quad
+&amp;&amp;\text{and the integral }\int_0^1\frac{\dee{x}}{\sqrt{x}}\text{ converges by Example }<xref ref="eg_IMPp2"/>\text{, and}
+</mrow>
+<mrow>
+0\le\frac{1}{x^2+\sqrt{x}}
+&amp;\le \frac{1}{x^2}
+&amp;&amp;\text{and the integral }\int_1^\infty\frac{\dee{x}}{x^2}\text{ converges by Example }<xref ref="eg_IMPp1"/>
+</mrow>
+</md>
+Note <m>\frac{\dee{x}}{x^2+\sqrt{x}}</m> is defined and continuous everywhere, <m>\frac{1}{\sqrt{x}}</m> is defined and continuous for <m>x \gt 0</m>, and <m>\frac{1}{x^2}</m> is defined and continuous for <m>x \ge 1</m>.
+So, the integral converges by the comparison test, Theorem<nbsp/><xref ref="thm_IMPcomparison"/> in the text, together with Remark<nbsp/><xref ref="rmk_singularities"/>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise xml:id="prob_s1_11_cosine">
+<statement><p>
+Does the integral <m>\displaystyle\int_{-\infty}^\infty \cos x \dee{x}</m> converge or diverge?
+ If it converges, evaluate it.
+</p></statement>
+<hint><p>
+Remember to break the integral into two pieces.
+</p></hint>
+<answer><p>
+The integral diverges.
+</p></answer>
+<solution><p>
+There are two <q>sources of impropriety:</q> the two (infinite) limits of integration. So, we break our integral into two pieces.
+<md>
+<mrow>
+\int_{-\infty}^\infty \cos x \dee{x}&amp;=\int_{-\infty}^0 \cos x \dee{x}+\int_{0}^\infty \cos x \dee{x}
+</mrow><mrow>
+&amp;=\lim_{a \to \infty }\left[\int_{-a}^0 \cos x \dee{x}\right]+
+\lim_{b \to \infty }\left[\int_{0}^b \cos x \dee{x}\right]
+</mrow>
+<intertext>These are easy enough to antdifferentiate.</intertext><mrow>
+&amp;=\lim_{a \to \infty }\left[\sin 0 - \sin(- a)
+\right]+
+\lim_{b \to \infty }\left[\sin b - \sin 0
+\right]
+</mrow><mrow>
+&amp;=\text{DNE}
+</mrow>
+</md>
+Since the limits don't exist, the integral diverges. (It happens that both limits don't exist; even if only one failed to exist, the integral would still diverge.)
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_11_sine" purpose="RQS">
+<statement><p>
+Does the integral <m>\displaystyle\int_{-\infty}^\infty \sin x \dee{x}</m> converge or diverge?
+ If it converges, evaluate it.
+</p></statement>
+<hint><p>
+Remember to break the integral into two pieces.
+</p></hint>
+<answer><p>
+The integral diverges.
+</p></answer>
+<solution><p>
+There are two <q>sources of impropriety:</q> the two bounds. So, we break our integral into two pieces.
+<md>
+<mrow>
+\int_{-\infty}^\infty \sin x \dee{x}&amp;=\int_{-\infty}^0 \sin x \dee{x}+\int_{0}^\infty \sin x \dee{x}
+</mrow><mrow>
+&amp;=\lim_{a \to \infty }\left[\int_{-a}^0 \sin x \dee{x}\right]+
+\lim_{b \to \infty }\left[\int_{0}^b \sin x \dee{x}\right]
+</mrow><mrow>
+&amp;=\lim_{a \to \infty }\left[-\cos 0 + \cos(- a)
+\right]+
+\lim_{b \to \infty }\left[-\cos b + \cos 0
+\right]
+</mrow><mrow>
+&amp;=\text{DNE}
+</mrow>
+</md>
+Since the limits don't exist, the integral diverges. (It happens that both limits don't exist; even if only one failed to exist, the integral would diverge.)
+</p>
+
+<p>Remark: it's very tempting to think that this integral should converge, because as an odd function the area to the right of the <m>x</m>-axis <q>cancels out</q> the area to the left when the limits of integration are symmetric. One justification for not using this intuition is given in Example<nbsp/><xref ref="eg_IMPp4"/> in the text. Here's another:
+In Question<nbsp/><xref ref="prob_s1_11_cosine"/> we saw that <m>\int_{-\infty}^\infty \cos x \dee{x}</m> diverges. Since <m>\sin x = \cos (x-\pi/2)</m>, the area bounded by sine and the area bounded by cosine over an infinite region seem to be the same--only shifted by <m>\pi/2</m>. So if <m>\int_{-\infty}^\infty \sin x \dee{x}=0</m>, then we ought to also have <m>\int_{-\infty}^\infty \cos x \dee{x}=0</m>, but we saw in Question<nbsp/><xref ref="prob_s1_11_cosine"/> this is not the case.
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaxis{5}{2}
+\draw[thick, red] plot[domain = -5:5, samples=50](\x,{sin(\x r)}) node[right]{$y=\sin x$};
+\draw[thick, blue] plot[domain = -5:5.25, samples=50](\x,{cos(\x r)}) node[right]{$y=\cos x$};
+\draw[ultra thick, - \gt ] (1.5,.25)--(2.5,.25);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int_{10}^\infty \frac{x^4-5x^3+2x-7}{x^5+3x+8}  \dee{x}</m>, or state that it diverges.
+</p></statement>
+<hint><p>
+The easiest test in this case is  limiting comparison, Theorem<nbsp/><xref ref="thm_IMPcomparisonLim"/>.
+</p></hint>
+<answer><p>
+The integral diverges.
+</p></answer>
+<solution><p>
+First, we check that the integrand has no singularities. The denominator is always positive when <m>x \ge 10</m>, so our only <q>source of impropriety</q> is the infinite limit of integration.
+</p>
+
+<p>We further note that, for large values of <m>x</m>, the integrand resembles <m>\dfrac{x^4}{x^5} = \dfrac{1}{x\vphantom{\frac12}}</m>. So, we have a two-part hunch: that the integral diverges, and that we can show it diverges by comparing it to <m>\displaystyle\int_{10}^\infty \frac{1}{x} \dee{x}</m>.
+</p>
+
+<p>In order to use the comparison test, we'd need to show that <m>\displaystyle\frac{x^4-5x^3+2x-7}{x^5+3x+8}  \geq \frac{1}{\vphantom{\frac12}x}</m>. If this is true, it will be difficult to prove--and it's not at all clear that it's true. So, we will use the limiting comparison test instead, Theorem<nbsp/><xref ref="thm_IMPcomparisonLim"/>, with <m>g(x)= \dfrac{1}{x}</m>,
+<m>f(x)=\dfrac{x^4-5x^3+2x-7}{x^5+3x+8} </m>, and <m>a=10</m>.
+</p>
+
+<p><ul>
+<li> Both <m>f(x)</m> and <m>g(x)</m> are defined and continuous for all <m>x  \gt 0</m>, so in particular they are defined and continuous for <m>x \geq 10</m>.
+</li>
+<li> <m>g(x) \geq 0</m> for all <m>x \geq 10</m>
+</li>
+<li> <m>\displaystyle\int_{10}^\infty g(x) \dee{x}</m> diverges.
+</li>
+<li> Using  l'Hôpital's rule (5 times!), or simply dividing both the numerator
+           and denominator by <m>x^5</m> (the common leading term), tells us:
+<md>
+<mrow>
+\lim_{x \to \infty} \frac{f(x)}{g(x)}&amp;=
+\lim_{x \to \infty} \frac{\frac{x^4-5x^3+2x-7}{x^5+3x+8} }{ \frac{1}{x}}=
+\lim_{x \to \infty} x\cdot\frac{x^4-5x^3+2x-7}{x^5+3x+8}
+</mrow><mrow>
+&amp;=\lim_{x \to \infty} \frac{x^5-5x^4+2x^2-7x}{x^5+3x+8} =1
+</mrow>
+</md>
+That is, the limit exists and is nonzero.
+</li>
+</ul>
+By the limiting comparison test, we conclude <m>\displaystyle\int_{10}^\infty f(x) \dee{x}</m> diverges.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\int_0^{10} \frac{x-1}{x^2-11x+10}  \dee{x}</m>, or state that it diverges.
+</p></statement>
+<hint><p>
+Not all discontinuities cause an integral to be improper--only infinite discontinuities.
+</p></hint>
+<answer><p>
+The integral diverges.
+</p></answer>
+<solution><p>
+Our domain of integration is finite, so the only potential <q>sources of impropriety</q> are infinite discontinuities in the integrand. To find these, we factor.
+<md>
+<mrow>
+\int_0^{10} \frac{x-1}{x^2-11x+10}  \dee{x}&amp;=
+\int_0^{10} \frac{x-1}{(x-1)(x-10)}  \dee{x}
+</mrow>
+<intertext>A removable discontinuity doesn't affect the integral.</intertext><mrow>
+&amp;=\int_0^{10} \frac{1}{x-10}  \dee{x}
+</mrow>
+<intertext>Use the substitution <m>u=x-10</m>, <m>\dee{u}=\dee{x}</m>. When <m>x=0</m>, <m>u=-10</m>, and when <m>x=10</m>, <m>u=0</m>.
+</intertext><mrow>
+&amp;=\int_{-10}^0 \frac{1}{u} \dee{u}
+</mrow>
+</md>
+This is a <m>p</m>-integral with <m>p=1</m>. From Example<nbsp/><xref ref="eg_IMPp2"/> and Theorem<nbsp/><xref ref="thm_IMPfiniteSHift"/>, we know it diverges.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M121 2012A</fromexam></title>
+<statement><p>
+Determine (with justification!) which of the following applies to the integral
+<m>\displaystyle\int_{-\infty}^{+\infty}\frac{x}{x^2+1}\dee{x}</m>:
+<ol label="i">
+<li> <m>\displaystyle\int_{-\infty}^{+\infty}\frac{x}{x^2+1}\dee{x}</m> diverges </li>
+<li> <m>\displaystyle\int_{-\infty}^{+\infty}\frac{x}{x^2+1}\dee{x}</m> converges but
+<m>\displaystyle\int_{-\infty}^{+\infty}\left|\frac{x}{x^2+1}\right|\dee{x}</m> diverges
+</li>
+<li> <m>\displaystyle\int_{-\infty}^{+\infty}\frac{x}{x^2+1}\dee{x}</m>
+ converges, as does <m>\displaystyle\int_{-\infty}^{+\infty}\left|\frac{x}{x^2+1}\right|\dee{x}</m>
+</li>
+</ol>
+Remark: these options, respectively, are that the integral diverges, converges conditionally, and converges absolutely. You'll see this terminology used for series in Section<nbsp/><xref ref="sec_abs_conv"/>.
+</p></statement>
+
+<hint><p>
+Which of the two terms in the denominator is more important when <m>x</m>
+is very large?
+</p></hint>
+
+<answer><p>
+The integral diverges.
+</p></answer>
+
+<solution><p>
+You might think that, because the integrand is odd, the integral
+converges to <m>0</m>. This is a common mistake-- see Example<nbsp/><xref ref="eg_IMPp4"/> in the text, or Question<nbsp/><xref ref="prob_s1_11_sine" text="local"/> in this section.  In the absence of such a shortcut, we use our standard procedure: identifying problem spots over the domain of integration, and replacing them with limits.
+</p>
+
+<p>There are two <q>sources
+of impropriety,</q> namely <m>x\to +\infty</m> and <m>x\to -\infty</m>.
+So, we split the integral in two, and treat the two halves separately. The integrals below can be evaluated with the substitution <m>u=x^2+1</m>, <m>\frac{1}{2}\dee{u} = x\dee{x}</m>.
+<md>
+<mrow>
+\int_{-\infty}^{+\infty}\frac{x}{x^2+1}\dee{x}
+  &amp;=\textcolor{blue}{ \int_{-\infty}^0\frac{x}{x^2+1}\dee{x}}
+   + \textcolor{red}{\int_0^{+\infty}\frac{x}{x^2+1}\dee{x}}
+</mrow><mrow>
+\color{blue}{\int_{-\infty}^0\frac{x}{x^2+1}\dee{x}}
+&amp;=\lim_{R\rightarrow\infty}\int_{-R}^0\frac{x}{x^2+1}\dee{x}
+=\lim_{R\rightarrow\infty}\frac{1}{2}\log(x^2+1)\Big|_{-R}^0
+</mrow><mrow>
+&amp;=\lim_{R \to \infty}\frac{1}{2}\left[\log 1-\log(R^2+1)\right]=\lim_{R\rightarrow\infty}-\frac{1}{2}\log(R^2+1)
+=-\infty
+</mrow><mrow>
+\color{red}{\int_0^{+\infty}\frac{x}{x^2+1}\dee{x}}
+&amp;=\lim_{R\rightarrow\infty}\int_0^R\frac{x}{x^2+1}\dee{x}
+=\lim_{R\rightarrow\infty}\frac{1}{2}\log(x^2+1)\Big|_0^R
+</mrow><mrow>
+&amp;=\lim_{R \to \infty}\frac{1}{2}\left[ \log(R^2+1)-\log 1\right]
+=\lim_{R\rightarrow\infty}\frac{1}{2}\log(R^2+1)
+=+\infty
+</mrow>
+</md>
+Both halves diverge, so the whole integral diverges.
+</p>
+
+<p>Once again: after we found that one of the limits diverged, we could have stopped and concluded that the original integrand diverges. Don't make the mistake of thinking that <m>\infty-\infty=0</m>. That can get you into
+<em>big</em> trouble. <m>\infty</m> is not a normal number. For
+example <m>2\infty=\infty</m>. So if <m>\infty</m> were a normal number we would have
+both <m>\infty-\infty=0</m> and <m>\infty-\infty=2\infty-\infty =\infty</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M121 1999A</fromexam></title>
+<statement><p>
+Decide whether
+<m>I=\displaystyle\int_0^\infty\frac{|\sin x|}{x^{3/2}+x^{1/2}}\dee{x} </m>
+converges or diverges. Justify.
+</p></statement>
+
+<hint><p>
+Which of the two terms in the denominator is more important when <m>x\approx
+0</m>? Which one is more important when <m>x</m> is very large?
+</p></hint>
+
+<answer><p>
+The integral converges.
+</p></answer>
+
+<solution><p>
+We don't want to antidifferentiate this integrand, so let's use a comparison. Note the integrand is positive when <m>x \gt 0</m>.
+</p>
+
+<p>For any <m>x</m>, <m>|\sin x| \leq 1</m>, so <m>\dfrac{|\sin x|}{x^{3/2}+x^{1/2}} \leq \dfrac{1}{x^{3/2}+x^{1/2}} </m>.
+</p>
+
+<p>Since <m>x=0</m> and <m>x \to \infty</m> both cause the integral to be improper, we need to break it into two pieces.
+Since both terms in the denominator give positive numbers when <m>x</m> is positive, <m>\dfrac{1}{x^{3/2}+x^{1/2}} \leq \dfrac{1}{x^{3/2}}</m> and <m>\dfrac{1}{x^{3/2}+x^{1/2}} \leq \dfrac{1}{x^{1/2}}</m>. That gives us two options for comparison.
+</p>
+
+<p>When <m>x</m> is positive and close to zero, <m>x^{1/2}  \ge x^{3/2}</m>, so we guess that we should compare our integrand to <m>\frac{1}{x^{1/2}}</m> near the limit <m>x=0</m>. In contrast, when <m>x</m> is very large, <m>x^{1/2}  \le x^{3/2}</m>, so we guess that we should compare our integrand to <m>\frac{1}{x^{3/2}}</m> as <m>x</m> goes to infinity.
+<md>
+<mrow>
+\frac{|\sin x|}{x^{3/2}+x^{1/2}}
+&amp;\le \frac{1}{x^{1/2}}
+\quad&amp;&amp;\text{and the integral }\int_0^1\frac{\dee{x}}{x^{1/2}}\text{ converges
+by the $p$-test,  Example }<xref ref="eg_IMPp2"/>
+</mrow>
+<mrow>
+\frac{|\sin x|}{x^{3/2}+x^{1/2}}
+&amp;\le \frac{1}{x^{3/2}}
+\quad&amp;&amp;\text{and the integral }\int_1^\infty\frac{\dee{x}}{x^{3/2}}\text{ converges by the $p$-test, Example }<xref ref="eg_IMPp1"/>
+</mrow>
+</md>
+</p>
+
+<p>
+Now we have all the data we need to apply the comparison test, Theorem<nbsp/><xref ref="thm_IMPcomparison"/>.
+<ul>
+<li> <m>\dfrac{|\sin x|}{x^{3/2}+x^{1/2}}\,, \dfrac{1}{x^{1/2}}\,,</m> and <m>\dfrac{1}{x^{3/2}}</m> are defined and continuous for <m>x \gt 0</m>
+</li>
+<li> <m>\dfrac{1}{x^{1/2}}</m> and <m>\dfrac{1}{x^{3/2}}</m> are nonnegative for <m>x \ge 0</m>
+</li>
+<li> <m>\dfrac{|\sin x|}{x^{3/2}+x^{1/2}}\le \dfrac{1}{x^{1/2}}</m> for all <m>x  \gt  0</m> and
+<m>\displaystyle\int_0^1\dfrac{1}{x^{1/2}} \dee{x}</m> converges, so (using Remark<nbsp/><xref ref="rmk_singularities"/>)
+<textblue> <m>\displaystyle\int_0^{1\vphantom{\frac12}}\dfrac{|\sin x|}{x^{3/2}+x^{1/2}} \dee{x}</m> converges. </textblue>
+</li>
+<li> <m>\dfrac{|\sin x|}{x^{3/2}+x^{1/2}}\le \dfrac{1}{x^{3/2}}</m> for all <m>x \ge 1</m> and
+<m>\displaystyle\int_1^\infty\dfrac{1}{x^{3/2}} \dee{x}</m> converges, so <textblue> <m>\displaystyle\int_1^{\infty\vphantom{\frac12}}\dfrac{|\sin x|}{x^{3/2}+x^{1/2}} \dee{x}</m> converges. </textblue>
+</li>
+</ul>
+</p>
+
+<p>Therefore, our integral <textblue><m>\displaystyle\int_0^\infty \frac{|\sin x|}{x^{3/2}+x^{1/2}} \dee{x}</m> converges.</textblue>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M121 2000A</fromexam></title>
+<statement><p>
+Does the integral
+<m>\displaystyle\int_0^\infty\frac{x+1}{x^{1/3}(x^2+x+1)}\,\dee{x}</m>
+converge or diverge?
+</p></statement>
+
+<hint><p>
+What are the <q>problem <m>x</m>'s</q> for this integral? Get a simple
+approximation to the integrand near each.
+</p></hint>
+
+<answer><p>
+The integral converges.
+</p></answer>
+
+<solution><p>
+The integrand is positive everywhere, so either the integral
+converges to some finite number or it is infinite. There are two potential
+<q>sources of impropriety</q> <mdash/> a possible singularity at <m>x=0</m> and
+the fact that the domain of integration extends to <m>\infty</m>.
+So we split up the integral.
+<md>
+<mrow>
+\int_0^\infty\frac{x+1}{x^{1/3}(x^2+x+1)}\,\dee{x}
+= \int_0^1\frac{x+1}{x^{1/3}(x^2+x+1)}\,\dee{x}
+  +\int_1^\infty\frac{x+1}{x^{1/3}(x^2+x+1)}\,\dee{x}
+</mrow>
+</md>
+Let's develop a hunch about whether the integral converges or diverges. When <m>x\approx 0</m>,  <m>x^2</m> and <m>x</m> are both a lot smaller than 1, so we guess we should compare the integrand to <m>\frac{1}{x^{1/3}}</m>.
+<me>
+\frac{x+1}{x^{1/3}(x^2+x+1)} \approx \frac{1}{x^{1/3}(1)} =
+                                      \frac{1}{x^{1/3}}
+</me>
+Note <m>\int_0^1 \frac{1}{x^{1/3}} \dee{x}</m> converges by Example<nbsp/><xref ref="eg_IMPp2"/> (it's a <m>p</m>-type integral), so we guess <m>\int_0^1 \frac{x+1}{x^{1/3}(x^2+x+1)} \dee{x}</m> converges as well.
+</p>
+
+<p>When <m>x</m> is very large, <m>x^2</m> is much bigger than <m>x</m>, which is much bigger than 1, so we guess we should compare the integrand to <m>\frac{1}{x^{4/3}}</m>.
+<me>
+\frac{x+1}{x^{1/3}(x^2+x+1)} \approx \frac{x}{x^{1/3}(x^2)} =
+                                      \frac{1}{x^{4/3}}
+</me>
+Note <m>\int_1^\infty \frac{1}{x^{4/3}} \dee{x}</m> converges by Example<nbsp/><xref ref="eg_IMPp1"/> (it's a <m>p</m>-type integral), so we guess <m>\int_1^\infty \frac{x+1}{x^{1/3}(x^2+x+1)} \dee{x}</m> converges as well.
+</p>
+
+<p>Now it's time to verify our guesses with the limiting comparison test, Theorem<nbsp/><xref ref="thm_IMPcomparisonLim"/>. Be careful: our <q><m>\approx</m></q> signs are not strong enough to use either the limiting comparison test or the comparison test, they are only enough to suggest a reasonable function to compare <em>to</em>.
+</p>
+
+<p><ul>
+<li> <m>\frac{x+1}{x^{1/3}(x^2+x+1)}\,, \frac{1}{x^{1/3}}\,,</m> and <m>\frac{1}{x^{4/3}}</m> are defined and continuous for all <m>x  \gt  0</m>
+</li>
+<li> <m>\frac{1}{x^{1/3}}</m> and <m>\frac{1}{x^{4/3}}</m> are positive for all <m>x \gt 0</m>
+</li>
+<li> <m>\int_0^1  \frac{1}{x^{1/3}} \dee{x}</m> and <m>\int_1^\infty  \frac{1}{x^{4/3}} \dee{x}</m> both converge
+</li>
+<li> <m>\lim\limits_{x \to 0}\dfrac{\frac{x+1}{x^{1/3}(x^2+x+1)}}{\frac{1}{x^{1/3}}}
+=\lim\limits_{x \to 0}\dfrac{x+1}{x^2+x+1}=\dfrac{0+1}{0+0+1}=1
+</m>; in particular, this limit exists.
+</li>
+<li> Using the limiting comparison test (Theorem<nbsp/><xref ref="thm_IMPcomparisonLim"/>, together with Remark<nbsp/><xref ref="rmk_singularities"/> because our impropriety is due to a singularity),
+<textblue>
+<m>\int_0^1 \frac{x+1}{x^{1/3}(x^2+x+1)} \dee{x}</m> converges.
+</textblue>
+</li>
+<li> <m>\lim\limits_{x \to \infty}\dfrac{\frac{x+1}{x^{1/3}(x^2+x+1)}}{\frac{1}{x^{4/3}}}
+=\lim\limits_{x \to 0}\dfrac{x(x+1)}{x^2+x+1}=1
+</m>; in particular, this limit exists.
+</li>
+<li> Using the limiting comparison test (Theorem<nbsp/><xref ref="thm_IMPcomparisonLim"/>),
+<textblue>
+<m>\int_1^\infty \frac{x+1}{x^{1/3}(x^2+x+1)} \dee{x}</m> converges.
+</textblue>
+</li>
+</ul>
+</p>
+
+<p>We conclude <textblue>
+<m>\displaystyle\int_0^\infty \frac{x+1}{x^{1/3}(x^2+x+1)} \dee{x}</m> converges.</textblue>
+</p></solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise purpose="RQS">
+<statement><p>
+We craft a tall, vuvuzela-shaped solid by rotating the line <m>y = \dfrac{1}{x\vphantom{\frac{1}{2}}}</m> from <m>x=a</m> to <m>x=1</m> about the <m>y</m>-axis, where <m>a</m> is some constant between 0 and 1.
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{2}{2}{1}{5.5}
+\draw[thick] plot[domain=.2:1](\x,{1/\x}) node[right]{$y=\frac{1}{x}$};
+\draw[thick] plot[domain=.2:1](-\x,{1/\x});
+\YExcoord{1}{1}
+\YExcoord{0.2}{a\vphantom{1}}
+\YExcoord{-1}{-1}
+\draw[thick] (-1,1) arc(180:360: 1 cm and 2mm);
+\draw[thick] (-.2,5) arc(180:360: .2 cm and .8mm);
+\draw[thick] (-.2,5) arc(180:0: .2 cm and .8mm);
+\draw[gray] (0,5)--(-.5,5) node[left]{$\frac{1}{a}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+True or false: <textblue>No matter how large a constant <m>M</m> is, there is some value of <m>a</m> that makes a solid with volume larger than <m>M</m>.</textblue>
+</p></statement>
+<hint><p>
+To find the volume of the solid, cut it into horizontal slices, which are thin circular disks.
+</p>
+
+<p>The true/false statement is equivalent to saying that the improper integral giving the volume of the solid when <m>a=0</m> diverges to infinity.
+</p></hint>
+<answer><p>
+false
+</p></answer>
+<solution><p>
+To find the volume of the solid, we cut it into horizontal slices, which are thin circular disks. At height <m>y</m>, the disk has radius <m>x=\frac{1}{y}</m> and thickness <m>\dee{y}</m>, so its volume is <m>\frac{\pi}{y^2}\dee{y}</m>. The base of the solid is at height <m>y=1</m>, and its top is at height <m>y=\frac{1}{a}</m>. So, the volume of the entire solid is:
+<md>
+<mrow>
+\int_1^{1/a} \frac{\pi}{y^2}\dee{y} = \left[-\frac{\pi}{y}\right]_1^{1/a} = \pi (1-a)
+</mrow>
+</md>
+If we imagine sliding <m>a</m> closer and closer to 0, the volume increases, getting closer and closer to <m>\pi</m> units, but never quite reaching it.
+</p>
+
+<p>So, the statement is false. For example, if we set <m>M=4</m>, no matter which <m>a</m> we choose our solid has volume strictly less than <m>M</m>.
+</p>
+
+<p>Remark: we've seen before that <m>\int_0^1 \frac{1}{x}\,\dee{x}</m> diverges. If we imagine the solid that would result from choosing <m>a=0</m>, it would have a scant volume of <m>\pi</m> cubic units, but a silhouette (side view) of infinite area.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q4</fromexam></title>
+<statement><p>
+What is the largest value of <m>q</m> for which the integral
+<m>\displaystyle \int_1^\infty \frac1{x^{5q}}\,\dee{x}</m> diverges?
+</p></statement>
+
+<hint><p>
+Review Example <xref ref="eg_IMPp1"/>. Remember the antiderivative of <m>\frac{1}{x}</m> looks very different from the antiderivative of other powers of <m>x</m>.
+</p></hint>
+
+<answer><p>
+<m>q=\frac{1}{5}</m>
+</p></answer>
+
+<solution><p>
+Our goal is to decide when this integral diverges, and where it converges. We will leave <m>q</m> as a variable, and antidifferentiate. In order to antidifferentiate without knowing <m>q</m>, we'll need different cases.
+The integrand is <m>x^{-5q}</m>, so when <m>-5q \neq -1</m>, we use the power rule (that is, <m>\int x^n \dee{x} = \frac{x^{n+1}}{n+1}</m>) to antidifferentiate.  Note <m>x^{(-5q)+1} = x^{1-5q} = \dfrac{1}{x^{5q-1}}</m>.
+<md>
+<mrow>
+\int_1^t \frac1{x^{5q}}\,\dee{x} &amp;= \begin{cases}
+\left[\frac{x^{1-5q}}{1-5q} \right]_1^t \text{ with }1-5q \gt 0 &amp;\text{if } q  \lt  \frac15 \\
+\left[ \log x\vphantom{\frac12}\right]_1^{t}\  &amp;\text{if } q = \frac15 \\
+\left[\frac{1}{(1-5q)x^{5q-1}} \right]_1^{t}\text{ with }5q-1 \gt 0 &amp;\text{if } q  \gt  \frac15
+\end{cases}
+</mrow><mrow>
+&amp;=\begin{cases}
+\frac1{1-5q}(t^{1-5q}-1) \text{ with }1-5q \gt 0 &amp;\text{if } q  \lt  \frac15 \\
+\log t &amp;\text{if } q = \frac15 \\
+\frac1{5q-1}(1-\frac1{t^{5q-1}})\text{ with }5q-1 \gt 0 &amp;\text{if } q  \gt  \frac15.
+\end{cases}
+</mrow>
+</md>
+Therefore,
+<md>
+<mrow>
+\int_1^\infty \frac1{x^{5q}}\,\dee{x} = \displaystyle\lim_{t\to\infty} \left( \int_1^t \frac1{x^{5q}}\,\dee{x} \right) = \begin{cases}
+\frac1{1-5q}\left(\displaystyle\lim_{t\to\infty} t^{1-5q}-1\right) = \infty &amp;\text{if } q  \lt  \frac15 \\
+\displaystyle\lim_{t\to\infty}\log t = \infty &amp;\text{if } q = \frac15 \\
+\frac1{5q-1}\left(1-\displaystyle\lim_{t\to\infty}\frac1{t^{5q-1}}\right) = \frac1{5q-1} &amp;\text{if } q  \gt  \frac15.
+\end{cases}
+</mrow>
+</md>
+The first two cases are divergent, and so the largest such value is <m>q=\frac{1}{5}</m>. (Alternatively, we might recognize this as a <q><m>p</m>-integral</q> with <m>p=5q</m>, and recall that the <m>p</m>-integral diverges precisely when <m>p\le1</m>.)
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+For which values of <m>p</m> does the integral <m>\displaystyle\int_0^\infty \dfrac{x}{(x^2+1)^p} \dee{x}</m> converge?
+</p></statement>
+<hint><p>
+Compare to Example<nbsp/><xref ref="eg_IMPp11"/> in the text. You can antidifferentiate with a <m>u</m>-substitution.
+</p></hint>
+<answer><p>
+<m>p \gt 1</m>
+</p></answer>
+<solution><p>
+This integrand is a nice candidate for the substitution <m>u=x^2+1</m>, <m>\frac{1}{2}\dee{u} = x\dee{x}</m>. Remember when we use substitution on a definite integral, we also need to adjust the limits of integration.
+<md>
+<mrow>
+\int_0^\infty \dfrac{x}{(x^2+1)^p} \dee{x} &amp;= \lim_{t \to \infty}\int_0^t \frac{x}{(x^2+1)^p}\dee{x}
+</mrow><mrow>
+&amp;=\lim_{t \to \infty}\frac{1}{2}\int_1^{t^2+1} \dfrac{1}{u^p} \dee{u}
+</mrow><mrow>
+&amp;=\lim_{t \to \infty}\frac{1}{2}\int_1^{t^2+1}u^{-p} \dee{u}
+</mrow><mrow>
+&amp;=\begin{cases}
+\frac12\displaystyle\lim_{t \to \infty}\left[\frac{u^{1-p}}{1-p}\right]_1^{t^2+1}&amp;\text{ if }p \neq 1\\
+\frac12\displaystyle\lim_{t \to \infty}\Big[\log|u|\Big]_1^{t^2+1}&amp;\text{ if }p=1
+\end{cases}
+</mrow><mrow>
+&amp;=\begin{cases}
+\frac12\displaystyle\lim_{t \to \infty}\frac{1}{1-p}\left[(t^2+1)^{1-p}-1\right]&amp;\text{ if }p \neq 1\\
+\frac12\displaystyle\lim_{t \to \infty}\Big[\log(t^2+1)\Big]=\infty&amp;\text{ if }p=1
+\end{cases}
+</mrow>
+<intertext>
+At this point, we can see that the integral diverges when <m>p=1</m>. When <m>p \neq 1</m>, we have the limit
+</intertext><mrow>
+\displaystyle\lim_{t \to \infty}\frac{1/2}{1-p}\left[(t^2+1)^{1-p}-1\right]&amp;=\frac{1/2}{1-p}\left[\lim_{t \to \infty} (t^2+1)^{1-p}\right] - \frac{1/2}{1-p}
+</mrow>
+</md>
+Since <m>t^2+1 \to \infty</m>, this limit converges exactly when the exponent <m>1-p</m> is negative; that is, it converges when <m>p \gt 1</m>, and diverges when <m>p \lt 1</m>.
+</p>
+
+<p>So, the integral in the question converges when <m>p \gt 1</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int_2^\infty  \frac{1}{t^4-1}\dee{t}</m>, or state that it diverges.
+</p></statement>
+<hint><p>
+To evaluate the integral, you can factor the denominator.
+</p>
+<p>
+Recall <m>\displaystyle\lim_{x \to \infty}\arctan x = \frac{\pi}{2}</m>. For the other limits, use logarithm rules, and beware of indeterminate forms.
+</p></hint>
+<answer><p>
+<m>\dfrac{\log 3-\pi}{4} + \dfrac{1}{2}\arctan 2 </m>
+</p></answer>
+<solution><p>
+<ul>
+<li> First, we notice there is only one <q>source of impropriety:</q>  the domain of integration is infinite.  (The integrand has a singularity at <m>t=1</m>, but this is not in the domain of integration, so it's not a problem for us.)
+</li>
+<li> We should try to get some intuition about whether the integral converges or diverges.  When <m>t \to \infty</m>, notice the integrand <q>looks like</q> the function <m>\frac{1}{t^4}</m>. We know <m>\int_1^\infty \frac{1}{t^4} \dee{t}</m> converges, because it's a <m>p</m>-integral with <m>p=4 \gt 1</m> (see Example<nbsp/><xref ref="eg_IMPp1"/>). So, our integral probably converges as well. If we were only asked show it converges, we could use a comparison test, but we're asked more than that.
+</li>
+<li> Since we guess the integral converges, we'll need to evaluate it. The integrand is a rational function, and there's no obvious substitution, so we use partial fractions.
+</li>
+</ul>
+<md>
+<mrow>
+\frac{1}{t^4-1} &amp;= \frac{1}{(t^2+1)(t^2-1)}= \frac{1}{(t^2+1)(t+1)(t-1)} = \frac{At+B}{t^2+1} + \frac{C}{t+1}+\frac{D}{t-1}
+</mrow>
+<intertext>Multiply by the original denominator.</intertext><mrow>
+1&amp;=(At+B)(t+1)(t-1) + C(t^2+1)(t-1) +D(t^2+1)(t+1)\tag{$*$}
+</mrow>
+<intertext>Set <m>t=1</m>.</intertext><mrow>
+1&amp;=0+0+D(2)(2) \qquad \Rightarrow \qquad \color{red}{D=\frac{1}{4}}
+</mrow>
+<intertext>Set <m>t=-1</m>.</intertext><mrow>
+1&amp;=0+C(2)(-2)+0 \qquad \Rightarrow \qquad \color{red}{C=-\frac{1}{4}}
+</mrow>
+<intertext>Simplify (<m>*</m>) using <m>D=\frac{1}{4}</m> and <m>C=-\frac{1}{4}</m>.
+</intertext><mrow>
+1&amp;=(At+B)(t+1)(t-1) \textcolor{red}{-\frac{1}{4}}(t^2+1)(t-1) +\textcolor{red}{\frac{1}{4}}(t^2+1)(t+1)
+</mrow><mrow>
+&amp;=(At+B)(t+1)(t-1) + \frac{1}{2}(t^2+1)
+</mrow><mrow>
+&amp;=At^3+\left(B+\frac{1}{2}\right)t^2-At+\left(\frac{1}{2}-B\right)
+</mrow>
+<intertext>By matching up coefficients of corresponding powers of <m>t</m>, we find <textred><m>A=0</m> and <m>B=-\frac{1}{2}</m> </textred>.
+</intertext><mrow>
+\int_2^\infty \frac{1}{t^4-1} \dee{t}&amp;=\int_2^\infty \left( \frac{-1/2}{t^2+1}  - \frac{1/4}{t+1}+\frac{1/4}{t-1}\right) \dee{t}
+</mrow><mrow>
+&amp;=\lim_{R \to \infty}\int_2^R \left( \frac{-1/2}{t^2+1}  - \frac{1/4}{t+1}+\frac{1/4}{t-1}\right) \dee{t}
+</mrow><mrow>
+&amp;=\lim_{R \to \infty} \left[-\frac{1}{2}\arctan t - \frac{1}{4}\log|t+1|+\frac{1}{4}\log|{t-1}|\right]_2^R
+</mrow><mrow>
+&amp;=\lim_{R \to \infty} \left[-\frac{1}{2}\arctan t + \frac{1}{4}\log\left| \frac{t-1}{t+1} \right|\right]_2^R
+</mrow><mrow>
+&amp;=\lim_{R \to \infty} \left(-\frac{1}{2}\arctan R +\frac12\arctan 2 + \frac{1}{4}\log\left| \frac{R-1}{R+1} \right|-\frac{1}{4}\log\left| \frac{2-1}{2+1} \right|\right)
+</mrow>
+<intertext>We can use l'Hôpital's rule to see <m>\displaystyle\lim_{R \to \infty}\frac{R-1}{R+1}=1</m>. Also note <m>-\log (1/3) = \log 3</m>.
+</intertext><mrow>
+&amp;=-\frac{1}{2}\left(\frac{\pi}{2}\right) +\frac{1}{2}\arctan 2 + \frac{1}{4}\log1+\frac{1}{4}\log3
+</mrow><mrow>
+&amp;=\frac{\log 3-\pi}{4} + \frac{1}{2}\arctan 2
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Does the integral <m>\displaystyle\int_{-5}^5 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}</m> converge or diverge?
+</p></statement>
+<hint><p>
+Break up the integral. The absolute values give you a nice even function, so you can replace <m>|x-a|</m> with <m>x-a</m> if you're careful about the limits of integration.
+</p></hint>
+<answer><p>
+The integral converges.
+</p></answer>
+<solution><p>
+There are three singularities in the integrand: <m>x=0</m>, <m>x=1</m>, and <m>x=2</m>. We'll need to break up the integral at each of these places.
+<md>
+<mrow>
+&amp;\int_{-5}^5 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}
+</mrow><mrow>
+=
+&amp;\int_{-5}^0 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}+
+\int_{0}^1 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}
+</mrow><mrow>+&amp;
+\int_{1}^2 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}+
+\int_{2}^5 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}
+</mrow>
+</md>
+This looks rather unfortunate. Let's think again. If all of the integrals below converge, then we can write:
+<md>
+<mrow>
+\int_{-5}^5 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}&amp;=
+\int_{-5}^5 \frac{1}{\sqrt{|x|}} \dee{x}+
+\int_{-5}^5 \frac{1}{\sqrt{|x-1|}}\dee{x}+
+\int_{-5}^5\frac{1}{\sqrt{|x-2|}}\dee{x}
+</mrow>
+<intertext>That looks a lot better. Also, we have a good reason to guess these integrals converge--they look like <m>p</m>-integrals with <m>p=\frac{1}{2}</m>. Let's take a closer look at each one.
+</intertext><mrow>
+\int_{-5}^5 \frac{1}{\sqrt {|x|}}\dee{x}&amp;=\int_{-5}^0 \frac{1}{\sqrt {|x|}}\dee{x}+
+\int_{0}^5 \frac{1}{\sqrt {|x|}}\dee{x}
+</mrow><mrow>
+&amp;=2\int_{0}^5 \frac{1}{\sqrt {|x|}}\dee{x} \qquad\text{(even function)}
+</mrow><mrow>
+&amp;=2\int_{0}^5 \frac{1}{\sqrt {x}}\dee{x}
+</mrow>
+<intertext>This is a <m>p</m>-integral, with <m>p=\frac{1}{2}</m>. By Example<nbsp/><xref ref="eg_IMPp2"/> (and Theorem<nbsp/><xref ref="thm_IMPfiniteSHift"/>, since the upper limit of integration is not 1), it converges. The other two pieces behave similarly.
+</intertext><mrow>
+\int_{-5}^5 \frac{1}{\sqrt{|x-1|}}\dee{x}&amp;=
+\int_{-5}^1 \frac{1}{\sqrt{|x-1|}}\dee{x}+
+\int_{1}^5 \frac{1}{\sqrt{|x-1|}}\dee{x}
+</mrow>
+<intertext>Use <m>u=x-1</m>, <m>\dee{u}=\dee{x}</m>
+</intertext><mrow>
+&amp;=
+\int_{-6}^0 \frac{1}{\sqrt{|u|}}\dee{u}+
+\int_{0}^4 \frac{1}{\sqrt{|u|}}\dee{x}
+</mrow><mrow>&amp;=
+\int_{0}^6 \frac{1}{\sqrt{u}}\dee{u}+
+\int_{0}^4 \frac{1}{\sqrt{u}}\dee{x}
+</mrow>
+<intertext>Since our function is even, we use the reasoning of Example<nbsp/><xref ref="eg_lefthalfevenfunction"/> in the text to consider the area under the curve when <m>x \ge 0</m>, rather than when <m>x\leq 0</m>. Again, these are <m>p</m>-integrals with <m>p = \frac{1}{2}</m>, so they both converge. Finally:
+</intertext><mrow>
+\int_{-5}^5\frac{1}{\sqrt{|x-2|}}\dee{x}&amp;=
+\int_{-5}^2\frac{1}{\sqrt{|x-2|}}\dee{x}+
+\int_{2}^5\frac{1}{\sqrt{|x-2|}}\dee{x}
+</mrow>
+<intertext>Use <m>u=x-2</m>, <m>\dee{u}=\dee{x}</m>.
+</intertext><mrow>
+&amp;=
+\int_{-7}^0\frac{1}{\sqrt{|u|}}\dee{u}+
+\int_{0}^3\frac{1}{\sqrt{|u|}}\dee{u}
+</mrow><mrow>
+&amp;=
+\int_{0}^7\frac{1}{\sqrt{u}}\dee{u}+
+\int_{0}^3\frac{1}{\sqrt{u}}\dee{u}
+</mrow>
+</md>
+Since <m>p = \frac{1}{2}</m>, so they both converge.
+We conclude our original integral, as the sum of convergent integrals, converges.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\int_0^\infty e^{-x}\sin x \dee{x}</m>, or state that it diverges.
+</p></statement>
+<hint><p>
+Use integration by parts twice to find the antiderivative of <m>e^{-x}\sin x</m>, as in Example<nbsp/><xref ref="eg_circularint"/>. Be careful with your signs--it's easy to make a mistake with all those negatives.
+</p>
+
+<p>If you're having a hard time taking the limit at the end, review the Squeeze Theorem (see the CLP-I text).
+</p></hint>
+<answer><p>
+<m>\dfrac{1}{2}</m>
+</p></answer>
+<solution><p>
+We can use integration by parts twice to find the antiderivative of <m>e^{-x}\sin x</m>, as in Example<nbsp/><xref ref="eg_circularint"/>. To keep our work a little simpler, we'll find the antiderivative first, then take the limit.
+</p>
+
+<p>Let <m>u=e^{-x}</m>, <m>\dee{v}=\sin x \dee{x}</m>, so <m>\dee{u}=-e^{-x} \dee{x}</m> and <m>v=-\cos x</m>.
+<md>
+<mrow>
+\int e^{-x}\sin x \dee{x}&amp;=-e^{-x}\cos x - \int e^{-x}\cos x \dee{x}
+</mrow>
+<intertext>Now let <m>u=e^{-x}</m>, <m>\dee{v}=\cos x \dee{x}</m>, so <m>\dee{u}=-e^{-x} \dee{x}</m> and <m>v=\sin x</m>.
+</intertext><mrow>
+&amp;=-e^{-x}\cos x-\left[e^{-x}\sin x + \int e^{-x}\sin x \dee{x} \right]
+</mrow><mrow>
+&amp;=-e^{-x}\cos x-e^{-x}\sin x - \int e^{-x}\sin x \dee{x}
+</mrow>
+<intertext>All together, we found</intertext><mrow>
+\color{red}{\int e^{-x}\sin x \dee{x}} &amp;=-e^{-x}\cos x-e^{-x}\sin x -\color{red}{\int e^{-x}\sin x \dee{x}} +C
+</mrow><mrow>
+\color{red}{2\int e^{-x}\sin x \dee{x}} &amp;=-e^{-x}\cos x-e^{-x}\sin x +C
+</mrow><mrow>
+\int e^{-x}\sin x \dee{x}&amp;=-\frac{1}{2e^x}(\cos x+\sin x) +C
+</mrow>
+<intertext>(Remember, since <m>C</m> is an arbitrary constant, we can rename <m>\frac{C}{2}</m> to simply <m>C</m>.) Now we can evaluate our improper integral.
+</intertext><mrow>
+\int_0^\infty e^{-x}\sin x \dee{x}&amp;=
+\lim_{b \to \infty}\int_0^b e^{-x}\sin x \dee{x}
+</mrow><mrow>
+&amp;=
+\lim_{b \to \infty}\left[-\frac{1}{2e^x}(\cos x+\sin x) \right]_0^b
+</mrow><mrow>&amp;=
+\lim_{b \to \infty}\left(\frac{1}{2}-\frac{1}{2e^b}(\cos b+\sin b) \right)
+</mrow>
+<intertext>To find the limit, we use the Squeeze Theorem (see the CLP-I text). Since <m>|\sin b|,|\cos b| \leq 1</m> for any <m>b</m>, we can use the fact that <m>-2 \le \cos b + \sin x \le 2</m> for any <m>b</m>.
+</intertext>
+<mrow>
+&amp;\qquad\frac{-2}{2e^b} \leq \frac{1}{2e^b}(\cos b + \sin b)  \leq \frac{2}{2e^b}
+</mrow><mrow>
+&amp;\qquad\lim_{b \to \infty}\frac{-2}{2e^b} = 0 = \frac{2}{2e^b}
+</mrow><mrow>
+&amp;\qquad\mbox{So, }\qquad\lim_{b \to \infty}\left[\frac{1}{2e^b}(\cos b + \sin b)\right]=0
+</mrow><mrow>
+\mbox{Therefore, }\qquad\frac{1}{2}&amp;=
+\lim_{b \to \infty}\left(\frac{1}{2}-\frac{1}{2e^b}(\cos b+\sin b) \right)
+</mrow>
+</md>
+That is, <m>\displaystyle\int_0^\infty e^{-x}\sin x \dee{x}= \frac{1}{2}</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M121 2002A</fromexam></title>
+<statement><p>
+Is the integral <m>\displaystyle\int_0^\infty\frac{\sin^4 x}{x^2}\, \dee{x}</m>
+convergent or divergent? Explain why.
+</p></statement>
+
+<hint><p>
+What is the limit of the integrand when <m>x\rightarrow 0</m>?
+</p></hint>
+
+<answer><p>
+The integral converges.
+</p></answer>
+
+<solution><p>
+The integrand is positive everywhere. So either the integral
+converges to some finite number or it is infinite. There are two potential
+<q>sources of impropriety</q> <mdash/> a possible singularity at <m>x=0</m> and
+the fact that the domain of integration extends to <m>\infty</m>.
+So, we split up the integral.
+<me>
+\int_0^\infty\frac{\sin^4 x}{x^2}\, \dee{x}
+=\int_0^1\frac{\sin^4 x}{x^2}\, \dee{x}
+  + \int_1^\infty\frac{\sin^4 x}{x^2}\, \dee{x}
+</me>
+</p>
+
+<p>Let's consider the first integral. By l'Hôpital's rule (see the CLP-I text),
+<me>
+\lim_{x\to 0} \frac{\sin x}{x}
+=\lim_{x\to 0} \frac{\cos x}{1}
+=\cos 0
+=1
+</me>
+Consequently,
+<me>
+\lim_{x\to 0} \frac{\sin^4 x}{x^2}
+=\Big(\lim_{x\to 0} \sin^2 x \Big)
+\Big(\lim_{x\to 0} \frac{\sin x}{x} \Big)
+\Big(\lim_{x\to 0} \frac{\sin x}{x} \Big)
+=0\times 1\times 1
+=0
+</me>
+and the first integral is not even improper.
+</p>
+
+<p>Now for the second integral. Since <m>|\sin x|\le 1</m>, we'll compare it to <m>\int_1^\infty \frac{1}{x^2}</m>.
+<ul>
+<li> <m>\frac{\sin^4 x}{x^2}</m> and <m>\frac{1}{x^2}</m> are defined and continuous for every <m>x \geq 1</m>
+</li>
+<li> <m>0 \leq \frac{\sin^4 x}{x^2} \leq \frac{1^4}{x^2} = \frac{1}{x^2}</m> for every <m>x \geq 1</m>
+</li>
+<li> <m>\int_1^\infty \frac{1}{x^2} \dee{x}</m> converges by Example<nbsp/><xref ref="eg_IMPp1"/> (it's a <m>p</m>-type integral with <m>p \gt 1</m>)
+</li>
+</ul>
+</p>
+
+<p>By the comparison test, Theorem<nbsp/><xref ref="thm_IMPcomparison"/>,
+<m>\displaystyle\int_1^\infty\frac{\sin^4 x}{x^2}\, \dee{x}</m> converges.
+</p>
+
+<p>Since <m>\displaystyle\int_0^1\frac{\sin^4 x}{x^2}\, \dee{x}</m> and <m>\displaystyle\int_1^\infty\frac{\sin^4 x}{x^2}\, \dee{x}</m> both converge, we conclude
+<m>\displaystyle\int_0^\infty\frac{\sin^4 x}{x^2}\, \dee{x}</m> converges as well.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Does the integral <m>\displaystyle\int_0^\infty \frac{x}{e^x+\sqrt{x}}  \dee{x}</m> converge or diverge?
+</p></statement>
+<hint><p>
+The only <q>source of impropriety</q> is the infinite domain of integration.
+Don't be afraid to be a little creative to make a comparison work.
+</p></hint>
+<answer><p>
+The integral converges.
+</p></answer>
+<solution><p>
+Since the denominator is positive for all <m>x \geq 0</m>, the integrand is continuous over <m>[0, \infty)</m>. So, the only <q>source of impropriety</q> is the infinite domain of integration.
+</p>
+
+<p><ul>
+<li>
+<p>
+Solution 1: Let's try to use a direct comparison. Note <m>\dfrac{x}{e^x + \sqrt{x}} \geq 0</m> whenever <m>x \geq 0</m>. Also note that, for large values of <m>x</m>, <m>e^x</m> is much larger than <m>\sqrt{x}</m>. That leads us to consider the following inequalty:
+<me>
+0\leq \dfrac{x}{e^x + \sqrt{x}}  \leq \dfrac{x}{e^x }</me>
+</p>
+
+<p>If <m>\int_0^\infty \frac{x}{e^x} \dee{x}</m> converges, we're in business. Let's figure it out. The integrand looks like a candidate for integration by parts: take <m>u=x</m>, <m>\dee{v} = e^{-x} \dee{x}</m>, so <m>\dee{u}=\dee{x}</m> and <m>v=-e^{-x}</m>.
+<md>
+<mrow>
+\int_0^\infty \frac{x}{e^x} \dee{x}&amp;=\lim_{b \to \infty}\int_0^b \frac{x}{e^x} \dee{x}=
+\lim_{b \to \infty}\left( \left[-\frac{x}{e^x}\right]_0^b + \int_0^b e^{-x} \dee{x} \right)
+</mrow><mrow>&amp;=
+\lim_{b \to \infty}\left(-\frac{b}{e^b} +\left[-e^{-x}\right]_0^b \right)=
+\lim_{b \to \infty}\left(-\frac{b}{e^b} -\frac{1}{e^b}+1 \right)
+</mrow><mrow>&amp;=
+\lim_{b \to \infty}\bigg(1-\underbrace{\frac{b+1}{e^b}}_{\atp{\mathrm{num}\to\infty}{\mathrm{den}\to\infty}}  \bigg)=\lim_{b \to \infty}\bigg(1-\frac{1}{e^b} \bigg)=1
+</mrow>
+</md>
+Using l'Hôpital's rule, we see <m>\int_0^\infty \frac{x}{e^x} \dee{x}</m> converges.  All together:
+<ul>
+<li> <m>\frac{x}{e^x}</m> and <m>\frac{x}{e^x+\sqrt{x}}</m> are defined and continuous for all <m>x \geq 0</m>,
+</li>
+<li> <m>\left|\frac{x}{e^x+\sqrt{x}}\right|\leq \frac{x}{e^x}</m>, and
+</li>
+<li> <m>\int_0^\infty \frac{x}{e^x} \dee{x}</m> converges.
+</li>
+</ul>
+So, by Theorem<nbsp/><xref ref="thm_IMPcomparison"/>, our integral <m>\displaystyle\int_0^\infty \frac{x}{e^x+\sqrt{x}}  \dee{x}</m> converges.
+</p>
+</li>
+<li><p>
+Solution 2:
+Let's try to use a different direct comparison from Solution 1, and avoid integration by parts.
+We'd like to compare to something like <m>\dfrac{1}{e^x}</m>, but the inequality goes the wrong way. So, we make a slight modification: we consider <m>2e^{-x/2}</m>. To that end, we claim <m>x \lt 2e^{x/2}</m> for all <m>x \geq 0</m>. We can prove this by noting the following two facts:
+<ul>
+<li> <m>0 \lt 2=2e^{0/2}</m>, and
+</li>
+<li>  <m>\diff{}{x}\{x\} = 1 \le e^{x/2} = \diff{}{x}\{2e^{x/2}\}</m>.
+</li>
+</ul>
+So, when <m>x=0</m>, <m>x  \lt  2e^{x/2}</m>, and then as <m>x</m> increases, <m>2e^{x/2}</m> grows faster than <m>x</m>.
+</p>
+
+<p>Now we can make the following comparison:
+<md>
+<mrow>
+0\leq \dfrac{x}{e^x + \sqrt{x}}  &amp;\leq \dfrac{x}{e^x }  \lt \frac{2e^{x/2}}{e^x} = \frac{2}{e^{x/2}}
+</mrow>
+<intertext>We have a hunch that <m>\int_0^\infty \frac{2}{e^{x/2}} \dee{x}</m> converges, just like <m>\int_0^\infty \frac{1}{e^{x}} \dee{x}</m>. This is easy enough to prove. We can guess an antiderivative, or use the substitution <m>u=x/2</m>.
+</intertext><mrow>
+\int_0^\infty \frac{2}{e^{x/2}} \dee{x}&amp;=\lim_{R \to \infty} \int_0^R \frac{2}{e^{x/2}} \dee{x} =\lim_{R \to \infty} \left[- \frac{4}{e^{x/2}}\right]_0^R
+</mrow><mrow>
+&amp;=\lim_{R \to \infty} \left[\frac{4}{e^{0}}- \frac{4}{e^{R/2}}\right]_0^R=4
+</mrow>
+</md>
+Now we know:
+<ul>
+<li> <m>0 \leq \frac{x}{e^x+\sqrt{x}} \leq \frac{2}{e^{x/2}}</m>, and
+</li>
+<li> <m>\int_0^\infty \frac{2}{e^{x/2}} \dee{x}</m> converges.
+</li>
+<li> Furthermore,  <m>\frac{x}{e^x+\sqrt{x}}</m> and <m>\frac{2}{e^{x/2}}</m> are defined and continuous for all <m>x \geq 0</m>.
+</li>
+</ul>
+By the comparison test (Theorem<nbsp/><xref ref="thm_IMPcomparison"/>), we conclude the integral converges.
+</p>
+</li>
+<li>
+<p>
+Solution 3: Let's use the limiting comparison test (Theorem<nbsp/><xref ref="thm_IMPcomparisonLim"/>).
+We have a hunch that our integral behaves similarly to <m>\int_0^\infty \frac{1}{e^x}\,\dee{x}</m>, which converges (see Example<nbsp/><xref ref="eg_IMPp6"/>). Unfortunately, if we choose <m>g(x) = \frac{1}{e^x}</m> (and, of course, <m>f(x) = \frac{x}{e^x+\sqrt{x}}</m>), then
+<me>
+\lim_{x \to \infty}\frac{f(x)}{g(x)} =
+\lim_{x \to \infty}\frac{x}{e^x+\sqrt{x}}\cdot e^x =
+\lim_{x \to \infty}\frac{x}{1+\underbrace{\tfrac{\sqrt{x}}{e^x}}_{\to 0}} = \infty</me>
+</p>
+
+<p>That is, the limit does not exist, so the limiting comparison test does not apply. (To find <m>\lim\limits_{x \to \infty}\frac{\sqrt{x}}{e^x}</m>, you can use l'Hôpital's rule.)
+</p>
+
+<p>This setback encourages us to try a slightly different angle. If <m>g(x)</m> gave larger values, then we could decrease <m>\frac{f(x)}{g(x)}</m>. So, let's try <m>g(x) = \frac{1}{e^{x/2}} = e^{-x/2}</m>. Now,
+<md>
+<mrow>
+\lim_{x \to \infty}\frac{f(x)}{g(x)} &amp;=
+\lim_{x \to \infty}\frac{x}{e^x+\sqrt{x}}\div \frac{1}{e^{x/2}}=
+\lim_{x \to \infty}\frac{x}{e^{x/2}+\frac{\sqrt{x}}{e^{x/2}}}
+</mrow>
+</md>
+Hmm... this looks hard. Instead of dealing with it directly, let's use the squeeze theorem (see CLP-I notes).
+<md>
+<mrow>
+0 &amp;&amp;\leq&amp;&amp; \frac{x}{e^{x/2}+\frac{\sqrt{x}}{e^{x/2 }}}&amp;&amp;\leq&amp;&amp; \frac{x}{e^{x/2}}
+</mrow>
+</md>
+Using l'Hôpital's rule,
+<me>
+\lim_{x \to \infty} \underbrace{\frac{x}{e^{x/2}}}_{\atp{\mathrm{num}\to \infty}{\mathrm{den}\to\infty}} = \lim_{x \to \infty}\frac{1}{\frac{1}{2}e^{x/2}}=0 = \lim_{x \to \infty}0</me>
+</p>
+
+<p>So, by the squeeze theorem <m>\lim\limits_{x \to 0}\frac{\frac{x}{e^x+\sqrt{x}}}{\frac{1}{e^{x/2}}}=0</m>. Since this limit exists, <m>\frac{1}{e^{x/2}}</m> is a reasonable function to use in the limiting comparison test (provided its integral converges). So, we need to show that <m>\int_0^\infty \frac{1}{e^{x/2}}\,\dee{x}</m> converges. This can be done by simply evaluating it:
+</p>
+
+<p><me>
+\int_0^\infty \frac{1}{e^{x/2}}\,\dee{x} = \lim_{b \to \infty}\int_0^b {e^{-x/2}}\,\dee{x}
+= \lim_{b \to \infty} -\frac{1}{2}\big[e^{-x/2}\big]_0^b
+= \lim_{b \to \infty} -\frac{1}{2}\left[\frac{1}{e^{b/2}}-1\right] = \frac{1}{2}</me>
+</p>
+
+<p>So, all together:
+<ul>
+<li> The functions <m>\frac{x}{e^x+\sqrt{x}}</m> and <m>\frac{1}{e^{x/2}}</m> are defined and continuous for all <m>x \geq 0</m>, and <m>\frac{1}{e^{x/2}} \ge 0</m> for all <m>x \ge 0</m>.
+</li>
+<li> <m>\int_0^\infty \frac{1}{e^{x/2}}\,\dee{x}</m> converges.
+</li>
+<li> The limit <m>\lim\limits_{x \to \infty}\frac{\frac{x}{e^x}+\sqrt{x}}{\frac{1}{e^{x/2}}}</m> exists (it's equal to 0).
+</li>
+<li> So, the limiting comparison test (Theorem<nbsp/><xref ref="thm_IMPcomparison"/>) tells us that <m>\int_0^\infty \frac{x}{e^x+\sqrt{x}}\,\dee{x}</m> converges as well.
+</li>
+</ul>
+</p>
+</li>
+</ul>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M121 2001A</fromexam></title>
+<statement><p>
+Let <m>M_{n,t}</m> be the Midpoint Rule approximation for
+<m>\displaystyle\int_0^t \frac{e^{-x}}{1+x}\dee{x}</m> with <m>n</m> equal subintervals.
+Find a value of <m>t</m> and a value of <m>n</m> such that <m>M_{n,t}</m> differs
+from  <m>\int_0^\infty \frac{e^{-x}}{1+x}\dee{x}</m> by at most <m>10^{-4}</m>.
+Recall that the error <m>E_n</m> introduced when the Midpoint
+Rule is used with <m>n</m> subintervals obeys
+<md>
+<mrow>
+|E_n|\le \frac{M(b-a)^3}{24n^2}
+</mrow>
+</md>
+where <m>M</m> is the maximum absolute value of the second derivative of the
+integrand and <m>a</m> and <m>b</m> are the end points of the interval of integration.
+</p></statement>
+
+<hint><p>
+There are two things that contribute to your error: using <m>t</m> as the upper bound instead of infinity, and using <m>n</m> intervals for the approximation.
+</p>
+
+<p>First, find a <m>t</m> so that the error introduced by approximating
+<m>\int_0^\infty \frac{e^{-x}}{1+x}\dee{x}</m> by <m>\int_0^t \frac{e^{-x}}{1+x}\dee{x}</m>
+is at most <m>\frac{1}{2} 10^{-4}</m>. Then, find your <m>n</m>.
+</p></hint>
+
+<answer><p>
+<m>t=10</m> and <m>n= 2042</m> will do the job.
+There are many other correct answers.
+</p></answer>
+
+<solution><p>
+There are two sources of error: the upper bound is <m>t</m>, rather than infinity, and we're using an approximation with some finite number of intervals, <m>n</m>. Our plan is to first find a value of <m>t</m> that introduces an error of no more than <m>\frac{1}{2}10^{-4}</m>. That is, we'll find a value of <m>t</m> such that <m>\int_t^\infty \frac{e^{-x}}{1+x} \dee{x} \leq \frac{1}{2}10^{-4}</m>. After that, we'll find a value of <m>n</m> that approximates <m>\int_0^t \frac{e^{-x}}{x+1} \dee{x}</m> to within <m>\frac{1}{2}10^{-4}</m>. Then, all together, our  error will be at most <m>\frac{1}{2}10^{-4} + \frac{1}{2}10^{-4} = 10^{-4}</m>, as desired. (Note we could have broken up the error in another way<mdash/>it didn't have to be <m>\frac{1}{2}10^{-4}</m> and <m>\frac{1}{2}10^{-4}</m>. This will give us one of many possible answers.)
+</p>
+
+<p>Let's  find a <m>t</m> such that
+<m>\int_t^\infty  \frac{e^{-x}}{1+x}\dee{x}\le\frac{1}{2} 10^{-4}</m>.
+For all <m>x\ge 0</m>,
+<m>0 \lt \frac{e^{-x}}{1+x}\le e^{-x}</m>, so
+<md>
+<mrow>
+\int_t^\infty  \frac{e^{-x}}{1+x}\dee{x}
+\le \int_t^\infty e^{-x}\dee{x}
+=e^{-t}&amp;\stackrel{(*)}{\le}\frac{1}{2} 10^{-4}
+</mrow><mrow>
+\hbox{where ($*$) is true if }\quad
+t&amp;\ge -\log\Big(\frac{1}{2} 10^{-4}\Big)\approx 9.90
+</mrow>
+</md>
+Choose, for example, <m>t=10</m>.
+</p>
+
+<p>Now it's time to decide how many intervals we're going to use to approximate <m>\displaystyle\int_0^t \frac{e^{-x}}{x+1} \dee{x}</m>. Again, we want our error to be less than <m>\frac{1}{2}10^{-4}</m>. To bound our error, we need to know the second derivative of <m>\frac{e^{-x}}{x+1}</m>.
+<md>
+<mrow>
+f(x)=\frac{e^{-x}}{1+x}
+\implies f'(x)=-\frac{e^{-x}}{1+x}-\frac{e^{-x}}{(1+x)^2}
+\implies f''(x)&amp;=\frac{e^{-x}}{1+x}+2\frac{e^{-x}}{(1+x)^2}
++2\frac{e^{-x}}{(1+x)^3}
+</mrow>
+</md>
+Since <m>f''(x)</m> is positive, and decreases as <m>x</m> increases,
+<md>
+<mrow>
+|f''(x)|\le f''(0) = 5
+\implies |E_n|\le\frac{5(10-0)^3}{24n^2}=\frac{5000}{24n^2}
+=\frac{625}{3n^2}
+</mrow>
+</md>
+and <m>|E_n|\le \frac{1}{2} 10^{-4}</m> if
+<md alignment="alignat">
+  <mrow>
+&amp;&amp;\frac{625}{3n^2}&amp;\le \frac{1}{2} 10^{-4}
+</mrow><mrow>
+&amp;\iff\qquad &amp;
+n^2&amp;\ge \frac{1250\times 10^4}{3}
+</mrow><mrow>
+&amp;\iff\quad &amp;n&amp;\ge \sqrt{\frac{1.25\times 10^7}{3}}
+\approx 2041.2
+</mrow>
+</md>
+So <m>t=10</m> and <m>n= 2042</m> will do the job.
+There are many other correct answers.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose <m>f(x)</m> is continuous for all real numbers, and <m>\displaystyle\int_1^\infty f(x) \dee{x}</m> converges.
+<ol label="a">
+<li> If <m>f(x)</m> is odd, does <m>\displaystyle\int_{-\infty\vphantom{\frac12}}^{-1} f(x) \dee{x}</m> converge or diverge, or is there not enough information to decide?
+</li>
+<li> If <m>f(x)</m> is even, does <m>\displaystyle\int_{-\infty}^\infty f(x) \dee{x}</m> converge or diverge, or is there not enough information to decide?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Look for a place to use Theorem<nbsp/><xref ref="thm_IMPfiniteSHift"/>.
+</p>
+
+<p> Examples<nbsp/><xref ref="eg_lefthalfevenfunction"/> and <xref ref="eg_areaunderoddfunction"/>
+have nice results about the area under an even/odd curve.
+</p></hint>
+<answer><p>
+(a) The integral converges.
+</p><p>
+(b) The interval converges.
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> Since <m>f(x)</m> is odd, using the reasoning of Example<nbsp/><xref ref="eg_areaunderoddfunction"/>,
+<md>
+<mrow>
+\int_{-\infty}^{-1} f(x) \dee{x}&amp;=\lim_{t \to \infty}\int_{-t}^{-1}f(x) \dee{x}=\lim_{t \to \infty}-\int_{1}^{t} f(x) \dee{x}=-\lim_{t \to \infty} \int_{1}^{t} f(x) \dee{x}
+</mrow>
+</md>
+Since <m>\displaystyle\int_1^\infty f(x) \dee{x}</m> converges, the last limit above converges. Therefore, <m>\displaystyle\int_{-\infty\vphantom{\frac12}}^{-1} f(x) \dee{x}</m> converges.
+</li>
+<li> Since <m>f(x)</m> is even, using the reasoning of Example<nbsp/><xref ref="eg_lefthalfevenfunction"/>,
+<md>
+<mrow>
+\int_{-\infty}^{-1} f(x) \dee{x}&amp;=\lim_{t \to \infty}\int_{-t}^{-1}f(x) \dee{x}=\lim_{t \to \infty}\int_{1}^{t} f(x) \dee{x}=\lim_{t \to \infty} \int_{1}^{t} f(x) \dee{x}
+</mrow>
+<intertext>Since <m>\displaystyle\int_1^\infty f(x) \dee{x}</m> converges, the last limit above converges.  Since <m>f(x)</m> is continuous everywhere, by Theorem<nbsp/><xref ref="thm_IMPfiniteSHift"/>,  <m>\displaystyle\int_{-1}^\infty f(x) \dee{x}</m> converges (note the adjusted lower limit). Then, since
+</intertext><mrow>
+\int_{-\infty}^\infty f(x) \dee{x}&amp; =
+\int_{-\infty}^{-1} f(x) \dee{x} +
+\int_{-1}^\infty f(x) \dee{x}
+</mrow>
+</md>
+and both summands converge, our original integral converges as well.
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+True or false:
+</p>
+<p>
+<textblue>
+There is some real number <m>x</m>, with <m>x \geq 1</m>, such that <m>\displaystyle\int_0^x \frac{1}{e^t} \dee{t} = 1</m>.
+</textblue>
+</p></statement>
+<hint><p>
+<m>x</m> should be a real number
+</p></hint>
+<answer><p>
+false
+</p></answer>
+<solution><p>
+Define <m>F(x)=
+\int_0^x \frac{1}{e^{t}}\dee{t}</m>.
+<md>
+<mrow>
+F(x)=\int_0^x \frac{1}{e^{t}}\dee{t}&amp;=\left[-\frac{1}{e^{t}}\right]_0^x
+ = \frac{1}{e^0}-\frac{1}{e^{x}} \lt \frac{1}{e^0}=1
+</mrow>
+</md>
+So, the statement is false: there is no <m>x</m> such that <m>F(x)=1</m>. For every real <m>x</m>, <m>F(x)  \lt  \frac{1}{e^0}=1</m>.
+</p>
+
+<p>We note here that <m>\displaystyle\lim_{x \to \infty} \int_0^x\frac{1}{e^{t}}\dee{t}=1</m>. So, as <m>x</m> grows larger, the gap between <m>F(x)</m> and 1 grows infintesimally small. But there is no real value of <m>x</m> where <m>F(x)</m> is exactly equal to 1.
+</p>
+
+</solution>
+</exercise></exercisegroup>
+
+</exercises>

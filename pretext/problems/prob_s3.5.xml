@@ -1,0 +1,1432 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<exercises>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise purpose="RQS">
+<statement><p>
+	Suppose <m>f(x)=\displaystyle\sum_{n=0}^\infty\left(\dfrac{3-x}{4}\right)^n</m>. What is <m>f(1)</m>?
+</p></statement>
+<hint><p>
+	<m>f(1)</m> is the sum of a geometric series.
+</p></hint>
+<answer><p>
+2
+</p></answer>
+<solution><p>
+	<md>
+<mrow>
+f(1)&amp;=\displaystyle\sum_{n=0}^\infty\left(\dfrac{3-1}{4}\right)^n
+</mrow><mrow>
+&amp;=\displaystyle\sum_{n=0}^\infty\left(\frac12\right)^n
+</mrow>
+<intertext>This is a geometric series with <m>r=\frac{1}{2}</m>.</intertext><mrow>
+&amp;=\frac{1}{1-\frac12}=2
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose <m>f(x)=\displaystyle\sum_{n=1}^\infty \dfrac{(x-5)^n}{n!+2}</m>. Give a power series representation of <m>f'(x)</m>.
+</p></statement>
+<hint><p>
+	Calculate <m>\displaystyle\diff{}{x}\left\{\frac{(x-5)^n}{n!+2}\right\}</m> when <m>n</m> is a constant.
+</p></hint>
+<answer><p>
+	<m>f(x)=\displaystyle\sum_{n=1}^\infty \dfrac{n(x-5)^{n-1}}{n!+2}</m>
+</p></answer>
+<solution><p>
+	Following Theorem<nbsp/><xref ref="thm_SRpsops"/>, we differentiate our function term-by-term.
+	<md>
+<mrow>
+	f(x)&amp;=\displaystyle\sum_{n=1}^\infty \dfrac{(x-5)^n}{n!+2}
+</mrow><mrow>
+	f'(x)&amp;=\displaystyle\sum_{n=1}^\infty \diff{}{x}\left\{\dfrac{(x-5)^n}{n!+2}\right\}
+</mrow><mrow>
+	&amp;=\sum_{n=1}^\infty \frac{n(x-5)^{n-1}}{n!+2}
+		</mrow>
+</md>
+	Keep in mind that <m>x</m> is our variable, and <em>for each term</em>, <m>n</m> is constant.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+	Let <m>f(x)=\displaystyle \sum_{n=a}^\infty A_n(x-c)^n</m> for some positive constants <m>a</m> and <m>c</m>, and some sequence of constants <m>\{A_n\}</m>. For which values of <m>x</m> does <m>f(x)</m> definitely converge?
+</p></statement>
+<hint><p>
+	There is only one.
+</p></hint>
+<answer><p>
+	Only <m>x=c</m>
+</p></answer>
+<solution><p>
+	If <m>x=c</m>, then
+	<md>
+<mrow>
+	f(x)&amp;=A_a(c-c)^a+A_{a+1}(c-c)^{a+1}+A_{a+2}(c-c)^{a+2}+\cdots
+</mrow><mrow>
+	&amp;=A_a \cdot 0+A_{a+1}\cdot 0+A_{a+2}\cdot 0+\cdots
+</mrow><mrow>
+	&amp;=0
+	</mrow>
+</md>
+	 So, <m>f(x)</m> converges (to the constant 0) when <m>x=c</m>. (Had we allowed <m>a=0</m>, it would be possible for <m>f(x)</m> to converge to a nonzero number <m>A_0</m>, because we use the convention <m>0^0=1</m>.)
+</p>
+
+<p>	 Depending on the sequence <m>\{A_n\}</m>,  it's possible that <m>f(x)</m> diverges for all <m>x \neq c</m>. For example, suppose <m>A_n=n!</m>, so <m>f(x)=\displaystyle\sum_{n=0}^\infty n!(x-c)^n</m>. If <m>x \neq c</m>, then the limit <m>\displaystyle\lim_{n\to\infty}	 \left|\frac{(n+1)!(x-c)^{n+1}}{n!(x-c)^n}\right|=\lim_{n\to\infty}(n+1)|x-c|</m>  is infinity, since <m>x-c\neq 0</m>. So, the series diverges.
+</p>
+
+<p>	 We've now shown that the series definitely converges at <m>x=c</m>, but at any other point, it may fail to converge.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+	Let <m>f(x)</m> be a power series centred at <m>c=5</m>. If <m>f(x)</m> converges at <m>x=-1</m>, and diverges at <m>x=11</m>, what is the radius of convergence of <m>f(x)</m>?
+</p></statement>
+<hint><p>
+	Use Theorem<nbsp/><xref ref="thm_SRradiusofconvergence"/> in the CLP-II text.
+</p></hint>
+<answer><p>
+	<m>R=6</m>
+</p></answer>
+<solution><p>
+	According to Theorem<nbsp/><xref ref="thm_SRradiusofconvergence"/> in the CLP-II text, because <m>f(x)</m> diverges somewhere, and because it converges at a point other than its centre,  <m>f(x)</m> has a positive radius of convergence <m>R</m>. That is, <m>f(x)</m> converges whenever <m>|x-5| \lt R</m>, and it diverges whenever <m>|x-5| \gt R</m>.
+</p>
+
+<p>	If <m>R \gt 6</m>, then <m>|11-5| \lt R</m>, so <m>f(x)</m> converges at <m>x=11</m>; since we are told <m>f(x)</m> <em>diverges</em> at <m>x=11</m>, we see <m>R \le 6</m>.
+</p>
+
+<p>	If <m>R \lt 6</m>, then <m>|-1-5| \gt R</m>, so <m>f(x)</m> diverges at <m>x=-1</m>; since we are told <m>f(x)</m> <em>converges</em> at <m>x=-1</m>, we see <m>R \ge 6</m>.
+</p>
+
+<p>	Therefore, <m>R=6</m>.
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise purpose="RQS"><title><fromexam>M105 2012A</fromexam></title>
+<statement><p>
+(a) Find the radius of convergence of the series
+<me>
+\sum_{k=0}^\infty (-1)^k 2^{k+1} x^k
+</me>
+</p>
+
+<p> (b)
+You are given the formula for the sum of a geometric series, namely:
+<me>
+1+r+r^2 + \cdots =\frac{1}{1-r},\qquad|r| \lt 1
+</me>
+Use this fact to evaluate the series in part (a).
+</p></statement>
+
+<hint><p>
+Review the discussion immediately following Definition
+<xref ref="def_SRpowerSeries"/> in the CLP-II text.
+</p></hint>
+
+<answer><p>
+(a) <m>R = \dfrac{1}{2}</m>
+</p>
+<p>
+(b) <m>\dfrac{2}{1+2x}</m> for all <m>|x| \lt \dfrac{1}{2}</m>
+</p></answer>
+
+<solution><p> (a)
+We apply the ratio test for the series whose <m>k^{\rm th}</m>
+term is <m>a_k= (-1)^k 2^{k+1} x^k</m>. Then
+<md>
+<mrow>
+\lim_{k\to\infty} \bigg| \frac{ a_{k+1} }{ a_k } \bigg|
+&amp;= \lim_{k\to\infty} \bigg| \frac{(-1)^{k+1} 2^{k+2} x^{k+1}}
+                            {(-1)^k 2^{k+1} x^k} \bigg|
+</mrow><mrow>
+&amp;= \lim_{k\to\infty}|2x| = |2x|
+</mrow>
+</md>
+Therefore, by the ratio test, the series converges for all <m>x</m>
+obeying <m>|2x| \lt 1</m>, i.e. <m>|x| \lt \frac{1}{2}</m>, and diverges for all <m>x</m>
+obeying <m>|2x| \gt 1</m>, i.e. <m>|x| \gt \frac{1}{2}</m>.
+So the radius of convergence is <m>R = \frac{1}{2}</m>.
+</p>
+
+<p>Alternatively, one can set <m>A_k = (-1)^k 2^{k+1}</m> and compute
+<me>
+A = \lim_{k\to\infty} \bigg| \frac{A_{k+1}}{A_k}\bigg|
+  = \lim_{k\to\infty} \bigg| \frac{(-1)^{k+1} 2^{k+2}}{(-1)^k 2^{k+1}}\bigg|
+  = \lim_{k\to\infty} 2
+  =2
+</me>
+so that <m>R=\frac{1}{A}=\frac{1}{2}</m>, again.
+</p>
+
+<p> (b) The series is
+<md>
+<mrow>
+\sum_{k=0}^\infty (-1)^k 2^{k+1} x^k
+=2 \sum_{k=0}^\infty (-2x)^k
+=2\sum_{k=0}^\infty r^k\Big|_{r=-2x}
+=2\times\frac{1}{1-r}
+=\frac{2}{1+2x}
+</mrow>
+</md>
+for all <m>|r|=|2x| \lt 1</m>, i.e. all <m>|x| \lt \frac{1}{2}</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>M105 2014A</fromexam></title>
+<statement><p>
+Find the radius of convergence for the power series
+<m>\displaystyle\sum_{k=0}^\infty \frac{x^k}{10^{k+1}(k+1)!}</m>
+</p></statement>
+
+<hint><p>
+Review the discussion immediately following Definition
+<xref ref="def_SRpowerSeries"/> in the  CLP-II text.
+</p></hint>
+
+<answer><p>
+<m>R = \infty</m>
+</p></answer>
+
+<solution><p>
+We apply the ratio test for the series whose <m>k^{\rm th}</m>
+term is <m>a_k= \frac{x^k}{ 10^{k+1}(k+1)! }</m>. Then
+<md>
+<mrow>
+\lim_{k\to\infty} \bigg| \frac{ a_{k+1} }{ a_k } \bigg|
+&amp;= \lim_{k\to\infty} \bigg| \frac{x^{k+1}}{10^{k+2}(k+2)!} \cdot
+                             \frac{10^{k+1}(k+1)!}{x^k} \bigg|
+</mrow><mrow>
+&amp;=\lim_{k\to\infty} \left|\frac{10^{k+1}}{10^{k+2}}\right|\cdot\left|\frac{(k+1)!}{(k+2)!}\right|\cdot\left|\frac{x^{k+1}}{x^k}\right|
+</mrow><mrow>
+&amp;= \lim_{k\to\infty}\frac{1}{10(k+2)}|x| = 0  \lt  1
+</mrow>
+</md>
+for all <m>x</m>.
+Therefore, by the ratio test, the series converges for all <m>x</m>
+and the radius of convergence is <m>R = \infty</m>.
+</p>
+
+<p>Alternatively, one can set <m>A_k = \dfrac{1}{10^{k+1}(k+1)!}</m> and compute
+<m>A = \displaystyle\lim_{k\to\infty} \left| \frac{A_{k+1}}{A_k}\right| = 0</m>, so that
+<m>R</m> is again <m>+\infty</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2014A</fromexam></title>
+<statement><p>
+Find the radius of convergence for the power series
+<m>\displaystyle\sum_{n=0}^\infty \frac{(x - 2)^n}{n^2+1}</m>.
+</p></statement>
+
+<hint><p>
+Review the discussion immediately following Definition
+<xref ref="def_SRpowerSeries"/> in the CLP-II text.
+</p></hint>
+
+<answer><p>
+<m>1</m>
+</p></answer>
+
+<solution><p>
+We apply the ratio test with <m>a_n = \frac{(x - 2)^n}{n^2+1}</m>.
+</p>
+
+<p><md>
+<mrow>
+\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
+&amp;=\lim_{n\rightarrow\infty}\bigg|\frac{(x-2)^{n+1}}{(n+1)^2+1}\cdot
+                               \frac{n^2+1}{(x-2)^n}\bigg|
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty}\frac{n^2+1}{(n+1)^2+1}
+                               |x-2|
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty}\frac{1+1/n^2}{(1+1/n)^2+1/n^2}
+                               |x-2|
+</mrow><mrow>
+&amp;=|x-2|
+</mrow>
+</md>
+So, the series converges if <m>|x-2| \lt 1</m> and diverges if <m>|x-2| \gt 1</m>.
+That is, the radius of convergence is 1.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2013A</fromexam></title>
+<statement><p>
+ Consider the power series
+ <m>\displaystyle\sum\limits_{n=1}^\infty \frac{(-1)^n(x+2)^n}{\sqrt{n}}</m>,
+where <m>x</m> is a real number. Find the interval of
+convergence of this series.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_SRintervalofconvergence"/> in the  CLP-II text.
+</p></hint>
+
+<answer><p>
+The interval of convergence
+is <m>-1 \lt x+2\le 1</m> or <m>(-3,-1]</m>.
+</p></answer>
+
+<solution><p>
+We apply the ratio test for the series whose <m>n^{\rm th}</m>
+term is <m>a_n=\dfrac{(-1)^n(x+2)^n}{\sqrt{n}}</m>. Then
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\bigg|\frac{a_{n+1}}{a_n}\bigg|
+&amp;=\lim_{n\rightarrow\infty} \bigg|\frac{(x+2)^{n+1}}{\sqrt{n+1}}
+                                  \ \frac{\sqrt{n}}{(x+2)^n}\bigg|
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty} |x+2|\ \frac{\sqrt{n}}{\sqrt{n+1}}
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty} |x+2|\ \frac{1}{\sqrt{1+1/n}}
+</mrow><mrow>
+&amp;=|x+2|
+</mrow>
+</md>
+So the series must converge when <m>|x+2| \lt 1</m> and must diverge when <m>|x+2| \gt 1</m>.
+When <m>x+2=1</m>, the series reduces to
+<md>
+<mrow>
+\sum_{n=1}^\infty \frac{(-1)^n}{\sqrt{n}}
+</mrow>
+</md>
+which converges by the alternating series test.
+When <m>x+2=-1</m>, the series reduces to
+<md>
+<mrow>
+\sum_{n=1}^\infty \frac{1}{\sqrt{n}}
+</mrow>
+</md>
+which diverges by the <m>p</m>--series test with <m>p=\frac{1}{2}</m>.
+So the interval of convergence is <m>-1 \lt x+2\le 1</m> or <m>(-3,-1]</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q5</fromexam></title>
+<statement><p>
+Find the radius of convergence and interval of convergence of the series
+<md>
+<mrow>
+\sum_{n=0}^{\infty} \frac{(-1)^n}{n+1} \left(\frac{x+1}{3}\right)^n
+</mrow>
+</md>
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_SRintervalofconvergence"/> in the CLP-II text.
+</p></hint>
+
+<answer><p>
+The interval of convergence is <m>-4 \lt x\le2</m>, or simply <m>(-4,2]</m>.
+</p></answer>
+
+<solution><p>
+We apply the ratio test for the series whose <m>n^{\rm th}</m>
+term is <m>a_n= \frac{(-1)^n}{n+1} \left(\frac{x+1}{3}\right)^n</m>.
+<md>
+<mrow>
+\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
+&amp;= \lim_{n\to\infty} \bigg| \frac{ \frac{(-1)^{n+1}}{n+2} \left(\frac{x+1}{3}\right)^{n+1}}
+                       { \frac{(-1)^n}{n+1} \left(\frac{x+1}{3}\right)^n} \bigg|
+</mrow><mrow>
+&amp;= \lim_{n\to\infty}\left|\frac{(-1)^{n+1}}{(-1)^n} \right|\cdot\left|\frac{n+1}{n+2} \right|\cdot\left|\frac{(x+1)^{n+1}}{(x+1)^n} \right|\cdot\left|\frac{3^n}{3^{n+1}} \right|
+</mrow><mrow>
+&amp;= \lim_{n\to\infty} \left(\frac{n+1}{n+2}\right)\cdot \bigg| \frac{x+1}3 \bigg| = \frac{|x+1|}3
+</mrow>
+</md>
+Therefore, by the ratio test, the series converges when <m>\frac{|x+1|}3  \lt  1</m>
+and diverges when <m>\frac{|x+1|}3  \gt  1</m>. In particular, it converges when
+<md>
+<mrow>
+|x+1|  \lt  3 \iff -3  \lt  x+1  \lt  3 \iff -4  \lt  x  \lt  2
+</mrow>
+</md>
+and the radius of convergence is <m>R = 3</m>. (Alternatively, one can set <m>A_n = \frac{(-1)^n}{(n+1)3^n}</m> and compute
+<m>A = \lim_{n\to\infty} \big| \frac{A_{n+1}}{A_n}\big| = \frac{1}{3}</m>, so that
+<m>R=\frac{1}{A}=3</m>.)
+</p>
+
+<p>Next, we consider the endpoints <m>2</m> and <m>-4</m>.
+At <m>x=2</m>, i.e. <m>x+1=3</m>, the series is simply <m>\sum_{n=0}^\infty \frac{(-1)^{n}}{n+1}</m>,
+which is an alternating series: the signs alternate, and the unsigned terms decrease to zero. Therefore the series converges at <m>x=2</m> by the alternating series test.
+</p>
+
+<p>At <m>x=-4</m> the series is
+<me>\sum_{n=0}^\infty \frac{(-1)^{n}}{n+1} \left(\frac{-4+1}{3}\right)^n
+ = \sum_{n=0}^\infty \frac{(-1)^{n}}{n+1} (-1)^n
+ = \sum_{n=0}^\infty \frac1{n+1},</me>
+since <m>(-1)^n \cdot (-1)^n = (-1)^{2n} = \left((-1)^2\right)^n = 1</m>.
+This series diverges, either by comparison or limit comparison with the harmonic series (the <m>p</m>-series with <m>p=1</m>). (For that matter, it is exactly equal to the standard harmonic
+series <m>\sum_{n=1}^\infty \frac{1}{n}</m>, re-indexed to start at <m>n=0</m>.)
+</p>
+
+<p>In summary, the interval of convergence is <m>-4 \lt x\le2</m>, or simply <m>(-4,2]</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2015A</fromexam></title>
+<statement><p>
+ Find the <em>interval of convergence</em> for the power series
+<md>
+<mrow>
+\sum_{n=1}^\infty \frac{(x-2)^n}{n^{4/5}(5^n-4)}.
+</mrow>
+</md>
+</p></statement>
+
+<answer><p>
+ <m>-3\le x \lt  7</m> or <m>[-3,7)</m>
+</p></answer>
+
+<solution><p>
+We first apply the ratio test with <m>a_n = \frac{(x-2)^n}{n^{4/5}(5^n-4)}</m>.
+</p>
+
+<p><md>
+<mrow>
+\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
+&amp;=\lim_{n\rightarrow\infty}\bigg|\frac{(x-2)^{n+1}}{(n+1)^{4/5}(5^{n+1}-4)}\cdot
+                               \frac{n^{4/5}(5^n-4)}{(x-2)^n}\bigg|
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty}\frac{n^{4/5}(5^n-4)}{(n+1)^{4/5}(5^{n+1}-4)}
+                               |x-2|
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty}\frac{(1-4/5^n)}{(1+1/n)^{4/5}(5-4/5^n)}
+                               |x-2|
+</mrow><mrow>
+&amp;=\frac{|x-2|}{5}
+</mrow>
+</md>
+Therefore the series converges if <m>|x-2| \lt 5</m> and diverges if <m>|x-2| \gt 5</m>.
+When <m>x-2=+5</m>, i.e. <m>x=7</m>, the series reduces to
+<m>\sum\limits_{n=1}^\infty \frac{5^n}{n^{4/5}(5^n-4)}
+ =\sum\limits_{n=1}^\infty \frac{1}{n^{4/5}(1-4/5^n)}</m>
+which diverges by the limit comparison test with <m>b_n=\frac{1}{n^{4/5}}</m>.
+When <m>x-2=-5</m>, i.e. <m>x=-3</m>, the series reduces to
+<m>\sum\limits_{n=1}^\infty \frac{(-5)^n}{n^{4/5}(5^n-4)}
+ =\sum\limits_{n=1}^\infty \frac{(-1)^n}{n^{4/5}(1-4/5^n)}</m>
+which converges by the alternating series test. So the interval
+of convergence is <m>-3\le x \lt  7</m> or <m>[-3,7)</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q6</fromexam></title>
+<statement><p>
+Find all values <m>x</m> for which the series
+<m>\displaystyle\sum_{n=1}^\infty\frac{(x+2)^n}{n^2}</m> converges.
+</p></statement>
+
+<answer><p>
+The given series converges if and only if  <m>-3\le x\le -1</m>.
+Equivalently, the series has interval of convergence <m>[-3,-1]</m>.
+</p></answer>
+
+<solution><p>
+We apply the ratio test with <m>a_n=\frac{(x+2)^n}{n^2}</m>.
+Since
+<md>
+<mrow>
+\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
+&amp; =\lim_{n\rightarrow\infty}\left|\frac{\frac{(x+2)^{n+1}}{(n+1)^2}}
+                                       {\frac{(x+2)^n}{n^2}}\right|
+</mrow>
+<mrow>
+&amp; =\lim_{n\rightarrow\infty}\frac{n^2}{{(n+1)}^2}|x+2|
+=\lim_{n\rightarrow\infty}\frac{1}{{(1+1/n)}^2}|x+2|
+=|x+2|
+</mrow>
+</md>
+we have convergence for
+<me>
+|x+2| \lt 1
+\iff -1 \lt x+2 \lt 1
+\iff -3 \lt x \lt -1
+</me>
+and divergence for <m>|x+2| \gt 1</m>. For <m>|x+2|=1</m>, i.e. for <m>x+2=\pm 1</m>,
+i.e. for <m>x=-3,-1</m>, the series reduces to
+<m>\sum\limits_{n=1}^\infty\frac{(\pm 1)^n}{n^2}</m>, which converges absolutely,
+because <m>\sum\limits_{n=1}^\infty\frac{1}{n^p}</m> converges for <m>p=2 \gt 1</m>.
+So the given series converges if and only if  <m>-3\le x\le -1</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q6</fromexam></title>
+<statement><p>
+Find the interval of convergence for <m>\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(x-1)^n</m>.
+</p></statement>
+
+<answer><p>
+The interval of convergence  is <m>\frac{3}{4}\le x \lt \frac{5}{4}</m>,
+or <m>\big[\frac{3}{4},\frac{5}{4}\big)</m>.
+</p></answer>
+
+<solution><p>
+We apply the ratio test with <m>a_n= \frac{4^n}{n}(x-1)^n</m>.
+Since
+<md>
+<mrow>
+\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
+&amp;= \lim_{n\to\infty} \bigg| \frac{4^{n+1}(x-1)^{n+1}/(n+1)}{4^n(x-1)^n/n} \bigg|
+</mrow><mrow>
+&amp;= \lim_{n\to\infty} 4|x-1| \frac{n}{n+1}
+</mrow><mrow>
+&amp;= 4|x-1| \lim_{n\to\infty} \frac{n}{n+1} = 4|x-1|\cdot1.
+</mrow>
+</md>
+the series converges if
+<me>
+4|x-1| \lt 1
+\iff -1 \lt 4(x-1) \lt 1
+\iff -\frac{1}{4} \lt x-1 \lt \frac{1}{4}
+\iff \frac{3}{4} \lt x \lt \frac{5}{4}
+</me>
+and diverges if <m>4|x-1| \gt 1</m>.
+Checking the right endpoint <m>x=\frac{5}{4}</m>, we see that
+<md>
+<mrow>
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( \frac{5}{4}-1 \bigg)^n
+= \sum_{n=1}^\infty \frac{1}{n}
+</mrow>
+</md>
+is the divergent harmonic series. At the left endpoint <m>x=\frac{3}{4}</m>,
+<md>
+<mrow>
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( \frac34-1 \bigg)^n = \sum_{n=1}^\infty \frac{(-1)^n}{n}
+</mrow>
+</md>
+converges by the alternating series test. Therefore the interval of convergence of the
+original series is <m>\frac{3}{4}\le x \lt \frac{5}{4}</m>, or <m>\big[\frac{3}{4},\frac{5}{4}\big)</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Find, with explanation, the radius of convergence and the interval of
+convergence of the power series
+<me>
+\sum_{n=0}^\infty (-1)^n\frac{(x-1)^n}{2^n(n+2)}
+</me>
+</p></statement>
+
+<answer><p>
+The radius of convergence is <m>2</m>.
+The interval of convergence  is <m>-1 \lt  x\le3</m>,
+or <m>\big(-1,3\big]</m>.
+</p></answer>
+
+<solution><p>
+We apply the ratio test with <m>a_n= (-1)^n\frac{(x-1)^n}{2^n(n+2)}</m>.
+Since
+<md>
+<mrow>
+\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
+&amp;= \lim_{n\to\infty} \bigg| \frac{(x-1)^{n+1}}{2^{n+1}(n+3)}\
+                            \frac{2^n(n+2)}{(x-1)^n} \bigg|
+</mrow><mrow>
+&amp;= \lim_{n\to\infty} \frac{|x-1|}{2} \frac{n+2}{n+3}
+</mrow><mrow>
+&amp;= \frac{|x-1|}{2} \lim_{n\to\infty} \frac{1+2/n}{1+3/n} = \frac{|x-1|}{2}
+</mrow>
+</md>
+the series converges if
+<md>
+<mrow>
+\frac{|x-1|}{2} \lt 1
+&amp;\iff |x-1| \lt 2
+\iff -2 \lt (x-1) \lt 2
+\iff -1 \lt x \lt 3
+</mrow>
+</md>
+and diverges if <m>|x-1| \gt 2</m>. So the series has radius of convergence <m>2</m>.
+Checking the left endpoint <m>x=-1</m>, so that <m>\frac{x-1}{2}=-1</m>,
+we see that
+<md>
+<mrow>
+\sum_{n=0}^\infty (-1)^n\frac{(-1-1)^n}{2^n(n+2)}
+= \sum_{n=0}^\infty \frac{1}{n+2}
+</mrow>
+</md>
+is the divergent harmonic series. At the right endpoint <m>x=3</m>,
+so that <m>\frac{x-1}{2}=+1</m> and
+<md>
+<mrow>
+\sum_{n=0}^\infty (-1)^n\frac{(3-1)^n}{2^n(n+2)}
+= \sum_{n=0}^\infty \frac{(-1)^n}{n+2}
+</mrow>
+</md>
+converges by the alternating series test. Therefore the interval of convergence of the
+original series is <m>-1 \lt  x\le 3</m>, or <m>\big(-1,3\big]</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2014D</fromexam></title>
+<statement><p>
+Find the <em>interval of convergence</em> for the series
+<m>\displaystyle \sum_{n=1}^\infty (-1)^n n^2(x-a)^{2n}</m>
+where <m>a</m> is a constant.
+</p></statement>
+
+<answer><p>
+The interval of convergence  is <m>\ \ a-1 \lt  x \lt a+1</m>,
+or <m>\big(a-1,a+1\big)</m>.
+</p></answer>
+
+<solution><p>
+We apply the ratio test with <m>a_n= (-1)^n n^2(x-a)^{2n}</m>.
+Since
+<md>
+<mrow>
+\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
+&amp;= \lim_{n\to\infty} \bigg| \frac{(-1)^{n+1} (n+1)^2(x-a)^{2(n+1)}}
+                                 {(-1)^n n^2(x-a)^{2n}} \bigg|
+</mrow><mrow>
+&amp;= \lim_{n\to\infty} |x-a|^2 \frac{(n+1)^2}{n^2}
+</mrow><mrow>
+&amp;= |x-a|^2 \lim_{n\to\infty} \big(1+\frac{1}{n}\big)^2 = |x-a|^2\cdot1.
+</mrow>
+</md>
+the series converges if
+<me>
+|x-a|^2 \lt 1
+\iff |x-a| \lt 1
+\iff-1 \lt x-a \lt 1
+\iff a-1 \lt x \lt a+1
+</me>
+and diverges if <m>|x-a| \gt 1</m>.
+Checking both endpoints <m>x-a=\pm 1</m>, we see that
+<md>
+<mrow>
+ \sum_{n=1}^\infty (-1)^n n^2(x-a)^{2n}\bigg|_{x-a=\pm 1}
+=\ \sum_{n=1}^\infty (-1)^n n^2
+</mrow>
+</md>
+fails the divergence test <mdash/> the <m>n^{\rm th}</m> term does not converge
+to zero as <m>n\rightarrow\infty</m>. Therefore the interval of convergence
+of the original series is  <m>a-1 \lt  x \lt a+1</m>,  or <m>\big(a-1,a+1\big)</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2015A</fromexam></title>
+<statement><p>
+ Find the interval of convergence of the following series:
+<ol label="a">
+<li>
+<m>{\displaystyle \sum_{k=1}^\infty \frac{(x+1)^k}{k^2 9^k}}</m>.
+</li>
+<li>
+<m>{\displaystyle \sum_{k=1}^\infty a_k(x-1)^k}</m>, where
+<m>a_k \gt 0</m> for <m>k=1,2,\cdots</m> and
+<m>\ {\displaystyle \sum_{k=1}^\infty \Big(\frac{a_k}{a_{k+1}}
+                         -\frac{a_{k+1}}{a_{k+2}}\Big)
+   =\frac{a_1}{a_2} }</m>.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+Start part (b) by computing the partial sums of
+<m>\ {\displaystyle \sum_{k=1}^\infty \Big(\frac{a_k}{a_{k+1}}
+                         -\frac{a_{k+1}}{a_{k+2}}\Big)}</m>
+</p></hint>
+
+<answer><p>
+(a)  <m>|x+1|\le 9</m> or <m>-10\le x\le 8</m> or <m>[-10,8]</m>
+</p>
+<p>
+ (b) This series converges only for <m>x=1</m>.
+</p></answer>
+
+<solution><p> (a)
+We apply the ratio test for the series whose <m>k^{\rm th}</m>
+term is <m>A_k=\frac{(x+1)^k}{k^2 9^k}</m>. Then
+<md>
+<mrow>
+\lim_{k\rightarrow\infty}\bigg|\frac{A_{k+1}}{A_k}\bigg|
+&amp;=\lim_{k\rightarrow\infty} \bigg|\frac{(x+1)^{k+1}}{(k+1)^2 9^{k+1}}
+                                  \ \frac{k^2 9^k}{(x+1)^k}\bigg|
+</mrow><mrow>
+&amp;=\lim_{k\rightarrow\infty} |x+1|\ \frac{1}{9}\ \frac{k^2}{(k+1)^2}
+</mrow><mrow>
+&amp;=\lim_{k\rightarrow\infty} |x+1|\ \frac{1}{9}\ \frac{1}{(1+1/k)^2}
+</mrow><mrow>
+&amp;=\frac{|x+1|}{9}
+</mrow>
+</md>
+So the series must converge when <m>|x+1| \lt 9</m> and must diverge when <m>|x+1| \gt 9</m>.
+When <m>x+1=\pm 9</m>, the series reduces to
+<md>
+<mrow>
+\sum_{k=1}^\infty \frac{(\pm 9)^k}{k^2 9^k}
+=\sum_{k=1}^\infty \frac{(\pm 1)^k}{k^2}
+</mrow>
+</md>
+which converges (since, by the <m>p</m>--test, <m>\sum_{k=1}^\infty\frac{1}{k^p}</m> converges for
+any <m>p \gt 1</m>). So the interval of covnergence is <m>|x+1|\le 9</m>
+or <m>-10\le x\le 8</m>  or <m>[-10,8]</m>.
+</p>
+
+<p> (b)
+The partial sum
+<md>
+<mrow>
+\sum_{k=1}^N\Big(\frac{a_k}{a_{k+1}}
+                         -\frac{a_{k+1}}{a_{k+2}}\Big)
+&amp; =\Big(\frac{a_1}{a_2}-\frac{a_2}{a_3}\Big)
+ +\Big(\frac{a_2}{a_3}-\frac{a_3}{a_4}\Big)
++\cdots+ \Big(\frac{a_N}{a_{N+1}}-\frac{a_{N+1}}{a_{N+2}}\Big)
+</mrow>
+<mrow>
+&amp; =\frac{a_1}{a_2}-\frac{a_{N+1}}{a_{N+2}}
+</mrow>
+</md>
+We are told that <m>{\displaystyle \sum_{k=1}^\infty \Big(\frac{a_k}{a_{k+1}}
+                         -\frac{a_{k+1}}{a_{k+2}}\Big)
+   =\frac{a_1}{a_2} }</m>. This means that the above partial sum converges to
+<m>\frac{a_1}{a_2}</m> as <m>N\rightarrow\infty</m>, or equivalently, that
+<md>
+<mrow>
+\lim_{N\rightarrow\infty}\frac{a_{N+1}}{a_{N+2}}=0
+</mrow>
+</md>
+and hence that
+<md>
+<mrow>
+\lim_{k\rightarrow\infty}\frac{|a_{k+1}(x-1)^{k+1}|}{|a_k(x-1)^k|}
+=|x-1|\lim_{k\rightarrow\infty}\frac{|a_{k+1}|}{|a_k|}
+</mrow>
+</md>
+is infinite for any <m>x\ne 1</m>. So, by the ratio test, this series converges only for <m>x=1</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2014A</fromexam></title>
+<statement><p>
+Find a power series representation for <m>\dfrac{x^3}{1-x}</m>.
+</p></statement>
+
+<hint><p>
+You should know a power series representation for <m>\dfrac{1}{1-x}</m>.
+Use it.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\sum\limits_{n=0}^\infty x^{n+3}
+=\sum\limits_{n=3}^\infty x^{n}</m>
+</p></answer>
+
+<solution><p>
+Using the geometric series <m>\sum\limits_{n=0}^\infty x^n = \frac{1}{1-x}</m>,
+<md>
+<mrow>
+\frac{x^3}{1-x}
+=x^3 \sum_{n=0}^\infty x^n
+=\sum_{n=0}^\infty x^{n+3}
+=\sum_{n=3}^\infty x^{n}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement>
+
+<p>	Suppose <m>f'(x)=\displaystyle\sum_{n=0}^\infty \frac{(x-1)^{n}}{n+2}</m>, and
+	<m>\displaystyle \int_5^x f(t)\dee{t}=3x+\displaystyle\sum_{n=1}^\infty \frac{(x-1)^{n+1}}{n(n+1)^2}</m>.
+</p>
+
+<p>	Give a power series representation of <m>f(x)</m>.
+</p></statement>
+<hint><p>
+	You can safely ignore one of the given equations, but not the other.
+</p></hint>
+<answer><p>
+	<m>f(x)=3+\displaystyle\sum_{n=1}^\infty \frac{(x-1)^{n}}{n(n+1)}</m>
+</p></answer>
+<solution><p>
+	We can find <m>f(x)</m> by differentiating its integral, or antidifferentiating its derivative. In the latter case, we'll have to solve for the arbitrary constant of integration; in the former case, we do not. (Remember that many different functions have the same derivative, but a single function has only one derivative.) To avoid the necessity of finding the arbitrary constant, we can ignore the given equation for <m>f'(x)</m>, which makes the problem much simpler. This is the method used in Solution 1.
+	<ul>
+<li><p>
+Solution 1:
+		Using the Fundamental Theorem of Calculus Part 1:
+		<md>
+<mrow>
+		\diff{}{x} \left\{\int_5^x f(t)\dee{t} \right\}&amp;=f(x)
+</mrow><mrow>
+		\text{So,}\qquad
+		f(x)&amp;=\diff{}{x} \left\{3x+\displaystyle\sum_{n=0}^\infty \frac{(x-1)^{n+1}}{n(n+1)^2}  \right\}
+</mrow><mrow>
+		&amp;=3+\displaystyle\sum_{n=1}^\infty \frac{(n+1)(x-1)^{n}}{n(n+1)^2}
+</mrow><mrow>
+		&amp;=3+\displaystyle\sum_{n=1}^\infty \frac{(x-1)^{n}}{n(n+1)}
+		</mrow>
+</md>
+</p>
+</li>
+<li>
+<p>
+Solution 2:
+		Suppose we had used <m>f'(x)</m> instead. We would antidifferentiate to find:
+		<md>
+<mrow>
+		f(x)&amp;=\int \left( \sum_{n=0}^\infty \frac{(x-1)^{n}}{n+2}  \right)\dee{x}
+</mrow><mrow>
+		&amp;=\left(\sum_{n=0}^\infty \frac{(x-1)^{n+1}}{(n+1)(n+2)}\right)+C
+</mrow><mrow>
+		&amp;=\left(\sum_{n=1}^\infty \frac{(x-1)^{n}}{n(n+1)}\right)+C
+		</mrow>
+</md>
+		Notice <m>f(1)=0+C</m>. So, to find <m>C</m>, we must find <m>f(1)</m>. We can't get that information from <m>f'(x)</m>, so our only option is to consider the given formula for <m>\int_5^x f(t)\dee{t}</m>. Using the Fundamental Theorem of Calculus Part 1:
+		<md>
+<mrow>
+		f(1)&amp;=\left.\diff{}{x}\left\{\int_5^x f(t)\dee{t} \right\}\right|_{x=1}
+</mrow><mrow>
+		&amp;=\left.\diff{}{x}\left\{ 3x+\displaystyle\sum_{n=1}^\infty \frac{(x-1)^{n+1}}{n(n+1)^2}  \right\}\right|_{x=1}
+</mrow><mrow>
+		&amp;=\left[ 3+\displaystyle\sum_{n=1}^\infty \frac{(n+1)(x-1)^{n}}{n(n+1)^2}  \right]_{x=1}
+</mrow><mrow>
+		&amp;=\left[ 3+\displaystyle\sum_{n=1}^\infty \frac{(x-1)^{n}}{n(n+1)}  \right]_{x=1}
+</mrow><mrow>
+		&amp;= 3+\displaystyle\sum_{n=1}^\infty \frac{0^{n}}{n(n+1)}
+</mrow><mrow>
+		&amp;=3
+		</mrow>
+</md>
+		So, <m>f(x)=3+\displaystyle\sum_{n=1}^\infty \frac{(x-1)^{n}}{n(n+1)}</m>.
+</p>
+
+<p>		Note that in Solution 2, we did the same calculation as Solution 1, and more.
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise purpose="RQS"><title><fromexam>M121 2002A</fromexam></title>
+<statement><p>
+Determine the values of <m>x</m> for which the series
+<me>
+\sum_{n=2}^\infty\frac{x^n}{3^{2n}\log n}
+</me>
+converges absolutely, converges conditionally, or diverges.
+</p></statement>
+
+<hint><p>
+<m>n\ge\log n</m> for all <m>n\ge 1</m>.
+</p></hint>
+
+<answer><p>
+The series converges absolutely for <m>|x| \lt 9</m>, converges conditionally
+for <m>x=-9</m> and diverges otherwise.
+</p></answer>
+
+<solution><p>
+We apply the ratio test for the series whose <m>n^{\rm th}</m>
+term is either <m>a_n=\frac{x^n}{3^{2n}\log n}</m>
+or <m>a_n=\big|\frac{x^n}{3^{2n}\log n}\big|</m>. For both series
+<md>
+<mrow>
+\lim_{n\to\infty} \bigg| \frac{ a_{n+1} }{ a_n } \bigg|
+&amp;= \lim_{n\to\infty} \bigg| \frac{x^{n+1}}{3^{2(n+1)}\log(n+1)} \
+                               \frac{3^{2n}\log n}{x^n} \bigg|
+</mrow><mrow>
+&amp;= \lim_{n\to\infty} \bigg| \frac{x\log n}{3^2\log(n+1)} \bigg|
+=\lim_{n\to\infty} \bigg| \frac{x\log n}{3^2[\log(n)+\log(1+1/n)]} \bigg|
+</mrow><mrow>
+&amp;=\lim_{n\to\infty} \bigg| \frac{x}{3^2[1+\log(1+1/n)/\log(n)]} \bigg|
+</mrow><mrow>
+&amp;=\frac{|x|}{9}
+</mrow>
+</md>
+Therefore, by the ratio test, our series converges absolutely when
+<m>|x| \lt 9</m> and diverges when <m>|x| \gt 9</m>.
+</p>
+
+<p>For <m>x=-9</m>, <m>\displaystyle\sum_{n=2}^\infty\frac{x^n}{3^{2n}\log n}
+=\sum_{n=2}^\infty\frac{(-1)^n}{\log n}</m> which converges by
+the alternating series test.
+</p>
+
+<p>For <m>x=+9</m>, <m>\displaystyle\sum_{n=2}^\infty\frac{x^n}{3^{2n}\log n}
+=\sum_{n=2}^\infty\frac{1}{\log n}</m> which is the same series
+as <m>\displaystyle\sum_{n=2}^\infty\Big|\frac{(-1)^n}{\log n}\Big|</m>.
+We shall shortly
+show that <m>n\ge\log n</m>, and hence <m>\frac{1}{\log n}\ge \frac{1}{n}</m>
+for all <m>n\ge 1</m>.
+This implies that the series <m>\displaystyle\sum_{n=2}^\infty\frac{1}{\log n}</m>
+diverges by comparison with the divergent series
+<m>\displaystyle\sum_{n=2}^\infty\frac{1}{n^p}\bigg|_{p=1}</m>.
+This yelds both divergence for <m>x=9</m> and
+also the failure of absolute convergence for <m>x=-9</m>.
+</p>
+
+<p>Finally, we show that <m>n-\log n  \gt  0</m>, for all <m>n\ge 1</m>.
+Set <m>f(x)=x-\log x</m>. Then <m>f(1)=1 \gt 0</m> and
+<me>
+f'(x) = 1 -\frac{1}{x} \ge 0\qquad\text{for all }x\ge 1
+</me>
+So <m>f(x)</m> is (strictly) positive when <m>x=1</m> and is increasing for all
+<m>x\ge 1</m>. So <m>f(x)</m> is (strictly) positive for all <m>x\ge 1</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2013A</fromexam></title>
+<statement><p>
+ (a)  Find the power--series representation for
+<m>\displaystyle\int\frac{1}{1+x^3}\,\dee{x}</m> centred at <m>0</m> (i.e. in powers of
+<m>x</m>).
+</p>
+
+<p> (b) The power series above is used to approximate
+<m>\displaystyle\int_0^{1/4}\frac{1}{1+x^3}\,\dee{x}</m>. How many terms are
+required to guarantee that the resulting approximation is within
+<m>10^{-5}</m> of the exact value? Justify your answer.
+</p></statement>
+
+<hint><p>
+See Example <xref ref="eg_SRpsrepD"/> in the CLP-II text.
+For part (b), review §<xref ref="sec_AST"/> in the CLP-II text.
+</p></hint>
+
+<answer><p>
+(a)
+<m>\displaystyle\sum\limits_{n=0}^\infty(-1)^n \frac{x^{3n+1}}{3n+1} +C</m>
+</p>
+<p>
+(b)
+We need to keep two terms (the <m>n=0</m> and <m>n=1</m> terms).
+</p></answer>
+
+<solution><p> (a)
+Applying <m>\displaystyle\frac{1}{1+r}=\sum\limits_{n=0}^\infty (-1)^nr^n</m> with <m>r=x^3</m>
+gives
+<md>
+<mrow>
+\int\frac{1}{1+x^3}\ \dee{x} =\sum_{n=0}^\infty(-1)^n \int x^{3n}\ \dee{x}
+=\sum_{n=0}^\infty(-1)^n \frac{x^{3n+1}}{3n+1} +C
+</mrow>
+</md>
+</p>
+
+<p> (b) By part (a),
+<md>
+<mrow>
+\int_0^{1/4}\frac{1}{1+x^3}\ \dee{x}
+=\sum_{n=0}^\infty(-1)^n \frac{x^{3n+1}}{3n+1} \bigg|_0^{1/4}
+=\sum_{n=0}^\infty(-1)^n \frac{1}{(3n+1)4^{3n+1}}
+</mrow>
+</md>
+This is an alternating series with successively smaller terms that converge
+to zero as <m>n\rightarrow\infty</m>. So truncating
+it introduces an error no larger than the magnitude of the first dropped
+term. We want that first dropped term to obey
+<md>
+<mrow>
+\frac{1}{(3n+1)4^{3n+1}} \lt 10^{-5}=\frac{1}{10^5}
+</mrow>
+</md>
+So let's check the first few terms.
+<md>
+<mrow>
+\frac{1}{(3n+1)4^{3n+1}}\bigg|_{n=0}&amp;=\frac{1}{4} \gt \frac{1}{10^5}
+</mrow><mrow>
+\frac{1}{(3n+1)4^{3n+1}}\bigg|_{n=1}&amp;=\frac{1}{4^5} \gt \frac{1}{10^5}
+</mrow><mrow>
+\frac{1}{(3n+1)4^{3n+1}}\bigg|_{n=2}&amp;=\frac{1}{7\times 4^7}
+                         =\frac{1}{7\times 2^{14}}
+                         =\frac{1}{7\times16\times 1024}
+                         =\frac{1}{112\times 1024} \lt \frac{1}{10^5}
+</mrow>
+</md>
+So we need to keep two terms (the <m>n=0</m> and <m>n=1</m> terms).
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2014A</fromexam></title>
+<statement><p>
+ (a)  Show that <m>\displaystyle\sum_{n=0}^\infty nx^n =\frac{x}{(1-x)^2}</m>
+for <m>-1 \lt x \lt 1</m>.
+</p>
+
+<p> (b) Express <m>\displaystyle\sum_{n=0}^\infty n^2x^n</m> as a
+ratio of polynomials. For which <m>x</m> does this series converge?
+</p></statement>
+
+<hint><p>
+You know the geometric series expansion of <m>\frac{1}{1-x}</m>. What (calculus)
+operation(s) can you apply to that geometric series to convert it into
+the given series?
+</p></hint>
+
+<answer><p>
+(a)
+See the solution.
+</p>
+
+<p>  (b)
+<m>\displaystyle\sum\limits_{n=0}^\infty n^2 x^n=\frac{x(1+x)}{(1-x)^3}</m>.
+The series converges for <m>-1 \lt x \lt 1</m>.
+</p></answer>
+
+<solution><p> (a)
+Differentiating both sides of
+<me>
+\sum_{n=0}^\infty x^n = \frac{1}{1-x}
+</me>
+gives
+<me>
+\sum_{n=0}^\infty n x^{n-1}=\frac{1}{(1-x)^2}
+</me>
+Now multiplying both sides by <m>x</m> gives
+<me>
+\sum_{n=0}^\infty n x^n=\frac{x}{(1-x)^2}
+</me>
+as desired.
+</p>
+
+<p> (b) Differentiating both sides of the conclusion of part (a) gives
+<me>
+\sum_{n=0}^\infty n^2 x^{n-1}=\frac{(1-x)^2-2x(x-1)}{(1-x)^4}
+=\frac{(1-x)(1-x+2x)}{(1-x)^4}
+=\frac{1+x}{(1-x)^3}
+</me>
+Now multiplying both sides by <m>x</m> gives
+<me>
+\sum_{n=0}^\infty n^2 x^n=\frac{x(1+x)}{(1-x)^3}
+</me>
+We know that differentiation preserves the radius
+of convergence of power series. So this series has radius of
+convergence <m>1</m> (the radius of convergence of the original
+geometric series). At <m>x=\pm1 </m> the series diverges by the divergence
+test. So the series converges for <m>-1 \lt x \lt 1</m>.
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2015A</fromexam></title>
+<statement><p>
+ Suppose that you have a sequence <m>\{b_n\}</m> such that the series <m>\sum_{n=0}^{\infty}(1-b_n)</m> converges. Using the tests we've learned in class, prove that the radius of convergence of the power series <m>\displaystyle\sum_{n=0}^{\infty}b_nx^n</m> is equal to<nbsp/><m>1</m>.
+</p></statement>
+
+<hint><p>
+First show that the fact that the series <m>\sum_{n=0}^{\infty}(1-b_n)</m> converges
+ guarantees that <m>\lim_{n\rightarrow\infty}b_n=1</m>.
+</p></hint>
+
+<answer><p>
+See the solution.
+</p></answer>
+
+<solution><p>
+By the divergence test, the fact that <m>\sum\limits_{n=0}^{\infty}(1-b_n)</m>
+converges guarantees that <m>\lim\limits_{n\rightarrow\infty}(1-b_n)=0</m>,
+or equivalently, that <m>\lim\limits_{n\rightarrow\infty}b_n=1</m>.  So, by
+equation  (<xref ref="eq_SRradConv"/>)  in the  CLP-II text, the radius of convergence is
+<me>
+R =\bigg[\lim_{n\rightarrow\infty}\Big|\frac{b_{n+1}}{b_n}\Big|\bigg]^{-1}
+   =\bigg[\frac{1}{1}\bigg]^{-1}
+  =1
+</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>M121 2014A</fromexam></title>
+<statement><p>
+Assume <m>\big\{a_n \big\}</m> is a sequence such that <m>na_n</m> decreases to <m>C</m> as
+<m>n \rightarrow\infty</m> for some real number <m>C  \gt  0</m>
+</p>
+
+<p> (a) Find the radius of convergence of <m>\displaystyle\sum\limits_{n=1}^\infty
+ a_n x^n</m> . Justify your answer carefully.
+</p>
+
+<p> (b)  Find the interval of convergence of the above power series, that is,
+find all <m>x</m> for which the power series in (a) converges. Justify your answer carefully.
+</p></statement>
+
+<hint><p>
+What does <m>a_n</m> look like for large <m>n</m>?
+</p></hint>
+
+<answer><p>
+(a) <m>1</m>.
+</p>
+<p>
+(b) The series converges for <m>-1\le x \lt 1</m>, i.e. for the interval <m>[-1,1)</m>
+</p></answer>
+
+<solution><p>
+(a) We know that the radius of convergence <m>R</m> obeys
+<md>
+<mrow>
+\frac{1}{R} = \lim_{n\rightarrow\infty}\frac{a_{n+1}}{a_n}
+                     = \lim_{n\rightarrow\infty}\frac{n}{n+1}\ \frac{(n+1)a_{n+1}}{na_n}
+                     = 1 \frac{C}{C}
+                     = 1
+</mrow>
+</md>
+because we are told that <m>\lim\limits_{n\rightarrow\infty} na_n=C</m>. So <m>R=1</m>.
+</p>
+
+<p> (b) Just knowing that the radius of convergence is <m>1</m>, we know that the
+series converges for <m>|x| \lt 1</m> and diverges for <m>|x| \gt 1</m>. That leaves <m>x\pm 1</m>.
+</p>
+
+<p> When <m>x=+1</m>, the series reduces to <m>\sum\limits_{n=1}^\infty a_n </m>. We are told that
+<m>na_n</m> <em>decreases</em> to <m>C \gt 0</m>. So <m>a_n\ge \frac{C}{n}</m>. By the comparison test
+with the harmonic series <m>\sum\limits_{n=1}^\infty\frac{1}{n}</m>, which diverges by the <m>p</m>--test
+with <m>p=1</m>, our series diverges when <m>x=1</m>.
+</p>
+
+<p> When <m>x=-1</m>, the series reduces to  <m>\sum\limits_{n=1}^\infty (-1)^n a_n </m>.
+We are told that <m>na_n</m> <em>decreases</em> to <m>C \gt 0</m>. So <m>a_n \gt 0</m> and <m>a_n</m> converges to
+<m>0</m> as <m>n\rightarrow\infty</m>. Consequently <m>\sum\limits_{n=1}^\infty (-1)^n a_n </m>
+converges by the alternating series test.
+</p>
+
+<p> In conclusion  <m>\sum\limits_{n=1}^\infty a_n x^n</m> converges when <m>-1\le x \lt  1</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+An infinitely long, straight rod of negligible mass has the following weights:
+<ul>
+<li> At every whole number <m>n</m>, a mass of weight <m>\dfrac{1}{2^n}</m> at position <m>n</m>, and
+</li>
+<li> a mass of weight <m>\dfrac{1}{3^n}</m> at position <m>-n</m>.
+</li>
+</ul>
+At what position is the centre of mass of the rod?
+</p>
+<sidebyside width="80%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[help lines,  \lt - \gt ] (-6.5,0)--(7,0);
+\YEnxcoord{0}{0}
+\foreach \l in {1,2,3}{
+	\MULTIPLY{\l}{2}{\x}
+	\YEnxcoord{\x}{\l}
+	\YEnxcoord{-\x}{-\l}
+	\POWER{2}{\l}{\q}
+	\DIVIDE{3}{\q}{\m}
+	\POWER{3}{\l}{\Q}
+	\DIVIDE{3}{\Q}{\M}
+	\draw[fill, fill opacity=0.2] (\x,0) arc(90:450:\m cm);
+	\draw[fill, fill opacity=0.2] (-\x,0) arc(90:450:\M cm);
+\draw (\x,\x/2-4.5) node[below]{$\frac{1}{2^{\l}}$};
+\draw (-\x,\x/2-3.5) node[below]{$\frac{1}{3^{\l}}$};
+}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+Equation<nbsp/><xref ref="eq_weightedrod"/> in the CLP-II text tells us the centre of mass of a rod with weights <m>\{m_n\}</m> at positions <m>\{x_n\}</m> is <m>\displaystyle\bar x =\frac{\sum m_nx_n}{\sum m_n}</m> .
+</p></hint>
+<answer><p>
+	<m>\dfrac{20}{9}</m>
+</p></answer>
+<solution><p>
+Equation<nbsp/><xref ref="eq_weightedrod"/> in the CLP-II text tells us the centre of mass of a rod with weights <m>\{m_n\}</m> at positions <m>\{x_n\}</m> is <m>\displaystyle\bar x =\frac{\sum m_nx_n}{\sum m_n}</m> .
+</p>
+
+<p>We find the combined mass of our weights using Lemma<nbsp/><xref ref="lem_geomsum"/>
+ in the CLP-II text with <m>r=\frac{1}{2}</m> and <m>r=\frac{1}{3}</m>, respectively.
+<md>
+<mrow>
+\sum_{n=1}^{\infty}\frac{1}{2^n}+\sum_{n=1}^{\infty}\frac{1}{3^n}&amp;=
+\sum_{n=0}^{\infty}\frac{1}{2}\cdot\frac{1}{2^n}+\sum_{n=0}^{\infty}\frac{1}{3}\cdot\frac{1}{3^n}
+</mrow><mrow>
+&amp;=\frac{1}{2}\cdot\frac{1}{1-\frac12}+\frac{1}{3}\cdot\frac{1}{1-\frac13}
+</mrow><mrow>
+&amp;=1+\frac12=\frac32
+</mrow>
+</md>
+</p>
+
+<p>Now, we want to calculate the sum of the products of the masses and their positions.
+<me>
+\sum_{n=1}^{\infty}\frac{1}{2^n}\cdot n+\sum_{n=1}^{\infty}\frac{1}{3^n}\cdot n</me>
+</p>
+
+<p>We don't have such a nice formula for this, but we can make one by differentiating.
+</p>
+
+<p>The following formula is true for any <m>x</m> with <m>|x| \lt 1</m>:
+<md>
+<mrow>
+\sum_{n=0}^\infty x^n&amp;=\frac{1}{1-x}
+</mrow>
+<intertext>Differentiating both sides with respect to <m>x</m>:</intertext>
+<mrow>
+\sum_{n=0}^\infty nx^{n-1}&amp;=\frac{1}{(1-x)^2}
+</mrow><mrow>
+\sum_{n=1}^\infty nx^{n-1}&amp;=\frac{1}{(1-x)^2}
+</mrow>
+<intertext>Multiplying both sides by <m>x</m>:</intertext><mrow>
+\sum_{n=1}^\infty nx^{n}&amp;=\frac{x}{(1-x)^2}
+</mrow>
+</md>
+</p>
+
+<p>This allows us to evaluate our series.
+<md>
+<mrow>
+\sum_{n=1}^{\infty}\frac{n}{2^n}+\sum_{n=1}^{\infty}\frac{n}{3^n}
+&amp;=\frac{\frac12}{\left(1-\frac12\right)^2}+\frac{\frac13}{\left(1-\frac13\right)^2}
+</mrow><mrow>
+&amp;=2+\frac43 = \frac{10}{3}
+</mrow>
+<intertext>Therefore,</intertext><mrow>
+\bar x &amp;=\frac{10/3}{3/2}=\frac{20}{9} = 2.\overline{22}
+</mrow>
+</md>
+Remark: we can check that this makes some sense. Since the weights to the right of <m>x=0</m> are heavier than those to the left, but spaced the same, we would expect our rod to balance to the right of <m>x=0</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+	Let <m>f(x)=\displaystyle\sum_{n=0}^{\infty}A_n(x-c)^n</m>, for some constant <m>c</m> and a sequence of constants <m>\{A_n\}</m>. Further, let <m>f(x)</m> have a positive radius of covergence.
+</p>
+
+<p>	If <m>A_1=0</m>, show that <m>y=f(x)</m> has a critical point at <m>x=c</m>. What is the relationship between the behaviour of the graph at that point and the value of <m>A_2</m>?
+</p></statement>
+<hint><p>
+	Use the second derivative test.
+</p></hint>
+<answer><p>
+	The point <m>x=c</m> corresponds to a local maximum if <m>A_2 \lt 0</m> and a local minimum if <m>A_2 \gt 0</m>.
+</p></answer>
+<solution><p>
+	First, we differentiate.
+	<md>
+<mrow>
+	f(x)&amp;=\displaystyle\sum_{n=0}^{\infty}A_n(x-c)^n
+</mrow><mrow>
+	f'(x)&amp;=\sum_{n=0}^{\infty}nA_n(x-c)^{n-1}
+</mrow><mrow>
+	&amp;=\sum_{n=1}^{\infty}nA_n(x-c)^{n-1}
+</mrow><mrow>
+	f'(c)&amp;=\sum_{n=1}^\infty nA_n\cdot 0^{n-1}
+</mrow><mrow>
+	&amp;=A_1\cdot 1 + 2A_2\cdot0+3A_3\cdot0+\cdots
+</mrow><mrow>
+	&amp;=A_1
+	</mrow>
+</md>
+	So, if <m>A_1=0</m>, then <m>f'(c)=0</m>. That is, <m>f(x)</m> has a critical point at <m>x=c</m>.
+</p>
+
+<p>	To determine the behaviour of this critical point, we use the second derivative test.
+	<md>
+<mrow>
+	f'(x)&amp;=\sum_{n=1}^{\infty}nA_n(x-c)^{n-1}
+</mrow><mrow>
+	f''(x)&amp;=\sum_{n=1}^{\infty}n(n-1)A_n(x-c)^{n-2}
+</mrow><mrow>
+	&amp;=\sum_{n=2}^{\infty}n(n-1)A_n(x-c)^{n-2}
+</mrow><mrow>
+	f''(c)&amp;=\sum_{n=2}^{\infty}n(n-1)A_n\cdot 0^{n-2}
+</mrow><mrow>
+	&amp;=2(1)A_2\cdot 0^0+3(2)A_3\cdot 0^1+4(3)A_4\cdot 0^2+\cdots
+</mrow><mrow>
+	&amp;=2A_2
+	</mrow>
+</md>
+	Following the second derivative test, <m>x=c</m>	is the location of a local maximum if <m>A_2 \lt 0</m>, and it is the location of a local minimum if <m>A_2 \gt 0</m>. (If <m>A_2=0</m>, the critical point may or may not  be a local extremum.)
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+	Evaluate <m>\displaystyle \sum_{n=3}^\infty \frac{n}{5^{n-1}}</m>.
+</p></statement>
+<hint><p>
+	What function has <m>\displaystyle\sum_{n=1}^\infty nx^{n-1}</m> as its power series representation?
+</p></hint>
+<answer><p>
+	<m>\dfrac{13}{80}</m>
+</p></answer>
+<solution><p>
+	We recognize
+	<m>\displaystyle \sum_{n=3}^\infty \frac{n}{5^{n-1}}</m> as
+	<m>f(x)=\displaystyle \sum_{n=3}^\infty n\cdot x^{n-1}</m>, evaluated at <m>x=\dfrac15</m>. We should figure out what <m>f(x)</m> is in equation form (as opposed to power series form). Notice that this looks similar to the derivative of the geometric series <m>\displaystyle\sum x^n</m>.
+</p>
+
+<p>	<md>
+<mrow>
+	\frac{1}{1-x}&amp;=\sum_{n=0}^\infty x^n \qquad \text{when <m>|x| \lt 1</m>}
+</mrow><mrow>
+	\diff{}{x}\left\{\frac{1}{1-x}\right\}&amp;=\diff{}{x}\left\{\sum_{n=0}^\infty x^n\right\}
+</mrow><mrow>
+	\frac{1}{(1-x)^2}&amp;=\sum_{n=1}^\infty nx^{n-1}
+</mrow><mrow>
+	&amp;= 1x^0 + 2x^1+\sum_{n=3}^\infty nx^{n-1}
+</mrow><mrow>
+	&amp;= 1 + 2x+\sum_{n=3}^\infty nx^{n-1}
+</mrow><mrow>
+	\text{So,}\qquad
+	\frac{1}{(1-x)^2}-1-2x&amp;=\sum_{n=3}^\infty nx^{n-1}
+</mrow><mrow>
+	\text{Setting <m>x=\dfrac15</m>:}\qquad
+	\frac{1}{(1-1/5)^2}-1-\frac25&amp;=\sum_{n=3}^\infty n\left(\frac15\right)^{n-1}
+</mrow><mrow>
+	\left(\frac{5}{4} \right)^2-1-\frac25&amp;=\sum_{n=3}^\infty \frac{n}{5^{n-1}}
+	</mrow>
+</md>
+	So,  our series evaluates to <m>\displaystyle\frac{25}{16}-1-\frac{2}{5}=\frac{13}{80}</m>.
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Find a polynomial that approximates <m>f(x)=\log(1+ x)</m>  to within an error of <m>10^{-5}</m> for all values of <m>x</m> in <m>\left(0,\frac{1}{10}\right)</m>.
+</p>
+
+<p>Then, use your polynomial to approximate <m>\log(1.05)</m> as a rational number.
+</p></statement>
+<hint><p>
+The power series representation in Example<nbsp/><xref ref="eg_SRpsrepC"/> is an alternating series when <m>x</m> is positive.
+</p></hint>
+<answer><p>
+<m>x-\dfrac{x^2}{2}+\dfrac{x^3}{3}-\dfrac{x^4}{4}</m>
+</p></answer>
+<solution><p>
+As we saw in in Example<nbsp/><xref ref="eg_SRpsrepC"/>  of the CLP-II text,
+<me>
+\log(1+ x) = \sum_{n=0}^\infty (-1)^n\frac{x^{n+1}}{n+1}</me>
+</p>
+
+<p>which is an alternating series when <m>x</m> is positive. If we use its partial sum <m>S_N</m> to approximate <m>\log(1+ x)</m>, the absolute error involved is no more than
+ <me>
+\frac{x^{(N+1)+1}}{(N+1)+1} =\frac{x^{N+2}}{N+2}</me>
+</p>
+
+<p> We want this error to be at most <m>10^{-5}</m> whenever <m>0 \lt  x  \lt \frac1{10}</m>. For this range of <m>x</m> values,
+<m> \dfrac{x^{N+2}}{N+2} \lt \dfrac{1}{(N+2)10^{N+2}}</m>, so we want <m>N</m> that satisfies the  inequality:
+<md>
+<mrow>
+\frac{1}{(N+2)10^{N+2}}&amp;\le \frac{1}{10^5}
+</mrow><mrow>
+\Rightarrow \qquad (N+2)10^{N+2}&amp;\ge 10^5
+</mrow>
+</md>
+We see <m>N=3</m> suffices.
+</p>
+
+<p>So, the partial sum
+<me>
+ \sum_{n=0}^3 (-1)^n\frac{x^{n+1}}{n+1}=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}</me>
+</p>
+
+<p>approximates <m>\log(1+x)</m> to within an error of
+<m>\dfrac{x^5}{5}</m>.
+</p>
+
+<p>When <m>x</m> is between <m>0</m> and <m>\frac1{10}</m>,
+that error is at most <m>\dfrac{1}{5\cdot 10^5} \lt 10^{-5}</m>, as desired.
+</p>
+
+<p>Now we can approximate <m>\log(1.05)</m>.
+<md>
+<mrow>
+\log(1.05)&amp;=\log\left(1+\frac{1}{20}\right)
+</mrow><mrow>
+&amp;\approx \left(\tfrac{1}{20}\right)-\dfrac{\left(\tfrac{1}{20}\right)^2}{2}+\dfrac{\left(\tfrac{1}{20}\right)^3}{3}-\dfrac{\left(\tfrac{1}{20}\right)^4}{4}
+</mrow><mrow>
+&amp;=\frac{12\times 20^3-6\times 20^2+4\times 20-3}{12\times 20^4}=\frac{93677}{1920000}
+</mrow>
+</md>
+</p>
+
+<p>We note that a computer approximates
+<m>\frac{93677}{1920000}\approx0.04879010</m> and
+<m>\log(1.05) \approx 0.04879016</m>. So, our actual error is around <m>6\times 10^{-8}</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Find a polynomial that approximates <m>f(x)=\arctan x</m>  to within an error of <m>10^{-5}</m> for all values of <m>x</m> in <m>\left(-\frac{1}{4},\frac{1}{4}\right)</m>.
+</p></statement>
+<hint><p>
+The power series representation in Example<nbsp/><xref ref="eg_SRpsrepD"/> is an alternating series when <m>x</m> is nonzero.
+</p></hint>
+<answer><p>
+<m>x-\dfrac{x^3}{3}+\dfrac{x^5}{5}</m>
+</p></answer>
+<solution><p>
+As we saw in in Example<nbsp/><xref ref="eg_SRpsrepD"/>  of the CLP-II text,
+<me>
+\arctan x = \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}</me>
+</p>
+
+<p>which is an alternating series when <m>x</m> is nonzero. If we use its partial sum <m>S_N</m> to approximate <m>\arctan x</m>, the absolute error involved is no more than
+ <me>
+\frac{|x|^{2(N+1)+1}}{N(n+1)+1} =\frac{|x|^{2N+3}}{2N+3}</me>
+</p>
+
+<p> We want this error to be at most <m>10^{-6}</m> whenever <m>-\frac14 \lt  x  \lt \frac14</m>. For this range of <m>x</m> values,
+<m> \dfrac{|x|^{2N+3}}{2N+3} \lt \dfrac{1}{(2N+3)4^{2N+3}}</m>, so we want <m>N</m> that satisfies the  inequality:
+<me>
+\frac{1}{(2N+3)4^{2N+3}}\le \frac{1}{10^5}
+</me>
+</p>
+
+<p>A quick check with a calculator shows that <m>N=2</m> suffices.
+</p>
+
+<p>So, the partial sum
+<me>
+ \sum_{n=0}^2 (-1)^n\frac{x^{2n+1}}{2n+1}=x-\frac{x^3}{3}+\frac{x^5}{5}</me>
+</p>
+
+<p>approximates <m>\arctan x</m> to within an error of
+<m>\dfrac{x^7}{7}</m>.
+</p>
+
+<p>When <m>x</m> is between <m>-\frac14</m> and <m>\frac14</m>,
+that error is at most <m>\dfrac{1}{7\cdot 4^7}=\dfrac{1}{114688} \lt \dfrac{1}{100000}=10^{-5}</m>, as desired. (When <m>x=0</m>, our approximation is 0, the exact value of <m>\arctan 0</m>.)
+</p>
+
+</solution>
+</exercise></exercisegroup>
+
+</exercises>

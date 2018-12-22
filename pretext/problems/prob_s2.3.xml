@@ -1,0 +1,2927 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<exercises>
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+<exercise purpose="RQS">
+<statement><p>
+Using symmetry, find the centroid of the finite region between the curves <m>y=(x-1)^2</m> and <m>y=-x^2+2x+1</m>.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{3}{1}{3}
+\draw[thick, blue] plot[domain=-.5:2.5 ](\x,{(\x-1)*(\x-1)}) node[right]{$y=(x-1)^2$};
+\draw[thick, red] plot[domain=-.5:2.5](\x,{1+2*\x-\x*\x}) node[below right]{$y=-x^2+2x+1$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+It might help to know that <m>-x^2+2x+1 = 2-(x-1)^2</m>.
+</p></hint>
+<answer><p>
+<m>(1,1)</m>
+</p></answer>
+<solution><p>
+Note <m>-x^2+2x+1 = 2-(x-1)^2</m>. So,
+both parabolas are symmetric about the line <m>x=1</m>, and the <m>x</m>-coordinate of the centroid is <m>x=1</m>.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{3}{1}{3}
+\draw[thick, blue] plot[domain=-.5:2.5 ](\x,{(\x-1)*(\x-1)}) node[right]{$y=(x-1)^2$};
+\draw[thick, red] plot[domain=-.5:2.5](\x,{1+2*\x-\x*\x}) node[below right]{$y=-x^2+2x+1$};
+\draw[dashed] (1,3)--(1,-1) node[below]{$x=1$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The parabolas meet when:
+<md>
+<mrow>
+(x-1)^2&amp;=2-(x-1)^2
+</mrow><mrow>
+2(x-1)^2&amp;=2
+</mrow><mrow>
+|x-1|&amp;=1
+</mrow><mrow>
+x=0,\quad x&amp;=2
+</mrow>
+</md>
+At both these points, <m>y=1</m>, so we see the figure is symmetric about the line <m>y=1</m>. Then the <m>y</m>-coordinate of the centroid is <m>1</m>.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1}{3}{1}{3}
+\draw[thick, blue] plot[domain=-.5:2.5 ](\x,{(\x-1)*(\x-1)}) node[right]{$y=(x-1)^2$};
+\draw[thick, red] plot[domain=-.5:2.5](\x,{1+2*\x-\x*\x}) node[below right]{$y=-x^2+2x+1$};
+\draw[dashed] (3,1)--(-1,1) node[left]{$y=1$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Therefore, the centroid is at <m>(1,1)</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Using symmetry, find the centroid of the region inside the unit circle, and outside a rectangle centred at the origin with width 1 and height 0.5.
+</p><sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[fill, fill opacity=0.2] (0,0) circle(3cm);
+\draw[fill, fill=white] (-1.5,-.75) rectangle (1.5,.75);
+\YEaxis{3.5}{3.5}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+The centroid of a region doesn't have to be a point in the region.
+</p></hint>
+<answer><p>
+<m>(0,0)</m>
+</p></answer>
+<solution><p>
+The circle and the cut-out rectangle are symmetric about the <m>x</m>-axis, and about the <m>y</m>-axis, so the centroid is the origin.
+</p>
+
+<p>Remark: the centroid of a region doesn't have to be a point in the region!
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+ A long, straight, thin rod has a number of weights attached along it. True or false: if it balances at  position <m>x</m>, then the mass to the right of <m>x</m> is the same as the mass to the left of <m>x</m>.
+</p></statement>
+<hint><p>
+Read over the very beginning of Section<nbsp/><xref ref="sec_com"/>, specifically Equation<nbsp/><xref ref="eq_weightedrod"/>.
+</p></hint>
+<answer><p>
+In general, false.
+</p></answer>
+<solution><p>
+In general, this is false: weights farther out from the centre <q>count more</q> when we calculate the centre of mass. For instance, a rod with a 1-kg weight at <m>x=-10</m> and a 10-kg weight at <m>x=1</m> will balance at <m>x=0</m>. There's far more mass to one side of <m>x=0</m> than the other.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+A straight rod with negligible mass has the following weights attached to it:
+<ul>
+<li> A weight of mass 1 kg, 1m from the left end,
+</li>
+<li> a weight of mass 2 kg, 3m from the left end,
+</li>
+<li> a weight of mass 2 kg, 4m from the left end, and
+</li>
+<li> a weight of mass 1 kg, 6m from the left end.
+</li>
+</ul>
+</p>
+
+<p>Where is the centre of mass of the weighted rod?
+</p></statement>
+<hint><p>
+Use Equation<nbsp/><xref ref="eq_weightedrod"/>.
+</p></hint>
+<answer><p>
+<m>3.5</m> metres from the left end
+</p></answer>
+<solution><p>
+Following Equation<nbsp/><xref ref="eq_weightedrod"/>, the centre of mass of the rod is at:
+<md>
+<mrow>
+\bar x &amp;=\frac{\sum \text{(mass) $\times$ (position)}}{\sum \text {(mass)}} = \frac{1\times 1 + 2\times 3 + 2\times 4 + 1 \times 6}{1+2+2+1}=\frac{21}{6}=\frac{7}{2}
+</mrow>
+</md>
+That is, the centre of mass is <m>3.5</m> metres from the left end.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+For each picture below, determine whether the centroid is to the left of, to the right of, or along the line  <m>x=a</m>, or whether there is not enough information to tell. The shading of a region indicates density: darker shading corresponds to a denser area.
+</p>
+
+<sidebyside width="30%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\hfill
+\YEaaxis{.5}{2.5}{1.5}{1}
+\draw[thick, fill, fill opacity=0.2] (0,.75)--(2,0)--(0,-1.25)--cycle;
+\YExcoord{1}{a}
+\draw (1.5,-1.5) node{(a)};
+\end{tikzpicture}]]></latex-image></image>
+
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick, fill, fill opacity=0.7, left color=black, right color=white] (0,.75)--(2,0)--(0,-1.25)--cycle;
+\YEaaxis{.5}{2.5}{1.5}{1}
+\YExcoord{1}{a}
+\draw (1.5,-1.5) node{(b)};
+\end{tikzpicture}]]></latex-image></image>
+
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick, fill, fill opacity=0.7, left color=white, right color=black] (0,.75)--(2,0)--(0,-1.25)--cycle;
+\YExcoord{1}{a}
+\YEaaxis{.5}{2.5}{1.5}{1}
+\draw (1.5,-1.5) node{(c)};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick, fill, fill opacity=0.2, yshift=.5cm] (0,-1)--(0,-2) -|(1,-1.1)--(3,-.1)--(3,-1)--(4,-1)--(4,0)--(3,0)--(1,-1)--cycle;
+\draw[decorate, decoration = {brace, amplitude=5pt}]
+(-.25,-1.5)--(-.25,-.5)node[midway,left, xshift=-2mm]{$A$};
+\draw[decorate, decoration = {brace, amplitude=5pt, mirror}]
+(4.25,-.5)--(4.25,.5)node[midway,above right, xshift=2mm]{$A$};
+\draw[decorate, decoration = {brace, amplitude=5pt, mirror}]
+(0,-1.75)--(1,-1.75)node[midway,below, yshift=-2mm]{$B$};
+\draw[decorate, decoration = {brace, amplitude=5pt}]
+(3,.75)--(4,.75)node[midway,above, yshift=2mm]{$B$};
+\YExcoord{2}{a}
+\YEaaxis{.5}{5.5}{2.5}{1}
+\draw (1,1) node{(d)};
+\end{tikzpicture}]]></latex-image></image>
+
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick, fill, fill opacity=0.2, yshift=-2mm] (0,-.5)|-(1,-1.5)|-(3,-.6)|-(5,-1)|-(3,-.5)--cycle;
+\draw (1,1) node{(e)};
+\draw[decorate, decoration = {brace, amplitude=5pt}, yshift=-2mm]
+(-.25,-1.5)--(-.25,-.5)node[midway,left, xshift=-2mm]{$A$};
+\draw[decorate, decoration = {brace, amplitude=3pt}]
+(5.25,-.7)--(5.25,-1.2)node[midway, right]{$A/2$};
+\draw[decorate, decoration = {brace, amplitude=5pt, mirror}, yshift=-2mm]
+(0,-1.75)--(1,-1.75)node[midway,below, yshift=-2mm]{$B$};
+\draw[decorate, decoration = {brace, amplitude=5pt, mirror}]
+(3,-1.5)--(5,-1.5)node[midway,below, yshift=-2mm]{$2B$};
+\YExcoord{2}{a}
+\YEaaxis{.5}{5.5}{2.5}{1}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+</statement>
+<hint><p>
+Imagine cutting out the shape and setting it on top of a pencil, so that the pencil lines up with the vertical line <m>x=a</m>. Will the figure balance, or fall to one side? Which side?
+</p></hint>
+<answer><p>
+(a) to the left
+</p><p>
+ (b) to the left
+</p><p>
+ (c) not enough information
+</p><p>
+(d) along the line <m>x=a</m>
+</p><p>
+(e) to the right
+</p></answer>
+<solution><p>
+(a) If we were to set this figure on a pencil lined up along the vertical line <m>x=a</m>, it seems pretty clear that it would fall to the left. So, the centre of mass is to the left of the line <m>x=a</m>. The same is true in (b): the added density on the left makes it only more lopsided. However, in (c), the right point is denser than the left, which could counterbalance the left. Without knowing more about the dimensions and the density, we can't say where the centre of gravity is in relation to the line <m>x=a</m>.
+</p>
+
+<p>(d) Consider a section of the figure along the interval <m>[b,c]</m>, and its <q>mirror</q> section on the other side of the line <m>x=a</m>. These two sections will have the same area, at the same distance from <m>x=a</m>. Since we only care about the <m>x</m>-coordinate of the centre of gravity, it doesn't matter that the two halves are at different <m>y</m>-coordinates. The centroid falls along the line <m>x=a</m>.
+</p><sidebyside width="45%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick, fill, fill opacity=0.2, yshift=.5cm] (0,-1)--(0,-2) -|(1,-1.1)--(3,-.1)--(3,-1)--(4,-1)--(4,0)--(3,0)--(1,-1)--cycle;
+\draw[decorate, decoration = {brace, amplitude=5pt}]
+(-.25,-1.5)--(-.25,-.5)node[midway,left, xshift=-2mm]{$A$};
+\draw[decorate, decoration = {brace, amplitude=5pt, mirror}]
+(4.25,-.5)--(4.25,.5)node[midway,above right, xshift=2mm]{$A$};
+\draw[decorate, decoration = {brace, amplitude=5pt, mirror}]
+(0,-1.75)--(1,-1.75)node[midway,below, yshift=-2mm]{$B$};
+\draw[decorate, decoration = {brace, amplitude=5pt}]
+(3,.75)--(4,.75)node[midway,above, yshift=2mm]{$B$};
+\YExcoord{2}{a}
+\YEaaxis{.5}{5.5}{2.5}{1}
+\fill[red, fill, fill opacity=0.1] (.5,-2.5) rectangle (.75,1);
+\fill[red, fill, fill opacity=0.1] (3.5,-2.5) rectangle (3.25,1);
+\begin{scope}
+\clip(.5,-2.5) rectangle (.75,1);
+\draw[red, fill, yshift=.5cm] (0,-1)--(0,-2) -|(1,-1.1)--(3,-.1)--(3,-1)--(4,-1)--(4,0)--(3,0)--(1,-1)--cycle;
+\end{scope}
+\begin{scope}
+\clip  (3.5,-2.5) rectangle (3.25,1);
+\draw[red, fill, yshift=.5cm] (0,-1)--(0,-2) -|(1,-1.1)--(3,-.1)--(3,-1)--(4,-1)--(4,0)--(3,0)--(1,-1)--cycle;
+\end{scope}
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick, fill, fill opacity=0.2, yshift=.5cm] (0,-1)--(0,-2) -|(1,-1.1)--(3,-.1)--(3,-1)--(4,-1)--(4,0)--(3,0)--(1,-1)--cycle;
+\draw[decorate, decoration = {brace, amplitude=5pt}]
+(-.25,-1.5)--(-.25,-.5)node[midway,left, xshift=-2mm]{$A$};
+\draw[decorate, decoration = {brace, amplitude=5pt, mirror}]
+(4.25,-.5)--(4.25,.5)node[midway,above right, xshift=2mm]{$A$};
+\draw[decorate, decoration = {brace, amplitude=5pt, mirror}]
+(0,-1.75)--(1,-1.75)node[midway,below, yshift=-2mm]{$B$};
+\draw[decorate, decoration = {brace, amplitude=5pt}]
+(3,.75)--(4,.75)node[midway,above, yshift=2mm]{$B$};
+\YExcoord{2}{a}
+\YEaaxis{.5}{5.5}{2.5}{1}
+\fill[red, fill, fill opacity=0.1] (.8,-2.5) rectangle (1.5,1);
+\fill[red, fill, fill opacity=0.1] (3.2,-2.5) rectangle (2.5,1);
+\begin{scope}
+\clip (.8,-2.5) rectangle (1.5,1);
+\draw[red, fill, yshift=.5cm] (0,-1)--(0,-2) -|(1,-1.1)--(3,-.1)--(3,-1)--(4,-1)--(4,0)--(3,0)--(1,-1)--cycle;
+\end{scope}
+\begin{scope}
+\clip (3.2,-2.5) rectangle (2.5,1);
+\draw[red, fill, yshift=.5cm] (0,-1)--(0,-2) -|(1,-1.1)--(3,-.1)--(3,-1)--(4,-1)--(4,0)--(3,0)--(1,-1)--cycle;
+\end{scope}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+(e) There is the same amount of area to the left and right of the line <m>x=a</m>, as in part (d). However, the area to the right is <q>stretched out</q> more, so that  it occupies space <em>farther away</em> from the line <m>x=a</m>. So, the centre of mass will be to the right of the line <m>x=a</m>.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_3tank1">
+<statement><p>
+Tank <m>A</m> is spherical, of radius 1 metre, and filled completely with water. The bottom of tank <m>A</m> is three metres above the ground, where Tank <m>B</m> sits. Tank <m>B</m> is tall and rectangular, with base dimensions 1 metre by <m>\frac{1}{2}</m> metres, and empty. Calculate the work done by gravity to drain all the water from Tank <m>A</m> to Tank <m>B</m> by modelling the situation as a point mass, of the same mass as the water, being moved from the height of the centre of mass of <m>A</m> to the height of the centre of mass of <m>B</m>.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\begin{scope}[yshift=-2cm, xshift=-.25cm]\color{red}
+\draw (-2,0) rectangle (2,4);
+\draw (2,0)--(2.5,.25)--(2.5,4.25)--(-1.5,4.25)--(-2,4) (2,4)--(2.5,4.25) (-1.5,4)--(-1.5,4.25);
+\draw (0,-.5) node{2 m};
+\draw (2.25,-.25) node[rotate=30]{0.5 m};
+\draw (-2.75,2) node{$B$};
+\end{scope}
+\begin{scope}[yshift=5cm]\color{blue}
+\draw (-2,0) arc (180:0:2cm) arc(0:-180:2cm and 2mm);
+\draw (-2,0) arc (180:360:2cm) arc(0:-180:2cm and 2mm);
+\draw[dashed](-2,0) arc(180:0:2cm and 2mm);
+\draw (0,0)--(2,0) node[midway, below, yshift=-1mm]{1 m};
+\draw (-3,0) node{$A$};
+\draw[white, thick] (0,0)+(265:2cm) coordinate(a){} arc(265:275:2cm) coordinate(b){};
+\end{scope}
+\draw[decorate, decoration={brace, amplitude=10pt}] (4,3)--(4,-2) node[midway, right, xshift=4mm]{ 3 m};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+You may use <m>1000</m> kg/m<m>^3</m> for the density of water, and <m>g=9.8</m> m/sec<m>^2</m> for the acceleration due to gravity.
+</p></statement>
+<hint><p>
+You can find the heights of the centres of mass using symmetry.
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{78400\pi}{9}(6-\pi)\approx 78,225 \text{J}</m>
+</p></answer>
+<solution><p>
+<ul>
+<li>
+The volume of water in Tank A is <m>\frac{4}{3}\pi(1)^3 = \frac{4}{3}\pi</m> cubic metres.
+</li>
+<li> The mass of water is <m>\frac{4000}{3}\pi</m> kg.
+</li>
+<li> By symmetry, the centre of mass of the water when it fills Tank <m>A</m> is exactly in the centre of the sphere, at height <m>\bar y_1=4</m> metres above the ground (one metre above the bottom of Tank <m>A</m>, which is three metres above the ground).
+</li>
+<li> When the water is entirely in Tank <m>B</m>, its height is <m>\frac{4}{3}\pi</m> metres. (The base of Tank <m>B</m> has area 1 m<m>^2</m>, and the volume of water is <m>\frac{4}{3}\pi</m> m<m>^3</m>.) By symmetry, the centre of mass is exactly halfway up, at height <m>\bar y_2=\frac{2}{3}\pi</m> metres.
+</li>
+<li> So, the point mass in our model is moved from <m>\bar y_1=4</m> to <m>\bar y_2=\frac{2}{3}\pi</m>, a distance of <m>4-\frac{2}{3}\pi</m> metres, by gravity.
+</li>
+<li> The work involved is:
+<me>
+\left(\frac{4000}{3}\pi \text{kg}\right)\times\left(4-\frac{2}{3}\pi \text{m}\right)\times\left(9.8 \frac{\text{m}}{\text{sec}^2}\right) = \frac{78400\pi}{9}(6-\pi)\approx 78,225 \text{J}</me>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>S</m> be the region bounded above by <m>y=\frac{1}{x}</m> and and below by the <m>x</m>-axis, <m>1 \le x \le 3</m>. Let <m>R</m> be a rod with density <m>\rho(x)=\frac{1}{x}</m> at position <m>x</m>, <m>1 \le x \le 3</m>.
+<ol label="a">
+<li> What is the area of a thin slice of <m>S</m> at position <m>x</m> with width <m>\dee{x}</m>?
+</li>
+<li> What is the mass of a small piece of <m>R</m> at position <m>x</m> with length <m>\dee{x}</m>?
+</li>
+<li> What is the total area of <m>S</m>?
+</li>
+<li> What is the total mass of <m>R</m>?
+</li>
+<li> What is the <m>x</m>-coordinate of the centroid of <m>S</m>?
+</li>
+<li> What is the centre of mass of <m>R</m>?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+Think about whether your answers should have repetition.
+</p></hint>
+<answer><p>
+(a), (b) <m>\dfrac{1}{x}\,\dee{x}</m>
+</p><p>
+(c), (d) <m>\log 3</m>
+</p><p>
+(e), (f) <m>\dfrac{2}{\log 3}</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> A thin slice of <m>S</m> at position <m>x</m> has height <m>\frac{1}{x}</m>, so if its width is <m>\dee{x}</m>, its area is <m>\frac{1}{x}\,\dee{x}</m>.
+</li>
+<li> A small piece of <m>R</m> at position <m>x</m> has density <m>\frac{1}{x}</m>, so if its length is <m>\dee{x}</m>, its mass is <m>\frac{1}{x}\,\dee{x}</m>.
+</li>
+<li> Adding up all our tiny slices from (a) gives us the total area of <m>S</m>:
+<me>
+\int_1^3 \frac{1}{x}\,\dee{x} = \log 3</me>
+</li>
+<li> Adding up all our tiny pieces from (b) gives us the total mass of <m>R</m>:
+<me>
+\int_1^3 \frac{1}{x}\,\dee{x}=\log 3</me>
+</li>
+<li> Using Equation<nbsp/><xref ref="eq_TRQcentroid"/>,
+ the <m>x</m>-coordinate of the centroid of <m>S</m> is
+ <me>
+\frac{\int_1^3 x\cdot\frac{1}{x}\,\dee{x}}{\int_1^3\frac{1}{x}\,\dee{x}} = \frac{\int_1^3 1\,\dee{x}}{\log 3} = \frac{2}{\log 3}</me>
+</li>
+<li> Using Equation<nbsp/><xref ref="eq_TRQvariabledensityrod"/>,
+ the centre of mass of <m>R</m> is
+ <me>
+\frac{\int_1^3 x\cdot\frac{1}{x}\,\dee{x}}{\int_1^3\frac{1}{x}\,\dee{x}} = \frac{\int_1^3 1\,\dee{x}}{\log 3} = \frac{2}{\log 3}</me>
+</li>
+</ol>
+Remark: following the derivation of Equation<nbsp/><xref ref="eq_TRQcentroid"/>, if we wanted to find the <m>x</m>-coordinate of the centroid of <m>S</m>, we would set up a rod that had exactly the characteristics of <m>R</m>. That's why all the answers were repeated.
+</p></solution>
+</exercise>
+
+<introduction><p>In Questions<nbsp/><xref ref="prob_s2_3_rod" text="local"/> through <xref ref="prob_s2_3_ybar" text="local"/>, you will derive the formulas for the centre of mass of a rod of variable density, and the centroid of a two-dimensional region using vertical slices (Equations<nbsp/><xref ref="eq_TRQvariabledensityrod"/> and <xref ref="eq_TRQcentroid"/> in the text). Knowing the equations by heart will allow you to answer many questions in this section; understanding where they came from will you allow to generalize their ideas to answer even more questions.</p></introduction>
+
+
+<exercise purpose="RQS" xml:id="prob_s2_3_rod">
+<statement><p>
+Suppose  <m>R</m> is a straight, thin rod with density <m>\rho(x)</m> at a position <m>x</m>. Let the left endpoint of <m>R</m> lie at <m>x=a</m>, and the right endpoint lie at <m>x=b</m>.
+</p>
+
+<p><ol label="a">
+<li><p>
+To approximate the centre of mass of <m>R</m>, imagine chopping it into <m>n</m> pieces of equal length, and approximating the mass of each piece using the density at its midpoint.  Give your approximation for the centre of mass in sigma notation.
+</p><sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[rounded corners, fill, fill opacity=0.1] (0,0) rectangle (10,.5);
+\foreach \x in {2,4,6,8}{\draw[dashed] (\x,0)--(\x,.5);}
+\foreach \x in {1,2}{
+\MULTIPLY{\x}{2}{\a}
+\SUBTRACT{\a}{1}{\y}
+\draw[red] (\y,.2)--(\y,.-.2) node[below]{$ m_{\x}$};}
+\draw[red] (9,.2)--(9,.-.2) node[below]{$ m_{n}$};
+\draw (0,.2)--(0,.-.2) node[below]{$a$};
+\draw (10,.2)--(10,.-.2) node[below]{$ b$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li xml:id="prob_s2_3_rodb"> Take the limit as <m>n</m> goes to infinity of your approximation in part (a), and express the result using a definite integral.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+The definition of a definite integral (Definition<nbsp/><xref ref="def_INTintegral"/>) will tell you how to convert your limits of sums into integrals.
+</p></hint>
+<answer><p>
+(a) <me>\displaystyle\frac{\sum\limits_{i=1}^n\left[\frac{b-a}{n}\rho\left(\textcolor{red}{a+\left(i-\tfrac12\right)(\tfrac{b-a}{n})}\right)\times\left(
+\textcolor{red}{
+a+(i-\tfrac12)\left(\tfrac{b-a}{n}\right)
+}
+\right)\right]}{\sum\limits_{i=1}^n\frac{b-a}{n}\rho\left(\textcolor{red}{
+a+(i-\tfrac12)\left(\tfrac{b-a}{n}\right)
+}
+\right)}</me>
+</p><p>
+(b) <m>\displaystyle\bar x=\frac{\int_a^b x\rho(x)\,\dee{x}}{\int_a^b\rho(x)\,\dee{x}}</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<p>
+If we chop <m>R</m> into <m>n</m> pieces, each piece has length <m>\frac{b-a}{\vphantom{\frac12}n}</m>. Then our <m>i</m>th cut is at position <m>a+i\left(\frac{b-a}{n}\right)</m>, so our <m>i</m>th piece runs from <m>a+(i-1)\left(\frac{b-a}{n}\right)</m> to <m>a+i\left(\frac{b-a}{n}\right)</m>. The approximation of the mass of this piece comes from the density at its midpoint, <me>
+m_i=\frac{\left[a+(i-1)\left(\frac{b-a}{n}\right)\right]+\left[a+i\left(\frac{b-a}{n}\right)\right]}{2} = a+(i-\tfrac12)\left(\frac{b-a}{n}\right)</me>
+</p>
+
+<sidebyside width="80%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[rounded corners] (0,0) rectangle (12,.5);
+\foreach \x in {1,2,3}{
+	\draw (3*\x,.5)--(3*\x,0);}
+\YExcoord{0}{a}
+\YExcoord{12}{b}
+\draw[decorate, decoration={brace, amplitude=10pt}](0,.75)--(3,.75) node[midway, above, yshift=3mm]{$\frac{b-a}{n}$};
+\color{red}
+\foreach \x in {1,2}{
+	\YExcoord{{-1.5+\x*3}}{m_{\x}};}
+\foreach \x in {4}{
+	\YExcoord{{-1.5+\x*3}}{m_{n}};}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+<p>
+So, the <m>i</m>th piece has length <m>\frac{b-a}{\vphantom{\frac12}n}</m>, with approximate density <m>\rho\left(m_i\right)=\rho\left(a+(i-\tfrac12)\left(\frac{b-a}{n}\right)\right)</m>. We approximate that the <m>i</m>th piece has mass
+<m>\left(\frac{b-a}{n}\right)\cdot\rho\left(m_i\right)</m>
+and position
+<m>m_i</m>. Using Equation<nbsp/><xref ref="eq_weightedrod"/>, the centre of mass of <m>R</m> is approximately at position:
+<md>
+<mrow>
+\bar x_n &amp;= \frac{\sum\limits_{i=1}^n\text{(mass of $i$th piece)}\times\text{(position of $i$th piece)}}{\sum\limits_{i=1}^n\text{(mass of $i$th piece)}}
+</mrow><mrow>
+&amp;=\frac{\sum\limits_{i=1}^n\left[\frac{b-a}{n}\rho(\textcolor{red}{m_i})\times\textcolor{red}{m_i}\right]}{\sum\limits_{i=1}^n\frac{b-a}{n}\rho(\textcolor{red}{m_i})}
+</mrow><mrow>
+&amp;=\frac{\sum\limits_{i=1}^n\left[\frac{b-a}{n}\rho\left(\textcolor{red}{a+\left(i-\tfrac12\right)(\tfrac{b-a}{n})}\right)\times\left(
+\textcolor{red}{
+a+(i-\tfrac12)\left(\tfrac{b-a}{n}\right)
+}
+\right)\right]}{\sum\limits_{i=1}^n\frac{b-a}{n}\rho\left(\textcolor{red}{
+a+(i-\tfrac12)\left(\tfrac{b-a}{n}\right)
+}
+\right)}
+</mrow>
+</md>
+</p>
+</li>
+<li>
+<p>
+Remember the definition of a midpoint Riemann sum:
+<me>
+\int_a^b f(x)\,\dee{x} \approx \sum_{i=1}^n \frac{b-a}{n}\cdot f\left(a+(i-\tfrac12)\left(\frac{b-a}{n}\right)\right)</me>
+</p>
+
+<p>The numerator of our approximation in part (a) is, therefore, a midpoint Riemann sum of <m>\int_a^b \rho(x)\times x\,\dee{x}</m>, and the denominator is a midpoint Riemann sum of
+<m>\int_a^b \rho(x)\,\dee{x}</m>.
+</p>
+
+<p>Using the definition of a definite integral (Definition<nbsp/><xref ref="def_INTintegral"/>), we see the limit of the approximation in (a) as <m>x</m> goes to infinity is
+<me>
+\bar x=\frac{\int_a^b x\rho(x)\,\dee{x}}{\int_a^b\rho(x)\,\dee{x}}
+</me>
+This gives us the exact centre of mass of our rod.
+</p>
+
+<p>Remark: this is Equation<nbsp/><xref ref="eq_TRQvariabledensityrod"/> in the text.
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_3_xbar">
+<statement><p>
+Suppose  <m>S</m> is a two-dimensional object
+and at (horizontal) position <m>x</m>  its height is <m>T(x)-B(x)</m>. Its leftmost point is at position <m>x=a</m>, and its rightmost point is at position <m>x=b</m>.
+</p>
+
+<p>To approximate the <m>x</m>-coordinate of the centroid of <m>S</m>, we imagine it as a straight, thin rod <m>R</m>, where the mass of <m>R</m> from <m>a \le x \le b</m> is equal to the area of <m>S</m> from <m>a \leq x \leq b</m>.
+<ol label="a">
+<li>
+<p>
+If <m>S</m> is the sheet shown below, sketch <m>R</m> as a rod with the same horizontal length, shaded darker when <m>R</m> is denser, and lighter when <m>R</m> is less dense.
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3.5}{3.5}{.5}{3}
+\draw[thick, fill, fill opacity=0.1] (-3,1)--(1,3)--(3,2)--(-1,0)--cycle;
+\draw[ultra thick, blue] (-3,1)--(1,3)--(3,2);
+\draw[blue] (2,3) node[above right]{$T(x)$};
+\draw[ultra thick, red] (-3,1)--(-1,0)--(3,2);
+\draw[red] (1,1) node[below right]{$B(x)$};
+\YExcoord{-3}{a}
+\YExcoord{3}{b}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li> If we cut <m>S</m> into strips of very small width <m>\dee{x}</m>, what is the  area of the strip at position <m>x</m>?
+</li>
+<li> Using your answer from (b), what is the  density <m>\rho(x)</m> of <m>R</m> at position <m>x</m>?
+</li>
+<li> Using your result from Question<nbsp/><xref ref="prob_s2_3_rod" text="local"/>(<xref ref="prob_s2_3_rodb" text="local"/>), give the <m>x</m>-coordinate of the centroid of <m>S</m>. Your answer will be in terms of <m>a</m>, <m>b</m>, <m>T(X)</m>, and <m>B(x)</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+In (a), the slices all have the same width, so the area of the slices is larger (and hence the density of <m>R</m> is higher) where <m>T(x)-B(x)</m> is larger.
+</p></hint>
+<answer><p>
+(a)
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3.5}{3.5}{.5}{3}
+\draw[thick, fill, fill opacity=0.1] (-3,1)--(1,3)--(3,2)--(-1,0)--cycle;
+\draw[ultra thick, blue] (-3,1)--(1,3)--(3,2);
+\draw[blue] (2,3) node[above right]{$T(x)$};
+\draw[ultra thick, red] (-3,1)--(-1,0)--(3,2);
+\draw[red] (1,1) node[below right]{$B(x)$};
+\YExcoord{-3}{a}
+\YExcoord{3}{b}
+\YExcoord{-1}{a'}
+\YExcoord{1}{b'}
+\fill[left color=white, right color=black] (-3,-1) rectangle (-1,-1.5);
+\fill[black] (-1,-1) rectangle (1,-1.5);
+\fill[left color=black, right color=white] (1,-1) rectangle (3,-1.5);
+\draw (-3,-1) rectangle (3,-1.5) node[right]{\quad$R$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+(b) <m>(T(x)-B(x))\,\dee{x}</m>
+</p><p>
+(c) <m>T(x)-B(x)</m>
+</p><p>
+(d) <m>\bar x=\dfrac{\int_a^b x({T(x)-B(x)})\,\dee{x}}{\int_a^b({T(x)-B(x)})\,\dee{x}}</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li><p>
+On the left-most corner of <m>S</m>, <m>T(x)=B(x)</m>, so the height of <m>S</m> is zero; that is, the area of a very small vertical strip is very close to zero, so the density of <m>R</m> is close to 0. As we move closer to the position labeled <m>a'</m>, the height of the strips increases, so the areas of the strips increases, so the density of <m>R</m> increases. Then, between the points labeled <m>a'</m> and <m>b'</m>, the height of <m>S</m> remains constant, since <m>T(x)</m> and <m>B(x)</m> are parallel here, so the areas of the strips of <m>S</m> remain constant, and the density of <m>R</m> remains constant. Then, between <m>b'</m> and <m>b</m>, the height of <m>S</m> decreases, so the area of the strips decrease, so the density of <m>R</m> decreases.
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3.5}{3.5}{.5}{3}
+\draw[thick, fill, fill opacity=0.1] (-3,1)--(1,3)--(3,2)--(-1,0)--cycle;
+\draw[ultra thick, blue] (-3,1)--(1,3)--(3,2);
+\draw[blue] (2,3) node[above right]{$T(x)$};
+\draw[ultra thick, red] (-3,1)--(-1,0)--(3,2);
+\draw[red] (1,1) node[below right]{$B(x)$};
+
+\YExcoord{-3}{a}
+\YExcoord{3}{b}
+\YExcoord{-1}{a'}
+\YExcoord{1}{b'}
+
+\fill[left color=white, right color=black] (-3,-1) rectangle (-1,-1.5);
+\fill[black] (-1,-1) rectangle (1,-1.5);
+\fill[left color=black, right color=white] (1,-1) rectangle (3,-1.5);
+\draw (-3,-1) rectangle (3,-1.5) node[right]{\quad$R$};
+
+\draw[line width=5pt, white!75!black] (-2.5,.75)--(-2.5,1.25);
+\draw[line width=5pt, white!50!black] (-2,.5)--(-2,1.5);
+\draw[line width=5pt, black] (-1,0)--(-1,2);
+\draw[line width=5pt, black] (-.5,.25)--(-.5,2.25);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li> At position <m>x</m>, the height of <m>S</m> is <m>T(x)-B(x)</m>, so a rectangle with width <m>\dee{x}</m> and this height would have area <m>(T(x)-B(x))\,\dee{x}</m>.
+</li>
+<li> According to our model, the tiny section of <m>R</m> at position <m>x</m> with width <m>\dee{x}</m> has mass <m>(T(x)-B(x))\,\dee{x}</m> (that is, the area of <m>S</m> over this same tiny interval), so its density is <m>\rho(x) = \frac{\text{mass}}{\text{length}} = \frac{(T(x)-B(x))\,\dee{x}}{\dee{x}} = T(x)-B(x)</m>.
+</li>
+<li>
+<p>
+Imagine <m>S</m> were a solid, of constant density. The the mass of a portion of <m>S</m> is proportional to the area of that portion. To find the <m>x</m>-coordinate where the solid would balance, we imagine compressing together the vertical dimension of <m>S</m> until it's a rod. That is, we would take a very thin vertical strip of <m>S</m>, and turn it into a small segment of a rod, with the same mass. Then the centre of mass of that rod would be exactly the <m>x</m>-coordinate of the centre of mass of the solid <mdash/> that is, the <m>x</m>-coordinate of the centroid of <m>S</m>.
+</p>
+
+<p>The compressed rod we form in this way is exactly <m>R</m> (perhaps multiplied by a constant, to account for the density of <m>S</m>, but this doesn't affect where <m>R</m> balances).
+So, the <m>x</m>-coordinate of the centroid has the same position as the centre of mass of <m>R</m>.
+</p>
+
+<p>Our result from Question<nbsp/><xref ref="prob_s2_3_rod" text="local"/>(<xref ref="prob_s2_3_rodb" text="local"/>) tells us the centre of mass of <m>R</m> is
+<md>
+<mrow>&amp; \frac{\int_a^b x\textcolor{red}{\rho(x)}\,\dee{x}}{\int_a^b\textcolor{red}{\rho(x)}\,\dee{x}}
+</mrow>
+<intertext>In (c), we found <m>\rho(x)=T(x)-B(x)</m>. So, for  the solid <m>S</m> bounded by <m>T(x)</m> and <m>B(x)</m> on the interval <m>[a,b]</m>,</intertext><mrow>
+\bar x&amp;=\frac{\int_a^b x(\textcolor{red}{T(x)-B(x)})\,\dee{x}}{\int_a^b(\textcolor{red}{T(x)-B(x)})\,\dee{x}}
+</mrow>
+</md>
+Remark: the denominator is the area of <m>S</m>. This formula is the same as the formula found in Equation<nbsp/><xref ref="eq_TRQcentroid"/>.
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_3_ybar">
+<statement><p>
+Suppose  <m>S</m> is flat sheet with uniform density,
+and at (horizontal) position <m>x</m> its height is <m>T(x)-B(x)</m>.
+ Its leftmost point is at position <m>x=a</m>, and its rightmost point is at position <m>x=b</m>.
+</p>
+
+<p>To approximate the <m>y</m>-coordinate of the centroid of <m>S</m>, we imagine it as a straight, thin, vertical rod <m>R</m>. We slice <m>S</m> into thin, vertical strips, and model these as weights on <m>R</m> with:
+<ul>
+<li> position <m>y</m> on <m>R</m>, where <m>y</m> is the centre of mass of the strip, and
+</li>
+<li> mass in <m>R</m> equal to the area of the strip in <m>S</m>.
+</li>
+</ul>
+<ol label="a">
+<li>
+<p>
+If <m>S</m> is the sheet shown below, slice it into a number of vertical pieces of equal length, approximated by rectangles. For each rectangle, mark its centre of mass. Sketch <m>R</m> as a rod with the same vertical height, with weights corresponding to the slices you made of <m>S</m>.
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3.5}{3.5}{.5}{3}
+\draw[thick, fill, fill opacity=0.1] (-3,1)--(1,3)--(3,2)--(-1,0)--cycle;
+\draw[ultra thick, blue] (-3,1)--(1,3)--(3,2);
+\draw[blue] (2,3) node[above right]{$T(x)$};
+\draw[ultra thick, red] (-3,1)--(-1,0)--(3,2);
+\draw[red] (1,1) node[below right]{$B(x)$};
+\YExcoord{-3}{a}
+\YExcoord{3}{b}
+\YExcoord{-1}{a'}
+\YExcoord{1}{b'}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+</li>
+<li> Imagine a thin strip of <m>S</m> at position <m>x</m>, with thickness <m>\dee{x}</m>. What is the area of the strip? What is the <m>y</m>-value of its centre of mass?
+</li>
+<li>
+Recall the centre of mass of a rod with <m>n</m> weights of mass <m>M_i</m> at position <m>y_i</m> is given by
+<me>
+\frac{\sum\limits_{i=1}^n (M_i\times y_i) }{\sum\limits_{i=1}^n M_i}
+</me>
+Considering the limit of this formula as <m>n</m> goes to infinity, give the <m>y</m>-coordinate of the centre of mass of <m>S</m>.
+</li>
+</ol>
+</p>
+
+</statement>
+<hint><p>
+Part (a) is a significantly different model from the last question.
+</p></hint>
+<answer><p>
+(a) The strips between <m>x=a</m> and <m>x=a'</m> at the left end of the figure all
+ have the same centre of mass, which is the <m>y</m>-value where <m>T(x)=B(x)</m>, <m>x \lt 0</m>. So, there should be multiple weights of different mass piled up at that <m>y</m>-value.
+</p>
+
+<p>  Similarly, the strips between <m>x=b'</m> and <m>x=b</m> at the right end of the figure all
+  have the same centre of mass, which is the <m>y</m>-value where <m>T(x)=B(x)</m>, <m>x \gt 0</m>. So, there should be a second pile of weights of different mass, at that (higher) <m>y</m>-value.
+</p>
+
+<p>Between these two piles, there are a collection of weights with identical mass distributed fairly evenly. The top and bottom ends of <m>R</m> (above the uppermost pile, and below the lowermost pile) have no weights.
+</p>
+
+<p>One possible answer (using twelve slices):
+</p>
+
+<sidebyside width="100%">
+<image><latex-image><![CDATA[\begin{tikzpicture}[yscale=2, xscale=1.5]
+\YEaaxis{3.5}{3.5}{.5}{3}
+\draw[thick, fill, fill opacity=0.1] (-3,1)--(1,3)--(3,2)--(-1,0)--cycle;
+\draw[ultra thick, blue] (-3,1)--(1,3)--(3,2);
+\draw[blue] (2,3) node[above right]{$T(x)$};
+\draw[ultra thick, red] (-3,1)--(-1,0)--(3,2);
+\draw[red] (1,1) node[below right]{$B(x)$};
+\YExcoord{-3}{a}
+\YExcoord{3}{b}
+
+\draw (5.25,1) node[vertex]{};
+\draw (5.25,2) node[vertex]{};
+\foreach \x in {0,...,3}{
+	\MULTIPLY{\x}{0.5}{\dx}
+	\ADD{-3}{\dx}{\a}
+	\ADD{\a}{0.5}{\b}
+	\ADD{\a}{\b}{\MM}
+	\DIVIDE{\MM}{2}{\M}
+	\ADD{5}{\M}{\TT}
+	\MULTIPLY{\TT}{.5}{\T}
+	\ADD{1}{\M}{\BB}
+	\MULTIPLY{\BB}{-.5}{\B}
+	\draw[fill=blue, fill opacity=0.1] (\a,\B) rectangle (\b,\T);
+	\draw(\M,1) node[vertex]{};
+
+\SUBTRACT{\T}{\B}{\LL}
+\DIVIDE{\LL}{2}{\L}
+\DIVIDE{\x}{20}{\dr}
+	\draw[fill=blue, fill opacity=0.1] (5.25-\L,1-\dr) rectangle (5.25+\L,1+\dr);
+	\draw[fill=blue, fill opacity=0.1] (5.25-\L,2-\dr) rectangle (5.25+\L,2+\dr);
+
+	\begin{scope}[xscale=-1, yshift=1cm]
+	\draw[fill=blue, fill opacity=0.1] (\a,\B) rectangle (\b,\T);
+	\draw(\M,1) node[vertex]{};
+\end{scope}
+	}
+\foreach \x in {0,...,3}{
+	\MULTIPLY{\x}{0.5}{\dx}
+	\ADD{-1}{\dx}{\a}
+	\ADD{\a}{0.5}{\b}
+	\ADD{\a}{\b}{\MM}
+	\DIVIDE{\MM}{2}{\M}
+	\ADD{5}{\M}{\TT}
+	\MULTIPLY{\TT}{.5}{\T}
+	\ADD{1}{\M}{\BB}
+	\MULTIPLY{\BB}{.5}{\B}
+	\draw[fill=red, fill opacity=0.1] (\a,\B) rectangle (\b,\T);
+	\ADD{\B}{\T}{\CC}
+	\DIVIDE{\CC}{2}{\C};
+	\draw(\M,\C) node[vertex]{};
+
+\draw (5.25,\C) node[vertex]{};
+\SUBTRACT{\T}{\B}{\LL}
+\DIVIDE{\LL}{2}{\L}
+	\draw[fill=red, fill opacity=0.1] (5.25-\L,\C-.125) rectangle (5.25+\L,\C+.125);
+	}
+\draw (5,0) rectangle (5.5,3) node[above left]{$R$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+(b) The area of the strip is <m>(T(x)-B(x))\,\dee{x}</m>, and its centre of mass is at height <m>\dfrac{T(x)+B(x)}{2}</m>.
+</p><p>
+(c) <m>\displaystyle\bar y=\frac{\int_a^b \big(T(x)^2-B(x)^2\big)\,\dee{x}}{2\int_a^b\big( T(x)-B(x)\big)\,\dee{x}}</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<p>
+To begin with, we'll sketch some strips, and put a dot at the centre of mass of each one (its vertical centre).
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3.5}{3.5}{.5}{3}
+\draw[thick, fill, fill opacity=0.1] (-3,1)--(1,3)--(3,2)--(-1,0)--cycle;
+\draw[ultra thick, blue] (-3,1)--(1,3)--(3,2);
+\draw[blue] (2,3) node[above right]{$T(x)$};
+\draw[ultra thick, red] (-3,1)--(-1,0)--(3,2);
+\draw[red] (1,1) node[below right]{$B(x)$};
+\YExcoord{-3}{a}
+\YExcoord{3}{b}
+\YExcoord{-1}{a'}
+\YExcoord{1}{b'}
+
+\foreach \x in {0,...,3}{
+	\MULTIPLY{\x}{0.5}{\dx}
+	\ADD{-3}{\dx}{\a}
+	\ADD{\a}{0.5}{\b}
+	\ADD{\a}{\b}{\MM}
+	\DIVIDE{\MM}{2}{\M}
+	\ADD{5}{\M}{\TT}
+	\MULTIPLY{\TT}{.5}{\T}
+	\ADD{1}{\M}{\BB}
+	\MULTIPLY{\BB}{-.5}{\B}
+	\draw (\a,\B) rectangle (\b,\T);
+	\ADD{\B}{\T}{\CC}
+	\DIVIDE{\CC}{2}{\C};
+	\draw(\M,\C) node[vertex]{};
+\begin{scope}[xscale=-1, yshift=1cm]
+	\draw (\a,\B) rectangle (\b,\T);
+	\draw(\M,\C) node[vertex]{};
+\end{scope}
+	}
+\foreach \x in {0,...,3}{
+	\MULTIPLY{\x}{0.5}{\dx}
+	\ADD{-1}{\dx}{\a}
+	\ADD{\a}{0.5}{\b}
+	\ADD{\a}{\b}{\MM}
+	\DIVIDE{\MM}{2}{\M}
+	\ADD{5}{\M}{\TT}
+	\MULTIPLY{\TT}{.5}{\T}
+	\ADD{1}{\M}{\BB}
+	\MULTIPLY{\BB}{.5}{\B}
+	\draw (\a,\B) rectangle (\b,\T);
+	\ADD{\B}{\T}{\CC}
+	\DIVIDE{\CC}{2}{\C};
+	\draw(\M,\C) node[vertex]{};
+	}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+In our model, each of these strips corresponds to a weight on <m>R</m>, positioned at its centre of mass (the height of the dot), and with a mass equal to the strip's area. For the portion of <m>S</m> with <m>a'\le x \le b'</m>, each centre of mass is at a slightly different height, but the areas of the slices are the same. So, the corresponding weights along <m>R</m> are at different heights, but all have the same mass, as shown below. (Note the rod <m>R</m> below only contains the weights from the middle of <m>S</m> <mdash/> we'll add the rest later.)
+</p>
+
+<p>For clarity, the diagrams below are zoomed in.
+</p><sidebyside width="100%">
+<image><latex-image><![CDATA[\begin{tikzpicture}[yscale=2, xscale=1.5]
+\YEaaxis{3.5}{3.5}{.5}{3}
+\draw[thick, fill, fill opacity=0.1] (-3,1)--(1,3)--(3,2)--(-1,0)--cycle;
+\draw[ultra thick, blue] (-3,1)--(1,3)--(3,2);
+\draw[blue] (2,3) node[above right]{$T(x)$};
+\draw[ultra thick, red] (-3,1)--(-1,0)--(3,2);
+\draw[red] (1,1) node[below right]{$B(x)$};
+\YExcoord{-3}{a}
+\YExcoord{3}{b}
+\YExcoord{-1}{a'}
+\YExcoord{1}{b'}
+
+\foreach \x in {0,...,3}{
+	\MULTIPLY{\x}{0.5}{\dx}
+	\ADD{-3}{\dx}{\a}
+	\ADD{\a}{0.5}{\b}
+	\ADD{\a}{\b}{\MM}
+	\DIVIDE{\MM}{2}{\M}
+	\ADD{5}{\M}{\TT}
+	\MULTIPLY{\TT}{.5}{\T}
+	\ADD{1}{\M}{\BB}
+	\MULTIPLY{\BB}{-.5}{\B}
+	\draw (\a,\B) rectangle (\b,\T);
+	\ADD{\B}{\T}{\CC}
+	\DIVIDE{\CC}{2}{\C};
+	\draw(\M,\C) node[vertex]{};
+</p>
+
+<p>\begin{scope}[xscale=-1, yshift=1cm]
+	\draw (\a,\B) rectangle (\b,\T);
+	\draw(\M,\C) node[vertex]{};
+\end{scope}
+	}
+\foreach \x in {0,...,3}{
+	\MULTIPLY{\x}{0.5}{\dx}
+	\ADD{-1}{\dx}{\a}
+	\ADD{\a}{0.5}{\b}
+	\ADD{\a}{\b}{\MM}
+	\DIVIDE{\MM}{2}{\M}
+	\ADD{5}{\M}{\TT}
+	\MULTIPLY{\TT}{.5}{\T}
+	\ADD{1}{\M}{\BB}
+	\MULTIPLY{\BB}{.5}{\B}
+	\draw[fill=red, fill opacity=0.1] (\a,\B) rectangle (\b,\T);
+	\ADD{\B}{\T}{\CC}
+	\DIVIDE{\CC}{2}{\C};
+	\draw(\M,\C) node[vertex]{};
+
+	\draw (5.25,\C) node[vertex]{};
+\SUBTRACT{\T}{\B}{\LL}
+\DIVIDE{\LL}{2}{\L}
+	\draw[fill=red, fill opacity=0.1] (5.25-\L,\C-.125) rectangle (5.25+\L,\C+.125);
+	\draw[thin, - \gt , red] (\M,\C)+(.125,0)--(4,\C);
+	}
+\draw (5,0) rectangle (5.5,3) node[above left]{$R$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+By contrast to the slices in the interval <m>[a',b']</m>, the slices of <m>S</m> along <m>[a,a']</m> all have the same centre of mass, but different areas. So, there is one position along <m>R</m> that has a number of weights all stacked on top of one another, of varying masses.
+</p>
+
+<p> The same situation applies to the slices of <m>S</m> along <m>[b,b']</m>. So, all together, our rod looks something like this:
+</p>
+
+<sidebyside width="100%">
+<image><latex-image><![CDATA[\begin{tikzpicture}[yscale=2, xscale=1.5]
+\YEaaxis{3.5}{3.5}{.5}{3}
+\draw[thick, fill, fill opacity=0.1] (-3,1)--(1,3)--(3,2)--(-1,0)--cycle;
+\draw[ultra thick, blue] (-3,1)--(1,3)--(3,2);
+\draw[blue] (2,3) node[above right]{$T(x)$};
+\draw[ultra thick, red] (-3,1)--(-1,0)--(3,2);
+\draw[red] (1,1) node[below right]{$B(x)$};
+\YExcoord{-3}{a}
+\YExcoord{3}{b}
+\YExcoord{-1}{a'}
+\YExcoord{1}{b'}
+
+\draw (5.25,1) node[vertex]{};
+\draw (5.25,2) node[vertex]{};
+\foreach \x in {0,...,3}{
+	\MULTIPLY{\x}{0.5}{\dx}
+	\ADD{-3}{\dx}{\a}
+	\ADD{\a}{0.5}{\b}
+	\ADD{\a}{\b}{\MM}
+	\DIVIDE{\MM}{2}{\M}
+	\ADD{5}{\M}{\TT}
+	\MULTIPLY{\TT}{.5}{\T}
+	\ADD{1}{\M}{\BB}
+	\MULTIPLY{\BB}{-.5}{\B}
+	\draw[fill=blue, fill opacity=0.1] (\a,\B) rectangle (\b,\T);
+	\draw(\M,1) node[vertex]{};
+
+\SUBTRACT{\T}{\B}{\LL}
+\DIVIDE{\LL}{2}{\L}
+\DIVIDE{\x}{20}{\dr}
+	\draw[fill=blue, fill opacity=0.1] (5.25-\L,1-\dr) rectangle (5.25+\L,1+\dr);
+	\draw[fill=blue, fill opacity=0.1] (5.25-\L,2-\dr) rectangle (5.25+\L,2+\dr);
+
+\begin{scope}[xscale=-1, yshift=1cm]
+	\draw[fill=blue, fill opacity=0.1] (\a,\B) rectangle (\b,\T);
+	\draw(\M,1) node[vertex]{};
+\end{scope}
+	}
+\foreach \x in {0,...,3}{
+	\MULTIPLY{\x}{0.5}{\dx}
+	\ADD{-1}{\dx}{\a}
+	\ADD{\a}{0.5}{\b}
+	\ADD{\a}{\b}{\MM}
+	\DIVIDE{\MM}{2}{\M}
+	\ADD{5}{\M}{\TT}
+	\MULTIPLY{\TT}{.5}{\T}
+	\ADD{1}{\M}{\BB}
+	\MULTIPLY{\BB}{.5}{\B}
+	\draw[fill=red, fill opacity=0.1] (\a,\B) rectangle (\b,\T);
+	\ADD{\B}{\T}{\CC}
+	\DIVIDE{\CC}{2}{\C};
+	\draw(\M,\C) node[vertex]{};
+
+\draw (5.25,\C) node[vertex]{};
+\SUBTRACT{\T}{\B}{\LL}
+\DIVIDE{\LL}{2}{\L}
+	\draw[fill=red, fill opacity=0.1] (5.25-\L,\C-.125) rectangle (5.25+\L,\C+.125);
+	}
+\draw (5,0) rectangle (5.5,3) node[above left]{$R$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Remark: if we had sketched the density of <m>R</m>, it would have looked something like this:
+</p>
+
+<sidebyside width="80%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3.5}{3.5}{.5}{3}
+\draw[thick, fill, fill opacity=0.1] (-3,1)--(1,3)--(3,2)--(-1,0)--cycle;
+\draw[ultra thick, blue] (-3,1)--(1,3)--(3,2);
+\draw[blue] (2,3) node[above right]{$T(x)$};
+\draw[ultra thick, red] (-3,1)--(-1,0)--(3,2);
+\draw[red] (1,1) node[below right]{$B(x)$};
+\YExcoord{-3}{a}
+\YExcoord{3}{b}
+\YExcoord{-1}{a'}
+\YExcoord{1}{b'}
+
+\fill (5,.95) rectangle (5.5,1.05);
+\fill[fill opacity=0.5] (5,1.05) rectangle (5.5,1.95);
+\fill (5,1.95) rectangle (5.5,2.05);
+\draw (5,0) rectangle (5.5,3) node[above left]{$R$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+because from our sketch, we see that the density of <m>R</m>:
+<ul>
+<li> is 0 at either end,
+</li>
+<li> is suddenly very high where the blue weights are, and
+</li>
+<li> is constant and lower between the blue weights.
+</li>
+</ul>
+</p>
+</li>
+<li>
+<p>
+At position <m>x</m>, the height of <m>S</m> is <m>T(x)-B(x)</m>, and the width of the strip is <m>\dee{x}</m>,  so the area of the strip is <m>(T(x)-B(x))\,\dee{x}</m>.
+</p>
+
+<p>Since the density of <m>S</m> is uniform, the centre of mass of the strip is halfway up: at <m>\dfrac{T(x)+B(x)}{2}</m>.
+</p>
+</li>
+<li>
+<p>
+If we cut <m>S</m> into <m>n</m> strips, then the strip at position <m>x_i</m> has area <m>(T(x_i)-B(x_i))\De x</m>, where <m>\De x = \frac{b-a}{n}</m>, and its centre of mass is at height <m>\dfrac{T(x_i)+B(x_i)}{2}</m>. So, our approximation of the centre of mass of the rod is:
+<md>
+<mrow>
+\bar y_n &amp;=\frac{\sum\limits_{i=1}^n (M_i\times y_i) }{\sum\limits_{i=1}^n M_i}
+</mrow><mrow>
+&amp;=\frac{\sum\limits_{i=1}^n \left((T(x_i)-B(x_i))\De x\right)\times\left(\dfrac{T(x_i)+B(x_i)}{2}\right)  }{\sum\limits_{i=1}^n (T(x_i)-B(x_i))\De x}
+</mrow><mrow>&amp;=\frac{\sum\limits_{i=1}^n (T(x_i)^2-B(x_i)^2)\De x }{2\sum\limits_{i=1}^n (T(x_i)-B(x_i))\De x}
+</mrow>
+<intertext>We use the definition of a definite integral (Definition<nbsp/><xref ref="def_INTintegral"/>) to re-write the limit of the above function.
+</intertext><mrow>
+\bar y &amp;=\lim_{n \to \infty}\frac{\sum\limits_{i=1}^n (T(x_i)^2-B(x_i)^2)\De x }{2\sum\limits_{i=1}^n (T(x_i)-B(x_i))\De x}
+</mrow><mrow>
+&amp;=\frac{\int_a^b \big(T(x)^2-B(x)^2\big)\,\dee{x}}{2\int_a^b\big( T(x)-B(x)\big)\,\dee{x}}
+</mrow>
+</md>
+</p>
+
+<p>Remark: the denominator is twice the area of <m>S</m>. This equation for the <m>y</m>-coordinate of the centroid is the same as the one given in Equation<nbsp/><xref ref="eq_TRQcentroid"/>.
+</p>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q4</fromexam></title>
+<statement><p>
+Express the <m>x</m>-coordinate of the centroid
+ of the triangle with vertices <m>(-1,-{3})</m>,
+<m>(-1,{3})</m>, and <m>(0,0)</m> in terms of a definite integral.
+<alert>Do not evaluate the integral.</alert>
+</p></statement>
+
+<hint><p>
+Which method involves more work: horizontal strips or vertical strips?
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\bar x = -\frac{1}{3} \int_{-1}^0 6x^2\dee{x}</m>
+</p></answer>
+
+<solution><p>
+We use vertical strips, as in the sketch below. (To use horizontal strips
+we would have to split the domain of integration in two: <m>-3\le y\le 0</m>
+and <m>0\le y\le 3</m>.)
+</p>
+
+<sidebyside width="50%">
+<image source="problems/figs/OQ16_4_3"/>
+</sidebyside>
+<p>
+The equations of the top and bottom of the triangle are
+<me>
+y = T(x) = -3x \qquad\text{and}\qquad
+y = B(x) = 3x.
+</me>
+The area of the triangle is <m>A=\frac12(6)(1)=3</m>.
+Now, we can apply the vertical-slice versions of Equation<nbsp/><xref ref="eq_TRQcentroid"/>.
+<me>
+\bar x = \frac{1}{A}\int_{-1}^0 x \big[T(x)- B(x)\big]\dee{x}
+= \frac{1}{3} \int_{-1}^0 x \big[({-}3x)-(3x)\big]\dee{x}
+= -\frac{1}{3} \int_{-1}^0 6x^2\dee{x}
+</me>
+</p>
+
+</solution>
+</exercise>
+</exercisegroup>
+
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<introduction><p>
+Use Equations<nbsp/><xref ref="eq_TRQvariabledensityrod"/> and <xref ref="eq_TRQcentroid"/> to find centroids and centres of mass in  Questions<nbsp/><xref ref="prob_s2_3_stage2a" text="local"/> through <xref ref="prob_s2_3_stage2b" text="local"/>.
+</p></introduction>
+
+<exercise xml:id="prob_s2_3_stage2a">
+<statement><p>
+A long, thin rod extends from <m>x=0</m> to <m>x=7</m> metres, and its density at position <m>x</m> is given by <m>\rho(x) = x</m> kg/m. Where is the centre of mass of the rod?
+</p></statement>
+<hint><p>
+This is a straightforward application of Equation<nbsp/><xref ref="eq_TRQvariabledensityrod"/>.
+</p></hint>
+<answer><p>
+<m>\bar x=\dfrac{14}{3}</m>
+</p></answer>
+<solution><p>
+Applying Equation<nbsp/><xref ref="eq_TRQvariabledensityrod"/>,
+<me>
+\bar x = \frac{\int_0^7 x\cdot x\,\dee{x}}{\int_0^7 x\,\dee{x}} =
+\frac{ \left[\frac{1}{3}x^3\right]_0^7}{\left[\frac{1}{2}x^2\right]_0^7} = \frac{\frac{1}{3}(7^3)}{\frac{1}{2}(7^2)} =\frac{14}{3}</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+A long, thin rod extends from <m>x=-3</m> to <m>x=10</m> metres, and its density at position <m>x</m> is given by <m>\rho(x) = \frac{1}{1+x^2}</m> kg/m. Where is the centre of mass of the rod?
+</p></statement>
+<hint><p>
+Remember the derivative of arctangent is <m>\frac{1}{1+x^2}</m>
+</p></hint>
+<answer><p>
+<m>\displaystyle \bar x=\frac{\log 10.1}{2(\arctan 10 + \arctan(3))}\approx 0.43</m>
+</p></answer>
+<solution><p>
+Applying Equation<nbsp/><xref ref="eq_TRQvariabledensityrod"/>,
+<md>
+<mrow>\bar x &amp;= \frac{\int_{-3}^{10} x\cdot \frac{1}{1+x^2}\,\dee{x}}{\int_{-3}^{10} \frac{1}{1+x^2}\,\dee{x}}
+</mrow>
+<intertext>For the numerator, we use the substitution <m>u=1+x^2</m>, <m>\dee{u}=2x\,\dee{x}</m>.
+</intertext><mrow>
+ &amp;= \frac{\frac{1}{2}\int_{10}^{101} \frac{1}{u}\,\dee{u}}{\Big[\arctan x \Big]_{-3}^{10} }
+=\frac{\frac{1}{2}\Big[\log u\Big]_{10}^{101}}{\arctan 10 - \arctan(-3)}
+</mrow><mrow>
+ &amp;=\frac{\Big[\log 101-\log 10\Big]}{2(\arctan 10 + \arctan(3))}=\frac{\log 10.1}{2(\arctan 10 + \arctan(3))}\approx 0.43
+</mrow>
+</md>
+Since arctangent is an odd function, <m>\arctan(-3)=-\arctan(3)</m>; using logarithm rules, <m>\log 101-\log 10 = \log \frac{101}{10}=\log 10.1</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2012A</fromexam></title>
+<statement><p>
+Find the <m>y</m>-coordinate of the centroid of the region bounded by the
+curves <m>y=1</m>, <m>y=-e^x</m>, <m>x=0</m> and <m>x=1</m>. You may use the fact that the area
+of this region equals <m>e</m>.
+</p></statement>
+
+<hint><p>
+This is a straightforward application of Equations<nbsp/><xref ref="eq_TRQcentroid"/> and  <xref ref="eq_TRQcentroidy"/>. Note that you're only asked for the <m>y</m>-coordinate of the centroid.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\bar y = \frac{3}{4e}-\frac{e}{4}</m>
+</p></answer>
+
+<solution><p>
+If we use horizontal strips, then we need to break the region into two pieces: <m>y \geq -1=-e^0</m>, and <m>y \leq -1</m>. However, if we use vertical strips,
+the equation of the top of the region is <m>y=T(x)=1</m>, and the equation of the
+bottom of the region is <m>y=B(x)=-e^x</m>, for all <m>x</m>  from <m>a=0</m> to <m>b=1</m>. So, we use vertical strips.
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{2}{3}{1.5}
+\YEycoord{1}{1}
+\filldraw[fill opacity=0.3] plot[domain=0:1](\x,{-exp(\x)}) |-(0,1)--cycle;
+\draw[thick, blue] plot[domain=0:1](\x,{-exp(\x)}) node[right]{$y=-e^{x}$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Using Equation<nbsp/><xref ref="eq_TRQcentroid"/>, the <m>y</m>-coordinate of the centre of mass is
+<md>
+<mrow>
+\bar y &amp; = \frac{1}{2A}\int_0^1  \big[T(x)^2-B(x)^2\big]\,\dee{x}
+= \frac{1}{2e}\int_0^1 \Big(1-e^{2x} \Big) \,\dee{x}
+= \frac{1}{2e}\bigg[x-\frac{1}{2}e^{2x}\bigg]_0^1
+</mrow><mrow>
+&amp;= \frac{1}{2e}\Big[1-\frac{e^2}{2} -0 + \frac{1}{2}\Big]
+=\frac{3}{4e}-\frac{e}{4}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>1996A</fromexam></title>
+<statement><p>
+Consider the region bounded by <m>y=\frac{1}{\sqrt{16-x^2}}</m>, <m>y=0</m>, <m>x=0</m> and <m>x=2</m>.
+<ol label="a">
+<li>
+Sketch this region.
+</li>
+<li>
+Find the <m>y</m>-coordinate of the centroid of this region.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+You can use a trigonometric substitution to find the area, then a partial fraction decomposition to find the <m>y</m>-coordinate of the centroid. Remember <m>\sin(1/2)=\pi/6</m>.
+</p></hint>
+<answer><p> (a)
+</p>
+<sidebyside width="33%">
+<image source="problems/figs/graphE3bl"/>
+</sidebyside>
+
+<p> (b) <m>\dfrac{3\log 3}{8\pi}</m>
+</p></answer>
+<solution><p> (a) The lines <m>y=0</m>, <m>x=0</m>, and <m>x=2</m> are easy enough to sketch. Let's get some basic information about <m>y=T(x)=\frac{1}{\sqrt{16-x^2}}</m> on the interval <m>[0,2]</m>.
+<ul>
+<li> For all <m>x</m> in its domain, <m>T(x) \geq 0</m>. In particular, it's always the top of our region (so <m>T(x)</m> is a reasonable name for it), while the bottom is <m>B(x)=0</m>.
+</li>
+<li> <m>T(0)=\frac{1}{4}</m>, and <m>T(2)=\frac{1}{2\sqrt{3}}</m>
+</li>
+<li>
+<p>
+<m>T'(x) = \frac{x}{(16-x^2)^{3/2}}</m>, which is positive on <m>[0,2]</m>, so <m>T(x)</m> is increasing.
+</p>
+
+<p>Remark: to see that <m>T(x)</m> is increasing, we can also just break it into pieces:
+<ul>
+<li> When <m>x \ge 0</m>, <m>x^2</m> is increasing, so
+</li>
+<li> <m>16-x^2</m> is decreasing, so
+</li>
+<li> <m>\sqrt{16-x^2}</m> is decreasing, so
+</li>
+<li> <m>\frac{1}{\sqrt{16-x^2}}=T(x)</m> is increasing.
+</li>
+</ul>
+</p>
+</li>
+<li>
+<m>T''(x)=\frac{2x^2+16}{(16-x^2)^{5/2}}</m>, which is positive, so <m>T(x)</m> is concave up.
+</li>
+</ul>
+</p>
+
+<sidebyside width="33%">
+<image source="problems/figs/graphE3bl"/>
+</sidebyside>
+<p>
+Remark: If we only wanted to solve (b), it would still be nice to have a sketch of the region, but it wouldn't need to be so detailed. Knowing that <m>T(x)</m> is always greater than 0 would be enough to tell us we could use vertical slices with <m>T(x)</m> as the top and <m>y=0</m> as the bottom.
+</p>
+
+<p> If we wanted to use horizontal slices (we don't... but we could!) we would additionally want to know that <m>T(x)</m> is increasing over <m>[0,2]</m>, <m>T(0)=\frac{1}{4}</m>, and <m>T(2)=\frac{1}{2\sqrt{3}}</m>. This would tell us that:
+ <ul>
+<li> the right endpoint of a horizontal strip is always <m>x=2</m>,
+</li>
+<li> the left endpoint is determined by <m>T(x)</m> from <m>y=\frac{1}{4}</m> to <m>y=\frac{1}{2\sqrt{3}}</m>, and
+</li>
+<li> the left endpoint is <m>x=0</m> for <m>0 \le y \le \frac{1}{4}</m>.
+</li>
+</ul>
+ (b)
+</p>
+
+<sidebyside width="33%">
+<image source="problems/figs/graphE3br"/>
+</sidebyside>
+<p>
+The part of the region with <m>x</m> coordinate between <m>x</m> and
+<m>x+\dee{x}</m> is a strip of width <m>\dee{x}</m> running from <m>y=0</m> to
+<m>y=\frac{1}{\sqrt{16-x^2}}</m>. It is illustrated in red in the figure above.
+So, the area of the region is
+<me>
+A=\int_0^2 \frac{1}{\sqrt{16-x^2}}\,\dee{x}
+=\int_0^{\arcsin(1/2)}\,\frac{1}{4\cos t}4\cos t\,\dee{t}
+=\arcsin\frac{1}{2}=\frac{\pi}{6}
+</me>
+where we made the substitution
+<m>x=4\sin t,\dee{x}=4\cos t \dee{t}, \sqrt{16-x^2}=4\cos t</m>.
+</p>
+
+<p>Using Equation<nbsp/><xref ref="eq_TRQcentroid"/>,
+<md>
+<mrow>
+\bar y &amp;=
+\frac{\int_0^2\big[T(x)^2-B(x)^2\big]\,\dee{x}}{2A}
+=\frac{\displaystyle\int_0^2\left[\left(\frac{1}{\sqrt{16-x^2}}\right)^2-0^2\right]\,\dee{x}}{2A}
+</mrow><mrow>
+&amp;= \frac{1}{2A}\int_0^2 \frac{1}{16-x^2}\,\dee{x}
+= \frac{1}{2A}\int_0^2 \frac{1}{(4-x)(4+x)}\,\dee{x}
+</mrow>
+<intertext>Using the method of partial fractions, we see <m>\displaystyle\frac{1}{16-x^2} = \frac{1/8}{4+x}+\frac{1/8}{4-x}</m>.
+</intertext><mrow>
+&amp;= \frac{1}{2A}\int_0^2 \Big[\frac{1/8}{4+x}+\frac{1/8}{4-x}\Big]\,\dee{x}
+= \frac{1}{16A}\int_0^2 \Big[\frac{1}{x+4}-\frac{1}{x-4}\Big]\,\dee{x}
+</mrow><mrow>
+&amp;= \frac{1}{16A} \Big[\log|x+4|-\log|x-4|\Big]_0^2
+= \frac{6}{16\pi} \big[\log6-\log2-\log4+\log 4\big]
+</mrow><mrow>
+&amp;=\frac{3\log 3}{8\pi}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2014A</fromexam></title>
+<statement><p>
+Find the centroid of the finite region bounded by <m>y = \sin(x)</m>,
+<m>y = \cos(x)</m>, <m>x = 0</m>, and <m>x = \pi/4</m>.
+</p></statement>
+
+<hint><p>
+Vertical slices will be easier than horizontal. An integration by parts might be helpful to find <m>\bar x</m>, while trigonometric identities are important to finding <m>\bar y</m>.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\bar x=\frac{\frac{\pi}{4}\sqrt{2}-1}{\sqrt{2}-1}</m>
+and
+<m>\displaystyle\bar y=\frac{1}{4(\sqrt{2}-1)}</m>
+</p></answer>
+
+<solution><sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{3}{.5}{3.5}
+\YExcoord{2.36}{\frac{\pi}{4}}
+\fill[fill opacity=0.3]  plot[domain=0:0.79, scale=3](\x,{cos (\x r)})--
+plot[domain=0.79:0, scale=3](\x,{sin (\x r)})--cycle;
+\draw[thick, blue] plot[domain=0:0.79, scale=3](\x,{sin (\x r)});
+\draw[blue] (2,1.5) node[below right]{$y=\sin x$};
+\draw[thick, red] plot[domain=0:0.79, scale=3](\x,{cos (\x r)});
+\draw[red] (2,2.5) node[above right]{$y=\cos x$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The top of the region is <m>y=T(x)=\cos(x)</m> and the bottom
+of the region is <m>y=B(x)=\sin(x)</m>. So, the
+area of the region is
+<md>
+<mrow>
+\null\hskip0.5inA&amp;=\int_0^{\pi/4}\big(T(x)-B(x)\big)\,\dee{x}
+=\int_0^{\pi/4}\big(\cos(x)-\sin(x)\big)\,\dee{x}
+=\Big[\sin(x)+\cos(x)\Big]_0^{\pi/4}
+</mrow><mrow>
+&amp;=\left[\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}\right]-\left[0+1\right]=\sqrt{2}-1
+</mrow>
+</md>
+If we use horizontal slices, we'll need to break up the object into two regions, so let's use vertical slices.
+Using Equation<nbsp/><xref ref="eq_TRQcentroid"/>,
+the region has centroid <m>(\bar x,\bar y)</m> with:
+<md>
+<mrow>
+\bar x&amp;= \frac{1}{A}\int_0^{\pi/4} x\big(T(x)-B(x)\big)\,\dee{x}
+=\frac{1}{A}\int_0^{\pi/4} x\big(\cos(x)-\sin(x)\big)\,\dee{x}
+</mrow>
+<intertext>We use integration by parts with <m>u=x</m>, <m>\dee{v}=(\cos x - \sin x)\dee{x}</m>;
+<m>\dee{u}=\dee{x}</m>, <m>v=\sin x + \cos x</m>.
+</intertext><mrow>
+&amp;=\frac{1}{A}\left(\Big[x(\sin x + \cos x )\Big]_0^{\pi/4} - \int_0^{\pi/4} (\sin x + \cos x)\,\dee{x}\right)
+</mrow><mrow>
+&amp;=\frac{1}{A}\Big[x\sin(x)+x\cos(x)+\cos x -\sin x\Big]_0^{\pi/4}
+</mrow><mrow>
+&amp;=\frac{1}{A}\left[\left(\frac{\pi}{4}\cdot\frac{1}{\sqrt2}+\frac{\pi}{4}\cdot\frac{1}{\sqrt{2}}+
+\frac{1}{\sqrt2}-\frac{1}{\sqrt2}\right)-
+1\right]
+</mrow><mrow>
+&amp;=\frac{\frac{\pi}{4}\sqrt{2}-1}{A}=\frac{\frac{\pi}{4}\sqrt{2}-1}{\sqrt{2}-1}
+</mrow>
+<intertext>Again using Equation<nbsp/><xref ref="eq_TRQcentroid"/>,
+</intertext><mrow>
+\bar y&amp;= \frac{1}{2A}\int_0^{\pi/4} \big(T(x)^2-B(x)^2\big)\,\dee{x}
+=\frac{1}{2A}\int_0^{\pi/4} \big(\cos^2(x)-\sin^2(x)\big)\,\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{2A}\int_0^{\pi/4} \cos(2x)\,\dee{x}
+=\frac{1}{2A}\Big[\frac{1}{2}\sin(2x)\Big]_0^{\pi/4}
+=\frac{1}{4(\sqrt{2}-1)}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>1996D</fromexam></title>
+<statement><p>
+Let <m>A</m> denote the area of the plane region bounded by <m>x=0</m>,
+<m>x=1</m>, <m>y=0</m> and <m>y=\dfrac{k}{\sqrt{1+x^2}}</m>, where <m>k</m> is a positive constant.
+<ol label="a">
+<li>
+Find the coordinates of the centroid of this region in terms of <m>k</m> and <m>A</m>.
+</li>
+<li>
+For what value of <m>k</m> is the centroid on the line <m>y=x</m>?
+</li>
+</ol>
+</p></statement>
+<hint><p>
+No trigonometric substitution is necessary if you're clever with your <m>u</m>-substitutions, and remember the derivative of arctangent.
+</p></hint>
+<answer><p> (a)
+<m>\displaystyle\bar x = \frac{k}{A}\big[\sqrt{2}-1\big], \qquad \displaystyle\bar y = \frac{k^2\pi}{8A}</m>
+</p><p>
+  (b)
+<m>\displaystyle k=\frac{8}{\pi}\big[\sqrt{2}-1\big]</m>
+</p>
+
+</answer>
+
+<solution><p> (a)
+Since <m>k</m> is positive, <m>\frac{k}{\sqrt{1+x^2}} \gt 0</m> for every <m>x</m>. Then the top of our region is defined by <m>T(x) = \frac{k}{\sqrt{1+x^2}}</m>, and the bottom is defined by <m>B(x)=0</m>.
+</p>
+
+<p>If we make vertical slices, we don't have to turn our region into two parts, so let's use vertical slices. The question asks for our final answer in terms of the area <m>A</m> of the region, so we don't need to find <m>A</m> explicitly.
+</p>
+
+<p>Using Equation<nbsp/><xref ref="eq_TRQcentroid"/>,
+the <m>x</m>-coordinate of the centroid is
+<md>
+<mrow>
+\bar x &amp;=\frac{1}{A}\int_0^2 x(T(x)-B(x))\,\dee{x}= \frac{1}{A}\int_0^1x\frac{k}{\sqrt{1+x^2}}\,\dee{x}
+</mrow>
+<intertext>Although we have a quadratic function underneath a square root, we find an easier method than a trig substitution: the substitution <m>u=1+x^2,\dee{u}=2x\,\dee{x}</m>. This changes the limits of integration to <m>1+0^2=1</m> and <m>1+1^2=2</m>, respectively.
+</intertext><mrow>
+&amp;= \frac{1}{A}\int_1^2\frac{k}{\sqrt{u}}\,\frac{\dee{u}}{2}
+=\frac{k}{2A}\left[\frac{\sqrt{u}}{1/2}\right]_1^2
+=\frac{k}{A}\big[\sqrt{2}-1\big]
+</mrow>
+</md>
+Again using Equation<nbsp/><xref ref="eq_TRQcentroid"/>, the <m>y</m>-coordinate of the centroid is
+<md>
+<mrow>
+\bar y &amp;=
+\frac{1}{2A}\int_0^1(T(x)^2-B(x)^2)\,\dee{x} = \frac{1}{2A}\int_0^1\frac{k^2}{1+x^2}\,\dee{x}
+</mrow><mrow>
+&amp;= \frac{k^2}{2A}\int_0^1\frac{1}{1+x^2}\,\dee{x}
+=\frac{k^2}{2A}\Big[\arctan 1-\arctan 0\Big]
+=\frac{k^2}{2A}\cdot\frac{\pi}{4}
+=\frac{k^2\pi}{8A}
+</mrow>
+</md>
+</p>
+
+<p>(b)
+We have <m>\bar x=\bar y</m> if and only if
+<md>
+<mrow>
+\frac{k}{A}\big[\sqrt{2}-1\big]&amp;=\frac{k^2\pi}{8A}
+</mrow>
+<intertext>Since <m>k</m> and A are a positive constants (hence neither is equal to 0), we can divide both sides by <m>k</m> and multiply both sides by <m>A</m>:</intertext><mrow>
+\sqrt{2}-1&amp;=\frac{k\pi}{8}
+</mrow><mrow>k&amp;=\frac{8}{\pi}\big[\sqrt{2}-1\big]
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>1997D</fromexam></title>
+<statement><p>
+ The region <m>R</m> is the portion of the plane which is above
+the curve <m>y=x^2-3x</m> and below the curve <m>y=x-x^2</m>.
+<ol label="a">
+<li>
+Sketch the region <m>R</m>
+</li>
+<li>
+Find the area of <m>R</m>.
+</li>
+<li>
+Find the <m>x</m> coordinate of the centroid of <m>R</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+In <m>R</m>, the top function is <m>x-x^2</m>, and the bottom function is <m>x^2-3x</m>.
+</p></hint>
+<answer><p> (a)
+</p>
+<sidebyside width="33%">
+<image source="problems/figs/graphE97D_4"/>
+</sidebyside>
+<p> (b)
+<m>\dfrac{8}{3}</m>
+</p><p>
+  (c)
+<m>1</m>
+</p></answer>
+
+<solution><p> (a)
+</p>
+
+<p>The curve <m>y=x^2-3x</m> is a parabola, pointing up, with <m>x</m>-intercepts at <m>x=0</m> and <m>x=3</m>.
+</p>
+
+<p>The curve <m>y=x-x^2</m> is a parabola, pointing down, with <m>x</m>-intercepts at <m>x=0</m> and <m>x=1</m>.
+</p>
+
+<p>To find where the two curves meet, we set them equal to each other:
+<md>
+<mrow>
+x^2-3x&amp;=x-x^2
+</mrow><mrow>
+2x^2-4x&amp;=0
+</mrow><mrow>
+2x(x-2)&amp;=0
+</mrow><mrow>
+x&amp;=0\quad\text{and}\quad x=2
+</mrow>
+</md>
+This is enough information to sketch the figure, on the left below.
+</p>
+
+<sidebyside width="33%" valign="middle">
+<image source="problems/figs/graphE97D_4"/>
+<image source="problems/figs/graphE97D_4l"/>
+</sidebyside>
+<p> (b)
+As we found in (a),
+the curves cross when <m> x=0, x=2</m>. The corresponding values of <m>y</m> are <m>y=0</m> and <m>y=2-2^2=-2</m>. Note the top curve is <m>T(x)=x-x^2</m>, and the bottom curve is <m>B(x)=x^2-3x</m>. Using
+vertical strips, as in the figure on the  right above, the area of <m>R</m> is
+<md>
+<mrow>
+\int_0^2\big[(x-x^2)-(x^2-3x)\big]\,\dee{x}
+=\int_0^2\big[4x-2x^2\big]\,\dee{x}
+=\left[2x^2-\frac{2}{3}x^3\right]_0^2
+=8-\frac{16}{3}=\frac{8}{3}
+</mrow>
+</md>
+</p>
+
+<p> (c)
+Using Equation<nbsp/><xref ref="eq_TRQcentroid"/>, the <m>x</m>-coordinate of the centroid of <m>R</m> (i.e. the weighted average of
+<m>x</m> over <m>R</m>)  is
+<md>
+<mrow>
+\bar x &amp;= \frac{3}{8}\int_0^2x\big[(x\!-\!x^2)-(x^2\!-\!3x)\big]\,\dee{x}
+= \frac{3}{8}\int_0^2\big[4x^2-2x^3\big]\,\dee{x}
+= \frac{3}{8}\Big[\frac{4}{3}x^3-\half x^4\Big]_0^2
+= \frac{3}{8}\Big[\frac{32}{3}-8\Big]
+</mrow><mrow>
+&amp;=1
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>1998A</fromexam></title>
+<statement><p>
+Let <m>R</m> be the region where <m>0\le x\le 1</m> and <m>0\le y\le\frac{1}{1+x^2}</m>.
+Find the <m>x</m>-coordinate of the centroid of <m>R</m>.
+</p></statement>
+<hint><p>
+Remember <m>\diff{}{x}\{\arctan x\} = \frac{1}{1+x^2}</m>.
+</p></hint>
+<answer><p>
+<m>\dfrac{2}{\pi}\log 2\approx 0.44127</m>
+</p></answer>
+
+<solution><p>
+Using Equation<nbsp/><xref ref="eq_TRQcentroid"/>, the <m>x</m>-coordinate of the centroid is
+<md>
+<mrow>
+\bar x&amp;=\frac{\int_0^1 x\frac{1}{1+x^2}\,\dee{x}}{\int_0^1\frac{1}{1+x^2}\,\dee{x}}
+</mrow>
+<intertext>We can guess the antiderivative in the numerator, or use the substitution <m>u=1+x^2</m>, <m>\dee{u}=2x\,\dee{x}</m>.
+</intertext><mrow>
+&amp;=\frac{\half\log(1+x^2)\big|_0^1}{\arctan x\big|_0^1}
+=\frac{\half\log 2}{\pi/4}
+=\frac{2}{\pi}\log 2 \approx 0.44127
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2013A</fromexam></title>
+<statement><p>
+Find the centroid of the region below,
+which consists of a semicircle of radius <m>3</m> on top
+of a rectangle of width <m>6</m> and height <m>2</m>.
+</p>
+
+<sidebyside width="33%">
+<image source="problems/figs/OE13A_5"/>
+</sidebyside>
+</statement>
+
+<hint><p>
+You can save quite a bit of work by, firstly, exploiting symmetry and,
+secondly, thinking about whether it is more efficient to use vertical strips
+or horizontal strips.
+</p></hint>
+
+<answer><p>
+<m>\bar x=0</m> and <m>\bar y= \dfrac{12}{24+9\pi}</m>
+</p></answer>
+
+<solution><p>
+By symmetry, the centroid lies on the <m>y</m>-axis, so <m>\bar x=0</m>.
+</p>
+
+<p>The area of the figure is the area of a half-circle of radius 3, and a rectangle of width 6 and height 2. So, <m>A = \frac{1}{2}\pi(9)+6\times 2 = \frac{9}{2}\pi+12</m>.
+</p>
+
+<p>We'll use vertical strips as in the sketch below.
+</p>
+
+<sidebyside width="40%">
+<image source="problems/figs/OE13A_5b"/>
+</sidebyside>
+<p>
+The top function of our figure is <m>T(x)=\sqrt{9-x^2}</m>, and the bottom function of our figure is <m>B(x)=-2</m>. Using Equation<nbsp/><xref ref="eq_TRQcentroid"/>, the <m>y</m>-coordinate of the centroid is:
+<md>
+<mrow>
+\bar y &amp;=\frac{1}{2A}\int_a^b\big(T(x)^2-B(x)^2\big)\,\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{2A}\int_{-3}^3 \left( \sqrt{9-x^2}^2-(-2)^2\right)\,\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{2A}\int_{-3}^3 \left(5-x^2\right)\,\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{2A}\left[5x-\frac{1}{3}x^3\right]_{-3}^3
+</mrow><mrow>
+&amp;=\frac{1}{2A}\left[15-9+15-9\right]
+</mrow><mrow>
+&amp;=\frac{6}{A} = \frac{6}{ \frac{9}{2}\pi+12} = \frac{12}{9\pi+24}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2015A</fromexam></title>
+<statement><p>
+Let <m>D</m> be the region below the graph of the curve <m>y=\sqrt{9-4x^2}</m> and above the <m>x</m>-axis.
+<ol label="a">
+<li>
+Using an appropriate integral, find the <em>area</em> of the region <m>D</m>; simplify your answer completely.
+</li>
+<li>
+Find the <em>centre of mass</em> of the region <m>D</m>; simplify your answer completely. (Assume it has constant density <m>\rho</m>.)
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+Sketch the region, being careful the domain of <m>\sqrt{9-4x^2}</m>.
+You can save quite a bit of work by exploiting symmetry.
+</p></hint>
+
+<answer><p> (a)
+<m>\dfrac{9}{4}\pi</m>
+</p><p>
+ (b)
+<m>\bar x = 0</m> and <m>\bar y = \dfrac{4}{\pi}</m>
+</p>
+
+</answer>
+
+<solution><p> (a)
+Notice that when <m>x=0</m>, <m>y=3</m> and as <m>x^2</m> increases, <m>y</m> decreases
+until <m>y</m> hits zero at <m>x^2=\frac{9}{4}</m>, i.e. at <m>x=\pm\frac{3}{2}</m>.
+For <m>x^2 \gt \frac{9}{4}</m>, <m>y</m> is not even defined. So, on <m>D</m>, <m>x</m> runs from
+<m>-\frac{3}{2}</m> to <m>+\frac{3}{2}</m> and, for each <m>x</m>, <m>y</m> runs from <m>0</m> to
+<m>\sqrt{9-4x^2}</m>. Here is a sketch of <m>D</m>.
+</p>
+
+<sidebyside width="50%">
+<image source="problems/figs/OE15A_8"/>
+</sidebyside>
+<p>
+As an aside, we can rewrite <m>y=\sqrt{9-4x^2}</m> as <m>4x^2+y^2=9</m>,
+<m>y\ge 0</m>, which is the top half of the ellipse which passes through
+<m>(\pm a,0)</m> and <m>(0,\pm b)</m> with <m>a=\frac{3}{2}</m> and <m>b=3</m>. The
+area of the full ellipse is <m>\pi ab=\frac{9}{2}\pi</m>. The area
+of <m>D</m> is half of that, which is <m>\frac{9}{4}\pi</m>. But we are
+told to use an integral, so we will do so.
+</p>
+
+<p>The area is
+<md>
+<mrow>
+\text{Area} &amp;= \int_{-3/2}^{3/2} \sqrt{9-4x^2} \dee{x}
+</mrow>
+</md>
+We can evaluate this integral by substituting <m>x=\frac{3}{2}\sin\theta</m>,
+<m>\dee{x} = \frac{3}{2}\cos\theta\,\dee{\theta}</m> and using
+<me>
+x=\pm\frac{3}{2} \iff \sin\theta = \pm 1
+</me>
+So <m>-\frac{\pi}{2}\le\theta\le\frac{\pi}{2}</m> and
+<md alignment="alignat">
+  <mrow>
+\text{Area}
+&amp;= \int_{-\pi/2}^{\pi/2}
+           \sqrt{9-4\big({\textstyle\frac{3}{2}}\sin\theta\big)^2}
+    \cdot \frac{3}{2}\cos\theta\,\dee{\theta}
+= \int_{-\pi/2}^{\pi/2}
+           \sqrt{9-9\sin^2\theta}
+    \cdot \frac{3}{2}\cos\theta\,\dee{\theta}
+  </mrow><mrow>
+&amp;=\frac{9}{2}  \int_{-\pi/2}^{\pi/2}\cos^2\theta\,\dee{\theta}
+= \frac{9}{2}  \int_{-\pi/2}^{\pi/2}\frac{\cos(2\theta)+1}{2}\dee{\theta}
+=\frac{9}{4}\Big[\frac{\sin(2\theta)}{2}+\theta\Big]_{-\pi/2}^{\pi/2}
+=\frac{9}{4}\pi
+</mrow>
+</md>
+</p>
+
+<p> (b)
+The region <m>D</m> is symmetric about the <m>y</m> axis. So the
+centre of mass lies on the <m>y</m> axis. That is, <m>\bar x=0</m>.
+Since <m>D</m> has area <m>A=\frac{9}{4}\pi</m>, top equation <m>y=T(x)=\sqrt{9-4x^2}</m>
+and bottom equation <m>y=B(x)=0</m>, with <m>x</m> running from <m>a=-\frac{3}{2}</m>
+to <m>b=\frac{3}{2}</m>,  Equation<nbsp/><xref ref="eq_TRQcentroid"/> gives us <m>\bar y</m>:
+<md alignment="alignat">
+  <mrow>
+\bar y &amp;=\frac{1}{2A}\int_a^b\big[T(x)^2-B(x)^2\big]\dee{x}
+=\frac{2}{9\pi}\int_{-3/2}^{3/2}\big[9-4x^2\big]\dee{x}
+=\frac{4}{9\pi}\int_0^{3/2}\big[9-4x^2\big]\dee{x}
+</mrow><mrow>
+&amp;= \frac{4}{9\pi}\Big[9x-\frac{4}{3}x^3\Big]_0^{3/2}
+= \frac{4}{9\pi}\Big[9\cdot\frac{3}{2}-\frac{4}{3}\cdot\frac{3^3}{2^3}\Big]
+= \frac{4}{9\pi}\Big[9\cdot\frac{3}{2}-9\cdot\frac{1}{2}\Big] = \frac{4}{\pi}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+The finite region <m>S</m> is bounded by the lines <m>y=\arcsin x</m>, <m>y=\arcsin(2-x)</m>, and <m>y=-\frac{\pi}{2}</m>. Find the centroid of <m>S</m>.
+</p></statement>
+<hint><p>
+Horizontal slices will be easier than vertical.
+</p></hint>
+<answer><p>
+<m>(\bar x, \bar y) = \left( 1,-\dfrac{2}{\pi}\right)</m>
+</p></answer>
+<solution><p>
+Let's start by sketching the region at hand. We know the general shape of arcsine (it's like half a period of sine, if you swapped the <m>x</m> and <m>y</m> axes); we can sketch the curve <m>y=\arcsin(2-x)</m> by mirroring <m>y=\arcsin x</m> about the line <m>x=1</m>.
+</p><sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{1.5}{4}{2}{2}
+\foreach \x in {-1,1,2,3}
+{\YExcoord{\x}{\x}}
+\YEycoord{-1.57}{-\frac{\pi}{2}}
+\YEycoord{1.57}{\frac{\pi}{2}}
+\draw[thick, red] plot[domain=1.57:-1.57]({sin(\x r)},\x) node[above left]{$y=\arcsin x$\qquad~};
+\draw[thick, blue] plot[domain=-1.57:1.57]({2-sin(\x r)},\x) node[below right]{\qquad$y=\arcsin(2-x)$};
+\fill[opacity=0.1] plot[domain=1.57:-1.57]({sin(\x r)},\x) --(3,-1.57)  plot[domain=-1.57:1.57]({2-sin(\x r)},\x) ;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+If we use vertical strips, then we need two separate regions, because <m>T(x) = \arcsin x</m> when <m>x \le 1</m>, and <m>T(x) = \arcsin(2-x)</m> when <m>x  \gt 1</m>. Also, we'd have to antidifferentiate functions that have arcsine in them. Let's think about horizontal strips. If <m>\textcolor{red}{y=\arcsin x}</m>, then <m>\textcolor{red}{x=\sin y}</m>, and if <m>\textcolor{blue}{y=\arcsin(2-x)}</m> then <m>\textcolor{blue}{x=2-\sin y}</m>. For all <m>y</m> from <m>-\frac{\pi}{2}</m> to <m>\frac{\pi}{2}</m>, the left endpoint of a strip is given by <m>\textcolor{red}{L(y) = \sin y}</m>, and the right endpoint is given by <m>\textcolor{blue}{R(y) = 2-\sin y}</m>.
+</p>
+
+<p>First, let's use our horizontal slices
+<fn>There's also a sneaky way to find the area of <m>A</m>: look for a way to snip and rearrange bits of the figure to turn it into a rectangle!</fn>
+ to find the area of our region, <m>A</m>.
+<md>
+<mrow>
+A&amp;=\int_{-\pi/2}^{\pi/2} \big( (\textcolor{blue}{2-\sin y}) - (\textcolor{red}{\sin y})\big)\,\dee{y}=\int_{-\pi/2}^{\pi/2}\big(2-2\sin y\big)\,\dee{y}
+</mrow><mrow>
+&amp;=\Big[2y+2\cos y\Big]_{-\pi/2}^{\pi/2} = \left(\pi+0\right) - \left(-\pi+0\right)=2\pi
+</mrow>
+</md>
+</p>
+
+<p>From symmetry, it is clear that <m>\bar x = 1</m>.
+We find <m>\bar y</m>
+using Equation<nbsp/><xref ref="eq_TRQcentroid"/>.
+<md>
+<mrow>
+\bar y &amp;= \frac{\int_{-\pi/2}^{\pi/2} y\left[\textcolor{blue}{R(y)}
+-
+\textcolor{red}{L(y)}\right]\,\dee{y}}{A}
+</mrow><mrow>
+ &amp;= \frac{\int_{-\pi/2}^{\pi/2}y \left[\textcolor{blue}{(2-\sin y)}
+-
+\textcolor{red}{(\sin y)}\right]\,\dee{y}}{2\pi}
+</mrow><mrow>
+&amp;= \frac{1}{2\pi}\int_{-\pi/2}^{\pi/2}
+y(2-2\sin y)
+\,\dee{y}
+</mrow><mrow>&amp;= \frac{1}{\pi}\int_{-\pi/2}^{\pi/2}
+y
+\,\dee{y}-\frac{1}{\pi}\int_{-\pi/2}^{\pi/2}
+(y\sin y)
+\,\dee{y}
+</mrow>
+<intertext>Since <m>y</m> is an odd function, and the domain of integration is symmetric, the first integral evaluates to 0. Since <m>y\sin y</m> is an even function (recall the product of two odd functions is an even function), we can simplify our limits of integration.</intertext><mrow>
+&amp;=-\frac{2}{\pi}\int_0^{\pi/2} y\sin y\,\dee{y}
+</mrow>
+<intertext>We use integration by parts with <m>u=y</m>, <m>\dee{v}=\sin y\,\dee{y}</m>; <m>\dee{u}=\dee{y}</m>, <m>v=-\cos y</m>.
+</intertext><mrow>
+&amp;=-\frac{2}{\pi}\left(
+\big[-y\cos y\big]_0^{\pi/2}+ \int_0^{\pi/2} \cos y\,\dee{y}
+\right)
+</mrow><mrow>&amp;=-\frac{2}{\pi}
+\big[-y\cos y+\sin y\big]_0^{\pi/2}
+</mrow><mrow>
+&amp;=-\frac{2}{\pi}\left[(0+1)- 0\right] = -\frac{2}{\pi}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_3_stage2b">
+<statement><p>
+Calculate the centroid of the figure bounded by the curves <m>y=e^x</m>, <m>y=3(x-1)</m>, <m>y=0</m>, <m>x=0</m>, and <m>x=2</m>.
+</p>
+
+</statement>
+<hint><p>
+Start with a picture: whether you use vertical slices or horizontal, you'll need to break your integral into multiple pieces.
+</p></hint>
+<answer><p>
+<m>\displaystyle\left(\frac{e^2-3/2}{e^2-5/2},\frac{e^4-7}{4e^2-10}\right)\approx (1.2,2.4)</m>
+</p></answer>
+<solution><p>
+We'll start by sketching the region.
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{5}{2}{7.5}
+\YExcoord{4}{2}
+\YExcoord{2}{1}
+\YEycoord{1}{1}
+\YEycoord{3}{3}
+\draw[thick, blue] plot[domain=.5:2](2*\x,{3*(\x-1)}) node[right]{$y=3(x-1)$};
+\draw[thick, red] plot[domain=0:2](2*\x,{exp(\x)}) node[right]{$y=e^x$};
+\fill[fill opacity=0.1] plot[domain=0:2](2*\x,{exp(\x)}) node[right]{$y=e^x$}--(4,3)--(2,0)--(0,0)--(0,1);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>If we use horizontal slices, we need to divide our figure into three regions, as in the figure below, because the left and right functions change at the dashed lines.
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{5}{2}{7.5}
+\YExcoord{4}{2}
+\YExcoord{2}{1}
+\YEycoord{1}{1}
+\YEycoord{3}{3}
+\draw[thick, blue] plot[domain=.5:2](2*\x,{3*(\x-1)}) node[right]{$\atp{y=3(x-1)}{x=1+\frac{y}{3}}$};
+\draw[thick, red] plot[domain=0:2](2*\x,{exp(\x)}) node[right]{$\atp{y=e^x}{x=\log y}$};
+\fill[fill opacity=0.1] plot[domain=0:2](2*\x,{exp(\x)}) --(4,3)--(2,0)--(0,0)--(0,1);
+\draw[dashed, ultra thick] (0,1)--(8/3,1);
+\draw[dashed, ultra thick] (2.2,3)--(4,3);
+\draw[decorate,decoration={brace, amplitude=7pt}] (-.75,0)--(-.75,1) node[midway, left, xshift=-3mm]{$L(x)=0$};
+\draw[red,decorate,decoration={brace, amplitude=7pt}] (-.75,1)--(-.75,7.4) node[midway, left, xshift=-3mm]{$L(y)=\log y$};
+\draw[blue,decorate,decoration={brace, amplitude=7pt, mirror}] (6.75,0)--(6.75,3) node[midway, right, xshift=3mm]{$R(y)=1+\frac{y}{3}$};
+\draw[decorate,decoration={brace, amplitude=7pt, mirror}] (6.75,3)--(6.75,7.4) node[midway, right, xshift=3mm]{$R(y)=2$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+If we use vertical slices, we only need two regions (shown below) to account for the different top and bottom functions. This seems easier than three regions, so we use vertical slices.
+</p><sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{5}{2}{7.5}
+\YExcoord{4}{2}
+\YExcoord{2}{1}
+\YEycoord{1}{1}
+\YEycoord{3}{3}
+\draw[thick, blue] plot[domain=1:2](2*\x,{3*(\x-1)}) node[right]{$y=3(x-1)$};
+\draw[thick, red] plot[domain=0:2](2*\x,{exp(\x)}) node[right]{$y=e^x$};
+\fill[fill opacity=0.1] plot[domain=0:2](2*\x,{exp(\x)}) node[right]{$y=e^x$}--(4,3)--(2,0)--(0,0)--(0,1);
+\draw[dashed, ultra thick] (2,0)--(2,2.7);
+\draw[red,decorate,decoration={brace, amplitude=7pt}] (0,8)--(4,8) node[midway, above, yshift=3mm]{$T(x)=e^x$};
+\draw[blue,decorate,decoration={brace, amplitude=7pt, mirror}] (2,-1)--(4,-1) node[midway, below, yshift=-3mm]{$B(x)=3(x-1)$};
+\draw[decorate,decoration={brace, amplitude=7pt, mirror}] (0,-.5)--(1.92,-.5) node[midway, below, yshift=-3mm]{$B(x)=0$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>When <m>0 \leq x \leq 2</m>, <m>T(x) = e^x</m>. When <m>0 \le x \le 1</m>, <m>B(x)=0</m>, and when
+<m>1\le x \le 2</m>, <m>B(x)=3(x-1)</m>.
+</p>
+
+<p>The area of the figure is:
+<md>
+<mrow>
+A&amp;=\int_0^2 (T(x)-B(x))\,\dee{x} = \int_0^1 (e^x-0)\,\dee{x} + \int_1^2(e^x-3(x-1))\,\dee{x}
+</mrow><mrow>
+&amp;=\int_0^2 e^x\,\dee{x} - \int_1^2 3(x-1)\,\dee{x}
+</mrow><mrow>
+&amp;=\Big[e^x\Big]_0^2 - \left[\frac{3}{2}(x-1)^2\right]_1^2
+</mrow><mrow>
+&amp;=e^2-1 -\frac{3}{2} = e^2 - \frac52
+</mrow>
+<intertext>
+ Using Equation<nbsp/><xref ref="eq_TRQcentroid"/>:
+</intertext><mrow>
+\bar x &amp;=\frac{\int_0^2 x(T(x)-B(x))\,\dee{x}}{A}
+</mrow><mrow>&amp;= \frac{1}{e^2-5/2}\left[\int_0^1x\left(e^x-0\right)\,\dee{x} + \int_1^2 x\left(e^x-3(x-1)\right)\,\dee{x}\right]\\
+&amp;= \frac{1}{e^2-5/2}\left[\int_0^2 xe^x\,\dee{x} - \int_1^2 3x(x-1)\,\dee{x}\right]
+</mrow>
+<intertext>For the left integral, we use integration by parts with <m>u=x</m>, <m>\dee{v}=e^x\,\dee{x}</m>; <m>\dee{u}=\dee{x}</m>, <m>v=e^x</m>.</intertext><mrow>
+&amp;= \frac{1}{e^2-5/2}\left[\left[xe^x\right]_0^2-\int_0^2 e^x\,\dee{x} - 3\int_1^2 (x^2-x)\,\dee{x}\right]
+</mrow><mrow>
+&amp;= \frac{1}{e^2-5/2}\left(\left[xe^x-e^x\right]_0^2 - 3\left[\frac{1}{3}x^3-\frac{1}{2}x^2\right]_1^2\right)
+</mrow><mrow>
+&amp;= \frac{1}{e^2-5/2}\left((2e^2-e^2)-(-1) - 3\left(\frac{8}{3}-2-\frac{1}{3}+\frac{1}{2}\right)\right)
+</mrow><mrow>
+&amp;= \frac{e^2-3/2}{e^2-5/2}\approx 1.2
+</mrow>
+<intertext>
+ Using Equation<nbsp/><xref ref="eq_TRQcentroid"/> again:
+</intertext><mrow>
+ \bar y &amp;=\frac{\int_0^2\left(T(x)^2-B(x)^2\right)\,\dee{x}}{2A}
+</mrow><mrow>
+ &amp;=\frac{1}{2(e^2-5/2)}\left[\int_0^1\left(e^{2x} - 0\right)\,\dee{x} + \int_1^2\left(e^{2x} - 9(x-1)^2\right)\,\dee{x}\right]
+</mrow><mrow>&amp;=\frac{1}{2(e^2-5/2)}\left[\int_0^2 e^{2x}\,\dee{x} - \int_1^2 9(x-1)^2\,\dee{x}\right]
+</mrow><mrow>&amp;=\frac{1}{2(e^2-5/2)}\left(\left[\frac{1}{2}e^{2x}\right]_0^2 - \Big[3(x-1)^3\Big]_1^2\right)
+</mrow><mrow>&amp;=\frac{1}{2e^2-5}\left(\frac{1}{2}e^{4}-\frac{1}{2} -3\right)\\
+&amp;=\frac{e^4-7}{4e^2-10}\approx 2.4
+</mrow>
+</md>
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><application/></title><introduction/>
+
+<exercise purpose="RQS"><title><fromexam>2016Q4</fromexam></title>
+<statement><p>
+Find the <em><m>y</m>-coordinate</em> of the centre of mass of the (infinite)
+region lying to the right of the line <m>x=1</m>, above the <m>x</m>-axis, and below
+the graph of <m>y=8/x^3</m>.
+</p></statement>
+
+<hint>
+
+<p> For practice, do the computation twice <mdash/> once with horizontal strips and once with vertical strips. Watch for improper integrals.
+</p></hint>
+
+<answer><p>
+<m>\bar y = \dfrac{8}{5}</m>
+</p></answer>
+
+<solution><p>
+The area of the region is
+<md>
+<mrow>
+A&amp;=\int_1^\infty \frac{8}{x^3}\,\dee{x}
+= \lim_{t\to\infty} \bigg( \int_1^t \frac{8}{x^3}\,\dee{x} \bigg)
+= \lim_{t\to\infty} \bigg[ {-}\frac{4}{x^2}\bigg]_1^t
+= \lim_{t\to\infty} \bigg[ {-}\frac{4}{t^2} + \frac{4}{1^2} \bigg]
+= 0 + 4
+</mrow>
+</md>
+We'll now compute <m>\bar y</m> twice, once with vertical strips, as in the figure in the left below,
+and once with horizontal strips as in the figure on the right below.
+</p>
+
+<sidebyside width="33%">
+<image source="problems/figs/OQ16_4_4l"/>
+<image source="problems/figs/OQ16_4_4r"/>
+</sidebyside>
+<p>
+<em>Vertical strips:</em>
+The equation of the top of the region is <m>y=T(x)=\dfrac{8}{x^3}</m> and the equation of the
+bottom of the region is <m>y=B(x)=0</m>.
+Using vertical strips, as in the figure on the left above,
+the <m>y</m>-coordinate of the centre of mass is
+<md>
+<mrow>
+\bar y &amp; = \frac{1}{2A}\int_1^\infty  \big[T(x)^2-B(x)^2\big]\,\dee{x}
+</mrow><mrow>
+&amp;= \frac{1}{8}\int_1^\infty \bigg( \frac{8}{x^3} \bigg)^2 \,\dee{x}
+</mrow><mrow>
+&amp;= \lim_{t\to\infty} \bigg( \int_1^t \frac{8}{x^6}\,\dee{x} \bigg)
+</mrow><mrow>
+&amp;= \lim_{t\to\infty} \bigg[ {-}\frac{8}{5x^5}\bigg]_1^t
+</mrow><mrow>
+&amp;= \lim_{t\to\infty} \bigg[ {-}\frac{8}{5t^5} + \frac{8}{5\times1^5} \bigg] = \frac{8}{5}
+</mrow>
+</md>
+</p>
+
+<p> <em>Vertical strips:</em>
+Since <m>y=\dfrac{8}{x^3}</m> is equivalent to <m>x=\root{3}\of{\dfrac{8}{y}}</m>,
+the equation of the right-hand side of the region is <m>x=R(y)=\dfrac{2}{y^{1/3}}</m>
+and the equation of the left hand side of the region is <m>x=L(y)=1</m>. The  point at the top of the region is <m>(1,8)</m>.
+Thus <m>y</m> runs from <m>0</m> to <m>8</m>.
+So, using horizontal strips, as in the figure on the right above,
+the <m>y</m>-coordinate of the centre of mass is
+<md>
+<mrow>
+\bar y &amp; = \frac{1}{A}\int_0^8 y \big[R(y)-L(y)\big]\,\dee{y}
+</mrow><mrow>
+&amp;= \frac{1}{4}\int_0^8  y\big[ 2y^{-1/3} -1 \big] \,\dee{y}
+</mrow><mrow>
+&amp;=\frac{1}{4}\int_0^8 \big[2y^{2/3}-y\big]\,\dee{y}
+</mrow><mrow>
+&amp;= \frac{1}{4} \bigg[ \frac{6}{5}y^{5/3}-\frac{y^2}{2}\bigg]_0^8
+</mrow><mrow>
+&amp;=  \frac{1}{4}\bigg[ \frac{6\times 32}{5} - \frac{8\times 8}{2} \bigg]
+   =  8\bigg[ \frac{6}{5} - 1 \bigg]
+= \frac{8}{5}
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2016A</fromexam></title>
+<statement><p>
+Let <m>A</m> be the region to the right of the <m>y</m>-axis that is bounded
+by the graphs of <m>y=x^2</m> and <m>y = 6-x</m>.
+<ol label="a">
+<li> Find the centroid of <m>A</m>, assuming it has constant density <m>\rho=1</m>.
+The area of <m>A</m> is <m>\dfrac{22}{3}</m> (you don't have to show this).
+</li>
+<li> Write down an expression, using horizontal slices (disks), for
+the volume obtained when the region <m>A</m> is rotated around the <m>y</m>-axis.
+Do not evaluate any integrals; simply write down an expression for
+the volume.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+Draw a sketch. In part (b) be careful about the equation of the right hand boundary of <m>A</m>.
+</p></hint>
+
+<answer><p>
+(a) <m>\displaystyle \bar x = \frac{8}{11}</m>, <m>\displaystyle\bar y = \frac{166}{55}</m>
+</p><p>
+ (b) <m>\displaystyle\pi \int_0^4 y\,\dee{y} + \pi \int_4^6 (6-y)^2\,\dee{y}</m>
+</p></answer>
+
+<solution><p> (a)
+The two curves cross at points <m>(x,y)</m> that satisfy both <m>y=x^2</m> and <m>y = 6-x</m>,
+and hence
+<md>
+<mrow>
+x^2 = 6-x
+\iff x^2+x-6=0
+\iff (x+3)(x-2)=0
+</mrow>
+</md>
+So we see that the two curves intersect at <m>x=2</m> (as well as <m>x=-3</m>,
+which is to the left of the <m>y</m>-axis and therefore irrelevant).
+Here is a sketch of <m>A</m>.
+</p>
+<sidebyside width="33%">
+<image source="problems/figs/OE16A_8"/>
+</sidebyside>
+
+<p>
+The top of <m>A</m> has equation <m>y=T(x)=6-x</m>, the bottom has equation
+<m>y=B(x)=x^2</m> and <m>x</m> runs from <m>0</m> to <m>2</m>. So, using vertical strips,
+<md>
+<mrow>
+\bar x &amp;=\frac{1}{A} \int_0^2 x \big[T(x)-B(x)\big]\,\dee{x}
+</mrow><mrow>
+&amp;=   \frac{1}{22/3}
+  \int_0^2 x \big[ (6-x) - x^2 \big]\,\dee{x}
+       = \frac{3}{22}\int_0^2 (6x-x^2-x^3) \,\dee{x}
+</mrow><mrow>
+  &amp;= \frac{3}{22}
+    \bigg[ 3x^2 - \frac{x^3}{3} - \frac{x^4}{4} \bigg]_0^2
+</mrow><mrow>
+  &amp;= \frac{3}{22}\Big[12 - \frac{8}{3} - 4\Big]
+   = \frac{3}{22} \frac{16}{3}
+   =\frac{8}{11}
+</mrow>
+</md>
+and
+<md>
+<mrow>
+\bar y &amp;=\frac{1}{2A} \int_0^2 \big[T(x)^2-B(x)^2\big]\,\dee{x}
+</mrow><mrow>
+ &amp;= \frac{1}{2}\cdot\frac{1}{22/3}\int_0^2 \big( (6-x)^2 - x^4\ \big) \,\dee{x}
+ = \frac{3}{44} \bigg[ {-}\frac{(6-x)^3}{3} - \frac{x^5}{5} \bigg]_0^2
+</mrow><mrow>
+  &amp;=\frac{3}{44} \bigg(-\frac{64-216}{3} - \frac{32}{5} \bigg)
+   = \frac{3}{44}\cdot\frac{664}{15}
+   =\frac{166}{55}
+</mrow>
+</md>
+The integral was evaluated by guessing an antiderivative for the integrand.
+It could also be evaluated as
+<md>
+<mrow>
+  \frac{3}{44}\int_0^2 \big( 36-12x+x^2 - x^4\ \big) \,\dee{x}
+  &amp;= \frac{3}{44} \bigg[36x-6x^2+\frac{x^3}3 - \frac{x^5}5\bigg]_0^2
+</mrow><mrow>
+  &amp;= \frac{3}{44} \bigg( 72-24+\frac83-\frac{32}5 \bigg)
+   = \frac{3}{44}\frac{664}{15}
+   = \frac{166}{55}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+The question specifies the use of horizontal slices (as in Example  <xref ref="eg_rot_yaxis"/>). The radius of the slice at height <m>y</m> is the <m>x</m>-value of the right-hand boundary of the region at that point. So,
+we start by converting both equations <m>y=6-x</m> and <m>y=x^2</m> into equations of
+the form <m>x=f(y)</m>. To do so we solve for <m>x</m> in both equations, yielding <m>x=\sqrt y</m> and <m>x=6-y</m>.
+</p>
+
+<sidebyside width="33%">
+<image source="problems/figs/OE16A_8b"/>
+</sidebyside>
+
+<p>
+<ul>
+<li> We use thin horizontal  strips of width <m>\dee{y}</m> as in the figure  above.
+</li>
+<li>
+<p>When we rotate about the <m>y</m>-axis, each strip  sweeps out a thin disk
+<ul>
+<li>
+whose radius is <m>r=6-y</m> when <m>4\le y\le 6</m>
+(see the blue strip in the figure above),  and
+whose radius is <m>r=\sqrt{y}</m> when <m>0\le y\le 4</m>
+(see the red strip in the figure above) and
+</li>
+<li>
+whose thickness is <m>\dee{y}</m> and hence
+</li>
+<li>
+whose volume is
+<m>\pi r^2\,\dee{y}
+       = \pi(6-y)^2\,\dee{y}</m> when <m>4\le y\le 6</m> and  whose volume is
+<m>\pi r^2\,\dee{y}
+    =\pi y\,\dee{y}</m>
+when <m>0\le y\le 4</m>.
+</li>
+</ul>
+</p>
+</li>
+<li> As our bottommost strip is at <m>y=0</m> and our topmost
+strip is at <m>y=6</m>, the total volume is
+<md>
+<mrow>
+\pi \int_0^4 y\,\dee{y} + \pi \int_4^6 (6-y)^2\,\dee{y}
+</mrow>
+</md>
+</li>
+</ul>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2014D</fromexam></title>
+<statement><p>
+(a)
+Find the <m>y</m>-coordinate of the centroid of the region bounded by
+<m>y = e^x</m>, <m>x = 0</m>, <m>x = 1</m>, and <m>y = -1</m>.
+</p>
+
+<p> (b)
+Calculate the volume of the solid generated by rotating the region
+from part (a) about the line <m>y = -1</m>.
+</p>
+
+</statement>
+
+<hint><p>
+Draw a sketch. Rotating about a horizontal line is similar to rotating about the <m>x</m>-axis, but for the radius of a slice, you'll need to know <m>|y-(-1)|</m>: the distance from the outer edge of the region (the boundary function's <m>y</m>-value) to <m>y=-1</m>.
+</p></hint>
+
+<answer><p>
+(a) <m>\displaystyle\bar y = \frac{e}{4} - \frac{3}{4e} </m>
+</p><p>
+ (b) <m>\displaystyle\pi\left(\frac{e^{2}}{2}+2e -\frac{3}{2}\right)</m>
+</p></answer>
+
+<solution><p> (a)
+Here is a sketch of the specified region, which we shall call <m>R</m>.
+</p>
+<sidebyside width="50%">
+<image source="problems/figs/OE14D_4"/>
+</sidebyside>
+<p>
+The top of <m>R</m> has equation <m>y=T(x)=e^x</m>, the bottom has equation
+<m>y=B(x)=-1</m> and <m>x</m> runs from <m>0</m> to <m>1</m>. So, using vertical strips,
+we see that <m>R</m> has area
+<md>
+<mrow>
+A &amp; = \int_0^1 \big[T(x)-B(x)\big]\,\dee{x}
+= \int_0^1 \big[e^x-(-1)\big]\,\dee{x}
+= \int_0^1 \big[e^x+1\big]\,\dee{x}
+= \big[e^x+x\big]_0^1
+= e
+</mrow>
+</md>
+and
+<md>
+<mrow>
+\bar y &amp;=\frac{1}{2A} \int_0^1 \big[T(x)^2-B(x)^2\big]\,\dee{x}
+</mrow><mrow>
+ &amp;= \frac{1}{2e}\int_0^1 \big[ e^{2x} - 1\ \big] \,\dee{x}
+ = \frac{1}{2e} \bigg[\frac{e^{2x}}{2} - x \bigg]_0^1
+</mrow><mrow>
+  &amp;=\frac{1}{2e} \bigg(\frac{e^2}{2} - 1 - \frac{1}{2} \bigg)
+   = \frac{e}{4} - \frac{3}{4e}
+</mrow>
+</md>
+</p>
+
+<p> (b)
+To compute the volume when <m>R</m> is rotated about the line <m>y=-1</m>
+<ul>
+<li> we use thin vertical strips of width <m>\dee{x}</m> as in the
+figure above.
+</li>
+<li>
+<p>When we rotate about the line <m>y=-1</m>, each strip  sweeps out a thin disk
+<ul>
+<li>
+whose radius is <m>r=T(x)-B(x)=e^x+1</m> and
+</li>
+<li>
+whose thickness is <m>\dee{x}</m> and hence
+</li>
+<li>
+whose volume is
+<m>\pi r^2\,\dee{x}
+       = \pi(e^x+1)^2\,\dee{x}</m>.
+</li>
+</ul>
+</p>
+</li>
+<li> As our leftmost strip is at <m>x=0</m> and our rightmost
+strip is at <m>x=1</m>, the total volume is
+<md>
+<mrow>
+\pi \int_0^1 (e^x+1)^2\,\dee{x}
+&amp;=\pi \int_0^1 (e^{2x}+2e^x+1)\,\dee{x}
+=\pi\bigg[\frac{e^{2x}}{2}+2e^x + x\bigg]_0^1
+</mrow><mrow>
+&amp;=\pi\bigg[\Big(\frac{e^{2}}{2}+2e + 1\Big)
+          -\Big(\frac{1}{2}+2 + 0\Big)\bigg]
+</mrow><mrow>
+&amp;=\pi\Big(\frac{e^{2}}{2}+2e -\frac{3}{2}\Big)
+</mrow>
+</md>
+</li>
+</ul>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Suppose a rectangle has width 4 m, height 3 m, and its density <m>x</m> metres from its left edge is <m>x^2</m> kg/m<m>^2</m>. Find the centre of mass of the rectangle.
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{.5}{4.5}{.5}{3.5}
+\YExcoord{4}{4}
+\YEycoord{3}{3}
+\draw[thick, fill, left color=white, right color=black] (0,0) rectangle (4,3);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+Go back to the derivation of Equation<nbsp/><xref ref="eq_TRQcentroid"/> (centroid for a region) to figure out what to do when your surface does not have uniform density. We will consider a rod <m>R</m> that reaches from <m>x=0</m> to <m>x=4</m>, and the mass of the section of the rod along <m>[a,b]</m> is equal to the mass of the strip of our rectangle along <m>[a,b]</m>.
+</p></hint>
+<answer><p>
+<m>(3,1.5)</m>
+</p></answer>
+<solution><p>
+By symmetry, <m>\bar y = 1.5</m>. We can't immediately use Equation<nbsp/><xref ref="eq_TRQcentroid"/> to find <m>\bar x</m>, because the density is not constant. Instead, we'll go through the derivation of Equation<nbsp/><xref ref="eq_TRQcentroid"/>, to figure out what to do with a non-constant density. (This is a good time to review Questions<nbsp/><xref ref="prob_s2_3_xbar" text="local"/> and <xref ref="prob_s2_3_ybar" text="local"/> in this section.)
+</p>
+
+<p>Our model is that we're making a rod <m>R</m> that reaches from <m>x=0</m> to <m>x=4</m>, and the mass of the section of the rod along <m>[a,b]</m> is equal to the mass of the strip of our rectangle along <m>[a,b]</m>. If we have a formula <m>\rho(x)</m> for the density of <m>R</m>, we can find the centre of mass of <m>R</m>, which is also the <m>x</m>-coordinate of the centre of mass of the rectangle.
+</p>
+
+<p>A thin vertical strip of the rectangle with length <m>\dee{x}</m> at position <m>x</m> has area <m>3\dee{x}</m> m<m>^2</m> and density <m>x^2</m> kg/m<m>^2</m>, so it has mass <m>3x^2\,\dee{x}</m> kg. Therefore, a short section of <m>R</m> at position <m>x</m> with length <m>\dee{x}</m> ought to have mass <m>3x^2\,\dee{x}</m> kg as well. Then its density at <m>x</m> is <m>\rho(x) = \frac{3x^2\,\dee{x}\text{ kg}}{\dee{x} \text{ m}} = 3x^2</m> kg/m.
+</p>
+
+<p>Now, we can use Equation<nbsp/><xref ref="eq_TRQvariabledensityrod"/> to find the centre of mass of the rod, which is also the <m>x</m>-coordinate of the centre of mass of our rectangle:
+<md>
+<mrow>
+\bar x &amp;= \frac{\int_0^4 x\rho(x)\,\dee{x}}{\int_0^4 \rho(x)\,\dee{x}}
+= \frac{\int_0^4 3x^3\,\dee{x}}{\int_0^4 3x^2\,\dee{x}} =
+\frac{\left[\frac{3}{4}x^4\right]_0^4}{\left[\vphantom{\frac34}x^3\right]_0^4}=\frac{3\cdot 4^3}{4^3}=3
+</mrow>
+</md>
+The centre of mass of our rectangle is <m>(3,1.5)</m>.
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Suppose a circle of radius 3 m has density <m>(2+y)</m> kg/m<m>^2</m> at any point <m>y</m> metres above its bottom. Find the centre of mass of the circle.
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[thick] (0,1.5) node[shape=circle, minimum size=3cm, draw, fill, bottom color=white, top color=black, fill opacity=0.9]{};
+\YExcoord{1.5}{3}
+\YExcoord{-1.5}{-3}
+\YEaaxis{2}{2}{.5}{3.5}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside></statement>
+<hint><p>
+Horizontal slices will help you, where symmetry doesn't, to set up a rod <m>R</m> whose centre of mass is the same as one coordinate of the centre of mass of the circle. When you're integrating, trigonometric substitutions are sometimes the easiest way, and sometimes not.
+</p>
+
+<p>The equation of a circle of radius 3, centred at <m>(0,3)</m>, is <m>x^2+(y-3)^2=9</m>.
+</p></hint>
+<answer><p>
+<m>(0,3.45)</m>
+</p></answer>
+<solution><p>
+By symmetry, the <m>x</m>-coordinate of the centre of mass will be <m>\bar x =0</m>; that is, exactly in the middle, horizontally. To find the <m>y</m>-coordinate of the centre of mass, we need to consider the origin of Equation<nbsp/><xref ref="eq_TRQcentroid"/>.
+</p>
+
+<p>We can make vertical strips or horizontal strips. A vertical strip of the circle has a density that varies from the bottom of the strip to the top, but a horizontal strip has a constant density (assuming the strip is very thin). So it seems that horizontal strips in this case will be the easier route.
+</p>
+
+<p>Following the derivation of Equation<nbsp/><xref ref="eq_TRQcentroid"/>, we model our circle as a vertical rod <m>R</m>, filling the <m>y</m>-interval <m>[0, 6]</m>. A portion of the rod with <m>a \le y \le b</m> should have the same mass as the portion of the circle with <m>a \le y \le b</m>. To achieve this, we slice the circle into thin horizontal strips of thickness <m>\dee{y}</m>, calculate their mass, then use that to find <m>\rho(y)</m>, the density of <m>R</m>.
+</p>
+
+<p>{First, let's find a formula for the mass of a thin horizontal strip of the circle at position <m>y</m> with height <m>\dee{y}</m>.}
+</p>
+
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (0,0) circle(1.5cm);
+\begin{scope}
+\clip (0,0) circle(1.5cm);
+\draw[fill=red] (-2,.5) rectangle (2,1);
+\end{scope}
+\draw[|-|] (1.6,1)--(1.6,.5) node[midway, right]{$\dee{y}$};
+\YEycoord{.75}{y}
+\begin{scope}[yshift=-1.5cm]
+\YEaaxis{2}{2}{.5}{3.5}
+\YExcoord{.75}{x}
+\end{scope}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+The circle with radius 3 centred at <m>(0,3)</m> has equation <m>x^2+(y-3)^2=9</m>. So, the right half of the circle has equation <m>x=\sqrt{9-(y-3)^2}</m>, and the left half of the circle has equation <m>x=-\sqrt{9-(y-3)^2}</m>. So, the width of a strip at height <m>y</m> is <m>2\sqrt{9-(y-3)^2}</m> m. Its height is <m>\dee{y}</m> m, so its area is <m>2\sqrt{9-(y-3)^2}\,\dee{y}</m> m<m>^2</m>. Its density is <m>2+y \frac{\text{kg}}{\text{m}^2}</m> , so its mass is <m>2(2+y)\sqrt{9-(y-3)^2}\,\dee{y}</m> kg.
+</p>
+
+<p>Now we can find <m>\rho(y)</m>, the density of <m>R</m> at position <m>y</m>. The mass of the section of <m>R</m> at position <m>y</m> with length <m>\dee{y}</m> is <m>2(2+y)\sqrt{9-(y-3)^2}\,\dee{y}</m> kg (the mass of the strip in the paragraph above), so its density is <m>\frac{2(2+y)\sqrt{9-(y-3)^2}\,\dee{y} \text{kg}}{\dee{y} \text{m}} = 2(2+y)\sqrt{9-(y-3)^2} \frac{\text{kg}}{\text{m}} = \rho(y)</m>.
+</p>
+
+<p>Now, Equation<nbsp/><xref ref="eq_TRQvariabledensityrod"/> will tell us the centre of mass of <m>R</m>, which is also the <m>y</m>-coordinate of the centre of mass of the circle.
+</p>
+
+<p><md>
+<mrow>
+\bar y &amp;= \frac{\int_a^b y\rho(y)\,\dee{y}}{\int_a^b \rho(y)\,\dee{y}} =
+\frac{\int_0^6 y\times 2(2+y)\sqrt{9-(y-3)^2}\,\dee{y}}{\int_0^6 2(2+y)\sqrt{9-(y-3)^2}\,\dee{y}}
+</mrow><mrow>
+&amp;=
+\frac{\int_0^6 y(2+y)\sqrt{9-(y-3)^2}\,\dee{y}}{\int_0^6 (2+y)\sqrt{9-(y-3)^2}\,\dee{y}}
+</mrow>
+<intertext>To make things look a little cleaner, we use the substitution <m>u=y-3</m>, <m>\dee{u}=\dee{y}</m>. Then the limits of integration become <m>-3</m> and <m>3</m>, respectively, and <m>y=u+3</m>. (Geometrically, we're re-centring the circle at the origin, instead of at the point (0,3).)
+</intertext><mrow>
+&amp;=\frac{\int_{-3}^3 (u+3)(2+u+3)\sqrt{9-u^2}\,\dee{u}}{\int_{-3}^3 \big(2+u+3\big)\sqrt{9-u^2}\,\dee{u}}
+</mrow><mrow>&amp;=\frac{\int_{-3}^3 \big(u^2+8u+15\big)\sqrt{9-u^2}\,\dee{u}}{\int_{-3}^3 \big(u+5\big)\sqrt{9-u^2}\,\dee{u}}
+ = \frac{N}{D}\tag{$*$}
+</mrow>
+<intertext>Let's start by finding <m>D</m>, the integral of the denominator. If we break it into two pieces, we can use symmetry and geometry to evaluate it. </intertext><mrow>
+D&amp;=\int_{-3}^3 u\sqrt{9-u^2}\,\dee{u}+5\int_{-3}^3 \sqrt{9-u^2}\,\dee{u}
+</mrow>
+<intertext>The left integrand is odd, so its integral over a symmetric interval is 0. (You can also evaluate this using the substitution <m>w=9-u^2</m>, <m>\dee{w}=-2u\,\dee{u}</m>.) The right integral represents the area underneath half a circle of radius 3, centred at the origin.
+</intertext><mrow>
+D&amp;=0+5\cdot\frac{1}{2}\pi\cdot 3^2 = \frac{45}{2}\pi
+</mrow>
+</md>
+Now, let's evaluate our numerator integral from (<m>*</m>),
+<m>N=\int_{-3}^3 \big(u^2+8u+15\big)\sqrt{9-u^2}\,\dee{u}</m>. If we break it into three pieces, we can simplify the integration somewhat.
+<md>
+<mrow>
+N&amp;=\int_{-3}^3 u^2\sqrt{9-u^2}\,\dee{u}+
+8\int_{-3}^3 u\sqrt{9-u^2}\,\dee{u}+
+15\int_{-3}^3 \sqrt{9-u^2}\,\dee{u}
+</mrow>
+<intertext>The first integrand is even, with a symmetric interval of integration, so we can simplify its limits of integration a little bit. The middle integrand is odd, so its integral over the symmetric interval <m>[-3,3]</m> is zero. The last integral is the area of half a circle of radius 3.</intertext><mrow>
+N&amp;=2\int_{0}^3 u^2\sqrt{9-u^2}\,\dee{u}+0+15\cdot\pi\cdot3^2
+</mrow><mrow>
+&amp;=\frac{135}{2}\pi+2\int_{0}^3 u^2\sqrt{9-u^2}\,\dee{u}
+</mrow>
+<intertext>The remaining integral has a quadratic function underneath a square root with no obvious substitution, so we use a trigonometric substitution. Let <m>u=3\sin\theta</m>, <m>\dee{u}=3\cos\theta\,\dee{\theta}</m>. Note <m>3\sin(0)=0</m> and <m>3\sin(\pi/2)=3</m>, so the limits of integration become 0 and <m>\frac{\pi}{2}</m>.
+</intertext><mrow>
+N&amp;=\frac{135}{2}\pi+2\int_{0}^{\pi/2} \big(3\sin\theta\big)^2\sqrt{9-\big(3\sin\theta\big)^2}\cdot 3\cos\theta\,\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{135}{2}\pi+2\int_{0}^{\pi/2} 9\sin^2\theta \cdot \sqrt{9-9\sin^2\theta}\cdot 3\cos\theta\,\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{135}{2}\pi+54\int_{0}^{\pi/2} \sin^2\theta \cdot \sqrt{9\cos^2\theta}\cdot \cos\theta\,\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{135}{2}\pi+54\int_{0}^{\pi/2} \sin^2\theta \cdot 3\cos \theta\cdot \cos\theta\,\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{135}{2}\pi+162\int_{0}^{\pi/2} \sin^2\theta \cdot \cos^2 \theta\,\dee{\theta}
+</mrow>
+<intertext>Using the identity <m>\sin(2\theta)=2\sin\theta\cos\theta</m>, we see
+<m>\sin^2\theta\cos^2\theta =\big(\sin\theta\cos\theta\big)^2 = \frac{1}{4}\sin^2(2\theta)</m>
+</intertext><mrow>
+N&amp;=\frac{135}{2}\pi+162\int_{0}^{\pi/2}  \frac{1}{4}\sin^2(2\theta)\,\dee{\theta}
+</mrow>
+<intertext>Now, we use the identity <m>\sin^2 x = \frac{1}{2}(1-\cos(2x))</m>, with <m>x=2\theta.</m>
+</intertext><mrow>
+N&amp;=\frac{135}{2}\pi+162\int_{0}^{\pi/2}  \frac{1}{8}\big(1-\cos(4\theta)\big)\,\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{135}{2}\pi+\frac{81}{4}\int_{0}^{\pi/2} 1-\cos(4\theta)\,\dee{\theta}
+</mrow><mrow>
+&amp;=\frac{135}{2}\pi+\frac{81}{4}\left[\theta-\frac{1}{4}\sin(4\theta)\right]_{0}^{\pi/2}
+</mrow><mrow>
+&amp;=\frac{135}{2}\pi+\frac{81}{4}\left(\frac{\pi}{2}\right)
+</mrow><mrow>
+&amp;=\frac{621}{8}\pi
+</mrow>
+<intertext>Now, using equation (<m>*</m>), we find <m>\bar y</m>:</intertext><mrow>
+\bar y &amp;=\frac{N}{D} = \frac{\frac{621}{8}\pi}{\frac{45}{2}\pi} = \frac{69}{20}=3.45
+</mrow>
+</md>
+</p>
+
+<p>Let's quickly check that this makes sense: if the circle has uniform density, its centre of mass would lie at <m>(0,3)</m>. Since it's denser at the top, the centre of mass should be higher, and indeed <m>3.45</m> is higher than 3 (without being so high it's above the entire circle).
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS" xml:id="prob_s2_3_cone">
+<statement><p>
+A right circular cone of uniform density has base radius <m>r</m> m and height <m>h</m> m. We want to find its centre of mass. By symmetry, we know that the centre of mass will occur somewhere along the straight vertical line through the tip of the cone and the centre of its base. The only question is the <em>height</em> of the centre of mass.
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3.5}{3.5}{1.5}{4.5}
+\YEycoord{4}{h}
+\YExcoord{3}{r}
+\draw (-3,0) arc(180:360:3cm and 5mm) -- (0,4)--(-3,0);
+\draw[dashed] (-3,0) arc(180:0:3cm and 5mm) ;
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+We will model the cone as a rod <m>R</m> with height <m>h</m>, such that the mass of the section of the rod from position <m>a</m> to position <m>b</m> is the same as the volume of the cone from height <m>a</m> to height <m>b</m>. (You can imagine that the cone is an umbrella, and we've closed it up to look like a cane.
+<fn>This analogy isn't exact: if the cone were an umbrella, closing it would move the outside fabric vertically. A more accurate, but less familiar, image might be vacuum-wrapping an umbrella, watching it shrivel towards the middle but not move vertically.</fn>
+)
+</p>
+
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3.5}{3.5}{1.5}{4.5}
+\YEycoord{4}{h}
+\YExcoord{3}{r}
+\draw (-3,0) arc(180:360:3cm and 5mm) -- (0,4)--(-3,0);
+\draw[dashed] (-3,0) arc(180:0:3cm and 5mm) ;
+\draw[fill, fill opacity=0.3](1.5,2) arc (0:-180:1.5cm and 2.5mm) --(-1.75,1.67) arc(180:360:1.75 cm and 3mm) --cycle;
+\draw (0,2) node[shape=ellipse, fill, fill opacity=0.1, minimum width=3cm, minimum height=6mm]{};
+\draw[ultra thick, - \gt ] (2.5,1.8)--(5,1.8);
+\begin{scope}[xshift=6cm]
+
+\draw[rounded corners] (-.25,0) rectangle (.25,4);
+\draw[fill, fill opacity=0.3](-.25,2) rectangle (.25,1.67);
+\end{scope}
+\begin{scope}[xshift=5.5cm]
+\YEycoord{4}{h}
+\YEycoord{0}{0}
+\end{scope}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+<ol label="a">
+<li> Using this model, calculate how high above the base of the cone its centre of mass is.
+</li>
+<li> If we cut off the top <m>h-k</m> metres of the cone (leaving an object of height <m>k</m>), how high above the base is the new centre of mass?
+</li>
+</ol>
+</p>
+
+</statement>
+<hint><p>
+The model in the question gives you the setup to solve this problem. You know how to find the centre of mass of a rod <mdash/> that's
+ Equation<nbsp/><xref ref="eq_TRQvariabledensityrod"/> <mdash/> so all you need to find is <m>\rho(y)</m>, the density of the rod at position <m>y</m>. To find this, consider a thin slice of the cone at position <m>y</m> with thickness <m>\dee{y}</m>. Its volume <m>V(y)</m> is the same as the mass of the small section of the rod at position <m>y</m> with thickness <m>\dee{y}</m>. So, the density of the rod at position <m>y</m> is <m>\rho(y)=\frac{V(y)}{\dee{y}}</m>.
+</p></hint>
+<answer><p>
+(a) <m>\dfrac{h}{4}</m>
+</p><p>
+ (b) <m>\displaystyle\frac{\frac{1}{2}h^2k - \frac{2}{3}hk^2+\frac{1}{4}k^3}{h^2-hk+\frac{1}{3}k^2}</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li>
+<p>
+To find the centre of mass of the rod <m>R</m>, we need to know its density at height <m>y</m>, <m>\rho(y)</m>. Since the mass of a section of <m>R</m> is the same as the volume of a section of the cone, let's find the volume of a thin horizontal slice of the cone at height <m>y</m>, with thickness <m>\dee{y}.</m> To find its radius <m>s</m>, we use similar triangles. The diagram below represents a vertical cross-section of the cone.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{3.5}{3.5}{1.5}{4.5}
+\YEycoord{4}{h}
+\YEycoord{1.8}{y}
+\YExcoord{3}{r}
+\draw (-3,0) --(3,0) -- (0,4)--(-3,0);
+\draw[fill, fill opacity=0.3](1.635,2) rectangle (-1.635,1.67);
+\draw[thick, blue] (0,4)|-(3,0)--cycle;
+\draw[thick, red, fill=red, fill opacity=0.1] (.1,3.7)|-(1.535,1.8)--cycle;
+\draw (.75,1.4) node[red]{$s$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Since <m>\frac{r}{h}=\frac{s}{h-y}</m>, the radius of our slice at height <m>y</m> is <m>s=\frac{r}{h}(h-y)</m>. Then the volume of the slice is <m>\pi s^2\dee{y}=\pi\left(\frac{r}{h}(h-y)\right)^2\,\dee{y}</m>. Correspondingly, the mass of the piece of the rod at position <m>y</m> with length <m>\dee{y}</m> is <m>\pi\left(\frac{r}{h}(h-y)\right)^2\,\dee{y}</m>, so its density is
+<me>
+\rho(y) = \frac{\pi\left(\frac{r}{h}(h-y)\right)^2\,\dee{y}}{\dee{y}}=\pi\left(\frac{r}{h}(h-y)\right)^2.</me>
+</p>
+
+<p>Now, we can find the centre of mass of <m>R</m>:
+<md>
+<mrow>
+\bar y &amp;= \frac{\int_0^h y\rho(y)\,\dee{y}}{\int_0^h \rho(y)\,\dee{y}} =
+\frac{\int_0^h y\pi\left(\frac{r}{h}(h-y)\right)^2\,\dee{y}}{\int_0^h \pi\left(\frac{r}{h}(h-y)\right)^2\,\dee{y}}
+</mrow><mrow>
+&amp; =
+\frac{\frac{r^2}{h^2}\pi\int_0^h y\left(h-y\right)^2\,\dee{y}}{\frac{r^2}{h^2}\pi\int_0^h \left(h-y\right)^2\,\dee{y}}
+</mrow><mrow>&amp; =
+\frac{\int_0^h \left(h^2y-2hy^2+y^3\right)\,\dee{y}}{\int_0^h \left(h^2-2hy+y^2\right)\,\dee{y}}
+</mrow><mrow>
+&amp;=\frac{\left[\frac{h^2}{2}y^2-\frac{2h}{3}y^3+\frac{1}{4}y^4\right]_0^h}
+{\left[h^2y-hy^2+\frac{1}{3}y^3\right]_0^h}
+</mrow><mrow>&amp;=\frac{\frac{h^4}{2}-\frac{2h^4}{3}+\frac{h^4}{4}}
+{h^3-h^3+\frac{1}{3}h^3}
+</mrow><mrow>
+&amp;=\frac{h^4}{h^3}\cdot\frac{\frac{1}{2}-\frac{2}{3}+\frac{1}{4}}{\frac{1}{3}}=\frac{h}{4}
+</mrow>
+</md>
+So, the centre of mass of the cone occurs <m>\frac{h}{4}</m> metres above its base.
+</p>
+
+<p>Remark: it is quite interesting that the centre of mass does not depend on the radius of the cone!
+</p>
+</li>
+<li> To find the centre of mass of a truncated cone, we simply consider a truncated rod. If the top <m>h-k</m> metres are missing, then the height of the cone (and also the rod) is <m>k</m>. Then the centre of mass has height:
+<md>
+<mrow>
+\bar y &amp;= \frac{\int_0^{k} y\rho(y)\,\dee{y}}{\int_0^h \rho(y)\,\dee{y}} =
+\frac{\int_0^{k} y\pi\left(\frac{r}{h}(h-y)\right)^2\,\dee{y}}{\int_0^h \pi\left(\frac{r}{h}(h-y)\right)^2\,\dee{y}}
+</mrow><mrow>
+&amp; =
+\frac{\frac{r^2}{h^2}\pi\int_0^{k} y\left(h-y\right)^2\,\dee{y}}{\frac{r^2}{h^2}\pi\int_0^{k} \left(h-y\right)^2\,\dee{y}}
+</mrow><mrow>&amp; =
+\frac{\int_0^{k} \left(h^2y-2hy^2+y^3\right)\,\dee{y}}{\int_0^{k} \left(h^2-2hy+y^2\right)\,\dee{y}}
+</mrow><mrow>
+&amp;=\frac{\left[\frac{h^2}{2}y^2-\frac{2h}{3}y^3+\frac{1}{4}y^4\right]_0^{k}}
+{\left[h^2y-hy^2+\frac{1}{3}y^3\right]_0^{k}}
+</mrow><mrow>
+&amp;=\frac{\frac{1}{2}h^2k^2 - \frac{2}{3}hk^3+\frac{1}{4}k^4}{h^2k-hk^2+\frac{1}{3}k^3}
+</mrow><mrow>
+&amp;=\frac{\frac{1}{2}h^2k - \frac{2}{3}hk^2+\frac{1}{4}k^3}{h^2-hk+\frac{1}{3}k^2}
+</mrow>
+</md>
+</li>
+</ol>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s2_3_cone2">
+<statement><p>
+An hourglass is shaped like two identical truncated cones attached together. Their base radius is 5 cm, the height of the entire hourglass is 18 cm, and the radius at the thinnest point is <m>.5</m> cm. The hourglass contains sand that fills up the bottom 6 cm when it's settled, with mass <m>600</m> grams and uniform density. We want to know the work done flipping the hourglass smoothly, so the sand settles into a truncated, inverted-cone shape before it starts to fall down.
+</p>
+
+<sidebyside width="80%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[|-|, gray] (-3,-4.5)--(-3,4.5) node[midway, left]{$18$ cm};
+\draw[|-|, gray] (-2.5,5.5)--(0,5.5) node[midway, above]{$5$ cm};
+\draw[|-|, gray] (-.5,.5)--(0,.5) node[midway, above]{$0.5$};
+\draw[|-|, gray] (3,-4.5)--(3,-1.5) node[midway, right]{$6$ cm};
+\draw (-.45,0)--(-2.5,-4.5) arc(180:360:2.5cm and 5mm) -- (.45,0);
+\draw[dashed] (.45,0) arc (0:180:.45 cm and .9mm);
+\draw (-2.5,4.5) arc(180:360:2.5cm and 5mm) -- (.45,0) arc (0:-180:.45 cm and .9mm)--(-2.5,4.5)
+ arc(180:0:2.5cm and 5mm) ;
+\draw[fill, fill opacity=0.3] (-1.125,-1.5) arc(180:360:1.125cm and 2.25mm)--(2.5,-4.5) arc(0:-180:2.5cm and 5mm)--cycle;
+\fill[ fill opacity=0.1] (-1.125,-1.5) arc(180:0:1.125cm and 2.25mm) arc(0:-180:1.125cm and 2.25mm);
+\draw[ultra thick, - \gt ] (2,0)--(5,0);
+\begin{scope}[xshift=7cm]
+\draw (-.45,0)--(-2.5,-4.5) arc(180:360:2.5cm and 5mm) -- (.45,0);
+\draw[dashed] (-2.5,-4.5)arc(180:0:2.5cm and 5mm);
+\draw (-2.5,4.5) arc(180:360:2.5cm and 5mm) -- (.45,0) arc (0:-180:.45 cm and .9mm)--(-2.5,4.5)
+ arc(180:0:2.5cm and 5mm) ;
+
+\draw[fill, fill opacity=0.3] (-.45,0) arc(180:360:.45cm and .9mm)--(2.25,4) arc(0:-180:2.25cm and 4.5mm)--cycle;
+\fill[ fill opacity=0.1] (-2.25,4) arc(180:0:2.25cm and 4.5mm) arc(0:-180:2.25cm and 4.5mm);
+\draw[|-|, gray] (3,0)--(3,4) node[midway, right]{$8.8$ cm};
+\end{scope}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Using the methods of Section 2.1 to calculate the work done would be
+                    quite tedious. Instead, we will model the sand as a point of mass <m>0.6</m> kg, being lifted from the centre of mass of its original position to the centre of mass of its upturned position. Using the results of Question<nbsp/><xref ref="prob_s2_3_cone" text="local"/>, how much work was done on the sand?
+</p>
+
+<p>To simplify your calculation, you may assume that the height of the upturned sand (that is, the distance from the skinniest part of the hourglass to the top of the sand) is 8.8 cm. (Actually, it's <m>\sqrt[3]{937}-1\approx 8.7854</m> cm.) So, the top 0.2 cm of the hourglass is empty.
+</p></statement>
+<hint><p>
+Use similar triangles to show that the shape of the lower (also upper) half of the hourglass is a truncated cone, where the untruncated cone would have had a height 10 cm.
+</p>
+
+<p>To calculate the centre of mass of the upturned sand using the result of Question<nbsp/><xref ref="prob_s2_3_cone" text="local"/>, you should find <m>h=9.8</m> (<em>not</em> <m>h=10</m> <mdash/> think carefully about our model from Question<nbsp/><xref ref="prob_s2_3_cone" text="local"/>) and <m>k=8.8</m>. For the centre of mass of the sand before turning, <m>h=10</m> and <m>k=6</m>.
+</p></hint>
+<answer><p>
+about 0.833 N
+</p></answer>
+<solution><p>
+To use the result of Question<nbsp/><xref ref="prob_s2_3_cone" text="local"/>, we need to now the dimensions of the cone that was truncated to make the hourglass. The bottom (or top) half of our hourglass has base radius 5 cm,  height 9 cm, and top radius 0.5 cm. Imagine extending it to a full cone. Let <m>t</m> be the distance from the top of the half hourglass to the tip of the full cone.
+</p><sidebyside width="33%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[ultra thick, red] (0,0)--(2.5,0) node[midway, below]{5};
+\draw[ultra thick, red] (0,0)--(0,3) node[midway, left]{9};
+\draw[ultra thick, blue] (0,3)--(1,3) node[midway, below]{0.5};
+\draw (0,0)--(-2.5,0)--(-1,3)--(0,3) (1,3)--(2.5,0);
+\draw[dashed] (-1,3)--(0,5)--(1,3);
+\draw[dashed, blue, ultra thick] (0,5)--(0,3) node[midway, left]{$t$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Using similar triangles, <md>
+<mrow>\dfrac{t}{0.5} &amp;= \dfrac{t+9}{5}
+</mrow><mrow>
+\text{so }\qquad 5t&amp;=\frac{1}{2}(t+9)
+</mrow><mrow>
+4.5t&amp;=4.5
+</mrow><mrow>
+t&amp;=1
+</mrow>
+</md>
+Then the height of the full cone (that we imagined truncating to make half of the hourglass) is <m>h=10</m> cm.
+</p>
+
+<p>Before the hourglass is turned over, the sand forms a truncated cone of height <m>6</m> cm. So, it's the bottom <m>k=6</m> cm of a cone of height <m>h=10</m> cm. Using the result of Question<nbsp/><xref ref="prob_s2_3_cone" text="local"/>, its centre of mass is at height:
+<md>
+<mrow>
+\frac{\frac{1}{2}h^2k - \frac{2}{3}hk^2+\frac{1}{4}k^3}{h^2-hk+\frac{1}{3}k^2}&amp;=
+\frac{\frac{1}{2}10^2\cdot 6 - \frac{2}{3}10\cdot 6^2+\frac{1}{4}6^3}{10^2-10\cdot 6+\frac{1}{3}6^2}=\textcolor{red}{\frac{57}{26}}\approx2.2
+</mrow>
+</md>
+</p>
+
+<p>Next, let's find the centre of mass of the sand after it's been rotated. We have to be a little careful with our vocabulary here: usually we imagine a cone sitting on its base, with its tip pointing up. The upturned sand is in the opposite configuration. When we say the <q>base</q> of the cone, we mean the larger horizontal face <mdash/> the top of the sand as it sits in the hourglass.
+</p>
+
+<p>The formula we have from Question<nbsp/><xref ref="prob_s2_3_cone" text="local"/> gives us our centre of mass as a distance from the base of the truncated cone (that is, the distance from the top of the upturned sand).
+ If <m>k</m> is the height the sand actually occupies, then we were told we may assume <m>k=8.8</m> cm. It's missing its <q>tip</q> of height 1 cm, so <m>h</m>, the height of the <q>untruncated</q> cone, is <m>9.8</m> cm. Using our model from Question<nbsp/><xref ref="prob_s2_3_cone" text="local"/>, we don't care about the empty, uppermost piece of the hourglass. The shape of the sand is of a cone of height 9.8 cm (not 10 cm), with a tip of height <m>1</m> cm chopped off.
+</p><sidebyside width="100%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+ \draw (0,0)--(2,4)--(-2,4)--cycle;
+ \draw[dashed] (2,4)--(2.5,5)--(-2.5,5)--(-2,4);
+ \draw[dashed,  \lt -] (3,4.7)-- (4,4.7) node[right]{0.2 cm of empty hourglass: };
+ \draw (4,4.25) node[right]{ignored in our calculation of sand's centre of mass};
+ \draw (-.5,1)--(.5,1);
+ \draw[ \lt -] (.75,.5)-- (1,.5) node[right]{cut-off tip: height 1 cm};
+ \fill[fill opacity=0.1] (2,4)--(-2,4)--(-.5,1)--(.5,1)--cycle;
+ \draw[ \lt -] (1.5,2.5)-- (2.25,2.5) node[right]{sand: height $k=8.8$ cm};
+ \draw[|-|] (-2.5,0)--(-2.5,4) node[midway, rotate=90, yshift=5mm]{$h=9.8$};
+ \end{tikzpicture}]]></latex-image></image>
+</sidebyside><p><md>
+<mrow>
+\frac{\frac{1}{2}h^2k - \frac{2}{3}hk^2+\frac{1}{4}k^3}{h^2-hk+\frac{1}{3}k^2}&amp;=
+\frac{\frac{1}{2}9.8^2\cdot 8.8 - \frac{2}{3}9.8\cdot 8.8^2+\frac{1}{4}8.8^3}{9.8^2-9.8\cdot 8.8+\frac{1}{3}8.8^2}\approx 2.443
+</mrow>
+</md>
+That is, the centre of mass of the upturned sand is about <m>2.443</m> centimetres below its top, which is at height <m>8.8+10=18.8</m> cm above the very bottom of the hourglass. So, the centre of mass of the upturned sand is at height <m>y=18.8-2.443= \textcolor{blue}{16.357}</m> cm.
+</p>
+
+<p>Now, we have our model: the sand, viewed as a point mass, is moved from <m>y=\textcolor{red}{\frac{57}{26}}</m> to <m>y=\textcolor{red}{16.357}</m> cm. That is, it moved about <m>14.165</m> cm, or about <m>0.14165</m> m. It has a mass of <m>0.6</m> kg, so the force required to lift it against gravity is
+<me>
+\left(0.6 \text{kg}\right)\times \left(9.8 \frac{\text{m}}{\text{sec}^2}\right)\times\left(0.14165 \text{m}\right)\approx 0.833 \text{newtons}</me>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Tank <m>A</m> is in the shape of half a sphere of radius 1 metre, with its flat face resting on the ground, and is completely filled with water. Tank <m>B</m> is empty and rectangular, with a square base of side length 1 m and a height of 3 m.
+</p>
+
+<sidebyside width="75%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (-2,0) arc (180:0:2cm) arc(0:-180:2cm and 2mm);
+\draw[dashed](-2,0) arc(180:0:2cm and 2mm);
+\draw (0,0)--(-2,0) node[midway, below, yshift=-1mm]{1 m};
+\draw (0,3) node{$A$};
+\begin{scope}[xshift=6cm]
+\draw (0,0) rectangle (2,4);
+\draw (2,0)--(2.5,.25)--(2.5,4.25)--(.5,4.25)--(0,4) (2,4)--(2.5,4.25) (.5,4)--(.5,4.25);
+\draw (1,-.5) node{1 m};
+\draw (1.125,5) node{$B$};
+\draw (2.5,2) node[right]{3 m};
+\end{scope}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+<ol label="a">
+<li> To pump the water from Tank <m>A</m> to Tank <m>B</m>, we need to pump all the water from Tank <m>A</m> to a height of 3 m. How much work is done to pump all the water from Tank <m>A</m> to a height of 3 m? You may model the water as a point mass, originally situated at the centre of mass of the full Tank <m>A</m>.
+</li>
+<li> Suppose we could move the water from Tank <m>A</m> directly to its final position in Tank <m>B</m> without going over the top of Tank <m>B</m>. (For example, maybe tank <m>A</m> is elastic, and Tank <m>B</m> is just Tank <m>A</m> after being smooshed into a different form.) How much work is done pumping the water? (That is, how much work is done moving a point mass from the centre of mass of Tank <m>A</m> to the centre of mass of Tank <m>B</m>?)
+</li>
+<li> What percentage of work from part (a) was <q>wasted</q> by pumping the water over the top of Tank <m>B</m>, instead of moving it directly to its final position?
+</li>
+</ol>
+You may assume that the only work done is against the acceleration due to gravity, <m>g=9.8</m> m/sec<m>^2</m>, and that the density of water is 1000 kg/m<m>^3</m>.
+</p>
+
+<p>Remark: the answer from (b) is what you might think of as the <em>net</em> work involved in pumping the water from Tank <m>A</m> to Tank <m>B</m>. When work gets <q>wasted,</q>  the pump does some work pumping water up, then gravity does equal and opposite work bringing the water back down.
+</p></statement>
+<hint><p>
+The techniques of Section 2.1 get pretty complicated here, so it's easiest to use the techniques we developed in Questions<nbsp/><xref ref="prob_s2_3tank1" text="local"/>, <xref ref="prob_s2_3_cone" text="local"/>, and <xref ref="prob_s2_3_cone2" text="local"/> in this section. That is, (1) find the height of the centre of mass of the water in its starting and ending positions, and then (2) model the work done as the work moving a point mass with the weight of the water from the first centre of mass to the second.
+</p>
+
+<p>The height change of the centre of mass is all that matters to calculate the work done against gravity, so you only have to worry about the <em>height</em> of the centres of mass.
+</p></hint>
+<answer><p>
+(a) 17,150<m>\pi</m> J
+</p><p>
+ (b)
+<m>\displaystyle\frac{2450}{9}\pi\left(8\pi-9\right)\approx 13,797\text{ J}</m>
+</p><p>
+(c) about <m>74\%</m>
+</p></answer>
+<solution><p>
+The techniques of Section 2.1 get pretty complicated here, so we will use the techniques we developed in Questions<nbsp/><xref ref="prob_s2_3tank1" text="local"/>, <xref ref="prob_s2_3_cone" text="local"/> and <xref ref="prob_s2_3_cone2" text="local"/> in this section. That is, (1) find the centre of mass of the water in its starting and ending positions, and then (2) compute the work done as the work moving a point mass with the weight of the water from the first centre of mass to the second. For the centre of mass, all we need to know is the height <mdash/> for one thing, we could find the other coordinates by symmetry, but we don't need them. The height moved by the water is all that matters if we're calculating the work done opposing gravity.
+</p>
+
+<p><alert>Let's start by calculating the volume of the water.</alert> The volume of a sphere of radius 1 is <m>\frac{4}{3}\pi\cdot 1^3</m>, so the volume of water is <m>\frac{2}{3}\pi</m> m<m>^3</m>.
+</p>
+
+<p><alert>Then the mass of the water is</alert> <m>\frac{2000}{3}\pi</m> kg.
+</p>
+
+<p><alert>Next, we calculate the centre of mass of Tank <m>A</m>, and the work done to pump the water out of Tank <m>A</m> to a height of 3 metres.</alert> Symmetry alone won't tell us  the height of the centre of mass. We'll show you two ways to go about this.
+</p>
+
+<p><ul>
+<li>
+<p>
+Option 1: As in Question<nbsp/><xref ref="prob_s2_3_cone" text="local"/>, we'll model the tank of water as a vertical rod, along the <m>y</m>-axis spanning the interval <m>[0,1]</m>, such that the mass of a piece of the rod along <m>[a,b]</m> is the same as the mass of the water from height <m>y=a</m> to height <m>y=b</m>. Then, the centre of mass of the rod will be the same as the centre of mass of the water.
+</p>
+
+<p>Consider a horizontal slice of water at height <m>y</m>, with thickness <m>\dee{y}</m>. If the radius of this slice is <m>r(y)</m>, then the volume of the slice is <m>\pi r(y)^2\,\dee{y}</m> m<m>^3</m>, so its mass is <m>1000\pi r(y)^2\,\dee{y}</m> kg. Then the mass of the slice of the rod at position <m>y</m> with length <m>\dee{y}</m> is <m>1000\pi r(y)^2\,\dee{y}</m> kg, so its density <m>\rho(y)</m> is
+<me>
+\rho(y) = \frac{1000\pi r(y)^2\,\dee{y}\text{ kg}}{\dee{y}\text{ m}} = 1000\pi r(y)^2  \frac{\text{kg}}{\text{m}}.</me>
+</p>
+
+<p>So, let's find <m>r(y)</m>, the radius of the slice of water at height <m>y</m>.
+</p><sidebyside width="45%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw (-2,0) arc (180:0:2cm) --cycle;
+\YEaaxis{3}{3}{1}{3}
+\draw[ultra thick, red] (0,1)--(1.73,1) node[midway, above]{$r$};
+\YEycoord{1}{y}
+\draw[blue](0,0)--(1.73,1) node[midway, below, rotate=30]{$1$};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Using the Pythagorean Theorem, <m>r = \sqrt{1-y^2}</m>. Therefore,
+</p>
+
+<p><me>
+\rho(y)= 1000\pi(1-y^2)</me>
+</p>
+
+<p>We use Equation<nbsp/><xref ref="eq_TRQvariabledensityrod"/> to calculate the centre of mass of the rod, which is the height of the centre of mass of Tank <m>A</m>:
+<md>
+<mrow>
+\bar y_A&amp;=\frac{\int_0^1 y\rho(y)\,\dee{y}}{\int_0^1 \rho(y)\,\dee{y}} =
+\frac{\int_0^1 1000\pi y(1-y^2)\,\dee{y}}{\int_0^1 1000\pi(1-y^2)\,\dee{y}}
+</mrow><mrow>
+&amp;=\frac{\int_0^1(y-y^3)\,\dee{y}}{\int_0^1(1-y^2)\,\dee{y}} = \frac{\left[\frac{1}{2}y^2 - \frac{1}{4}y^4\right]_0^1}{\left[y-\frac{1}{3}y^3\right]_0^1} = \frac{\frac{1}{2}-\frac{1}{4}}{1-\frac{1}{3}}=\frac{3}{8} \text{m}
+</mrow>
+</md>
+</p>
+
+<p>From here, we can find the work done moving pumping the water to a height of 3 metres. We've moved the centre of mass from <m>\bar y_A = \frac{3}{8}</m> metres to 3 metres.
+<md>
+<mrow>
+W&amp;=\left(\frac{2000}{3}\pi \text{kg}\right)\times\left(3 - \frac{3}{8} \text{m}\right)\times\left(9.8  \frac{\text{m}}{\text{sec}^2}\right)
+</mrow><mrow>
+&amp;=17,150\pi \text{J}
+</mrow>
+</md>
+</p>
+</li>
+<li>
+<p>
+Option 2: We can use the techniques of Section<nbsp/><xref ref="sec_work"/> to calculate the amount of work it takes to pump the water from tank <m>A</m> to a height of 3 metres. That solves part (a), and we can use the amount of work to figure out the centre of gravity of the water in Tank <m>A</m> to help us solve part (b).
+</p>
+
+<p>At height <m>y</m>, a horizontal layer of water in Tank <m>A</m> forms a disk with thickness <m>\dee{y}</m> and radius <m>\sqrt{1-y^2}</m>. (The radius  comes from the Pythagorean Theorem <mdash/> see  the diagram below.)
+</p>
+
+<sidebyside width="40%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\YEaaxis{2.5}{2.5}{1}{2.5}
+\draw[thick, blue] (-2,0) arc (180:0:2cm);
+\YEycoord{1}{}
+\draw (0,.5) node[left]{$y$};
+\draw[red] (0,1)--(1.7,1);
+\draw (0,0)--(1.7,1) node[midway, below]{1};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>The volume of the layer at height <m>y</m> is <m>\pi \left(\sqrt{1-y^2}\right)^2\,\dee{y} = \pi(1-y^2)\,\dee{y}</m> m<m>^3</m>, so its mass is <m>1000\pi(1-y^2)\,\dee{y}</m> kg.
+</p>
+
+<p>The layer at height <m>y</m> needs to be pumped a distance of <m>3-y</m> metres. So, the work involved pumping the layer at height <m>y</m> is:
+<md>
+<mrow>
+\dee{W}&amp;=\left(1000\pi(1-y^2)\,\dee{y} \text{kg}\right)\times\left(3-y \text{m}\right)\times\left(9.8 \text{m}/\text{sec}^2\right)
+</mrow><mrow>
+&amp;=9800\pi(y^3-3y^2-y+3)\,\dee{y}\text{ J}
+</mrow>
+<intertext>Then the work involved pumping out the entire tank to a height of 3 metres is:</intertext><mrow>
+W&amp;=\int_0^1 9800\pi(y^3-3y^2-y+3)\,\dee{y}
+</mrow><mrow>
+&amp;=9800\pi\left[\frac{1}{4}y^4 - y^3-\frac{1}{2}y^2+3y\right]_0^1
+</mrow><mrow>
+&amp;=17,150\pi \text{J}
+</mrow>
+</md>
+</p>
+
+<p>This gives us an answer to part (a). To find the centre of mass of the water in Tank <m>A</m>, note that the work done is equivalent to moving a point mass from the centre of mass of the tank to a height of 3 metres. We know the water in Tank <m>A</m> has mass <m>\frac{2000}{3}\pi</m> kg. So, if <m>\bar y_A</m> is the centre of mass of the water in Tank <m>A</m>:
+<md>
+<mrow>
+W&amp;=\left(\frac{2000}{3}\pi \text{kg}\right)\times\left(3-\bar y_A \text{m}\right)\times\left(9.8 \text{m}/\text{sec}^2\right)
+</mrow><mrow>
+17,150\pi&amp;=\left(\frac{2000}{3}\pi\right)\left(3-\bar y_A\right)(9.8)
+</mrow><mrow>
+\frac{21}{8}&amp;=3-\bar y_A
+</mrow><mrow>
+\bar y_A &amp;= \frac{3}{8} \text{m}
+</mrow>
+</md>
+</p>
+</li>
+</ul>
+<alert>Next let's calculate the centre of mass of the water in Tank <m>B</m>.</alert> Since the volume of the water in Tank <m>B</m> is <m>\frac{2}{3}\pi</m> m<m>^3</m>, and the base of Tank <m>B</m> has area 1 m<m>^2</m>, the height of the water in Tank <m>B</m> is <m>\frac{2}{3}\pi</m> m. Since the water is of uniform density, and Tank <m>B</m> has uniform horizontal cross-sections, by symmetry the centre of mass of the water in Tank <m>B</m> is at <me>
+\bar y_B = \frac{1}{3}\pi\text{ m}.</me>
+</p>
+
+<p><alert>Now, we can calculate the work done by moving the water directly from Tank <m>A</m> to its final position in Tank <m>B</m>.</alert> The work done moving a point mass of <m>\frac{2000}{3}\pi</m> kg a distance of <m>\bar y_B - \bar y_A = \frac{1}{3}\pi-\frac{3}{8}</m> m against the gravity, <m>g=9.8</m> m/sec<m>^2</m>, is:
+<md>
+<mrow>W &amp;= \left(\frac{2000}{3}\pi\text{ kg}\right)\times\left( \frac{1}{3}\pi-\frac{3}{8} \text{ m}\right)\times\left(9.8 \text{m/sec}^2\right)
+</mrow><mrow>
+&amp;=\frac{2450}{9}\pi\left(8\pi-9\right)\approx 13,797\text{ J}
+</mrow>
+</md>
+</p>
+<p>
+  Finally, the <q>wasted</q> work is:
+<md>
+<mrow>
+ \Delta W &amp;=17,150\pi -\frac{2450}{9}\pi\left(8\pi-9\right)
+</mrow><mrow>
+ &amp;=2450\pi\left(7-\frac{8\pi-9}{9}\right)
+</mrow><mrow>
+  &amp;=2450\pi\left(8-\frac{8\pi}{9}\right)
+</mrow><mrow>
+ &amp;=19,600\pi\left(1-\frac{\pi}{9}\right)
+</mrow>
+<intertext> As a percentage of 17,150<m>\pi</m>, this is:</intertext><mrow>
+\text{waste}&amp;=
+\left(\frac{19,600\pi\left(1-\frac{\pi}{9}\right)}{17,150\pi}\right)\times 100
+</mrow><mrow>
+&amp;=\frac{8}{7}\left(1-\frac{\pi}{9}\right)\times 100\approx 74\%
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Let <m>R</m> be the region bounded above by <m>y=2x\sin (x^2)</m> and below by the <m>x</m>-axis, <m>0 \le x \le \sqrt{\frac{\pi}{2}}</m>.
+Give an approximation of the <m>x</m>-value of the centroid of <m>R</m> with error no more than <m>\frac{1}{100}</m>.
+</p>
+
+<p>You may assume without proof that
+<m>\left|\ddiff{4}{}{x}\left\{2x^2\sin(x^2)\right\} \right| \leq 415</m> over the interval <m>\left[0,\sqrt{\frac{\pi}{2}}\right]</m>.
+</p>
+
+</statement>
+<hint><p>
+The area of <m>R</m> is precisely one, so the error in your approximation is the error involved in approximating <m>\int_0^{\sqrt{\pi/2}}2x^2\sin(x^2)\,\dee{x}</m>.
+</p></hint>
+<answer><p>
+<m>\displaystyle \bar x =\frac{\pi}{162}\sqrt{\frac{\pi}{2}}\bigg[
+\sin\left(\frac{\pi}{72}\right)+2\sin\left(\frac{\pi}{18}\right)+9\sin\left(\frac{\pi}{8}\right)+
+8\sin\left(\frac{2\pi}{9}\right)+25\sin\left(\frac{25\pi}{72}\right)
++9\bigg]\approx 0.976</m>
+</p></answer>
+<solution><p>
+Using Equation<nbsp/><xref ref="eq_TRQcentroid"/> with <m>T(x) = 2x\sin (x^2)</m> and <m>B(x)=0</m>,
+</p>
+
+<p><me>
+\bar x = \frac{\displaystyle\int_0^{\sqrt{\pi/2}} 2x^2\sin(x^2)\,\dee{x}}{\displaystyle\int_0^{\sqrt{\pi/2}} 2x\sin(x^2)\,\dee{x}}</me>
+</p>
+
+<p>We can evaluate the bottom integral exactly with the substitution <m>u=x^2</m>, <m>\dee{u}=2x\dee{x}</m>. When <m>x=0</m>, <m>u=0</m>, and when <m>x=\sqrt{\pi/2}</m>, <m>u=\pi/2</m>.
+</p>
+
+<p><md>
+<mrow>
+\int_0^{\sqrt{\pi/2}}2x\sin(x^2)\,\dee{x}&amp;=\int_0^{\pi/2} \sin u\,\dee{u}
+=\Big[-\cos u\Big]_0^{\pi/2}=1
+</mrow>
+</md>
+</p>
+
+<p>So, <me>
+\bar x = \int_0^{\sqrt{\pi/2}} 2x^2\sin(x^2)\,\dee{x} </me>
+</p>
+
+<p>Evaluating the integral <m>\int x^2\sin(x^2)\,\dee{x}</m> is not so simple
+<fn>Indeed, the antiderivative of <m>2x^2\sin(x^2)</m> is not expressible as an elementary function.</fn>
+, so we use a numerical approximation. Since we're given an upper bound on the fourth derivative, we decide to use Simpson's rule. The error involved using Simpson's rule with <m>n</m> intervals is at most <m>\frac{L(b-a)^5}{180n^4}</m>. For our approximation,  <m>a=0</m> and <m>b=\sqrt{\pi/2}</m>. According to the information given in the problem statement,
+<m>\left|\ddiff{4}{}{x}\left\{2x^2\sin(x^2)\right\} \right| \leq 415</m> over the interval <m>\left[0,\sqrt{\frac{\pi}{2}}\right]</m>, so  we set <m>L=415</m>.
+</p>
+
+<p>We want our final error to be no more than <m>\frac{1}{100}</m>, so we want to find an even <m>n</m> such that:
+<md>
+<mrow>
+\frac{415\left(\sqrt{\frac{\pi}{2}}-0\right)^5}{180n^4} &amp;\leq \frac{1}{100}
+</mrow><mrow>
+n^4 &amp;\geq \frac{415\cdot 100\left(\frac{\pi}{2}\right)^{5/2}}{180} = \frac{2075\pi^{5/2}}{36\sqrt{2}}
+</mrow><mrow>
+n&amp;\geq \sqrt[4]{\frac{2075\pi^{5/2}}{36\sqrt{2}}}\approx 5.17
+</mrow>
+</md>
+So, <m>n=6</m> intervals suffices. Then <m>\De x = \frac{b-a}{6} = \frac{1}{6}\sqrt{\frac{\pi}{2}}</m> and our grid points are <m>x_0=0</m>, <m>x_1=\frac{1}{6}\sqrt{\frac{\pi}{2}}</m>, <m>x_2=\frac{1}{3}\sqrt{\frac{\pi}{2}}</m>, <m>x_3=\frac{1}{2}\sqrt{\frac{\pi}{2}}</m>, <m>x_4=\frac{2}{3}\sqrt{\frac{\pi}{2}}</m>, <m>x_5=\frac{5}{6}\sqrt{\frac{\pi}{2}}</m>, and , <m>x_6=\sqrt{\frac{\pi}{2}}</m>.
+</p>
+
+<sidebyside width="90%">
+<image><latex-image><![CDATA[\begin{tikzpicture}[scale=1.8]
+\draw[ \lt - \gt , thick] (-1,0)--(7,0);
+\YExcoord{0}{0}
+\YExcoord{1}{{\frac{1}{6}\sqrt{\frac{\pi}{2}}}}
+\YExcoord{2}{\frac{1}{3}\sqrt{\frac{\pi}{2}}}
+\YExcoord{3}{\frac{1}{2}\sqrt{\frac{\pi}{2}}}
+\YExcoord{4}{\frac{2}{3}\sqrt{\frac{\pi}{2}}}
+\YExcoord{5}{\frac{5}{6}\sqrt{\frac{\pi}{2}}}
+\YExcoord{6}{\sqrt{\frac{\pi}{2}}}
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside><p>
+Following Equation<nbsp/><xref ref="eq_SIMPrule"/>, the Simpson's rule approximation of <m>\displaystyle\int_0^{\sqrt{\pi/2}}2x^2\sin(x^2)\,\dee{x}</m> is:
+<md>
+<mrow>
+&amp;\frac{\De x}{3}\Big[f(x_0)+4f(x_1)+2f(x_2)+4f(x_3)+2f(x_4)+4f(x_5)+f(x_6)\Big]
+</mrow><mrow>
+=&amp;\frac{1}{6}\sqrt{\frac{\pi}{2}}\cdot\frac{1}{3}\bigg[
+0+4\times \frac{2\pi}{72}\sin\left(\frac{\pi}{72}\right)+2\times\frac{2\pi}{18}\sin\left(\frac{\pi}{18}\right)+4\times\frac{2\pi}{8}\sin\left(\frac{\pi}{8}\right)+
+2\times \frac{8\pi}{18}\sin\left(\frac{4\pi}{18}\right)
+</mrow><mrow>
+&amp;+4\times \frac{50\pi}{72}\sin\left(\frac{25\pi}{72}\right)
++\frac{2\pi}{2}\sin\left(\frac{\pi}{2}\right)
+\bigg]
+</mrow><mrow>=&amp;\frac{1}{18}\sqrt{\frac{\pi}{2}}\bigg[
+\frac{\pi}{9}\sin\left(\frac{\pi}{72}\right)+\frac{2\pi}{9}\sin\left(\frac{\pi}{18}\right)+\pi\sin\left(\frac{\pi}{8}\right)+
+\frac{8\pi}{9}\sin\left(\frac{2\pi}{9}\right)
+</mrow><mrow>
+&amp;+\frac{25\pi}{9}\sin\left(\frac{25\pi}{72}\right)
++\pi\bigg]
+</mrow><mrow>=&amp;\frac{\pi}{18}\sqrt{\frac{\pi}{2}}\bigg[
+\frac{1}{9}\sin\left(\frac{\pi}{72}\right)+\frac{2}{9}\sin\left(\frac{\pi}{18}\right)+\sin\left(\frac{\pi}{8}\right)+
+\frac{8}{9}\sin\left(\frac{2\pi}{9}\right)+\frac{25}{9}\sin\left(\frac{25\pi}{72}\right)
++1\bigg]
+</mrow><mrow>=&amp;\frac{\pi}{162}\sqrt{\frac{\pi}{2}}\bigg[
+\sin\left(\frac{\pi}{72}\right)+2\sin\left(\frac{\pi}{18}\right)+9\sin\left(\frac{\pi}{8}\right)+
+8\sin\left(\frac{2\pi}{9}\right)+25\sin\left(\frac{25\pi}{72}\right)
++9\bigg]
+</mrow><mrow>
+&amp;\approx 0.976
+</mrow>
+</md>
+</p>
+
+<p>The absolute error in our answer is at most:
+<md>
+<mrow>
+\frac{L(b-a)^5}{180n^4}&amp;=\frac{415\times\sqrt{\frac{\pi}{2}}^5}{180\times 6^4} = \frac{82\sqrt{\pi}^5}{186624\sqrt{2}}\approx 0.005
+</mrow>
+</md>
+</p>
+
+<p>Remark: combining the error with our approximation, we see the actual value of <m>\bar x</m> is in the interval
+<me>
+\left[0.976-0.005,0.976+0.005\right] = \left[0.971,.981\right]</me>
+</p>
+
+<p>A computer algebra system approximates <m>\bar x</m> as 0.977451.
+</p></solution>
+</exercise></exercisegroup>
+
+</exercises>

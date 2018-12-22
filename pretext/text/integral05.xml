@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_area">
+<title>Area between curves</title>
+
+<introduction></introduction>
+
+<subsection><title>Area between curves</title>
+<p>
+Before we continue our exploration of different methods for integrating functions, we  have now have sufficient tools to examine some simple applications of definite integrals.  One of the motivations for our definition of <q>integral</q> was the problem of finding the area between some curve and the <m>x</m>-axis for <m>x</m> running between two specified values. More precisely
+<md>
+<mrow>
+  \int_a^b f(x) \dee{x}
+</mrow>
+</md>
+is equal to the signed area between the the curve <m>y=f(x)</m>, the <m>x</m>-axis, and the  vertical lines <m>x=a</m> and <m>x=b</m>.
+</p>
+
+<p>
+We found the area of this region by approximating it by the union of tall thin  rectangles,  and then found the exact area by taking the limit as the width of the approximating  rectangles went to zero. We can use the same strategy to find areas of more  complicated regions in the <m>xy</m>-plane.
+</p>
+
+<p>
+As a preview of the material to come, let <m>f(x) \gt g(x) \gt 0</m> and <m>a \lt b</m> and suppose that we are  interested in the area of the region
+<md>
+<mrow>
+S_1=\big\{\ (x,y)\ \big|\ a\le x\le b\,,\, g(x)\le y\le f(x)\ \big\}
+</mrow>
+</md>
+that is sketched in the left hand figure below.
+</p>
+
+<sidebyside width="90%">
+<image source="text/figs/area_between2"/>
+</sidebyside>
+
+<p>
+We already know that <m>\int_a^b f(x)\,\dee{x}</m> is the area of the region
+<md>
+<mrow>
+S_2=\big\{\ (x,y)\ \big|\ a\le x\le b\,,\, 0\le y\le f(x)\ \big\}
+</mrow>
+</md>
+sketched in the middle figure above and that <m>\int_a^b g(x)\,\dee{x}</m> is the area of the  region
+<md>
+<mrow>
+S_3=\big\{\ (x,y)\ \big|\ a\le x\le b\,,\, 0\le y\le g(x)\ \big\}
+</mrow>
+</md>
+sketched in the right hand figure above. Now the region <m>S_1</m> of the left hand figure  can be constructed by taking the region <m>S_2</m> of center figure and removing from it the  region <m>S_3</m> of the right hand figure. So the area of <m>S_1</m> is exactly
+<md>
+<mrow>
+  \int_a^b f(x)\,\dee{x} -  \int_a^b g(x)\,\dee{x}
+  &amp;=  \int_a^b \big(f(x)-g(x)\big)\,\dee{x}
+</mrow>
+</md>
+This computation depended on the assumption that <m>f(x) \gt g(x)</m> and, in particular, that the curves <m>y=g(x)</m> and <m>y=f(x)</m> did not cross. If they do cross, as in this figure
+</p>
+
+<sidebyside width="40%">
+<image source="text/figs/area_between1a"/>
+</sidebyside>
+
+<p>
+then we have to be a lot more careful. The idea is to separate the domain of  integration depending on where <m>f(x) - g(x)</m> changes sign <mdash/> i.e. where the curves  intersect. We will illustrate this in Example<nbsp/><xref ref="eg_AREAc"/> below.
+</p>
+
+<p>Let us start with an example that makes the link to Riemann sums and definite integrals
+quite explicit.
+</p>
+
+<example xml:id="eg_areabetween_riemann"><title>The area between <m>y=4-x^2</m> and <m>y=x</m></title>
+<p>
+ Find the area bounded by the curves <m>y=4-x^2</m>, <m>y=x</m>, <m>x=-1</m> and <m>x=1</m>.
+</p>
+
+<p>
+<alert>Solution:</alert>
+<ul>
+<li>
+<p>
+	Before we do any calculus, it is a very good idea to make a sketch of the area in  question. The curves <m>y=x</m>, <m>x=-1</m> and <m>x=1</m> are all straight lines, while the curve  <m>y=4-x^2</m> is a parabola whose apex is at <m>(0,4)</m> and then curves down  (because of the  minus sign in <m>-x^2</m>) with <m>x</m>-intercepts at <m>(\pm2,0)</m>. Putting these together gives
+</p>
+
+	<sidebyside width="40%">
+	<image source="text/figs/area_between3"/>
+	</sidebyside>
+
+<p>
+	Notice that the curves <m>y=4-x^2</m> and <m>y=x</m> intersect when <m>4-x^2=x</m>, namely when <m>x= \frac{1}{2}\left(-1\pm\sqrt{17}\right) \approx 1.56,-2.56</m>. Hence the curve <m>y=4-x^2</m>  lies above the line <m>y=x</m> for all <m>-1\le x\le 1</m>.
+</p>
+</li>
+<li>
+	We are to find the area of the shaded region. Each point <m>(x,y)</m> in this  shaded region has <m>-1\le x\le 1</m> and <m>x \le y \le 4-x^2</m>. When we were defining the integral (way back in Definition<nbsp/><xref ref="def_INTintegral"/>) we used <m>a</m> and <m>b</m>  to denote the smallest and largest allowed values of <m>x</m>; let's do that here too.  Let's also use <m>B(x)</m> to denote the bottom curve (i.e. to denote the smallest allowed  value of <m>y</m> for a given <m>x</m>) and use <m>T(x)</m> to denote the top curve (i.e. to denote the  largest allowed value of <m>y</m> for a given <m>x</m>). So in this example
+	<md>
+	<mrow>
+	a=-1&amp;&amp; b=1&amp;&amp; B(x)=x&amp;&amp; T(x)=4-x^2
+	</mrow>
+	</md>
+	and the shaded region is
+	<md>
+	<mrow>
+	\big\{\ (x,y)\ \big|\ a\le x\le b,\ B(x)\le y\le T(x)\ \big\}
+	</mrow>
+	</md>
+</li>
+<li>
+<p>
+	We use the same strategy as we used when defining the integral in  Section<nbsp/><xref ref="sec_defInt"/>:
+	<ul>
+	<li> Pick a natural number <m>n</m> (that we will later send to infinity), then </li>
+	<li> subdivide the region into <m>n</m> narrow slices, each of width <m>\De x=\frac{b-a}{n}</m>. </li>
+	<li>
+		For each <m>i=1,2,\cdots,n</m>, slice number <m>i</m> runs from <m>x=x_{i-1}</m> to <m>x=x_i</m>, and we  approximate its area by the area of a rectangle. We pick a number <m>x_i^*</m> between  <m>x_{i-1}</m> and <m>x_i</m> and approximate the slice by a rectangle whose top is at <m>y=T(x_i^*)</m>  and whose bottom is at <m>y=B(x_i^*)</m>.
+	</li>
+	<li>
+		Thus the area of slice <m>i</m> is approximately <m>\big[T(x_i^*)-B(x_i^*)\big]\De x</m> (as  shown in the figure below).
+	</li>
+	</ul>
+</p>
+<sidebyside width="40%">
+<image source="text/figs/area_between4"/>
+</sidebyside>
+</li>
+<li>
+	So the Riemann sum approximation of the area is
+	<md>
+	<mrow>
+	  \text{Area} &amp;\approx \sum_{i=1}^n  \big[T(x_i^*)-B(x_i^*)\big]\De x
+	</mrow>
+	</md>
+</li>
+<li>
+	By taking the limit as <m>n \to \infty</m> (i.e. taking the limit as the width of the  rectangles goes to zero), we convert the Riemann sum into a definite integral (see  Definition<nbsp/><xref ref="def_INTintegral"/>) and at the same time our approximation of the area  becomes the exact area:
+	<md>
+	<mrow>
+	\lim_{n\rightarrow\infty}\sum_{i=1}^n  \big[T(x_i^*)-B(x_i^*)\big]\De x
+	&amp;=\int_a^b \big[T(x)-B(x)\big]\dee{x} \qquad \text{Riemann sum $\to$ integral}
+	</mrow><mrow>
+	&amp;=\int_{-1}^1\big[(4-x^2)-x\big]\dee{x}
+	</mrow><mrow>
+	&amp;=\int_{-1}^1\big[4-x-x^2\big]\dee{x}
+	</mrow><mrow>
+	&amp;=\bigg[4x - \frac{x^2}{2} - \frac{x^3}{3} \bigg]_{-1}^1
+	</mrow><mrow>
+	&amp;= \left(4 - \frac{1}{2}-\frac{1}{3} \right) - \left(-4-\frac{1}{2}+\frac{1}{3} \right)
+	</mrow><mrow>
+	&amp;= \frac{24-3-2}{6} - \frac{-24-3+2}{6}
+	</mrow><mrow>
+	&amp;= \frac{19}{6} + \frac{25}{6}
+	</mrow><mrow>
+	&amp;= \frac{44}{6} = \frac{22}{3}.
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+<p>
+Oof! Thankfully we generally do not need to go through the Riemann sum steps to get to  the answer. Usually, provided we are careful to check where curves intersect and which  curve lies above which, we can just jump straight to the integral
+<me>
+  \text{Area} = \int_a^b \big[T(x)-B(x)\big]\dee{x}.
+</me>
+So let us redo the above example.
+</p>
+
+<example  xml:id="eg_areabetween_riemann_again"><title>Example <xref ref="eg_areabetween_riemann"/> revisited</title>
+<p>
+Find the area bounded by the curves <m>y=4-x^2</m>, <m>y=x</m>, <m>x=-1</m> and <m>x=1</m>.
+</p>
+
+<p><alert>Solution:</alert>
+<ul>
+<li>
+<p>
+	We first sketch the region
+</p>
+<sidebyside width="40%">
+<image source="text/figs/area_between3"/>
+</sidebyside>
+<p>
+	and verify
+	<fn>
+		We should do this by checking where the curves intersect; that is by  solving <m>T(x)=B(x)</m> and seeing if any of the solutions lie in the range <m>-1\leq x \leq  1</m>.
+	</fn>
+	that <m>y=T(x)=4-x^2</m> lies above the curve <m>y=B(x)=x</m> on the region <m>-1\leq x\leq 1</m>.
+</p>
+</li>
+<li>
+	The area between the curves is then
+	<md>
+	<mrow>
+	\text{Area} &amp;= \int_a^b \big[T(x)-B(x)\big]\dee{x}
+	</mrow><mrow>
+	&amp;=\int_{-1}^1\big[4-x-x^2\big]\dee{x}
+	</mrow><mrow>
+	&amp;=\bigg[4x - \frac{x^2}{2} - \frac{x^3}{3} \bigg]_{-1}^1
+	</mrow><mrow>
+	&amp;= \frac{19}{6} + \frac{25}{6} = \frac{44}{6} = \frac{22}{3}.
+	</mrow>
+	</md>
+	</li>
+</ul>
+</p>
+
+</example>
+
+<example xml:id="eg_AREAa"><title>The area between <m>y=x^2</m> and  <m>y=6x-2x^2</m></title>
+<p>
+Find the area of the finite region bounded by <m>y=x^2</m> and  <m>y=6x-2x^2</m>.
+</p>
+
+<p>
+<alert>Solution:</alert> This is a little different from the previous question, since we are not given  bounding lines <m>x=a</m> and <m>x=b</m> <mdash/> instead we have to determine the minimum and maximum  allowed values of <m>x</m> by determining where the curves intersect. Hence our very first  task is to get a good idea of what the region looks like by sketching it.
+<ul>
+<li>
+<p>
+	Start by sketching the region:
+	<ul>
+	<li>
+		The curve <m>y=x^2</m> is a parabola. The point on this parabola with the  smallest <m>y</m>-coordinate is <m>(0,0)</m>. As <m>|x|</m> increases, <m>y</m> increases so the parabola opens upward.
+	</li>
+	<li>
+		The curve <m>y=6x-2x^2 =-2(x^2-3x) =-2(x-\frac{3}{2})^2+\frac{9}{2}</m> is also a   parabola. The point on this parabola with the largest value of <m>y</m> has  <m>x=\frac{3}{2}</m>  (so that the negative term in <m>-2(x-\frac{3}{2})^2+\frac{9}{2}</m> is zero). So the point  with the largest value of <m>y</m> is is <m>(\frac{3}{2},\frac{9}{2})</m>. As <m>x</m> moves  away  from <m>\frac{3}{2}</m>, either to the right or to the left, <m>y</m> decreases. So the  parabola  opens downward. The parabola crosses the <m>x</m>-axis when <m>0=6x-2x^2=2x(3-x)</m>. That is,  when  <m>x=0</m> and <m>x=3</m>.
+	</li>
+	<li>
+		The two parabolas intersect when <m>x^2= 6x-2x^2</m>, or
+	    <md>
+		<mrow>
+			  3x^2-6x&amp;=0
+		</mrow><mrow>
+			  3x(x-2)&amp;=0
+			</mrow>
+		</md>
+		So there are two points of intersection, one being <m>x=0</m>, <m>y=0^2=0</m> and the other being <m>x=2</m>, <m>y=2^2=4</m>.
+	</li>
+	<li>
+		The finite region between the curves lies between these two points of  intersection.
+	</li>
+</ul>
+This leads us to the sketch
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/areaSMPL"/>
+</sidebyside>
+</li>
+<li>
+	So on this region we have <m>0\leq x\leq 2</m>, the top curve is <m>T(x)=6x-x^2</m> and the  bottom curve is <m>B(x)=x^2</m>. Hence the area is given by
+	<md>
+	<mrow>
+	  \text{Area} &amp;=\int_a^b \big[T(x)-B(x)\big]\dee{x}
+	</mrow><mrow>
+	&amp;=\int_0^2\big[(6x-2x^2)-(x^2)\big]\dee{x}
+	</mrow><mrow>
+	&amp;=\int_0^2\big[6x-3x^2\big]\dee{x}
+	</mrow><mrow>
+	&amp;=\bigg[6\frac{x^2}{2}-3\frac{x^3}{3}\bigg]_0^2
+	</mrow><mrow>
+	&amp;=3(2)^2-2^3 =4
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+</example>
+
+
+<example xml:id="eg_AREAb"><title>The area between <m>y^2=2x+6</m> and  <m>y=x-1</m></title>
+<p>
+Find the area of the finite region bounded by <m>y^2=2x+6</m> and  <m>y=x-1</m>.
+</p>
+
+<p>
+<alert>Solution:</alert> We show two different solutions to this problem. The first takes the approach  we have in  Example<nbsp/><xref ref="eg_AREAa"/> but leads to messy algebra. The  second requires a little bit of thinking at the beginning but then is quite  straightforward. Before we get to that we should start by by sketching the region.
+<ul>
+<li>
+	The curve <m>y^2=2x+6</m>, or equivalently <m>x=\frac{1}{2} y^2-3</m>  is a parabola. The point on this parabola with the smallest <m>x</m>-coordinate  has <m>y=0</m> (so that the positive term in <m>\frac{1}{2} y^2-3</m> is zero). So the point on this parabola with the smallest <m>x</m>-coordinate is <m>(-3,0)</m>. As <m>|y|</m> increases, <m>x</m> increases so the parabola opens to the right.
+</li>
+<li>
+	The curve <m>y=x-1</m> is a straight line of slope <m>1</m> that passes through <m>x=1</m>, <m>y=0</m>.
+</li>
+<li>
+	The two curves intersect when <m>\frac{y^2}{2}-3=y+1</m>, or
+	<md>
+	<mrow>
+		  y^2-6 &amp;= 2y+2
+	</mrow><mrow>
+		  y^2-2y-8 &amp;= 0
+	</mrow><mrow>
+		  (y+2)(y-4) &amp;= 0
+		</mrow>
+	</md>
+	So there are two points of intersection, one being <m>y=4</m>, <m>x=4+1=5</m> and the other being <m>y=-2</m>, <m>x=-2+1=-1</m>.
+</li>
+<li>
+<p>
+	Putting this all together gives us the sketch
+</p>
+<sidebyside width="50%">
+<image source="text/figs/areaY"/>
+</sidebyside>
+</li>
+</ul>
+As noted above, we can find the area of this region by approximating it by a union of narrow vertical rectangles, as we did in Example <xref ref="eg_AREAa"/> <mdash/> though it is a  little harder. The easy way is to approximate it by a union of narrow horizontal  rectangles. Just for practice, here is the hard solution. The easy solution is after it.
+</p>
+
+<p><alert>Harder solution:</alert>
+<ul>
+<li>
+<p>
+	As we have done previously, we approximate the region by a union of narrow  vertical rectangles, each of width <m>\De x</m>. Two of those rectangles are illustrated in  the sketch
+</p>
+<sidebyside width="50%">
+<image source="text/figs/areaYvert"/>
+</sidebyside>
+</li>
+<li>
+	In this region, <m>x</m> runs from <m>a=-3</m> to <m>b=5</m>. The curve at the top of the region is
+	<md>
+	<mrow>
+	y&amp;=T\big(x)=\sqrt{2x+6}
+	</mrow>
+	</md>
+	The curve at the bottom of the region is more complicated. To the left of <m>(-1,-2)</m> the  lower half of the parabola gives the bottom of the region while to the right of <m>(-1,-2)</m> the straight line gives the bottom of the region. So
+	<md>
+	<mrow>
+	B(x)&amp;=\begin{cases}
+			   -\sqrt{2x+6} &amp; \text{if } -3\le x\le -1 \\
+			   x-1 &amp; \text{if }-1\le x\le 5
+		  \end{cases}
+	</mrow>
+	</md>
+</li>
+<li>
+	Just as before, the area is still given by the formula <m>\int_a^b  \big[T(x)-B(x)\big]\dee{x}</m>, but to accomodate our <m>B(x)</m>, we have to split up the domain of integration when we evaluate the integral.
+	<md>
+	<mrow>
+	&amp; \int_a^b \big[T(x)-B(x)\big]\dee{x}
+	</mrow>
+	<mrow>
+	  &amp;=  \int_{-3}^{-1} \big[T(x)-B(x)\big]\dee{x}  +\int_{-1}^5 \big[T(x)-B(x)\big]\dee{x}
+	</mrow><mrow>
+	  &amp;= \int_{-3}^{-1} \big[\sqrt{2x+6}-(-\sqrt{2x+6})\big]\dee{x}  +\int_{-1}^5 \big[\sqrt{2x+6}-(x-1)\big]\dee{x}
+	</mrow><mrow>
+	  &amp;= 2\int_{-3}^{-1} \sqrt{2x+6}\dee{x}  +\int_{-1}^5 \sqrt{2x+6} - \int_{-1}^5(x-1)\dee{x}
+	</mrow>
+	</md>
+</li>
+<li>
+	The third integral is straightforward, while we evaluate the first two via the  substitution rule. In particular, set <m>u=2x+6</m> and replace <m>\dee{x} \rightarrow  \frac{1}{2}\dee{u}</m>. Also <m>u(-3)=0, u(-1)=4, u(5)=16</m>. Hence
+	<md>
+	<mrow>
+	\text{Area}
+	  &amp;= 2\int_0^4\sqrt{u}\ \frac{du}{2}
+			  +\int_4^{16} \sqrt{u}\ \frac{du}{2}
+			  -\int_{-1}^5 (x-1)\dee{x}
+	</mrow><mrow>
+	  &amp;= 2\bigg[\frac{ u^{\frac{3}{2}} }{ \frac{3}{2} }\frac{1}{2}\bigg]_0^4
+	 +\bigg[\frac{ u^{\frac{3}{2}} }{ \frac{3}{2} }\frac{1}{2}\bigg]_4^{16}
+	 -\bigg[\frac{x^2}{2}-x\bigg]_{-1}^5
+	</mrow><mrow>
+	 &amp; = \frac{2}{3}\big[8-0]
+		 +\frac{1}{3}[64-8]
+		 -\Big[\Big(\frac{25}{2}-5\Big)-\Big(\frac{1}{2}+1\Big)\Big]
+	</mrow><mrow>
+	 &amp; = \frac{72}{3} -\frac{24}{2}+6
+	</mrow><mrow>
+	&amp;=18
+	</mrow>
+	</md>
+	Oof!
+</li>
+</ul>
+</p>
+
+<p>
+<alert>Easier solution:</alert>
+The easy way to determine the area of our region is to approximate by narrow  horizontal rectangles, rather than narrow vertical rectangles. (Really we are just  swapping the roles of <m>x</m> and <m>y</m> in this problem)
+<ul>
+<li>
+	Look at our sketch of the region again <mdash/> each point <m>(x,y)</m> in our  region has <m>-2\le y\le 4</m> and <m>\frac{1}{2}(y^2-6)\le x \le y+1</m>.
+</li>
+<li>
+<p>
+	Let's use
+	<ul>
+	<li>
+		<m>c</m> to denote the smallest allowed value of <m>y</m>,
+	</li>
+	<li>
+		<m>d</m> to denote the largest allowed value of <m>y</m>
+	</li>
+	<li>
+		<m>L(y)</m> (<q><m>L</m></q> stands for <q>left</q>) to denote the smallest allowed  value of <m>x</m>, when the <m>y</m>-coordinate is <m>y</m>, and
+	</li>
+	<li>
+		<m>R(y)</m> (<q><m>R</m></q> stands for <q>right</q>) to denote the largest allowed value  of <m>x</m>, when the <m>y</m>-coordinate is <m>y</m>.
+	</li>
+	</ul>
+	So, in this example,
+	<md>
+	<mrow>
+	c=-2&amp;&amp; d=4 &amp;&amp;  L(y)=\frac{1}{2}(y^2-6) &amp;&amp; R(y)=y+1
+	</mrow>
+	</md>
+	and the shaded region is
+	<md>
+	<mrow>
+	\big\{\ (x,y)\ \big|\ c\le y\le d,\ L(y)\le x\le R(y)\ \big\}
+	</mrow>
+	</md>
+</p>
+</li>
+<li>
+<p>
+	Our strategy is now nearly the same as that used in Example<nbsp/><xref ref="eg_areabetween_riemann"/>:
+	<ul>
+	<li>
+		Pick a natural number <m>n</m> (that we will later send to infinity), then
+	</li>
+	<li>
+		subdivide the interval <m>c\le y\le d</m> into <m>n</m> narrow subintervals, each of width  <m>\De y=\frac{d-c}{n}</m>. Each subinterval cuts a thin horizontal slice from the region (see  the figure below).
+	</li>
+	<li>
+		We approximate the area of slice number <m>i</m> by the area of a thin  horizontal rectangle (indicated by the dark rectangle in the figure below). On this  slice, the <m>y</m>-coordinate runs over a very narrow range.  We pick a number <m>y_i^*</m>, somewhere in that range. We approximate slice  <m>i</m> by a rectangle whose left side is at <m>x=L(y_i^*)</m> and whose right side  is at <m>x=R(y_i^*)</m>.
+	</li>
+	<li>
+		Thus the area of slice <m>i</m> is approximately <m>\big[R(x_i^*)-L(x_i^*)\big]\De y</m>.
+	</li>
+</ul>
+</p>
+
+<sidebyside width="66%">
+<image source="text/figs/areaYhor"/>
+</sidebyside>
+</li>
+<li>
+	The desired area is
+	<md>
+	<mrow>
+	\lim_{n\rightarrow\infty}\sum_{i=1}^n \big[R(y_i^*)-L(y_i^*)\big]\De y
+	&amp;=\int_c^d \big[R(y)-L(y)\big]\dee{y} \qquad \text{Riemann sum $\rightarrow$ integral}
+	</mrow><mrow>
+	&amp;=\int_{-2}^4 \big[(y+1)-\tfrac{1}{2}\big(y^2-6\big)\big]\dee{y}
+	</mrow><mrow>
+	&amp;=\int_{-2}^4 \big[-\tfrac{1}{2}y^2+y+4\big]\dee{y}
+	</mrow><mrow>
+	&amp;=\Big[-\tfrac{1}{6}y^3+\tfrac{1}{2}y^2+4y\Big]_{-2}^4
+	</mrow><mrow>
+	&amp;=-\tfrac{1}{6}\big(64-(-8)\big)+\tfrac{1}{2}(16-4)+4(4+2)
+	</mrow><mrow>
+	&amp;=-12+6+24
+	</mrow><mrow>
+	&amp;=18
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+
+</example>
+
+<p>One last example.</p>
+
+<example xml:id="eg_AREAc"><title>Another area</title>
+<p>
+Find the area between the curves <m>y=\dfrac{1}{\sqrt{2}}</m> and <m>y=\sin(x)</m> with <m>x</m> running  from <m>0</m> to <m>\frac{\pi}{2}</m>.
+</p>
+
+<p>
+<alert>Solution:</alert> This one is a little tricker since (as we shall see) the region is split into two  pieces and we need to treat them separately.
+</p>
+
+<p>
+<ul>
+<li>
+<p>
+Again we start by sketching the region.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/areaCross"/>
+</sidebyside>
+
+<p>
+We want the shaded area.
+</p>
+</li>
+<li>
+<p>
+	Unlike our previous examples, the bounding curves <m>y=\frac{1}{\sqrt{2}}</m> and  <m>y=\sin(x)</m> cross in the middle of the region of interest. They cross when  <m>y=\frac{1}{\sqrt{2}}</m> and <m>\sin(x)=y=\frac{1}{\sqrt{2}}</m>, i.e. when  <m>x=\frac{\pi}{4}</m>. So
+	<ul>
+	<li>
+		to the left of <m>x=\frac{\pi}{4}</m>, the top boundary is part of the straight line  <m>y=\frac{1}{\sqrt{2}}</m> and  the bottom boundary is part of the curve <m>y=\sin(x)</m>
+	</li>
+	<li>
+		while to the right of <m>x=\frac{\pi}{4}</m>, the top boundary is part of the curve  <m>y=\sin(x)</m> and the bottom boundary is part of the straight line  <m>y=\frac{1}{\sqrt{2}}</m>.
+	</li>
+	</ul>
+</p>
+</li>
+<li>
+<p>
+	Thus the formulae for the top and bottom boundaries are
+	<md>
+	<mrow>
+	T(x) &amp; =\left.\begin{cases}
+			  \frac{1}{\sqrt{2}} &amp; \text{if $0\le x\le \frac{\pi}{4}$}\\
+			  \sin(x)&amp; \text{if $\frac{\pi}{4}\le x\le \frac{\pi}{2}$}
+		  \end{cases}\right\}
+   </mrow>
+   <mrow>
+	B(x) &amp; =\left.\begin{cases}
+			  \sin(x) &amp; \text{if $0\le x\le \frac{\pi}{4}$}\\
+			  \frac{1}{\sqrt{2}}&amp; \text{if $\frac{\pi}{4}\le x\le \frac{\pi}{2}$}
+		  \end{cases}\right\}
+	</mrow>
+	</md>
+	We may compute the area of interest using our canned formula
+	<md>
+	<mrow>
+	\text{Area} = \int_a^b \big[T(x)-B(x)\big]\dee{x}
+	</mrow>
+	</md>
+	but since the formulas for <m>T(x)</m> and <m>B(x)</m> change at the point <m>x=\frac{\pi}{4}</m>,  we must split the domain of the integral in two at that point
+		<fn>
+			We are  effectively computing the area of the region by computing the area of the two disjoint  pieces separately. Alternatively, if we set <m>f(x) = \sin(x)</m> and <m>g(x)  =\frac{1}{\sqrt{2}}</m>, we can rewrite the integral <m>\int_a^b \big[T(x) -  B(x)\big]\,\dee{x}</m> as <m>\int_a^b \big|f(x) - g(x)\big|\,\dee{x}</m>. To see that the two  integrals are the same, split the domain of integration where <m>f(x)-g(x)</m> changes sign.
+		</fn>.
+</p>
+</li>
+<li>
+	Our integral over the domain <m>0\leq x \leq \frac{\pi}{2}</m> is split into an  integral over <m>0\le x\le \frac{\pi}{4}</m> and one over <m>\frac{\pi}{4}\le x\le  \frac{\pi}{2}</m>:
+	<md>
+	<mrow>
+	\text{Area} &amp;= \int_0^{\frac{\pi}{2}} \big[T(x)-B(x)\big]\dee{x}
+	</mrow><mrow>
+	   &amp;= \int_0^{\frac{\pi}{4}} \big[T(x)-B(x)\big]\dee{x} +
+	   	\int_{\frac{\pi}{4}}^{\frac{\pi}{2}} \big[T(x)-B(x)\big]\dee{x}
+	</mrow><mrow>
+	   &amp;= \int_0^{\frac{\pi}{4}} \Big[\frac{1}{\sqrt{2}}-\sin(x)\Big]\dee{x}
+		  +\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}  \Big[\sin(x)-\frac{1}{\sqrt{2}}\Big]\dee{x}
+	</mrow><mrow>
+	   &amp;= \Big[\frac{x}{\sqrt{2}}+\cos(x)\Big]_0^{\frac{\pi}{4}}
+		  +\Big[-\cos(x)-\frac{x}{\sqrt{2}}\Big] _{\frac{\pi}{4}}^{\frac{\pi}{2}}
+	</mrow><mrow>
+	   &amp;= \Big[\frac{1}{\sqrt{2}}\frac{\pi}{4}+\frac{1}{\sqrt{2}}-1\Big]
+		  +\Big[\frac{1}{\sqrt{2}}-\frac{1}{\sqrt{2}}\frac{\pi}{4}\Big]
+	</mrow><mrow>
+	  &amp;=\frac{2}{\sqrt{2}}-1
+	</mrow><mrow>
+	  &amp;=\sqrt{2}-1
+	</mrow>
+	</md>
+</li>
+</ul>
+</p>
+</example>
+
+</subsection>
+
+
+<xi:include href="../problems/prob_s1.5.xml" />
+
+
+</section>

@@ -1,0 +1,2216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<exercises>
+<introduction>
+<p>
+Recall that we are using <m>\log x</m> to denote the logarithm of <m>x</m> with
+base <m>e</m>. In other courses it is often denoted <m>\ln x</m>.
+</p>
+</introduction>
+
+
+<exercisegroup><title><conceptual/></title><introduction/>
+
+
+<exercise purpose="RQS">
+<statement><p>
+Below are the graphs of four different quadratic functions. For each quadratic function, decide whether it is: (i) irreducible, (ii) the product of two distinct linear factors, or (iii) the product of a repeated linear factor (and possibly a constant).
+</p>
+
+<sidebyside>
+<image><latex-image><![CDATA[\begin{tikzpicture}[scale=0.5]
+\YEaxis{3}{3}
+\draw[thick] plot[domain=-2.8:2.8](\x,{\x*\x/3});
+\draw (-1.5,-3) node[below]{(a)};
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}[scale=0.5]
+\YEaxis{3}{3}
+\draw[thick] plot[domain=-5:5](\x/2,{\x*\x/5-2});
+\draw (-1.5,-3) node[below]{(b)};
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}[scale=0.5]
+\YEaxis{3}{3}
+\draw[thick] plot[domain=-5:5](\x/10+1.5,{2-\x*\x/5});
+\draw (-1.5,-3) node[below]{(c)};
+\end{tikzpicture}]]></latex-image></image>
+<image><latex-image><![CDATA[\begin{tikzpicture}[scale=0.5]
+\YEaxis{3}{3}
+\draw[thick] plot[domain=-2:2](\x,{-1-\x*\x/2});
+\draw (-1.5,-3) node[below]{(d)};
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
+</statement>
+<hint><p>
+If a quadratic function can be factored as <m>(ax+b)(cx+d)</m> for some constants <m> a,b,c,d</m>, then it has roots <m>-\frac{b}{a}</m> and <m>-\frac{d}{c}</m>.
+</p></hint>
+<answer><p>
+(a) (iii)
+</p><p>
+(b) (ii)
+</p><p>
+(c) (ii)
+</p><p>
+(d) (i)
+</p></answer>
+<solution><p>
+If a quadratic function can be factored as <m>(ax+b)(cx+d)</m> for some constants <m> a,b,c,d</m>, then it has roots <m>-\frac{b}{a}</m> and <m>-\frac{d}{c}</m>. So, if a quadratic function has no roots, it is irreducible: this is the case for the function in graph (d).
+</p>
+
+<p>If a quadratic function has  two different roots, then <m>(ax+b) \neq \alpha(cx+d)</m> for any constant <m>\alpha</m>. That is, the quadratic function is the product of distinct linear factors. This is the case for the functions graphed in (b) and (c), since these each have two distinct places where they cross the <m>x</m>-axis.
+</p>
+
+<p>Finally, if a quadratic function has precisely one root, then <m>\frac{b}{a}=\frac{d}{c}</m>, so:
+<md>
+<mrow>
+(ax+b)(cx+d)&amp;=a(x+\tfrac{b}{a})(cx+d) = a(x+\tfrac{d}{c})(cx+d) = \tfrac{a}{c}(cx+d)(cx+d)
+</mrow>
+</md>
+That is, the quadratic function is the product of a repeated linear factor, and  a constant <m>\frac{a}{c}</m> (which might simply be <m>\frac{a}{c}=1</m>).
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016Q4</fromexam></title>
+<statement><p>
+Write out the <alert>general form</alert> of the partial-fractions
+decomposition of
+<m>
+\displaystyle\frac{x^3+3}{(x^2-1)^2(x^2+1)}
+</m>.
+You need not determine the values of any of the coefficients.
+</p></statement>
+
+<hint><p>
+Review Equations<nbsp/><xref ref="eq_PFdecompa"/> through <xref ref="eq_PFdecompd"/>. Be careful to <em>fully</em> factor the denominator.
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\frac{A}{x-1}+\frac{B}{(x-1)^2}+\frac{C}{x+1}+\frac{D}{(x+1)^2}+\frac{Ex+F}{x^2+1} </m>
+</p></answer>
+
+<solution><p>
+Our first step is to fully factor the denominator:
+<me>
+(x^2-1)^2(x^2+1) = (x-1)^2(x+1)^2(x^2+1)</me>
+</p>
+
+<p>Once a term is linear, it can't be factored further; for quadratic terms, we should check that they are irreducible. Since <m>x^2+1</m> has no real roots (we are familiar with its graph, which is entirely above the <m>x</m>-axis), it is irreducible, so now our denominator is fully factored.
+</p>
+
+<p><md>
+<mrow>
+\frac{x^3+3}{(x^2-1)^2(x^2+1)}
+&amp;=\frac{x^3+3}{(x-1)^2(x+1)^2(x^2+1)}
+</mrow><mrow>
+&amp;=\frac{A}{x-1}+\frac{B}{(x-1)^2}+\frac{C}{x+1}+\frac{D}{(x+1)^2}+\frac{Ex+F}{x^2+1}
+</mrow>
+</md>
+Notice <m>(x-1)</m> and <m>(x+1)</m> are (repeated) linear factors, while <m>(x^2+1)</m>  is an irreducible quadratic factor. This accounts for the difference in the numerators of their corresponding terms.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_10_sneaky"><title><fromexam>2016Q4</fromexam></title>
+<statement><p>
+Find the coefficient of <m>\displaystyle \frac{1}{x-1}</m> in the partial
+fraction decomposition of <m>\displaystyle\frac{3x^3-2x^2+11}{x^2(x-1)(x^2+3)}</m>.
+</p></statement>
+
+<hint><p>
+Review   Example <xref ref="eg_PFa"/>. Is the <q>Algebraic Method</q> or the <q>Sneaky Method</q> going to be easier?
+</p></hint>
+
+<answer><p>
+<m>3</m>
+</p></answer>
+
+<solution><p>
+The partial fraction decomposition has the form
+<md>
+<mrow>
+  \frac{3x^3-2x^2+11}{x^2(x-1)(x^2+3)} = \frac A{x-1} + \text{various terms}
+</mrow>
+</md>
+When we multiply through by the original denominator, this becomes
+<md>
+<mrow>
+{3x^3-2x^2+11} = {x^2(x^2+3)}A + (x-1)(\text{other terms}).
+</mrow>
+</md>
+Evaluating both sides at <m>x=1</m> yields <m>3\cdot1^3-2\cdot1^2+11=1^2(1^2+3)A+0</m>, or <m>A=3</m>.
+</p></solution>
+</exercise>
+
+<!--
+<p>\begin{comment}
+<exercise>
+<statement><p>
+Find the numerator of <m>\displaystyle \frac{P(x)}{ 2x^2+1}</m> in the partial
+fraction decomposition of <m>\displaystyle\frac{10x^3-46x^2+17x-40}{(x-3)^2(2x^2+1) }</m>.
+</p></statement>
+<hint><p>
+Review   Example <xref ref="eg_PFa"/>
+in the
+CLP 101 notes. The  <q>Algebraic Method</q> and the <q>Sneaky Method</q> are about the same length in this problem <mdash/> it's good to practice both.
+</p></hint>
+<answer><p>
+<m>-2</m>
+</p></answer>
+<solution><p>
+We notice the denominator is already factored into linear and irreducible quadratic factors. (We can check that <m>2x^2+1</m> is irreducible by noticing that the graph never crosses the <m>x</m>-axis, or by checking that the quadratic equation gives no real roots.) So, the partial fraction decomposition has the form
+<md>
+<mrow>
+\frac{10x^3-46x^2+17x-40}{(x-3)^2(2x^2+1) }&amp;=\frac{A}{x-3}+\frac{B}{(x-3)^2}
++\frac{Cx+D}{2x^2+1}
+</mrow>
+<intertext> We multiply through by the original denominator.</intertext><mrow>
+10x^3-46x^2+17x-40&amp;=
+A(x-3)(2x^2+1)+B(2x^2+1)+(Cx+D)(x-3)^2
+</mrow>
+</md>
+</p>
+
+<p><ul>
+<li>[Solution 1:]
+Let's try the <q>Sneaky Method</q> that worked so well in Question<nbsp/><xref ref="prob_s1_10_sneaky"/>. Setting <m>x=3</m> makes every term except the one with <m>B</m> disappear <mdash/> but we're looking for <m>C</m> and <m>D</m>. The <q>Sneaky Method</q> doesn't solve everything right away, but it gives us  <m>B</m>.
+<md>
+<mrow>
+10(27)-46(9)+17(3)-40&amp;=B(2(9)+1)
+</mrow><mrow>
+B&amp;=-7
+</mrow>
+<intertext>This allows us to simplify our expression somewhat.</intertext><mrow>
+10x^3-32x^2+17x-33&amp;=
+A(x-3)(2x^2+1)+(Cx+D)(x-3)^2
+</mrow><mrow>
+&amp;=(x-3)\big(A(2x^2+1)+(Cx+D)(x-3)\big)
+</mrow>
+<intertext>Since <m>x-3</m> is a factor of the right-hand side of the equation, it must also be  a factor on the left. Long division shows us how to to cancel it out.</intertext><mrow>
+</mrow>
+<intertext>\centering\polylongdiv{10x^3-32x^2+17x-33</intertext><mrow>{x-3}}
+(x-3)(10x^2-2x+11)
+&amp;=(x-3)\big(A(2x^2+1)+(Cx+D)(x-3)\big)
+</mrow><mrow>
+10x^2-2x+11&amp;=A(2x^2+1)+(Cx+D)(x-3)
+</mrow>
+<intertext>Plugging in <m>x=3</m>, we see</intertext><mrow>
+10(9)-2(3)+11&amp;=A(2(9)+1)
+</mrow><mrow>
+A&amp;=5
+</mrow>
+<intertext>Again, this allows us to simplify our equation.</intertext><mrow>
+10x^2-2x+11&amp;=5(2x^2+1)+(Cx+D)(x-3)
+</mrow><mrow>
+-2x+6&amp;=(Cx+D)(x-3)
+</mrow><mrow>
+-2(x-3)&amp;=(Cx+D)(x-3)
+</mrow><mrow>
+-2&amp;=Cx+D
+</mrow><mrow>
+C&amp;=0,\quad D=-2
+</mrow>
+</md>
+So, the term we're looking for is <m>\dfrac{-2}{2x^2+1}</m>.
+</li>
+<li>[Solution 2:] Let's go through the algebra method. This requires rearranging the right-hand side of our equation.
+<md>
+<mrow>10x^3-&amp;46x^2+17x-40=
+A(x-3)(2x^2+1)+B(2x^2+1)+(Cx+D)(x-3)^2
+</p>
+
+<p></mrow><mrow>&amp;=A(2x^3-6x^2+x-3)+B(2x^2+1)+C(x^3-6x^2+9x)+D(x^2-6x+9)\\
+&amp;=x^3(2A+C)+x^2(-6A+2B-6C+D)+x(A+9C-6D)+(-3A+B+9D)
+</mrow>
+</md>
+By matching the  coefficients of corresponding powers of <m>x</m>, we make a system of four equations.
+<md>
+<mrow>
+(1)\quad 10&amp;=2A+C &amp; (2)\quad -46&amp;=-6A+2B-6C+D
+</mrow><mrow>
+(3)\quad 17&amp;=A+9C-6D &amp; (4)\quad -40&amp;=-3A+B+9D
+</mrow>
+</md>
+</p>
+
+<p><ul>
+<li> Equation 1 gives us <m>C</m> in terms of <m>A</m>: <m>C = 10-2A</m>
+</li>
+<li> Substituting this into the remaining equations eliminates <m>C</m> from them:
+\begin{alignat*}{3}
+(2)&amp;&amp;-46&amp;=-6A+2B-6(10-2A)+D\\
+&amp;\Rightarrow&amp; 14&amp;=6A+2B+D\\
+(3)&amp;&amp;\quad 17&amp;=A+9(10-2A)-6D\\
+&amp;\Rightarrow&amp; -73&amp;=-17A-6D\\
+(4)&amp;&amp;-40&amp;=-3A+B+9D
+\end{alignat*}
+</li>
+<li> Now, Equation (2) gives us <m>D</m> in terms of <m>A</m> and <m>B</m>: <m>D=14-6A-2B</m>.
+</li>
+<li> Substituting this into the remaining equations eliminates <m>D</m>.
+\begin{alignat*}{3}
+(3)&amp;&amp;\quad  -73&amp;=-17A-6(14-6A-2B)\\
+&amp;\Rightarrow&amp; 11&amp;=19A+12B\\
+(4)&amp;&amp;-40&amp;=-3A+B+9(14-6A-2B)\\
+&amp;\Rightarrow&amp; -166&amp;=-57A-17B
+\end{alignat*}
+</li>
+<li> Equation (3) gives us <m>B</m> in terms of <m>A</m>: <m>B = \frac{11}{12} - \frac{19}{12}A</m>.
+</li>
+<li> Substituting this into Equation (4) gives us <m>A</m>:
+\begin{alignat*}{3}
+(4)&amp;&amp;-166&amp;=-57A-17\left( \frac{11}{12} - \frac{19}{12}A\right)\\
+&amp;\Rightarrow&amp; A&amp;=5
+\end{alignat*}
+</li>
+<li> Since <m>B= \frac{11}{12} - \frac{19}{12}A</m>, <m>B=-7</m>.
+</li>
+<li> Since <m>D = 14-6A-2B</m>, <m>D=-2</m>.
+</li>
+<li> Since <m>C=10-2A</m>, <m>C=0</m>.
+</li>
+</ul>
+So, the term we're looking for is
+<me>
+\frac{Cx+D}{2x^2+1} = \frac{-2}{2x^2+1}</me>
+decomposition
+</li>
+</ul>
+Remark: for more complicated partial fraction decompositions (like this one), once you're comfortable with both methods, you'll be able to blend them. For example, in Solution 1, it was very easy to find <m>B=-7</m>, but then there was long division, which is time-consuming. We could have switched over to the algebra method here, but kept the result <m>B=-7</m> to simplify our equation.
+</p></solution>
+</exercise>
+\end{comment}
+</p>
+-->
+
+<exercise purpose="RQS">
+<statement><p>
+Re-write the following rational functions as the sum of a polynomial and a rational function whose numerator has a strictly smaller degree than its denominator. (Remember our method of partial fraction decomposition of a rational function only works when the degree of the numerator is strictly smaller than the degree of the denominator.)
+<ol label="a">
+<li> <m>\dfrac{x^3+2x+2}{x^2+1}</m>
+</li>
+<li> <m>\dfrac{15x^4+6x^3+34x^2+4x+20}{5x^2+2x+8}</m>
+</li>
+<li> <m>\dfrac{2x^5+9x^3+12x^2+10x+30}{2x^2+5}</m>
+</li>
+</ol>
+</p>
+
+</statement>
+<hint><p>
+For each part,  use long division as in Example<nbsp/><xref ref="eg_PFdd"/>.
+</p></hint>
+<answer><p>
+(a) <m>\displaystyle\frac{x^3+2x+2}{x^2+1} = x+\frac{x+2}{x^2+1}</m>
+</p><p>
+(b) <m>\displaystyle\dfrac{15x^4+6x^3+34x^2+4x+20}{5x^2+2x+8} = 3x^2+2+\frac{4}{5x^2+2x+8}</m>
+</p><p>
+(c) <m>\displaystyle\dfrac{2x^5+9x^3+12x^2+10x+30}{2x^2+5}=x^3+2x+6</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li><p> We start by dividing. The leading term of the numerator is <m>x</m> times the leading term of the denominator. The remainder is <m>x+2</m>.
+</p>
+<sidebyside width="33%">
+<image><latex-image><![CDATA[\polylongdiv{x^3+2x+2}{x^2+1}]]></latex-image></image>
+</sidebyside>
+<p>
+That is, <m>x^3+2x+2 = x(x^2+1)+(x+2)</m>. So,
+ <me>
+\frac{x^3+2x+2}{x^2+1} = x+\frac{x+2}{x^2+1}</me>
+</p>
+</li>
+<li>
+<p>
+We start by dividing. The leading term of the numerator is <m>3x^2</m> times the leading term of the denominator.
+</p>
+<sidebyside width="60%">
+<image><latex-image><![CDATA[\polylongdiv[stage=4]{15x^4+6x^3+34x^2+4x+20}{5x^2+2x+8}]]>
+</latex-image></image>
+</sidebyside>
+<p>
+Then <m>5x^2</m> goes into <m>10x^2</m> twice, so
+</p>
+<sidebyside width="60%">
+<image><latex-image><![CDATA[
+\polylongdiv[stage=7]{15x^4+6x^3+34x^2+4x+20}{5x^2+2x+8}
+]]></latex-image></image>
+</sidebyside>
+<p>
+Our remainder is 4. That is,
+</p>
+
+<p><me>
+\dfrac{15x^4+6x^3+34x^2+4x+20}{5x^2+2x+8} = 3x^2+2+\frac{4}{5x^2+2x+8}.
+</me>
+</p>
+</li>
+<li>
+<p>
+We start by dividing. The leading term of the numerator is <m>x^3</m> times the leading term of the denominator.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\polylongdiv[stage=4]{2x^5+9x^3+12x^2+10x+30}{2x^2+5}]]></latex-image></image>
+</sidebyside>
+<p>
+Then <m>2x^2(2x)</m> gives us <m>4x^3</m>.
+</p>
+<sidebyside width="60%">
+<image><latex-image><![CDATA[\polylongdiv[stage=7]{2x^5+9x^3+12x^2+10x+30}{2x^2+5}]]></latex-image></image>
+</sidebyside>
+<p>
+Finally, <m>2x^2</m> goes into <m>12x^2</m> six times.
+</p>
+<sidebyside width="60%">
+<image><latex-image><![CDATA[\polylongdiv[]{2x^5+9x^3+12x^2+10x+30}{2x^2+5}]]></latex-image></image>
+</sidebyside>
+<p>
+Since there is no remainder,
+<me>
+\dfrac{2x^5+9x^3+12x^2+10x+30}{2x^2+5}=x^3+2x+6</me>
+</p>
+
+<p>Remark: if we wanted to be pedantic about the question statement, we could write our final answer as <m>x^3+2x+6+\frac{0}{x}</m>, so that we are indeed adding a polynomial to a rational function whose numerator has degree strictly smaller than its denominator.
+</p>
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p> Factor the following polynomials into linear and irreducible factors.
+<ol label="a">
+<li> <m>5x^3-3x^2-10x+6</m>
+</li>
+<li> <m>x^4-3x^2-5</m>
+</li>
+<li> <m>x^4-4x^3-10x^2-11x-6</m>
+</li>
+<li> <m>2x^4+12x^3-x^2-52x+15</m>
+</li>
+</ol>
+</p></statement>
+<hint><p>
+(a) Look for a pattern you can exploit to factor out a linear term.
+</p><p>
+(b) If you set <m>y=x^2</m>, this is quadratic. Remember <m>(x^2-a)= (x+\sqrt{a})(x-\sqrt{a})</m> as long as <m>a</m> is positive
+</p><p>
+(c),(d) Look for integer roots, then use long division.
+</p></hint>
+<answer><p>
+(a) <m>5x^3-3x^2-10x+6=(x+\sqrt{2})(x-\sqrt{2})(5x-3)</m>
+</p><p>
+(b)  <m>x^4-3x^2-5=\displaystyle\left(x+\sqrt{\frac{3+\sqrt{29}}{2}}\right)\left(x-\sqrt{\frac{3+\sqrt{29}}{2}}\right)\left(x^2+\frac{\sqrt{29}-3}{2}\right)</m>
+</p><p>
+(a) <m>x^4-4x^3-10x^2-11x-6 = (x+1)(x-6)(x^2+x+1)</m>
+</p><p>
+(b) <m>2x^4+12x^3-x^2-52x+15= (x+3)(x+5)\left(x-(2+\sqrt2)\right)\left(x-(2-\sqrt2)\right)</m>
+</p></answer>
+<solution><p>
+<ol label="a">
+<li> The polynomial <m>5x^3-3x^2-10x+6</m> has a repeated pattern: the ratio of the first two coefficients is the same as the ratio of the last two coefficients. We can use this to factor.
+<md>
+<mrow>
+5x^3-3x^2-10x+6&amp;=x^2(5x-3)-2(5x-3) = (x^2-2)(5x-3)
+</mrow><mrow>
+&amp;=(x+\sqrt{2})(x-\sqrt{2})(5x-3)
+</mrow>
+</md>
+</li>
+<li> The polynomial <m>x^4-3x^2-5</m> has only even powers of <m>x</m>, so we can (temporarily) replace them with <m>x^2=y</m> to turn our quartic polynomial into a quadratic.
+<md>
+<mrow>
+x^4-3x^2-5&amp;=y^2-3y-5
+</mrow>
+<intertext>There's no obvious factoring here, but we can find its roots, if any, using the quadratic equation.</intertext><mrow>
+y&amp;=\frac{3\pm\sqrt{3^2-4(1)(-5)}}{2}
+</mrow><mrow>
+&amp;=\frac{3\pm\sqrt{29}}{2}
+</mrow><mrow>
+\mbox{So,}\qquad y^2-3y-5&amp;=\left(y-\frac{3+\sqrt{29}}{2}\right)\left(y-\frac{3-\sqrt{29}}{2}\right)
+</mrow><mrow>
+\mbox{Therefore,}\qquad x^4-3x^2-5&amp;=\left(x^2-\frac{3+\sqrt{29}}{2}\right)\left(x^2-\frac{3-\sqrt{29}}{2}\right)
+</mrow>
+<intertext>We'd like to use the difference of two squares to factor these quadratic expressions. For this to work, the constants must be positive (so their square roots are real). Since <m>\sqrt{29} \gt 3</m>, only the first quadratic is factorable. The other is irreducible <mdash/> it's always positive, so it had no roots.
+</intertext><mrow>
+ x^4-3x^2-5&amp;=\left(x+\sqrt{\frac{3+\sqrt{29}}{2}}\right)\left(x-\sqrt{\frac{3+\sqrt{29}}{2}}\right)\left(x^2+\frac{\sqrt{29}-3}{2}\right)
+</mrow>
+</md>
+</li>
+<li>
+<p>
+Without seeing any obvious patterns, we start hunting for roots. Since we have all integer coefficients, if there are any integer roots, they will divide our constant term, <m>-6</m>. So, our candidates for roots are <m>\pm1,\,\pm2,\,\pm3,</m> and <m>\pm6</m>. To save time, we don't need to know exactly the value of our polynomial at these points: only whether or not it is 0. Write <m>f(x) = x^4  - 4x^3 - 10x^2 - 11x - 6</m>.
+<md>
+<mrow>
+\color{red}{f(-1)}&amp;\color{red}{=0}&amp;
+f(-2)&amp;\neq 0&amp;
+f(-3)&amp;\neq 0&amp;
+f(-6)&amp;\neq 0
+</mrow><mrow>
+f(1)&amp;\neq 0&amp;
+f(2)&amp;\neq 0&amp;
+f(3)&amp;\neq 0&amp;
+\color{red}{f(6)}&amp;\color{red}{= 0}
+</mrow>
+</md>
+Since <m>x=-1</m> and <m>x=6</m> are roots of our polynomial, it has factors <m>(x+1)</m> and <m>(x-6)</m>. Note <m>(x+1)(x-6) = x^2-5x-6</m>. We use long division to figure out what else is lurking in our polynomial.
+</p>
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\polylongdiv{x^4-4x^3-10x^2-11x-6}{x^2-5x-6}]]></latex-image></image>
+</sidebyside>
+<p>
+So, <m>x^4-4x^3-10x^2-11x-6 = (x+1)(x-6)(x^2+x+1)</m>.
+</p>
+
+<p> We should check whether <m>x^2+x+1</m> is reducible or not. If we try to find its roots with the quadratic equation, we get <m>\dfrac{-1\pm\sqrt{-3}}{2}</m>, which are not real numbers. So, we're at the end of our factoring.
+</p>
+</li>
+<li><p>
+Without seeing any obvious patterns, we start hunting for roots. Since we have all integer coefficients, if there are any integer roots, they will divide our constant term, <m>-15</m>. So, our candidates for roots are <m>\pm1,\,\pm3,\,\pm5,</m> and <m>\pm15</m>.
+Write <m>f(x) = 2x^4  + 12x^3 - x^2 - 52x + 15</m>.
+<md>
+<mrow>
+f(-1)&amp;\neq 0&amp;
+\color{red}{f(-3)}&amp;\color{red}{=0}&amp;
+\color{red}{f(-5)}&amp;\color{red}{=0}&amp;
+f(-5)&amp;\neq 0
+</mrow><mrow>
+f(1)&amp;\neq 0&amp;
+f(3)&amp;\neq 0&amp;
+f(5)&amp;\neq 0&amp;
+f(15)&amp;\neq 0&amp;
+</mrow>
+</md>
+Since <m>x=-3</m> and <m>x=-5</m> are roots of our polynomial, it has factors <m>(x+3)</m> and <m>(x+5)</m>. Note <m>(x+3)(x+5) = x^2+8x+15</m>. We use long division to move forward.
+</p>
+<sidebyside width="66%">
+<image><latex-image><![CDATA[\polylongdiv{2x^4+12x^3-x^2-52x+15}{x^2+8x+15}]]></latex-image></image>
+</sidebyside>
+<p>
+So, <m>2x^4+12x^3-x^2-52x+15= (x+3)(x+5)(2x^2-4x+1)</m>.
+</p>
+
+<p> We should check whether <m>2x^2-4x+1</m> is reducible or not. There's not an obvious way to factor it, but we can  use the quadratic equation. This gives us roots
+ <m>\dfrac{4\pm\sqrt{16-8}}{2}=2\pm\sqrt2</m>. So, we have two more linear factors.
+</p>
+
+<p>Specifically:  <m>2x^4+12x^3-x^2-52x+15= (x+3)(x+5)\left(x-(2+\sqrt2)\right)\left(x-(2-\sqrt2)\right)</m>.
+</p>
+</li>
+</ol>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Here is a fact:
+</p>
+<textblue>
+<blockquote>
+<p>
+Suppose we have a rational function with a repeated linear factor <m>(ax+b)^n</m> in the denominator, and the degree of the numerator is strictly less than the degree of the denominator. In the partial fraction decomposition, we can replace the terms
+<me>
+\frac{A_1}{ax+b} + \frac{A_2}{(ax+b)^2}+\frac{A_3}{(ax+b)^3}+\cdots+
+\frac{A_n}{(ax+b)^n}\tag{1}
+</me>
+with the single term
+<me>
+\frac{B_1+B_2x+B_3x^2+\cdots + B_{n}x^{n-1}}{(ax+b)^n}\tag{2}
+</me>
+and still be guaranteed to find a solution.</p>
+</blockquote>
+</textblue>
+
+<p>Why do we use the sum in (1), rather than the single term in (2), in partial fraction decomposition?
+</p></statement>
+<hint><p>
+Why do we do partial fraction decomposition at all?
+</p></hint>
+<answer><p>
+The goal of partial fraction decomposition is to write our integrand in a form that is easy to integrate. The antiderivative of (1) can be easily determined with the substitution <m>u=(ax+b)</m>. It's less clear how to find the antiderivative of (2).
+</p></answer>
+<solution><p>
+The goal of partial fraction decomposition is to write our integrand in a form that is easy to integrate. The antiderivative of (1) can be easily determined with the substitution <m>u=(ax+b)</m>. It's less clear how to find the antiderivative of (2).
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><procedural/></title><introduction/>
+
+<exercise xml:id="prob_s1_10_xpxto2"><title><fromexam>2013A</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int_1^2 \frac{\dee{x}}{x+x^2}</m>.
+</p></statement>
+
+<hint><p>
+What is the title of this section?
+</p></hint>
+
+<answer><p>
+<m>\displaystyle\log\frac{4}{3}</m>
+</p></answer>
+
+<solution><p>
+The integrand is a rational function, so it's a candidate for partial fraction. We quickly rule out any obvious substitution or integration by parts, so we go ahead with the decomposition.
+</p>
+
+<p>We start by expressing the integrand,
+i.e. the fraction <m>\frac{1}{x+x^2}=\frac{1}{x(1+x)}</m>, as a linear
+combination of the simpler fractions  <m>\frac{1}{x}</m> and <m>\frac{1}{x+1}</m>
+(which we already know how to integrate). We will have
+<md>
+<mrow>
+\frac{1}{x+x^2}=\frac{1}{x(1+x)} = \frac{a}{x} + \frac{b}{x+1}
+=\frac{a(x+1) +bx}{x(1+x)}
+</mrow>
+</md>
+The fraction on the left hand side is the same as the fraction
+on the right hand side if and only if the numerator on the left
+hand side, which is <m>1 = 0x + 1</m>, is equal to the numerator on the
+right hand side, which is <m>a(x+1)+bx = (a+b)x +a</m>. This in turn
+is the case if and only of <m>a=1</m> (i.e. the constant terms are
+the same in the two numerators) and <m>a+b=0</m> (i.e. the coefficients
+of <m>x</m> are the same in the two numerators). So <m>a=1</m> and <m>b=-1</m>.
+Now we can easily evaluate the integral
+<md>
+<mrow>
+\int_1^2 \frac{\dee{x}}{x+x^2}
+&amp;=\int_1^2 \frac{\dee{x}}{x(x+1)}
+=\int_1^2 \Big(\frac{1}{x}-\frac{1}{x+1}\Big)\,\dee{x}
+=\Big[\log x-\log(x+1)\Big]_1^2
+</mrow><mrow>
+&amp;=\log 2-\log\frac{3}{2}
+=\log\frac{4}{3}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2015A</fromexam></title>
+<statement><p>
+Calculate <m>\displaystyle \int \frac{1}{x^4+x^2}\,\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+You can save yourself some work in developing your partial fraction decomposition
+by renaming <m>x^2</m> to <m>y</m> and comparing the result with Question<nbsp/><xref ref="prob_s1_10_xpxto2" text="local"/>.
+</p></hint>
+
+<answer><p>
+<m>-\dfrac{1}{x}-\arctan x+C</m>
+</p></answer>
+
+<solution><p>
+We'll first do a partial fraction decomposition. The sneaky
+way is to temporarily rename <m>x^2</m> to <m>y</m>. Then <m>x^4+x^2=y^2+y</m>
+and
+<me>
+\frac{1}{x^4+x^2} = \frac{1}{y(y+1)}
+  =\frac{1}{y}-\frac{1}{y+1}
+</me>
+  as we found in Question<nbsp/><xref ref="prob_s1_10_xpxto2" text="local"/>.
+Now we restore <m>y</m> to <m>x^2</m>.
+<md>
+<mrow>
+\int \frac1{x^4+x^2}\,\dee{x}
+=\int \Big(\frac{1}{x^2}-\frac{1}{x^2+1}\Big)\,\dee{x}
+=-\frac{1}{x}-\arctan x+C
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS"><title><fromexam>2016A</fromexam></title>
+<statement><p>
+Calculate <m>\displaystyle \int \frac{12x+4}{(x-3)(x^2+1)}\,dx</m>.
+</p></statement>
+
+<hint><p>
+Review Steps 3 (particularly the <q>Sneaky Method</q>) and 4 of
+Example <xref ref="eg_PFc"/>.
+</p></hint>
+
+<answer><p>
+<m>4 \log |x-3| - 2 \log (x^2 + 1) + C</m>
+</p></answer>
+
+<solution><p>
+The integrand is of the form <m>N(x)/D(x)</m> with <m>D(x)</m> already factored
+and <m>N(x)</m> of lower degree. We immediately look for a partial fraction decomposition:
+<me>
+\frac{12x+4}{(x-3)(x^2+1)} = \frac{A}{x-3} + \frac{Bx+C}{x^2+1}.
+</me>
+Multiplying through by the denominator yields
+<md>
+  <mrow>
+12x+4 &amp;= A(x^2+1) + (Bx+C)(x-3)
+\tag{<m>*</m>}
+</mrow>
+</md>
+Setting <m>x=3</m> we find:
+<md>
+<mrow>
+   36 +4 = A(9 + 1) + 0 \implies 40 =10A  \implies \color{red}{A = 4}
+</mrow>
+</md>
+Substituting <m>A=4</m> in <m>(*)</m> gives
+<md>
+<mrow>
+12x+4 = 4(x^2+1) + (Bx+C)(x-3)
+  &amp;\implies   -4x^2+12 x =(x-3)(Bx + C)
+</mrow><mrow>
+  &amp;\implies   (-4x)(x-3)=(Bx + C)(x-3)
+</mrow><mrow>
+  &amp; \implies  \color{red}{B=-4, C=0}
+</mrow>
+</md>
+So we have found that <m>A=4</m>, <m>B=-4</m>, and <m>C=0</m>. Therefore
+<md>
+<mrow>
+  \int \frac{12x+4}{(x-3)(x^2+1)} \,dx &amp;= \int \bigg( \frac{4}{x-3} - \frac{4x}{x^2+1} \bigg) \,dx
+</mrow><mrow>
+   &amp;=  4 \log |x-3| - 2 \log (x^2 + 1) + C
+</mrow>
+</md>
+The second integral was found just by guessing an antiderivative.
+Alternatively, one could use the substitution <m>u=x^2+1</m>, <m>\dee{u}=2x\,\dee{x}</m>.
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>2016Q4</fromexam></title>
+<statement><p>
+Evaluate the following indefinite integral using partial fraction:
+<md>
+<mrow>
+F(x) = \int \frac{3x^2 -4}{(x-2)(x^2+4)}\,\dee{x} .
+</mrow>
+</md>
+</p></statement>
+
+<hint><p>
+Review Steps 3 (particularly the <q>Sneaky Method</q>) and 4 of
+Example <xref ref="eg_PFc"/>. Remember <m>\diff{}{x}\{\arctan x\} = \frac{1}{1+x^2}</m>.
+</p></hint>
+
+<answer><p>
+<m> F(x) = \log |x-2| + \log |x^2+4| + 2\arctan (x/2) + D</m>
+</p></answer>
+
+<solution><p>
+The integrand is of the form <m>N(x)/D(x)</m> with <m>D(x)</m> already factored
+and <m>N(x)</m> of lower degree. With no obvious substitution available, we look for a partial fraction decomposition.
+<md>
+<mrow>
+\frac{3x^2 -4}{(x-2)(x^2+4)} = \frac{A}{x-2} + \frac{Bx + C}{x^2+4}
+</mrow>
+</md>
+Multiplying through by the denominator gives
+<md>
+  <mrow>
+3x^2 -4 = A(x^2+4) + (Bx + C)(x-2)
+\tag{<m>*</m>}
+</mrow>
+</md>
+Setting <m>x=2</m> we find:
+<md>
+<mrow>
+   12 -4 = A(4 + 4) + 0 \implies 8 =8A  \implies \color{red}{A = 1}
+</mrow>
+</md>
+Substituting <m>A=1</m> in <m>(*)</m> gives
+<md>
+<mrow>
+ 3x^2 -4  = (x^2+4) + (x-2)(Bx + C)
+  &amp;\implies   2x^2-8 =(x-2)(Bx + C)
+</mrow><mrow>
+  &amp;\implies   (x-2)(2x+4)=(x-2)(Bx + C)
+</mrow><mrow>
+  &amp; \implies \color{red}{ B=2, C=4}
+</mrow>
+</md>
+Thus, we have:
+<md>
+<mrow>
+ \frac{3x^2 -4}{(x-2)(x^2+4)} = \frac{1}{x-2} + \frac{2x + 4}{x^2+4} = \frac{1}{x-2} + \frac{2x }{x^2+4} + \frac{4}{x^2+4 }
+</mrow>
+</md>
+The first two of these are directly integrable:
+<md>
+<mrow>
+  F(x) = \log |x-2| + \log |x^2+4| + \int \frac{4}{x^2+4}\,\dee{x}
+</mrow>
+</md>
+(The second integral was found just by guessing an antiderivative.
+Alternatively, one could use the substitution <m>u=x^2+4</m>, <m>\dee{u}=2x\,\dee{x}</m>.)
+For the final integral, we substitute: <m>x = 2y</m>,
+<m>\dee{x} = 2\dee{y}</m>, and see that:
+<md>
+<mrow>
+  \int \frac{4}{x^2+4}\,\dee{x}  = 2 \int \frac{1}{y^2 + 1}\,dy = 2 \arctan y + D = 2\arctan (x/2) + D
+</mrow>
+</md>
+for any constant <m>D</m>. All together we have:
+<md>
+<mrow>
+   F(x) = \log |x-2| + \log |x^2+4| + 2\arctan (x/2) + D
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>M105 2014A</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int \frac{x-13}{x^2-x-6}\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+Fill in the blank: the integrand is a <m>\underbar{\ \ \ \ \ \ \ \ }</m> function.
+</p></hint>
+
+<answer><p>
+<m>-2\log|x-3|+3\log|x+2|+C</m>
+</p></answer>
+
+<solution><p>
+This integrand is a rational function, with no obvious substitution. This sure looks like a partial fraction problem. Let's go through our protocol.
+<ul>
+<li>
+The degree of the numerator <m>x-13</m> is one, which is strictly smaller
+than the dergee of the denominator <m>x^2-x-6</m>, which is two. So we don't need long division to pull out a polynomial.
+</li>
+<li>
+Next we factor the denominator.
+<md>
+<mrow>
+x^2-x-6 = (x-3)(x+2)
+</mrow>
+</md>
+</li>
+<li>
+Next we find the partial fraction decomposition of the integrand. It is
+of the form
+<md>
+<mrow>
+\frac{x-13}{(x-3)(x+2)}
+=\frac{A}{x-3} + \frac{B}{x+2}
+</mrow>
+</md>
+To find <m>A</m> and <m>B</m>, using the sneaky method, we cross multiply by the
+denominator.
+<md>
+<mrow>
+x-13 = A(x+2) + B(x-3)
+</mrow>
+</md>
+Now we can find <m>A</m> by evaluating at <m>x=3</m>
+<md>
+<mrow>
+3-13 = A(3+2) + B(3-3)
+\implies \color{red}{ A=-2}
+</mrow>
+</md>
+and find <m>B</m> by evaluating at <m>x=-2</m>.
+<md>
+<mrow>
+-2-13 = A(-2+2) + B(-2-3)
+\implies \color{red}{ B=3}
+</mrow>
+</md>
+(Hmmm. <m>A</m> and <m>B</m> are nice round numbers. Sure looks like a rigged exam or
+homework question.) Our partial fraction decomposition is
+<md>
+<mrow>
+\frac{x-13}{(x-3)(x+2)}
+=\frac{-2}{x-3} + \frac{3}{x+2}
+</mrow>
+</md>
+As a check, we recombine the right hand side and make sure that
+it matches the left hand side.
+<md>
+<mrow>
+\frac{-2}{x-3} + \frac{3}{x+2}
+=\frac{-2(x+2)+3(x-3)}{(x-3)(x+2)}
+=\frac{x-13}{(x-3)(x+2)}
+</mrow>
+</md>
+</li>
+<li>
+Finally, we evaluate the integral.
+<md>
+<mrow>
+\int \frac{x-13}{x^2-x-6}\dee{x}
+=\int\bigg(\frac{-2}{x-3} + \frac{3}{x+2}\bigg)\dee{x}
+=-2\log|x-3|+3\log|x+2|+C
+</mrow>
+</md>
+</li>
+</ul>
+</p>
+
+</solution>
+</exercise>
+
+<exercise><title><fromexam>2014D</fromexam></title>
+<statement><p>
+Evaluate <m>\displaystyle\int \frac{5x+1}{x^2+5x+6}\dee{x}</m>.
+</p></statement>
+
+<hint><p>
+The integrand is yet another <m>\underbar{\ \ \ \ \ \ \ \ }</m> function.
+</p></hint>
+
+<answer><p>
+<m> -9\log|x+2|+14\log|x+3| +C</m>
+</p></answer>
+
+<solution><p>
+Again, this sure looks like a partial fraction problem. So let's go
+through our protocol.
+<ul>
+<li>
+The degree of the numerator <m>5x+1</m> is one, which is strictly smaller
+than the dergee of the denominator <m>x^2+5x+6</m>, which is two. So we do not
+long divide to pull out a polynomial.
+</li>
+<li>
+Next we factor the denominator.
+<md>
+<mrow>
+x^2+5x+6 = (x+2)(x+3)
+</mrow>
+</md>
+</li>
+<li>
+Next we find the partial fraction decomposition of the integrand. It is
+of the form
+<md>
+<mrow>
+\frac{5x+1}{(x+2)(x+3)}
+=\frac{A}{x+2} + \frac{B}{x+3}
+</mrow>
+</md>
+To find <m>A</m> and <m>B</m>, using the sneaky method, we cross multiply by the
+denominator.
+<md>
+<mrow>
+5x+1= A(x+3) + B(x+2)
+</mrow>
+</md>
+Now we can find <m>A</m> by evaluating at <m>x=-2</m>
+<md>
+<mrow>
+-10+1 = A(-2+3) + B(-2+2)
+\implies\color{red}{ A=-9}
+</mrow>
+</md>
+and find <m>B</m> by evaluating at <m>x=-3</m>.
+<md>
+<mrow>
+-15+1 = A(-3+3) + B(-3+2)
+\implies\color{red}{ B=14}
+</mrow>
+</md>
+So our partial fraction decomposition is
+<md>
+<mrow>
+\frac{5x+1}{(x+2)(x+3)}
+=\frac{-9}{x+2} + \frac{14}{x+3}
+</mrow>
+</md>
+As a check, we recombine the right hand side and make sure that
+it matches the left hand side
+<md>
+<mrow>
+\frac{-9}{x+2} + \frac{14}{x+3}
+=\frac{-9(x+3)+14(x+2)}{(x+2)(x+3)}
+=\frac{5x+1}{(x+2)(x+3)}
+</mrow>
+</md>
+</li>
+<li>
+Finally, we evaluate the integral
+<md>
+<mrow>
+\int \frac{5x+1}{x^2+5x+6}\dee{x}
+=\int\bigg(\frac{-9}{x+2} + \frac{14}{x+3}\bigg)\dee{x}
+=-9\log|x+2|+14\log|x+3|+C
+</mrow>
+</md>
+</li>
+</ul>
+</p>
+
+</solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\int \frac{5x^2-3x-1}{x^2-1} \dee{x}</m>.
+</p></statement>
+<hint><p>
+Since the degree of the numerator is the same as the degree of the denominator, we can't do our partial fraction decomposition before we simplify the integrand.
+</p></hint>
+<answer><p>
+<m>\displaystyle5x+\frac{1}{2}\log|x-1| - \frac{7}{2}\log|x+1|+C</m>
+</p></answer>
+<solution><p>
+We have a rational function with no obvious substitution, so let's use partial fraction decomposition.
+<ul>
+<li>
+<p>
+Since the degree of the numerator is the same as the degree of the denominator, we need to pull out a polynomial.
+</p>
+
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\polylongdiv{3x^2+2x^2-3x-1}{x^2-1}]]></latex-image></image>
+</sidebyside>
+<p>
+That is,
+<me>
+\int \frac{5x^2-3x-1}{x^2-1}\dee{x} = \int\left(5+ \frac{-3x+4}{x^2-1}\right)\dee{x} =5x+ \int \frac{-3x+4}{x^2-1}\dee{x}
+</me>
+</p>
+</li>
+<li> Again, there's no obvious substitution for the new integrand, so we want to use partial fraction. The denominator factors as <m>(x-1)(x+1)</m>, so our decomposition has this form:
+<md>
+<mrow>
+\frac{-3x+4}{x^2-1}&amp;=\frac{-3x+4}{(x-1)(x+1)} = \frac{A}{x-1}+\frac{B}{x+1} = \frac{(A+B)x+(A-B)}{(x-1)(x+1)}
+</mrow>
+</md>
+So, (1) <m>A+B=-3</m> and (2)  <m>A-B=4</m>.
+</li>
+<li> We  solve (2) for <m>A</m>  in terms of <m>B</m>, namely <m>A=4+B</m>. Plugging this into (1), we see <m>(4+B)+B=-3</m>. So, <m>\textcolor{red}{B=-\frac{7}{2}}</m>, and <m>\textcolor{red}{A=\frac{1}{2}}</m>.
+</li>
+<li> Now we can write our integral in a friendlier form and evaluate.
+<md>
+<mrow>
+\int \frac{5x^2-3x-1}{x^2-1}\dee{x} =&amp;=5x+ \int \frac{-3x+4}{x^2-1}\dee{x}  =
+5x+\int \frac{1/2}{x-1} - \frac{7/2}{x+1} \dee{x}
+</mrow><mrow>
+&amp;=5x+\frac{1}{2}\log|x-1| - \frac{7}{2}\log|x+1|+C
+</mrow>
+</md>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int \frac{4x^4+14x^2+2}{4x^4+x^2} \dee{x}</m>.
+</p></statement>
+<hint><p>
+The degree of the numerator is not smaller than the degree of the denominator.
+</p>
+<p>
+Your final answer will have an arctangent in it.
+</p></hint>
+<answer><p>
+<m>\displaystyle x-\frac{2}{x}+\frac{5}{2}\arctan (2x) +C</m>
+</p></answer>
+<solution><p>
+The integrand is a rational function with no obvious substitution, so we use partial fraction decomposition.
+<ul>
+<li> The degree of the numerator is the same as the degree of the denominator. Since it's not smaller, we need to re-write our integrand. We could do this using long division, but this case is simple enough to do more informally.
+<md>
+<mrow>
+\frac{4x^4+14x^2+2}{4x^4+x^2}&amp;=\frac{4x^4+x^2+13x^2+2}{4x^4+x^2}
+</mrow><mrow>
+&amp;=\frac{4x^4+x^2}{4x^4+x^2}+\frac{13x^2+2}{4x^4+x^2}
+</mrow><mrow>&amp;=1+\frac{13x^2+2}{4x^4+x^2}
+</mrow>
+</md>
+</li>
+<li> The denominator factors as <m>x^2(4x^2+1)</m>.
+</li>
+<li>
+<p>We want to find the partial fraction decomposition of the fractional part of our simplified integrand.
+<md>
+<mrow>
+\frac{13x^2+2}{4x^4+x^2}&amp;=
+\frac{13x^2+2}{x^2(4x^2+1)} = \frac{A}{x}+\frac{B}{x^2}+\frac{Cx+D}{4x^2+1}
+</mrow>
+<intertext>Multiply through by the original denominator.</intertext><mrow>
+13x^2+2&amp;=Ax(4x^2+1)+B(4x^2+1)+(Cx+D)x^2 \tag{1}
+</mrow>
+<intertext>Setting <m>x=0</m> gives us:</intertext><mrow>
+\textcolor{red}{2}&amp;\color{red}{=B}
+</mrow>
+<intertext>We use <m>B=2</m> to simplify Equation (1).</intertext><mrow>
+13x^2+2&amp;=Ax(4x^2+1)+\textcolor{red}{2}(4x^2+1)+(Cx+D)x^2
+</mrow><mrow>
+5x^2&amp;=Ax(4x^2+1)+(Cx+D)x^2
+</mrow><mrow>
+5x&amp;=A(4x^2+1)+(Cx+D)x\tag{2}
+</mrow>
+<intertext>Again, let <m>x=0</m>.</intertext><mrow>
+\color{red}{0}&amp;\color{red}{=A}
+</mrow>
+<intertext>Using <m>A=0</m>,   simplify Equation (2).</intertext><mrow>
+5x&amp;=(Cx+D)x
+</mrow><mrow>
+5&amp;=Cx+D
+</mrow><mrow>
+\color{red}{C}&amp; \textcolor{red}{=0},\qquad\color{red}{D=5}
+</mrow>
+</md>
+</p>
+</li>
+<li>
+<p>
+Now we can write our integral in pieces.
+<md>
+<mrow>
+\int \frac{4x^4+14x^2+2}{4x^4+x^2} \dee{x}&amp;=
+\int \left(1+\frac{13x^2+2}{4x^4+x^2}\right) \dee{x}
+</mrow><mrow>
+&amp;=\int\left(1+ \frac{\textcolor{red}2}{x^2}+\frac{\textcolor{red}5}{4x^2+1}\right) \dee{x}
+</mrow><mrow>&amp;=x -\frac{2}{x} + \int \frac{5}{(2x)^2+1}
+ \dee{x}
+</mrow>
+<intertext>Substitute <m>u=2x</m>, <m>\dee{u}=2\dee{x}</m>.
+</intertext><mrow>
+&amp; =x -\frac{2}{x} + \int \frac{5/2}{u^2+1} \dee{u}
+</mrow><mrow>
+&amp;=x-\frac{2}{x}+\frac{5}{2}\arctan u +C
+</mrow><mrow>
+&amp;=x-\frac{2}{x}+\frac{5}{2}\arctan (2x) +C
+</mrow>
+</md>
+</p>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int \frac{x^2+2x-1}{x^4-2x^3+x^2} \dee{x}</m>.
+</p></statement>
+<hint><p>
+In the partial fraction decomposition, several constants turn out to be 0.
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{1}{x}-\frac{2}{x-1}+C</m>
+</p></answer>
+<solution><p>
+The integrand is a rational function with no obvious substitution, so we'll use a partial fraction decomposition.
+<ul>
+<li> Since the numerator has strictly smaller degree than the denominator, we don't need to start off with a long division.
+</li>
+<li> We do, however, need to factor the denominator. We can immediately pull out <m>x^2</m>; the remaining part is <m>x^2-2x+1 = (x-1)^2</m>.
+</li>
+<li> Now we can perform our partial fraction decomposition.
+<md>
+<mrow>
+ \frac{x^2+2x-1}{x^4-2x^3+x^2}&amp;= \frac{x^2+2x-1}{x^2(x-1)^2} = \frac{A}{x}+\frac{B}{x^2}+\frac{C}{x-1}+\frac{D}{(x-1)^2}
+ </mrow>
+<intertext>Multiply both sides by the original denominator.</intertext><mrow>
+ x^2+2x-1&amp;=Ax(x-1)^2+B(x-1)^2+Cx^2(x-1)+Dx^2\tag{1}
+ </mrow>
+<intertext>To be sneaky, we set <m>x=0</m>, and find:</intertext><mrow>
+\color{red}{-1}&amp;\color{red}{=B}
+</mrow>
+<intertext>We also set <m>x=1</m>, and find:</intertext><mrow>
+\color{red}{2}&amp;\color{red}{=D}
+</mrow>
+<intertext>We use <m>B</m> and <m>D</m> to simplify Equation (1).</intertext><mrow>
+ x^2+2x-1&amp;=Ax(x-1)^2\textcolor{red}{-1}(x-1)^2+Cx^2(x-1)+\textcolor{red}{2}x^2
+</mrow><mrow>
+ 0&amp;=Ax(x-1)^2+Cx^2(x-1)
+</mrow><mrow>
+ &amp;=x(x-1)[(A+C)x-A]
+</mrow><mrow>
+ \mbox{So,}\qquad 0&amp;=(A+C)x-A
+</mrow>
+</md>
+That is, <m>\textcolor{red}{A=C=0}</m>.
+</li>
+<li> Now we can evaluate our integral.
+<md>
+<mrow>
+\int \frac{x^2+2x-1}{x^4-2x^3+x^2} \dee{x}&amp;=\int \left(\frac{-1}{x^2}+\frac{2}{(x-1)^2}\right) \dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{x}-\frac{2}{x-1}+C
+</mrow>
+</md>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\int \frac{ 3x^2-4x-10}{2x^3-x^2-8x+4} \dee{x}</m>.
+</p></statement>
+<hint><p>
+Factor <m>(2x-1)</m> out of the denominator to get started. You don't need long division for this step.
+</p></hint>
+<answer><p>
+<m>\displaystyle-\frac{1}{2}\log|x-2| + \frac{1}{2}\log|x+2| + \frac{3}{2}\log|2x-1|+C</m>
+</p></answer>
+<solution><p>
+Our integrand is a rational function with no obvious substitution, so we'll use the method of partial fractions.
+<ul>
+<li> The degree of the numerator is less than the degree of the denominator.
+</li>
+<li> We need to factor the denominator. The first two terms have the same ratio as the last two terms.
+<md>
+<mrow>
+2x^3-x^2-8x+4&amp;=x^2(2x-1)-4(2x-1)
+</mrow><mrow>
+&amp;= (x^2-4)(2x-1)
+</mrow><mrow>
+&amp;=(x-2)(x+2)(2x-1)
+</mrow>
+</md>
+</li>
+<li> Now we find our partial fraction decomposition.
+<md>
+<mrow>
+\frac{ 3x^2-4x-10}{2x^3-x^2-8x+4}&amp;=\frac{ 3x^2-4x-10}{(x-2)(x+2)(2x-1)}=
+\frac{A}{x-2}+\frac{B}{x+2}+\frac{C}{2x-1}
+</mrow>
+<intertext>Multiply both sides by the original denominator.</intertext><mrow>
+3x^2-4x-10&amp;=A(x+2)(2x-1)+B(x-2)(2x-1)+C(x-2)(x+2)
+</mrow>
+<intertext>Distinct linear factors is the best possible scenario for the sneaky method. First, let's set <m>x=2</m>.</intertext><mrow>
+3(4)-4(2)-10&amp;=A(4)(3)+B(0)+C(0)
+</mrow><mrow>
+\color{red}{A}&amp;\color{red}{=-\frac{1}{2}}
+</mrow>
+<intertext>Now, let <m>x=-2</m>.</intertext><mrow>
+3(4)-4(-2)-10&amp;=A(0)+B(-4)(-5)+C(0)
+</mrow><mrow>
+\color{red}{B}&amp;\color{red}{=\frac{1}{2}}
+</mrow>
+<intertext>Finally, let <m>x=\frac{1}{2}</m>.
+</intertext><mrow>
+\frac{3}{4}-2-10&amp;=A(0)+B(0)+C\left(-\frac{3}{2}\right)\left(\frac{5}{2}\right)
+</mrow><mrow>
+\color{red}{C}&amp;\color{red}{=3}
+</mrow>
+</md>
+</li>
+<li> Now we can evaluate our integral in its new form.
+<md>
+<mrow>
+\int \frac{ 3x^2-4x-10}{2x^3-x^2-8x+4} \dee{x}&amp;=\int \left(\frac{-1/2}{x-2}+\frac{1/2}{x+2}+\frac{3}{2x-1}\right)
+ \dee{x}
+</mrow><mrow>
+&amp;=-\frac{1}{2}\log|x-2| + \frac{1}{2}\log|x+2| + \frac{3}{2}\log|2x-1|+C
+</mrow><mrow>&amp;=\frac{1}{2}\log\left| \frac{x+2}{x-2} \right| +  \frac{3}{2}\log|2x-1|+C
+</mrow>
+</md>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int_0^1 \frac{10x^2+24x+8}{2x^3+11x^2+6x+5} \dee{x}</m>.
+</p></statement>
+<hint><p>
+When it comes time to integrate, look for a convenient substitution.
+</p></hint>
+<answer><p>
+<m>\displaystyle\log \left(\frac{4\cdot 6^3}{5^3}\right)</m>
+</p></answer>
+<solution><p>
+The integrand is a rational function with no obvious substitution, so we use the method of partial fractions.
+<ul>
+<li> The numerator has smaller degree than the denominator.
+</li>
+<li>
+<p>
+We need to factor the denominator. In the absence of any clues, we look for an integer root. The constant term is 5, so the possible integer roots are <m>\pm 1</m> and <m>\pm 5</m>. Name <m>f(x) = 2x^3+11x^2+6x+5</m>.
+<me>
+f(-1)\neq0
+\qquad
+\color{red}{f(-5)=0}
+\qquad
+f(1)\neq 0
+\qquad
+f(5)\neq 0
+</me>
+</p>
+
+<p> So, <m>(x+5)</m> is a factor of the denominator.
+</p>
+</li>
+<li><p>
+We use long division to pull out the factor of <m>(x+5)</m>.
+</p>
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\polylongdiv{2x^3+11x^2+6x+5}{x+5}]]></latex-image></image>
+</sidebyside>
+<p>
+That is, our denominator is <m>(x+5)(2x^2+x+1)</m>.
+</p>
+</li>
+<li> The quadratic function <m>2x^2+x+1</m> is irreducible: we can see this by using the quadratic equation,  and finding no real roots. So, we are ready to find our partial fraction decomposition.
+ <md>
+<mrow>
+ \frac{10x^2+24x+8}{2x^3+11x^2+6x+5}&amp;=\frac{10x^2+24x+8}{(x+5)(2x^2+x+1)}=\frac{A}{x+5}+\frac{Bx+C}{2x^2+x+1}
+ </mrow>
+<intertext>Multiply through by the original denominator.</intertext><mrow>
+10x^2+24x+8&amp;=A(2x^2+x+1)+(Bx+C)(x+5)\tag{1}
+</mrow>
+<intertext>Set <m>x=-5</m>.</intertext><mrow>
+10(25)-24(5)+8&amp;=A(2(25)-5+1) + (B(-5)+C)(0)
+</mrow><mrow>
+\color{red}{A}&amp;\color{red}{=3}
+</mrow>
+<intertext>Using our value of <m>A</m>, we simplify Equation (1).</intertext><mrow>
+10x^2+24x+8&amp;=\textcolor{red}{3}(2x^2+x+1)+(Bx+C)(x+5)
+</mrow><mrow>4x^2+21x+5&amp;=(Bx+C)(x+5)
+</mrow>
+<intertext>We factor the left side. We know <m>(x+5)</m> must be one of its factors.</intertext><mrow>
+(4x+1)(x+5)&amp;=(Bx+C)(x+5)
+</mrow><mrow>
+4x+1&amp;=Bx+C
+ </mrow>
+</md>
+ So, <m>\textcolor{red}{B=4}</m> and <m>\textcolor{red}{C=1}</m>.
+</li>
+<li> Now we can write our integral in smaller pieces.
+ <md>
+<mrow>
+ \int_0^1 \frac{10x^2+24x+8}{2x^3+11x^2+6x+5} \dee{x}&amp;=
+ \int_0^1 \left(
+ \frac{3}{x+5} + \frac{4x+1}{2x^2+x+1}\right)  \dee{x}
+ </mrow>
+<intertext>The antiderivative of the left fraction is <m>3\log|x+5|</m>. For the right fraction, we use the substitution <m>u=2x^2+x+1</m>, <m>\dee{u}=(4x+1)\dee{x}</m> to antidifferentiate.
+</intertext><mrow>
+ &amp;=\big[3\log|x+5| + \log|2x^2+x+1|\big]_0^1
+</mrow><mrow>
+ &amp;=3\log 6 + \log 4 - 3\log 5 -\log 1
+</mrow><mrow>
+ &amp;=\log \left(\frac{4\cdot 6^3}{5^3}\right)
+ </mrow>
+</md>
+</li>
+</ul>
+</p></solution>
+</exercise>
+</exercisegroup>
+
+<exercisegroup><title><application/></title><introduction/>
+
+<introduction><p>In Questions<nbsp/><xref ref="prob_s1_10_trig1" text="local"/> and <xref ref="prob_s1_10_trig2" text="local"/>, we use partial fraction to find the  antiderivatives of two important functions: cosecant, and cosecant cubed. </p></introduction>
+
+<exercise xml:id="prob_s1_10_trig1" purpose="RQS">
+<statement><p>
+Using the method of Example<nbsp/><xref ref="eg_PFe"/>, integrate <m>\displaystyle\int \csc x  \dee{x}</m>.
+</p></statement>
+<hint><p>
+<m>\displaystyle\csc x = \frac{1}{\sin x} = \frac{\sin x}{\sin^2 x}</m>
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{1}{2}\log\left| \frac{1-\cos x}{1+\cos x}\right|+C</m>
+</p></answer>
+<solution><p>
+We follow the example in the text.
+<md>
+<mrow>
+\int \csc x  \dee{x}&amp;=\int \frac{1}{\sin x}  \dee{x}=\int \frac{\sin x}{\sin^2 x}  \dee{x} =
+\int \frac{\sin x}{1-\cos^2 x}  \dee{x}
+</mrow>
+<intertext>Let <m>u=\cos x</m>, <m>\dee{u}=-\sin x \dee{x}</m>.
+</intertext><mrow>
+&amp;=\int\frac{-1}{1-u^2} \dee{u} = \int\frac{-1}{(1+u)(1-u)} \dee{u}
+</mrow>
+<intertext>We see an opportunity for partial fraction.</intertext><mrow>
+\frac{-1}{(1+u)(1-u)}&amp;=\frac{A}{1+u}+\frac{B}{1-u}
+</mrow>
+<intertext>Multiply both sides by the original denominator.</intertext><mrow>
+-1&amp;=A(1-u)+B(1+u)
+</mrow>
+<intertext>Let <m>u=1</m>.</intertext><mrow>
+-1&amp;=2B \qquad\Rightarrow\color{red}{ B = -\frac{1}{2}}
+</mrow>
+<intertext>Let <m>u=-1</m>.</intertext><mrow>
+-1&amp;=2A \qquad\Rightarrow \color{red}{A = -\frac{1}{2}}
+</mrow>
+<intertext>We can now re-write our integral.</intertext><mrow>
+\int \csc x  \dee{x}&amp;= \int\frac{-1}{(1+u)(1-u)} \dee{u}
+=\int \left(\frac{-1/2}{1+u} + \frac{-1/2}{1-u}\right) \dee{u}
+</mrow><mrow>
+&amp;=-\frac{1}{2}\log|1+u| +\frac{1}{2}\log|1-u|+C
+</mrow><mrow>
+&amp;=\frac{1}{2}\log\left| \frac{1-u}{1+u}\right|+C
+</mrow><mrow>
+&amp;=\frac{1}{2}\log\left| \frac{1-\cos x}{1+\cos x}\right|+C
+</mrow>
+</md>
+</p>
+
+<p>Remark: Elsewhere in the text, and in many tables of integrals, the antiderivative of cosecant is given as <m>\log|\csc x - \cot x|</m>. We show that this is equivalent to our result.
+<md>
+<mrow>
+\log|\csc x - \cot x|&amp;=
+\frac{1}{2}\log\left|\left(\csc x - \cot x\right)^2\right| = \frac{1}{2}\log\left| \csc^2 x - 2\csc x \cot x + \cot^2 x\right|
+</mrow><mrow>
+&amp;=\frac{1}{2}\log\left| \frac{1}{\sin^2x}   - \frac{2\cos x}{\sin^2 x}+\frac{\cos^2 x}{\sin^2x}\right|
+</mrow><mrow>
+&amp;=\frac{1}{2}\log\left| \frac{1-2\cos x + \cos^2 x}{\sin^2x} \right|
+=\frac{1}{2}\log\left| \frac{\left(1-\cos x\right)^2}{1-\cos^2x} \right|
+</mrow><mrow>&amp;=\frac{1}{2}\log\left| \frac{\left(1-\cos x\right)^2}{(1-\cos x)(1+\cos x)}
+\right|
+=\frac{1}{2}\log\left| \frac{1-\cos x}{1+\cos x} \right|
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_10_trig2">
+<statement><p>
+Using the method of Example<nbsp/><xref ref="eg_PFf"/>, integrate <m>\displaystyle\int \csc^3 x  \dee{x}</m>.
+</p></statement>
+<hint><p>
+Use the partial fraction decomposition from Queston<nbsp/><xref ref="prob_s1_10_trig1" text="local"/> to save yourself some time.
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{-\cos x}{2\sin^2 x} + \frac{1}{4}\log\left|\frac{1-\cos x}{1+\cos x}\right|+C</m>
+</p></answer>
+<solution><p>
+We follow the example in the text.
+<md>
+<mrow>
+\displaystyle\int \csc^3 x  \dee{x}&amp;=\int \frac{1}{\sin^3x} \dee{x}
+=\int \frac{\sin x}{\sin^4x} \dee{x}=\int \frac{\sin x}{(1-\cos^2x)^2} \dee{x}
+</mrow>
+<intertext>Let <m>u=\cos x</m>, <m>\dee{u}=-\sin x \dee{x}</m>.
+</intertext><mrow>
+&amp;=\int\frac{-1}{(1-u^2)^2} \dee{u}
+</mrow>
+<intertext>In Question<nbsp/><xref ref="prob_s1_10_trig1" text="local"/> we saw <m>\textcolor{blue}{\frac{1}{1-u^2} = \frac{1/2}{1+u}+\frac{1/2}{1-u}}</m> , so
+</intertext>
+<mrow>
+\int\frac{-1}{(1-u^2)^2} \dee{u}&amp;=-\int\left(\textcolor{blue}{\frac{1}{1-u^2}}\right)^2 \dee{u}
+=-\int\left(\textcolor{blue}{\frac{1/2}{1+u}+\frac{1/2}{1-u}}\right)^2 \dee{u}
+</mrow><mrow>
+&amp;=-\frac{1}{4}\int\left(\frac{1}{(1+u)^2}+\textcolor{blue}{\frac{2}{1-u^2}}+\frac{1}{(1-u)^2}\right) \dee{u}
+</mrow><mrow>
+&amp;=-\frac{1}{4}\int\left(\frac{1}{(1+u)^2}+ \textcolor{blue}{\frac{1}{1+u}+\frac{1}{1-u}}+\frac{1}{(1-u)^2}\right) \dee{u}
+</mrow><mrow>
+&amp;=-\frac{1}{4}\left(-\frac{1}{1+u} + \log|1+u|-\log|1-u|+\frac{1}{1-u}\right)+C
+</mrow><mrow>
+&amp;=-\frac{1}{4}\left(\frac{2u}{1-u^2} + \log\left|\frac{1+u}{1-u}\right|\right)+C
+</mrow><mrow>
+&amp;=\frac{-u}{2(1-u^2)} + \frac{1}{4}\log\left|\frac{1-u}{1+u}\right|+C
+</mrow><mrow>
+&amp;=\frac{-\cos x}{2\sin^2 x} + \frac{1}{4}\log\left|\frac{1-\cos x}{1+\cos x}\right|+C</mrow>
+</md>
+</p>
+
+<p>Remark: In Example<nbsp/><xref ref="eg_TRGINTopte"/>, and in many tables of integrals, the antiderivative of <m>\csc^3 x</m> is given as <m>-\frac{1}{2}\cot x \csc x + \frac{1}{2}\log|\csc x - \cot x|+C</m>. This is equivalent to our result. Recall in the remark after the solution to Question<nbsp/><xref ref="prob_s1_10_trig1" text="local"/>, we saw <m>\frac{1}{2}\log\left| \frac{1-\cos x}{1+\cos x}\right|=\log|\csc x - \cot x|</m>.
+<md>
+<mrow>
+-\frac{1}{2}\cot x \csc x + \frac{1}{2}\log|\csc x - \cot x|&amp;=
+-\frac{1}{2}\cot x \csc x + \frac{1}{4}\log\left| \frac{1-\cos x}{1+\cos x}\right|
+</mrow><mrow>
+&amp;=-\frac{1}{2}\left(\frac{\cos x}{\sin x}\right)\left(\frac{1}{\sin x}\right) + \frac{1}{4}\log\left| \frac{1-\cos x}{1+\cos x}\right|
+</mrow><mrow>
+&amp;=\frac{-\cos x}{2\sin^2 x }+ \frac{1}{4}\log\left| \frac{1-\cos x}{1+\cos x}\right|
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<introduction><p>The purpose of performing a partial fraction decomposition is to manipulate an integrand into a form that is easily integrable. These <q>easily integrable</q> forms are rational functions whose denominator is a power of a linear function, or of an irreducible quadratic function. In
+Questions<nbsp/><xref ref="prob_s1_10_quad1" text="local"/> through <xref ref="prob_s1_10_quad2" text="local"/>, we explore the integration of rational functions whose denominators involve irreducible quadratics.</p></introduction>
+
+<exercise xml:id="prob_s1_10_quad1" purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\int_1^2 \frac{3x^3+15x^2+35x+10}{x^4+5x^3+10x^2} \dee{x}</m>.
+</p></statement>
+<hint><p>
+In the final integration, complete the square to make a piece of the integrand look more like the derivative of arctangent.
+</p></hint>
+<answer><p>
+<m>\displaystyle3\log 2 + \frac{1}{2}+\frac{2}{\sqrt{15}}\left(\arctan\left(\frac{7}{\sqrt{15}}\right)-\arctan\left(\frac{9}{\sqrt{15}}\right)\right)</m>
+</p></answer>
+<solution><p>
+This is a rational function, and there's no obvious substitution, so we'll use partial fraction decomposition.
+<ul>
+<li> First, we check that the numerator has strictly smaller degree than the denominator, so we don't have to use long division.
+</li>
+<li> Second, we factor the denominator. We can immediately pull out a factor of <m>x^2</m>; then we're left with the quadratic polynomial <m>x^2+5x+10</m>. Using the quadratic equation, we check that this has no real roots, so it is irreducible.
+</li>
+<li> Once we know the factorization of the denominator, we can set up our decomposition.
+<md>
+<mrow>
+\frac{3x^3+15x^2+35x+10}{x^4+5x^3+10x^2}&amp;=
+\frac{3x^3+15x^2+35x+10}{x^2(x^2+5x+10)}
+</mrow><mrow>
+&amp;=\frac{A}{x}+\frac{B}{x^2}+\frac{Cx+D}{x^2+5x+10}
+</mrow>
+<intertext>We multiply both sides by the original denominator.</intertext><mrow>
+3x^3+15x^2+35x+10&amp;=Ax(x^2+5x+10) + B(x^2+5x+10)+(Cx+D)x^2 \tag{1}
+</mrow>
+<intertext>Following the <q>Sneaky Method,</q> we plug in <m>x=0</m>.</intertext><mrow>
+0+10&amp;=A(0)+B(10)+(C(0)+D)(0)
+</mrow><mrow>
+\color{red}{B}&amp;\color{red}{=1}
+</mrow>
+</md>
+</li>
+<li> Knowing <m>B</m> allows us to simplify our Equation (1).
+<md>
+<mrow>
+3x^3+15x^2+35x+10&amp;=Ax(x^2+5x+10) + \textcolor{red}{1}(x^2+5x+10)+(Cx+D)x^2
+</mrow><mrow>
+3x^3+14x^2+30x&amp;=Ax(x^2+5x+10) +(Cx+D)x^2
+</mrow>
+<intertext>We can factor <m>x</m> out of both sides of the equation.</intertext><mrow>
+3x^2+14x+30&amp;=A(x^2+5x+10) +(Cx+D)x \tag{2}
+</mrow>
+</md>
+</li>
+<li> Again, we set <m>x=0</m>.
+<md>
+<mrow>
+0+30&amp;=A(10) +(C(0+D)(0)
+</mrow><mrow>
+\color{red}{A}&amp;\color{red}{=3}
+</mrow>
+</md>
+</li>
+<li> We simplify Equation (2), using <m>A=3</m>.
+<md>
+<mrow>
+3x^2+14x+30&amp;=\textcolor{red}{3}(x^2+5x+10) +(Cx+D)x
+</mrow><mrow>
+-x&amp;=Cx^2+Dx
+</mrow><mrow>
+\color{red}{C}&amp;\color{red}{=0,\quad D=-1}
+</mrow>
+</md>
+</li>
+<li> Now that we have our coefficients, we can re-write our integral in a friendlier form.
+<md>
+<mrow>
+\int_1^2 \frac{3x^3+15x^2+35x+10}{x^4+5x+10x^2} \dee{x}&amp;=
+\int_1^2 \left(\frac{3}{x}+\frac{1}{x^2}-\frac{1}{x^2+5x+10} \right) \dee{x}
+</mrow><mrow>
+&amp;=\left[3\log|x|-\frac{1}{x}\right]_1^2-\int_1^2\frac{1}{x^2+5x+10}  \dee{x}
+</mrow><mrow>
+&amp;=3\log 2+\frac{1}{2}-\int_1^2\frac{1}{x^2+5x+10}  \dee{x}
+</mrow>
+<intertext>The remaining integral is the reciprocal of a quadratic polynomial, much like <m>\dfrac{1}{1+x^2}</m>, whose antiderivative is arctangent. We complete the square and use the substitution <m>u=\left(\frac{2x+5}{\sqrt{15}}\right)</m>, <m>\dee{u}=\frac{2}{\sqrt{15}} \dee{x}</m>.
+</intertext><mrow>
+\int_1^2 \frac{1}{x^2+5x+10} \dee{x}&amp;=\int_1^2 \frac{1}{\left(x+\frac{5}{2}\right)^2+\frac{15}{4}} \dee{x}
+</mrow><mrow>
+&amp;=\frac{4}{15}\int_1^2 \frac{1}{\left(\frac{2x+5}{\sqrt{15}}\right)^2+1} \dee{x}
+</mrow><mrow>&amp;=\frac{2}{\sqrt{15}}\int_{7/\sqrt{15}}^{9/\sqrt{15}} \frac{1}{u^2+1} \dee{u}
+</mrow><mrow>&amp;=\frac{2}{\sqrt{15}}\Big[\arctan u\Big]_{7/\sqrt{15}}^{9/\sqrt{15}}
+</mrow><mrow>&amp;=\frac{2}{\sqrt{15}}\left(\arctan\left(\frac{9}{\sqrt{15}}\right)-\arctan\left(\frac{7}{\sqrt{15}}\right)\right)
+</mrow>
+</md>
+So, all together,
+<me>
+\int_1^2 \frac{3x^3+15x^2+35x+10}{x^4+5x^3+10x^2} \dee{x}=3\log 2 + \frac{1}{2}-\frac{2}{\sqrt{15}}\left(\arctan\left(\frac{9}{\sqrt{15}}\right)-\arctan\left(\frac{7}{\sqrt{15}}\right)\right)</me>
+</li>
+</ul>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_10_repeatedquad">
+<statement><p>
+Evaluate <m>\displaystyle\int\left(\frac{3}{x^2+2}+\frac{x-3}{(x^2+2)^2}\right)
+ \dee{x}
+</m>.
+</p></statement>
+<hint><p>
+Review Question<nbsp/><xref ref="prob_s1_9_forpartialfractions"/> in Section<nbsp/><xref ref="sec_trigsub"/> for antidifferentiation tips.
+</p></hint>
+<answer><p>
+<m>\displaystyle=\frac{9}{4\sqrt2}\arctan \left(\frac{x}{\sqrt2}\right)-\frac{2+3x}{4(x^2+2)}
++C</m>
+</p></answer>
+<solution><p>
+Our integrand is already in the nice form that would come out of a partial fractions decomposition.
+Let's consider its different pieces.
+<ul>
+<li>
+<p>
+First piece: <m>\int \frac{3}{x^2+2} \dee{x}</m>. The  fraction looks somewhat like the derivative of arctangent, so we can massage it to find an appropriate substitution.
+</p>
+
+<p><md>
+<mrow>
+\int \frac{3}{x^2+2} \dee{x}&amp;=\frac{3}{2}\int \frac{1}{\left(\frac{x}{\sqrt2}\right)^2+1} \dee{x}
+</mrow>
+<intertext>Use the substitution <m>u=\frac{x}{\sqrt2}</m>, <m>\dee{u} = \frac{1}{\sqrt{2}} \dee{x}.</m>
+</intertext><mrow>
+&amp;=\frac{3}{\sqrt2}\int\frac{1}{u^2+1} \dee{u}
+</mrow><mrow>
+&amp;=\frac{3}{\sqrt2}\arctan u+C
+</mrow><mrow>
+&amp;=\frac{3}{\sqrt2}\arctan \left(\frac{x}{\sqrt2}\right)+C
+</mrow>
+</md>
+</p>
+</li>
+<li>
+<p>
+The next piece is <m>\int \frac{x-3}{(x^2+2)^2} \dee{x}</m>.
+If the numerator were only <m>x</m> (and no constant), we could use the substitution <m>u=x^2+2</m>, <m>\dee{u} = 2x \dee{x}</m>. So, to that end, we can break up that fraction into <m>\frac{x}{(x^2+2)^2}-\frac{3}{(x^2+2)^2}</m>. For now, we only evaluate the first half.
+</p>
+
+<p><md>
+<mrow>
+\int \frac{x}{(x^2+2)^2} \dee{x}&amp;=\frac{1}{2}\int\frac{1}{u^2} \dee{u} = -\frac{1}{2u}+C
+</mrow><mrow>
+&amp;=-\frac{1}{2x^2+4}+C
+</mrow>
+</md>
+</p>
+</li>
+<li><p>
+That leaves us with the final piece, <m>\frac{3}{(x^2+2)^2}</m>,  which is the hardest. We saw something similar in  Question<nbsp/><xref ref="prob_s1_9_forpartialfractions"/> in Section<nbsp/><xref ref="sec_trigsub"/>: we can use the substitution <m>x=\sqrt{2}\tan\theta</m>, <m>\dee{x} = \sqrt{2}\sec^2\theta \dee{\theta}</m>.
+<md>
+<mrow>
+\int\frac{3}{(x^2+2)^2} \dee{x}&amp;=\int\frac{3}{(2\tan^2\theta+2)^2}\sqrt{2}\sec^2\theta \dee{\theta}
+</mrow><mrow>
+&amp;=\int\frac{3}{4\sec^4\theta}\sqrt{2}\sec^2\theta \dee{\theta}
+</mrow><mrow>
+&amp;=\frac{3}{2\sqrt{2}}\int\cos^2\theta \dee{\theta}
+</mrow><mrow>
+&amp;=\frac{3}{4\sqrt{2}}\int\big(1+\cos(2\theta)\big) \dee{\theta}
+</mrow><mrow>
+&amp;=\frac{3}{4\sqrt{2}}\left(\theta+\frac{1}{2}\sin(2\theta)\right)+C
+</mrow><mrow>
+&amp;=\frac{3}{4\sqrt{2}}\left(\theta+\sin\theta\cos\theta\right)+C
+</mrow><mrow>
+&amp;=\frac{3}{4\sqrt{2}}\left(\arctan\left(\frac{x}{\sqrt2}\right)+\frac{x\sqrt{2}}{x^2+2}\right)+C
+</mrow>
+</md>
+</p>
+<sidebyside width="30%">
+<image><latex-image><![CDATA[\trigtri{\theta}{\sqrt2}{x}{\sqrt{x^2+2}}]]></latex-image></image>
+</sidebyside>
+
+<p>
+From our substitution, <m>\tan\theta = \frac{x}{\sqrt2}</m>. So, we can draw a right triangle with angle <m>\theta</m>, opposite side <m>x</m>, and adjacent side <m>\sqrt2</m>. Then by the Pythagorean Theorem, the hypotenuse has length <m>\sqrt{x^2+2}</m>, and this gives us <m>\sin\theta</m> and <m>\cos\theta</m>.
+</p>
+</li>
+</ul>
+</p>
+
+<p> Now we have our integral.
+</p>
+
+<p><md>
+<mrow>
+\int\bigg(\frac{3}{x^2+2}&amp;+\frac{x-3}{(x^2+2)^2}\bigg)
+ \dee{x}=
+\int\frac{3}{x^2+2} \dee{x}+\int\frac{x}{(x^2+2)^2}
+ \dee{x}-\int\frac{3}{(x^2+2)^2}
+ \dee{x}
+</mrow><mrow>
+&amp;=\frac{3}{\sqrt2}\arctan \left(\frac{x}{\sqrt2}\right)-\frac{1}{2x^2+4}
+-\frac{3}{4\sqrt{2}}\left(\arctan\left(\frac{x}{\sqrt2}\right)+\frac{x\sqrt{2}}{x^2+2}\right)+C
+</mrow><mrow>
+&amp;=\frac{9}{4\sqrt2}\arctan \left(\frac{x}{\sqrt2}\right)-\frac{1}{2(x^2+2)}
+-\frac{3x}{4(x^2+2)}+C
+</mrow><mrow>
+&amp;=\frac{9}{4\sqrt2}\arctan \left(\frac{x}{\sqrt2}\right)-\frac{2+3x}{4(x^2+2)}
++C
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int\frac{1}{(1+x^2)^3} \dee{x}</m>.
+</p></statement>
+<hint><p>
+Partial fraction decomposition won't simplify this any more. Use a trig substitution.
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{3}{8}\arctan x + \frac{3x^3+5x}{8(1+x^2)^2}+C</m>
+</p></answer>
+<solution><p>
+This is already as simplified as we can make it using partial fraction. Indeed, this is the kind of term that could likely come out of the partial fraction decomposition of a scarier rational function. So, we need to know how to integrate it. Similar to the last piece we integrated in Question<nbsp/><xref ref="prob_s1_10_repeatedquad" text="local"/>, we can use the substitution <m>x=\tan\theta</m>, <m>\dee{x} = \sec^2\theta \dee{\theta}.</m>
+<md>
+<mrow>
+\int\frac{1}{(1+x^2)^3} \dee{x}&amp;=\int \frac{\sec^2\theta}{(1+\tan^2\theta)^3} \dee{\theta}
+=\int \frac{\sec^2\theta}{(\sec^2\theta)^3} \dee{\theta}
+</mrow><mrow>
+&amp;=\int \cos^4\theta \dee{\theta}
+=\int \left[\frac{1+\cos(2\theta)}{2}\right]^2 \dee{\theta}
+</mrow><mrow>
+&amp;= \frac{1}{4}\int (1+\cos(2\theta))^2 \dee{\theta}
+</mrow><mrow>
+&amp;=\frac{1}{4}\int\left(1+2\cos(2\theta)+\cos^2(2\theta)\right) \dee{\theta}
+</mrow><mrow>
+&amp;=\frac{1}{4}\int\left(1+2\cos(2\theta)+\frac{1}{2}(1+\cos(4\theta))\right) \dee{\theta}
+</mrow><mrow>
+&amp;=\frac{1}{4}\int\left(\frac{3}{2}+2\cos(2\theta)+\frac{1}{2}\cos(4\theta))\right) \dee{\theta}
+</mrow><mrow>
+&amp;=\frac{1}{4}\left(\frac{3}{2}\theta + \sin(2\theta) +\frac{1}{8}\sin(4\theta)\right)+C
+</mrow><mrow>
+&amp;=\frac{3}{8}\theta + \frac{1}{4}\sin(2\theta) +\frac{1}{32}\sin(4\theta)+C
+</mrow><mrow>
+&amp;=\frac{3}{8}\theta + \frac{1}{2}\sin\theta\cos\theta +\frac{1}{16}\sin(2\theta)\cos(2\theta)+C
+</mrow><mrow>
+&amp;=\frac{3}{8}\theta + \frac{1}{2}\sin\theta\cos\theta +\frac{1}{8}\sin\theta\cos\theta(\cos^2\theta-\sin^2\theta)+C
+</mrow><mrow>
+&amp;=\frac{3}{8}\arctan x + \frac{x}{2(1+x^2)}+\frac{1}{8}\left(\frac{x}{1+x^2}\right)\left(\frac{1-x^2}{1+x^2}\right)+C
+</mrow><mrow>
+&amp;=\frac{3}{8}\arctan x + \frac{3x^3+5x}{8(1+x^2)^2}+C
+</mrow>
+</md>
+</p>
+<sidebyside width="25%">
+<image><latex-image><![CDATA[\trigtri{\theta}{1}{x}{\sqrt{1+x^2}}]]></latex-image></image>
+</sidebyside>
+
+<p>
+To change our variables from <m>\theta</m> to <m>x</m>, recall we used the substitution <m>x=\tan\theta</m>. So, we draw a right triangle with angle <m>\theta</m>, opposite side length <m>x</m>, and adjacent side length 1. By the Pythagorean Theorem, the hypotenuse has length <m>\sqrt{1+x^2}</m>. This allows us to find <m>\sin\theta</m> and <m>\cos\theta</m>.
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_10_quad2">
+<statement><p>
+Evaluate <m>\displaystyle\int \left(3x+\frac{3x+1}{x^2+5}+\frac{3x}{(x^2+5)^2}\right)
+ \dee{x}</m>.
+</p></statement>
+<hint><p>
+To evaluate the antiderivative, break one of the fractions into two fractions.
+</p></hint>
+<answer><p>
+<m>\displaystyle\frac{3}{2}x^2+\frac{1}{\sqrt{5}}\arctan \left(\frac{x}{\sqrt5}\right)+
+\frac{3}{2}\log|x^2+5|-\frac{3}{2x^2+10}+C</m>
+</p></answer>
+<solution><p>
+Our integrand is already as simplified as the method of partial fractions can make it.
+The first term is easy to antidifferentiate. The second term would be easier if it were broken into two pieces: one where the numerator is a constant, and one where the numerator is a multiple of <m>x</m>.
+<md>
+<mrow>
+\int \left(3x+\frac{3x+1}{x^2+5}+\frac{3x}{(x^2+5)^2}\right)
+ \dee{x}
+&amp;=
+\frac{3}{2}x^2+\int\left(\frac{1}{x^2+5}+\frac{3x}{x^2+5}+\frac{3x}{(x^2+5)^2}\right)
+ \dee{x}
+</mrow><mrow>
+&amp;=
+\frac{3}{2}x^2+\int\frac{1}{x^2+5}\dee{x}+\int\left(\frac{3x}{x^2+5}+\frac{3x}{(x^2+5)^2}\right)
+ \dee{x}
+</mrow>
+<intertext>The first integral looks similar to the derivative of arctangent. For the second integral, we use the substitution <m> u=x^2+5</m>, <m>\dee{u}=2x \dee{x}</m>.
+</intertext><mrow>
+&amp;=
+\frac{3}{2}x^2+\frac{1}{5}\int\frac{1}{\left(\frac{x}{\sqrt5}\right)^2+1}\dee{x}+\int\left(\frac{3/2}{u}+\frac{3/2}{u^2}\right)
+ \dee{u}
+</mrow>
+<intertext>For the first integral, use the substitution <m>w=\frac{x}{\sqrt5}</m>, <m>\dee{w} = \frac{1}{\sqrt5} \dee{x}</m>.
+</intertext><mrow>
+&amp;=
+\frac{3}{2}x^2+\frac{1}{\sqrt{5}}\int\frac{1}{w^2+1}\dee{w}+
+\frac{3}{2}\log|u|-\frac{3}{2u}
+</mrow><mrow>
+&amp;=
+\frac{3}{2}x^2+\frac{1}{\sqrt{5}}\arctan w+
+\frac{3}{2}\log|x^2+5|-\frac{3}{2x^2+10}+C
+</mrow><mrow>
+&amp;=
+\frac{3}{2}x^2+\frac{1}{\sqrt{5}}\arctan \left(\frac{x}{\sqrt5}\right)+
+\frac{3}{2}\log|x^2+5|-\frac{3}{2x^2+10}+C
+</mrow>
+</md>
+</p>
+
+</solution>
+</exercise>
+
+
+<introduction><p>In Questions<nbsp/><xref ref="prob_s1_10_sub1" text="local"/> through <xref ref="prob_s1_10_sqrt1ex" text="local"/>,
+ we use substitution to turn a non-rational integrand into a rational integrand, then evaluate the resulting integral using partial fraction.
+ Till now, the partial fraction problems you've seen have all looked largely the same, but keep in mind that a partial fraction decomposition can be a small step in a larger problem.</p></introduction>
+
+<exercise xml:id="prob_s1_10_sub1" purpose="RQS">
+<statement><p>
+Evaluate <m>\displaystyle\int \frac{\cos\theta}{3\sin\theta+\cos^2\theta-3}  \dee{\theta}</m>.
+</p></statement>
+<hint><p>
+<m>\cos^2\theta = 1-\sin^2\theta</m>
+</p></hint>
+<answer><p>
+<m>\displaystyle\log\left| \frac{\sin\theta-1}{\sin\theta-2}\right|+C</m>
+</p></answer>
+<solution><p>
+If our denominator were all sines, we could use the substitution <m>x=\sin\theta</m>. To that end, we apply the identity <m>\cos^2\theta =1- \sin^2\theta</m>.
+<md>
+<mrow>
+\int \frac{\cos\theta}{3\sin\theta+\cos^2\theta-3}  \dee{\theta}&amp;=
+\int \frac{\cos\theta}{3\sin\theta+1-\sin^2\theta-3}  \dee{\theta}=
+\int \frac{\cos\theta}{3\sin\theta-\sin^2\theta-2}  \dee{\theta}
+</mrow>
+<intertext>We use the substitution <m>x=\sin \theta</m>, <m>\dee{x}=\cos\theta \dee{\theta}</m>.
+</intertext><mrow>
+&amp;=\int \frac{1}{3x-x^2-2} \dee{x}=\int \frac{-1}{x^2-3x+2} \dee{x}
+=\int \frac{-1}{(x-1)(x-2)} \dee{x}
+</mrow>
+<intertext>Now we can find a partial fraction decomposition.</intertext><mrow>
+\frac{-1}{(x-1)(x-2)}&amp;=\frac{A}{x-1}+\frac{B}{x-2}
+</mrow><mrow>
+-1&amp;=A(x-2)+B(x-1)
+</mrow>
+<intertext>Setting <m>x=1</m> and <m>x=2</m>, we see</intertext><mrow>
+\color{red}{A}&amp;\color{red}{=1},\quad \color{red}{B=-1}
+</mrow>
+<intertext>Now, we can evaluate our integral.</intertext><mrow>
+\int \frac{\cos\theta}{3\sin\theta+\cos^2\theta-3}  \dee{\theta}&amp;=\int \frac{-1}{(x-1)(x-2)} \dee{x}
+=\int \left(\frac{1}{x-1} - \frac{1}{x-2}\right) \dee{x}
+</mrow><mrow>
+&amp;=\log|x-1| - \log|x-2|+C=\log\left| \frac{x-1}{x-2}\right|+C
+</mrow><mrow>
+&amp;=\log\left| \frac{\sin\theta-1}{\sin\theta-2}\right|+C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Evaluate <m>\displaystyle\int\frac{1}{e^{2t}+e^t+1} \dee{t}</m>.
+</p></statement>
+<hint><p>
+If you're having a hard time making the substitution, multiply the numerator and the denominator by <m>e^x</m>.
+</p></hint>
+<answer><p>
+<m>\displaystyle t - \frac{1}{2}\log|e^{2t}+e^t+1|-\frac{1}{\sqrt3}\arctan \left(\frac{2e^t+1}{\sqrt3}\right)+C</m>
+</p></answer>
+<solution><p>
+This looks a lot like a rational function, but with the function <m>e^t</m> in place of the variable. So, we would like to make the substitution <m>x=e^t</m>, <m>\dee{x}=e^t\dee{t}</m>. Then <m>\dee{t} = \frac{1}{e^t}\,\dee{x} = \frac{1}{x}\,\dee{x}</m>.
+<md>
+<mrow>
+\int\frac{1}{e^{2t}+e^t+1} \dee{t}&amp;=\int\frac{1}{x\left(x^2+x+1\right)}\dee{x}
+</mrow>
+<intertext>The factor <m>x^2+x+1</m> is an irreducible quadratic, so the denominator is completely factored. Now we can use partial fraction decomposition.</intertext><mrow>
+\frac{1}{x\left(x^2+x+1\right)}&amp;=\frac{A}{x}+\frac{Bx+C}{x^2+x+1}
+</mrow><mrow>
+1&amp;=A(x^2+x+1)+(Bx+C)x
+</mrow><mrow>
+1&amp;=(A+B)x^2+(A+C)x+A
+</mrow>
+<intertext>The constant terms tell us <m>\textcolor{red}{A=1}</m>; then the coefficient of <m>x</m> tells us <m>\textcolor{red}{C=-A=-1}</m>. Finally, the coefficient of <m>x^2</m> tells us <m>\textcolor{red}{B=-A=-1}</m>. Now we can evaluate our integral.
+</intertext><mrow>
+\int\frac{1}{e^{2t}+e^t+1} \dee{t}&amp;=\int\frac{1}{x\left(x^2+x+1\right)}\dee{x}
+</mrow><mrow>
+&amp;=\int\left(\frac{1}{x} - \frac{x+1}{x^2+x+1}\right) \dee{x}
+</mrow><mrow>
+&amp;=\int\left(\frac{1}{x} - \frac{x+1/2+1/2}{x^2+x+1}\right) \dee{x}\tag{$*$}
+</mrow><mrow>
+&amp;=\int\frac{1}{x}  \dee{x}-\int \frac{x+1/2}{x^2+x+1} \dee{x}-\int \frac{1/2}{x^2+x+1} \dee{x}
+</mrow><mrow>
+&amp;=\log|x| - \frac{1}{2}\log|x^2+x+1|-\int \frac{1/2}{x^2+x+1} \dee{x}
+</mrow>
+<intertext>In step (<m>*</m>), we set ourselves up so that we could evaluate the second integral with the substitution <m>u=x^2+x+1</m>. For the remaining integral, we complete the square, so that the integrand looks something like the derivative of arctangent.</intertext><mrow>
+&amp;=\log|x| - \frac{1}{2}\log|x^2+x+1|-\int \frac{1/2}{\left(x+\frac{1}{2}\right)^2+\frac{3}{4}} \dee{x}
+</mrow><mrow>&amp;=\log|x| - \frac{1}{2}\log|x^2+x+1|-\frac{2}{3}\int \frac{1}{\left(\frac{2x+1}{\sqrt3}\right)^2+1} \dee{x}
+</mrow>
+<intertext>We use the substitution <m>u=\frac{2x+1}{\sqrt{3}}</m>, <m>\dee{u} = \frac{2}{\sqrt3}</m>.
+</intertext><mrow>
+&amp;=\log|x| - \frac{1}{2}\log|x^2+x+1|-\frac{1}{\sqrt3}\int \frac{1}{u^2+1} \dee{u}
+</mrow><mrow>&amp;=\log|x| - \frac{1}{2}\log|x^2+x+1|-\frac{1}{\sqrt3}\arctan u+C
+</mrow><mrow>&amp;=\log|x| - \frac{1}{2}\log|x^2+x+1|-\frac{1}{\sqrt3}\arctan \left(\frac{2x+1}{\sqrt3}\right)+C
+</mrow><mrow>&amp;=\log|e^t| - \frac{1}{2}\log|e^{2t}+e^t+1|-\frac{1}{\sqrt3}\arctan \left(\frac{2e^t+1}{\sqrt3}\right)+C
+</mrow><mrow>&amp;=t - \frac{1}{2}\log|e^{2t}+e^t+1|-\frac{1}{\sqrt3}\arctan \left(\frac{2e^t+1}{\sqrt3}\right)+C
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise xml:id="prob_s1_10_sqrt1ex">
+<statement><p>
+Evaluate <m>\displaystyle\int\sqrt{1+e^x} \dee{x}</m> using partial fraction.
+</p></statement>
+<hint><p> Try the substitution <m>u=\sqrt{1+e^x}</m>. You'll need to do long division before you can use partial fraction decomposition.
+</p></hint>
+<answer><p>
+<m>\displaystyle2\sqrt{1+e^x}+\log\left| \frac{\sqrt{1+e^x}-1}{\sqrt{1+e^x}+1}\right|+C</m>
+</p></answer>
+<solution><p>
+<ul>
+<li><p>
+  Solution 1:
+We use the substitution <m>u=\sqrt{1+e^x}</m>.
+</p><p>
+Then <m>\dee{u} = \dfrac{e^x}{2\sqrt{1+e^x}}\dee{x}</m>, so <m>\dee{x}=\dfrac{2u}{u^2-1}\dee{u}</m>.
+<md>
+<mrow>
+\int\sqrt{1+e^x} \dee{x}&amp;=\int u\cdot\dfrac{2u}{u^2-1}\dee{u} = \int \dfrac{2u^2}{u^2-1}\dee{u}
+</mrow><mrow>
+&amp;= \int \dfrac{2(u^2-1)+2}{u^2-1}\dee{u}
+= \int\left(2+ \dfrac{2}{u^2-1}\right)\dee{u}
+</mrow>
+<intertext>We use a partial fraction decomposition on the fractional part of the integrand.</intertext><mrow>
+&amp;\frac{2}{u^2-1} = \frac{2}{(u-1)(u+1)}=\frac{A}{u-1}+\frac{B}{u+1}=\frac{(A+B)u+(A-B)}{(u-1)(u+1)}
+</mrow><mrow>
+&amp; A+B=0,\quad A-B=2
+</mrow><mrow>
+&amp;\color{red}{A=1,\quad B=-1}
+</mrow><mrow>
+\int\sqrt{1+e^x} \dee{x}&amp;=\int\left(2+ \dfrac{2}{u^2-1}\right)\dee{u} =\int\left( 2 + \frac{1}{u-1} - \frac{1}{u+1}\right) \dee{u}
+</mrow><mrow>
+&amp;=2u+\log|u-1|-\log|u+1|+C=2u+\log\left| \frac{u-1}{u+1}\right|+C
+</mrow><mrow>
+&amp;=2\sqrt{1+e^x}+\log\left| \frac{\sqrt{1+e^x}-1}{\sqrt{1+e^x}+1}\right|+C
+</mrow>
+</md>
+</p>
+</li>
+<li>Solution 2:
+It might not occur to us right away to use the fruitful substitution in Solution<nbsp/>1. More realistically, we might start with the <q>inside function,</q> <m>u=1+e^x</m>. Then <m>\dee{u}=e^x\,\dee{x}</m>, so <m>\dee{x} = \frac{1}{u-1}\dee{u}</m>.
+<md>
+<mrow>
+\int\sqrt{1+e^x} \dee{x}&amp;=\int\frac{ \sqrt{u}}{u-1}\dee{u}
+</mrow>
+<intertext>This isn't quite a rational function, because we have a square root on top. If we could turn it into a rational function, we could use partial fraction. To that end, let <m>w=\sqrt{u}</m>, <m>\dee{w} = \frac{1}{2\sqrt{u}}\dee{u}</m>, so <m>\dee{u}=2w\dee{w}</m>.
+</intertext><mrow>
+&amp;=\int \frac{w}{w^2-1}2w\dee{w}=\int \frac{2w^2}{w^2-1}\dee{w}
+</mrow><mrow>
+&amp;=\int \frac{2(w^2-1)+2}{w^2-1}\dee{w} = \int 2 + \frac{2}{w^2-1}\dee{w}
+</mrow>
+<intertext>Now we can use partial fraction decomposition.</intertext><mrow>
+&amp; \frac{2}{w^2-1} = \frac{2}{(w-1)(w+1)} = \frac{A}{w-1}+\frac{B}{w+1} = \frac{(A+B)w+(A-B)}{(w-1)(w+1)}
+</mrow><mrow>
+&amp; A+B=0,\quad A-B=2
+</mrow><mrow>
+&amp;\color{red}{ A=1,\quad B=-1}
+</mrow>
+<intertext>This allows us to antidifferentiate.</intertext><mrow>
+\int\sqrt{1+e^x} \dee{x}&amp;= \int \left(2 + \frac{2}{w^2-1}\right)\dee{w}=\int \left(2 + \frac{1}{w-1}-\frac{1}{w+1}\right) \dee{w}
+</mrow><mrow>
+&amp;= 2w + \log|w-1| - \log|w+1|+C
+</mrow><mrow>
+&amp;=2w+\log\left| \frac{w-1}{w+1}\right|+C
+</mrow><mrow>
+&amp;=2\sqrt{u}+\log\left| \frac{\sqrt{u}-1}{\sqrt{u}+1}\right|+C
+</mrow><mrow>
+&amp;=2\sqrt{1+e^x}+\log\left| \frac{\sqrt{1+e^x}-1}{\sqrt{1+e^x}+1}\right|+C
+</mrow>
+</md>
+</li>
+</ul>
+Remark: we also evaluated this integral using trigonometric substitution in Section<nbsp/><xref ref="sec_trigsub"/>, Question<nbsp/><xref ref="prob_s1_9_sqrt1ex"/>. In that question, we found the antiderivative to be <m>2\sqrt{1+e^x}+2\log\left| 1-\sqrt{1+e^x} \right|-x+C</m>. These expressions are equivalent:
+<md>
+<mrow>
+\log\left| \frac{\sqrt{1+e^x}-1}{\sqrt{1+e^x}+1}\right|&amp;=
+\log\left| \sqrt{1+e^x}-1\right|+\log\left| \frac{1}{\sqrt{1+e^x}+1}\right|
+</mrow><mrow>
+&amp;=\log\left| \sqrt{1+e^x}-1\right|+\log\left| \left(\frac{1}{\sqrt{1+e^x}+1}\right)\left(\frac{1-\sqrt{1+e^x}}{1-\sqrt{1+e^x}}\right)\right|
+</mrow><mrow>
+&amp;=\log\left| \sqrt{1+e^x}-1\right|+\log\left|\frac{1-\sqrt{1+e^x}}{1-(1+e^x)}\right|
+</mrow><mrow>
+&amp;=\log\left| \sqrt{1+e^x}-1\right|+\log\left|\frac{1-\sqrt{1+e^x}}{-e^x}\right|
+</mrow><mrow>
+&amp;=\log\left| \sqrt{1+e^x}-1\right|+\log\left|1-\sqrt{1+e^x}\right|-\log|-e^x|
+</mrow><mrow>
+&amp;=2\log\left| \sqrt{1+e^x}-1\right|-x
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise><title><fromexam>1997D</fromexam></title>
+<statement><p>
+The region <m>R</m> is the portion of the first quadrant
+where <m>3\le x\le 4</m> and <m>0\le y\le\dfrac{10}{\sqrt{25-x^2}}</m>.
+<ol label="a">
+<li>
+Sketch the region <m>R</m>.
+</li>
+<li>
+Determine the volume of the solid obtained by revolving <m>R</m>
+around the <m>x</m>-axis.
+</li>
+<li>
+Determine the volume of the solid obtained by revolving <m>R</m>
+around the <m>y</m>-axis.
+</li>
+</ol>
+</p></statement>
+
+<hint><p>
+The mechanically easiest way to answer part (c) uses the method of cylindrical
+shells, which we have not covered.  The method of washers also works, but requires  you have enough patience and also
+to have a good idea what <m>R</m> looks like. So look at the sketch in part
+(a) very carefully when identifying the left endpoints of your horizontal strips.
+</p></hint>
+
+<answer><p>
+(a) The region <m>R</m> is
+</p>
+<sidebyside width="33%">
+<image source="problems/figs/graphE97D_3"/>
+</sidebyside>
+
+<p>
+(b)
+<m>\displaystyle10\pi\log\frac{9}{4}=20\pi\log\frac{3}{2}</m>
+</p>
+<p>
+  (c) <m>20\pi</m>
+</p></answer>
+
+<solution><p> (a)
+Let's graph <m>y=\dfrac{10}{\sqrt{25-x^2}}</m>.
+We start with the endpoints: <m>(3,\frac{5}{2})</m> and <m>(4,\frac{10}{3})</m>. Then we consider the first derivative:
+<me>
+\diff{}{x}\left\{\frac{10}{\sqrt{25-x^2}}\right\} = \frac{10x}{\sqrt{25-x^2}^3}</me>
+</p>
+
+<p>Over the interval <m>[3,4]</m>, this is always positive, so our function is increasing over the entire interval. The second derivative,
+</p>
+
+<p><me>
+\ddiff{2}{}{x}\left\{\frac{10}{\sqrt{25-x^2}}\right\}=\diff{}{x}\left\{\frac{10x}{\sqrt{25-x^2}^3}\right\} = \frac{10(2x^2+25)}{\sqrt{25-x^2}^5},</me>
+</p>
+
+<p>is always positive, so our function is concave up over the entire interval. So,
+the region <m>R</m> is:
+</p>
+<sidebyside width="33%">
+<image source="problems/figs/graphE97D_3"/>
+</sidebyside>
+<p>
+ (b)
+Let <m>\cV_1</m> be the solid obtained by revolving
+<m>R</m> about the <m>x</m>-axis. The portion of <m>\cV_1</m> with <m>x</m>-coordinate
+between <m>x</m> and <m>x+\dee{x}</m> is obtained by rotating the red vertical strip in
+the figure on the left below about the <m>x</m>-axis.
+That portion is a disk of radius <m>\frac{10}{\sqrt{25-x^2}}</m> and thickness
+<m>\dee{x}</m>. The volume of this disk is <m>\pi\big(\frac{10}{\sqrt{25-x^2}}\big)^2\,\dee{x}</m>.
+So the total volume of <m>\cV_1</m> is
+<md>
+<mrow>
+\int_3^4\pi{\Big(\frac{10}{\sqrt{25-x^2}}\Big)}^2\dee{x}
+&amp;=100\pi\int_3^4\frac{1}{25-x^2}\dee{x}
+=100\pi\int_3^4\frac{1}{(5-x)(5+x)}\dee{x}
+</mrow><mrow>
+&amp;=10\pi\int_3^4\Big(\frac{1}{5-x}+\frac{1}{5+x}\Big)\dee{x}
+=10\pi\Big[-\log(5-x)+\log(5+x)\Big]_3^4
+</mrow><mrow>
+&amp;=10\pi\Big[-\log1+\log9+\log2-\log8\Big]
+=10\pi\log\frac{9}{4}=20\pi\log\frac{3}{2}
+</mrow>
+</md>
+</p>
+<sidebyside width="40%">
+<image source="problems/figs/graphE97D_3l"/>
+<image source="problems/figs/graphE97D_3r"/>
+</sidebyside>
+<p>
+ (c)
+We'll use horizontal washers as in Example  <xref ref="eg_rot_yaxis"/>.
+ <ul>
+<li> We cut <m>\cR</m> into thin horizontal  strips of width <m>\dee{y}</m> as in
+the figure on the right above.
+</li>
+<li>
+<p>
+When we rotate <m>\cR</m> about the <m>y</m>-axis, each strip sweeps out a thin washer
+<ul>
+<li>
+whose outer radius is <m>r_{out}=4</m>, and
+</li>
+<li>
+whose inner radius is <m>r_{in}= \sqrt{25-\frac{100}{y^2}}</m> when
+<m>y\ge \frac{10}{\sqrt{25-3^2}} = \frac{10}{4}
+=\frac{5}{2}</m> (see the red strip in the figure on the right above),  and
+whose inner radius is <m>r_{in}= 3</m> when <m>y\le \frac{5}{2}</m>
+(see the blue strip in the figure on the right above) and
+</li>
+<li>
+whose thickness is <m>\dee{y}</m> and hence
+</li>
+<li>
+whose volume is
+<m>\pi(r_{out}^2 - r_{in}^2)\dee{y} = \pi\big(\frac{100}{y^2}-9\big)\dee{y}</m>
+when <m>y\ge \frac{5}{2}</m> and  whose volume is
+<m>\pi(r_{out}^2 - r_{in}^2)\dee{y} = 7 \pi\,\dee{y}</m>
+when <m>y\le \frac{5}{2}</m> and
+</li>
+</ul>
+</p>
+</li>
+<li> As our bottommost strip is at <m>y=0</m> and our topmost
+strip is at <m>y=\frac{10}{3}</m> (since at the top <m>x=4</m> and <m>y=  \frac{10}{\sqrt{25-x^2}}
+=\frac{10}{\sqrt{25-4^2}} =\frac{10}{3}</m>), the volume is
+<md>
+<mrow>
+&amp;\int _{5/2}^{10/3}  \pi\Big(\frac{100}{y^2}-9\Big)\dee{y}
+                                                         +\int _ 0^{5/2}7 \pi\,\dee{y}
+</mrow><mrow>
+&amp;=\pi{\Big[-\frac{100}{y}-9y\Big]}_{5/2}^{10/3} +\frac{35}{2}\pi
+</mrow><mrow>
+&amp;=\pi \Big[-30+40-30+\frac{45}{2}\Big] +\frac{35}{2}\pi
+</mrow><mrow>
+&amp;=20\pi
+</mrow>
+</md>
+</li>
+</ul>
+</p>
+
+</solution>
+</exercise>
+
+<exercise>
+<statement><p>
+Find the area of the finite region bounded by the curves <m>y=\dfrac{4}{3+x^2}</m>, <m>y=\dfrac{2}{x(x+1)}</m>, <m>x=\dfrac14</m>, and <m>x=3</m>.
+</p></statement>
+<hint><p>
+You'll need to use two regions, because the curves cross.
+</p></hint>
+<answer><p>
+<m>\displaystyle2\log\frac53+\frac{4}{\sqrt3}\arctan\frac{1}{4\sqrt3}</m>
+</p></answer>
+<solution><p>
+In order to find the area between the curves, we need to know which one is on top, and which on the bottom. Let's start by finding where they meet.
+<md>
+<mrow>
+\dfrac{4}{3+x^2}&amp;=\frac{2}{x(x+1)}
+</mrow><mrow>
+2x^2+2x&amp;=3+x^2
+</mrow><mrow>
+x^2+2x-3&amp;=0
+</mrow><mrow>
+(x-1)(x+3)&amp;=0
+</mrow>
+</md>
+In the interval <m>[\frac14,3]</m>, the curves only meet at <m>x=1</m>. So, to find which is on top and on bottom in the intervals <m>[\frac14,1)</m> and <m>(1,3]</m>, it suffices to check some point in each interval.
+</p>
+<sidebyside>
+<tabular left="minor" right="minor" top="minor" bottom="minor">
+<row>
+<cell><m>x</m> </cell><cell> <m>\frac{4}{3+x^2}</m> </cell><cell> <m>\frac{2}{x(x+1)}</m></cell><cell> Top:</cell>
+</row><row>
+<cell><m>1/2</m> </cell><cell><m>16/13</m> </cell><cell><m>8/3</m> </cell><cell><m>\frac{2}{x(x+1)}</m></cell>
+</row><row>
+<cell><m>2</m> </cell><cell><m>4/7</m> </cell><cell> <m>1/3</m></cell><cell> <m>\frac{4}{3+x^2}</m></cell>
+</row>
+</tabular>
+</sidebyside>
+<p>
+So, <m>\frac{2}{x(x+1)}</m> is the top function when <m>\frac{1}{4}\leq x  \lt  1</m>, and
+<m>\frac{4}{3+x^2}</m> is the top function when <m>1 \lt x \leq 3</m>. Then the area we want to find is:
+<me>
+\mbox{Area}=\int_{\frac14}^1 \left( \frac{2}{x(x+1)} - \frac{4}{3+x^2}\right) \dee{x}+
+\int_{1}^3 \left( \frac{4}{3+x^2} -\frac{2}{x(x+1)}  \right) \dee{x} </me>
+</p>
+
+<p>We'll need to antidifferentiate both these functions. We can antidifferentiate <m>\dfrac{2}{x(x+1)}</m> using partial fraction decomposition.
+</p>
+
+<p><md>
+<mrow>
+\frac{2}{x(x+1)}&amp;=\frac{A}{x}+\frac{B}{x+1} = \frac{(A+B)x+A}{x(x+1)}
+</mrow><mrow>
+\color{red}{A}&amp;\color{red}{=2,\quad B=-2}
+</mrow><mrow>
+\int\frac{2}{x(x+1)} \dee{x}&amp;=\int\left(\frac{2}{x}-\frac{2}{x+1}\right) \dee{x}=2\log|x|-2\log|x+1|+C
+</mrow><mrow>
+&amp;=2\log\left| \frac{x}{x+1}\right|+C
+</mrow>
+</md>
+</p>
+
+<p>We can antidifferentiate <m>\dfrac{4}{3+x^2}</m> using the substitution <m>u=\frac{x}{\sqrt3}</m>, <m>\dee{u}=\frac{1}{\sqrt3} \dee{x}</m>.
+<md>
+<mrow>
+\int\frac{4}{3+x^2} \dee{x}&amp;=
+\int\frac{4}{3\left(1+\left(\frac{x}{\sqrt3}\right)^2\right)} \dee{x}=
+\int\frac{4\sqrt3}{3\left(1+u^2\right)} \dee{u}
+</mrow><mrow>
+&amp;=\frac{4}{\sqrt3}\arctan u +C=\frac{4}{\sqrt3}\arctan \left(\frac{x}{\sqrt3}\right) +C
+</mrow>
+</md>
+</p>
+
+<p>Now, we can find our area.
+<md>
+<mrow>
+\mbox{Area}&amp;=\int_{\frac14}^1 \left( \frac{2}{x(x+1)} - \frac{4}{3+x^2}\right) \dee{x}+
+\int_{1}^3 \left( \frac{4}{3+x^2} -\frac{2}{x(x+1)}  \right) \dee{x}
+</mrow><mrow>
+&amp;=\left[2\log\left|\frac{x}{x+1}\right| - \frac{4}{\sqrt3}\arctan\left(\frac{x}{\sqrt3}\right)\right] _{1/4}^1+
+\left[ \frac{4}{\sqrt3}\arctan\left(\frac{x}{\sqrt3}\right)-2\log\left|\frac{x}{x+1}\right|\right]_1^3
+</mrow><mrow>
+&amp;=\left(2\log\frac{1}{2}- \frac{4}{\sqrt3}\cdot\frac{\pi}{6} - 2\log\frac{1}{5}+\frac{4}{\sqrt3}\arctan\frac{1}{4\sqrt3}\right)+
+</mrow><mrow>
+&amp;\hphantom{=} \left(\frac{4}{\sqrt3}\cdot\frac{\pi}{3} - 2\log\frac34 - \frac{4}{\sqrt3}\cdot \frac{\pi}{6}+2\log\frac{1}{2}\right)
+</mrow><mrow>
+&amp;=2\log\frac53+\frac{4}{\sqrt3}\arctan\frac{1}{4\sqrt3}
+</mrow>
+</md>
+</p></solution>
+</exercise>
+
+<exercise purpose="RQS">
+<statement><p> Let <m>F(x) = \displaystyle\int_1^x \frac{1}{t^2-9} \dee{t}</m>.
+<ol label="a">
+<li>
+Give a formula for <m>F(x)</m> that does not involve an integral.
+</li>
+<li> Find <m>F'(x)</m>.
+</li>
+</ol>
+</p></statement>
+<hint><p>
+For (b), use the Fundamental Theorem of Calculus Part 1.
+</p></hint>
+<answer><p>
+(a) <m>\displaystyle\frac{1}{6}\left(\log\left| 2\cdot\frac{x-3}{x+3} \right|\right)</m>
+</p>
+<p>
+(b) <m>F'(x) = \frac{1}{x^2-9}</m>
+</p></answer>
+<solution><p>
+(a) To antidifferentiate <m>\dfrac{1}{t^2-9}</m>, we use a partial fraction decomposition.
+<md>
+<mrow>
+\frac{1}{t^2-9}&amp;=\frac{1}{(t-3)(t+3)} = \frac{A}{t-3}+\frac{B}{t+3}=\frac{(A+B)t+3(A-B)}{(t-3)(t+3)}
+</mrow><mrow>
+A+B&amp;=0,\quad A-B = \frac{1}{3}
+</mrow><mrow>
+\color{red}{A}&amp;\color{red}{=\frac{1}{6},\quad B = -\frac{1}{6}}
+</mrow><mrow>
+F(x)&amp;=\int_1^x\frac{1}{t^2-9} \dee{x} =
+\int_1^x \left(\frac{1/6}{t-3}-\frac{1/6}{t+3}\right) \dee{x}
+</mrow><mrow>
+&amp;=\left[\frac{1}{6}\log|t-3| - \frac{1}{6}\log|t+3|\right]_1^x
+</mrow><mrow>
+&amp;=\left(\frac{1}{6}\log|x-3| - \frac{1}{6}\log|x+3|
+-\frac{1}{6}\log2 +\frac{1}{6}\log4\right)
+</mrow><mrow>
+&amp;=\frac{1}{6}\left(\log\left| 2\cdot\frac{x-3}{x+3} \right|\right)
+</mrow>
+</md>
+</p>
+
+<p>(b) Rather than differentiate our answer from (a), we use the Fundamental Theorem of Calculus Part 1 to conclude <me>
+F'(x) = \diff{}{x}\left\{ \displaystyle\int_1^x \frac{1}{t^2-9} \dee{t}\right\} = \frac{1}{x^2-9}</me>
+</p>
+
+</solution>
+</exercise></exercisegroup>
+
+</exercises>
