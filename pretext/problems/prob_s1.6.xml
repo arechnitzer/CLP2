@@ -1837,81 +1837,12 @@ h&amp;=6
 </p></solution>
 </exercise>
 
-<!--
+<!-- Removed this problem. 
 <exercise>
 <statement><p>
 A right circular cone with base radius <m>r</m> and height <m>h</m> is sliced vertically, as shown in the picture below. The cut is made so that the slice makes a chord across the circle sweeping out an angle of <m>\frac{\pi}{2}</m> radians.
  Find the volume of the red piece.
-</p><sidebyside width="33%">
-<image><latex-image><![CDATA[\begin{tikzpicture}
-\draw (0,0)node[shape=ellipse, minimum width=3cm, minimum height=1cm, draw] {};
-\draw (-1.5,0)--(0,3)--(1.5,0);
-\draw[dashed] (0,0)--(0,3) node[midway, left]{$h$};
-\draw[dashed] (0,0)--(-1.5,0) node[midway, below]{$r$};
-\draw[thick, fill=red, fill opacity=0.1] (-60:1.5cm and .5cm) arc (-60:60:1.5cm and .5cm) ;
-\filldraw[red, thick, left color=red!70!black, right color=white, fill, fill opacity=0.2] (.75,1.5)--(.75,-.4)arc (-60:0:1.5cm and .5cm) --cycle;
-\draw (0,-1) node{sliced cone};
-\end{tikzpicture}]]></latex-image></image>
-<image><latex-image><![CDATA[\begin{tikzpicture}
-\draw (0,0) node[shape=circle, minimum size=3cm, draw]{};
-\draw[dashed] (0,0)--(-1.5,0) node[below, midway]{$r$};
-\draw[red, fill=red, fill opacity=0.2] (0,0) + (45:1.5cm) arc (45:-45:1.5cm)--cycle;
-\draw (0,-2.) node{sliced base};
-\draw[dashed] (1.06,1.06)--(0,0)--(1.06,-1.06);
-\draw (.35,.35) arc(45:-45:.5cm) node[above right]{$\frac{\pi}{2}$};
-\end{tikzpicture}]]></latex-image></image>
-</sidebyside>
-</statement>
-<hint><p>
-You'll want to use horizontal cross sections, like Example<nbsp/><xref ref="eg_VOLa"/>. Then the area of your slice can be calculated as a section of a circle, minus a triangle.
-</p></hint>
-<answer><p>
-<m> \dfrac{r^2h}{3}\left(\dfrac{\pi}{4}-\dfrac{1}{2}\right)</m>
-</p></answer>
-<solution><p>
-As in Example<nbsp/><xref ref="eg_VOLa"/>, we take horizontal slices. If the radius of a slice is <m>s</m>, then its area can be calculated as one-quarter of the circle of radius <m>s</m>, minus the right triangle with base and height both <m>s</m>. So, <me>
-A = \frac{1}{4}\left(\pi s^2\right) - \frac{1}{2} s^2 = s^2\left(\frac{\pi}{4}-\frac{1}{2}\right).</me>
-</p>
-
-<p>As we climb up the cone, the radius of our slices changes. As in the text, let's assume that the base of the cone sits at <m>y=h</m>, and the tip is at <m>y=0</m>. Then we use similar triangles to conclude that at height <m>y</m>, the radius of the cone is <m>s=\left(\frac{r}{h}\right)y</m>.
-</p>
-
-<sidebyside width="40%">
-<image><latex-image><![CDATA[\begin{tikzpicture}
-\YEaaxis{1}{4}{1}{5}
-\YEycoord{2}{y}
-\YEycoord{4}{h}
-\YExcoord{3}{r}
-\draw (0,0)--(3,4)--(0,4);
-\fill[fill opacity=0.1] (0,0)--(1.5,2)--(0,2)--cycle;
-\draw (0,2)--(1.5,2);
-\draw (.75,2.25) node{$s$};
-\draw (5,3) node{$\dfrac{s}{y}=\dfrac{r}{h}$};
-\end{tikzpicture}]]></latex-image></image>
-</sidebyside>
-<p>
-So:
-<ul>
-<li> Our slices run from <m>y=0</m> to <m>y=h</m>,
-</li>
-<li> at height <m>y</m>, the area of our slice is <m>\left(\frac{r}{h}\cdot y\right)^2\left(\frac{\pi}{4}-\frac{1}{2}\right) = y^2\left(\frac{r}{h}\right)^2\left(\frac{\pi}{4}-\frac{1}{2}\right)</m>,
-</li>
-<li> and the height of our slice is <m>\dee{y}</m>.
-</li>
-</ul>
-So, the volume of our piece of cone is:
-<md>
-<mrow>
-\mbox{Volume}&amp;=\int_0^h y^2\left(\frac{r}{h}\right)^2\left(\frac{\pi}{4}-\frac{1}{2}\right)\dee{y}
-</mrow><mrow>
-&amp;=\left(\frac{r}{h}\right)^2\left(\frac{\pi}{4}-\frac{1}{2}\right)\int_0^h y^2\dee{y}
-</mrow><mrow>&amp;=
-\left(\frac{r}{h}\right)^2\left(\frac{\pi}{4}-\frac{1}{2}\right)\frac{1}{3}h^3
-</mrow><mrow>
-&amp;= \frac{r^2h}{3}\left(\frac{\pi}{4}-\frac{1}{2}\right)
-</mrow>
-</md>
-</p></solution>
+</p></statement>
 </exercise>
 -->
 </exercisegroup>
