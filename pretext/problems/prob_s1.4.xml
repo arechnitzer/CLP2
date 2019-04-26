@@ -205,15 +205,11 @@ Is the following reasoning sound? If not, fix it.
 </mrow><mrow>
 &amp;=-\frac{1}{2}\int_{1}^{\cos(\pi^2/16)} \dfrac{1}{v}\dee{v}
 </mrow><mrow>
-&amp;=-\frac{1}{2}\left[\log|v|\right]_{1}^{\pi^2/16}
+&amp;=-\frac{1}{2}\left[\log|v|\right]_{1}^{\cos(\pi^2/16)}
 </mrow><mrow>
-&amp;=-\frac{1}{2}\left(\log\left(\frac{\pi^2}{16}\right)-\log(1)\right)
+&amp; =-\frac{1}{2}\left(\log\left(\cos(\pi^2/16)\right)-\log(1)\right)
 </mrow><mrow>
-&amp;=-\frac{1}{2}\cdot2\log\left(\frac{\pi}{4}\right)
-</mrow><mrow>
-&amp;=-\log\left(\frac{\pi}{4}\right)
-</mrow><mrow>
-&amp;=\log\left(\frac{4}{\pi}\right)
+&amp;=-\frac{1}{2}\log\left(\cos(\pi^2/16)\right)
 </mrow>
 </md>
 </p>
@@ -257,15 +253,11 @@ If <m>u=x^2</m>, then <m>\diff{u}{x} = 2x</m>, so indeed <m>\dee{u}=2x\dee{x}</m
 </intertext><mrow>
 &amp;=-\frac{1}{2}\int_{1}^{\cos(\pi^2/16)} \dfrac{1}{v}\dee{v}&amp;\color{red}{ \cos(0)=1}
 </mrow><mrow>
-&amp;=-\frac{1}{2}\bigg[\log|v|\bigg]_{1}^{\pi^2/16}&amp;\color{red}{\text{FTC Part 2}}
+&amp;=-\frac{1}{2}\bigg[\log|v|\bigg]_{1}^{\cos(\pi^2/16)}&amp;\color{red}\mbox{FTC Part 2}
 </mrow><mrow>
-&amp;=-\frac{1}{2}\left(\log\left(\frac{\pi^2}{16}\right)-\log(1)\right)
+&amp;=-\frac{1}{2}\left(\log\left(\cos(\pi^2/16)\right)-\log(1)\right)
 </mrow><mrow>
-&amp;=-\frac{1}{2}\cdot2\log\left(\frac{\pi}{4}\right)&amp;\color{red}{ \log(a^b)=b\log a}
-</mrow><mrow>
-&amp;=-\log\left(\frac{\pi}{4}\right)&amp;\color{red}{\text{algebra}}
-</mrow><mrow>
-&amp;=\log\left(\frac{4}{\pi}\right)&amp;\color{red}{\log(a^b)=b\log a}
+&amp;=-\frac{1}{2}\log\left(\cos(\pi^2/16)\right)&amp;\color{red} \log(1)=0
 </mrow>
 </md>
 </p>
