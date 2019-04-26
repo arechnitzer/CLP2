@@ -532,10 +532,10 @@ S_N = \begin{cases}
 
 Now that we have this expression we can determine whether or not the
 series converges. If $|r|<1$, then $r^{N+1}$
-tends to zero as $N\rightarrow\infty$, so that $S_N$  converges to $\frac{1}{1-r}$ as $N\rightarrow\infty$ and
+tends to zero as $N\rightarrow\infty$, so that $S_N$  converges to $\frac{a}{1-r}$ as $N\rightarrow\infty$ and
 \begin{equation}
 \sum_{n=0}^\infty ar^n = \frac{a}{1-r}
-\text{provided $|r|<1$}. \label{eq:geomsum}
+\text{ provided $|r|<1$}. \label{eq:geomsum}
 \end{equation}
 On the other hand if $|r|\ge 1$, $S_N$ diverges.
 To understand this divergence, consider the following 4 cases:
@@ -1195,7 +1195,7 @@ and hence the integral $\int_2^R \frac{dx}{x (\log x)^p}$, converges if and
 only if $p>1$.
 \end{itemize}
 So we conclude that
-$\sum\limits_{n=1}^\infty\frac{1}{n(\log n)^p}$
+$\sum\limits_{n=2}^\infty\frac{1}{n(\log n)^p}$
 converges if and only if $p>1$.
 \end{eg}
 
@@ -1294,7 +1294,7 @@ We can use the comparison test to confirm that this is indeed the case.
 For any $n\ge 1$, $n^2+2n+3 > n^2$, so that
 $\frac{1}{n^2+2n+3}\le\frac{1}{n^2}$. So the comparison test,
 Theorem \ref{thm:SRcomparisonTest}, with $a_n=\frac{1}{n^2+2n+3}$ and
-$c_n=\frac{1}{n^2}$, tells us that $\sum_{n=1}^\infty\frac{1}{n^2+2x+3}$
+$c_n=\frac{1}{n^2}$, tells us that $\sum_{n=1}^\infty\frac{1}{n^2+2n+3}$
 converges.
 \end{itemize}
 \end{eg}
@@ -3604,7 +3604,7 @@ if $R=\infty$, then its interval of convergence is $-\infty<x<\infty$,
 which is also denoted $(-\infty,\infty)$,
 and
 \item
-if $R=0$, then its interval of convergence is just the point $x=0$, and
+if $R=0$, then its interval of convergence is just the point $x=c$, and
 
 \item if $0<R<\infty$, then we know that the series converges for any $x$
 which obeys

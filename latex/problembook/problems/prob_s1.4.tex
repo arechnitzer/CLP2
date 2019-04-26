@@ -138,11 +138,9 @@ Is the following reasoning sound? If not, fix it.
 \intertext{Now we use the substitution $v=\cos u$, $\dee{v}=-\sin u \ \dee{u}$:}
 &=\frac{1}{2}\int_{\cos 0}^{\cos(\pi^2/16)} -\dfrac{1}{v}\dee{v}\\
 &=-\frac{1}{2}\int_{1}^{\cos(\pi^2/16)} \dfrac{1}{v}\dee{v}\\
-&=-\frac{1}{2}\left[\log|v|\right]_{1}^{\pi^2/16}\\
-&=-\frac{1}{2}\left(\log\left(\frac{\pi^2}{16}\right)-\log(1)\right)\\
-&=-\frac{1}{2}\cdot2\log\left(\frac{\pi}{4}\right)\\
-&=-\log\left(\frac{\pi}{4}\right)\\
-&=\log\left(\frac{4}{\pi}\right)
+&=-\frac{1}{2}\left[\log|v|\right]_{1}^{\cos(\pi^2/16)}\\
+&=-\frac{1}{2}\left(\log\left(\cos(\pi^2/16)\right)-\log(1)\right)\\
+&=-\frac{1}{2}\log\left(\cos(\pi^2/16)\right)
 \end{align*}
 \end{quote}
 \end{question}
@@ -169,11 +167,9 @@ Perhaps shorter ways exist, but the reasoning here is valid.
 &=\frac{1}{2}\int_{\cos 0}^{\cos(\pi^2/16)} -\dfrac{1}{v}\dee{v}
 \intertext{\color{red}\mbox{Every piece is changed from $u$ to $v$: integrand, differential, limits.}}
 &=-\frac{1}{2}\int_{1}^{\cos(\pi^2/16)} \dfrac{1}{v}\dee{v}&\color{red} \cos(0)=1\\
-&=-\frac{1}{2}\bigg[\log|v|\bigg]_{1}^{\pi^2/16}&\color{red}\mbox{FTC Part 2}\\
-&=-\frac{1}{2}\left(\log\left(\frac{\pi^2}{16}\right)-\log(1)\right)\\
-&=-\frac{1}{2}\cdot2\log\left(\frac{\pi}{4}\right)&\color{red} \log(a^b)=b\log a\\
-&=-\log\left(\frac{\pi}{4}\right)&\color{red} \mbox{algebra}\\
-&=\log\left(\frac{4}{\pi}\right)&\color{red} \log(a^b)=b\log a
+&=-\frac{1}{2}\bigg[\log|v|\bigg]_{1}^{\cos(\pi^2/16)}&\color{red}\mbox{FTC Part 2}\\
+&=-\frac{1}{2}\left(\log\left(\cos(\pi^2/16)\right)-\log(1)\right)\\
+&=-\frac{1}{2}\log\left(\cos(\pi^2/16)\right)&\color{red} \log(1)=0
 \end{align*}
 \end{quote}
 

@@ -2387,7 +2387,7 @@ have seen before.
 <answer><p> (a)
 <m>\displaystyle \frac{1}{2} x \big[\sin(\log x) -\cos(\log x)\big]+C </m>
 </p><p> (b)
-<m>\log |x-3| -  \log|x-2| + C </m>
+<m>2\log 2 - \log 3 = \log\frac{4}{3}</m>
 </p></answer>
 
 <solution><p> (a) Without any other ideas, we see we have a compound function<mdash/>a function of a function. We often find it useful to substitute for the <q>inside</q> function. So, we
@@ -2442,6 +2442,17 @@ So we have found that <m>A=-1</m> and <m>B=1</m>. Therefore
   &amp;= \int \bigg( \frac{1}{x-3} - \frac{1}{x-2} \bigg) \,\dee{x}
 </mrow><mrow>
    &amp;=  \log |x-3| -  \log|x-2| + C
+</mrow>
+</md>
+and the definite integral
+<md>
+<mrow>
+\int_0^1\frac{1}{(x-2)(x-3)}\ \dee{x}
+ &amp; =  \Big[\log |x-3| -  \log|x-2|\Big]_0^1
+ </mrow><mrow>
+ &amp; =  \big[\log 2 -  \log 1\big]-\big[\log 3 - \log 2\big] 
+ </mrow><mrow>
+ &amp; = 2\log 2 -\log 3 = \log\frac{4}{3}
 </mrow>
 </md>
 </p>
