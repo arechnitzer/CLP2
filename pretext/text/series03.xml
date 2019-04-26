@@ -379,7 +379,7 @@ Let <m>p \gt 0</m>. We'll now use the integral test to determine whether or not 
 	We already know that the integral the integral <m>\int_1^\infty\frac{du}{u^p}</m>, and hence the integral <m>\int_2^R \frac{dx}{x (\log x)^p}</m>, converges if and  only if <m>p \gt 1</m>.
 </li>
 </ul>
-So we conclude that  <m>\sum\limits_{n=1}^\infty\frac{1}{n(\log n)^p}</m>  converges if and only if <m>p \gt 1</m>.
+So we conclude that  <m>\sum\limits_{n=2}^\infty\frac{1}{n(\log n)^p}</m>  converges if and only if <m>p \gt 1</m>.
 </p>
 </example>
 </subsection>
@@ -460,7 +460,7 @@ for very large <m>n</m>. So the first step in tackling such a problem is to deve
 	<m>n^2\gg 2n \gg 3</m> so that  <m>\frac{1}{n^2+2n+3}\approx\frac{1}{n^2}</m>. We already know, from Example <xref ref="eg_SRpTest"/>, that  <m>\sum_{n=1}^\infty\frac{1}{n^p}</m> converges if and only if <m>p \gt 1</m>. So <m>\sum_{n=1}^\infty\frac{1}{n^2}</m>, which has <m>p=2</m>, converges, and  we would expect that <m>\sum_{n=1}^\infty\frac{1}{n^2+2n+3}</m> converges too.
 </li>
 <li>
-	<em>Step 2: Verify intuition.</em> We can use the comparison test to confirm that this is indeed the case. For any <m>n\ge 1</m>, <m>n^2+2n+3  \gt  n^2</m>, so that  <m>\frac{1}{n^2+2n+3}\le\frac{1}{n^2}</m>. So the comparison test,  Theorem <xref ref="thm_SRcomparisonTest"/>, with <m>a_n=\frac{1}{n^2+2n+3}</m> and <m>c_n=\frac{1}{n^2}</m>, tells us that <m>\sum_{n=1}^\infty\frac{1}{n^2+2x+3}</m> converges.
+	<em>Step 2: Verify intuition.</em> We can use the comparison test to confirm that this is indeed the case. For any <m>n\ge 1</m>, <m>n^2+2n+3  \gt  n^2</m>, so that  <m>\frac{1}{n^2+2n+3}\le\frac{1}{n^2}</m>. So the comparison test,  Theorem <xref ref="thm_SRcomparisonTest"/>, with <m>a_n=\frac{1}{n^2+2n+3}</m> and <m>c_n=\frac{1}{n^2}</m>, tells us that <m>\sum_{n=1}^\infty\frac{1}{n^2+2n+3}</m> converges.
 </li>
 </ul>
 </p>
