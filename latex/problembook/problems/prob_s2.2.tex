@@ -593,15 +593,16 @@ Calculate the root mean square of $f(x) = \tan x$ over $\left[-\frac{\pi}{4},\fr
 $\tan^2 x = \sec^2 x - 1$
 \end{hint}
 \begin{answer}
-$\displaystyle\sqrt{\frac{1}{\pi} - \frac{1}{4}}\approx 0.26$
+$\displaystyle\sqrt{\frac{4}{\pi} - 1}\approx 0.52$
 \end{answer}
 \begin{solution}
 Using the definition provided,
 \begin{align*}
-\text{RMS}&=\sqrt{\frac{1}{2\pi}\int_{-\pi/4}^{\pi/4}\tan^2x\,\dee{x}} = \sqrt{\frac{1}{2\pi}\int_{-\pi/4}^{\pi/4}\left(\sec^2x-1\right)\,\dee{x}}\\
-&=\sqrt{\frac{1}{2\pi}\Big[\tan x - x \Big]_{-\pi/4}^{\pi/4}} =
-\sqrt{\frac{1}{2\pi}\left[\left(1 - \frac{\pi}{4} \right)-\left(-1 + \frac{\pi}{4} \right)\right]}\\
-&=\sqrt{\frac{1}{2\pi}\left(2-\frac{\pi}{2}\right)} = \sqrt{\frac{1}{\pi} - \frac{1}{4}}\approx 0.26
+\text{RMS}&=\sqrt{\frac{2}{\pi}\int_{-\pi/4}^{\pi/4}\tan^2x\,\dee{x}} = \sqrt{\frac{2}{\pi}\int_{-\pi/4}^{\pi/4}\left(\sec^2x-1\right)\,\dee{x}}\\
+&=\sqrt{\frac{2}{\pi}\Big[\tan x - x \Big]_{-\pi/4}^{\pi/4}} =
+\sqrt{\frac{2}{\pi}\left[\left(1 - \frac{\pi}{4} \right)-\left(-1 + \frac{\pi}{4} \right)\right]}\\
+&=\sqrt{\frac{2}{\pi}\left(2-\frac{\pi}{2}\right)} = \sqrt{\frac{4}{\pi} - 1}
+   \approx 0.52
 \end{align*}
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
