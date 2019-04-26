@@ -4,8 +4,7 @@
 
 
 <!-- use clp style files  -->
-<!-- <xsl:import href="./pretext-latex-CLP.xsl" /> -->
-<xsl:import href="/home/andrew/Projects/pretext/mathbook/xsl/latex/pretext-latex-CLP.xsl" />
+<xsl:import href="./latex/pretext-latex-CLP.xsl" />
 
 
 <!-- set font size and page geometry  -->
