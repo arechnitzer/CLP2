@@ -6242,7 +6242,7 @@ square roots of the form
 \begin{align*}
 \sqrt{a^2-x^2} && \sqrt{a^2+x^2} && \sqrt{x^2-a^2}.
 \end{align*}
-When the integrand contains one of these square roots, then we can us
+When the integrand contains one of these square roots, then we can use
 trigonometric substitutions to eliminate them. That is, we substitute
 \begin{align*}
 x&=a\sin u&\text{or}&&
@@ -6274,6 +6274,8 @@ $x=a\sec u$ to give
 \sqrt{x^2-a^2}=\sqrt{a^2\sec^2u-a^2}
 =\sqrt{a^2\tan^2 u}=|a\tan u|
 \end{align*}
+Be very careful with signs and absolute values when using this substitution.
+See Example \ref{eg sec sub}.
 \end{itemize}
 
 When we have used substitutions before, we usually gave the new integration
@@ -6628,14 +6630,14 @@ and we can read off the triangle that
 \end{itemize}
 \end{eg}
 
-\begin{eg}[$\int \frac{x^2}{\sqrt{x^2-1}} \dee{x}$]
+\begin{eg}[$\int \frac{x^2}{\sqrt{x^2-1}} \dee{x}$]\label{eg sec sub}
 \soln This one requires a secant substitution, but otherwise is very similar to those
 above.
 \begin{itemize}
- \item Set $x = \sec u$ and $\dee{x}=\sec u \tan u \dee{u}$. Then
+ \item Set $x = \sec u$ and $\dee{x}=\sec u \tan u\, \dee{u}$. Then
 \begin{align*}
   \int \frac{x^2}{\sqrt{x^2-1}} \dee{x}
-&= \int \frac{\sec^2 u}{\sqrt{\sec^2u-1}} \sec u \tan u \dee{u} \\
+&= \int \frac{\sec^2 u}{\sqrt{\sec^2u-1}} \sec u \tan u\, \dee{u} \\
 &= \int \sec^3 u \cdot \frac{ \tan u}{\sqrt{\tan^2u}}  \dee{u}
 & \text{since $\tan^2u = \sec^2u-1$} \\
 &= \int \sec^3u \cdot \frac{\tan u}{|\tan u|} \dee{u}
@@ -6679,8 +6681,8 @@ above.
 %
 % \end{center}
 % \end{efig}
-% In order to construct a continuous inverse function for secant, we restrict its domain
-to
+% In order to construct a continuous inverse function for secant, 
+% we restrict its domain to
 % $[0,\nicefrac\pi2)$ --- on that domain the secant is one-to-one and continuous. This
 % implies that arcsecant has domain $[1,\infty)$ and range $[0,\nicefrac\pi2)$. There are
 % other conventions, however this one is chosen so that tangent of arcsecant is always
@@ -6690,11 +6692,11 @@ sign of $\tan u$. Notice that the integrand is only defined when either $x<-1$ o
 thus we should treat the cases $x<-1$ and $x>1$ separately. Let us assume that $x>1$ and
 we will come back to the case $x<-1$ at the end of the example.
 
-When $x>1$, the standard $u=\arcsec x$ takes values in $(0,\nicefrac\pi2)$. This follows
+When $x>1$, our $u=\arcsec x$ takes values in $(0,\nicefrac\pi2)$. This follows
 since when $0<u<\nicefrac\pi2$, we have $0<\cos u<1$ and so $\sec u>1$. Further, when
 $0<u<\nicefrac\pi2$, we have $\tan u>0$. Thus $|\tan u|=\tan u$.
 
-\item Back to our integral:
+\item Back to our integral, when $x>1$:
 \begin{align*}
   \int \frac{x^2}{\sqrt{x^2-1}} \dee{x}
 &= \int \sec^3u \cdot \frac{\tan u}{|\tan u|} \dee{u} \\
@@ -6706,7 +6708,7 @@ $0<u<\nicefrac\pi2$, we have $\tan u>0$. Thus $|\tan u|=\tan u$.
 $\sec u = x$ and then we can use trig identities
 \begin{align*}
   \tan^2 u &= \sec^2 u - 1 = x^2-1 & \text{so}
-  \tan u &= \pm \sqrt{x^2-1} & \text{but we know $\tan u \geq 0$, so}\\
+  \tan u &= \pm \sqrt{x^2-1}, & \text{but we know $\tan u \geq 0$, so}\\
   \tan u &= \sqrt{x^2-1}
 \end{align*}
 Thus
