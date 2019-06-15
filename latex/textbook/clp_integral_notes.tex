@@ -328,7 +328,7 @@ formula:
 
 \noindent The derivation of the above formula is not too difficult. So let's
 derive it in a little aside.
-\subsubsection*{Geometric sum}
+\subsubsection*{Geometric Sum}
 Denote the sum as
 \begin{align*}
 S &=
@@ -358,7 +358,7 @@ That is
 \end{align*}
 as required. Notice that the last step in the manipulations only works providing $r \neq
 1$ (otherwise we are dividing by zero).
-\subsubsection*{Back to approximating areas}
+\subsubsection*{Back to Approximating Areas}
 Now we can go back to our area approximation armed with the above result about geometric
 sums.
 \begin{align*}\
@@ -431,7 +431,7 @@ So, after this short aside into limits, we may now conclude that
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Optional --- A more rigorous area computation}
+\subsection{Optional --- A More Rigorous Area Computation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 In Example~\ref{eg:INTexparea} above we considered the area of the region
 $\big\{\ (x,y)\ \big|\ 0\le y\le e^x$, $0\le x\le 1\ \big\}$. We approximated that area
@@ -561,7 +561,7 @@ theorem then implies that
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Summation notation}\label{ssec sum notn}
+\subsection{Summation Notation}\label{ssec sum notn}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 As you can see from the above example (and the more careful rigorous computation), our
 discussion of integration will involve a fair bit of work with sums of quantities. To
@@ -1466,7 +1466,7 @@ x(b)  - x(a) = \int_a^b v(t)\dee{t}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Optional --- careful definition of the integral}\label{ssec
+\subsection{Optional --- Careful Definition of the Integral}\label{ssec
 careful defn}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 In this optional section we give a more mathematically rigorous definition of
@@ -1739,7 +1739,7 @@ with $x$ running from $a$ to $b$.
 
 \vspace{1in}
 
-\section{Basic properties of the definite integral}
+\section{Basic Properties of the Definite Integral}
 When we studied limits and derivatives, we developed methods for taking limits
 or derivatives of ``complicated functions'' like $f(x)=x^2 + \sin(x)$ by
 understanding how limits and derivatives interact with basic arithmetic
@@ -2245,7 +2245,7 @@ Now we apply parts (a) and (b) of Theorem \ref{thm:Intarith}, and then
 \end{align*}
 \end{eg}
 
-\subsection{More properties of integration: even and odd functions}
+\subsection{More Properties of Integration: Even and Odd Functions}
 Recall\footnote{We haven't done this in this course, but you should have seen
 it in your differential calculus course or perhaps even earlier.} the following
 definition
@@ -2355,8 +2355,8 @@ each other.
 \end{proof}
 
 \newpage %there was weird spacing
-\subsection{Optional --- More properties of integration: inequalities for
-integrals}
+\subsection{Optional --- More Properties of Integration: Inequalities for
+Integrals}
 
 We are still unable to integrate many functions, however with a little work we
 can infer bounds on integrals from bounds on their integrands.
@@ -3927,7 +3927,7 @@ function ``one over'' evaluated at $u=\cos x$.
 \end{eg}
 
 % \begin{comment}
-\section{Area between curves}\label{sec area}
+\section{Area Between Curves}\label{sec area}
 Before we continue our exploration of different methods for integrating functions, we
 have now have sufficient tools to examine some simple applications of definite integrals.
 One of the motivations for our definition of ``integral'' was the problem of finding
@@ -4933,7 +4933,7 @@ V&=\half\int_{-20}^{20}(20^2-y^2)\dee{y}\\
 \end{eg}
 
 
-\subsection*{Optional --- Cylindrical shells}
+\subsection*{Optional --- Cylindrical Shells}
 Let us return to Example~\ref{eg rot yaxis} in which we rotate a region around the
 $y$-axis. Here we show another solution to this problem which is obtained by slicing the
 region into vertical strips. When rotated about the $y$-axis, each such strip sweeps out
@@ -4973,7 +4973,7 @@ which (thankfully) agrees with our previous computation.
 \end{itemize}
 \end{eg}
 
-\section{Integration by parts}\label{sec intbyparts}
+\section{Integration by Parts}\label{sec intbyparts}
 The fundamental theorem of calculus tells us that it is very easy to integrate a
 derivative. In particular, we know that
 \begin{align*}
@@ -5559,7 +5559,7 @@ that is, whether $n$ and $m$ are even or odd numbers.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Integrating $\int \sin^m x\cos^n x\dee{x}$}\label{sec:sincos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection*{One of $n$ and $m$ is odd}
+\subsubsection*{One of $n$ and $m$ is Odd}
 Consider the integral $\int \sin^2x \cos x\dee{x}$. We can integrate this by substituting
 $u=\sin x$ and $\dee{u}=\cos x \dee{x}$. This gives
 \begin{align*}
@@ -5589,7 +5589,7 @@ Of course if $m$ is an odd integer we can use the same strategy with the
 roles of $\sin x$ and $\cos x$ exchanged. That is, we substitute
 $u=\cos x$, $\dee{u}=-\sin x\dee{x}$ and $\sin^2 x=1-\cos^2x=1-u^2$.
 
-\subsubsection*{Both $n$ and $m$ are even}
+\subsubsection*{Both $n$ and $m$ are Even}
 If $m$ and $n$ are both even, the strategy is to use the trig identities
 \eqref{eq:TRGINTtrigidentityF} and \eqref{eq:TRGINTtrigidentityG}
 to get back to the $m$ or $n$ odd case. This is typically more laborious than the
@@ -5736,7 +5736,7 @@ have learned about partial fractions. See Example~\ref{eg:PFe} and~\ref{eg:PFf} 
 Section~\ref{sec parfrac}.
 \end{enumerate}
 
-\subsubsection*{$m$ is odd --- odd power of tangent}
+\subsubsection*{$m$ is Odd --- Odd Power of Tangent}
 In this case we rewrite the integrand in terms of sine and cosine and then substitute
 $u=\cos x, \dee{u}=-\sin x \dee{x}$.
 \begin{eg}[$\int \tan x\dee{x}$]\label{eg:TRGINTg}
@@ -5776,7 +5776,7 @@ powers of $\sin x$ using $\sin^2x=1-\cos^2x=1-u^2$.
 \end{eg}
 
 
-\subsubsection*{$m$ is odd and $n\geq 1$ --- odd power of tangent and at least one secant}
+\subsubsection*{$m$ is Odd and $n\geq 1$ --- Odd Power of Tangent and at Least One Secant}
 Here we collect a factor of $\tan x \sec x$ and then substitute $u = \sec x$ and $\dee{u}
 = \sec x \tan x \dee{x}$. We can then rewrite any remaining even powers of $tan
 x$ in terms of $\sec x$ using $\tan^2x = \sec^2 x-1=u^2-1$.
@@ -5801,7 +5801,7 @@ $\dee{u}=\sec x\tan x\dee{x}$ and $\tan^2x = \sec^2 x-1=u^2-1$.
 
 \end{eg}
 
-\subsubsection*{$n\geq 2$ is even --- a positive even power of secant}
+\subsubsection*{$n\geq 2$ is Even --- a Positive Even Power of Secant}
 In the previous case we substituted $u = \sec x$, while in this case we substitute
 $u=\tan x$. When we do this we write $\dee{u}=\sec^2 x \dee{x}$ and then rewrite
 any remaining even powers of $\sec x$ as powers of $\tan x$ using $\sec^2x =
@@ -5860,7 +5860,7 @@ of $\tan^3 x\sec^4x$.
 \end{itemize}
 
 \end{eg}
-\subsubsection*{$m$ is even and $n=0$ --- even powers of tangent}
+\subsubsection*{$m$ is Even and $n=0$ --- Even Powers of Tangent}
 We integrate this by setting $u=\tan x$. For this to work we need to pull one factor of
 $\sec^2x$ to one side to form $\dee{u}=\sec^2x\dee{x}$. To find this factor of $\sec^2x$
 we (perhaps repeatedly) apply the identity $\tan^2x=\sec^2x-1$.
@@ -5965,7 +5965,7 @@ Of course we have not considered integrals involving powers of $\cot x$ and $\cs
 But they can be treated in much the same way as $\tan x$ and $\sec x$ were.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Optional --- Integrating $\sec x$, $\csc x$, $\sec^3 x$
+\subsection{Optional --- integrating $\sec x$, $\csc x$, $\sec^3 x$
                      and $\csc^3 x$}\label{sec:secantEtc}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 As noted above, when $n$ is odd and $m$ is even, one can use similar strategies as to the
@@ -6923,7 +6923,7 @@ is signalled on the right hand side by the fact that the degree of the
 numerator is at least as large as the degree of the denominator.
 \end{enumerate}
 
-\subsection{Partial fraction decomposition examples}
+\subsection{Partial Fraction Decomposition Examples}
 Rather than writing up the technique --- known as the partial fraction decomposition ---
 in full generality, we will instead illustrate it through a sequence of examples.
 
@@ -8109,7 +8109,7 @@ $\frac{1}{u^2-1}=\frac{1}{2}\left[\frac{1}{u-1}-\frac{1}{u+1}\right]$ in the las
 \end{eg}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{The form of partial fraction decompositions}
+\subsection{The Form of Partial Fraction Decompositions}
 In the examples above we used the partial fractions method to decompose rational
 functions into easily integrated pieces. Each of those examples was quite involved and we
 had to spend quite a bit of time factoring and doing long division. The key step in each
@@ -8142,7 +8142,7 @@ $x^2+b_1x+c_1$, $x^2+b_2x+c_2$,\ \  $\cdots$,\ \  $x^2+b_kx+c_k$ are
 all different.
 \end{itemize}
 
-\subsubsection*{Simple linear factor case}
+\subsubsection*{Simple Linear Factor Case}
 If the denominator
 $
 D(x)=K(x-a_1)(x-a_2)\cdots(x-a_j)
@@ -8160,7 +8160,7 @@ We can then integrate each term
 \end{align*}
 
 
-\subsubsection*{General linear factor case}
+\subsubsection*{General Linear Factor Case}
 If the denominator
 $
 D(x)=K(x-a_1)^{m_1}(x-a_2)^{m_2}\cdots(x-a_j)^{m_j}
@@ -8193,7 +8193,7 @@ because it is easier to integrate.
 \end{align*}
 
 
-\subsubsection*{Simple linear and quadratic factor case}
+\subsubsection*{Simple Linear and Quadratic Factor Case}
 If
 $
 D(x)=K(x-a_1)\cdots(x-a_j)(x^2+b_1x+c_1)\cdots(x^2+b_kx+c_k)
@@ -8246,7 +8246,7 @@ as follows
 \end{eg}
 
 
-\subsubsection*{Optional --- General linear and quadratic factor case}
+\subsubsection*{Optional --- General Linear and Quadratic Factor Case}
 If
 $
 D(x)=K(x-a_1)^{m_1}\cdots(x-a_j)^{m_j}
@@ -8332,14 +8332,14 @@ with repeated quadratic factors do not often appear on exams.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Optional --- Justification of the partial fraction decompositions}
+\subsection{Optional --- Justification of the Partial Fraction Decompositions}
 We will now see the justification for the form of the partial fraction decompositions. We
 will only consider the case in which the denominator has only linear factors. The
 arguments when there are quadratic factors too are similar\footnote{If we use complex
 numbers then every polynomial can be written as a product of linear factors. This is the
 fundamental theorem of algebra.}.
 
-\subsubsection*{Simple linear factor case}
+\subsubsection*{Simple Linear Factor Case}
 In the most common partial fraction decomposition, we split up
 \begin{align*}
 \frac{N(x)}{(x-a_1)\times\cdots\times (x-a_d)}
@@ -8435,7 +8435,7 @@ with
 \end{align*}
 as required.
 
-\subsubsection*{The general case with linear factors}
+\subsubsection*{The General Case with Linear Factors}
 Now consider splitting
 \begin{align*}
 \frac{N(x)}{(x-a_1)^{n_1}\times\cdots\times (x-a_d)^{n_d}}
@@ -8658,7 +8658,7 @@ frequently. To save on writing (and typing) we introduce the notation
 \end{align*}
   \end{notn}
 %%%%%%%%%%%%%
-\subsection{The midpoint rule}\label{sec:midpointRule}
+\subsection{The Midpoint Rule}\label{sec:midpointRule}
 %%%%%%%%%%%%%
 The integral $\int_{x_{j-1}}^{x_j} f(x)\,\dee{x}$ represents the area between
 the curve $y=f(x)$ and the $x$--axis with $x$ running from $x_{j-1}$
@@ -8903,7 +8903,7 @@ value.
 
 
 %%%%%%%%%%%%%
-\subsection{The trapezoidal rule}\label{sec:trapRule}
+\subsection{The Trapezoidal Rule}\label{sec:trapRule}
 %%%%%%%%%%%%%
 Consider again the area represented by the integral $\int_{x_{j-1}}^{x_j} f(x)\,\dee{x}$.
 The trapezoidal rule\footnote{This method is also called the ``trapezoid rule'' and
@@ -9690,7 +9690,7 @@ empirically.} that you only need $n=10$ to approximate within $10^{-6}$.
 \end{eg}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Optional --- An error bound for the midpoint rule}
+\subsection{Optional --- An Error Bound for the Midpoint Rule}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 We now try develop some understanding as to why we got the above experimental
 results. We start with the error generated by a single step of the midpoint
