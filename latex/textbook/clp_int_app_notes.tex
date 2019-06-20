@@ -706,7 +706,7 @@ we would expend the same power.
 
 \end{eg}
 
-\subsection*{Optional --- Return to the mean value theorem}
+\subsection*{Optional --- Return to the Mean Value Theorem}
 One last application of Definition~\ref{def:AVaverage}. The following theorem can be
 thought of as an analogue of the mean-value theorem (which was covered in your
 differential calculus class) but for integrals. The theorem says that a
@@ -1536,7 +1536,7 @@ equations. Most universities offer half a dozen different undergraduate
 courses on various aspects of differential equations. We will just look
 at one special, but important, type of equation.
 
-\subsection{Separate and integrate}
+\subsection{Separate and Integrate}
 
 \begin{defn}\label{def:SDEsepdiffeq}
 A \emph{separable differential equation} is an equation for a function
@@ -1569,25 +1569,52 @@ Then you integrate both sides
 \end{equation}
 This looks illegal, and indeed is illegal --- $\diff{y}{x}$ is not a fraction.
 But we'll now see that the answer is still correct. This procedure is simply
-a mnenomic device to help you remember that answer. Let $G(y)$ be an
-antiderivative of $\frac{1}{g(y)}$ (i.e. $G'(y)=\frac{1}{g(y)}$) and
-$F(x)$ be an antiderivative of $f(x)$ (i.e. $F'(x)=f(x))$.
-If we reinstate the argument of $y$, \eqref{eq:SDEbasicSln} is
+a mnenomic device to help you remember the answer \eqref{eq:SDEbasicSln}.
+\begin{itemize}
+\item
+Our goal is to find all functions $y(x)$ that obey
+$
+\diff{y}{x}(x) = f(x)\ g\big(y(x)\big)
+$.
+\item
+Assuming that $g$ is nonzero,
+\begin{align*}
+y'(x) = f(x)\ g(y(x))
+&\iff \frac{y'(x)}{g(y(x))}=f(x)
+\iff \int\frac{y'(x)}{g(y(x))}\,\dee{x}= \int f(x)\,\dee{x} \\
+&\iff \int\frac{\dee{y}}{g(y)}\,\dee{y}\bigg|_{y=y(x)}= \int f(x)\,\dee{x} \\
+&\qquad \text{with the substitution $y=y(x)$, $\dee y = y'(x)\,\dee{x}$}
+\end{align*}
+\item
+That's our answer \eqref{eq:SDEbasicSln} again.
+\end{itemize}
+
+% Let $G(y)$ be an
+%antiderivative of $\frac{1}{g(y)}$ (i.e. $G'(y)=\frac{1}{g(y)}$) and
+%$F(x)$ be an antiderivative of $f(x)$ (i.e. $F'(x)=f(x))$.
+%If we reinstate the argument of $y$, \eqref{eq:SDEbasicSln} is
+%\begin{equation}\label{eq:SDEbasicSlnRig}
+%G\big(y(x)\big) = F(x) + C
+%\end{equation}
+%To check that a function $y(x)$ obeys
+%$\diff{y}{x}(x) = f(x)\ g\big(y(x)\big)$ if and only if it obeys
+%\eqref{eq:SDEbasicSlnRig}, just differentiate both sides of
+%\eqref{eq:SDEbasicSlnRig} with respect to $x$. By the chain rule
+%\begin{align*}
+%G\big(y(x)\big) = F(x) + C
+%&\iff G'\big(y(x)\big)\ y'(x) = F'(x)
+%\iff \frac{y'(x)}{g(y(x))}=f(x) \\
+%&\iff y'(x) = f(x)\ g(y(x))
+%\end{align*}
+%(We have again assumed that $g(y)$ is nonzero.)
+
+Let $G(y)$ be an antiderivative of $\frac{1}{g(y)}$ 
+(i.e. $G'(y)=\frac{1}{g(y)}$) and $F(x)$ be an antiderivative of $f(x)$ 
+(i.e. $F'(x)=f(x))$. If we reinstate the argument of $y$, 
+\eqref{eq:SDEbasicSln} is
 \begin{equation}\label{eq:SDEbasicSlnRig}
 G\big(y(x)\big) = F(x) + C
 \end{equation}
-To check that a function $y(x)$ obeys
-$\diff{y}{x}(x) = f(x)\ g\big(y(x)\big)$ if and only if it obeys
-\eqref{eq:SDEbasicSlnRig}, just differentiate both sides of
-\eqref{eq:SDEbasicSlnRig} with respect to $x$. By the chain rule
-\begin{align*}
-G\big(y(x)\big) = F(x) + C
-&\iff G'\big(y(x)\big)\ y'(x) = F'(x)
-\iff \frac{y'(x)}{g(y(x))}=f(x) \\
-&\iff y'(x) = f(x)\ g(y(x))
-\end{align*}
-(We have again assumed that $g(y)$ is nonzero.)
-
 Observe that the solution \eqref{eq:SDEbasicSlnRig} contains an arbitrary
 constant, $C$. The value of this arbitrary constant \emph{can not}
 be determined by the differential equation. You need additional data
@@ -2893,7 +2920,7 @@ W=\frac{625,015.05e}{20(e-1)}=\$49,437.96
 
 
 \begin{comment}
-\section{(Optional) --- More about numerical integration}
+\section{(Optional) --- more about numerical integration}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Richardson Extrapolation\footnote{Richardson extrapolation
 was introduced by the Englishman Lewis Fry Richardson
@@ -3313,7 +3340,7 @@ for $x=\nicefrac{n}{32}$ with $0\le n\le 32$.
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Adaptive Quadrature (Optional)}
+\subsection*{Optional --- Adaptive Quadrature}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\issue{Joel: \\ Eliminate?}
 Richardson extrapolation is also used to choose the step size
