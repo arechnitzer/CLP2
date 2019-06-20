@@ -1,11 +1,6 @@
-%
-% Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager.
-% This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
-% https://creativecommons.org/licenses/by-nc-sa/4.0/
-%
 \questionheader{ex:s1.9}
 
-\noindent
+\noindent 
 Recall that we are using $\log x$ to denote the logarithm of $x$ with
 base $e$. In other courses it is often denoted $\ln x$.
 
@@ -21,9 +16,9 @@ For each of the following integrals, choose the substitution that
 is most beneficial for evaluating the integral.
 \begin{enumerate}[(a)]
 \item
-$\displaystyle \int \frac{2x^2}{\sqrt{9x^2-16}} \, \dee{x}$
+$\displaystyle \int \frac{2x^2}{\sqrt{9x^2-16}} \, \dee{x}$ 
 
-\item $\displaystyle \int \frac{x^4-3}{\sqrt{1-4x^2}} \, \dee{x}$
+\item $\displaystyle \int \frac{x^4-3}{\sqrt{1-4x^2}} \, \dee{x}$ 
 
 \item $\displaystyle \int {(25+x^2)}^{-5/2} \, \dee{x}$
 \end{enumerate}
@@ -31,27 +26,27 @@ $\displaystyle \int \frac{2x^2}{\sqrt{9x^2-16}} \, \dee{x}$
 
 \end{Mquestion}
 
-\begin{hint}
-The beginning of this section has a template for choosing a substitution. Your goal is to use a trig identity to turn the argument of the square root into a perfect square, so you can cancel $\sqrt{(\mbox{something})^2}=(\mbox{something})$.
+\begin{hint} 
+The beginning of this section has a template for choosing a substitution. Your goal is to use a trig identity to turn the argument of the square root into a perfect square, so you can cancel $\sqrt{(\mbox{something})^2}=|\mbox{something}|$. 
 \end{hint}
 
-\begin{answer}
+\begin{answer} 
 (a) $x=\dfrac{4}{3}\sec\theta$
 \qquad (b) $x=\dfrac{1}{2}\sin\theta$
 \qquad (c) $x=5\tan\theta$
 \end{answer}
 
-\begin{solution}
+\begin{solution} 
 In the text, there is a template for choosing an appropriate substitution, but for this problem we will explain the logic of the choices.
 
 The trig identities that we can use are:
 \begin{align*}
 &1-\sin^2\theta=\cos^2\theta & &\tan^2 \theta +1 = \sec^2 \theta & &\sec^2 \theta - 1 =\tan^2 \theta
 \intertext{They have the following forms:}
-&\mbox{constant } - \mbox{ function} &&\mbox{function } + \mbox{ constant} &
-&\mbox{function } - \mbox{ constant}
+&\mbox{constant } - \mbox{ function} &&\mbox{function } + \mbox{ constant} & 
+&\mbox{function } - \mbox{ constant} 
 \end{align*}
-In order to cancel out the square root, we should choose a substitution that will match the argument under the square root with the trig identity of the corresponding form.
+In order to cancel out the square root, we should choose a substitution that will match the argument under the square root with the trig identity of the corresponding form. 
 
 (a)
 There's not an obvious non-trig substitution for evaluating this problem, so we want a trigonometric substitution to get rid of the square root in the denominator. Under the square root is the function $9x^2-16$, which has the form (function) $-$ (constant). This form matches the trig identity $\sec^2 \theta - 1 = \tan^2 \theta$. We can set $x$ to be whatever we need it to be, but we don't have the same control over the constant, 16. So, to make the substitution work, we use a different form of the trig identity: multiplying both sides  by 16, we get
@@ -64,7 +59,7 @@ x &= \frac{4}{3}\sec\theta
 \intertext{Using this substitution,}
 \sqrt{9x^2-16}&=\sqrt{16\sec^2\theta-16}\\
 &=\sqrt{16\tan^2\theta}\\
-&=4\tan\theta
+&=4|\tan\theta|
 \end{align*}
 So, we eliminated the square root.
 
@@ -77,7 +72,7 @@ x &= \frac{1}{2}\sin\theta
 \intertext{Using this substitution,}
 \sqrt{1-4x^2}&=\sqrt{1-\sin^2\theta}\\
 &=\sqrt{\cos^2\theta}\\
-&=\cos\theta
+&=|\cos\theta|
 \end{align*}
 So, we eliminated the square root.
 
@@ -93,14 +88,14 @@ x &= 5\tan\theta
 \intertext{Using this substitution,}
 (25+x^2)^{-5/2}&=(25+25\tan^2\theta)^{-5/2}\\
 &=(25\sec^2\theta)^{-5/2}\\
-&=(5\sec\theta)^{-5}
+&=(5|\sec\theta|)^{-5}
 \end{align*}
 So, we eliminated the square root.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 \begin{Mquestion}\label{prob_21.9:complete}
 For each of the following integrals, choose a trigonometric substitution that
-will allow the roots to cancel.
+will eliminate the roots.
 \begin{enumerate}[(a)]
 \item $\displaystyle\int \dfrac{1}{\sqrt{x^2-4x+1}}~\dee{x}$
 \item $\displaystyle\int \dfrac{(x-1)^6}{(-x^2+2x+4)^{3/2}}~\dee{x}$
@@ -117,7 +112,7 @@ You want to do the same thing you did in Question~\ref{prob:s1.9_1}, but you'll 
 \qquad
 (c) $\left(2x+\dfrac{3}{2}\right) =\dfrac{\sqrt{31}}{2}\tan u$
 \\
-(d) $x - \dfrac{1}{2}=\dfrac{1}{2}\sec u$\qquad
+(d) $x - \dfrac{1}{2}=\dfrac{1}{2}\sec u$\qquad 
 \end{answer}
 \begin{solution}
 Just as in Question~\ref{prob:s1.9_1}, we want to choose a trigonometric substitution that will allow us to eliminate the square roots. Before we can make that choice, though, we need to complete the square. In subsequent problems, we won't show the algebra behind completing the square, but for this problem we'll work it out explicitly. After some practice, you'll  be able to do this step in your head for many cases.
@@ -138,11 +133,11 @@ The quadratic function under the square root is $x^2-4x+1$. To complete the squa
 \end{itemize}
 
  \[\displaystyle\int \dfrac{1}{\sqrt{x^2-4x+1}}~\dee{x}=\displaystyle\int \dfrac{1}{\sqrt{(x-2)^2-3}}~\dee{x}=\displaystyle\int \dfrac{1}{\sqrt{\left(x-2\vphantom{\sqrt{3}}\right)^2-\sqrt{3}^2}}~\dee{x}\]
-
+ 
 So we use the substitution $(x-2) = \sqrt{3}\sec u$, which eliminates the square root:
-\[\sqrt{\left(x-2\right)^2-3}=\sqrt{3\sec^2 u - 3} = \sqrt{3\tan^2 u} = \sqrt{3}\tan u\]
+\[\sqrt{\left(x-2\right)^2-3}=\sqrt{3\sec^2 u - 3} = \sqrt{3\tan^2 u} = \sqrt{3}|\tan u|\]
 %
-\item
+\item 
 The quadratic function under the square root is $-x^2+2x+4=-[x^2-2x-4]$. To complete the square, we match the non-constant terms to those of a perfect square. We factored out the negative to make things a little easier--don't forget to put it back in before choosing a substitution!
 \begin{align*}
 (ax+b)^2&=a^2x^2+2abx+b^2\\
@@ -157,9 +152,9 @@ The quadratic function under the square root is $-x^2+2x+4=-[x^2-2x-4]$. To comp
 
 \[\displaystyle\int \dfrac{(x-1)^6}{(-x^2+2x+4)^{3/2}}~\dee{x}=\displaystyle\int \dfrac{(x-1)^6}{(5-(x-1)^2)^{3/2}}~\dee{x}=\displaystyle\int \dfrac{(x-1)^6}{\left(\sqrt{5}^2-\left(x-1\vphantom{\sqrt{3}}\right)^2\right)^{3/2}}~\dee{x}\]
 So we use the substitution $(x-1) = \sqrt{5}\sin u$, which eliminates the square root (fractional power):
-\[(5-\left(x-1\right)^2)^{3/2}=\left(5-5\sin^2u\right)^{3/2} = \left(5\cos^2 u\right)^{3/2} = 5\sqrt{5}\cos^3 u\]
+\[(5-\left(x-1\right)^2)^{3/2}=\left(5-5\sin^2u\right)^{3/2} = \left(5\cos^2 u\right)^{3/2} = 5\sqrt{5}|\cos^3 u|\]
 %
-\item
+\item 
 The quadratic function under the square root is $4x^2+6x+10$. To complete the square, we match the non-constant terms to those of a perfect square.
 \begin{align*}
 (ax+b)^2&=a^2x^2+2abx+b^2\\
@@ -173,9 +168,9 @@ The quadratic function under the square root is $4x^2+6x+10$. To complete the sq
 \[\displaystyle\int \dfrac{1}{\sqrt{4x^2+6x+10}}~\dee{x}=\displaystyle\int \dfrac{1}{\sqrt{\left(2x+\frac{3}{2}\right)^2+\frac{31}{4}}}~\dee{x}
 =\displaystyle\int \dfrac{1}{\sqrt{\left(2x+\frac{3}{2}\right)^2+\left(\frac{\sqrt{31}}{2}\right)^2}}~\dee{x}\]
 So we use the substitution $\left(2x+\frac{3}{2}\right) =\frac{\sqrt{31}}{2}\tan u$, which eliminates the square root:
-\[\sqrt{\left(2x+\frac{3}{2}\right)^2+\frac{31}{4}}=\sqrt{\frac{31}{4}\tan^2 u +\frac{31}{4}} = \sqrt{\frac{31}{4}\sec^2 u} =\frac{\sqrt{31}}{2}\sec u\]
+\[\sqrt{\left(2x+\frac{3}{2}\right)^2+\frac{31}{4}}=\sqrt{\frac{31}{4}\tan^2 u +\frac{31}{4}} = \sqrt{\frac{31}{4}\sec^2 u} =\frac{\sqrt{31}}{2}|\sec u|\]
 %
-\item
+\item 
 The quadratic function under the square root is $x^2-x$. To complete the square, we match the non-constant terms to those of a perfect square.
 \begin{align*}
 (ax+b)^2&=a^2x^2+2abx+b^2\\
@@ -190,7 +185,7 @@ The quadratic function under the square root is $x^2-x$. To complete the square,
 
 \[\displaystyle\int \sqrt{x^2-x}~\dee{x}=\displaystyle\int \sqrt{\left(x-\frac{1}{2}\right)^2 -\frac{1}{4}}~\dee{x}=\displaystyle\int  \sqrt{\left(x-\frac{1}{2}\right)^2 -\left(\frac{1}{2}\right)^2}~\dee{x}\]
 So we use the substitution $(x-1/2) = \frac{1}{2}\sec u$, which eliminates the square root:
-\[\sqrt{\left(x-\frac{1}{2}\right)^2-\frac{1}{4}}=\sqrt{\frac{1}{4}{\sec\vphantom{|}}^2 u - \frac{1}{4}} = \sqrt{\frac{1}{4}\tan^2 u} =\frac{1}{2}\tan u\]
+\[\sqrt{\left(x-\frac{1}{2}\right)^2-\frac{1}{4}}=\sqrt{\frac{1}{4}{\sec\vphantom{|}}^2 u - \frac{1}{4}} = \sqrt{\frac{1}{4}\tan^2 u} =\frac{1}{2}|\tan u|\]
 
 \end{enumerate}
 
@@ -285,11 +280,11 @@ So,
 \[\sin\left(\arccos \left(\frac{x}{2}\right)\right)=\sin \theta = \frac{\mathrm{opp}}{\mathrm{hyp}} = \frac{\sqrt{4-x^2}}{2}\]
 
 
-\item Let $\theta = \arctan \left(\frac{1}{\sqrt{3}}\right)$. That is, $\tan(\theta) = \frac{1}{\sqrt{3}}$, and $-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}$.
+\item Let $\theta = \arctan \left(\frac{1}{\sqrt{3}}\right)$. That is, $\tan(\theta) = \frac{1}{\sqrt{3}}$, and $-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}$. 
 
 \begin{description}
 \item[Solution 1:] Then $\theta = \dfrac{\pi}{6}$, so $\sin\theta = \dfrac{1}{2}$.
-\item[Solution 2:]
+\item[Solution 2:] 
 Then we can draw the corresponding right triangle with angle $\theta$ with opposite side of length $1$  and adjacent side of length $\sqrt{3}$. By the Pythagorean Theorem, the hypotenuse of the triangle has length $\sqrt{\sqrt{3}^2+1^2}=2$.
 \begin{center}
 \trigtri{\theta}{\sqrt{3}}{1}{2}
@@ -322,15 +317,15 @@ So,
 Evaluate $\displaystyle\int \frac1{(x^2+4)^{3/2}} \,\dee{x}.$
 \end{question}
 
-\begin{hint}
+\begin{hint} 
 As in Question \ref{prob:s1.9_1}, choose an appropriate substitution. Your answer should be in terms of your original variable, $x$, which can be achieved using the methods of Question~\ref{prob:s1.9_3}.
 \end{hint}
 
-\begin{answer}
+\begin{answer} 
 $\dfrac14\cdot \dfrac x{\sqrt{x^2+4}} + C$
 \end{answer}
 
-\begin{solution}
+\begin{solution} 
 Let $x = 2\tan\theta$, so that $x^2+4 = 4\tan^2\theta+4=4\sec^2\theta$ and $\dee{x} = 2\sec^2\theta\,\dee{\theta}$. Then
 \begin{align*}
 \int \frac1{(x^2+4)^{3/2}} \,\dee{x} &= \int \frac1{(4\sec^2\theta)^{3/2}} \cdot 2\sec^2\theta\,\dee{\theta} \\
@@ -341,24 +336,37 @@ Let $x = 2\tan\theta$, so that $x^2+4 = 4\tan^2\theta+4=4\sec^2\theta$ and $\dee
 \trigtri{\theta}{2}{x}{\sqrt{x^2+4}}}
 \end{align*}
 To find $\sin\theta$ in terms of $x$, we construct the right triangle above.
-Since $\tan\theta = \dfrac{x}{2} = \dfrac{\mbox{opp}}{\mbox{adj}}$, we label the opposite side $x$ and the adjacent side $2$. By the Pythagorean Theorem, the hypotenuse has length $\sqrt{x^2+4}$. Then $\sin\theta = \dfrac{\mbox{opp}}{\mbox{hyp}} = \dfrac{x}{\sqrt{x^2+4}}$.
+Since $\tan\theta = \dfrac{x}{2} = \dfrac{\mbox{opp}}{\mbox{adj}}$, we label the opposite side $x$ and the adjacent side $2$. By the Pythagorean Theorem, the hypotenuse has length $\sqrt{x^2+4}$. Then $\sin\theta = \dfrac{\mbox{opp}}{\mbox{hyp}} = \dfrac{x}{\sqrt{x^2+4}}$. 
+
+To see why we could write $(\sec^2\theta)^{3/2} =\sec^3\theta$, as opposed to 
+$(\sec^2\theta)^{3/2} =\big|\sec^3\theta\big|$, in the second line above, see
+Example \eref{CLP101}{eg:INVTRIGb} in the CLP-2 text.
+
+As a check, we observe that the derivative of the answer
+\begin{align*}
+\diff{}{x} \left(\frac14 \frac x{\sqrt{x^2+4}} +C\right)
+&=\frac14\frac 1{\sqrt{x^2+4}} - \frac{1}{2\times 4}\frac{x(2x)}{{\big(x^2+4\big)}^{3/2}}
+=\frac{\frac{x^2}{4}+1-\frac{x^2}{4}}{{\big(x^2+4\big)}^{3/2}} \\
+&=\frac{1}{{\big(x^2+4\big)}^{3/2}} 
+\end{align*}
+is exactly the integrand.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 
 \begin{question}[2016Q4]
 Evaluate
-$\displaystyle\int_0^4 \frac{1}{{(4+x^2)}^{3/2}}\,\dee{x}$.
+$\displaystyle\int_0^4 \frac{1}{{(4+x^2)}^{3/2}}\,\dee{x}$. 
 Your answer may not contain inverse trigonometric functions.
 \end{question}
-\begin{hint}
+\begin{hint} 
 As in Question \ref{prob:s1.9_1}, choose an appropriate substitution. Your answer will be a number, so as long as you change your limits of integration when you substitute, you don't need to bother changing the antiderivative back into the original variable $x$. However, you might want to use the techniques of Question~\ref{prob:s1.9_4} to simplify your final answer.
 \end{hint}
 
-\begin{answer}
+\begin{answer} 
 $ \dfrac{1}{2\sqrt{5}}$
 \end{answer}
 
-\begin{solution}
+\begin{solution} 
 \begin{description}
 \item[Solution 1:]
 As in Question~\ref{prob:s1.9_P1}, substitute $x=2\tan u$,  $\dee{x}=2 \sec^2u\,\dee{u}$. Note that when $x=4$
@@ -372,7 +380,7 @@ we have $4=2\tan u$, so that $\tan u=2$.
 &=\frac{1}{4}\int_0^{\arctan 2} \frac{\sec^2u}{\sec^3u}\,\dee{u}\\[0.1in]
 &=\frac{1}{4}\int_0^{\arctan 2} \cos u\,\dee{u}
 \qquad\qquad\smash{\raisebox{-0.1\height}{
-%\includegraphics{OQ16_4_4}
+%\includegraphics{fig/OQ16_4_4}
 \trigtri{u}{1}{2}{\sqrt{5}}
 }}
 \\
@@ -398,17 +406,17 @@ Using our result from Question~\ref{prob:s1.9_P1},
 Evaluate $\displaystyle\int_0^{5/2} \frac{\dee{x}}{\sqrt{25-x^2}}$.
 \end{Mquestion}
 
-\begin{hint}
+\begin{hint} 
 Question \ref{prob:s1.9_1} guides the way to finding the appropriate substitution.
 Since the integral is definite, your final answer will be a number. Your limits of integration should be common reference angles.
 \end{hint}
 
-\begin{answer}
-$\dfrac{\pi}{6}$
+\begin{answer} 
+$\dfrac{\pi}{6}$ 
 \end{answer}
 
-\begin{solution}
- Make the change of variables $x=5\sin\theta$, $\dee{x}=5\cos\theta\,\dee{\theta}$.
+\begin{solution} 
+ Make the change of variables $x=5\sin\theta$, $\dee{x}=5\cos\theta\,\dee{\theta}$. 
 Since $x=0$ corresponds to $\theta=0$ and $x=\frac{5}{2}$ correponds to
 $\sin\theta=\half$ or $\theta =\frac{\pi}{6}$,
 \begin{align*}
@@ -422,19 +430,19 @@ $\sin\theta=\half$ or $\theta =\frac{\pi}{6}$,
 
 \begin{Mquestion}[M105 2015A]
 Evaluate $\displaystyle\int \frac{\dee{x}}{\sqrt{x^2+25}}$.
-You may use that
+You may use that 
 ${\displaystyle\int} \sec \dee{x} = \log\big|\sec x+\tan x\big|+C$.
 \end{Mquestion}
 
-\begin{hint}
+\begin{hint} 
 Question \ref{prob:s1.9_1} guides the way to finding the appropriate substitution. Since you have in indefinite integral, make sure to get your answer back in terms of the original variable, $x$. Question \ref{prob:s1.9_3} gives a reliable method for this.
 \end{hint}
 
-\begin{answer}
+\begin{answer} 
 $\displaystyle\log\left|\sqrt{1+\frac{x^2}{25}}+\frac{x}{5}\right|+C$
 \end{answer}
 
-\begin{solution}
+\begin{solution} 
 Substitute $x=5\tan u$, so that $\dee{x}=5 \sec^2u\,\dee{u}$.
 \begin{align*}
 \int\frac{1}{\sqrt{x^2+25}}\,\dee{x}
@@ -449,6 +457,22 @@ Substitute $x=5\tan u$, so that $\dee{x}=5 \sec^2u\,\dee{u}$.
 To find $\sec u$ and $\tan u$, we have two options. One is to set up a right triangle with angle $u$ and $\tan u = \frac{x}{5}$. Then we can label the opposite side $x$ and the adjacent side 5, and use Pythagorus to find that the hypotenuse is $\sqrt{x^2+25}$.
 
 Another option is to look back at our work a little more closely--in fact, we've already found what we're looking for. Since we used the substitution $x=5\tan u$, this gives us $\tan u = \frac{x}{5}$. In the denominator of the integrand, we simplified $\sqrt{x^2+25} = 5\sec u$, so $\sec u = \frac{1}{5}\sqrt{x^2+25} = \sqrt{1+\frac{x^2}{25}}$.
+
+To see why we could write $\sqrt{x^2+25} =5\sec u$, as opposed to 
+$\sqrt{x^2+25} =5|\sec u|$,  see
+Example \eref{CLP101}{eg:INVTRIGb} in the CLP-2 text.
+
+%As a check, we observe that the derivative of the answer
+%\begin{align*}
+%\diff{}{x}\left(\log\Big|\sqrt{1+\frac{x^2}{25}}+\frac{x}{5}\Big|+C\right)
+%&=\frac{ \frac{\frac{2x}{25}}{2\sqrt{1+\frac{x^2}{25}}}+\frac{1}{5}}
+%           {\sqrt{1+\frac{x^2}{25}}+\frac{x}{5}} \times\frac{5}{5}
+%=\frac{ \frac{x}{\sqrt{x^2+25}}+1}{\sqrt{x^2+25}+x}
+%=\frac{   \frac{x+\sqrt{x^2+25}}{\sqrt{x^2+25}}   }  {\sqrt{x^2+25}+x} \\
+%&= \frac{1}{\sqrt{x^2+25}}
+%\end{align*}
+%is exactly the integrand.
+
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 \begin{question}
@@ -477,15 +501,15 @@ The quadratic formula underneath the square root makes us think of a trig substi
 Evaluate $\displaystyle\int\frac{\dee{x}}{x^2\sqrt{x^2+16}}$.
 \end{question}
 
-\begin{hint}
+\begin{hint} 
 To antidifferentiate, change your trig functions into sines and cosines.
 \end{hint}
 
-\begin{answer}
+\begin{answer} 
 $-\displaystyle\frac{1}{16}\dfrac{\sqrt{x^2+16}}{x}+C$
 \end{answer}
 
-\begin{solution}
+\begin{solution} 
 Substitute $x=4\tan u$, $\dee{x}=4 \sec^2u\,\dee{u}$.
 \begin{align*}
 \int\frac{1}{x^2\sqrt{x^2+16}}\,\dee{x}
@@ -494,14 +518,14 @@ Substitute $x=4\tan u$, $\dee{x}=4 \sec^2u\,\dee{u}$.
 =\frac{1}{16}\int \frac{\sec u}{\tan^2u}\,\dee{u} \\[0.1in]
 &= \frac{1}{16}\int\frac{\cos u}{\sin^2 u}\,\dee{u}
 \end{align*}
-To finish off the integral, we'll substitute $v=\sin u$,
+To finish off the integral, we'll substitute $v=\sin u$, 
 $\dee{v}=\cos u\,\dee{u}$.
 \begin{align*}
 \int\frac{1}{x^2\sqrt{x^2+16}}\,\dee{x}
 &=\frac{1}{16} \int\frac{\cos u}{\sin^2 u}\,\dee{u}
 = \frac{1}{16}\int\frac{\dee{v}}{v^2}
 =-\frac{1}{16v} +C \\
-&=-\frac{1}{16\sin u} +C
+&=-\frac{1}{16\sin u} +C 
 =-\frac{1}{16}\dfrac{\sqrt{x^2+16}}{x}+C
 \hskip0.5in\smash{
 \trigtri{u}{4}{x}{\sqrt{x^2+16}}
@@ -512,40 +536,45 @@ $\dee{v}=\cos u\,\dee{u}$.
 %\draw (1.8,0) -- (1.8,0.2) -- (2.0,0.2);
 %\node (A) at (0.8,0.23) {$u$};
 %\end{tikzpicture}
-}
+} 
 \end{align*}
 To find $\sin u$, we draw a right triangle with angle $u$ and $\tan u = \frac{x}{4}$. We label the opposite side $x$ and the adjacent side $4$, and then from Pythagorus we find that the hypotenuse has length $\sqrt{x^2+16}$. So, $\sin u = \dfrac{\sqrt{x^2+16}}{x}$.
+
+As a check, we observe that the derivative of the answer
+\begin{align*}
+\diff{}{x}\left(-\frac{1}{16}\frac{\sqrt{x^2+16}}{x}+C\right)
+&=\frac{1}{16}\frac{\sqrt{x^2+16}}{x^2} 
+       -\frac{1}{16}\frac{x}{x\sqrt{x^2+16}}
+=\frac{1}{16}\frac{(x^2+16)-x^2}{x^2\sqrt{x^2+16}} \\
+&=\frac{1}{x^2\sqrt{x^2+16}}
+\end{align*}
+is exactly the integrand.
+
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 
-
-
-
-
-
-
 \begin{question}[2016A]
-Evaluate $\displaystyle\int \frac{\dee{x}}{x^2\sqrt{x^2-9}}$.
+Evaluate $\displaystyle\int \frac{\dee{x}}{x^2\sqrt{x^2-9}}$ for $x\ge 3$.
 Do not include any inverse trigonometric functions in your answer.
 \end{question}
 
-\begin{hint}
+\begin{hint} 
 The integrand should simplify quite far after your substitution.
 \end{hint}
 
-\begin{answer}
+\begin{answer} 
 $\displaystyle\frac{\sqrt{x^2-9}}{9x} +C $
 \end{answer}
 
-\begin{solution}
-Substituting $x=3\sec u$, so that $\dee{x}= 3\sec u\tan u\,\dee{u}$
-and $x^2-9=9\sec^2 u-9 = 9\tan^2 u$, gives
+\begin{solution} 
+Substitute  $x=3\sec u$ with $0\le u<\frac{\pi}{2}$. Then $\dee{x}= 3\sec u\tan u\,\dee{u}$
+and $\sqrt{x^2-9}=\sqrt{9\sec^2 u-9} =\sqrt{ 9\tan^2 u}=3\tan u$, so that
 \begin{align*}
 \int \frac{\dee{x}}{x^2\sqrt{x^2-9}}
 &=\int \frac{3\sec u\tan u\ \dee{u}}
               {9\sec^2u\sqrt{9\tan^2u}} \\
 &=\frac{1}{9}\int\frac{\dee{u}}{\sec u} \\
-         &=\frac{1}{9}\int \cos u\ \dee{u}
+         &=\frac{1}{9}\int \cos u\ \dee{u} 
           =\frac{1}{9}\sin u +C.\qquad \smash{
 \trigtri{u}{3}{\sqrt{x^2-9}}{x}}
 \intertext{
@@ -553,6 +582,16 @@ To evaluate $\sin u$, we make a right triangle with angle $u$. Since $\sec u = \
  So, $\sin u = \dfrac{\sqrt{x^2-9}}x$ and}
 \int \frac{\dee{x}}{x^2\sqrt{x^2-9}} &= \frac{\sqrt{x^2-9}}{9x} +C.
 \end{align*}
+
+As a check, we observe that the derivative of the answer
+\begin{align*}
+\diff{}{x} \left( \frac{\sqrt{x^2-9}}{9x}+C\right)
+&=-\frac{\sqrt{x^2-9}}{9x^2}     +    \frac{x}{9x\sqrt{x^2-9}}
+=\frac{1}{9}\ \frac{-(x^2-9)+x^2}{x^2\sqrt{x^2-9}} \\
+&=\frac{1}{x^2\sqrt{x^2-9}}
+\end{align*}
+is exactly the integrand. (We remark that this is the case even for $x\le -3$.)
+
 
 
 \end{solution}
@@ -568,7 +607,7 @@ $\displaystyle\int_0^{\pi/4}\cos^4\theta\ \dee{\theta}=(8+3\pi)/32$.
 $\displaystyle\int_{-1}^1\frac{\dee{x}}{{(x^2+1)}^3}$.
 \end{Mquestion}
 
-\begin{hint}
+\begin{hint} 
 In part (a) you are asked to integrate an even power of $\cos x$.
 For part (b) you can use a trigonometric substitution to reduce the integral
 of part (b) almost to the integral of part (a).
@@ -597,7 +636,7 @@ $\dfrac{8+3\pi}{16}$
 \end{answer}
 
 \begin{solution}
-\noindent (a)
+\noindent (a) 
 We'll use the trig identity $\cos2\theta=2\cos^2\theta-1$.
 It implies that
 \begin{align*}
@@ -617,7 +656,7 @@ as required.
 
 \noindent (b) We'll use the trig substitution $x=\tan\theta$,
 $\dee{x}=\sec^2\theta\ \dee{\theta}$. Note that when $\theta=\pm\frac{\pi}{4}$, we have $x=\pm
-1$. Also note that dividing the trig identity $\sin^2\theta+\cos^2\theta=1$
+1$. Also note that dividing the trig identity $\sin^2\theta+\cos^2\theta=1$ 
 by $\cos^2\theta$ gives the trig identity $\tan^2\theta+1=\sec^2\theta$. So
 \begin{align*}
 \int_{-1}^1\frac{\dee{x}}{{(x^2+1)}^3}
@@ -644,7 +683,7 @@ What is the symmetry of the integrand?
 0
 \end{answer}
 \begin{solution}
-The integrand is an odd function, and the limits of integration are symmetric, so
+The integrand is an odd function, and the limits of integration are symmetric, so 
 $\displaystyle\int_{-\pi/12}^{\pi/12} \dfrac{15x^3}{(x^2+1)\sqrt{9-x^2}^5}~\dee{x}=0$.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
@@ -656,16 +695,15 @@ $\displaystyle\int_{-\pi/12}^{\pi/12} \dfrac{15x^3}{(x^2+1)\sqrt{9-x^2}^5}~\dee{
 Evaluate ${\displaystyle\int} \sqrt{4-x^2}\,\dee{x}$.
 \end{question}
 
-\begin{hint}
-See Example \eref{CLP101}{eg:INVTRIGa} in the
-CLP--II text.
+\begin{hint} 
+See Example \eref{CLP101}{eg:INVTRIGa} in the CLP-2 text.
 \end{hint}
 
-\begin{answer}
+\begin{answer} 
 $\displaystyle2\arcsin\frac{x}{2}+\frac{x}{2}\sqrt{4-x^2}+ C$
 \end{answer}
 
-\begin{solution}
+\begin{solution} 
 Substitute $x=2\sin u$, so that $\dee{x}=2 \cos u\,\dee{u}$.
 \begin{align*}
 \int \sqrt{4-x^2}\,\dee{x}
@@ -677,8 +715,12 @@ Substitute $x=2\sin u$, so that $\dee{x}=2 \cos u\,\dee{u}$.
 &=2u + 2\sin u\cos u + C \\
 &=2\arcsin\frac{x}{2} + \frac{ x}{2}\sqrt{4-x^2} + C
 \hskip0.5in\smash{
-\trigtri{u}{\sqrt{4-x^2}}{x}{2}}
+\trigtri{u}{\sqrt{4-x^2}}{x}{2}} 
 \end{align*}
+To see why we could write $\sqrt{4\cos^2 u} =2\cos u$, as opposed to 
+$\sqrt{4\cos^2 u} =2|\cos u|$, in the third line above, see
+Example \eref{CLP101}{eg trigsub2} in the CLP-2 text.
+
 We used the substitution $x = 2\sin u$, so we know $\sin u = \frac{x}{2}$ and $u=\arcsin(\frac{x}{2})$. We have three options for finding  $\cos u$.
 
 First, we can draw a right triangle with angle $u$. Since $\sin u = \frac{x}{2}$, we label the opposite side $x$ and the hypotenuse 2, then by the Pythagorean Theorem the adjacent side has length $\sqrt{4-x^2}$. So, $\cos u = \dfrac{\mbox{adj}}{\mbox{hyp}} = \dfrac{\sqrt{4-x^2}}{2}$.
@@ -687,7 +729,7 @@ Second, we can look back carefully at our work. We simplified $\sqrt{4-x^2} = 2\
 
 Third, we could use the identity $\sin^2 u + \cos^2 u =1$. Then $\cos u = \pm\sqrt{1-\sin^2 u} = \pm\sqrt{1-\frac{x^2}{4}}$. Since $u = \arcsin (x/2)$, $u$ is in the range of arcsine, which means $-\frac{\pi}{2} \leq u \leq \frac{\pi}{2}$. Therefore, $\cos u \geq 0$, so $\cos u = \sqrt{1-\frac{x^2}{4}} = \frac{\sqrt{4-x^2}}{2}$.
 
-So,
+So, 
 \[\int \sqrt{4-x^2}\,\dee{x}=2u + 2\sin u\cos u + C=
 2\arcsin\frac{x}{2}+x\cdot\frac{\sqrt{4-x^2}}{2}+C
 \]
@@ -697,21 +739,21 @@ So,
 
 
 \begin{question}[M105 2012A]
-Evaluate $\displaystyle\int \frac{\sqrt{25x^2-4}}{x}\,\dee{x}$.
+Evaluate $\displaystyle\int \frac{\sqrt{25x^2-4}}{x}\,\dee{x}$ for $x>\frac{2}{5}$.
 \end{question}
 
-\begin{hint}
+\begin{hint} 
 To integrate an even power of tangent, use the identity $\tan^2 x = \sec^2 x - 1$.
 \end{hint}
 
-\begin{answer}
+\begin{answer} 
 $\sqrt{25x^2-4}-2\arcsec\frac{5x}{2}  + C$
 \end{answer}
 
-\begin{solution}
-Substitute $x=\frac{2}{5}\sec u$, so that
+\begin{solution} 
+Substitute $x=\frac{2}{5}\sec u$ with $0< u<\frac{\pi}{2}$, so that 
 $\dee{x}=\frac{2}{5} \sec u\,\tan u\,\dee{u}$ and
-$25 x^2-4 = 4(\sec^2u-1) = 4\tan^2u$.
+$\sqrt{25 x^2-4} = \sqrt{4(\sec^2u-1)} = \sqrt{4\tan^2u}=2\tan u$. Then
 \begin{align*}
 \int \frac{\sqrt{25x^2-4}}{x}\,\dee{x}
 &=\int \frac{2\tan u}{\frac{2}{5}\sec u}\cdot\frac{2}{5}\sec u\tan u\,\dee{u} \\
@@ -720,12 +762,23 @@ $25 x^2-4 = 4(\sec^2u-1) = 4\tan^2u$.
 &= 2\tan u -2u + C \\
 &=\sqrt{25x^2-4}-2\arcsec\tfrac{5x}{2}  + C
 \hskip0.75in\smash{
-\trigtri{u}{2}{\sqrt{25x^2-4}}{5x}}
+\trigtri{u}{2}{\sqrt{25x^2-4}}{5x}} 
 \end{align*}
 To find $\tan u$, we draw a right triangle with angle $u$. Since $\sec u =\dfrac{5x}{2}$, we label the hypotenuse $5x$ and the adjacent side 2. Then the Pythagorean Theorem gives us the opposite side as length $\sqrt{25x^2-4}$. Then $\tan u = \dfrac{\mbox{opp}}{\mbox{adj}} = \dfrac{\sqrt{25x^2-4}}{2}$.
 
 Alternately, we can notice that in our work, we already showed $2\tan u = \sqrt{25x^2-4}$, so $\tan u = \frac{1}{2}\sqrt{25x^2-4} .$
 \end{solution}
+
+As a check, we observe that the derivative of the answer
+\begin{align*}
+\diff{}{x} \left(\sqrt{25x^2-4}-2\arcsec\frac{5x}{2}  + C\right)
+&=\frac{25 x}{\sqrt{25x^2-4}} 
+      - 2 \frac{\frac{5}{2}}{\left|\frac{5x}{2}\right|\sqrt{\frac{25x^2}{4}-1}} \\
+&= \frac{25 x}{\sqrt{25x^2-4}}   - \frac{4}{x\sqrt{25x^2-4}}\qquad\text{since $x>0$} \\
+&=  \frac{25 x^2-4}{x\sqrt{25x^2-4}} \\
+&=  \frac{\sqrt{25 x^2-4}}{x}
+\end{align*}
+is exactly the integrand (provided $x>\frac{2}{5}$).
 
 
 %%%%%%%%%%%%%%%%%%%
@@ -762,15 +815,15 @@ The integrand has a quadratic polynomial under a square root, which makes us thi
 Evaluate $\displaystyle\int \frac{\dee{x}}{\sqrt{3-2x-x^2}}$.
 \end{Mquestion}
 
-\begin{hint}
+\begin{hint} 
 Complete the square. Your final answer will have an inverse trig function in it.
 \end{hint}
 
-\begin{answer}
+\begin{answer} 
 $\arcsin\dfrac{x+1}{2} + C$
 \end{answer}
 
-\begin{solution}
+\begin{solution} 
 This integrand looks very different from those above. But it is
 only slightly disguised. If we complete the square
 \begin{align*}
@@ -796,14 +849,14 @@ $y=2\sin\theta$, $\dee{y}=2\cos\theta\,\dee{\theta}$ to get
 &=\arcsin\frac{x+1}{2} + C
 \end{align*}
 An experienced integrator would probably substitute $x+1 = 2\sin\theta$
-directly, without going through $y$.
+directly, without going through $y$. 
 
 
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 
 \begin{Mquestion}
-Evaluate $\displaystyle\int \dfrac{1}{(2x-3)^3\sqrt{4x^2-12x+8}}~\dee{x}$.
+Evaluate $\displaystyle\int \dfrac{1}{(2x-3)^3\sqrt{4x^2-12x+8}}~\dee{x}$ for $x>2$.
 \end{Mquestion}
 \begin{hint}
 To antidifferentiate even powers of   cosine, use the formula $\cos^2\theta = \frac{1}{2}(1+\cos(2\theta))$. Then, remember $\sin(2\theta)=2\sin\theta\cos\theta$.
@@ -817,7 +870,8 @@ Completing the square, we see $4x^2-12x+8 = (2x-3)^2-1$.
 \begin{align*}
 \int \dfrac{1}{(2x-3)^3\sqrt{4x^2-12x+8}}~\dee{x}&=
 \int \dfrac{1}{(2x-3)^3\sqrt{(2x-3)^2-1}}~\dee{x}
-\intertext{We use the substitution $2x-3 = \sec \theta$, so $2\dee{x}=\sec\theta\tan\theta~\dee{\theta}$.}
+\intertext{As $x>2$, we have $2x-3>1$. We use the substitution $2x-3 = \sec \theta$ with $0\le\theta<\frac{\pi}{2}$. So $2\,\dee{x}=\sec\theta\tan\theta~\dee{\theta}$ and 
+$\sqrt{(2x-3)^2-1}=\sqrt{\sec^2\theta-1}=\sqrt{\tan^2\theta}=\tan\theta$.}
 &=\frac{1}{2}\int\frac{1}{\sec^3\theta\sqrt{\sec^2\theta-1}}\sec\theta\tan\theta~\dee{\theta}\\
 &=\frac{1}{2}\int\frac{1}{\sec^3\theta\tan\theta}\sec\theta\tan\theta~\dee{\theta}
 \\&=\frac{1}{2}\int\frac{1}{\sec^2\theta}~\dee{\theta}
@@ -861,7 +915,7 @@ We use the substitution $x=\tan u$, $\dee{x}=\sec^2 u~\dee{u}$. Note $\tan 0=0$ 
 \int_0^{\pi/4}\big({\sec u}-\cos u\big)~\dee{u}\\
 &=\Big[\log\left|\sec u + \tan u \right| - \sin u\Big]_{0}^{\pi/4}
 \\
-&=\left(\log\left|\sqrt{2} + 1 \right| -\frac{1}{\sqrt{2}}\right) -
+&=\left(\log\left|\sqrt{2} + 1 \right| -\frac{1}{\sqrt{2}}\right) - 
 \left(\log|1+0|-0\right)\\
 &=\log(1+\sqrt{2})-\frac{1}{\sqrt{2}}
 \end{align*}
@@ -919,9 +973,13 @@ We complete the square to find $x^2-2x+2 = (x-1)^2+1$.
 &=\int\big( \sec^3\theta+2\tan\theta\sec\theta\big)~\dee{\theta}
 \hspace{2cm}\smash{\trigtri{\theta}{1}{x-1}{\sqrt{x^2-2x+2}}}\\
 &=\frac{1}{2}\sec\theta\tan\theta + \frac{1}{2}\log|\sec\theta+\tan\theta|+2\sec\theta+C\\
-&=\frac{1}{2}\sqrt{x^2-2x+2}(x-1) + \frac{1}{2}\log\left|\sqrt{x^2-2x+2}+x-1\right|+2\sqrt{x^2-2x+2}+C\\
+&=\frac{1}{2}\sqrt{x^2-2x+2}(x-1) + \frac{1}{2}\log\left|\sqrt{x^2-2x+2}+x-1\right|\\
+&\hskip 1in+2\sqrt{x^2-2x+2}+C\\
 &=\frac{3+x}{2}\sqrt{x^2-2x+2}+ \frac{1}{2}\log\left|\sqrt{x^2-2x+2}+x-1\right|+C
 \end{align*}
+To see why we could write $\sqrt{(\tan\theta)^2+25} =\sec\theta$, as opposed to 
+$\sqrt{(\tan\theta)^2+25} =|\sec\theta|$,  see
+Example \eref{CLP101}{eg:INVTRIGb} in the CLP-2 text.
 
 From our substitution, we know $\tan\theta = x-1$. To find $\sec\theta$, we can notice that in our work we already simplified $\sqrt{x^2-2x+1}=\sec\theta$. Alternately, we can draw a right triangle with angle $\theta$, opposite side $x-1$, adjacent side $1$, and use the Pythagorean Theorem to find the hypotenuse.
 \end{solution}
@@ -933,10 +991,10 @@ Evaluate $\displaystyle\int \dfrac{1}{\sqrt{3x^2+5x}}~\dee{x}$.
 You may use that  $\int \sec x\dee{x} = \log|\sec x+\tan x| +C$.
 \end{Mquestion}
 \begin{hint}
-Complete the square--refer to Question~\ref{prob_21.9:complete} if you want a refresher. The constants aren't pretty, but don't let them scare you.
+Complete the square --- refer to Question~\ref{prob_21.9:complete} if you want a refresher. The constants aren't pretty, but don't let them scare you.
 \end{hint}
 \begin{answer}
-$\displaystyle\left| \left(\frac{6}{5}x+1\right)+\frac{2}{5}\sqrt{9x^2+15x} \right|+C$
+$\displaystyle\frac{1}{\sqrt{3}}\log\left| \left(\frac{6}{5}x+1\right)+\frac{2}{5}\sqrt{9x^2+15x} \right|+C$
 \end{answer}
 \begin{solution}
 First, we complete the square. The constants aren't integers, but we can still use the same method as in Question~\ref{prob_21.9:complete}.
@@ -961,9 +1019,27 @@ So, $3x^2+5x=\left(\sqrt{3}x+\frac{5}{2\sqrt{3}}\right)^2-\frac{25}{12}$.
 &=\int\frac{1}{{\frac{5}{2\sqrt{3}}\tan\theta}}\cdot\frac{5}{6}\sec\theta\tan\theta~\dee{\theta}\\
 &=\frac{1}{\sqrt3}\int\sec\theta~\dee{\theta}\\
 &=\frac{1}{\sqrt3}\log\left|\sec\theta+\tan\theta\right|+C\\
-\smash{\trigtri{\theta}{5}{2\sqrt{9x^2+15x}}{6x+5}}\hspace{1.5cm}&=\frac{1}{\sqrt3}\log\left| \left(\frac{6}{5}x+1\right)+\frac{2}{5}\sqrt{9x^2+15x} \right|+C
+\smash{\trigtri{\theta}{5}{2\sqrt{9x^2+15x}}{6x+5}}
+\hspace{1.5cm}
+&=\frac{1}{\sqrt3}\log\left| \left(\frac{6}{5}x+1\right)+\frac{2}{5}\sqrt{9x^2+15x} \right|+C
 \end{align*}
 Since we used the substitution $\sqrt3x+\frac{5}{2\sqrt{3}}=\frac{5}{2\sqrt3}\sec\theta$, we have $\sec\theta = \frac{6}{5}x+1 = \frac{6x+5}{5}$. To find $\tan\theta$ in terms of $x$, we have two options. We can make a right triangle with angle $\theta$, hypotenuse $6x+5$, and adjacent side $5$, then use the Pythagorean Theorem to find the opposite side. Or, we can look through our work and see that $\sqrt{3x^2+5}=\frac{5}{2\sqrt3}\tan\theta$, so $\tan\theta = \frac{2\sqrt3}{5}\sqrt{3x^2+5}=\frac{2}{5}\sqrt{9x^2+15}$.
+
+
+As a check, we observe that the derivative of the answer
+\begin{align*}
+&\diff{}{x}\left(
+\frac{1}{\sqrt3}\log\left| \left(\frac{6}{5}x+1\right)+\frac{2}{5}\sqrt{9x^2+15x} \right| + C\right)
+=\frac{1}{\sqrt3}\ \frac{\frac{6}{5} +\frac{1}{5} \frac{18x+15}{\sqrt{9x^2+15 x}}}
+              { \left(\frac{6}{5}x+1\right)+\frac{2}{5}\sqrt{9x^2+15x}} \\
+&\hskip0.5in=\frac{1}{\sqrt3}\ \frac{6 + 3\frac{6x+5}{\sqrt{9x^2+15 x}}}
+              { \left(6x+5\right)+ 2\sqrt{9x^2+15x}} 
+=\sqrt3\ \frac{2 + \frac{6x+5}{\sqrt{9x^2+15 x}}}
+              { \left(6x+5\right)+ 2\sqrt{9x^2+15x}} 
+=\frac{\sqrt{3}}{\sqrt{9x^2+15 x}} \\
+&\hskip0.5in=\frac{1}{\sqrt{3x^2+5 x}}
+\end{align*}
+is exactly the integrand.
 
 Remark: in applications, often the numbers involved are messier than they are in textbooks. The ideas of this problem are similar to other problems in this section, but it's good practice to apply them in a slightly messy context.
 \end{solution}
@@ -973,7 +1049,7 @@ Remark: in applications, often the numbers involved are messier than they are in
 
 
 \begin{question}
-Evaluate $\displaystyle\int\dfrac{(1+x^2)^{3/2}}{x}\dee{x}$. You may use the fact that $\displaystyle\int \csc
+Evaluate $\displaystyle\int\dfrac{(1+x^2)^{3/2}}{x}\dee{x}$. You may use the fact that $\displaystyle\int \csc 
 \theta~\dee{\theta}=\log|\cot \theta - \csc \theta|+C$.
 \end{question}
 \begin{hint}
@@ -1068,7 +1144,7 @@ Volume: $\dfrac{\pi^2}{6} - \dfrac{\sqrt{3}\pi}{4}$
 Note that $f(x)$ is an even function, nonnegative over its entire domain.\\
 \noindent (a) To find the area of $R$, we evaluate
 \begin{align*}
-\mbox{Area}&=\int _{-1/2}^{1/2} \dfrac{|x|}{\sqrt[4]{1-x^2}}~\dee{x} =
+\mbox{Area}&=\int _{-1/2}^{1/2} \dfrac{|x|}{\sqrt[4]{1-x^2}}~\dee{x} = 
 2\int _{0}^{1/2} \dfrac{x}{\sqrt[4]{1-x^2}}~\dee{x}
 \intertext{We use the substitution $u=1-x^2$, $\dee{u}=-2x~\dee{x}$.}
 &=-\int_{1}^{3/4} \frac{1}{u^{1/4}}~\dee{u}\\
@@ -1127,11 +1203,11 @@ Consider the following work.
 \int \frac{1}{1-x^2}~\dee{x}&=\int\dfrac{1}{1-\sin^2 \theta}\cos\theta~\dee{\theta}&\mbox{using } x=\sin\theta,\quad \dee{x}=\cos\theta~\dee{\theta}\\
 &=\int \frac{\cos \theta}{\cos^2 \theta}~\dee\theta\\
 &=\int \sec \theta~\dee{\theta}\\
-&=\log|\sec \theta + \tan \theta| +C & \mbox{Example~\eref{CLP101}{eg:TRGINTopta} in the CLP--II text}\\
-&=\log\left |
+&=\log|\sec \theta + \tan \theta| +C & \mbox{Example~\eref{CLP101}{eg:TRGINTopta} in the CLP-2 text}\\
+&=\log\left | 
 \dfrac{1}{\sqrt{1-x^2}}+\dfrac{x}{\sqrt{1-x^2}}
 \right| +C\\
-\smash{\trigtri{\theta}{\sqrt{1-x^2}}{x}{1}}\qquad&=\log\left |
+\smash{\trigtri{\theta}{\sqrt{1-x^2}}{x}{1}}\qquad&=\log\left | 
 \dfrac{1+x}{\sqrt{1-x^2}}
 \right| +C
 \end{align*}
@@ -1148,7 +1224,7 @@ Consider the following work.
 \item Use logarithm rules to simplify first.
 \item Think about domains.
 \item What went wrong in part (b)? At what point in the work was that problem introduced?\\
-There is a subtle but important point mentioned in the introductory text to Section~\eref{CLP101}{sec trigsub} of the CLP--II text that may help you make sense of things.
+There is a subtle but important point mentioned in the introductory text to Section~\eref{CLP101}{sec trigsub} of the CLP-2 text that may help you make sense of things.
 \end{enumerate}
 \end{hint}
 \begin{answer}
@@ -1158,8 +1234,8 @@ There is a subtle but important point mentioned in the introductory text to Sect
 \item False
 \item The work in the question is not correct. The most salient problem is that when we make the substitution $x=\sin\theta$, we restrict the possible values of $x$ to $[-1,1]$, since this is the range of the sine function. However, the original integral had no such restriction.
 
-How can we be sure we avoid this problem in the future? In the introductory text to Section~\eref{CLP101}{sec trigsub} (before Example~\eref{CLP101}{eg first trigsub}), the
-CLP--II text tells us that we are allowed to write our old variable as a function of a new variable (say $x=s(u)$) \emph{as long as that function is invertible to recover our original variable} $x$. There is one very obvious reason why invertibility is necessary: after we antidifferentiate using our new variable $u$, we need to get it back in terms of our original variable, so we need to be able to recover $x$. Moreover, invertibility  reconciles  potential problems with domains: if an inverse function $u=s^{-1}(x)$ exists, then for any $x$, there exists a $u$ with $s(u)=x$. (This was not the case in the work for the question, because we chose $x=\sin \theta$, but if $x=2$, there is no corresponding $\theta$. Note, however, that $x=\sin\theta$ is invertible over $[-1,1]$,  so the work is correct if we restrict $x$ to those values.)
+How can we be sure we avoid this problem in the future? In the introductory text to Section~\eref{CLP101}{sec trigsub} (before Example~\eref{CLP101}{eg first trigsub}), the 
+CLP-2 text tells us that we are allowed to write our old variable as a function of a new variable (say $x=s(u)$) \emph{as long as that function is invertible to recover our original variable} $x$. There is one very obvious reason why invertibility is necessary: after we antidifferentiate using our new variable $u$, we need to get it back in terms of our original variable, so we need to be able to recover $x$. Moreover, invertibility  reconciles  potential problems with domains: if an inverse function $u=s^{-1}(x)$ exists, then for any $x$, there exists a $u$ with $s(u)=x$. (This was not the case in the work for the question, because we chose $x=\sin \theta$, but if $x=2$, there is no corresponding $\theta$. Note, however, that $x=\sin\theta$ is invertible over $[-1,1]$,  so the work is correct if we restrict $x$ to those values.)
 
 \end{enumerate}
 
@@ -1179,12 +1255,12 @@ CLP--II text tells us that we are allowed to write our old variable as a functio
 &=\frac{1}{1-x^2}
 \end{align*}
 Notice this is the integrand from our work in blue.
-\item False: $\displaystyle\int_{2}^{3} \frac{1}{1-x^2}~\dee{x}$ is a number, because it is the area under a finite portion of a continuous curve. (We note that the integrand is continuous over the interval $[2,3]$, although it is not continuous everywhere.) However,
+\item False: $\displaystyle\int_{2}^{3} \frac{1}{1-x^2}~\dee{x}$ is a number, because it is the area under a finite portion of a continuous curve. (We note that the integrand is continuous over the interval $[2,3]$, although it is not continuous everywhere.) However, 
 $\left[\log\left|  \dfrac{1+x}{\sqrt{1-x^2}}\right|\right]_{x=2}^{x=3}$ is not defined, since the denominator takes the square root of a negative number. So, these two expressions are not the same.
 \item The work in the question is not correct. The most salient problem is that when we make the substitution $x=\sin\theta$, we restrict the possible values of $x$ to $[-1,1]$, since this is the range of the sine function. However, the original integral had no such restriction.
 
-How can we be sure we avoid this problem in the future? In the introductory text to Section~\eref{CLP101}{sec trigsub} (before Example~\eref{CLP101}{eg first trigsub}), the
-CLP--II text tells us that we are allowed to write our old variable as a function of a new variable (say $x=s(u)$) \emph{as long as that function is invertible to recover our original variable} $x$. There is one very obvious reason why invertibility is necessary: after we antidifferentiate using our new variable $u$, we need to get it back in terms of our original variable, so we need to be able to recover $x$. Moreover, invertibility  reconciles  potential problems with domains: if an inverse function $u=s^{-1}(x)$ exists, then for any $x$, there exists a $u$ with $s(u)=x$. (This was not the case in the work for the question, because we chose $x=\sin \theta$, but if $x=2$, there is no corresponding $\theta$. Note, however, that $x=\sin\theta$ is invertible over $[-1,1]$,  so the work is correct if we restrict $x$ to those values.)
+How can we be sure we avoid this problem in the future? In the introductory text to Section~\eref{CLP101}{sec trigsub} (before Example~\eref{CLP101}{eg first trigsub}), the 
+CLP-2 text tells us that we are allowed to write our old variable as a function of a new variable (say $x=s(u)$) \emph{as long as that function is invertible to recover our original variable} $x$. There is one very obvious reason why invertibility is necessary: after we antidifferentiate using our new variable $u$, we need to get it back in terms of our original variable, so we need to be able to recover $x$. Moreover, invertibility  reconciles  potential problems with domains: if an inverse function $u=s^{-1}(x)$ exists, then for any $x$, there exists a $u$ with $s(u)=x$. (This was not the case in the work for the question, because we chose $x=\sin \theta$, but if $x=2$, there is no corresponding $\theta$. Note, however, that $x=\sin\theta$ is invertible over $[-1,1]$,  so the work is correct if we restrict $x$ to those values.)
 
 Remark: in the next section, you will learn to use partial fractions to find $\displaystyle\int \dfrac{1}{1-x^2}~\dee{x} = \log|1+x|-\dfrac{1}{2}\log|1-x|$. When $-1<x<1$, this is equivalent to $\log\left| \dfrac{1+x}{\sqrt{1-x^2}}\right|$.
 \end{enumerate}
@@ -1216,7 +1292,7 @@ Consider the ranges of the inverse trigonometric functions. For (c), also consid
 (a), (b): None. \qquad (c): $x< -a$
 \end{answer}
 \begin{solution}
-Remember that for any value $X$,
+Remember that for any value $X$, 
 \[|X| = \left\{\begin{array}{rl}
 X&\mbox{if }X \ge 0\\
 -X&\mbox{if }X \le 0
@@ -1231,11 +1307,11 @@ all the time.
 \[\sqrt{a^2+x^2}=|a\sec u|=a\sec u\]
 all the time.
 
-(c) The range of arccosine is $\big[0,\pi \big]$. So, since $u=\arcsec(x/a) = \arccos(a/x)$, $u$ is in the range $\big[0,\pi\big]$. (Actually, it's in the range $[0,\frac{\pi}{2}) \cup (\frac{\pi}{2},\pi]$, since secant is undefined at $\pi/2$.) If $|a\tan u| \neq a\tan u$, then $\tan u <0$, which happens when $u$ is in the range $\big (\frac{\pi}{2},\pi)$. This is the same range over which $-1<\cos u <0$, and so $-1<\frac{a}{x}<0$.
+(c) The range of arccosine is $\big[0,\pi \big]$. So, since $u=\arcsec(x/a) = \arccos(a/x)$, $u$ is in the range $\big[0,\pi\big]$. (Actually, it's in the range $[0,\frac{\pi}{2}) \cup (\frac{\pi}{2},\pi]$, since secant is undefined at $\pi/2$.) If $|a\tan u| \neq a\tan u$, then $\tan u <0$, which happens when $u$ is in the range $\big (\frac{\pi}{2},\pi)$. This is the same range over which $-1<\cos u <0$, and so $-1<\frac{a}{x}<0$. 
 Since $\frac{a}{x}<0$, $a$ and $x$ have different signs, so $x<0$.  Then since $-1<\frac{a}{x}$, also $x<-a$.
 
 So,
 \[\sqrt{x^2-a^2} = |a\tan u| = -a\tan u \neq a\tan u\]
-happens precisely when  when $x< -a$.
+happens precisely when  when $x< -a$. 
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
