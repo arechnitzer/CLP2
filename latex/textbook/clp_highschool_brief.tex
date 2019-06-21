@@ -189,47 +189,49 @@ Range: $-\frac{\pi}{2} \leq \arcsin x \leq \frac{\pi}{2}$&
 Range: $0 \leq \arccos x \leq \pi$&
 Range: $-\frac{\pi}{2} < \arctan x < \frac{\pi}{2}$\\
 \hline
-\begin{tikzpicture}
+\begin{tikzpicture} 
 \begin{axis}[
   legend pos = north west,
-  axis x line=center, axis y line=center,
+  axis x line=center, axis y line=center, 
   xmax=1.1,xmin=-1.1, xtick={-1,1},
   ymin=-2, ymax=2,
   ytick={-1.570796327,1.570796327},
   yticklabels={$-\frac{\pi}{2}$, $\frac{\pi}{2}$}
   ]
-\addplot[blue,domain=-1:1,samples=100] {asin(x)/180*pi};
+\addplot[blue, line width=1pt, domain=-1:1,samples=100] {asin(x)/180*pi}; 
 % \legend{$\arcsin \theta$}
 \end{axis}
 \end{tikzpicture}
 &
-\begin{tikzpicture}
+\begin{tikzpicture} 
 \begin{axis}[
-  axis x line=center, axis y line=center,
+  axis x line=center, axis y line=center, 
   xmax=1.1,xmin=-1.1, xtick={-1,1},
   ymin=-0.3,ymax=3.4,
   ytick={0,1.570796327,3.141592654},
   yticklabels={0,$\frac{\pi}{2}$, $\pi$}
   ]
- \addplot[blue,domain=-1:1,samples=100] {acos(x)/180*pi};
+ \addplot[blue, line width=1pt, domain=-1:1,samples=100] {acos(x)/180*pi}; 
 % \legend{$\cos \theta$}
 \end{axis}
 \end{tikzpicture}
 &
-\begin{tikzpicture}
+\begin{tikzpicture} 
 \begin{axis}[
   legend pos = north west,
-  axis x line=center, axis y line=center,
+  axis x line=center, axis y line=center, 
   xmax=4.3,xmin=-4.3, xmajorticks=false,
   ymin=-2,ymax=2,
   ytick={-1.570796327,1.570796327},
   yticklabels={$-\frac{\pi}{2}$, $\frac{\pi}{2}$}
   ]
-\addplot[blue,domain=-4:4,samples=100] {atan(x)/180*pi};
+\addplot[blue, line width=1pt, domain=-4.3:4.3,samples=100] {atan(x)/180*pi}; 
 % \legend{$\tan \theta$}
 
-\addplot[line width=1pt,red] coordinates {(4.15,-1.570796327) (-4.15,-1.570796327)};
-\addplot[line width=1pt,red] coordinates {(4.15,1.570796327) (-4.15,1.570796327)};
+\addplot[line width=1pt,red] coordinates {(4.3,-1.570796327) (-0.3,-1.570796327)};
+\addplot[line width=1pt,red] coordinates {(-1.4,-1.570796327) (-4.3,-1.570796327)};
+\addplot[line width=1pt,red] coordinates {(4.3,1.570796327) (-0.3,1.570796327)};
+\addplot[line width=1pt,red] coordinates {(-0.9,1.570796327) (-4.3,1.570796327)};
 \end{axis}
 \end{tikzpicture}
 \\ \hline
@@ -240,13 +242,105 @@ Since these functions are inverses of each other we have
 \begin{align*}
   \arcsin(\sin \theta) &= \theta & -\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2} \\
   \arccos(\cos \theta) &= \theta & 0 \leq \theta \leq \pi \\
-  \arctan(\tan \theta) &= \theta & -\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}
+  \arctan(\tan \theta) &= \theta & -\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}	
 \end{align*}
 and also
 \begin{align*}
   \sin(\arcsin x) &= x & -1 \leq x \leq 1 \\
   \cos(\arccos x) &= x & -1 \leq x \leq 1 \\
   \tan(\arctan x) &= x & \text{any real $x$}
+\end{align*}
+%The compositions of trignometric and inverse trigonometric functions are
+%\begin{align*}
+%  \sin( \arcsin x ) &= x & 
+%  \sin( \arccos x ) &= \sqrt{1-x^2} & 
+%  \sin( \arctan x ) &= \frac{x}{\sqrt{1+x^2}} \\ 
+%%
+%  \cos( \arcsin x ) &= \sqrt{1-x^2} & 
+%  \cos( \arccos x ) &= x &
+%  \cos( \arctan x ) &= \frac{1}{\sqrt{1+x^2}} \\ 
+%%
+%  \tan( \arcsin x ) &= \frac{x}{\sqrt{1-x^2}} & 
+%  \tan( \arccos x ) &= \frac{\sqrt{1-x^2}}{x} &
+%  \tan( \arctan x ) &= x 
+%\end{align*}
+
+\begin{center}
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{|c|c|c|}
+\hline
+$\arccsc x$ & $\arcsec x$ & $\arccot x$\\
+\hline
+Domain: $|x|\ge 1$&
+Domain: $|x|\ge 1$&
+Domain: all real numbers\\
+Range: $-\frac{\pi}{2} \leq \arccsc x \leq \frac{\pi}{2}$&
+Range: $0 \leq \arcsec x \leq \pi$&
+Range: $0 < \arccot x < \pi$\\[-0.1in]
+       $\arccsc x \ne 0$ &
+       $\arcsec x \ne \frac{\pi}{2}$ &
+        \\
+\hline
+\begin{tikzpicture} 
+\begin{axis}[
+  legend pos = north west,
+  axis x line=center, axis y line=center, 
+  xmax=4.3,xmin=-4.3, xtick={-1,1},
+  ymin=-2, ymax=2,
+  ytick={-1.570796327,1.570796327},
+  yticklabels={$-\frac{\pi}{2}$, $\frac{\pi}{2}$}
+  ]
+\addplot[blue, line width=1pt, domain=1:4.3,samples=50] {asin(1/x)/180*pi}; 
+\addplot[blue, line width=1pt, domain=-4.3:-1,samples=50] {asin(1/x)/180*pi}; 
+\end{axis}
+\end{tikzpicture}
+&
+\begin{tikzpicture} 
+\begin{axis}[
+  axis x line=center, axis y line=center, 
+  xmax=4.3,xmin=-4.3, xtick={-1,1},
+  ymin=-0.3,ymax=3.4,
+  ytick={0,1.570796327,3.141592654},
+  yticklabels={0,$\frac{\pi}{2}$, $\pi$}
+  ]
+ \addplot[blue, line width=1pt, domain=1:4.3,samples=100] {acos(1/x)/180*pi}; 
+ \addplot[blue, line width=1pt, domain=-4.3:-1,samples=100] {acos(1/x)/180*pi}; 
+% \legend{$\cos \theta$}
+\end{axis}
+\end{tikzpicture}
+&
+\begin{tikzpicture} 
+\begin{axis}[
+  legend pos = north west,
+  axis x line=center, axis y line=center, 
+  xmax=4.3,xmin=-4.3, xmajorticks=false,
+  ymin=-0.3,ymax=3.4,
+  ytick={0,1.570796327,3.141592654},
+  yticklabels={0,$\frac{\pi}{2}$, $\pi$}
+  ]
+\addplot[blue, line width=1pt, domain=-4.3:-0.01,samples=100] {atan(1/x)/180*pi + pi}; 
+\addplot[blue, line width=1pt, domain=0.01:4.3,samples=100] {atan(1/x)/180*pi}; 
+% \legend{$\tan \theta$}
+
+\addplot[line width=1pt,red] coordinates {(4.3,3.141592654) (-0.3,3.141592654)};
+\addplot[line width=1pt,red] coordinates {(-0.9,3.141592654) (-4.3,3.141592654)};
+\end{axis}
+\end{tikzpicture}
+\\ \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1}
+\end{center}
+Again
+\begin{align*}
+  \arccsc(\csc \theta) &= \theta & -\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2},\ \theta\ne 0 \\
+  \arcsec(\sec \theta) &= \theta & 0 \leq \theta \leq \pi,\ \theta\ne \frac{\pi}{2} \\
+  \arccot(\cot \theta) &= \theta & 0 < \theta < \pi	
+\end{align*}
+and 
+\begin{align*}
+  \csc(\arccsc x) &= x & |x|\ge 1 \\
+  \sec(\arcsec x) &= x & |x|\ge 1 \\
+  \cot(\arccot x) &= x & \text{any real $x$}
 \end{align*}
 
 \section{Areas}\label{app sec areas}
@@ -1364,7 +1458,11 @@ shown that
 Thus we cannot have $T>A$. The only possibility that remains is that $T=A$.
 
 
+<<<<<<< HEAD
 \subsection{Where do These Volume Formulas Come From?}\label{apendix volume}
+=======
+\subsection{Where Do These Volume Formulas Come From?}\label{apendix volume}
+>>>>>>> d8522f69ccd951c79fcbf1548d54f72fc5045c7d
 We can establish the volumes of cones and spheres from the formula for the volume of a
 cylinder and a little work with limits and some careful summations. We first need a few
 facts.

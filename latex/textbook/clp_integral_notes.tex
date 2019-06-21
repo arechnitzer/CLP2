@@ -5984,7 +5984,7 @@ integrand by $1=\frac{\sec x+\tan x}{\sec x+\tan x}$
   = \frac{\sec^2x + \sec x \tan x}{\sec x+\tan x}
 \end{align*}
 \item Notice now that the numerator of this expression is exactly the derivative its
-denominator. Hence we can substitute $u=\sec x+\tan x$ and then
+denominator. Hence we can substitute $u=\sec x+\tan x$ and
 $\dee{u} = (\sec x\tan x+\sec^2 x)\,\dee{x}$.
 \item Hence
 \begin{align*}
@@ -5995,6 +5995,29 @@ $\dee{u} = (\sec x\tan x+\sec^2 x)\,\dee{x}$.
 &=\log |u|+C \\
 &=\log|\sec x+\tan x|+C
 \end{align*}
+\item 
+The above trick appears both totally unguessable and very hard to remember.
+Fortunately, there is a simple 
+way
+%way\footnote{We thank Serban Raianu for bringing this to our attention.} 
+to recover the trick. Here it is.
+\begin{itemize}
+   \item  The goal is to guess a function whose derivative is $\sec x$.
+   \item  So get out a table of derivatives and look for functions whose
+              derivatives at least contain $\sec x$. There are two:
+   \begin{align*}
+      \diff{}{x}\tan x &= \sec^2 x \\
+      \diff{}{x}\sec x &= \tan x\,\sec x
+   \end{align*}
+   \item Notice that if we add these together we get
+       \begin{align*}
+       \diff{}{x}\big(\sec x+\tan x\big) =(\sec x+\tan x)\sec x
+       \implies \frac{\diff{}{x}\big(\sec x+\tan x\big)}{\sec x+\tan x}=\sec x
+       \end{align*}
+  \item We've done it! The right hand side is $\sec x$ and the left hand side
+        is the derivative of $\log|\sec x+\tan x|$.
+\end{itemize} 
+
 \end{itemize}
 \end{eg}
 There is a second method for integrating $\int \sec x\dee{x}$, that is
@@ -6010,7 +6033,7 @@ gives the answer
    =\frac{1}{2}\log\frac{1+\sin x}{1-\sin x}+C
 \end{align*}
 which appears to be different than the answer in Example \ref{eg:TRGINTopta}.
-But they are really the same (of course) since
+But they really are the same since
 \begin{align*}
 &\frac{1+\sin x}{1-\sin x}
 =\frac{(1+\sin x)^2}{1-\sin^2 x}
@@ -6707,8 +6730,8 @@ $0<u<\nicefrac\pi2$, we have $\tan u>0$. Thus $|\tan u|=\tan u$.
 \item Since we started with a function of $x$ we need to finish with one. We know that
 $\sec u = x$ and then we can use trig identities
 \begin{align*}
-  \tan^2 u &= \sec^2 u - 1 = x^2-1 & \text{so}
-  \tan u &= \pm \sqrt{x^2-1}, & \text{but we know $\tan u \geq 0$, so}\\
+  \tan^2 u &= \sec^2 u - 1 = x^2-1 \quad \text{so} \quad
+  \tan u   = \pm \sqrt{x^2-1}, \quad \text{but we know $\tan u \geq 0$, so}\\
   \tan u &= \sqrt{x^2-1}
 \end{align*}
 Thus
@@ -6723,7 +6746,7 @@ $x+\sqrt{x^2-1}$ when we differentiate since we have already seen that
 \begin{align*}
   \diff{}{x} \log|x| &= \frac{1}{x}
 \end{align*}
-when either $x<0$ or $x>0$. So the computation that follows applies to both $x>1$ and
+when either $x<0$ or $x>0$. So the following computation applies to both $x>1$ and
 $x<-1$. The expressions become quite long so we differentiate each term
 separately:
 \begin{align*}
@@ -6742,7 +6765,7 @@ Putting things together then gives us
 &= \frac{1}{2\sqrt{x^2-1}} \left[(x^2-1) + x^2 + 1 \right]+0\\
 &= \frac{x^2}{\sqrt{x^2-1}}
 \end{align*}
-This tells us that our answer for $x>1$ is also valid when $x<1$ and so
+This tells us that our answer for $x>1$ is also valid when $x<-1$ and so
 \begin{align*}
 \int \frac{x^2}{\sqrt{x^2-1}} \dee{x}
 &= \frac{1}{2}x\sqrt{x^2-1} + \frac{1}{2}\log| x +\sqrt{x^2-1}| +C
@@ -6750,6 +6773,12 @@ This tells us that our answer for $x>1$ is also valid when $x<1$ and so
 when $x<-1$ and when $x>1$.
 \end{itemize}
 
+In this example, we were lucky. The answer that we derived for $x>1$ happened
+to be also valid for $x<-1$. This does not always happen with the  
+$x=a\,\sec u$ substitution. When it doesn't, we have to apply separate 
+$x>a$ and $x<-a$ analyses that are very similar to our $x>1$ analysis
+above. Of course that doubles the tedium. So in the CLP-2 problem book, 
+we will not pose questions that require separate $x>a$ and $x<-a$ computations.
 
 \end{eg}
 
