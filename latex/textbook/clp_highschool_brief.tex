@@ -177,7 +177,7 @@ From the above pair of special triangles we have
 Some of you may not have studied inverse trigonometric functions in highschool, however
 we still expect you to know them by the end of the course.
 \begin{center}
-\renewcommand{\arraystretch}{2}
+\renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|c|c|c|}
 \hline
 $\arcsin x$ & $\arccos x$ & $\arctan x$\\
@@ -196,7 +196,7 @@ Range: $-\frac{\pi}{2} < \arctan x < \frac{\pi}{2}$\\
   xmax=1.1,xmin=-1.1, xtick={-1,1},
   ymin=-2, ymax=2,
   ytick={-1.570796327,1.570796327},
-  yticklabels={$-\frac{\pi}{2}$, $\frac{\pi}{2}$}
+  yticklabels={$-\nicefrac{\pi}{2}$, $\nicefrac{\pi}{2}$}
   ]
 \addplot[blue, line width=1pt, domain=-1:1,samples=100] {asin(x)/180*pi}; 
 % \legend{$\arcsin \theta$}
@@ -204,12 +204,13 @@ Range: $-\frac{\pi}{2} < \arctan x < \frac{\pi}{2}$\\
 \end{tikzpicture}
 &
 \begin{tikzpicture} 
+\useasboundingbox (0,0) rectangle (5,4.2);
 \begin{axis}[
   axis x line=center, axis y line=center, 
   xmax=1.1,xmin=-1.1, xtick={-1,1},
   ymin=-0.3,ymax=3.4,
   ytick={0,1.570796327,3.141592654},
-  yticklabels={0,$\frac{\pi}{2}$, $\pi$}
+  yticklabels={0,$\nicefrac{\pi}{2}$, $\pi$}
   ]
  \addplot[blue, line width=1pt, domain=-1:1,samples=100] {acos(x)/180*pi}; 
 % \legend{$\cos \theta$}
@@ -266,7 +267,7 @@ and also
 %\end{align*}
 
 \begin{center}
-\renewcommand{\arraystretch}{2}
+\renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|c|c|c|}
 \hline
 $\arccsc x$ & $\arcsec x$ & $\arccot x$\\
@@ -288,7 +289,7 @@ Range: $0 < \arccot x < \pi$\\[-0.1in]
   xmax=4.3,xmin=-4.3, xtick={-1,1},
   ymin=-2, ymax=2,
   ytick={-1.570796327,1.570796327},
-  yticklabels={$-\frac{\pi}{2}$, $\frac{\pi}{2}$}
+  yticklabels={$-\frac{\pi}{2}\!\!\!$, $\frac{\pi}{2}$}
   ]
 \addplot[blue, line width=1pt, domain=1:4.3,samples=50] {asin(1/x)/180*pi}; 
 \addplot[blue, line width=1pt, domain=-4.3:-1,samples=50] {asin(1/x)/180*pi}; 
@@ -296,6 +297,7 @@ Range: $0 < \arccot x < \pi$\\[-0.1in]
 \end{tikzpicture}
 &
 \begin{tikzpicture} 
+\useasboundingbox (0,0) rectangle (5,4.2);
 \begin{axis}[
   axis x line=center, axis y line=center, 
   xmax=4.3,xmin=-4.3, xtick={-1,1},
