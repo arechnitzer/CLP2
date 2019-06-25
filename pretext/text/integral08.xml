@@ -703,7 +703,7 @@ As noted above, when <m>n</m> is odd and <m>m</m> is even, one can use similar s
 	</md>
 </li>
 <li>
-	Notice now that the numerator of this expression is exactly the derivative its  denominator. Hence we can substitute <m>u=\sec x+\tan x</m> and then  <m>\dee{u} = (\sec x\tan x+\sec^2 x)\,\dee{x}</m>.
+	Notice now that the numerator of this expression is exactly the derivative its  denominator. Hence we can substitute <m>u=\sec x+\tan x</m> and <m>\dee{u} = (\sec x\tan x+\sec^2 x)\,\dee{x}</m>.
 </li>
 <li>
 	Hence
@@ -720,6 +720,29 @@ As noted above, when <m>n</m> is odd and <m>m</m> is even, one can use similar s
 	&amp;=\log|\sec x+\tan x|+C
 	</mrow>
 	</md>
+</li>
+<li><p>
+The above trick appears both totally unguessable and very hard to remember.
+Fortunately, there is a simple way<footnote>We thank Serban Raianu for bringing this to our attention.</footnote>
+to recover the trick. Here it is.
+<ul>
+	<li>The goal is to guess a function whose derivative is <m>\sec x</m>.</li>
+	<li><p>So get out a table of derivatives and look for functions whose derivatives at least contain <m>\sec x</m>. There are two:
+	<md>
+	<mrow>\diff{}{x}\tan x &amp;= \sec^2 x</mrow>
+	<mrow>\diff{}{x}\sec x &amp;= \tan x\,\sec x</mrow>
+	</md>
+</p></li>
+<li><p>Notice that if we add these together we get
+	<md>
+	<mrow>\diff{}{x}\big(\sec x+\tan x\big) &amp;=(\sec x+\tan x)\sec x &amp; \implies</mrow>
+	<mrow>\frac{\diff{}{x}\big(\sec x+\tan x\big)}{\sec x+\tan x}&amp;=\sec x</mrow>
+	</md>
+</p></li>
+<li>We've done it! The right hand side is <m>\sec x</m> and the left hand side is the derivative of <m>\log|\sec x+\tan x|</m>.
+</li>
+</ul>
+</p>
 </li>
 </ul>
 </p>
