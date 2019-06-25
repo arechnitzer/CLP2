@@ -295,9 +295,9 @@ Some of you may not have studied inverse trigonometric functions in highschool, 
   xmax=1.1,xmin=-1.1, xtick={-1,1},
   ymin=-2, ymax=2,
   ytick={-1.570796327,1.570796327},
-  yticklabels={$-\frac{\pi}{2}$, $\frac{\pi}{2}$}
+  yticklabels={$-\nicefrac{\pi}{2}$, $\nicefrac{\pi}{2}$}
   ]
-\addplot[blue,domain=-1:1,samples=100] {asin(x)/180*pi};
+\addplot[blue, line width=1pt, domain=-1:1,samples=100] {asin(x)/180*pi};
 \end{axis}
 \end{tikzpicture}
 ]]></latex-image></image>
@@ -326,9 +326,12 @@ Some of you may not have studied inverse trigonometric functions in highschool, 
   ytick={-1.570796327,1.570796327},
   yticklabels={$-\frac{\pi}{2}$, $\frac{\pi}{2}$}
   ]
-\addplot[blue,domain=-4:4,samples=100] {atan(x)/180*pi};
-\addplot[line width=1pt,red] coordinates {(4.15,-1.570796327) (-4.15,-1.570796327)};
-\addplot[line width=1pt,red] coordinates {(4.15,1.570796327) (-4.15,1.570796327)};
+\addplot[blue, line width=1pt, domain=-4.3:4.3,samples=100] {atan(x)/180*pi};
+
+\addplot[line width=1pt,red] coordinates {(4.3,-1.570796327) (-0.3,-1.570796327)};
+\addplot[line width=1pt,red] coordinates {(-1.4,-1.570796327) (-4.3,-1.570796327)};
+\addplot[line width=1pt,red] coordinates {(4.3,1.570796327) (-0.3,1.570796327)};
+\addplot[line width=1pt,red] coordinates {(-0.9,1.570796327) (-4.3,1.570796327)};
 \end{axis}
 \end{tikzpicture}
 ]]></latex-image></image>
@@ -357,6 +360,111 @@ and also
 </md>
 </p>
 
+
+
+<sbsgroup widths="32% 32% 32%">
+<sidebyside>
+<p><me>\arccsc x</me></p>
+<p><me>\arcsec x</me></p>
+<p><me>\arccot x</me></p>
+</sidebyside>
+<sidebyside>
+<p>Domain: <m>|x|\ge 1</m></p>
+<p>Domain: <m>|x|\ge 1</m></p>
+<p>Domain: all real numbers</p>
+</sidebyside>
+<sidebyside>
+<p>Range: <m>-\frac{\pi}{2} \leq \arccsc x \leq \frac{\pi}{2}</m></p>
+<p>Range: <m>0 \leq \arcsec x \leq \pi</m></p>
+<p>Range: <m>0 \lt \arccot x \lt \pi</m></p>
+</sidebyside>
+<sidebyside>
+<p><me>\arccsc x \ne 0</me></p>
+<p><me>\arcsec x \ne \frac{\pi}{2}</me></p>
+<p></p>
+</sidebyside>
+<sidebyside>
+<image><latex-image><![CDATA[
+\begin{tikzpicture}
+\begin{axis}[
+  legend pos = north west,
+  axis x line=center, axis y line=center,
+  xmax=4.3,xmin=-4.3, xtick={-1,1},
+  ymin=-2, ymax=2,
+  ytick={-1.570796327,1.570796327},
+  yticklabels={$-\frac{\pi}{2}\!\!\!$, $\frac{\pi}{2}$}
+  ]
+\addplot[blue, line width=1pt, domain=1:4.3,samples=50] {asin(1/x)/180*pi};
+\addplot[blue, line width=1pt, domain=-4.3:-1,samples=50] {asin(1/x)/180*pi};
+\end{axis}
+\end{tikzpicture}
+]]></latex-image></image>
+
+<image><latex-image><![CDATA[
+\begin{tikzpicture}
+\useasboundingbox (0,0) rectangle (5,4.2);
+\begin{axis}[
+  axis x line=center, axis y line=center,
+  xmax=4.3,xmin=-4.3, xtick={-1,1},
+  ymin=-0.3,ymax=3.4,
+  ytick={0,1.570796327,3.141592654},
+  yticklabels={0,$\frac{\pi}{2}$, $\pi$}
+  ]
+ \addplot[blue, line width=1pt, domain=1:4.3,samples=100] {acos(1/x)/180*pi};
+ \addplot[blue, line width=1pt, domain=-4.3:-1,samples=100] {acos(1/x)/180*pi};
+% \legend{$\cos \theta$}
+\end{axis}
+\end{tikzpicture}
+]]></latex-image></image>
+
+<image><latex-image><![CDATA[
+\begin{tikzpicture}
+\begin{axis}[
+  legend pos = north west,
+  axis x line=center, axis y line=center,
+  xmax=4.3,xmin=-4.3, xmajorticks=false,
+  ymin=-0.3,ymax=3.4,
+  ytick={0,1.570796327,3.141592654},
+  yticklabels={0,$\frac{\pi}{2}$, $\pi$}
+  ]
+\addplot[blue, line width=1pt, domain=-4.3:-0.01,samples=100] {atan(1/x)/180*pi + pi};
+\addplot[blue, line width=1pt, domain=0.01:4.3,samples=100] {atan(1/x)/180*pi};
+% \legend{$\tan \theta$}
+
+\addplot[line width=1pt,red] coordinates {(4.3,3.141592654) (-0.3,3.141592654)};
+\addplot[line width=1pt,red] coordinates {(-0.9,3.141592654) (-4.3,3.141592654)};
+\end{axis}
+\end{tikzpicture}
+]]></latex-image></image>
+</sidebyside>
+</sbsgroup>
+
+<p>
+Again
+<md>
+<mrow>
+  \arccsc(\csc \theta) &amp;= \theta &amp; -\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2},\ \theta\ne 0
+</mrow>
+<mrow>
+  \arcsec(\sec \theta) &amp; = \theta &amp; 0 \leq \theta \leq \pi,\ \theta\ne \frac{\pi}{2}
+</mrow>
+<mrow>
+  \arccot(\cot \theta) &amp; = \theta &amp; 0 \lt \theta \lt \pi
+</mrow>
+</md>
+and
+<md>
+	<mrow>
+  \csc(\arccsc x) &amp;= x &amp; |x|\ge 1
+</mrow>
+<mrow>
+  \sec(\arcsec x) &amp;= x &amp; |x|\ge 1
+</mrow>
+<mrow>
+  \cot(\arccot x) &amp;= x &amp; \text{any real } x
+</mrow>
+</md>
+</p>
 </section>
 
 
