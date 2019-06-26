@@ -120,7 +120,7 @@ F - III
 \end{enumerate}
 \end{Mquestion}
 \begin{hint}
-See Example~\eref{CLP101}{eg:SRfindDeriv} in the CLP-II text.
+See Example~\eref{CLP101}{eg:SRfindDeriv} in the CLP-2 text.
 \end{hint}
 \begin{answer}
 (a) $f^{(20)}(3)=20^2\left(\dfrac{20!}{20!+1}\right)$\qquad
@@ -1048,12 +1048,12 @@ So, it suffices to add up the first 29 terms.
 	You may assume without proof that $2<e<3$.
 \end{question}
 \begin{hint}
-	The Taylor Series is not alternating, so use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-II text to bound the error in a partial-sum approximation.
+	The Taylor Series is not alternating, so use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-2 text to bound the error in a partial-sum approximation.
 \end{hint}
 \begin{answer}
 $S_{13}$	or higher
 \end{answer}
-\begin{solution}The Taylor Series for $e^x$ is not alternating, so we'll use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-II text to bound the error in a partial-sum approximation. The error in the partial-sum approximation $S_N$ is
+\begin{solution}The Taylor Series for $e^x$ is not alternating, so we'll use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-2 text to bound the error in a partial-sum approximation. The error in the partial-sum approximation $S_N$ is
 	\[E_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}\]
 	for some $c$ strictly between $a$ and $x$. In our case, $a=0$ and $x=1$. So, we want to find a value of $N$ such that
 	\[\left|\frac{f^{(N+1)}(c)}{(N+1)!}\left(1-0\right)^{N+1}\right|=\frac{e^c}{(N+1)!}<5\times 10^{-11}\]
@@ -1083,13 +1083,13 @@ Suppose you wanted to approximate the number $\log(0.9)$ as a rational number us
 (That is, an absolute error less than $5\times10^{-11}$.)
 \end{Mquestion}
 \begin{hint}
-The Taylor Series is not alternating, so use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-II text to bound the error in a partial-sum approximation.
+The Taylor Series is not alternating, so use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-2 text to bound the error in a partial-sum approximation.
 \end{hint}
 \begin{answer}
 	$S_9$ or higher
 \end{answer}
 \begin{solution}
-The Taylor Series for $\log(1-x)$ is not alternating, so we'll use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-II text to bound the error in a partial-sum approximation. The error in the partial-sum approximation $S_N$ is
+The Taylor Series for $\log(1-x)$ is not alternating, so we'll use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-2 text to bound the error in a partial-sum approximation. The error in the partial-sum approximation $S_N$ is
 \[E_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}\]
 for some $c$ strictly between $a$ and $x$. In our case, $a=0$ and $x=\dfrac1{10}$. So, we want to find a value of $N$ such that
 \[\left|\frac{f^{(N+1)}(c)}{(N+1)!}\left(\frac{1}{10}\right)^{N+1}\right|<5\times 10^{-11}\]
@@ -1150,14 +1150,14 @@ So, it suffices to use the partial sum $S_9$.
 	You may assume without proof that $2<e<3$.
 \end{question}
 \begin{hint}
-	Use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-II text to bound the error in a partial-sum approximation.
+	Use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-2 text to bound the error in a partial-sum approximation.
 	This theorem requires you to consider values of $c$ between $x$ and $x=0$; since $x$ could be anything from $-2$ to $1$, you should think about values of $c$ between $-2$ and $1$.
 \end{hint}
 \begin{answer}
 $S_{18}$ or higher
 \end{answer}
 \begin{solution}
-	We'll use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-II text to bound the error of a partial-sum approximation. The error in the partial-sum approximation $S_N$ is
+	We'll use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-2 text to bound the error of a partial-sum approximation. The error in the partial-sum approximation $S_N$ is
 	\[E_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}\]
 	for some $c$ strictly between $a$ and $x$. In our case, $a=0$ and $x$ is in $(-2,1)$. So, we want to find a value of $N$ such that
 	\[\left|\frac{f^{(N+1)}(c)}{(N+1)!}\left(x\right)^{N+1}\right|<5\times 10^{-11}\]
@@ -1224,7 +1224,7 @@ hyperbolic tangent is $\mathrm{tanh}(x) = \dfrac{e^x-e^{-x}}{e^x+e^{-x}}$, and i
 functional inverse.}
 \end{question}
 \begin{hint}
-Use Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-II text to bound the error in a partial-sum approximation.
+Use Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-2 text to bound the error in a partial-sum approximation.
 
 To bound the derivative over the appropriate range, remember how to find absolute extrema.
 \end{hint}
@@ -1232,7 +1232,7 @@ To bound the derivative over the appropriate range, remember how to find absolut
 The error is in the interval $\displaystyle\left(\dfrac{-5^7}{14\cdot 3^7}\left[1+\frac{1}{3^7} \right]\quad,\quad \dfrac{-5^7}{7\cdot 6^7} \right)\approx\left(-0.199, -0.040\right)$
 \end{answer}
 \begin{solution}
-	We'll use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-II text to bound the error in a partial-sum approximation. The error in the partial-sum approximation $S_N$ is
+	We'll use  Theorem~\eref{CLP101}{eq:TaylorPolyPlusError_b} in the CLP-2 text to bound the error in a partial-sum approximation. The error in the partial-sum approximation $S_N$ is
 \[E_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}\]
 for some $c$ strictly between $a$ and $x$. In our case, $a=\dfrac12$, $x=-\dfrac1{3}$, and we are given the $n$th derivative of $f(x)$:
 \begin{align*}E_6&=\frac{\textcolor{blue}{f^{(7)}(c)}}{7!}\left(-\frac13-\frac12 \right)^{7}\\

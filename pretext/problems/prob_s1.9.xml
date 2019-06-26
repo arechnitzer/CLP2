@@ -32,7 +32,7 @@ is most beneficial for evaluating the integral.
 </statement>
 
 <hint><p>
-The beginning of this section has a template for choosing a substitution. Your goal is to use a trig identity to turn the argument of the square root into a perfect square, so you can cancel <m>\sqrt{(\mbox{something})^2}=(\mbox{something})</m>.
+The beginning of this section has a template for choosing a substitution. Your goal is to use a trig identity to turn the argument of the square root into a perfect square, so you can cancel <m>\sqrt{(\mbox{something})^2}=|\mbox{something}|</m>.
 </p></hint>
 
 <answer><p>
@@ -78,7 +78,7 @@ x &amp;= \frac{4}{3}\sec\theta
 </mrow><mrow>
 &amp;=\sqrt{16\tan^2\theta}
 </mrow><mrow>
-&amp;=4\tan\theta
+&amp;=4|\tan\theta|
 </mrow>
 </md>
 So, we eliminated the square root.
@@ -99,7 +99,7 @@ x &amp;= \frac{1}{2}\sin\theta
 </mrow><mrow>
 &amp;=\sqrt{\cos^2\theta}
 </mrow><mrow>
-&amp;=\cos\theta
+&amp;=|\cos\theta|
 </mrow>
 </md>
 So, we eliminated the square root.
@@ -123,7 +123,7 @@ x &amp;= 5\tan\theta
 </mrow><mrow>
 &amp;=(25\sec^2\theta)^{-5/2}
 </mrow><mrow>
-&amp;=(5\sec\theta)^{-5}
+&amp;=(5|\sec\theta|)^{-5}
 </mrow>
 </md>
 So, we eliminated the square root.
@@ -133,7 +133,7 @@ So, we eliminated the square root.
 <exercise xml:id="prob_21_9_complete" purpose="RQS">
 <statement><p>
 For each of the following integrals, choose a trigonometric substitution that
-will allow the roots to cancel.
+will eliminate the roots.
 <ol label="a">
 <li> <m>\displaystyle\int \dfrac{1}{\sqrt{x^2-4x+1}}\dee{x}</m>
 </li>
@@ -190,7 +190,7 @@ The quadratic function under the square root is <m>x^2-4x+1</m>. To complete the
 
 <p>So we use the substitution <m>(x-2) = \sqrt{3}\sec u</m>, which eliminates the square root:
 <me>
-\sqrt{\left(x-2\right)^2-3}=\sqrt{3\sec^2 u - 3} = \sqrt{3\tan^2 u} = \sqrt{3}\tan u</me>
+\sqrt{\left(x-2\right)^2-3}=\sqrt{3\sec^2 u - 3} = \sqrt{3\tan^2 u} = \sqrt{3}|\tan u|</me>
 </p>
 </li>
 <li>
@@ -215,7 +215,7 @@ The quadratic function under the square root is <m>-x^2+2x+4=-[x^2-2x-4]</m>. To
 
 <p>So we use the substitution <m>(x-1) = \sqrt{5}\sin u</m>, which eliminates the square root (fractional power):
 <me>
-(5-\left(x-1\right)^2)^{3/2}=\left(5-5\sin^2u\right)^{3/2} = \left(5\cos^2 u\right)^{3/2} = 5\sqrt{5}\cos^3 u</me>
+(5-\left(x-1\right)^2)^{3/2}=\left(5-5\sin^2u\right)^{3/2} = \left(5\cos^2 u\right)^{3/2} = 5\sqrt{5}|\cos^3 u|</me>
 </p>
 </li>
 <li>
@@ -241,7 +241,7 @@ The quadratic function under the square root is <m>4x^2+6x+10</m>. To complete t
 =\displaystyle\int \dfrac{1}{\sqrt{\left(2x+\frac{3}{2}\right)^2+\left(\frac{\sqrt{31}}{2}\right)^2}}\dee{x}</me>
 So we use the substitution <m>\left(2x+\frac{3}{2}\right) =\frac{\sqrt{31}}{2}\tan u</m>, which eliminates the square root:
 <me>
-\sqrt{\left(2x+\frac{3}{2}\right)^2+\frac{31}{4}}=\sqrt{\frac{31}{4}\tan^2 u +\frac{31}{4}} = \sqrt{\frac{31}{4}\sec^2 u} =\frac{\sqrt{31}}{2}\sec u</me>
+\sqrt{\left(2x+\frac{3}{2}\right)^2+\frac{31}{4}}=\sqrt{\frac{31}{4}\tan^2 u +\frac{31}{4}} = \sqrt{\frac{31}{4}\sec^2 u} =\frac{\sqrt{31}}{2}|\sec u|</me>
 </p>
 </li>
 <li>
@@ -267,7 +267,7 @@ The quadratic function under the square root is <m>x^2-x</m>. To complete the sq
 </me>
 So we use the substitution <m>(x-1/2) = \frac{1}{2}\sec u</m>, which eliminates the square root:
 <me>
-\sqrt{\left(x-\frac{1}{2}\right)^2-\frac{1}{4}}=\sqrt{\frac{1}{4}{\sec\vphantom{|}}^2 u - \frac{1}{4}} = \sqrt{\frac{1}{4}\tan^2 u} =\frac{1}{2}\tan u</me>
+\sqrt{\left(x-\frac{1}{2}\right)^2-\frac{1}{4}}=\sqrt{\frac{1}{4}{\sec\vphantom{|}}^2 u - \frac{1}{4}} = \sqrt{\frac{1}{4}\tan^2 u} =\frac{1}{2}|\tan u|</me>
 </p>
 </li>
 </ol>
@@ -482,7 +482,26 @@ Let <m>x = 2\tan\theta</m>, so that <m>x^2+4 = 4\tan^2\theta+4=4\sec^2\theta</m>
 <p>
 To find <m>\sin\theta</m> in terms of <m>x</m>, we construct the right triangle above.
 Since <m>\tan\theta = \dfrac{x}{2} = \dfrac{\mbox{opp}}{\mbox{adj}}</m>, we label the opposite side <m>x</m> and the adjacent side <m>2</m>. By the Pythagorean Theorem, the hypotenuse has length <m>\sqrt{x^2+4}</m>. Then <m>\sin\theta = \dfrac{\mbox{opp}}{\mbox{hyp}} = \dfrac{x}{\sqrt{x^2+4}}</m>.
-</p></solution>
+</p>
+<p> To see why we could write <m>(\sec^2\theta)^{3/2} =\sec^3\theta</m>, as opposed to
+<m>(\sec^2\theta)^{3/2} =\big|\sec^3\theta\big|</m>, in the second line above, see
+Example<nbsp/><xref ref="eg_INVTRIGb"/> in the CLP-2 text.
+</p>
+<p>
+  As a check, we observe that the derivative of the answer
+  <md>
+    <mrow>
+\diff{}{x} \left(\frac14 \frac x{\sqrt{x^2+4}} +C\right)
+&amp;=\frac14\frac 1{\sqrt{x^2+4}} - \frac{1}{2\times 4}\frac{x(2x)}{{\big(x^2+4\big)}^{3/2}}
+=\frac{\frac{x^2}{4}+1-\frac{x^2}{4}}{{\big(x^2+4\big)}^{3/2}}
+</mrow>
+<mrow>
+&amp;=\frac{1}{{\big(x^2+4\big)}^{3/2}}
+</mrow>
+</md>
+is exactly the integrand.
+</p>
+</solution>
 </exercise>
 
 <exercise><title><fromexam>2016Q4</fromexam></title>
@@ -615,7 +634,13 @@ To find <m>\sec u</m> and <m>\tan u</m>, we have two options. One is to set up a
 </p>
 
 <p>Another option is to look back at our work a little more closely <mdash/> in fact, we've already found what we're looking for. Since we used the substitution <m>x=5\tan u</m>, this gives us <m>\tan u = \frac{x}{5}</m>. In the denominator of the integrand, we simplified <m>\sqrt{x^2+25} = 5\sec u</m>, so <m>\sec u = \frac{1}{5}\sqrt{x^2+25} = \sqrt{1+\frac{x^2}{25}}</m>.
-</p></solution>
+</p>
+
+<p>
+To see why we could write <m>\sqrt{x^2+25} =5\sec u</m>, as opposed to <m>\sqrt{x^2+25} =5|\sec u|</m>,  see
+Example<nbsp/><xref ref="eg_INVTRIGb"/> in the CLP-2 text.
+</p>
+</solution>
 </exercise>
 
 <exercise>
@@ -687,12 +712,30 @@ To finish off the integral, we'll substitute <m>v=\sin u</m>,
 </sidebyside>
 <p>
 To find <m>\sin u</m>, we draw a right triangle with angle <m>u</m> and <m>\tan u = \frac{x}{4}</m>. We label the opposite side <m>x</m> and the adjacent side <m>4</m>, and then from Pythagorus we find that the hypotenuse has length <m>\sqrt{x^2+16}</m>. So, <m>\sin u = \dfrac{\sqrt{x^2+16}}{x}</m>.
-</p></solution>
+</p>
+<p>
+  As a check, we observe that the derivative of the answer
+  <md>
+    <mrow>
+  \diff{}{x}\left(-\frac{1}{16}\frac{\sqrt{x^2+16}}{x}+C\right)
+  &amp;=\frac{1}{16}\frac{\sqrt{x^2+16}}{x^2}
+         -\frac{1}{16}\frac{x}{x\sqrt{x^2+16}}
+  =\frac{1}{16}\frac{(x^2+16)-x^2}{x^2\sqrt{x^2+16}}
+</mrow>
+<mrow>
+  &amp;=\frac{1}{x^2\sqrt{x^2+16}}
+</mrow>
+</md>
+  is exactly the integrand.
+
+</p>
+
+</solution>
 </exercise>
 
 <exercise><title><fromexam>2016A</fromexam></title>
 <statement><p>
-Evaluate <m>\displaystyle\int \frac{\dee{x}}{x^2\sqrt{x^2-9}}</m>.
+Evaluate <m>\displaystyle\int \frac{\dee{x}}{x^2\sqrt{x^2-9}}</m> for <m>x \ge 3</m>.
 Do not include any inverse trigonometric functions in your answer.
 </p></statement>
 
@@ -705,8 +748,8 @@ The integrand should simplify quite far after your substitution.
 </p></answer>
 
 <solution><p>
-Substituting <m>x=3\sec u</m>, so that <m>\dee{x}= 3\sec u\tan u\,\dee{u}</m>
-and <m>x^2-9=9\sec^2 u-9 = 9\tan^2 u</m>, gives
+Substitute <m>x=3\sec u</m> with <m>0\le u \lt \frac{\pi}{2}</m>. Then <m>\dee{x}= 3\sec u\tan u\,\dee{u}</m>
+and <m>\sqrt{x^2-9}=\sqrt{9\sec^2 u-9} =\sqrt{ 9\tan^2 u}=3\tan u</m>, so that
 <md>
 <mrow>
 \int \frac{\dee{x}}{x^2\sqrt{x^2-9}}
@@ -732,7 +775,20 @@ Using the Pythagorean Theorem, the opposite side has length <m>\sqrt{x^2-9}</m>.
 \int \frac{\dee{x}}{x^2\sqrt{x^2-9}} &amp;= \frac{\sqrt{x^2-9}}{9x} +C.
 </mrow>
 </md>
-
+</p>
+<p>
+  As a check, we observe that the derivative of the answer
+  <md>
+  <mrow>
+\diff{}{x} \left( \frac{\sqrt{x^2-9}}{9x}+C\right)
+&amp; =-\frac{\sqrt{x^2-9}}{9x^2}     +    \frac{x}{9x\sqrt{x^2-9}}
+=\frac{1}{9}\ \frac{-(x^2-9)+x^2}{x^2\sqrt{x^2-9}}
+</mrow>
+<mrow>
+&amp; =\frac{1}{x^2\sqrt{x^2-9}}
+</mrow>
+</md>
+is exactly the integrand. (We remark that this is the case even for <m>x\le -3</m>.)
 </p>
 
 </solution>
@@ -889,6 +945,12 @@ Substitute <m>x=2\sin u</m>, so that <m>\dee{x}=2 \cos u\,\dee{u}</m>.
 <image><latex-image><![CDATA[\trigtri{u}{\sqrt{4-x^2}}{x}{2}]]></latex-image></image>
 </sidebyside>
 <p>
+  To see why we could write <m>\sqrt{4\cos^2 u} =2\cos u</m>, as opposed to
+  <m>\sqrt{4\cos^2 u} =2|\cos u|</m>, in the third line above, see
+  Example<nbsp/><xref ref="eg_trigsub2"/> in the CLP-2 text.
+</p>
+
+<p>
 We used the substitution <m>x = 2\sin u</m>, so we know <m>\sin u = \frac{x}{2}</m> and <m>u=\arcsin(\frac{x}{2})</m>. We have three options for finding  <m>\cos u</m>.
 </p>
 
@@ -913,7 +975,7 @@ We used the substitution <m>x = 2\sin u</m>, so we know <m>\sin u = \frac{x}{2}<
 
 <exercise><title><fromexam>M105 2012A</fromexam></title>
 <statement><p>
-Evaluate <m>\displaystyle\int \frac{\sqrt{25x^2-4}}{x}\,\dee{x}</m>.
+Evaluate <m>\displaystyle\int \frac{\sqrt{25x^2-4}}{x}\,\dee{x}</m> for <m>x\gt \frac{2}{5}</m>.
 </p></statement>
 
 <hint><p>
@@ -925,9 +987,9 @@ To integrate an even power of tangent, use the identity <m>\tan^2 x = \sec^2 x -
 </p></answer>
 
 <solution><p>
-Substitute <m>x=\frac{2}{5}\sec u</m>, so that
+Substitute <m>x=\frac{2}{5}\sec u</m> with <m>0 \lt u \lt \frac{\pi}{2}</m>, so that
 <m>\dee{x}=\frac{2}{5} \sec u\,\tan u\,\dee{u}</m> and
-<m>25 x^2-4 = 4(\sec^2u-1) = 4\tan^2u</m>.
+<m>\sqrt{25 x^2-4} = \sqrt{4(\sec^2u-1)} = \sqrt{4\tan^2u}=2\tan u</m>. Then
 <md>
 <mrow>
 \int \frac{\sqrt{25x^2-4}}{x}\,\dee{x}
@@ -950,7 +1012,30 @@ To find <m>\tan u</m>, we draw a right triangle with angle <m>u</m>. Since <m>\s
 </p>
 
 <p>Alternately, we can notice that in our work, we already showed <m>2\tan u = \sqrt{25x^2-4}</m>, so <m>\tan u = \frac{1}{2}\sqrt{25x^2-4} .</m>
-</p></solution>
+</p>
+
+<p>
+  As a check, we observe that the derivative of the answer
+<md>
+<mrow>
+\diff{}{x} \left(\sqrt{25x^2-4}-2\arcsec\frac{5x}{2}  + C\right)
+&amp; =\frac{25 x}{\sqrt{25x^2-4}}
+- 2 \frac{\frac{5}{2}}{\left|\frac{5x}{2}\right|\sqrt{\frac{25x^2}{4}-1}}
+</mrow>
+<mrow>
+&amp; = \frac{25 x}{\sqrt{25x^2-4}}   - \frac{4}{x\sqrt{25x^2-4}}\qquad\text{since } x\gt 0
+</mrow>
+<mrow>
+&amp; =  \frac{25 x^2-4}{x\sqrt{25x^2-4}}
+</mrow>
+<mrow>
+&amp; =  \frac{\sqrt{25 x^2-4}}{x}
+</mrow>
+</md>
+is exactly the integrand (provided <m>x \gt \frac{2}{5}</m>).
+</p>
+
+</solution>
 </exercise>
 
 <exercise>
@@ -1041,9 +1126,10 @@ directly, without going through <m>y</m>.
 </solution>
 </exercise>
 
+
 <exercise purpose="RQS">
 <statement><p>
-Evaluate <m>\displaystyle\int \dfrac{1}{(2x-3)^3\sqrt{4x^2-12x+8}}\dee{x}</m>.
+Evaluate <m>\displaystyle\int \dfrac{1}{(2x-3)^3\sqrt{4x^2-12x+8}}\dee{x}</m> for <m>x \gt 2</m>.
 </p></statement>
 <hint><p>
 To antidifferentiate even powers of   cosine, use the formula <m>\cos^2\theta = \frac{1}{2}(1+\cos(2\theta))</m>. Then, remember <m>\sin(2\theta)=2\sin\theta\cos\theta</m>.
@@ -1059,7 +1145,9 @@ Completing the square, we see <m>4x^2-12x+8 = (2x-3)^2-1</m>.
 \int \dfrac{1}{(2x-3)^3\sqrt{4x^2-12x+8}}\dee{x}&amp;=
 \int \dfrac{1}{(2x-3)^3\sqrt{(2x-3)^2-1}}\dee{x}
 </mrow>
-<intertext>We use the substitution <m>2x-3 = \sec \theta</m>, so <m>2\dee{x}=\sec\theta\tan\theta\dee{\theta}</m>.
+<intertext>
+As <m>x\gt 2</m>, we have <m>2x-3\gt 1</m>. We use the substitution <m>2x-3 = \sec \theta</m> with <m>0\le\theta \lt \frac{\pi}{2}</m>. So <m>2\,\dee{x}=\sec\theta\tan\theta~\dee{\theta}</m> and
+<m>\sqrt{(2x-3)^2-1}=\sqrt{\sec^2\theta-1}=\sqrt{\tan^2\theta}=\tan\theta</m>.
 </intertext><mrow>
 &amp;=\frac{1}{2}\int\frac{1}{\sec^3\theta\sqrt{\sec^2\theta-1}}\sec\theta\tan\theta\dee{\theta}
 </mrow><mrow>
@@ -1201,6 +1289,8 @@ We complete the square to find <m>x^2-2x+2 = (x-1)^2+1</m>.
 &amp;=\frac{3+x}{2}\sqrt{x^2-2x+2}+ \frac{1}{2}\log\left|\sqrt{x^2-2x+2}+x-1\right|+C
 </mrow>
 </md>
+To see why we could write <m>\sqrt{(\tan\theta)^2+25} =\sec\theta</m>, as opposed to
+<m>\sqrt{(\tan\theta)^2+25} =|\sec\theta|</m>,  see Example<nbsp/><xref ref="eg_INVTRIGb"/>.
 </p>
 
 <p>From our substitution, we know <m>\tan\theta = x-1</m>. To find <m>\sec\theta</m>, we can notice that in our work we already simplified <m>\sqrt{x^2-2x+1}=\sec\theta</m>.
@@ -1225,7 +1315,7 @@ Evaluate <m>\displaystyle\int \dfrac{1}{\sqrt{3x^2+5x}}\dee{x}</m>.
 Complete the square <mdash/> refer to Question<nbsp/><xref ref="prob_21_9_complete" text="local"/> if you want a refresher. The constants aren't pretty, but don't let them scare you.
 </p></hint>
 <answer><p>
-<m>\displaystyle\left| \left(\frac{6}{5}x+1\right)+\frac{2}{5}\sqrt{9x^2+15x} \right|+C</m>
+<m>\displaystyle\frac{1}{\sqrt{3}}\log\left| \left(\frac{6}{5}x+1\right)+\frac{2}{5}\sqrt{9x^2+15x} \right|+C</m>
 </p></answer>
 <solution><p>
 First, we complete the square. The constants aren't integers, but we can still use the same method as in Question<nbsp/><xref ref="prob_21_9_complete" text="local"/>.
@@ -1274,6 +1364,29 @@ The quadratic function under the square root is <m>3x^2+5x</m>. We match the non
 <p>
 Since we used the substitution <m>\sqrt3x+\frac{5}{2\sqrt{3}}=\frac{5}{2\sqrt3}\sec\theta</m>, we have <m>\sec\theta = \frac{6}{5}x+1 = \frac{6x+5}{5}</m>. To find <m>\tan\theta</m> in terms of <m>x</m>, we have two options. We can make a right triangle with angle <m>\theta</m>, hypotenuse <m>6x+5</m>, and adjacent side <m>5</m>, then use the Pythagorean Theorem to find the opposite side. Or, we can look through our work and see that <m>\sqrt{3x^2+5}=\frac{5}{2\sqrt3}\tan\theta</m>, so <m>\tan\theta = \frac{2\sqrt3}{5}\sqrt{3x^2+5}=\frac{2}{5}\sqrt{9x^2+15}</m>.
 </p>
+<p>
+As a check, we observe that the derivative of the answer
+<md>
+<mrow>
+&amp; \diff{}{x}\left(
+\frac{1}{\sqrt3}\log\left| \left(\frac{6}{5}x+1\right)+\frac{2}{5}\sqrt{9x^2+15x} \right| + C\right)
+=\frac{1}{\sqrt3}\ \frac{\frac{6}{5} +\frac{1}{5} \frac{18x+15}{\sqrt{9x^2+15 x}}}
+              { \left(\frac{6}{5}x+1\right)+\frac{2}{5}\sqrt{9x^2+15x}}
+</mrow>
+<mrow>
+&amp;=\frac{1}{\sqrt3}\ \frac{6 + 3\frac{6x+5}{\sqrt{9x^2+15 x}}}
+              { \left(6x+5\right)+ 2\sqrt{9x^2+15x}}
+=\sqrt3\ \frac{2 + \frac{6x+5}{\sqrt{9x^2+15 x}}}
+              { \left(6x+5\right)+ 2\sqrt{9x^2+15x}}
+=\frac{\sqrt{3}}{\sqrt{9x^2+15 x}}
+</mrow>
+<mrow>
+&amp;=\frac{1}{\sqrt{3x^2+5 x}}
+</mrow>
+</md>
+is exactly the integrand.
+</p>
+
 
 <p>Remark: in applications, often the numbers involved are messier than they are in textbooks. The ideas of this problem are similar to other problems in this section, but it's good practice to apply them in a slightly messy context.
 </p></solution>

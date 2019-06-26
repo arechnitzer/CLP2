@@ -14,7 +14,7 @@ In this section we discuss substitutions that simplify integrals containing  squ
 \sqrt{a^2-x^2} &amp;&amp; \sqrt{a^2+x^2} &amp;&amp; \sqrt{x^2-a^2}.
 </mrow>
 </md>
-When the integrand contains one of these square roots, then we can us  trigonometric substitutions to eliminate them. That is, we substitute
+When the integrand contains one of these square roots, then we can use trigonometric substitutions to eliminate them. That is, we substitute
 <md>
 <mrow>
 x&amp;=a\sin u&amp;\text{or}&amp;&amp;
@@ -56,12 +56,13 @@ to simplify the result.  To be more precise, we can
 	=\sqrt{a^2\tan^2 u}=|a\tan u|
 	</mrow>
 	</md>
+	Be very careful with signs and absolute values when using this substitution. See Example<nbsp/><xref ref="eg_sec_sub"/>.
 	</li>
 </ul>
 </p>
 
 <p>
-When we have used substitutions before, we usually gave the new integration variable, <m>u</m>, as a function of the old integration variable <m>x</m>. Here we are doing the  reverse <mdash/> we are giving the old integration variable, <m>x</m>, in terms of the new  integration variable <m>u</m>. We may do so, as long as we may invert to get <m>u</m> as a function of <m>x</m>. For example, with <m>x=a\sin u</m>, we may take <m>u=\arcsin\frac{x}{a}</m>. This is a good time for you to review the definitions of <m>\arcsin\theta</m>, <m>\arctan\theta</m> and <m>\arcsec\theta</m>. See Section 2.12, <q>Inverse Functions</q>,  of the CLP-I notes.
+When we have used substitutions before, we usually gave the new integration variable, <m>u</m>, as a function of the old integration variable <m>x</m>. Here we are doing the  reverse <mdash/> we are giving the old integration variable, <m>x</m>, in terms of the new  integration variable <m>u</m>. We may do so, as long as we may invert to get <m>u</m> as a function of <m>x</m>. For example, with <m>x=a\sin u</m>, we may take <m>u=\arcsin\frac{x}{a}</m>. This is a good time for you to review the definitions of <m>\arcsin\theta</m>, <m>\arctan\theta</m> and <m>\arcsec\theta</m>. See Section 2.12, <q>Inverse Functions</q>,  of the CLP-1 notes.
 </p>
 
 <p>
@@ -461,7 +462,7 @@ Enough sines and cosines <mdash/> let us try a tangent substitution.
 </p>
 </example>
 
-<example><title><m>\int \frac{x^2}{\sqrt{x^2-1}} \dee{x}</m></title>
+<example xml:id="eg_sec_sub"><title><m>\int \frac{x^2}{\sqrt{x^2-1}} \dee{x}</m></title>
 <p>
 <alert>Solution:</alert> This one requires a secant substitution, but otherwise is very similar to those
 above.
@@ -486,11 +487,11 @@ above.
 </p>
 
 <p>
-	When <m>x \gt 1</m>, the standard <m>u=\arcsec x</m> takes values in <m>(0,\frac\pi2)</m>. This follows  since when <m>0 \lt u \lt \frac\pi2</m>, we have <m>0 \lt \cos u \lt 1</m> and so <m>\sec u \gt 1</m>. Further, when  <m>0 \lt u \lt \frac\pi2</m>, we have <m>\tan u \gt 0</m>. Thus <m>|\tan u|=\tan u</m>.
+	When <m>x \gt 1</m>, our <m>u=\arcsec x</m> takes values in <m>(0,\frac\pi2)</m>. This follows  since when <m>0 \lt u \lt \frac\pi2</m>, we have <m>0 \lt \cos u \lt 1</m> and so <m>\sec u \gt 1</m>. Further, when  <m>0 \lt u \lt \frac\pi2</m>, we have <m>\tan u \gt 0</m>. Thus <m>|\tan u|=\tan u</m>.
 </p>
 </li>
 <li>
-	Back to our integral:
+	Back to our integral, when <m>x&gt; 1</m>:
 	<md>
 	<mrow>
 	  \int \frac{x^2}{\sqrt{x^2-1}} \dee{x}
@@ -513,8 +514,11 @@ above.
 	  \tan^2 u &amp;= \sec^2 u - 1 = x^2-1 &amp; \text{so }
 	  \tan u &amp;= \pm \sqrt{x^2-1}
 	</mrow>
-	<intertext>However we know that <m>\tan u \geq 0</m>, so</intertext>
+	<intertext>
+	but we know
+	</intertext>
 	<mrow>
+	\tan u &amp; \geq 0 &amp; \text{so }
 	  \tan u &amp;= \sqrt{x^2-1}
 	</mrow>
 	</md>
@@ -533,7 +537,7 @@ above.
 	  \diff{}{x} \log|x| &amp;= \frac{1}{x}
 	</mrow>
 	</md>
-	when either <m>x \lt 0</m> or <m>x \gt 0</m>. So the computation that follows applies to both <m>x \gt 1</m> and  <m>x \lt -1</m>. The expressions become quite long so we differentiate each term  separately:
+	when either <m>x \lt 0</m> or <m>x \gt 0</m>. So the following computation applies to both <m>x \gt 1</m> and  <m>x \lt -1</m>. The expressions become quite long so we differentiate each term  separately:
 	<md>
 	<mrow>
 	\diff{}{x} \left[ x\sqrt{x^2-1} \right]
@@ -560,7 +564,7 @@ above.
 	&amp;= \frac{x^2}{\sqrt{x^2-1}}
 	</mrow>
 	</md>
-	This tells us that our answer for <m>x \gt 1</m> is also valid when <m>x \lt 1</m> and so
+	This tells us that our answer for <m>x \gt 1</m> is also valid when <m>x \lt -1</m> and so
 	<md>
 	<mrow>
 	\int \frac{x^2}{\sqrt{x^2-1}} \dee{x} &amp;= \frac{1}{2}x\sqrt{x^2-1} + \frac{1}{2}\log| x +\sqrt{x^2-1}| +C
@@ -569,6 +573,10 @@ above.
 	when <m>x \lt -1</m> and when <m>x \gt 1</m>.
 </li>
 </ul>
+</p>
+
+<p>
+In this example, we were lucky. The answer that we derived for <m>x&gt;1</m> happened to be also valid for <m>x&lt;-1</m>. This does not always happen with the <m>x=a\,\sec u</m> substitution. When it doesn't, we have to apply separate <m>x&gt;a</m> and <m>x&lt;-a</m> analyses that are very similar to our <m>x&gt;1</m> analysis above. Of course that doubles the tedium. So in the CLP-2 problem book, we will not pose questions that require separate <m>x&gt;a</m> and <m>x&lt;-a</m> computations.
 </p>
 
 </example>

@@ -106,7 +106,7 @@ Let <m>\{a_n\}_{n=1}^{\infty}</m>, <m>\{b_n\}_{n=1}^{\infty}</m>,  and <m>\{c_n\
 (a) <m>\dfrac{A-B}{C}</m>  (b) 0  (c) <m>\dfrac{A}{B}</m>
 </p></answer>
 <solution><p>
-(a) We follow the arithmetic of limits, Theorem<nbsp/><xref ref="thm_SRlimarith"/> in the CLP-II text:
+(a) We follow the arithmetic of limits, Theorem<nbsp/><xref ref="thm_SRlimarith"/> in the CLP-2 text:
 <m>\dfrac{A-B}{C}</m>
 </p>
 <p>
@@ -310,7 +310,7 @@ e_n&amp;=\dfrac{(-1)^n}{n}  &amp;   j(x)&amp;=\dfrac{1}{e^x}
 </md>
 </p></statement>
 <hint><p>
-What might cause your answers in (a) and (b) to differ? Carefully read Theorem<nbsp/><xref ref="thm_SRxlimtoanlim"/> in the CLP-II text about convergent functions and their corresponding sequences.
+What might cause your answers in (a) and (b) to differ? Carefully read Theorem<nbsp/><xref ref="thm_SRxlimtoanlim"/> in the CLP-2 text about convergent functions and their corresponding sequences.
 </p></hint>
 <answer><p>
 (a) <m>a_n=b_n=h(n)=i(n)</m>,  <m>c_n = j(n)</m>, <m>d_n=f(n)</m>, <m>e_n=g(n)</m>
@@ -334,7 +334,7 @@ What might cause your answers in (a) and (b) to differ? Carefully read Theorem<n
 </li>
 <li>
 <p>
-According to Theorem<nbsp/><xref ref="thm_SRxlimtoanlim"/> in the CLP-II text, if any of the functions on the right have limits that exist as <m>x \to \infty</m>, then these limits match the limits of their corresponding sequences. So, we only have to be suspicious of <m>f(x)</m> and <m>i(x)</m>, since these do not converge.
+According to Theorem<nbsp/><xref ref="thm_SRxlimtoanlim"/> in the CLP-2 text, if any of the functions on the right have limits that exist as <m>x \to \infty</m>, then these limits match the limits of their corresponding sequences. So, we only have to be suspicious of <m>f(x)</m> and <m>i(x)</m>, since these do not converge.
 </p>
 
 <p>The limit <m>\lim\limits_{x \to \infty}f(x)</m> does not exist, and <m>f(n)=d_n</m>; the limit <m>\lim\limits_{n \to \infty}d_n</m> also does not exist. (We generally don't write equality for two things that don't exist: equality refers to numerical value, and these have none.
@@ -685,7 +685,7 @@ The denominator grows without bound, so
 </p></blockquote>
 </p>
 
-<p>It's certainly true that <em>if the limit of the numerator is a real number</em>, and the denominator grows without bound, then the limit of the sequence is zero. However, in our case, the limit of the numerator does not exist. To apply the limit arithmetic rules from the CLP-II text (Theorem<nbsp/><xref ref="thm_SRlimarith"/>), our limits must actually exist.
+<p>It's certainly true that <em>if the limit of the numerator is a real number</em>, and the denominator grows without bound, then the limit of the sequence is zero. However, in our case, the limit of the numerator does not exist. To apply the limit arithmetic rules from the CLP-2 text (Theorem<nbsp/><xref ref="thm_SRlimarith"/>), our limits must actually exist.
 </p>
 
 <p>A better reasoning looks something like this:
@@ -696,7 +696,7 @@ The denominator grows without bound, and the numerator never gets very large, so
 </p></blockquote>
 </p>
 
-<p>To quantify this reasoning more precisely, we use the squeeze theorem, Theorem<nbsp/><xref ref="thm_SRsqueeze"/> in the CLP-II text. There are two parts to the squeeze theorem: finding two bounding functions, and making sure these functions have the same limit.
+<p>To quantify this reasoning more precisely, we use the squeeze theorem, Theorem<nbsp/><xref ref="thm_SRsqueeze"/> in the CLP-2 text. There are two parts to the squeeze theorem: finding two bounding functions, and making sure these functions have the same limit.
 <ul>
 <li> Since <m>-1\leq \sin n \leq 1</m> for all <m>n</m>, we choose functions <m>a_n = \frac{-1}{n}</m> and <m>b_n = \frac{1}{n}</m>.  Then <m>a_n \leq c_n \leq b_n</m> for all <m>n</m>.
 </li>
@@ -813,7 +813,7 @@ We  apply the squeeze theorem to the pieces <m>\textcolor{blue}{\dfrac{\sin (n^2
 So, by the squeeze theorem, <m>\textcolor{blue}{ \lim\limits_{n \to \infty}\dfrac{\sin (n^2)}{n} =0 }</m> and <m>\textcolor{red}{ \lim\limits_{n \to \infty}\dfrac{\sin n}{n}=0 }</m>.
 </p>
 
-<p>Now, using the arithmetic of limits from Theorem<nbsp/><xref ref="thm_SRlimarith"/> in the CLP-II text,
+<p>Now, using the arithmetic of limits from Theorem<nbsp/><xref ref="thm_SRlimarith"/> in the CLP-2 text,
 <md>
 <mrow>
 \lim_{n \to \infty}a_n &amp;=\lim_{n \to \infty}\left[ \dfrac{1}{n}+3\cdot\frac{\sin (n^2)}{n} - 2\cdot\frac{\sin n}{n}\right]
@@ -968,7 +968,7 @@ First, we note that <m>\lim\limits_{n \to \infty}\dfrac{6n^2+5n}{n^2+1}=6</m>. W
 </p>
 
 <p>
-Using  arithmetic of limits, Theorem<nbsp/><xref ref="thm_SRlimarith"/> in the CLP-II text, we conclude
+Using  arithmetic of limits, Theorem<nbsp/><xref ref="thm_SRlimarith"/> in the CLP-2 text, we conclude
 <me>
 \displaystyle\lim_{n\rightarrow\infty}\left[\frac{6n^2+5n}{n^2+1} +3\cos(1/n^2) \right]
 =6+3(1)=9.
