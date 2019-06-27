@@ -101,7 +101,7 @@ E - II
 F - III
 </p></answer>
 <solution><p>
-These are listed in Theorem<nbsp/><xref ref="thm_SRimportantTaylorSeries"/> in the CLP-II text. However, it's possible to figure out many of them without a lot of memorization. For example, <m>e^0=\cos(0)=\frac{1}{1-0}=1</m>, while <m>\sin(0)=\log(1+0)=\arctan(0)=0</m>. So by plugging in <m>x=0</m> to the series listed, we can divide them into these two categories.
+These are listed in Theorem<nbsp/><xref ref="thm_SRimportantTaylorSeries"/> in the CLP-2 text. However, it's possible to figure out many of them without a lot of memorization. For example, <m>e^0=\cos(0)=\frac{1}{1-0}=1</m>, while <m>\sin(0)=\log(1+0)=\arctan(0)=0</m>. So by plugging in <m>x=0</m> to the series listed, we can divide them into these two categories.
 </p>
 
 <p>The derivative of sine is cosine, so we can also look for one series that is the derivative of another. The derivative of <m>e^x</m> is <m>e^x</m>, so we can look for a series that is its own derivative.
@@ -145,7 +145,7 @@ F - III
 </ol>
 </p></statement>
 <hint><p>
-See Example<nbsp/><xref ref="eg_SRfindDeriv"/> in the CLP-II text.
+See Example<nbsp/><xref ref="eg_SRfindDeriv"/> in the CLP-2 text.
 </p></hint>
 <answer><p>
 (a) <m>f^{(20)}(3)=20^2\left(\dfrac{20!}{20!+1}\right)</m>
@@ -561,7 +561,7 @@ about <m>x = 0</m> in summation notation.
 </p></statement>
 
 <hint><p>
-Review Example <xref ref="eg_SRpsrepC"/> in the CLP-II text.
+Review Example <xref ref="eg_SRpsrepC"/> in the CLP-2 text.
 </p></hint>
 
 <answer><p>
@@ -793,7 +793,7 @@ Evaluate <m>{\displaystyle\sum_{n=0}^\infty\frac{(-1)^n}{n!}}\,</m>.
 
 <hint><p>
 There is an important Taylor series, one of the series in
-Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the CLP-II text, that looks a lot like the given series.
+Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the CLP-2 text, that looks a lot like the given series.
 </p></hint>
 
 <answer><p>
@@ -820,7 +820,7 @@ Evaluate <m>{\displaystyle\sum_{k=0}^\infty\frac{1}{e^k k!}}\,</m>.
 
 <hint><p>
 There is an important Taylor series, one of the series in
-Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the CLP-II text, that looks a lot like the given series.
+Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the CLP-2 text, that looks a lot like the given series.
 </p></hint>
 
 <answer><p>
@@ -848,7 +848,7 @@ Evaluate the sum of the convergent series
 
 <hint><p>
 There is an important Taylor series, one of the series in
-Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the CLP-II text, that looks a lot like the given series. Be careful about the
+Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the CLP-2 text, that looks a lot like the given series. Be careful about the
 limits of summation.
 </p></hint>
 
@@ -888,7 +888,7 @@ Evaluate
 
 <hint><p>
 There is an important Taylor series, one of the series in
-Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the CLP-II text, that looks a lot like the given series.
+Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the CLP-2 text, that looks a lot like the given series.
 </p></hint>
 
 <answer><p>
@@ -925,7 +925,7 @@ Evaluate
 Split the series into a sum of two series.
 There is an important Taylor series, one of the series in
 Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the
-CLP-II text, that looks a lot like each of the two series.
+CLP-2 text, that looks a lot like each of the two series.
 </p></hint>
 
 <answer><p>
@@ -1114,7 +1114,7 @@ Hence <m>\displaystyle\sum\limits_{n=0}^\infty \frac{1}{(2n)!}=\frac12\left(e+\f
 </li>
 <li>
 <p>
-Example<nbsp/><xref ref="eg_pi"/> in the CLP-II text mentions the formula
+Example<nbsp/><xref ref="eg_pi"/> in the CLP-2 text mentions the formula
 <me>
 \pi=16\arctan\frac15-4\arctan\frac{1}{239}</me>
 Using the Taylor series for arctangent, how many terms would you have to add up to approximate <m>\pi</m> with an error of at most <m>4\times 10^{-5}</m>?
@@ -1314,12 +1314,12 @@ So, it suffices to add up the first 29 terms.
 <p>	You may assume without proof that <m>2 \lt e \lt 3</m>.
 </p></statement>
 <hint><p>
-	The Taylor Series is not alternating, so use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation.
+	The Taylor Series is not alternating, so use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-2 text to bound the error in a partial-sum approximation.
 </p></hint>
 <answer><p>
 <m>S_{13}</m>	or higher
 </p></answer>
-<solution><p>The Taylor Series for <m>e^x</m> is not alternating, so we'll use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation. The error in the partial-sum approximation <m>S_N</m> is
+<solution><p>The Taylor Series for <m>e^x</m> is not alternating, so we'll use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-2 text to bound the error in a partial-sum approximation. The error in the partial-sum approximation <m>S_N</m> is
 	<me>
 E_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}</me>
 </p>
@@ -1361,13 +1361,13 @@ Suppose you wanted to approximate the number <m>\log(0.9)</m> as a rational numb
 (That is, an absolute error less than <m>5\times10^{-11}</m>.)
 </p></statement>
 <hint><p>
-The Taylor Series is not alternating, so use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation.
+The Taylor Series is not alternating, so use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-2 text to bound the error in a partial-sum approximation.
 </p></hint>
 <answer><p>
 	<m>S_9</m> or higher
 </p></answer>
 <solution><p>
-The Taylor Series for <m>\log(1-x)</m> is not alternating, so we'll use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation. The error in the partial-sum approximation <m>S_N</m> is
+The Taylor Series for <m>\log(1-x)</m> is not alternating, so we'll use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-2 text to bound the error in a partial-sum approximation. The error in the partial-sum approximation <m>S_N</m> is
 <me>
 E_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}</me>
 </p>
@@ -1463,14 +1463,14 @@ So, it suffices to use the partial sum <m>S_9</m>.
 <p>	You may assume without proof that <m>2 \lt e \lt 3</m>.
 </p></statement>
 <hint><p>
-	Use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation.
+	Use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-2 text to bound the error in a partial-sum approximation.
 	This theorem requires you to consider values of <m>c</m> between <m>x</m> and <m>x=0</m>; since <m>x</m> could be anything from <m>-2</m> to <m>1</m>, you should think about values of <m>c</m> between <m>-2</m> and <m>1</m>.
 </p></hint>
 <answer><p>
 <m>S_{18}</m> or higher
 </p></answer>
 <solution><p>
-	We'll use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error of a partial-sum approximation. The error in the partial-sum approximation <m>S_N</m> is
+	We'll use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-2 text to bound the error of a partial-sum approximation. The error in the partial-sum approximation <m>S_N</m> is
 	<me>
 E_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}</me>
 </p>
@@ -1570,7 +1570,7 @@ f^{(n)}(x)=\frac{(n-1)!}{2}\left[(1-x)^{-n}+(-1)^{n-1}(1+x)^{-n} \right]</me>
 <p>Remark: One function with this quality is the inverse hyperbolic tangent function<fn>Of course it is! Actually, hyperbolic tangent is <m>\mathrm{tanh}(x) = \dfrac{e^x-e^{-x}}{e^x+e^{-x}}</m>, and inverse hyperbolic tangent is its functional inverse.</fn>.
 </p></statement>
 <hint><p>
-Use Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation.
+Use Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-2 text to bound the error in a partial-sum approximation.
 </p>
 
 <p>To bound the derivative over the appropriate range, remember how to find absolute extrema.
@@ -1579,7 +1579,7 @@ Use Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to b
 The error is in the interval <m>\displaystyle\left(\dfrac{-5^7}{14\cdot 3^7}\left[1+\frac{1}{3^7} \right]\quad,\quad \dfrac{-5^7}{7\cdot 6^7} \right)\approx\left(-0.199, -0.040\right)</m>
 </p></answer>
 <solution><p>
-	We'll use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-II text to bound the error in a partial-sum approximation. The error in the partial-sum approximation <m>S_N</m> is
+	We'll use  Theorem<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> in the CLP-2 text to bound the error in a partial-sum approximation. The error in the partial-sum approximation <m>S_N</m> is
 <me>
 E_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}</me>
 </p>
@@ -1663,7 +1663,7 @@ Use series to evaluate
 </p></statement>
 
 <hint><p>
-See Example <xref ref="eg_TaylorlimitB"/> in the CLP-II text
+See Example <xref ref="eg_TaylorlimitB"/> in the CLP-2 text
 </p></hint>
 
 <answer><p>
@@ -1708,7 +1708,7 @@ Evaluate
 
 <hint><p>
 See Example <xref ref="eg_TaylorlimitB"/> in the
-CLP-II text
+CLP-2 text
 </p></hint>
 
 <answer><p>
@@ -2051,9 +2051,9 @@ Is your approximation in (b) larger or smaller than the true value of <m>I(1/2)<
 
 <hint><p>
 See Example <xref ref="eg_SRpsrepD"/> in the
-CLP-II text.
+CLP-2 text.
 For parts (b) and (c), review  § <xref ref="sec_AST"/> in the
-CLP-II text.
+CLP-2 text.
 </p>
 
 </hint>
@@ -2245,9 +2245,9 @@ Explain why your answer to part (b) has the desired accuracy.
 
 <hint><p>
 See Example <xref ref="eg_erf"/> in the
-CLP-II text.
+CLP-2 text.
 For parts (b) and (c), review  § <xref ref="sec_AST"/> in the
-CLP-II text.
+CLP-2 text.
 </p>
 
 </hint>
@@ -2340,12 +2340,12 @@ Use the previous information to find the maximum value of <m>\Si(x)</m> to withi
 
 <hint><p>
 See Example <xref ref="eg_erf"/> in the
-CLP-II text.
+CLP-2 text.
 For part (b), review  the fundamental theorem of calculus in § <xref ref="sec_fundamental"/>
 of the
-CLP-II text.
+CLP-2 text.
 For part (c), review  § <xref ref="sec_AST"/> in the
-CLP-II text.
+CLP-2 text.
 </p>
 
 </hint>
@@ -2436,9 +2436,9 @@ Use this series to approximate <m>I(1)</m> to within <m>\pm0.01</m>
 
 <hint><p>
 See Example <xref ref="eg_erf"/> in the
-CLP-II text.
+CLP-2 text.
 For parts (b) and (c), review  § <xref ref="sec_AST"/> in the
-CLP-II text.
+CLP-2 text.
 </p>
 
 </hint>
@@ -2513,9 +2513,9 @@ Is your estimate in (b) greater than or less than <m>I(1)</m>?
 
 <hint><p>
 See Example <xref ref="eg_erf"/> in the
-CLP-II text.
+CLP-2 text.
 For parts (b) and (c), review  § <xref ref="sec_AST"/> in the
-CLP-II text.
+CLP-2 text.
 </p>
 
 </hint>

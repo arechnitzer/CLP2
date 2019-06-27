@@ -80,23 +80,25 @@ and solves such an equation by cross multiplying/dividing to get all of the <m>y
 \int\frac{\dee{y}}{g(y)}=\int f(x)\,\dee{x}
 </mrow>
 </mdn>
-This looks illegal, and indeed is illegal <mdash/> <m>\diff{y}{x}</m> is not a fraction. But we'll now see that the answer is still correct. This procedure is simply  a mnenomic device to help you remember that answer. Let <m>G(y)</m> be an  antiderivative of <m>\frac{1}{g(y)}</m> (i.e. <m>G'(y)=\frac{1}{g(y)}</m>) and  <m>F(x)</m> be an antiderivative of <m>f(x)</m> (i.e. <m>F'(x)=f(x))</m>.  If we reinstate the argument of <m>y</m>, equation<nbsp/><xref ref="eq_SDEbasicSln"/> is
-
-<mdn>
-<mrow xml:id="eq_SDEbasicSlnRig" tag="dstar">
-G\big(y(x)\big) = F(x) + C
-</mrow>
-</mdn>
-
-To check that a function <m>y(x)</m> obeys  <m>\diff{y}{x}(x) = f(x)\ g\big(y(x)\big)</m> if and only if it obeys equation<nbsp/><xref ref="eq_SDEbasicSlnRig"/>, just differentiate both sides of equation<nbsp/><xref ref="eq_SDEbasicSlnRig"/> with respect to <m>x</m>. By the chain rule
-<md>
-<mrow>
-G\big(y(x)\big) = F(x) + C &amp;\iff G'\big(y(x)\big)\ y'(x) = F'(x) \iff \frac{y'(x)}{g(y(x))}=f(x)
-</mrow><mrow>
-&amp;\iff y'(x) = f(x)\ g(y(x))
-</mrow>
-</md>
-(We have again assumed that <m>g(y)</m> is nonzero.)
+This looks illegal, and indeed is illegal <mdash/> <m>\diff{y}{x}</m> is not a fraction. But we'll now see that the answer is still correct. This procedure is simply  a mnenomic device to help you remember that answer<nbsp/><xref ref="eq_SDEbasicSln"/>.
+<ul>
+  <li>Our goal is to find all functions <m>y(x)</m> that obey <m>\diff{y}{x}(x) = f(x)\ g\big(y(x)\big)</m>.</li>
+	<li><p>Assuming that <m>g</m> is nonzero,
+	<md>
+	  <mrow>y'(x) = f(x)\ g(y(x)) \amp \iff \frac{y'(x)}{g(y(x))}=f(x)\iff \int\frac{y'(x)}{g(y(x))}\,\dee{x}= \int f(x)\,\dee{x}
+		</mrow>
+	  <mrow> \amp \iff \int\frac{\dee{y}}{g(y)}\bigg|_{y=y(x)}= \int f(x)\,\dee{x}
+		\amp \text{with the substitution }y=y(x), \dee y = y'(x)\,\dee{x}</mrow>
+	</md>
+</p></li>
+<li>That's our answer <xref ref="eq_SDEbasicSln"/> again.</li>
+</ul>
+</p>
+<p>
+  Let <m>G(y)</m> be an antiderivative of <m>\frac{1}{g(y)}</m> (i.e. <m>G'(y)=\frac{1}{g(y)}</m>) and <m>F(x)</m> be an antiderivative of <m>f(x)</m> (i.e. <m>F'(x)=f(x)</m>). If we reinstate the argument of <m>y</m>, <xref ref="eq_SDEbasicSln"/> is
+	<men xml:id="eq_SDEbasicSlnRig">
+		G\big(y(x)\big) = F(x) + C
+	</men>
 </p>
 
 <p>

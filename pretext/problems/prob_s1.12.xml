@@ -1009,7 +1009,7 @@ Evaluate <m>\displaystyle\int_0^\infty e^{-x}\sin x \dee{x}</m>, or state that i
 Use integration by parts twice to find the antiderivative of <m>e^{-x}\sin x</m>, as in Example<nbsp/><xref ref="eg_circularint"/>. Be careful with your signs--it's easy to make a mistake with all those negatives.
 </p>
 
-<p>If you're having a hard time taking the limit at the end, review the Squeeze Theorem (see the CLP-I text).
+<p>If you're having a hard time taking the limit at the end, review the Squeeze Theorem (see the CLP-1 text).
 </p></hint>
 <answer><p>
 <m>\dfrac{1}{2}</m>
@@ -1046,7 +1046,7 @@ We can use integration by parts twice to find the antiderivative of <m>e^{-x}\si
 </mrow><mrow>&amp;=
 \lim_{b \to \infty}\left(\frac{1}{2}-\frac{1}{2e^b}(\cos b+\sin b) \right)
 </mrow>
-<intertext>To find the limit, we use the Squeeze Theorem (see the CLP-I text). Since <m>|\sin b|,|\cos b| \leq 1</m> for any <m>b</m>, we can use the fact that <m>-2 \le \cos b + \sin x \le 2</m> for any <m>b</m>.
+<intertext>To find the limit, we use the Squeeze Theorem (see the CLP-1 text). Since <m>|\sin b|,|\cos b| \leq 1</m> for any <m>b</m>, we can use the fact that <m>-2 \le \cos b + \sin x \le 2</m> for any <m>b</m>.
 </intertext>
 <mrow>
 &amp;\qquad\frac{-2}{2e^b} \leq \frac{1}{2e^b}(\cos b + \sin b)  \leq \frac{2}{2e^b}
@@ -1090,7 +1090,7 @@ So, we split up the integral.
 </me>
 </p>
 
-<p>Let's consider the first integral. By l'Hôpital's rule (see the CLP-I text),
+<p>Let's consider the first integral. By l'Hôpital's rule (see the CLP-1 text),
 <me>
 \lim_{x\to 0} \frac{\sin x}{x}
 =\lim_{x\to 0} \frac{\cos x}{1}
@@ -1234,7 +1234,7 @@ We have a hunch that our integral behaves similarly to <m>\int_0^\infty \frac{1}
 \lim_{x \to \infty}\frac{x}{e^{x/2}+\frac{\sqrt{x}}{e^{x/2}}}
 </mrow>
 </md>
-Hmm... this looks hard. Instead of dealing with it directly, let's use the squeeze theorem (see CLP-I notes).
+Hmm... this looks hard. Instead of dealing with it directly, let's use the squeeze theorem (see CLP-1 notes).
 <md>
 <mrow>
 0 &amp;&amp;\leq&amp;&amp; \frac{x}{e^{x/2}+\frac{\sqrt{x}}{e^{x/2 }}}&amp;&amp;\leq&amp;&amp; \frac{x}{e^{x/2}}
