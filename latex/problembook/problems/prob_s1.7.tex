@@ -746,6 +746,37 @@ It's not obvious where to start, but in general it's nice to have the arguments 
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%
+\begin{question}
+Evaluate $\displaystyle\int \frac{x e^{-x}}{(1-x)^2}\dee{x}$.
+\end{question}
+\begin{hint}
+What is the derivative of $x e^{-x}$?
+\end{hint}
+
+\begin{answer}
+$\displaystyle\int \frac{x e^{-x}}{(1-x)^2}\dee{x}
+= \frac{xe^{-x}}{1-x} + e^{-x} + C
+=\frac{e^{-x}}{1-x} + C$
+\end{answer}
+
+\begin{solution}
+We've got an integrand that consists of several functions multiplied together, and no 
+obvious substitution. So, we think about integration by parts. We know an antiderivative for
+$\frac{1}{(1-x)^2}$, because we know $\diff{}{x}\frac{1}{1-x}=\frac{1}{(1-x)^2}$.
+So let's try $\dee{v} = \frac{\dee{x}}{(1-x)^2}$ and $u=xe^{-x}$. Then $v=\frac{1}{1-x}$
+and $\dee{u} = (1-x)e^{-x}\,\dee{x}$. So,  by integration by parts,
+\begin{align*}
+\int\underbrace{xe^{-x}}_{u}\underbrace{ \frac{\dee{x}}{(1-x)^2}}_{\dee{v}}
+&= \underbrace{\frac{xe^{-x}}{1-x}}_{uv}
+          -\int\underbrace{\frac{1}{1-x}}_{v}\underbrace{(1-x)e^{-x}\,\dee{x}}_{\dee{u}} \\
+&=\frac{xe^{-x}}{1-x} -\int e^{-x}\,\dee{x} \\
+&=\frac{xe^{-x}}{1-x} + e^{-x} + C
+=\frac{e^{-x}}{1-x} + C
+\end{align*}
+\end{solution}
+
+
+%%%%%%%%%%%%%%%%%%%
 \begin{question}[2000D]
 A reduction formula.
 \begin{enumerate}[(a)]
