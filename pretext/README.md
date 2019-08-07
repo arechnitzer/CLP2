@@ -35,6 +35,7 @@
 * This will take a few minutes to run and produce a large number of html files.
 * We still need to build all the tikz figures. To do so we run the pretext helper script `mbx`
 * First, in the site directory, first create an `images` subdirectory.
-* Then run `../script/mbx -v -c latex-image -f svg -d ./images ../clp_2_ic.xml`
+* Then run `../script/mbx -v -c latex-image -f svg -d ./images ../clp_2_ic.xml`  - this needs `pdf2svg` installed
 * This will take some time since there are many images to compile.
-* Now the html is ready and you can the entire `site` directory.
+* Finally - copy the non-tikz figures into place by copying `text/figs/*.svg` directory to `site/text/figs`
+* Now the html is ready and you can upload the entire `site` directory to the webserver of your choice.
