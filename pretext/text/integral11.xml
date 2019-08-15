@@ -1075,7 +1075,7 @@ So plotting <m>y=\log Y</m> against <m>x=\log X</m> gives the straight line <m>y
 <p>
 The three graphs in Figure <xref ref="fig_INTerror"/> plot <m>y=\log_2 e_n</m>  against <m>x=\log_2 n</m> for our three rules. Note that we have chosen to use  logarithms
 	<fn>
-		Now is a good time for a quick revision of logarithms <mdash/> see  <q>Whirlwind review of logarithms</q> in Section<nbsp/>2.7 of the CLP-1 notes.
+		Now is a good time for a quick revision of logarithms <mdash/> see  <q>Whirlwind review of logarithms</q> in Section<nbsp/>2.7 of the CLP-1 text.
 	</fn>
 with  this <q>unusual base</q> because it makes it very clear how much the error is improved if we  <em>double</em> the number of steps used. To be more precise <mdash/> one unit step along the  <m>x</m>-axis represents changing <m>n \mapsto 2n</m>. For example, applying Simpson's rule with  <m>n=2^4</m> steps results in an error of <m>0000166</m>, so the point <m>(x=\log_2 2^4=4, y=\log_2  0000166 = \frac{\log 0000166}{\log 2} = -15.8)</m> has been included on the graph. Doubling  the effort used <mdash/> that is, doubling the number of steps to <m>n=2^5</m><mdash/> results in an  error of <m>0.00000103</m>. So, the data point <m>(x=\log_2 2^5=5\ ,\  y=\log_2 0.00000103 =\frac{\ln 0.00000103}{\ln 2}=-19.9)</m> lies on the graph. Note that the <m>x</m>-coordinates of  these points differ by 1 unit.
 </p>
