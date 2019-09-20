@@ -1150,7 +1150,7 @@ Recall that the exact value is <m>e-1 = 1.718281828\dots</m>.
 
 <subsection xml:id="ssec_knownareas"><title>Using Known Areas to Evaluate Integrals</title>
 <p>
-One of the main aims of this course is to build up general machinery for  computing  definite integrals (as well as interpretting and applying them). We shall start  on this  soon, but not quite yet. We have already seen one concrete, if laborious, method  for  computing definite integrals <mdash/> taking limits of Riemann sums as we did in  Example<nbsp/><xref ref="eg_INTexparea"/>. A second method, which will work for some special  integrands, works by interpretting the definite integral as <q>signed area</q>.  This  approach will work nicely when the area under the curve decomposes into simple  geometric  shapes like triangles, rectangles and circles. Here are some examples of this  second method.
+One of the main aims of this course is to build up general machinery for  computing  definite integrals (as well as interpreting and applying them). We shall start  on this  soon, but not quite yet. We have already seen one concrete, if laborious, method  for  computing definite integrals <mdash/> taking limits of Riemann sums as we did in  Example<nbsp/><xref ref="eg_INTexparea"/>. A second method, which will work for some special  integrands, works by interpreting the definite integral as <q>signed area</q>.  This  approach will work nicely when the area under the curve decomposes into simple  geometric  shapes like triangles, rectangles and circles. Here are some examples of this  second method.
 </p>
 
 <example><title>A very simple integral and a very simple area</title>
@@ -1260,7 +1260,7 @@ But this is the (implicit) equation for a circle <mdash/> the extra condition th
 </example>
 
 <p>
-This next one is a little tricker and relies on us knowing the symmetries of the  sine  function.
+This next one is a little trickier and relies on us knowing the symmetries of the  sine  function.
 </p>
 
 <example><title>Integrating sine</title>
@@ -1278,9 +1278,9 @@ The integral <m>\int_{-\pi}^\pi \sin x\dee{x}</m>  is the signed area of the sha
 
 <subsection xml:id="ssec_velocity"><title>Another Interpretation for Definite Integrals</title>
 <p>
-So far, we have only a single intepretation
+So far, we have only a single interpretation
 	<fn>
-		If this were the only  intepretation  then integrals would be a nice mathematical curiousity and unlikely to be the  core  topic of a large first year mathematics course.
+		If this were the only  interpretation  then integrals would be a nice mathematical curiousity and unlikely to be the  core  topic of a large first year mathematics course.
 	</fn>
 for definite integrals <mdash/>  namely areas  under graphs. In the following example, we develop a second interpretation.
 </p>
@@ -1404,7 +1404,7 @@ from <m>x_{i-1}</m> to <m>x_i</m>, i.e. the contribution, <m>\int_{x_{i-1}}^{x_i
 	We claim that, for any reasonable
 		<fn>We'll be more precise about  what <q>reasonable</q> means shortly.</fn>
 	function <m>f(x)</m>, if you take any reasonable
-		<fn>Again, we'll explain this <q>reasonble</q> shortly</fn>
+		<fn>Again, we'll explain this <q>reasonable</q> shortly</fn>
 	sequence  of  these  approximations you always get the exactly the same limiting value. We define  <m>\int_a^b f(x) \dee{x}</m> to be this limiting value.
 </li>
 <li>
@@ -1435,7 +1435,7 @@ For the rest of this section, assume
 <li> that <m>f(x)</m> is differentiable for <m>a \lt x \lt b</m>, and </li>
 <li> that <m>f'(x)</m> is bounded <mdash/> ie <m>|f'(x)|\leq F</m> for some constant <m>F</m>. </li>
 </ul>
-We will now show that, under these hypotheses, as <m>M(\bbbp)</m> approachs zero,  <m>\cI(\bbbp)</m>  always approaches the area, <m>A</m>, between the graph of <m>y=f(x)</m> and the  <m>x</m>-axis, with <m>x</m>  running from <m>a</m> to <m>b</m>.
+We will now show that, under these hypotheses, as <m>M(\bbbp)</m> approaches zero,  <m>\cI(\bbbp)</m>  always approaches the area, <m>A</m>, between the graph of <m>y=f(x)</m> and the  <m>x</m>-axis, with <m>x</m>  running from <m>a</m> to <m>b</m>.
 </p>
 
 <p>
