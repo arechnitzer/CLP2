@@ -91,12 +91,12 @@ converges. However it does not tell us its value
 <title>The Integral Test</title>
 
 <p>
-In the integral test, we think of a series <m>\sum_{n=1}^\infty a_n</m>, that  we cannot evaluate explicitly, as the area of a union of rectangles, with <m>a_n</m> representing the area of a recatangle of width one and  height <m>a_n</m>. Then we compare that area with the area represented  by an integral, that we can evaluate explicitly, much as we did in  Theorem <xref ref="thm_IMPcomparison"/>, the comparison test for improper integrals. We'll start with a simple example,  to illustrate the idea. Then we'll move on to a formulation of the test in general.
+In the integral test, we think of a series <m>\sum_{n=1}^\infty a_n</m>, that  we cannot evaluate explicitly, as the area of a union of rectangles, with <m>a_n</m> representing the area of a rectangle of width one and  height <m>a_n</m>. Then we compare that area with the area represented  by an integral, that we can evaluate explicitly, much as we did in  Theorem <xref ref="thm_IMPcomparison"/>, the comparison test for improper integrals. We'll start with a simple example,  to illustrate the idea. Then we'll move on to a formulation of the test in general.
 </p>
 
 <example xml:id="eg_firstIntTest"><title>Convergence of the harmonic series</title>
 <p>
-Visualise the terms of the harmonic series <m>\sum_{n=1}^\infty\frac{1}{n}</m> as a bargraph <mdash/> each term is a rectangle of  height <m>\frac{1}{n}</m> and width <m>1</m>. The limit of the series is then the limiting area of this union of rectangles. Consider the sketch on the left below.
+Visualise the terms of the harmonic series <m>\sum_{n=1}^\infty\frac{1}{n}</m> as a bar graph <mdash/> each term is a rectangle of  height <m>\frac{1}{n}</m> and width <m>1</m>. The limit of the series is then the limiting area of this union of rectangles. Consider the sketch on the left below.
 </p>
 <sidebyside width="80%">
  <image source="text/figs/harmonic_int"/>
@@ -228,7 +228,7 @@ This shaded area is smaller than the area under the curve <m>y=f(x)</m> for  <m>
 <me>
 \sum_{n=I}^\infty a_n \le \int_{I-1}^\infty f(x)\ dx
 </me>
-and, if the integral is finite, the sum <m>\sum_{n=I}^\infty a_n</m> is  finite too. Furthermore, the desired bound on the trunction error is just  the special case of this inequality with <m>I=N+1</m>:
+and, if the integral is finite, the sum <m>\sum_{n=I}^\infty a_n</m> is  finite too. Furthermore, the desired bound on the truncation error is just  the special case of this inequality with <m>I=N+1</m>:
 <md>
 <mrow>
 \sum_{n=1}^\infty a_n - \sum_{n=1}^N a_n =\sum_{n=N+1}^\infty a_n \le \int_N^\infty f(x)\ dx
@@ -262,7 +262,7 @@ and, if the integral is infinite, the sum <m>\sum_{n=I}^\infty a_n</m> is infini
 <p>
 Now that we have the integral test, it is straightforward to determine  for which values of <m>p</m> the series
 	<fn>
-		This series, viewed  as a function of <m>p</m>, is called the Riemannn zeta function, <m>\zeta(p)</m>,  or the Euler-Riemann zeta function. It is extremely important because  of its connections to prime numbers (among many other things). Indeed  Euler proved that
+		This series, viewed  as a function of <m>p</m>, is called the Riemann zeta function, <m>\zeta(p)</m>,  or the Euler-Riemann zeta function. It is extremely important because  of its connections to prime numbers (among many other things). Indeed  Euler proved that
 		<me>
 		\zeta(p) = \sum_{n=1}^\infty \frac{1}{n^p}
            = \prod_{\text{P prime}} \left(1 - {\rm P}^{-p} \right)^{-1}
@@ -451,7 +451,7 @@ for very large <m>n</m>. So the first step in tackling such a problem is to deve
 <li>
 	<em>Step 1: Develop intuition.</em> In this case, when <m>n</m> is very large
 	<fn>
-		The symbol <q><m>\gg</m></q> means <q>much larger than</q>. Similarly, the symbol <q><m>\ll</m></q> neans <q>much  less than</q>. Good shorthand symbols can be quite expressive.
+		The symbol <q><m>\gg</m></q> means <q>much larger than</q>. Similarly, the symbol <q><m>\ll</m></q> means <q>much  less than</q>. Good shorthand symbols can be quite expressive.
 	</fn>
 	<m>n^2\gg 2n \gg 3</m> so that  <m>\frac{1}{n^2+2n+3}\approx\frac{1}{n^2}</m>. We already know, from Example <xref ref="eg_SRpTest"/>, that  <m>\sum_{n=1}^\infty\frac{1}{n^p}</m> converges if and only if <m>p \gt 1</m>. So <m>\sum_{n=1}^\infty\frac{1}{n^2}</m>, which has <m>p=2</m>, converges, and  we would expect that <m>\sum_{n=1}^\infty\frac{1}{n^2+2n+3}</m> converges too.
 </li>
@@ -1831,7 +1831,7 @@ and the root test also tells us that if <m>3|X| \gt 1</m> the series diverges,  
 
 
 <p>
-We have done the last example once, in Example <xref ref="eg_ratioC"/>,  using the ratio test and once, in Example <xref ref="eg_rootA"/>, using the root test. It was clearly much easier to use the ratio test. Here is an example that is most easly handled by the root test.
+We have done the last example once, in Example <xref ref="eg_ratioC"/>,  using the ratio test and once, in Example <xref ref="eg_rootA"/>, using the root test. It was clearly much easier to use the ratio test. Here is an example that is most easily handled by the root test.
 </p>
 
 <example xml:id="eg_rootB"><title> <m>\sum_{n=1}^\infty \big(\frac{n}{n+1}\big)^{n^2}</m> </title>
@@ -1887,7 +1887,7 @@ The series
 </md>
 that appeared in Warning <xref ref="wrn_SRdivTest"/>, is called the Harmonic series
 	<fn>
-		The interested reader should use their favourite  search engine to read more on the link between this series and muscial harmonics. You can also find interesting links between the Harmonic series  and the so-called <q>jeep problem</q> and also the problem of stacking a  tower of dominoes to create an overhang that does not topple over.
+		The interested reader should use their favourite  search engine to read more on the link between this series and musical harmonics. You can also find interesting links between the Harmonic series  and the so-called <q>jeep problem</q> and also the problem of stacking a  tower of dominoes to create an overhang that does not topple over.
 	</fn>,
 and its partial sums
 <md>
@@ -1956,7 +1956,7 @@ Since <m>e^{H_n}</m> grows unboundedly with <m>n</m>, the harmonic series diverg
 <subsubsection><title>The Basel Problem</title>
 
 <p>
-The problem of determing the exact value of the sum of the series
+The problem of determining the exact value of the sum of the series
 <md>
 <mrow>
   \sum_{n=1}^\infty \frac{1}{n^2}
