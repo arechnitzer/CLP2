@@ -63,7 +63,7 @@ A <em>separable differential equation</em> is an equation for a function
 </definition>
 
 <p>
-We'll start by developing a recipe for solving separable differential  equations. Then we'll look at many examples. Usually one supresses the argument of <m>y(x)</m>  and writes the  equation
+We'll start by developing a recipe for solving separable differential  equations. Then we'll look at many examples. Usually one suppresses the argument of <m>y(x)</m>  and writes the  equation
 	<fn>
 		Look at the right hand side of the equation. The <m>x</m>-dependence is separated from the <m>y</m>-dependence. That's the reason for the name <q>separable</q>.
 	</fn>
@@ -80,7 +80,7 @@ and solves such an equation by cross multiplying/dividing to get all of the <m>y
 \int\frac{\dee{y}}{g(y)}=\int f(x)\,\dee{x}
 </mrow>
 </mdn>
-This looks illegal, and indeed is illegal <mdash/> <m>\diff{y}{x}</m> is not a fraction. But we'll now see that the answer is still correct. This procedure is simply  a mnenomic device to help you remember that answer<nbsp/><xref ref="eq_SDEbasicSln"/>.
+This looks illegal, and indeed is illegal <mdash/> <m>\diff{y}{x}</m> is not a fraction. But we'll now see that the answer is still correct. This procedure is simply  a mnemonic device to help you remember that answer<nbsp/><xref ref="eq_SDEbasicSln"/>.
 <ul>
   <li>Our goal is to find all functions <m>y(x)</m> that obey <m>\diff{y}{x}(x) = f(x)\ g\big(y(x)\big)</m>.</li>
 	<li><p>Assuming that <m>g</m> is nonzero,
@@ -111,7 +111,7 @@ where <m>f(x)</m> and <m>g(y)</m> are given functions and <m>x_0</m> and <m>y_0<
 
 <example xml:id="eg_SDEsdeAA"><title>A separable warm-up</title>
 <p>
-The diferential equation
+The differential equation
 <me>
 \diff{y}{x} = xe^{-y}
 </me>
@@ -162,7 +162,7 @@ using our mnemonic device.
 &amp;\implies y-b = C e^{ax}
 </mrow>
 </md>
-where <m>C</m> is either <m>+e^c</m> or <m>-e^c</m>. Note that as <m>c</m> runs over all real numbers, <m>+e^c</m> runs over all strictly poisitive real numbers and <m>-e^c</m> runs over all strictly negative real numbers. So, so far, <m>C</m> can be any real number except <m>0</m>. But we were a bit sloppy here. We implicitly assumed that <m>y-b</m> was nonzero, so that we could divide it across.  None-the-less, the constant function <m>y=b</m>, which corresponds to <m>C=0</m>, is a perfectly good solution <mdash/> when <m>y</m> is the constant function <m>y=b</m>, both <m>\diff{y}{x}</m> and <m>a(y-b)</m> are zero. So the general solution to <m>\diff{y}{x} =a(y-b)</m> is <m>y(x)=C e^{ax}+b</m>, where the constant <m>C</m> can be any real number. Note that when <m>y(x)=C e^{ax}+b</m> we have <m>y(0)=C+b</m>. So <m>C=y(0)-b</m> and the general solution is
+where <m>C</m> is either <m>+e^c</m> or <m>-e^c</m>. Note that as <m>c</m> runs over all real numbers, <m>+e^c</m> runs over all strictly positive real numbers and <m>-e^c</m> runs over all strictly negative real numbers. So, so far, <m>C</m> can be any real number except <m>0</m>. But we were a bit sloppy here. We implicitly assumed that <m>y-b</m> was nonzero, so that we could divide it across.  None-the-less, the constant function <m>y=b</m>, which corresponds to <m>C=0</m>, is a perfectly good solution <mdash/> when <m>y</m> is the constant function <m>y=b</m>, both <m>\diff{y}{x}</m> and <m>a(y-b)</m> are zero. So the general solution to <m>\diff{y}{x} =a(y-b)</m> is <m>y(x)=C e^{ax}+b</m>, where the constant <m>C</m> can be any real number. Note that when <m>y(x)=C e^{ax}+b</m> we have <m>y(0)=C+b</m>. So <m>C=y(0)-b</m> and the general solution is
 <me>
 y(x) = \{y(0)-b\}\,e^{ax} + b
 </me>
@@ -899,7 +899,7 @@ We'll sketch the graphs of four functions <m>P(t)</m> that obey this equation.
 </p>
 
 <p>
-The sketchs will be based on the observation that <m>(6000-3P)\,P=3(2000-P)\,P</m>
+The sketches will be based on the observation that <m>(6000-3P)\,P=3(2000-P)\,P</m>
 <ul>
 <li> is zero for <m>P=0,\ 2000</m>, </li>
 <li> is strictly positive for <m>0 \lt P \lt 2000</m> and </li>
@@ -951,16 +951,16 @@ As a result,
 	Similarly, if <m>P(0)=2000</m>, the graph again starts out  horizontally. So <m>P(t)</m> remains at <m>2000</m> and the slope remains at zero.  The population size remains 2000 for all time. Again, the function  <m>P(t)=2000</m> obeys <m>\diff{P}{t}(t)=\big(6000-3P(t)\big)P(t)</m> for all <m>t</m>.
 </li>
 <li>
-	If <m>P(0)=1000</m>, the graph starts out with positive slope. So <m>P(t)</m> increases with <m>t</m>. As <m>P(t)</m> increases towards 2000, the slope <m>(6000-3P(t)\big)P(t)</m>, while remaining positive, gets closer and closer to zero. As the graph approachs height 2000, it becomes more and more  horizontal. The graph cannot actually cross from below 2000 to above 2000, because to do so it would have to have strictly positive slope for  some value of <m>P</m> above 2000, which is not allowed.
+	If <m>P(0)=1000</m>, the graph starts out with positive slope. So <m>P(t)</m> increases with <m>t</m>. As <m>P(t)</m> increases towards 2000, the slope <m>(6000-3P(t)\big)P(t)</m>, while remaining positive, gets closer and closer to zero. As the graph approaches height 2000, it becomes more and more  horizontal. The graph cannot actually cross from below 2000 to above 2000, because to do so it would have to have strictly positive slope for  some value of <m>P</m> above 2000, which is not allowed.
 </li>
 <li>
-	If <m>P(0)=3000</m>, the graph starts out with negative slope. So <m>P(t)</m> decreases with <m>t</m>. As <m>P(t)</m> decreases towards 2000, the slope <m>(6000-3P(t)\big)P(t)</m>, while remaining negative, gets closer and closer to zero. As the graph approachs height 2000, it becomes more and more  horizontal. The graph cannot actually cross from above 2000 to below 2000, because to do so it would have to have negative slope for some value of <m>P</m> below 2000, which is not allowed.
+	If <m>P(0)=3000</m>, the graph starts out with negative slope. So <m>P(t)</m> decreases with <m>t</m>. As <m>P(t)</m> decreases towards 2000, the slope <m>(6000-3P(t)\big)P(t)</m>, while remaining negative, gets closer and closer to zero. As the graph approaches height 2000, it becomes more and more  horizontal. The graph cannot actually cross from above 2000 to below 2000, because to do so it would have to have negative slope for some value of <m>P</m> below 2000, which is not allowed.
 </li>
 </ul>
 </p>
 
 <p>
-These curves are sketched in the figure below. We conclude that for any initial population size <m>P(0)</m>, except <m>P(0)=0</m>, the population size approachs <m>2000</m> as <m>t\rightarrow\infty</m>.
+These curves are sketched in the figure below. We conclude that for any initial population size <m>P(0)</m>, except <m>P(0)=0</m>, the population size approaches <m>2000</m> as <m>t\rightarrow\infty</m>.
 </p>
 
 <sidebyside width="50%">
@@ -968,7 +968,7 @@ These curves are sketched in the figure below. We conclude that for any initial 
 </sidebyside>
 
 <p>
-Now we'll do an example in which we explictly solve the logistic growth equation.
+Now we'll do an example in which we explicitly solve the logistic growth equation.
 </p>
 
 <example xml:id="eg_SDElogisticA"><title>Population predictions using logistic growth</title>
@@ -1304,7 +1304,7 @@ A 25 year old graduate of UBC is given <dollar/>50,000 which is invested at 5<pe
 </p>
 
 <p>
-<alert>Solution:</alert> (a) Let's consider what happens to <m>A</m> over a very short time interval from time <m>t</m> to time <m>t + \De t</m>. At time <m>t</m> the account balance is <m>A(t)</m>. During the (really short) specified time interval the balance  remains very close to <m>A(t)</m> and so earns interst of  <m>\frac{5}{100}\times\De t\times A(t)</m>.  During the same time interval, the graduate also deposits an additional <m>\$ 2000\De t</m>. So
+<alert>Solution:</alert> (a) Let's consider what happens to <m>A</m> over a very short time interval from time <m>t</m> to time <m>t + \De t</m>. At time <m>t</m> the account balance is <m>A(t)</m>. During the (really short) specified time interval the balance  remains very close to <m>A(t)</m> and so earns interest of  <m>\frac{5}{100}\times\De t\times A(t)</m>.  During the same time interval, the graduate also deposits an additional <m>\$ 2000\De t</m>. So
 <md>
 <mrow>
 A(t+\De t)&amp; \approx A(t) + 0.05 A(t)\De t+ 2000\De t

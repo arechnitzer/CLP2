@@ -230,7 +230,7 @@ and, in particular, both of the series on the right hand sides converge  for all
 </p>
 
 <p>
-We could also test for convergence of the series using  the ratio test. Computing the ratios of successsive terms in these  two series gives us
+We could also test for convergence of the series using  the ratio test. Computing the ratios of successive terms in these  two series gives us
 <md>
 <mrow>
   \left| \frac{A_{n+1}}{A_n} \right|
@@ -381,7 +381,7 @@ e^x=\lim_{n\rightarrow\infty}\Big[1 +x + \frac{1}{2} x^2
 </example>
 
 <p>
-There is another way to prove that the series <m>\sum_{n=0}^\infty \frac{x^n}{n!}</m> converges to the function <m>e^x</m>.  Rather than looking at how the error term <m>E_n(x)</m> behaves as <m>n \to \infty</m>, we can show that the series  satsifies the same simple differential equation
+There is another way to prove that the series <m>\sum_{n=0}^\infty \frac{x^n}{n!}</m> converges to the function <m>e^x</m>.  Rather than looking at how the error term <m>E_n(x)</m> behaves as <m>n \to \infty</m>, we can show that the series  satisfies the same simple differential equation
 	<fn>
 		Recall, you studied that differential equation in the  section on separable differential equations (Theorem<nbsp/><xref ref="thm_linearODE"/> in Section<nbsp/><xref ref="sec_sep_de"/>) as well as  wayyyy back in the section on exponential growth and decay in differential calculus.
 	</fn>
@@ -871,7 +871,7 @@ is widely regarded as one of the most important and  beautiful in all of mathema
 </p>
 
 <p>
-Of course having established Euler's formula one can find slicker demonstations. For example, let
+Of course having established Euler's formula one can find slicker demonstrations. For example, let
 <md>
 <mrow>
   f(x) &amp;= e^{-ix} \left(\cos x + i\sin x \right)
@@ -1089,7 +1089,7 @@ we are interested in taking the limit as  <m>x \to a</m>.  So we are only intere
 <me>
 \big|E_n(x)\big|\le C |x-a|^{n+1}\qquad\hbox{whenever }|x-a|\le D
 </me>
-There is some notation for this behavour.
+There is some notation for this behaviour.
 </p>
 
 <definition xml:id="def_bigoh"><title>Big O</title>
@@ -1369,7 +1369,7 @@ so that
 =\lim_{x\rightarrow 0}\big[1+O(x^2)\big]
 =1
 </me>
-We'll spend a little time in the later, more complicated, examples learning how to choose the number of terms we keep in our Tayor expansions so as to make our computations as efficient as possible.
+We'll spend a little time in the later, more complicated, examples learning how to choose the number of terms we keep in our Taylor expansions so as to make our computations as efficient as possible.
 </p>
 </example>
 
@@ -1516,7 +1516,7 @@ Now put these together and take the limit as <m>x \to 0</m>:
 </example>
 
 <p>
-The next two limts have much the same flavour as those above <mdash/> expand  the numerator and denominator to high enough order, do some cancellations  and then take the limit. We have increased the difficulty a little by  introducing <q>expansions of expansions</q>.
+The next two limits have much the same flavour as those above <mdash/> expand  the numerator and denominator to high enough order, do some cancellations  and then take the limit. We have increased the difficulty a little by  introducing <q>expansions of expansions</q>.
 </p>
 
 <example xml:id="eg_bigohlimitC"><title>Another difficult limit</title>
