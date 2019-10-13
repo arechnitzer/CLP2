@@ -8363,13 +8363,14 @@ with repeated quadratic factors do not often appear on exams.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Optional --- Justification of the Partial Fraction Decompositions}
-We will now see the justification for the form of the partial fraction decompositions. We
-will only consider the case in which the denominator has only linear factors. The
-arguments when there are quadratic factors too are similar\footnote{In fact, quadratic factors are completely avoidable because, if we use complex
-numbers, then every polynomial can be written as a product of linear factors. This is the
+We will now see the justification for the form of the partial fraction decompositions. We start by considering the case in which the denominator 
+has only linear factors. Then we'll consider the case in which 
+quadratic factors are allowed too\footnote{In fact, quadratic factors are 
+completely avoidable because, if we use complex numbers, then every 
+polynomial can be written as a product of linear factors. This is the
 fundamental theorem of algebra.}.
 
-\subsubsection*{Simple Linear Factor Case}
+\subsubsection*{The Simple Linear Factor Case}
 In the most common partial fraction decomposition, we split up
 \begin{align*}
 \frac{N(x)}{(x-a_1)\times\cdots\times (x-a_d)}
@@ -8465,7 +8466,7 @@ with
 \end{align*}
 as required.
 
-\subsubsection*{The General Case with Linear Factors}
+\subsubsection*{The General Linear Factor Case}
 Now consider splitting
 \begin{align*}
 \frac{N(x)}{(x-a_1)^{n_1}\times\cdots\times (x-a_d)^{n_d}}
@@ -8590,6 +8591,324 @@ And so on. Eventually, we end up with
 \Big[\frac{A_{d,1}}{x-a_d}+\cdots+\frac{A_{d,n_d}}{(x-a_d)^{n_d}}\Big]
 \end{align*}
 which is exactly what we were trying to show.
+
+\subsubsection*{Really Optional --- The Fully General Case}
+We are now going to see that, in general, if $N(x)$ and $D(x)$ are polynomials
+with the degree of $N$ being strictly smaller than the degree of $D$
+(which we'll denote $\deg(N)<\deg(D)$) and if 
+\begin{equation*}
+D(x)=K(x-a_1)^{m_1}\cdots(x-a_j)^{m_j}
+(x^2+b_1x+c_1)^{n_1}\cdots(x^2+b_kx+c_k)^{n_k}
+\tag{E1}
+\end{equation*}
+(with $b_\ell^2-4 ac_\ell<0$ for all $1\le\ell\le k$ so that no 
+quadratic factor can be written as a product of linear factors with real coefficients) then there are real numbers $A_{i,j}$, $B_{i,j}$, $C_{i,j}$
+such that 
+\begin{align*}
+\begin{split}
+\frac{N(x)}{D(x)}
+&=\frac{A_{1,1}}{x-a_1}+\frac{A_{1,2}}{(x-a_1)^2}+\cdots
+          +\frac{A_{1,m_1}}{(x-a_1)^{m_1}}+\cdots\\
+&\phantom{=}\!+\frac{A_{j,1}}{x-a_j}+\frac{A_{j,2}}{(x-a_j)^2}+\cdots
+          +\frac{A_{j,m_j}}{(x-a_j)^{m_j}}\\
+&\phantom{=}\!+\frac{B_{1,1}x+C_{1,1}}{x^2+b_1x+c_1}
+          +\frac{B_{1,2}x+C_{1,2}}{(x^2+b_1x+c_1)^2}+\!\cdots\!
+          +\frac{B_{1,n_1}x+C_{1,n_1}}{(x^2+b_1x+c_1)^{n_1}}\!+\!\cdots\\
+&\phantom{=}\!+\frac{B_{k,1}x+C_{k,1}}{x^2+b_kx+c_k}
+          +\frac{B_{k,2}x+C_{k,2}}{(x^2+b_kx+c_k)^2}+\!\cdots\!
+          +\frac{B_{k,n_k}x+C_{1,n_k}}{(x^2+b_kx+c_k)^{n_k}}
+\end{split}
+\end{align*}
+This was \eqref{eq:PFdecompd}.
+
+We start with two simpler results, that we'll use repeatedly to get \eqref{eq:PFdecompd}. In the first simpler result, we consider the fraction $\frac{P(x)}{Q_1(x)\,Q_2(x)}$ with $P(x)$, $Q_1(x)$
+and $Q_2(x)$ being polynomials with real coefficients and we are going to assume that when $P(x)$, $Q_1(x)$ and $Q_2(x)$ are factored as in (E1), 
+no two of them have a common linear or quadratic factor. As an example, 
+no two of
+\begin{align*}
+P(x) &= 2(x-3)(x-4)(x^2+3x+3)\\
+Q_1(x) &= 2(x-1)(x^2+2x+2) \\
+Q_2(x) &= 2(x-2)(x^2+2x+3)
+\end{align*}
+have such a common factor. But, for
+\begin{align*}
+P(x) &= 2(x-3)(x-4)(x^2+x+1) \\
+Q_1(x) &= 2(x-1)(x^2+2x+2) \\
+Q_2(x) &= 2(x-2)(x^2+x+1)
+\end{align*}
+$P(x)$ and $Q_2(x)$ have the common factor $x^2+x+1$.
+\begin{lemma}\label{lemPFtwoFactors}
+Let $P(x)$, $Q_1(x)$ and $Q_2(x)$ be polynomials with real coefficients and
+with $\deg(P)<\deg(Q_1Q_2)$. Assume that no two of $P(x)$, $Q_1(x)$ and  
+$Q_2(x)$  have a common linear or quadratic factor. Then there are 
+polynomials $P_1,\ P_2$ with $\deg(P_1)<\deg(Q_1)$, $\deg(P_2)<\deg(Q_2)$, 
+and
+\begin{equation*}
+\frac{P(x)}{Q_1(x)\,Q_2(x)}
+=\frac{P_1(x)}{Q_1(x)} + \frac{P_2(x)}{Q_2(x)}
+\end{equation*}
+\end{lemma}
+\begin{proof}
+We are to find polynomials $P_1$ and $P_2$ that obey
+\begin{equation*}
+P(x) = P_1(x)\,Q_2(x) + P_2(x)\,Q_1(x) 
+\end{equation*}
+Actually, we are going to find polynomials $p_1$ and $p_2$ that obey
+\begin{equation*}
+p_1(x)\,Q_1(x) +p_2(x)\,Q_2(x) = C
+\tag{E2}\end{equation*}
+for some nonzero constant $C$, and then just multiply (E2) by $\frac{P(x)}{C}$.
+To find $p_1$, $p_2$ and $C$ we are going to use something called the 
+Euclidean algorithm. It is an algorithm\footnote{It appears in Euclid's Elements, which was written about 300 BC, and it was probably known even before that.} that is used to efficiently find the greatest common divisors of two numbers. Because $Q_1(x)$ and $Q_2(x)$
+have no common factors of degree $1$ or $2$, their ``greatest common divisor''
+has degree $0$, i.e. is a constant.
+
+\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt %\itemindent-15pt
+\item
+The first step is to apply long division to $\frac{Q_1(x)}{Q_2(x)}$ 
+to find polynomials $n_0(x)$ 
+and $r_0(x)$ such that 
+\begin{equation*}
+\frac{Q_1(x)}{Q_2(x)} = n_0(x) +\frac{r_0(x)}{Q_2(x)}\qquad
+         \text{with $\deg(r_0)<\deg(Q_2)$}
+\end{equation*}
+or, equivalently,
+\begin{equation*}
+Q_1(x) = n_0(x)\,Q_2(x) + r_0(x)\qquad
+         \text{with $\deg(r_0)<\deg(Q_2)$}
+\end{equation*}
+\item
+The second step is to apply long division to $\frac{Q_2(x)}{r_0(x)}$ 
+to find polynomials $n_1(x)$ and $r_1(x)$ such that 
+\begin{equation*}
+Q_2(x) = n_1(x)\,r_0(x) + r_1(x)\qquad
+         \text{with $\deg(r_1)<\deg(r_0)$\ \  or\ \  $r_1(x)=0$}
+\end{equation*}
+\item
+The third step (assuming that $r_1(x)$ was not zero) is to apply long division 
+to $\frac{r_0(x)}{r_1(x)}$ to find polynomials $n_2(x)$ 
+and $r_2(x)$ such that 
+\begin{equation*}
+r_0(x) = n_2(x)\,r_1(x) + r_2(x)\qquad
+         \text{with $\deg(r_2)<\deg(r_1)$\ \  or\ \  $r_2(x)=0$}
+\end{equation*}
+\item
+And so on.
+\end{itemize}
+As the degree of the remainder $r_i(x)$ decreases by at least one each time $i$ is increased by one, the above iteration has to terminate with some  $r_{\ell+1}(x)=0$.
+That is, we choose $\ell$ to be index of the last nonzero remainder.
+Here is a summary of all of the long division steps.
+\begin{alignat*}{5}
+Q_1(x)&=n_0(x)\, Q_2(x) + r_0(x)\qquad 
+             &&\text{with $\deg(r_0)<\deg(Q_2)$} \\
+Q_2(x)&=n_1(x)\, r_0(x) + r_1(x)\qquad 
+             &&\text{with $\deg(r_1)<\deg(r_0)$} \\
+r_0(x)&=n_2(x)\,r_1(x)+r_2(x)\qquad 
+            &&\text{with $\deg(r_2)<\deg(r_1)$} \\
+r_1(x)&=n_3(x)\,r_2(x)+r_3(x)\qquad 
+            &&\text{with $\deg(r_3)<\deg(r_2)$} \\
+%r_2(x)&=n_4(x)\,r_3(x)+r_4(x)\qquad 
+%            &&\text{with $\deg(r_4)<\deg(r_3)$} \\
+%%            &&\text{where $r_4=0$ or $\deg(r_4)<\deg(r_3)$} \\
+%      & r_4(x)=r_2(x)-n_4(x)\,r_3(x)
+%          =A_4(x)\,Q_1(x)+B_4(x)\,Q_2(x)\hidewidth \\
+%      &\text{with }A_4(x)=A_2(x)-n_4(x)A_3(x),\  B_4(x)=B_2(x)-n_4(x)\,B_3(x)
+%                                                         \hidewidth\\
+&\ \ \vdots \\
+r_{\ell-2}(x)&=n_\ell(x)\,r_{\ell-1}(x)+r_\ell(x)\qquad 
+            &&\text{with $\deg(r_\ell)<\deg(r_{\ell-1})$} \\
+r_{\ell-1}(x)&=n_{\ell+1}(x)\,r_\ell(x)+r_{\ell+1}(x)\qquad 
+            &&\text{with $r_{\ell+1}=0$}
+\end{alignat*}
+Now we are going to take a closer look at all of the different remainders that we have generated.
+\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt %\itemindent-15pt
+\item
+From first long division step, namely 
+$Q_1(x) = n_0(x)\,Q_2(x) + r_0(x)
+$
+we have that the remainder
+\begin{equation*}
+r_0(x)=Q_1(x)-n_0(x)\,Q_2(x)
+\end{equation*}
+\item
+From the second long division step, namely
+$Q_2(x) = n_1(x)\,r_0(x) + r_1(x)$
+we have that the remainder
+\begin{align*}
+& r_1(x)=Q_2(x)-n_1(x)\,r_0(x)
+        = Q_2(x)-n_1(x)\big[Q_1(x)-n_0(x)\,Q_2(x)\big]\\
+      &\phantom{r_1(x)}
+          =A_1(x)\,Q_1(x)+B_1(x)\,Q_2(x)\hidewidth
+\end{align*}
+with $A_1(x) =-n_1(x)$ and $B_1(x) = 1+n_0(x)\,n_1(x)$. 
+\item
+From the third long division step (assuming that $r_1(x)$ was not zero),
+namely $r_0(x)=n_2(x)\,r_1(x)+r_2(x)$, we have that the remainder
+\begin{align*}
+r_2(x)&=r_0(x)-n_2(x)\,r_1(x) \\
+&=\big[Q_1(x)-n_0(x)\,Q_2(x)\big]
+             -n_2(x)\big[A_1(x)\,Q_1(x)+B_1(x)\,Q_2(x)\big]\\
+      &=A_2(x)\,Q_1(x)+B_2(x)\,Q_2(x) 
+\end{align*}
+with $A_2(x)= 1-n_2(x)\,A_1(x)$ and $B_2(x) = -n_0(x)-n_2(x)\,B_1(x)$.
+\item
+And so on. Continuing in this way, we conclude that the final nonzero remainder
+$r_\ell(x)=A_\ell(x)\,Q_1(x)+B_\ell(x)\,Q_2(x)$ for some polynomials $A_\ell$
+and $B_\ell$. 
+\end{itemize}
+Now the last nonzero remainder $r_\ell(x)$ has to be a nonzero constant $C$
+because
+\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt %\itemindent-15pt
+\item[$\circ$]
+it is nonzero by the definition of $r_\ell(x)$ and
+\item[$\circ$]
+if $r_\ell(x)$ were a polynomial of degree at least one, then
+\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt \itemindent-15pt
+\item $r_\ell(x)$ would be a factor of $r_{\ell-1}(x)$ because 
+          $r_{\ell-1}(x)=n_{\ell+1}(x)\,r_\ell(x)$ and
+\item $r_\ell(x)$ would be a factor of $r_{\ell-2}(x)$ because 
+          $r_{\ell-2}(x)=n_\ell(x)\,r_{\ell-1}(x)+r_\ell(x)$ and
+\item $r_\ell(x)$ would be a factor of $r_{\ell-3}(x)$ because 
+          $r_{\ell-3}(x)=n_{\ell-1}(x)\,r_{\ell-2}(x)+r_{\ell-1}(x)$ and
+\item $\cdots$ and $\cdots$
+\item $r_\ell(x)$ would be a factor of $r_1(x)$ because 
+          $r_1(x)=n_3(x)\,r_2(x)+r_3(x)$ and
+\item $r_\ell(x)$ would be a factor of $r_0(x)$ because 
+          $r_0(x)=n_2(x)\,r_1(x)+r_2(x)$ and
+\item $r_\ell(x)$ would be a factor of $Q_2(x)$ because 
+          $Q_2(x)=n_1(x)\,r_0(x)+r_1(x)$ and
+\item $r_\ell(x)$ would be a factor of $Q_1(x)$ because 
+          $Q_1(x)=n_0(x)\,Q_2(x)+r_0(x)$
+\end{itemize}
+\item[$\circ$]
+so that $r_\ell(x)$ would be a common factor for $Q_1(x)$ and $Q_2(x)$,
+in contradiction to the hypothesis that no two of $P(x)$, $Q_1(x)$ and  
+$Q_2(x)$  have a common linear or quadratic factor. 
+\end{itemize}
+We now have that 
+         $A_\ell(x)\,Q_1(x)+B_\ell(x)\,Q_2(x)=r_\ell(x)=C$.
+Multiplying by $\frac{P(x)}{C}$ gives
+\begin{equation*}
+\tilde P_2(x)\,Q_1(x)+\tilde P_1(x)\,Q_2(x)=P(x)\quad\text{or}\quad
+\frac{\tilde P_1(x)}{Q_1(x)} +\frac{\tilde P_2(x)}{Q_2(x)} 
+                                      =\frac{P(x)}{Q_1(x)\,Q_2(x)}
+\end{equation*}
+with $\tilde P_2(x)=\frac{P(x)\,A_\ell(x)}{C}$ and 
+     $\tilde P_1(x)=\frac{P(x)\,B_\ell(x)}{C}$.
+We're not quite done, because there is still the danger that
+$\deg(\tilde P_1)\ge \deg(Q_1)$  or $\deg(\tilde P_2)\ge \deg(Q_2)$.
+To deal with that possibility, we long divide $\frac{\tilde P_1(x)}{Q_1(x)}$ 
+and call the remainder $P_1(x)$.
+\begin{equation*}
+\frac{\tilde P_1(x)}{Q_1(x)}=N(x)+\frac{P_1(x)}{Q_1(x)}
+                  \qquad\text{ with }\deg(P_1)<\deg(Q_1)
+\end{equation*}
+Therefore we have that
+\begin{align*}
+\frac{P(x)}{Q_1(x)\,Q_2(x)}
+&=\frac{P_1(x)}{Q_1(x)} +N(x) +\frac{\tilde P_2(x)}{Q_2(x)} \\
+&=\frac{P_1(x)}{Q_1(x)} +\frac{\tilde P_2(x)+N(x)Q_2(x)}{Q_2(x)}
+\end{align*}
+Denoting $P_2(x)=\tilde P_2(x)+N(x)Q_2(x)$ gives
+$
+\frac{P}{Q_1\,Q_2}
+=\frac{P_1}{Q_1} +\frac{P_2}{Q_2}
+$
+and since $\deg(P_1)<\deg(Q_1)$, the only thing left to prove is that $\deg(P_2)<\deg(Q_2)$. 
+
+We assume that $\deg(P_2)\ge\deg(Q_2)$ and look for a contradiction.
+We have 
+\begin{align*}
+&\deg(P_2Q_1)\ge\deg(Q_1Q_2)>\deg(P_1Q_2) \\
+&\implies \deg(P)=\deg(P_1Q_2+P_2Q_1)=\deg(P_2Q_1)\ge\deg(Q_1Q_2)
+\end{align*}
+which contradicts the hypothesis that $\deg(P)<\deg(Q_1Q_2)$ and the proof is 
+complete.
+\end{proof}
+
+For the second of the two simpler results, that we'll shortly use repeatedly to get \eqref{eq:PFdecompd}, we consider $\frac{P(x)}{(x-a)^m}$
+and $\frac{P(x)}{{(x^2+bx+c)}^m}$.
+\begin{lemma}\label{lemPFpower}
+Let $m\ge 2$ be an integer, and let $Q(x)$ be either $x-a$ or $x^2+bx+c$, with $a$, $b$ and $c$ being real numbers. 
+Let $P(x)$ be a polynomial with real coefficients, which does not contain $Q(x)$ as a factor, and
+with $\deg(P)<\deg(Q^m)=m\deg(Q)$. Then, for each $1\le i\le m$, there is a
+polynomial $P_i$ with $\deg(P_i)<\deg(Q)$ or $P_i=0$, such that 
+\begin{equation*}
+\frac{P(x)}{Q(x)^m}
+=\frac{P_1(x)}{Q(x)}+\frac{P_2(x)}{Q(x)^2}+\frac{P_3(x)}{Q(x)^3}+\cdots
+         +\frac{P_{m-1}(x)}{Q(x)^{m-1}}+\frac{P_{m}(x)}{Q(x)^m}.
+\end{equation*}
+In particular, if $Q(x) =x-a$, then each $P_i(x)$ is just a constant $A_i$,
+and if  $Q(x) =x^2+bx+c$, then each $P_i(x)$ is a polynomial 
+$B_i x+ C_i$ of degree at most one.
+\end{lemma}
+\begin{proof}
+ We simply repeatedly use long divison to get
+\begin{align*}
+\frac{P(x)}{Q(x)^m}
+&=\frac{P(x)}{Q(x)}\,\frac{1}{Q(x)^{m-1}}
+=\left\{n_1(x) + \frac{r_1(x)}{Q(x)}\right\}\frac{1}{Q(x)^{m-1}} \\
+%&=\frac{n_1(x)\,Q(x)+r_1(x)}{Q(x)^m}\\
+&= \frac{r_1(x)}{Q(x)^m}+\frac{n_1(x)}{Q(x)}\,\frac{1}{Q(x)^{m-2}}
+= \frac{r_1(x)}{Q(x)^m}
+ +\left\{n_2(x) + \frac{r_2(x)}{Q(x)}\right\}\frac{1}{Q(x)^{m-2}} \\
+&= \frac{r_1(x)}{Q(x)^m} + 
+  \frac{r_2(x)}{Q(x)^{m-1}}+\frac{n_2(x)}{Q(x)}\,\frac{1}{Q(x)^{m-3}} \\
+&\ \ \vdots\\
+&=   \frac{r_1(x)}{Q(x)^m} + \frac{r_2(x)}{Q(x)^{m-1}} +\cdots+
+      \frac{r_{m-2}(x)}{Q(x)^3}
+       +\frac{n_{m-2}(x)}{Q(x)}\,\frac{1}{Q(x)}\\
+&=   \frac{r_1(x)}{Q(x)^m} + \frac{r_2(x)}{Q(x)^{m-1}} +\cdots+
+      \frac{r_{m-2}(x)}{Q(x)^3}
+       +\left\{n_{m-1}(x) + \frac{r_{m-1}(x)}{Q(x)}\right\}\frac{1}{Q(x)}\\
+&=   \frac{r_1(x)}{Q(x)^m} + \frac{r_2(x)}{Q(x)^{m-1}} +\cdots+
+      \frac{r_{m-2}(x)}{Q(x)^3}+\frac{r_{m-1}(x)}{Q(x)^2}
+       +\frac{n_{m-1}(x)}{Q(x)} 
+\end{align*}
+By the rules of long division every $\deg(r_i)<\deg(Q)$.
+It is also true that the final numerator, $n_{m-1}$, has 
+$\deg(n_{m-1})<\deg(Q)$ --- that is, we kept dividing by $Q$ until the degree of the quotient was less than the degree of $Q$. To see this, note that 
+$\deg(P)<m\deg(Q)$ and
+\begin{align*}
+\deg(n_1) &= \deg(P)-\deg(Q) \\
+\deg(n_2) &= \deg(n_1)-\deg(Q)= \deg(P)-2\deg(Q) \\
+&\ \ \vdots\\
+\deg(n_{m-1}) &= \deg(n_{m-2})-\deg(Q)= \deg(P)-(m-1)\deg(Q) \\
+              &<m\deg(Q)-(m-1)\deg(Q) \\
+              &=\deg(Q)
+\end{align*}
+So, if $\deg(Q)=1$, then $r_1, r_2, \ldots, r_{m-1}, n_{m-1}$ are all 
+real numbers, and if $\deg(Q)=2$, then
+$r_1, r_2, \ldots, r_{m-1}, n_{m-1}$ all have degree at most one.
+\end{proof}
+We are now in a position to get \eqref{eq:PFdecompd}.
+We use (E1) to factor\footnote{This is assuming that there is at least one 
+linear factor. If not, we factor
+$D(x) = (x^2+b_1x + c_1)^{n_1} Q_2(x)$ instead.} 
+$D(x)= (x-a_1)^{m_1} Q_2(x)$
+and use Lemma \ref{lemPFtwoFactors} to get
+\begin{equation*}
+\frac{N(x)}{D(x)}
+=\frac{N(x)}{(x-a_1)^{m_1} Q_2(x)}=\frac{P_1(x)}{(x-a_1)^{m_1}}
+   + \frac{P_2(x)}{Q_2(x)}
+\end{equation*}
+where $\deg(P_1)<m_1$, and $\deg(P_2)<\deg(Q_2)$. Then we use 
+Lemma \ref{lemPFpower} to get
+\begin{equation*}
+\frac{N(x)}{D(x)}
+=\frac{P_1(x)}{(x-a_1)^{m_1}}   + \frac{P_2(x)}{Q_2(x)}
+=\frac{A_{1,1}}{x-a_1}+\frac{A_{1,2}}{(x-a_1)^2}+\cdots
+          +\frac{A_{1,m_1}}{(x-a_1)^{m_1}}
+   + \frac{P_2(x)}{Q_2(x)}
+\end{equation*}
+We continue working on $\frac{P_2(x)}{Q_2(x)}$ in this way, 
+pulling off of the denominator one $(x-a_i)^{m_i}$ or one 
+$(x^2+b_ix + c_i)^{n_i}$ at a time,
+until we exhaust all of the factors in the denominator $D(x)$.
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
