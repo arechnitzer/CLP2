@@ -1004,18 +1004,18 @@ y&=e^{x^4/4}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{Mquestion}[2014A]
-Find the solution of the differential equation
+Solve the initial value problem
 \begin{equation*}
-x\diff{y}{x} + y = y^2
+x\diff{y}{x} + y = y^2\qquad
+y(1) = -1
 \end{equation*}
-that satisfies $y(1) = -1$.
 \end{Mquestion}
 
 \begin{hint}
 Move the $y$ from the left hand side to the right hand side, then use partial fractions to integrate.
 
 Be careful about the signs. Remember that we need $y=-1$ when
-$x=1$. So, to figure out how to deal with absolute values, you may assume that for values of $x$ in the domain, and values of $y$ in the range, $x$ is near 1 and $y$ is near $-1$.
+$x=1$. This suggests how to deal with absolute values.
 \end{hint}
 
 \begin{answer}
@@ -1042,9 +1042,14 @@ x\diff{y}{x}+y&=y^2\\
  \log\frac{|y-1|}{|y|}&=\log|x|+\log 2\\
  \log\left|\frac{y-1}{y}\right|&=\log|2x|\\
   \left|\frac{y-1}{y}\right|&=|2x|
-\intertext{Since $y=-1$ when $x=1$, we know the domain of our function includes 1  and its range includes $-1$.
-For $x$ near 1 and $y$ near $-1$, both $x$ and $\frac{y-1}{y}$
-are positive and we may drop the absolute value signs.}
+\intertext{As $y(1)=-1$ is an initial condition, we have that $x\ge 1$ and
+$|2x|=2x$. For $x=1$, we have $y=-1$. So at least for $x$ near $1$, we have
+$y$ near $-1$, so that $\frac{y-1}{y}$ is positive and we may drop the 
+absolute value signs. There remains the possibility that $\frac{y(x)-1}{y(x)}$
+changes sign for some larger $x>1$. For now, we will simply ignore that 
+possibility. At the end, we will explicitly check that the $y(x)$ we come up 
+with really does satisfy the differential equation $x\diff{y}{x}+y=y^2$ 
+and the initial condition $y(1)=-1$.}
 \frac{y-1}{y}&=2x\\
 y-1&=2xy\\
 y-2xy&=1\\
@@ -1062,7 +1067,7 @@ x\diff{y}{x}+y&=x\diff{}{x}\left\{\frac{1}{1-2x}\right\}+y\\
 \intertext{So, our differential equation is satisfied. Furthermore:}
 y(1)&=\frac{1}{1-2\times 1}=-1
 \end{align*}
-as desired. This confirms our solution is correct.
+as desired. This confirms that our solution is correct.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 
@@ -1135,12 +1140,16 @@ This is a separable differential equation.
 \intertext{So,}
 \frac{y^2}{2}&= \log\left| \frac{x}{x+1}\right|+2-\log\frac{1}{2}\\
 y^2&= 2\log\left| \frac{x}{x+1}\right|+4-2\log\frac{1}{2}
-\intertext{Note $x=1$ is in the domain of our function (the problem states $y(1)=2$), but $x=0$ is \emph{not} in the domain of our function (since $\log 0$ doesn't exist--there are other restrictions on the domain as well, but this is the one we care about right now). So, we assume the domain of the function is an interval containing $x=1$ but not $x=0$. Then $\frac{x}{x+1}$ is positive, so we can drop the absolute values.}
+\intertext{Note that the question specifies that $y(1)=2$ is an initial condition. So we always have $x\ge 1$. Then $\frac{x}{x+1}$ is positive, and we can drop the absolute values.}
 y^2&= 2\log \frac{x}{x+1}+4-2\log\frac{1}{2}
-\intertext{This leaves two options for $y(x)$: the positive or negative square root of the right hand side above. Since $y(1)=1$, which is positive, we must choose the positive square root.}
+\intertext{This leaves two options for $y(x)$: the positive or negative square root of the right hand side above. Since $y(1)=2$, which is positive, we must choose the positive square root.}
 y(x)&=\sqrt{2\Big(\log\frac{x}{x+1}-\log\frac{1}{2}+2\Big)}\\
 &=\sqrt{4+2\log\frac{2x}{x+1}}
 \end{align*}
+You might worry that $y(x)$ could pass through zero, changing sign, at some 
+$x>1$. But the differential equation says that $\diff{y}{x}=\frac{1}{(x^2+x)y}$
+is positive whenever $y>0$ and $x\ge 1$. So $y(x)$ is an increasing function whenever $y>0$ and $x\ge 1$.
+As $y(1)=2$, we have $y(x)\ge 2$ for all $x\ge 1$.  
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 

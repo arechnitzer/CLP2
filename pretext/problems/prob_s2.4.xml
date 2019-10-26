@@ -1271,11 +1271,10 @@ y&amp;=e^{x^4/4}
 
 <exercise purpose="RQS"><title><fromexam>2014A</fromexam></title>
 <statement><p>
-Find the solution of the differential equation
+Find the solution of the initial value problem 
 <me>
-x\diff{y}{x} + y = y^2
+x\diff{y}{x} + y = y^2\qquad y(1) = -1
 </me>
-that satisfies <m>y(1) = -1</m>.
 </p></statement>
 
 <hint><p>
@@ -1283,7 +1282,7 @@ Move the <m>y</m> from the left hand side to the right hand side, then use parti
 </p>
 
 <p>Be careful about the signs. Remember that we need <m>y=-1</m> when
-<m>x=1</m>. So, to figure out how to deal with absolute values, you may assume that for values of <m>x</m> in the domain, and values of <m>y</m> in the range, <m>x</m> is near 1 and <m>y</m> is near <m>-1</m>.
+<m>x=1</m>. This suggests how to deal with absolute values.
 </p></hint>
 
 <answer><p>
@@ -1324,9 +1323,7 @@ x\diff{y}{x}+y&amp;=y^2
 </mrow><mrow>
   \left|\frac{y-1}{y}\right|&amp;=|2x|
 </mrow>
-<intertext>Since <m>y=-1</m> when <m>x=1</m>, we know the domain of our function includes 1  and its range includes <m>-1</m>.
-For <m>x</m> near 1 and <m>y</m> near <m>-1</m>, both <m>x</m> and <m>\frac{y-1}{y}</m>
-are positive and we may drop the absolute value signs.
+<intertext>As <m>y(1)=-1</m> is an initial condition, we have that <m>x\ge 1</m> and <m>|2x|=2x</m>. For <m>x=1</m>, we have <m>y=-1</m>. So at least for <m>x</m> near <m>1</m>, we have <m>y</m> near <m>-1</m>, so that <m>\frac{y-1}{y}</m> is positive and we may drop the absolute value signs. There remains the possibility that <m>\frac{y(x)-1}{y(x)}</m> changes sign for some larger <m>x\gt 1</m>. For now, we will simply ignore that possibility. At the end, we will explicitly check that the <m>y(x)</m> we come up with really does satisfy the differential equation <m>x\diff{y}{x}+y=y^2</m> and the initial condition <m>y(1)=-1</m>.
 </intertext><mrow>
 \frac{y-1}{y}&amp;=2x
 </mrow><mrow>
@@ -1358,7 +1355,7 @@ x\diff{y}{x}+y&amp;=x\diff{}{x}\left\{\frac{1}{1-2x}\right\}+y
 y(1)&amp;=\frac{1}{1-2\times 1}=-1
 </mrow>
 </md>
-as desired. This confirms our solution is correct.
+as desired. This confirms that our solution is correct.
 </p></solution>
 </exercise>
 
@@ -1457,7 +1454,7 @@ This is a separable differential equation.
 </mrow><mrow>
 y^2&amp;= 2\log\left| \frac{x}{x+1}\right|+4-2\log\frac{1}{2}
 </mrow>
-<intertext>Note <m>x=1</m> is in the domain of our function (the problem states <m>y(1)=2</m>), but <m>x=0</m> is <em>not</em> in the domain of our function (since <m>\log 0</m> doesn't exist--there are other restrictions on the domain as well, but this is the one we care about right now). So, we assume the domain of the function is an interval containing <m>x=1</m> but not <m>x=0</m>. Then <m>\frac{x}{x+1}</m> is positive, so we can drop the absolute values.
+<intertext>Note that the question specifies that <m>y(1)=2</m> is an initial condition. So we always have <m>x\ge 1</m>. Then <m>\frac{x}{x+1}</m> is positive, and we can drop the absolute values.
 </intertext><mrow>
 y^2&amp;= 2\log \frac{x}{x+1}+4-2\log\frac{1}{2}
 </mrow>
@@ -1467,6 +1464,8 @@ y(x)&amp;=\sqrt{2\Big(\log\frac{x}{x+1}-\log\frac{1}{2}+2\Big)}
 &amp;=\sqrt{4+2\log\frac{2x}{x+1}}
 </mrow>
 </md>
+You might worry that <m>y(x)</m> could pass through zero, changing sign, at some <m>x\gt 1</m>. But the differential equation says that <m>\diff{y}{x}=\frac{1}{(x^2+x)y}</m> is positive whenever <m>y\gt 0</m> and <m>x\ge 1</m>. So <m>y(x)</m> is an increasing function whenever <m>y\gt 0</m> and <m>x\ge 1</m>.
+As <m>y(1)=2</m>, we have <m>y(x)\ge 2</m> for all <m>x\ge 1</m>.  
 </p></solution>
 </exercise>
 
