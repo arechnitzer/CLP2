@@ -371,7 +371,7 @@ within 0.1 of an odd integer multiple of <m>\pi</m>, and find the corresponding 
 <li> Give three different whole numbers <m>n</m> such that <m>a_n</m> is close to <m>0</m>. Justify your answers.
 </li>
 </ol>
-Remark: this demonstrates intuitively, though not rigorously, why <m>\lim\limits_{n \to \infty}\cos n</m> is undefined. We consistently find terms in the series that are close to <m>-1</m>, and also consistently find terms in the series that are close to 1. Contrast this to a series like <m>\big\{\cos(2\pi n)\big\}</m>, whose terms are always 1, and whose limit therefore is 1.
+Remark: this demonstrates intuitively, though not rigorously, why <m>\lim\limits_{n \to \infty}\cos n</m> is undefined. We consistently find terms in the series that are close to <m>-1</m>, and also consistently find terms in the series that are close to 1. Contrast this to a series like <m>\big\{\cos(2\pi n)\big\}</m>, whose terms are always 1, and whose limit therefore is 1. It is possible to turn the ideas of this question into a rigorous proof that <m>\lim\limits_{n \to \infty}\cos n</m> is undefined. See the solution.
 </p></statement>
 <hint><p>
 You can use the fact that <m>\pi</m> is somewhat close to <m>\dfrac{22}{7}</m>, or you can use trial and error.
@@ -532,6 +532,17 @@ We could have listed the first several values of <m>a_n</m>, and looked for some
 </p>
 </li>
 </ul>
+<p>
+Remark: it is possible to turn the ideas of this question into a rigorous proof that <m>\lim\limits_{n \to \infty}\cos n</m> is undefined.
+<ul>
+<li> Let, for each integer <m>k\geq 1</m>, <m>n_k</m> be the integer that is closest to <m>2k\pi</m>. Then <m>2k\pi-\frac{1}{2}\leq n_k \leq 2k\pi+\frac{1}{2}</m> so that <m>\cos(n_k)\geq\cos\frac{1}{2}\geq 0.8</m>. Consequently, if  <m>\lim\limits_{n \to \infty}\cos n=c</m> exists, we must have <m>c\geq 0.8</m>.
+</li>
+<li> Let, for each integer <m>k\geq 1</m>, <m>n'_k</m> be the integer that is closest to <m>(2k+1)\pi</m>. Then <m>(2k+1)\pi-\frac{1}{2}\leq n'_k \le (2k+1)\pi+\frac{1}{2}</m> so that <m>\cos(n'_k)\leq-\cos\frac{1}{2}\leq -0.8</m>. Consequently, if <m>\lim\limits_{n \to \infty}\cos n=c</m> exists, we must have <m>c\leq -0.8</m>.
+</li>
+<li> It is impossible to have both <m>c\geq 0.8</m> and <m>c\leq -0.8</m>, so <m>\lim\limits_{n \to \infty}\cos n</m> does not exist.
+</li>
+</ul>
+</p>
 </p></solution>
 </exercise>
 </exercisegroup>

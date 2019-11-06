@@ -269,7 +269,10 @@ Let $\{a_n\}_{n=1}^\infty$ be a sequence defined by $a_n = \cos n$.
 within 0.1 of an odd integer multiple of $\pi$, and find the corresponding values of $a_n$.
 \item Give three different whole numbers $n$ such that $a_n$ is close to $0$. Justify your answers.
 \end{enumerate}
-Remark: this demonstrates intuitively, though not rigorously, why $\lim\limits_{n \to \infty}\cos n$ is undefined. We consistently find terms in the series that are close to $-1$, and also consistently find terms in the series that are close to 1. Contrast this to a series like $\big\{\cos(2\pi n)\big\}$, whose terms are always 1, and whose limit therefore is 1.
+Remark: this demonstrates intuitively, though not rigorously, why $\lim\limits_{n \to \infty}\cos n$ is undefined. We consistently find terms in the sequence that are close to $-1$, and also consistently find terms in the sequence that are close to 1. Contrast this to a sequence like 
+$\big\{\cos(2\pi n)\big\}$, whose terms are always 1, and whose limit therefore is 1.
+It is possible to turn the ideas of this question into a rigorous proof that
+$\lim\limits_{n \to \infty}\cos n$ is undefined. See the solution.
 \end{question}
 \begin{hint}
 You can use the fact that $\pi$ is somewhat close to $\dfrac{22}{7}$, or you can use trial and error.
@@ -389,6 +392,27 @@ Oof. Nothing very close yet. Maybe a better way is  to list values of $\frac{2k+
 \]
 We find roughly the same candidates we did in Solution 1, depending on what we're ready to accept as ``close".
 \end{description}
+Remark: it is possible to turn the ideas of this question into a rigorous proof 
+that $\lim\limits_{n \to \infty}\cos n$ is undefined.
+\begin{itemize}
+\item 
+Let, for each integer $k\ge 1$, $n_k$ be the integer that is closest to
+$2k\pi$. Then $2k\pi-\frac{1}{2}\le n_k \le 2k\pi+\frac{1}{2}$ so that
+$\cos(n_k)\ge\cos\frac{1}{2}\ge 0.8$. Consequently, if  
+$\lim\limits_{n \to \infty}\cos n=c$ exists, we must have $c\ge 0.8$.
+
+\item 
+Let, for each integer $k\ge 1$, $n'_k$ be the integer that is closest to
+$(2k+1)\pi$. Then $(2k+1)\pi-\frac{1}{2}\le n'_k \le (2k+1)\pi+\frac{1}{2}$ 
+so that
+$\cos(n'_k)\le-\cos\frac{1}{2}\le -0.8$. Consequently, if  
+$\lim\limits_{n \to \infty}\cos n=c$ exists, we must have $c\le -0.8$.
+
+\item
+It is impossible to have both $c\ge 0.8$ and $c\le -0.8$, 
+so $\lim\limits_{n \to \infty}\cos n$ does not exist.
+
+\end{itemize}
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%
