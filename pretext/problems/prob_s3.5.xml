@@ -1160,7 +1160,7 @@ At what position is the centre of mass of the rod?
 Equation<nbsp/><xref ref="eq_weightedrod"/> in the CLP-2 text tells us the centre of mass of a rod with weights <m>\{m_n\}</m> at positions <m>\{x_n\}</m> is <m>\displaystyle\bar x =\frac{\sum m_nx_n}{\sum m_n}</m> .
 </p></hint>
 <answer><p>
-	<m>\dfrac{20}{9}</m>
+	<m>\dfrac{4}{9}</m>
 </p></answer>
 <solution><p>
 Equation<nbsp/><xref ref="eq_weightedrod"/> in the CLP-2 text tells us the centre of mass of a rod with weights <m>\{m_n\}</m> at positions <m>\{x_n\}</m> is <m>\displaystyle\bar x =\frac{\sum m_nx_n}{\sum m_n}</m> .
@@ -1182,7 +1182,7 @@ Equation<nbsp/><xref ref="eq_weightedrod"/> in the CLP-2 text tells us the centr
 
 <p>Now, we want to calculate the sum of the products of the masses and their positions.
 <me>
-\sum_{n=1}^{\infty}\frac{1}{2^n}\cdot n+\sum_{n=1}^{\infty}\frac{1}{3^n}\cdot n</me>
+\sum_{n=1}^{\infty}\frac{1}{2^n}\cdot n+\sum_{n=1}^{\infty}\frac{1}{3^n}\cdot(-n)</me>
 </p>
 
 <p>We don't have such a nice formula for this, but we can make one by differentiating.
@@ -1208,13 +1208,13 @@ Equation<nbsp/><xref ref="eq_weightedrod"/> in the CLP-2 text tells us the centr
 <p>This allows us to evaluate our series.
 <md>
 <mrow>
-\sum_{n=1}^{\infty}\frac{n}{2^n}+\sum_{n=1}^{\infty}\frac{n}{3^n}
-&amp;=\frac{\frac12}{\left(1-\frac12\right)^2}+\frac{\frac13}{\left(1-\frac13\right)^2}
+\sum_{n=1}^{\infty}\frac{n}{2^n}-\sum_{n=1}^{\infty}\frac{n}{3^n}
+&amp;=\frac{\frac12}{\left(1-\frac12\right)^2}-\frac{\frac13}{\left(1-\frac13\right)^2}
 </mrow><mrow>
-&amp;=2+\frac43 = \frac{10}{3}
+&amp;=2-\frac43 = \frac{2}{3}
 </mrow>
 <intertext>Therefore,</intertext><mrow>
-\bar x &amp;=\frac{10/3}{3/2}=\frac{20}{9} = 2.\overline{22}
+\bar x &amp;=\frac{2/3}{3/2}=\frac{4}{9} = 0.\overline{44}
 </mrow>
 </md>
 Remark: we can check that this makes some sense. Since the weights to the right of <m>x=0</m> are heavier than those to the left, but spaced the same, we would expect our rod to balance to the right of <m>x=0</m>.
