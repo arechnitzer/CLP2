@@ -91,7 +91,7 @@ E - II \hfill
 F - III
 \end{answer}
 \begin{solution}
-These are listed in Theorem~\eref{CLP101}{thm:SRimportantTaylorSeries} in the CLP--II text. However, it's possible to figure out many of them without a lot of memorization. For example, $e^0=\cos(0)=\frac{1}{1-0}=1$, while $\sin(0)=\log(1+0)=\arctan(0)=0$. So by plugging in $x=0$ to the series listed, we can divide them into these two categories.
+These are listed in Theorem~\eref{CLP101}{thm:SRimportantTaylorSeries} in the CLP--2 text. However, it's possible to figure out many of them without a lot of memorization. For example, $e^0=\cos(0)=\frac{1}{1-0}=1$, while $\sin(0)=\log(1+0)=\arctan(0)=0$. So by plugging in $x=0$ to the series listed, we can divide them into these two categories.
 
 The derivative of sine is cosine, so we can also look for one series that is the derivative of another. The derivative of $e^x$ is $e^x$, so we can look for a series that is its own derivative.
 
@@ -178,7 +178,7 @@ Using the definition of a Taylor series, find the Taylor series for $f(x)=\log(x
 \end{question}
 \begin{hint}
 The series will bear some resemblance to the Maclaurin series for $\log(1+x)$.
-%pattern describing the derivatives will be similar to the one found in Example~\eref{CLP101}{eg:SRpsrepC} in the CLP--II text.
+%pattern describing the derivatives will be similar to the one found in Example~\eref{CLP101}{eg:SRpsrepC} in the CLP--2 text.
 \end{hint}
 \begin{answer}
 $\displaystyle\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}(x-1)^n$
@@ -337,12 +337,13 @@ $\displaystyle-\sum\limits_{n=0}^\infty 2^nx^n$
 \end{answer}
 
 \begin{solution}
-Substituting $y=2x$ into $\displaystyle \frac{1}{1-y} = \sum\limits_{n=0}^\infty y^n$
+Substituting $y=2x$ into $\displaystyle \frac{1}{1-y} = \sum\limits_{n=0}^\infty y^n$ (which is valid for all $-1<y<1$)
 gives
 \begin{align*}
 f(x) = \frac{1}{2x-1} = -\frac{1}{1-2x}
 =-\sum_{n=0}^\infty (2x)^n
 =-\sum_{n=0}^\infty 2^nx^n
+\qquad\text{for all $-\tfrac{1}{2}<x<\tfrac{1}{2}$}
 \end{align*}
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
@@ -364,12 +365,15 @@ $b_n = 3(-1)^n + 2^n$
 
 \begin{solution}
 Substituting first $y=-x$ and then $y=2x$ into
-$\dfrac{1}{1-y} = \displaystyle\sum\limits_{n=0}^\infty y^n$ gives
+$\dfrac{1}{1-y} = \displaystyle\sum\limits_{n=0}^\infty y^n$ 
+(which is valid for all $-1<y<1$) gives
 \begin{alignat*}{3}
-\frac{1}{1-(-x)} &= \sum_{n=0}^\infty (-x)^n&&=\sum_{n=0}^\infty (-1)^nx^n \\
+\frac{1}{1-(-x)} &= \sum_{n=0}^\infty (-x)^n&&=\sum_{n=0}^\infty (-1)^nx^n
+\qquad\text{for all $-1<x<1$} \\
 \frac{1}{1-(2x)} &= \sum_{n=0}^\infty (2x)^n&&=\sum_{n=0}^\infty 2^nx^n
+\qquad\text{for all $-\tfrac{1}{2}<x<\tfrac{1}{2}$}
 \end{alignat*}
-Hence
+Hence, for all $-\tfrac{1}{2}<x<\tfrac{1}{2}$,
 \begin{align*}
 f(x) &=\frac{3}{x+1} - \frac{1}{2x-1} = \frac{3}{1-(-x)} + \frac{1}{1-2x}
 =3\sum_{n=0}^\infty (-1)^nx^n  +  \sum_{n=0}^\infty 2^nx^n \\
@@ -420,7 +424,7 @@ about $x = 0$ in summation notation.
 \end{Mquestion}
 
 \begin{hint}
-Review Example \eref{CLP101}{eg:SRpsrepC} in the CLP--II text.
+Review Example \eref{CLP101}{eg:SRpsrepC} in the CLP--2 text.
 \end{hint}
 
 \begin{answer}
@@ -627,7 +631,7 @@ Evaluate ${\displaystyle\sum_{n=0}^\infty\frac{(-1)^n}{n!}}\,$.
 There is an important Taylor series, one of the series in
 Theorem \eref{CLP101}{thm:SRimportantTaylorSeries} of the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text, that looks a lot like the given series.
+CLP-2 text, that looks a lot like the given series.
 \end{hint}
 
 \begin{answer}
@@ -654,7 +658,7 @@ Evaluate ${\displaystyle\sum_{k=0}^\infty\frac{1}{e^k k!}}\,$.
 There is an important Taylor series, one of the series in
 Theorem \eref{CLP101}{thm:SRimportantTaylorSeries} of the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text, that looks a lot like the given series.
+CLP-2 text, that looks a lot like the given series.
 \end{hint}
 
 \begin{answer}
@@ -681,7 +685,7 @@ ${\displaystyle\sum_{k=1}^\infty\frac{1}{\pi^k k!}}\,$.
 There is an important Taylor series, one of the series in
 Theorem \eref{CLP101}{thm:SRimportantTaylorSeries} of the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text, that looks a lot like the given series. Be careful about the
+CLP-2 text, that looks a lot like the given series. Be careful about the
 limits of summation.
 \end{hint}
 
@@ -717,7 +721,7 @@ ${\displaystyle\sum_{n=1}^\infty\frac{(-1)^{n-1}}{n\, 2^n}}\,$.
 There is an important Taylor series, one of the series in
 Theorem \eref{CLP101}{thm:SRimportantTaylorSeries} of the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text, that looks a lot like the given series.
+CLP-2 text, that looks a lot like the given series.
 \end{hint}
 
 \begin{answer}
@@ -725,7 +729,7 @@ $\log(3/2)$
 \end{answer}
 
 \begin{solution}
-Recall that
+Recall, from Theorem \eref{CLP101}{thm:SRimportantTaylorSeries} in the CLP-2 text, that, for all $-1<x\le 1$,
 \begin{equation*}
     \log(1+x) = \sum_{k=0}^\infty(-1)^k\frac{x^{k+1}}{k+1}
                     = \sum_{n=1}^\infty(-1)^{n-1}\frac{x^n}{n}
@@ -753,7 +757,7 @@ Split the series into a sum of two series.
 There is an important Taylor series, one of the series in
 Theorem \eref{CLP101}{thm:SRimportantTaylorSeries} of the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text, that looks a lot like each of the two series.
+CLP-2 text, that looks a lot like each of the two series.
 \end{hint}
 
 \begin{answer}
@@ -906,7 +910,7 @@ Hence $\displaystyle\sum\limits_{n=0}^\infty \frac{1}{(2n)!}=\frac12\left(e+\fra
 \begin{Mquestion}
 	\begin{enumerate}[(a)]
 		\item Using the fact that $\arctan(1)=\dfrac{\pi}{4}$, how many terms of the Taylor series for arctangent would you have to add up to approximate $\pi$ with an error of at most $4\times 10^{-5}$?
-		\item Example~\eref{CLP101}{eg:pi} in the CLP--II text mentions the formula
+		\item Example~\eref{CLP101}{eg:pi} in the CLP--2 text mentions the formula
 \[\pi=16\arctan\frac15-4\arctan\frac{1}{239}\]
 Using the Taylor series for arctangent, how many terms would you have to add up to approximate $\pi$ with an error of at most $4\times 10^{-5}$?
 \item Assume without proof the following:
@@ -1289,7 +1293,7 @@ $\displaystyle \lim\limits_{x\rightarrow 0}\frac{1-\cos x}{1+x-e^x}$.
 \begin{hint}
 See Example \eref{CLP101}{eg:TaylorlimitB} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text
+CLP-2 text
 \end{hint}
 
 \begin{answer}
@@ -1329,7 +1333,7 @@ $\displaystyle \lim\limits_{x\rightarrow 0}\frac{\sin x -x +\frac{x^3}{6}}{x^5}$
 \begin{hint}
 See Example \eref{CLP101}{eg:TaylorlimitB} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text
+CLP-2 text
 \end{hint}
 
 \begin{answer}
@@ -1582,10 +1586,10 @@ Is your approximation in (b) larger or smaller than the true value of $I(1/2)$? 
 \begin{hint}
 See Example \eref{CLP101}{eg:SRpsrepD} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+CLP-2 text.
 For parts (b) and (c), review  \S \eref{CLP101}{sec:AST} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+CLP-2 text.
 
 \end{hint}
 
@@ -1751,10 +1755,10 @@ Explain why your answer to part (b) has the desired accuracy.
 \begin{hint}
 See Example \eref{CLP101}{eg:erf} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+CLP-2 text.
 For parts (b) and (c), review  \S \eref{CLP101}{sec:AST} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+CLP-2 text.
 
 \end{hint}
 
@@ -1826,14 +1830,14 @@ of $\Si(x)$ to within $\pm 0.01$.
 \begin{hint}
 See Example \eref{CLP101}{eg:erf} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+CLP-2 text.
 For part (b), review  the fundamental theorem of calculus in \S \eref{CLP101}{sec fundamental}
 of the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+CLP-2 text.
 For part (c), review  \S \eref{CLP101}{sec:AST} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+CLP-2 text.
 
 \end{hint}
 
@@ -1903,10 +1907,10 @@ Use this series to approximate $I(1)$ to within $\pm0.01$
 \begin{hint}
 See Example \eref{CLP101}{eg:erf} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+CLP-2 text.
 For parts (b) and (c), review  \S \eref{CLP101}{sec:AST} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+CLP-2 text.
 
 \end{hint}
 
@@ -1968,10 +1972,10 @@ Is your estimate in (b) greater than or less than $I(1)$?
 \begin{hint}
 See Example \eref{CLP101}{eg:erf} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+CLP-2 text.
 For parts (b) and (c), review  \S \eref{CLP101}{sec:AST} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+CLP-2 text.
 
 \end{hint}
 

@@ -461,15 +461,16 @@ You should know the Maclaurin series for <m>\dfrac{1}{1-x}</m>. Use it.
 </p></answer>
 
 <solution><p>
-Substituting <m>y=2x</m> into <m>\displaystyle \frac{1}{1-y} = \sum\limits_{n=0}^\infty y^n</m>
+Substituting <m>y=2x</m> into <m>\displaystyle \frac{1}{1-y} = \sum\limits_{n=0}^\infty y^n</m> (which is valid for all <m>-1\lt y \lt 1</m>)
 gives
 <md>
 <mrow>
 f(x) = \frac{1}{2x-1} = -\frac{1}{1-2x}
 =-\sum_{n=0}^\infty (2x)^n
-=-\sum_{n=0}^\infty 2^nx^n
+=-\sum_{n=0}^\infty 2^nx^n 
 </mrow>
 </md>
+for all <m>-\tfrac{1}{2}\lt x\lt \tfrac{1}{2}</m>.
 </p></solution>
 </exercise>
 
@@ -495,7 +496,7 @@ You should know the Maclaurin series for <m>\dfrac{1}{1-x}</m>. Use it.
 
 <solution><p>
 Substituting first <m>y=-x</m> and then <m>y=2x</m> into
-<m>\dfrac{1}{1-y} = \displaystyle\sum\limits_{n=0}^\infty y^n</m> gives
+<m>\dfrac{1}{1-y} = \displaystyle\sum\limits_{n=0}^\infty y^n</m> (which is valid for all <m>-1\lt y \lt 1</m>) gives
 <md alignment="alignat">
   <mrow>
 \frac{1}{1-(-x)} &amp;= \sum_{n=0}^\infty (-x)^n&amp;&amp;=\sum_{n=0}^\infty (-1)^nx^n
@@ -503,7 +504,8 @@ Substituting first <m>y=-x</m> and then <m>y=2x</m> into
 \frac{1}{1-(2x)} &amp;= \sum_{n=0}^\infty (2x)^n&amp;&amp;=\sum_{n=0}^\infty 2^nx^n
 </mrow>
 </md>
-Hence
+for all <m>-\tfrac{1}{2}\lt x\lt \tfrac{1}{2}</m>.
+Hence, for all <m>-\tfrac{1}{2}\lt x\lt \tfrac{1}{2}</m>,
 <md>
 <mrow>
 f(x) &amp;=\frac{3}{x+1} - \frac{1}{2x-1} = \frac{3}{1-(-x)} + \frac{1}{1-2x}
@@ -896,7 +898,7 @@ Theorem <xref ref="thm_SRimportantTaylorSeries"/> of the CLP-2 text, that looks 
 </p></answer>
 
 <solution><p>
-Recall that
+Recall, from Theorem <xref ref="thm_SRimportantTaylorSeries"/> in the CLP-2 text, that, for all <m>-1\lt x\le 1</m>,
 <me>
     \log(1+x) = \sum_{k=0}^\infty(-1)^k\frac{x^{k+1}}{k+1}
                     = \sum_{n=1}^\infty(-1)^{n-1}\frac{x^n}{n}
