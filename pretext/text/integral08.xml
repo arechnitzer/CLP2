@@ -131,7 +131,7 @@ Here is an example.
 
 <example xml:id="eg_TRGINTa"><title><m>\int \sin^2 x\cos^3 x\dee{x}</m></title>
 <p>
-Start by factoring off one power of <m>\cos x</m> to combine with <m>dx</m> to get <m>\cos x\dee{x}=du</m>.
+Start by factoring off one power of <m>\cos x</m> to combine with <m>dx</m> to get <m>\cos x\dee{x}=\dee{u}</m>.
 <md>
 <mrow>
 \int \sin^2 x\cos^3 x\dee{x}
@@ -300,13 +300,13 @@ We split the methods for integrating <m>\int \tan^m x\sec^n x\dee{x}</m> into 5 
 		   &amp;=\frac{\sin^{m-1}x}{\cos^{n+m}x}\ \sin x\dee{x}
 	</mrow>
 	</md>
-	and then substitute <m>u=\cos x</m>, <m>du = -\sin x\dee{x}</m>, <m>\sin^2x = 1-\cos^2x=1-u^2</m>. See  Examples <xref ref="eg_TRGINTg"/> and <xref ref="eg_TRGINTh"/>.
+	and then substitute <m>u=\cos x</m>, <m>\dee{u} = -\sin x\dee{x}</m>, <m>\sin^2x = 1-\cos^2x=1-u^2</m>. See  Examples <xref ref="eg_TRGINTg"/> and <xref ref="eg_TRGINTh"/>.
 </li>
 <li>
-	Alternatively, if <m>m</m> is odd and <m>n \geq 1</m> move one factor of  <m>\sec x\,\tan x</m> to the side so that you can see <m>\sec x\,\tan x\dee{x}</m>  in the integral, and substitute <m>u=\sec x</m>, <m>du=\sec x\,\tan x\,\dee{x}</m> and <m>\tan^2 x = \sec^2 x-1=u^2-1</m>. See Example <xref ref="eg_TRGINTf"/>.
+	Alternatively, if <m>m</m> is odd and <m>n \geq 1</m> move one factor of  <m>\sec x\,\tan x</m> to the side so that you can see <m>\sec x\,\tan x\dee{x}</m>  in the integral, and substitute <m>u=\sec x</m>, <m>\dee{u}=\sec x\,\tan x\,\dee{x}</m> and <m>\tan^2 x = \sec^2 x-1=u^2-1</m>. See Example <xref ref="eg_TRGINTf"/>.
 </li>
 <li>
-	If <m>n</m> is even with <m>n\ge 2</m>, move one factor of <m>\sec^2 x</m> to the side so that you can see <m>\sec^2 x\dee{x}</m> in the integral, and  substitute <m>u=\tan x</m>, <m>du=\sec^2 x\,\dee{x}</m> and <m>\sec^2 x = 1+\tan^2 x=1+u^2</m>. See Example <xref ref="eg_TRGINTe"/>.
+	If <m>n</m> is even with <m>n\ge 2</m>, move one factor of <m>\sec^2 x</m> to the side so that you can see <m>\sec^2 x\dee{x}</m> in the integral, and  substitute <m>u=\tan x</m>, <m>\dee{u}=\sec^2 x\,\dee{x}</m> and <m>\sec^2 x = 1+\tan^2 x=1+u^2</m>. See Example <xref ref="eg_TRGINTe"/>.
 </li>
 <li>
 	When <m>m</m> is even and <m>n=0</m> <mdash/> that is the integrand is just an even power of  tangent <mdash/> we can still use the <m>u=\tan x</m> substitution, after using <m>\tan^2x = \sec^2 x - 1</m> (possibly more than once) to  create a <m>\sec^2 x</m>. See Example <xref ref="eg_TRGINTi"/>.
@@ -329,7 +329,7 @@ In this case we rewrite the integrand in terms of sine and cosine and then subst
 <ul>
 <li> Write the integrand <m>\tan x=\frac{1}{\cos x}\sin x</m>. </li>
 <li>
-	Now substitute <m>u=\cos x</m>, <m>du=-\sin x\,\dee{x}</m> just as we did in treating integrands of the form <m>\sin^mx\,\cos^nx</m> with <m>m</m> odd.
+	Now substitute <m>u=\cos x</m>, <m>\dee{u}=-\sin x\,\dee{x}</m> just as we did in treating integrands of the form <m>\sin^mx\,\cos^nx</m> with <m>m</m> odd.
 	<md>
 	<mrow>
 	  \int \tan x\,\dee{x}
@@ -356,7 +356,7 @@ In this case we rewrite the integrand in terms of sine and cosine and then subst
 <ul>
 <li> Write the integrand <m>\tan^3 x=\frac{\sin^2x}{\cos^3 x}\sin x</m>. </li>
 <li>
-	Again substitute <m>u=\cos x</m>, <m>du=-\sin x\,\dee{x}</m>. We rewrite the remaining even  powers of <m>\sin x</m> using <m>\sin^2x=1-\cos^2x=1-u^2</m>.
+	Again substitute <m>u=\cos x</m>, <m>\dee{u}=-\sin x\,\dee{x}</m>. We rewrite the remaining even  powers of <m>\sin x</m> using <m>\sin^2x=1-\cos^2x=1-u^2</m>.
 </li>
 <li>
 	Hence
@@ -391,7 +391,7 @@ Here we collect a factor of <m>\tan x \sec x</m> and then substitute <m>u = \sec
 <alert>Solution:</alert>
 <ul>
 <li>
-	Start by factoring off one copy of <m>\sec x\tan x</m> and combine it with <m>dx</m> to form <m>\sec x\tan x\dee{x}</m>, which will be <m>du</m>.
+	Start by factoring off one copy of <m>\sec x\tan x</m> and combine it with <m>dx</m> to form <m>\sec x\tan x\dee{x}</m>, which will be <m>\dee{u}</m>.
 </li>
 <li>
 	Now substitute <m>u=\sec x</m>,  <m>\dee{u}=\sec x\tan x\dee{x}</m> and <m>\tan^2x = \sec^2 x-1=u^2-1</m>.
@@ -403,7 +403,7 @@ Here we collect a factor of <m>\tan x \sec x</m> and then substitute <m>u = \sec
 	\int \tan^3x \sec^4 x\dee{x}
 	&amp;= \int \underbrace{\tan^2 x}_{u^2-1}\
 			\underbrace{\sec^3 x}_{u^3}\
-			\underbrace{\sec x\tan x\dee{x}}_{du}
+			\underbrace{\sec x\tan x\dee{x}}_{\dee{u}}
 	</mrow><mrow>
 	&amp;= \int \big[u^2-1]u^3\dee{u}
 	</mrow><mrow>
@@ -429,17 +429,17 @@ In the previous case we substituted <m>u = \sec x</m>, while in this case we sub
 <alert>Solution:</alert>
 <ul>
 <li>
-	Factor off one copy of <m>\sec^2 x</m> and combine it with <m>dx</m> to form <m>\sec^2 x\dee{x}</m>, which will be <m>du</m>.
+	Factor off one copy of <m>\sec^2 x</m> and combine it with <m>dx</m> to form <m>\sec^2 x\dee{x}</m>, which will be <m>\dee{u}</m>.
 </li>
 <li>
-	Then substitute <m>u=\tan x</m>, <m>du=\sec^2 x\dee{x}</m> and rewrite any remaining even  powers of <m>\sec x</m> as powers of <m>\tan x=u</m> using <m>\sec^2x = 1+\tan^2 x=1+u^2</m>.
+	Then substitute <m>u=\tan x</m>, <m>\dee{u}=\sec^2 x\dee{x}</m> and rewrite any remaining even  powers of <m>\sec x</m> as powers of <m>\tan x=u</m> using <m>\sec^2x = 1+\tan^2 x=1+u^2</m>.
 </li>
 <li>
 	This gives
 	<md>
 	<mrow>
 	\int \sec^4 x\dee{x}
-	&amp;= \int \underbrace{\sec^2 x}_{1+u^2}\ \underbrace{\sec^2 x\dee{x}}_{du}
+	&amp;= \int \underbrace{\sec^2 x}_{1+u^2}\ \underbrace{\sec^2 x\dee{x}}_{\dee{u}}
 	</mrow><mrow>
 	&amp;= \int \big[1+u^2]\dee{u}
 	</mrow><mrow>
@@ -458,10 +458,10 @@ In the previous case we substituted <m>u = \sec x</m>, while in this case we sub
 <alert>Solution:</alert> Let us revisit this example using this slightly different approach.
 <ul>
 <li>
-	Factor off one copy of <m>\sec^2 x</m> and combine it with <m>dx</m> to form <m>\sec^2 x\dee{x}</m>, which will be <m>du</m>.
+	Factor off one copy of <m>\sec^2 x</m> and combine it with <m>dx</m> to form <m>\sec^2 x\dee{x}</m>, which will be <m>\dee{u}</m>.
 </li>
 <li>
-	Then substitute <m>u=\tan x</m>, <m>du=\sec^2 x\dee{x}</m> and rewrite any remaining even  powers of <m>\sec x</m> as powers of <m>\tan x=u</m> using <m>\sec^2x = 1+\tan^2 x=1+u^2</m>.
+	Then substitute <m>u=\tan x</m>, <m>\dee{u}=\sec^2 x\dee{x}</m> and rewrite any remaining even  powers of <m>\sec x</m> as powers of <m>\tan x=u</m> using <m>\sec^2x = 1+\tan^2 x=1+u^2</m>.
 </li>
 <li>
 	This gives
@@ -469,7 +469,7 @@ In the previous case we substituted <m>u = \sec x</m>, while in this case we sub
 	<mrow>
 	\int \tan^3x \sec^4 x\dee{x}
 	&amp;= \int \underbrace{\tan^3x}_{u^3} \underbrace{\sec^2 x}_{1+u^2}\
-			\underbrace{\sec^2 x\dee{x}}_{du}
+			\underbrace{\sec^2 x\dee{x}}_{\dee{u}}
 	</mrow><mrow>
 	&amp;= \int \big[u^3+u^5]\dee{u}
 	</mrow><mrow>
@@ -749,13 +749,78 @@ to recover the trick. Here it is.
 </example>
 
 <p>
-There is a second method for integrating <m>\int \sec x\dee{x}</m>, that is  more tedious, but more straight forward. In particular, it does not involve a memorized  trick. The integral <m>\int \sec x\,\dee{x}</m> is converted into the integral  <m>\int\frac{du}{1-u^2}</m> by using the substitution <m>u=\sin x</m>, <m>du=\cos x\,\dee{x}</m>. The  integral <m>\int\frac{du}{1-u^2}</m> is then integrated by the method of  partial fractions, which we shall learn about in Section<nbsp/><xref ref="sec_parfrac"/> <q>Partial  Fractions</q>. The details are in Example<nbsp/><xref ref="eg_PFe"/> in those notes. This second method  gives the answer
+There is another method for integrating <m>\int \sec x\dee{x}</m>, that is more tedious, but more straight forward. In particular, it does not involve a memorized trick. We first use the substitution <m>u=\sin x</m>,  <m>\dee{u}=\cos x\,\dee{x}</m>, together with <m>\cos^2 x = 1-\sin^2x=1-u^2</m>. 
+This converts the integral into
+<md>
+<mrow>
+\int \sec x\dee{x}
+  &amp;= \int\frac{1}{\cos x}\dee{x} 
+  = \int\frac{\cos x\ \dee{x}}{\cos^2 x} 
+</mrow><mrow>
+  &amp;= \int \frac{\dee{u}}{1-u^2}\bigg|_{u=\sin x}
+</mrow>
+</md>
+The integrand <m>\frac{1}{1-u^2}</m> is a rational function, i.e. a ratio of two polynomials. There is a procedure, called  the method of partial fractions, that may be used to integrate any rational function. We shall learn about it in Section<nbsp/><xref ref="sec_parfrac"/> <q>Partial  Fractions</q>. The detailed evaluation of the integral <m>\int \sec x\,\dee{x}=\int\frac{\dee{u}}{1-u^2}</m> by the method of partial fractions is presented in Example<nbsp/><xref ref="eg_PFe"/> below.
+</p>
+
+<p>
+In addition, there is a standard trick for evaluating <m>\int\frac{\dee{u}}{1-u^2}</m> that allows us to avoid going through the whole partial fractions algorithm.
+</p>
+
+<example xml:id="eg_TRGINToptb"><title><m>\int \sec x\dee{x}</m> <mdash/> by more trickery</title>
+<p>
+<alert>Solution:</alert> We have already seen that
+<md>
+<mrow>
+\int \sec x\dee{x}
+  &amp;= \int \frac{\dee{u}}{1-u^2}\bigg|_{u=\sin x}
+</mrow>
+</md>
+The trick uses the obervations that
+<ul>
+<li><m>\frac{1}{1-u^2}=\frac{1+u-u}{1-u^2}=\frac{1}{1-u}-\frac{u}{1-u^2}</m></li>
+<li><m>\frac{1}{1-u}</m> has antiderivative <m>-\log(1-u)</m> (for <m>u\lt 1</m>)</li>
+<li> The derivative <m>\diff{}{u}(1-u^2)=-2u</m> of the denominator of  
+<m>\frac{u}{1-u^2}</m> is the same, up to a factor of <m>-2</m>, as the numerator of
+<m>\frac{u}{1-u^2}</m>. So we can easily evaluate the integral of <m>\frac{u}{1-u^2}</m>
+by substituting <m>v=1-u^2</m>, <m>\dee{v}=-2u\,\dee{u}</m>.
+<md>
+<mrow>
+\int \frac{u\,\dee{u}}{1-u^2} 
+= \int \frac{\frac{\dee{v}}{-2}}{v}\bigg|_{v=1-u^2}
+=-\frac{1}{2}\log(1-u^2)+C
+</mrow>
+</md>
+</li>
+</ul>
+Combining these observations gives
+<md>
+<mrow>
+\int \sec x\dee{x}
+  &amp;=\bigg[\int \frac{\dee{u}}{1-u^2}\bigg]_{u=\sin x}
+   =\bigg[\int\frac{1}{1-u}\dee{u}
+              -\int\frac{u}{1-u^2}\dee{u}\bigg]_{u=\sin x}
+</mrow><mrow>
+  &amp;=\Big[-\log(1-u)+\frac{1}{2}\log(1-u^2)+C\Big]_{u=\sin x}
+</mrow><mrow>
+  &amp;=-\log(1-\sin x)+\frac{1}{2}\log(1-\sin^2 x)+C
+</mrow><mrow>
+  &amp;=-\log(1-\sin x)+\frac{1}{2}\log(1-\sin x)+\frac{1}{2}\log(1+\sin x)+C
+</mrow><mrow>
+  &amp;=\frac{1}{2}\log\frac{1+\sin x}{1-\sin x}+C
+</mrow>
+</md>
+</p>
+</example>
+
+<p>
+Example <xref ref="eg_TRGINToptb"/> has given the answer
 <md>
 <mrow>
 \int \sec x\dee{x} =\frac{1}{2}\log\frac{1+\sin x}{1-\sin x}+C
 </mrow>
 </md>
-which appears to be different than the answer in Example <xref ref="eg_TRGINTopta"/>. But they are really the same (of course) since
+which appears to be different than the answer in Example <xref ref="eg_TRGINTopta"/>. But they are really the same since
 <md>
 <mrow>
 &amp;\frac{1+\sin x}{1-\sin x}
@@ -781,7 +846,7 @@ Oof!
 	by multiplying the integrand by a cleverly chosen <m>1=\frac{\cot x-\csc x}{\cot  x-\csc x}</m> and  then substituting <m>u=\cot x -\csc x</m>,  <m>\dee{u} = (-\csc^2 x+\csc x \cot x)\,\dee{x}</m>, or
 </li>
 <li>
-	by substituting <m>u=\cos x</m>, <m>\dee{u}=-\sin x\,\dee{x}</m> to give <m>\int \csc x\dee{x}=-\int\frac{du}{1-u^2}</m> and then using the  method of partial fractions.
+	by substituting <m>u=\cos x</m>, <m>\dee{u}=-\sin x\,\dee{x}</m> to give <m>\int \csc x\dee{x}=-\int\frac{\dee{u}}{1-u^2}</m> and then using the  method of partial fractions.
 </li>
 </ul>
 These two methods give the answers
@@ -856,7 +921,7 @@ of <m>\sin x</m> and <m>\cos x</m>.
 	<mrow>
 	\int \csc x\dee{x}
 	&amp;=\int \frac{1}{\sin x}\dee{x}
-	=\int \frac{1+u^2}{2u}\ \frac{2}{1+u^2}du
+	=\int \frac{1+u^2}{2u}\ \frac{2}{1+u^2}\dee{u}
 	=\int \frac{1}{u}\dee{u}
 	=\log|u|+C
 	</mrow><mrow>
@@ -889,7 +954,7 @@ of <m>\sin x</m> and <m>\cos x</m>.
 	&amp;=\int \underbrace{\sec x}_{u}\ \underbrace{\sec^2 x\dee{x}}_{dv}
 	</mrow><mrow>
 	&amp;=\underbrace{\sec x}_{u}\ \underbrace{\tan x}_{v}
-			 -\int \underbrace{\tan x}_{v}\ \underbrace{\sec x\tan x\dee{x}}_{du}
+			 -\int \underbrace{\tan x}_{v}\ \underbrace{\sec x\tan x\dee{x}}_{\dee{u}}
 	</mrow>
 	</md>
 </li>
@@ -924,7 +989,7 @@ of <m>\sin x</m> and <m>\cos x</m>.
 The integral <m>\int \sec^3\dee{x}</m> can also be evaluated by two other methods.
 <ul>
 <li>
-	Substitute <m>u=\sin x</m>, <m>du=\cos x\dee{x}</m> to convert  <m>\int\sec^3 x\dee{x}</m> into <m>\int\frac{du}{{[1-u^2]}^2}</m> and evaluate the latter using the method of partial fractions. This is done in Example<nbsp/><xref ref="eg_PFf"/> in  Section<nbsp/><xref ref="sec_parfrac"/>.
+	Substitute <m>u=\sin x</m>, <m>\dee{u}=\cos x\dee{x}</m> to convert  <m>\int\sec^3 x\dee{x}</m> into <m>\int\frac{\dee{u}}{{[1-u^2]}^2}</m> and evaluate the latter using the method of partial fractions. This is done in Example<nbsp/><xref ref="eg_PFf"/> in  Section<nbsp/><xref ref="sec_parfrac"/>.
 </li>
 <li>
 	Use the <m>u=\tan\frac{x}{2}</m> substitution. We use this method to evaluate <m>\int\csc^3 x\dee{x}</m> in Example <xref ref="eg_TRGINTopte"/>, below.

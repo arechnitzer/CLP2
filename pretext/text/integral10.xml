@@ -911,32 +911,32 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{x^4+5x^3+16x^2+26x+22}
 	\frac{x+2}{(x+1)^2+4}=\frac{1}{4}\frac{x+2}{(\frac{x+1}{2})^2+1}
 	</mrow>
 	</md>
-	so we make the change of variables <m>y=\frac{x+1}{2},\dee{y}=\frac{dx}{2},\ x=2y-1,\dee{x}=2\,dy</m>
+	so we make the change of variables <m>y=\frac{x+1}{2},\dee{y}=\frac{dx}{2},\ x=2y-1,\dee{x}=2\,\dee{y}</m>
 	<md>
 	<mrow>
 	\int \frac{x+2}{(x+1)^2+4}\dee{x}
 	&amp;=\frac{1}{4}\int \frac{x+2}{{(\frac{x+1}{2})}^2+1}\dee{x}
 	</mrow>
 	<mrow>
-	&amp;=\frac{1}{4}\int \frac{(2y-1)+2}{y^2+1}\,2\,dy
-	\ =\ \frac{1}{2}\int \frac{2y+1}{y^2+1}\,dy
+	&amp;=\frac{1}{4}\int \frac{(2y-1)+2}{y^2+1}\,2\,\dee{y}
+	\ =\ \frac{1}{2}\int \frac{2y+1}{y^2+1}\,\dee{y}
 	</mrow>
 	<mrow>
-	&amp;=\int \frac{y}{y^2+1}\,dy + \frac{1}{2}\int \frac{1}{y^2+1}\,dy
+	&amp;=\int \frac{y}{y^2+1}\,\dee{y} + \frac{1}{2}\int \frac{1}{y^2+1}\,\dee{y}
 	</mrow>
 	</md>
-	Both integrals are easily evaluated, using the substitution <m>u=y^2+1</m>, <m>du=2y\,dy</m> for the first.
+	Both integrals are easily evaluated, using the substitution <m>u=y^2+1</m>, <m>\dee{u}=2y\,\dee{y}</m> for the first.
 	<md>
 	<mrow>
-	\int \frac{y}{y^2+1}\,dy
-	&amp;\ =\ \int \frac{1}{u}\frac{du}{2}
+	\int \frac{y}{y^2+1}\,\dee{y}
+	&amp;\ =\ \int \frac{1}{u}\frac{\dee{u}}{2}
 	\ =\ \frac{1}{2}\log|u|=\frac{1}{2}\log(y^2+1)
 	</mrow>
 	<mrow>
 	&amp; =\ \frac{1}{2}\log\Big[\Big(\frac{x+1}{2}\Big)^2+1\Big]
 	</mrow>
 	<mrow>
-	\frac{1}{2}\int \frac{1}{y^2+1}\,dy
+	\frac{1}{2}\int \frac{1}{y^2+1}\,\dee{y}
 	&amp;\ =\ \frac{1}{2}\arctan y
 	\ =\ \frac{1}{2}\arctan\Big(\frac{x+1}{2}\Big)
 	</mrow>
@@ -1227,10 +1227,10 @@ In this example, we integrate <m>\sec x</m>. It is not yet clear what this integ
 \int \sec x\dee{x}
   &amp;= \int\frac{1}{\cos x}\dee{x} &amp; \text{massage the expression a little}
 </mrow><mrow>
-  &amp;= \int\frac{\cos x}{\cos^2 x}\dee{x} &amp; \text{substitute $u=\sin x$, $du = \cos
+  &amp;= \int\frac{\cos x}{\cos^2 x}\dee{x} &amp; \text{substitute $u=\sin x$, $\dee{u} = \cos
 x\dee{x}$}
 </mrow><mrow>
-  &amp;= -\int \frac{du}{u^2-1} &amp; \text{and use $\cos^2x=1-\sin^2x=1-u^2$}
+  &amp;= -\int \frac{\dee{u}}{u^2-1} &amp; \text{and use $\cos^2x=1-\sin^2x=1-u^2$}
 </mrow>
 </md>
 So we now have to integrate <m>\frac{1}{u^2-1}</m>, which is a rational function of <m>u</m>, and so is perfect for partial fractions.
