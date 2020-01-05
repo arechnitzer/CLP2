@@ -336,19 +336,27 @@ Try 3: Let's go ahead and try four rectangles each for the upper and lower estim
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
 The area of the rectangles on the left is:
-<me>
+<md>
+<mrow>
 \left(\frac{1}{2}\times \frac{1}{2}\right)+
 \left(\frac{1}{2}\times \frac{1}{2\sqrt{2}}\right)+
 \left(\frac{1}{2}\times \frac{1}{4}\right)+
-\left(\frac{1}{2}\times \frac{1}{4\sqrt{2}}\right) = \frac{3}{8}\left[1+\frac{1}{\sqrt{2}}\right],
-</me>
+\left(\frac{1}{2}\times \frac{1}{4\sqrt{2}}\right) &amp;
+</mrow><mrow>
+= \frac{3}{8}\left[1+\frac{1}{\sqrt{2}}\right],&amp;
+</mrow>
+</md>
  and the area of the rectangles on the right is:
-<me>
+<md>
+<mrow>
 \left(\frac{1}{2}\times \frac{1}{2\sqrt{2}}\right)+
 \left(\frac{1}{2}\times \frac{1}{4}\right)+
 \left(\frac{1}{2}\times \frac{1}{4\sqrt{2}}\right)+
-\left(\frac{1}{2}\times \frac{1}{8}\right) = \frac{3}{8}\left[\frac{1}{2}+\frac{1}{\sqrt{2}}\right].
-</me>
+\left(\frac{1}{2}\times \frac{1}{8}\right) &amp;
+</mrow><mrow>
+= \frac{3}{8}\left[\frac{1}{2}+\frac{1}{\sqrt{2}}\right].&amp;
+</mrow>
+</md>
 So, the area under the curve is in the interval <m>\left( \frac{3}{8}\left[\frac{1}{2}+\frac{1}{\sqrt{2}}\right], \frac{3}{8}\left[1+\frac{1}{\sqrt{2}}\right]\right)</m>. The length of this interval is <m>\frac{3}{16}</m>, and <m>\frac{3}{16} \lt \frac{3}{15}=\frac{1}{5}=0.2</m>, as desired. (Indeed, <m>\frac{3}{16}=0.1875 \lt 0.2</m>.)
 </p>
 
@@ -590,12 +598,15 @@ Let's re-write the sum to make the pattern clearer.
 </li>
 </ol>
 <me>
-\begin{array}{cccccccccccccc}
-&amp;1000&amp;+&amp;200&amp;+&amp;30&amp;+&amp;4&amp;+&amp;\frac{1}{2}&amp;+&amp;\frac{3}{50}&amp;+&amp;\frac{7}{1000}\\
-=&amp;1\cdot1000&amp;+&amp;2\cdot 100&amp;+&amp;3\cdot10&amp;+&amp;\frac{4}{1}&amp;+&amp;\frac{5}{10}&amp;+&amp;\frac{6}{100}&amp;+&amp;\frac{7}{1000}\\
-=&amp;1\cdot 10^3 &amp;+&amp; 2\cdot 10^2&amp;+&amp;3\cdot 10^1 &amp;+&amp; 4\cdot 10^0 &amp;+&amp; 5 \cdot 10^{-1} &amp;+&amp;
-6\cdot 10^{-2} &amp;+&amp; 7 \cdot 10^{-3} \\
-=&amp;\textcolor{red}1\cdot 10^{4-\textcolor{red}1} &amp;+&amp; \textcolor{red}2\cdot 10^{4-\textcolor{red}2}&amp;+&amp;\textcolor{red}3\cdot 10^{4-\textcolor{red}3} &amp;+&amp; \textcolor{red}4\cdot 10^{4-\textcolor{red}4} &amp;+&amp; \textcolor{red}5 \cdot 10^{4-\textcolor{red}5} &amp;+&amp;
+\begin{array}{cccccccc}
+&amp;1000&amp;+&amp;200&amp;+&amp;30&amp;+&amp;4\\
+&amp;&amp;+&amp;\frac{1}{2}&amp;+&amp;\frac{3}{50}&amp;+&amp;\frac{7}{1000}\\
+=&amp;1\cdot1000&amp;+&amp;2\cdot 100&amp;+&amp;3\cdot10&amp;+&amp;\frac{4}{1}\\
+&amp;&amp;+&amp;\frac{5}{10}&amp;+&amp;\frac{6}{100}&amp;+&amp;\frac{7}{1000}\\
+=&amp;1\cdot 10^3 &amp;+&amp; 2\cdot 10^2&amp;+&amp;3\cdot 10^1 &amp;+&amp; 4\cdot 10^0\\
+&amp; &amp;+&amp; 5 \cdot 10^{-1} &amp;+&amp;6\cdot 10^{-2} &amp;+&amp; 7 \cdot 10^{-3} \\
+=&amp;\textcolor{red}1\cdot 10^{4-\textcolor{red}1} &amp;+&amp; \textcolor{red}2\cdot 10^{4-\textcolor{red}2}&amp;+&amp;\textcolor{red}3\cdot 10^{4-\textcolor{red}3} &amp;+&amp; \textcolor{red}4\cdot 10^{4-\textcolor{red}4}\\
+&amp; &amp;+&amp; \textcolor{red}5 \cdot 10^{4-\textcolor{red}5} &amp;+&amp;
 \textcolor{red}6\cdot 10^{4-\textcolor{red}6} &amp;+&amp; \textcolor{red}7 \cdot 10^{4-\textcolor{red}7}
 \end{array}
 </me>
@@ -775,7 +786,9 @@ Evaluate the following sums. You might want to use the formulas from Theorem<nbs
 <li> The two pieces are very similar, which we can see by changing the index, or expanding them out:
 <md>
 <mrow>
-\displaystyle\sum_{i=50}^{100} (i-50)+\displaystyle\sum_{i=0}^{50} i&amp;=
+&amp;\displaystyle\sum_{i=50}^{100} (i-50)+\displaystyle\sum_{i=0}^{50} i
+</mrow><mrow>
+&amp;=
 \left(0+1+2+\cdots + 50\right)+\left(0+1+2+\cdots + 50\right)
 </mrow><mrow>
 &amp;=\left(1+2+\cdots + 50\right)+\left(1+2+\cdots + 50\right)
@@ -795,8 +808,9 @@ Evaluate the following sums. You might want to use the formulas from Theorem<nbs
 </mrow>
 <intertext>We have a formula to evaluate the sum of cubes if they start at <m>1</m>, so we turn our expression into the difference of two sums starting at 1:</intertext><mrow>
 &amp;=
-\left[1^3+2^3+3^3+4^3+5^3+6^3+7^3+\cdots +95^3\right]-
-\left[1^3+2^3+3^3+4^3\right]
+\left[1^3+2^3+3^3+4^3+5^3+6^3+7^3+\cdots +95^3\right]
+</mrow><mrow>
+&amp;\hskip0.5in-\left[1^3+2^3+3^3+4^3\right]
 </mrow><mrow>
 &amp;=\displaystyle\sum_{i=1}^{95} i^3 - \displaystyle\sum_{i=1}^4 i^3
 </mrow><mrow>
@@ -812,7 +826,7 @@ Then the terms <m>n=1</m> through <m>n=10</m> cancel, and we're left only with t
 
 <p>Written out more explicitly: <md>
 <mrow>
-\displaystyle\sum_{n=1}^{11} (-1)^{n}&amp;=-1+1-1+1-1+1-1+1-1+1-1
+&amp;\displaystyle\sum_{n=1}^{11} (-1)^{n}=-1+1-1+1-1+1-1+1-1+1-1
 </mrow><mrow>
 &amp;=[-1+1]+[-1+1]+[-1+1]+[-1+1]+[-1+1]-1
 </mrow><mrow>
@@ -840,7 +854,7 @@ In the picture below, draw in the rectangles whose (signed) area is being comput
 <m>\displaystyle\sum_{i=1}^4 \dfrac{b-a}{4}\cdot f\left(a+\left(i-\frac{1}{2}\right)\dfrac{b-a}{4}\right)</m>.
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaxis{4}{3};
 \YExcoord{2.5}{b}
@@ -851,7 +865,7 @@ In the picture below, draw in the rectangles whose (signed) area is being comput
 <hint><p>
 Since the sum adds four pieces, there will be four rectangles. However, one might be extremely small.
 </p></hint>
-<answer><sidebyside width="33%">
+<answer><sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaxis{4}{3};
 \YExcoord{2.5}{b}
@@ -868,7 +882,7 @@ Since the sum adds four pieces, there will be four rectangles. However, one migh
 </sidebyside></answer>
 <solution><p>
 The index of the sum runs from 1 to 4: the first, second, third, and fourth rectangles. So, we have four rectangles in our Riemann sum. Let's start by drawing in the intervals along the <m>x</m>-axis taken up by these four rectangles. Note each has the same width: <m>\dfrac{b-a}{4}</m>.
-</p><sidebyside width="33%">
+</p><sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaxis{4}{3};
 \YExcoord{2.5}{b}
@@ -884,7 +898,7 @@ The index of the sum runs from 1 to 4: the first, second, third, and fourth rect
 Since this is a midpoint Riemann sum, the height of each rectangle is given by the <m>y</m>-value of the function in the midpoint of the interval. So, now let's find the height of the function at the midpoints of each of the four intervals.
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaxis{4}{3};
 \YExcoord{2.5}{b}
@@ -904,7 +918,7 @@ Since this is a midpoint Riemann sum, the height of each rectangle is given by t
 The left-most interval has a height of about 0, so it gives a <q>trivial</q> rectangle with no height and no area. The middle two intervals have rectangles of about the same height, and the right-most interval has the highest rectangle.
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaxis{4}{3};
 \YExcoord{2.5}{b}
@@ -983,7 +997,7 @@ Since the sum runs from 1 to 3, there are three intervals. Suppose <m>2 = \Delta
 One answer is below, but other interpretations exist.
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{7}{1}{7};
 \foreach \x in {5,7,9,11}{
@@ -1026,7 +1040,7 @@ Solution 1:
 <p>To sum up, we can interpret the Riemann sum as a right Riemann sum, with three intervals, of the function <m>f(x)=x^2</m> from <m>x=5</m> to <m>x=11</m>.
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{7}{1}{7};
 \foreach \x in {5,7,9,11}{
@@ -1122,7 +1136,7 @@ f\left(1+2i\right)&amp;=\left(4+1+2i\right)^2
 <li>
 <p>
 To sum up: <m>n=3</m>, <m>a=1</m>, <m>b=7</m>, <m>\Delta x=2</m>, and <m>f(x)=(4+x)^2</m>.
-</p><sidebyside width="40%">
+</p><sidebyside width="60%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \clip (-1.5,-1.5) rectangle (6.5,9);
 \YEaaxis{1}{4}{1}{6.5};
@@ -1175,7 +1189,7 @@ f\left((a-1)+2i\right)&amp;=\left(5+2i\right)^2
 <li>
 <p>
 To sum up: <m>n=3</m>, <m>a=6</m>, <m>b=12</m>, <m>\Delta x = 2</m>, and <m>f(x)=x^2</m>.
-</p><sidebyside width="50%">
+</p><sidebyside width="60%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \clip (-1.5,-1.5) rectangle (9,7);
 \YEaaxis{1}{7}{1}{6.5};
@@ -1218,7 +1232,7 @@ Let <m>\Delta x = \dfrac{\pi}{20}</m>. Then what is <m>b-a</m>?
 Many interpretations are possible--see the solution to Question<nbsp/><xref ref="p1_1RiemannInterp" text="local"/> for a more thorough discussion--but the most obvious is given below.
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{5.5}{1}{6};
 \foreach \x in {2,...,5}{
@@ -1262,7 +1276,7 @@ So, we choose <m>a=0</m> and <m>f(x) = \tan x</m>.
 </ul>
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{5.5}{1}{6};
 \foreach \x in {2,...,5}{
@@ -1317,7 +1331,7 @@ Since there are four terms in the sum, <m>n=4</m>. (Note the sum starts at <m>k=
 </p>
 
 <p>We can choose to view the given sum as a left, right, or midpoint Riemann sum. The choice we make determines the interval. Note that the heights of the rectangles are determined when <m>x = 1.5,\, 2.5,\, 3.5,</m> and <m>4.5</m>.
-</p><sidebyside width="33%">
+</p><sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{.5}{5.5}{.5}{5}
 \foreach \k in {1,...,4}{
@@ -1330,7 +1344,7 @@ Since there are four terms in the sum, <m>n=4</m>. (Note the sum starts at <m>k=
 <li>
 <p>Option 1: right Riemann sum.
 If our sum is a right Riemann sum, then we take the heights of the rectangles from the right endpoint of each interval.
-</p><sidebyside width="33%">
+</p><sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{.5}{5.5}{.5}{5}
 \foreach \k in {1,...,4}{
@@ -1348,7 +1362,7 @@ Then <m>a=0.5</m> and <m>b=4.5</m>. Therefore: <m>\sum\limits_{k=0}^3 f (1.5 + k
 <li><p>Option 2: left Riemann sum. If our sum is a left Riemann sum, then we take the heights of the rectangles from the left endpoint of each interval.
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{.5}{5.5}{.5}{5}
 \foreach \k in {1,...,4}{
@@ -1367,7 +1381,7 @@ Then <m>a=1.5</m> and <m>b=5.5</m>. Therefore: <m>\sum\limits_{k=0}^3 f (1.5 + k
 If our sum is a midpoint Riemann sum, then we take the heights of the rectangles from the midpoint of each interval.
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{.5}{5.5}{.5}{5}
 \foreach \k in {1,...,4}{
@@ -1404,7 +1418,7 @@ The area is a triangle.
 </p></answer>
 <solution><p>
 The area in question is a triangle with base 5 and height 5, so its area is <m>\dfrac{25}{2}</m>.
-</p><sidebyside width="33%">
+</p><sidebyside width="40%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{4}{1}{4}
 \draw[thick] (-.5,-.5)--(3.5,3.5) node[right]{$y=x$};
@@ -1432,7 +1446,7 @@ Evaluate the following integral by interpreting it as a signed area, and using g
 <solution>
 
 <p>There is a positive and a negative portion of this area. The positive area is a triangle with base 5 and height 5, so area <m>\dfrac{25}{2}</m> square units. The negative area is a triangle with base <m>2</m> and height <m>2</m>, so negative area <m>\dfrac{4}{2}=2</m> square units. So, the net area is <m>\dfrac{25}{2}-\dfrac{4}{2}=\dfrac{21}{2}</m> square units.
-</p><sidebyside width="33%">
+</p><sidebyside width="40%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{2}{4}{2}{4}
 \draw[thick] (-1.2,-1.2)--(3.5,3.5) node[right]{$y=x$};
@@ -1620,9 +1634,10 @@ The given sum is of the form
 <mrow>
 \lim_{n\rightarrow\infty}\sum_{k=1}^n
              \frac{k}{n^2}\sqrt{1-\frac{k^2}{n^2}}
-=\lim_{n\rightarrow\infty}\sum_{k=1}^n
+&amp;=\lim_{n\rightarrow\infty}\sum_{k=1}^n
             \left(\frac{1}{n}\right) \frac{k}{n}\sqrt{1-\left(\frac{k}{n}\right)^2}
-=\lim_{n\rightarrow\infty}\sum_{k=1}^n \De x f(x_k^*)
+</mrow><mrow>
+&amp;=\lim_{n\rightarrow\infty}\sum_{k=1}^n \De x f(x_k^*)
 </mrow>
 </md>
 with <m>\De x=\frac{1}{n}</m>, <m>a=0</m>, <m>x_k^*=\frac{k}{n}=a+k\De x</m>
@@ -1772,11 +1787,15 @@ then
 <md>
 <mrow>
 \lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n e^{-1-2i/n}\cdot \frac{2}{n} \bigg)
-&amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n e^{-1-x_i^*}\De x \bigg) \hidewidth
+&amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n e^{-1-x_i^*}\De x \bigg)
 </mrow><mrow>
-&amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n f(x_i^*)\De x \bigg) &amp;&amp;\text{with $f(x) = e^{-1-x}$}
+&amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n f(x_i^*)\De x \bigg)
 </mrow><mrow>
-&amp;=\int_a^b f(x)\,\,\dee{x}&amp;&amp;\text{with $a=x_0=0$ and $b=x_n=2$}
+&amp;\hskip0.25in\text{with $f(x) = e^{-1-x}$}
+</mrow><mrow>
+&amp;=\int_a^b f(x)\,\,\dee{x}
+</mrow><mrow>
+&amp;\hskip0.25in\text{with $a=x_0=0$ and $b=x_n=2$}
 </mrow><mrow>
 &amp;=\int_0^2 e^{-1-x}\ \,\dee{x}
 </mrow>
@@ -1789,11 +1808,15 @@ then
 <md>
 <mrow>
 \lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n e^{-1-2i/n}\cdot \frac{2}{n} \bigg)
-&amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n e^{-x_i^*}\De x \bigg) \hidewidth
+&amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n e^{-x_i^*}\De x \bigg) 
 </mrow><mrow>
-&amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n f(x_i^*)\De x \bigg) &amp;&amp;\text{with $f(x) = e^{-x}$}
+&amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n f(x_i^*)\De x \bigg)
 </mrow><mrow>
-&amp;=\int_a^b f(x)\,\,\dee{x}&amp;&amp;\text{with $a=x_0=1$ and $b=x_n=3$}
+&amp;\hskip0.25in\text{with $f(x) = e^{-x}$}
+</mrow><mrow>
+&amp;=\int_a^b f(x)\,\,\dee{x}
+</mrow><mrow>
+&amp;\hskip0.25in\text{with $a=x_0=1$ and $b=x_n=3$}
 </mrow><mrow>
 &amp;=\int_1^3 e^{-x}\ \,\dee{x}
 </mrow>
@@ -1805,12 +1828,15 @@ then
 <md>
 <mrow>
 \lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n e^{-1-2i/n}\cdot \frac{2}{n} \bigg)
-&amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n e^{-1-2x_i^*}\ 2\De x \bigg) \hidewidth
+&amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n e^{-1-2x_i^*}\ 2\De x \bigg) 
 </mrow><mrow>
 &amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n f(x_i^*)\De x \bigg)
-                       &amp;&amp;\text{with $f(x) = 2e^{-1-2x}$}
 </mrow><mrow>
-&amp;=\int_a^b f(x)\,\,\dee{x}&amp;&amp;\text{with $a=x_0=0$ and $b=x_n=1$}
+             &amp;\hskip0.25in\text{with $f(x) = 2e^{-1-2x}$}
+</mrow><mrow>
+&amp;=\int_a^b f(x)\,\,\dee{x}
+</mrow><mrow>
+&amp;\hskip0.25in\text{with $a=x_0=0$ and $b=x_n=1$}
 </mrow><mrow>
 &amp;=2\int_0^1 e^{-1-2x}\ \,\dee{x}
 </mrow>
@@ -1823,12 +1849,15 @@ then
 <md>
 <mrow>
 \lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n e^{-1-2i/n}\cdot \frac{2}{n} \bigg)
-&amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n e^{-2x_i}\ 2\De x \bigg) \hidewidth
+&amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n e^{-2x_i}\ 2\De x \bigg) 
 </mrow><mrow>
 &amp;=\lim_{n\rightarrow\infty} \bigg( \sum_{i=1}^n f(x_i^*)\De x \bigg)
-                       &amp;&amp;\text{with $f(x) = 2e^{-2x}$}
 </mrow><mrow>
-&amp;=\int_a^b f(x)\,\,\dee{x}&amp;&amp;\text{with $a=x_0=\frac{1}{2}$ and $b=x_n=\frac{3}{2}$}
+  &amp;\hskip0.25in\text{with $f(x) = 2e^{-2x}$}
+</mrow><mrow>
+&amp;=\int_a^b f(x)\,\,\dee{x}
+</mrow><mrow>
+&amp;\hskip0.25in\text{with $a=x_0=\frac{1}{2}$ and $b=x_n=\frac{3}{2}$}
 </mrow><mrow>
 &amp;=2\int_{1/2}^{3/2} e^{-2x}\ \,\dee{x}
 </mrow>
@@ -1885,18 +1914,26 @@ The sum does not start at <m>1</m>, so we need to do some algebra. We can either
 <ul>
 <li> Solution 1:
 If we factor out <m>r^5</m>, then what's left fits the form of Equation<nbsp/><xref ref="eq_INTgeomsum"/>:
-<me>
-r^5+r^6+r^7+\cdots+r^{100}=r^5\left[1+r+r^2+\cdots + r^{95}\right]= r^5\left(\frac{r^{96}-1}{r-1}\right)\ .</me>
+<md>
+<mrow>
+r^5+r^6+r^7+\cdots+r^{100}&amp;=r^5\left[1+r+r^2+\cdots + r^{95}\right]
+</mrow><mrow>
+&amp;= r^5\left(\frac{r^{96}-1}{r-1}\right)\ .
+</mrow>
+</md>
 </li>
 <li>Solution 2: We know how to evaluate sums of this form if they start at 1, so we re-write our sum as follows:
 <md>
 <mrow>
-r^5+r^6+r^7+\cdots+r^{100}&amp;=\left(1+r+r^2+r^3+r^4+r^5+\cdots+r^{100}\right) -
-\left(1+r+r^2+r^3+r^4\right)
+r^5+r^6+r^7+\cdots+r^{100}&amp;=\left(1+r+r^2+r^3+r^4+r^5+\cdots+r^{100}\right) 
+</mrow><mrow>
+&amp;\hskip0.25in-\left(1+r+r^2+r^3+r^4\right)
 </mrow><mrow>
 &amp;=\frac{r^{101}-1}{r-1} - \frac{r^5-1}{r-1}
 </mrow><mrow>
-&amp;=\frac{r^{101}-1-r^5+1}{r-1}=\frac{r^{101}-r^5}{r-1}=r^5\left(\frac{r^{96}-1}{r-1}\right)\ .
+&amp;=\frac{r^{101}-1-r^5+1}{r-1}=\frac{r^{101}-r^5}{r-1}
+</mrow><mrow>
+&amp;=r^5\left(\frac{r^{96}-1}{r-1}\right)\ .
 </mrow>
 </md>
 </li>
@@ -1971,7 +2008,7 @@ the right below and
 </me>
 </p>
 
-<sidebyside width="25%">
+<sidebyside width="33%">
 <image source="problems/figs/OEM105_13A_1e"/>
 </sidebyside>
 
@@ -1994,7 +2031,7 @@ Draw a picture. Remember <m>|x| = \left\{\begin{array}{rc}x&amp;x\ge 0\\-x&amp;x
 </p></answer>
 <solution><p>
 The area we want is two triangles, both above the <m>x</m>-axis. Each triangle has base <m>4</m> and height <m>4</m>, so the total area is <m>2\cdot\left(\dfrac{4\cdot 4}{2}\right)=16</m>.
-</p><sidebyside width="66%">
+</p><sidebyside width="75%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{5}{6}{1}{5}
 \draw[thick] (-3.5,4.5)--(1,0)--(5.5,4.5) node[right]{$y=|t-1|$};
@@ -2026,7 +2063,7 @@ Draw a picture: the area we want is a trapezoid. If you don't remember a formula
 </p></answer>
 <solution><p>
 The area we want is a trapezoid with base <m>(b-a)</m> and heights <m>a</m> and <m>b</m>, so its area is <m>\dfrac{(b-a)(b+a)}{2}=\dfrac{b^2-a^2}{2}</m>.
-</p><sidebyside width="33%">
+</p><sidebyside width="40%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{4}{1}{4}
 \draw[thick] (-.5,-.5)--(3.5,3.5) node[right]{$y=x$};
@@ -2059,7 +2096,7 @@ You can draw a very similar picture to Question<nbsp/><xref ref="p1_1trapezoidar
 <solution><p>
 The area is negative. The shape is a trapezoid with base length <m>(b - a)</m> and heights
         <m>0-a=-a</m> and <m>0-b=-b</m> (note: those are nonnegative numbers), so its area is <m>\dfrac{(b-a)(-b-a)}{2}=\dfrac{-b^2+a^2}{2}</m>. Since the shape is below the <m>x</m>-axis, we change its sign. Thus, the integral evaluates to <m>\dfrac{b^2-a^2}{2}</m>.
-</p><sidebyside width="33%">
+</p><sidebyside width="40%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{4}{1}{4}{1}
 \draw[thick] (-3.5,-3.5)--(.5,.5) node[right]{$y=x$};
@@ -2128,7 +2165,7 @@ Sketch the graph of <m>f(x)</m>.
 <solution><p>
 Here is a sketch the graph of <m>f(x)</m>.
 </p>
-<sidebyside width="50%">
+<sidebyside width="66%">
 <image source="problems/figs/OQ16_1"/>
 </sidebyside>
 <p>
@@ -2181,10 +2218,14 @@ time interval occurs at the right hand end of the interval and
 the best possible upper estimate for the distance traveled is
 given by the <em>right</em> Riemann sum with <m>\Delta x =0.5</m>, which
 is
-<me>
+<md>
+<mrow>
 \big[v(0.5)+v(1.0)+v(1.5)+v(2.0)\big]\times 0.5
-=\big[14+22+30+40\big]\times 0.5= 53\text{ m}
-</me>
+&amp;=\big[14+22+30+40\big]\times 0.5
+</mrow><mrow>
+&amp;= 53\text{ m}
+</mrow>
+</md>
 </p></solution>
 </exercise>
 
@@ -2281,8 +2322,9 @@ Set <m>x_i^*=-2+\frac{2i}{n}</m>. Then <m>a=x_0=-2</m>
 and <m>b=x_n=0</m> and <m>\Delta x=\frac{2}{n}</m>. So
 <md>
 <mrow>
-\lim_{n\rightarrow\infty}
+&amp;\lim_{n\rightarrow\infty}
      \sum_{i=1}^n\frac{2}{n}\sqrt{4-\left(-2+\frac{2i}{n}\right)^2}
+</mrow><mrow>
 &amp;= \lim_{n\rightarrow\infty}
      \sum_{i=1}^n f(x_i^*)\Delta x\qquad
    \text{ with $f(x) = \sqrt{4-x^2}$ and $\Delta x = \frac{2}{n}$ }
@@ -2300,7 +2342,7 @@ and the <m>x</m>-axis with <m>-2\le x\le 0</m>, which is a quarter circle with a
 <m>\frac{1}{4}\cdot \pi\, 2^2 = \pi</m>.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="60%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{4}{1}{1}{3.5}
 \draw[thick] (-3,0) arc (180:90:3cm) node[right]{\quad $y=\sqrt{4-x^2}$};
@@ -2316,8 +2358,9 @@ Set <m>x_i^*=\frac{2i}{n}</m>. Then <m>a=x_0=0</m>
 and <m>b=x_n=2</m> and <m>\Delta x=\frac{2}{n}</m>. So
 <md>
 <mrow>
-\lim_{n\rightarrow\infty}
+&amp;\lim_{n\rightarrow\infty}
      \sum_{i=1}^n\frac{2}{n}\sqrt{4-\left(-2+\frac{2i}{n}\right)^2}
+</mrow><mrow>
 &amp;= \lim_{n\rightarrow\infty}
      \sum_{i=1}^n f(x_i^*)\Delta x\quad
    \text{ with $f(x) = \sqrt{4-(-2+x)^2}$, $\Delta x = \frac{2}{n}$ }
@@ -2334,7 +2377,7 @@ and the <m>x</m>-axis with <m>0\le x\le 2</m>, which is a quarter circle with ar
 <m>\frac{1}{4}\cdot \pi\, 2^2 = \pi</m>.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="60%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{4}{1}{3.5}
 \draw[thick] (0,0) arc (180:90:3cm) node[right]{\quad $y=\sqrt{4-(x-2)^2}$};
@@ -2461,7 +2504,7 @@ The third step is to evaluate the limit as <m>n\rightarrow\infty</m>.
 </p></answer>
 
 <solution><p>
-In general, the right--endpoint Riemann sum
+In general, the right-endpoint Riemann sum
 approximation to the integral <m>\int_a^b f(x)\,\,\dee{x}</m> using <m>n</m> rectangles is
 <md>
 <mrow>
@@ -2491,11 +2534,12 @@ sum approximation becomes
 So
 <md>
 <mrow>
-\int_2^4 x^2\ \,\dee{x}=\lim_{n\rightarrow\infty}
+\int_2^4 x^2\ \,\dee{x}&amp;=\lim_{n\rightarrow\infty}
                       \Big[8 + 8\Big(1+\frac{1}{n}\Big)
                             +\frac{4}{3}\Big(1+\frac{1}{n}\Big)
                              \big(2+\frac{1}{n}\Big)\Big]
-=8+8+\frac{4}{3}\times 2
+</mrow><mrow>
+&amp;=8+8+\frac{4}{3}\times 2
 =\frac{56}{3}
 </mrow>
 </md>
@@ -2547,7 +2591,7 @@ we need to evaluate
 
 <exercise purpose="RQS"><title><fromexam>2014D</fromexam></title>
 <statement><p>
-Using a limit of right--endpoint Riemann sums, evaluate
+Using a limit of right-endpoint Riemann sums, evaluate
 <m>\displaystyle\int_1^4 (2x-1)\,\,\dee{x}</m>.
 Do not use  anti-differentiation, except to check your answer.
 <fn>You'll learn about this method starting in Section<nbsp/><xref ref="sec_fundamental"/>. You can also check this answer using geometry.
@@ -2651,7 +2695,7 @@ Recall that for a positive constant <m>a</m>, <m>\diff{}{x}\left\{a^x\right\} = 
 As in the text, we'll set up a Riemann sum for the given integral. Right Riemann sums have the simplest form, so we use a right Riemann sum, but we could equally well use left or midpoint.
 <md>
 <mrow>
-\int_0^1 2^x\dee{x}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x f({a+i\Delta x})
+&amp;\int_0^1 2^x\dee{x}=\lim_{n \to \infty}\sum_{i=1}^n \Delta x f({a+i\Delta x})
 </mrow><mrow>
 &amp;=\lim_{n \to \infty}\sum_{i=1}^n \frac{1}{n} f\left(\frac{i}{n}\right)
 </mrow><mrow>
@@ -2723,7 +2767,7 @@ Part (a) follows  the same pattern as Question<nbsp/><xref ref="p1_1_2x" text="l
 As in the text, we'll set up a Riemann sum for the given integral. Right Riemann sums have the simplest form:
 <md>
 <mrow>
-\int_a^b 10^x\dee{x}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x f({a+i\Delta x})
+&amp;\int_a^b 10^x\dee{x}=\lim_{n \to \infty}\sum_{i=1}^n \Delta x f({a+i\Delta x})
 </mrow><mrow>
 &amp;=\lim_{n \to \infty}\sum_{i=1}^n \frac{b-a}{n} f\left(a+i\frac{b-a}{n}\right)
 </mrow><mrow>
@@ -2821,7 +2865,7 @@ Your area can be divided into a section of a circle and a triangle. Then you can
 First, we note <m>y=\sqrt{1-x^2}</m> is the upper half of a circle of radius 1, centred at the origin. We're taking the area under the curve from 0 to <m>a</m>, so the area in question is as shown in the picture below.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="60%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{4}{4}{1}{4}
 \YExcoord{-3}{-1}
@@ -2834,7 +2878,7 @@ First, we note <m>y=\sqrt{1-x^2}</m> is the upper half of a circle of radius 1, 
 In order to use geometry to find this area, we break it up into two pieces: a sector of a circle, and a triangle, shown below.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="60%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{4}{4}{1}{4}
 \YExcoord{-3}{-1}
@@ -2930,7 +2974,7 @@ Suppose <m>f(x)</m> is a positive, decreasing function from <m>x=a</m> to <m>x=b
 <li>
 <p>
 The difference between our upper and lower bounds is the difference in areas between the larger set of rectangles and the smaller set of rectangles. Drawing them on a single picture makes this a little clearer.
-</p><sidebyside width="50%">
+</p><sidebyside width="60%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{7.5}{1}{5}
 \draw[red, pattern=north east lines, pattern color=red] (1,0)--(1,4.25)-|(2,2.9)-|(3,1.85)-|(4,1.1)-|(5,0.65)-|(6,0.5)-|(6,0)--cycle;
@@ -2949,7 +2993,7 @@ The difference between our upper and lower bounds is the difference in areas bet
 Each of the rectangles has width <m>\frac{b-a}{n}</m>, since we took a segment of the <m>x</m>-axis with length <m>b-a</m> and chopped it into <m>n</m> pieces. We could calculate the height of each rectangle, but it would be a little complicated, since it differs for each of them. An easier method is to notice that the area we want to calculate can be imagined as a single rectangle:
 </p>
 
-<sidebyside width="75%">
+<sidebyside width="85%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{7.5}{1}{5}
 \draw[thick] plot[domain=0.75:6.25, samples=100] (\x,{.15*(\x-6)*(\x-6)+.5}) node[right]{$y=f(x)$};
@@ -3023,9 +3067,12 @@ w\left(mx+c+\frac{1}{2}mw\right) = \dfrac{\textcolor{blue}{w(mx+c)}+\textcolor{r
 let the rectangles in the left Riemann sum have areas <m>\textcolor{blue}{L_1,L_2,\ldots,L_n}</m>, and
 let the rectangles in the right Riemann sum have areas <m>\textcolor{red}{R_1,R_2,\ldots,R_n}</m>. Then the midpoint Riemann sum evaluates to <m>M_1+M_2+\cdots+M_n</m>, and:
 <md>
-<mrow>\dfrac{\textcolor{blue}{[L_1+L_2+\ldots+L_n]}+
+<mrow>
+&amp;\dfrac{\textcolor{blue}{[L_1+L_2+\ldots+L_n]}+
 \textcolor{red}{[R_1+R_2+\ldots+R_n]}
-}{2} &amp;=
+}{2} 
+</mrow><mrow>
+&amp;\hskip0.25in=
 \dfrac{\textcolor{blue}{L_1}+
 \textcolor{red}{R_1}
 }{2}+
@@ -3038,7 +3085,7 @@ let the rectangles in the right Riemann sum have areas <m>\textcolor{red}{R_1,R_
 \textcolor{red}{R_n}
 }{2}
 </mrow><mrow>
-&amp;=M_1+M_2+\cdots+M_n</mrow>
+&amp;\hskip0.25in=M_1+M_2+\cdots+M_n</mrow>
 </md>
 So, the statement is true.
 </p>
