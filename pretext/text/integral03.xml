@@ -238,11 +238,15 @@ In the previous example we were able to evaluate the integral explicitly,  so we
 We would like to find <m>\diff{}{x}\int_0^x e^{-t^2}\dee{t}</m>. In the previous  example, we were able to compute the corresponding derivative in two ways <mdash/> we could  explicitly compute the integral and then differentiate the result, or we could apply  part<nbsp/>1 of the fundamental theorem  of calculus. In this example we do not know the integral explicitly. Indeed it  is not possible to express
 	<fn>
 		The integral <m>\int_0^x e^{-t^2} \dee{t}</m> is  closely related to the <q>error function</q> which is an extremely important  function in mathematics. While we cannot express this integral (or the error  function) as a <em>finite</em> combination of polynomials, exponentials etc, we  can express it as an infinite series
-	<me>
+	<md>
+        <mrow>
 	  \int_0^x e^{-t^2}\dee{t}
-	  = x - \frac{x^3}{3\cdot 1} + \frac{x^5}{5\cdot 2} - \frac{x^7}{7\cdot 3!} +
-	\frac{x^9}{9\cdot 4!} +\cdots + (-1)^k \frac{x^{2k+1}}{(2k+1)\cdot k!} + \cdots
-	</me>
+	  &amp;= x - \frac{x^3}{3\cdot 1} + \frac{x^5}{5\cdot 2} - \frac{x^7}{7\cdot 3!} +
+	\frac{x^9}{9\cdot 4!} +\cdots 
+         </mrow><mrow>
+          &amp;\hskip1in+ (-1)^k \frac{x^{2k+1}}{(2k+1)\cdot k!} + \cdots
+        </mrow>
+	</md>
 	But more on this in Chapter<nbsp/><xref ref="chap_seq_ser"/>.
 	</fn>
 the integral <m>\int_0^x  e^{-t^2}\dee{t}</m> as a finite combination of standard functions such as  polynomials, exponentials, trigonometric functions and so on.
@@ -382,7 +386,8 @@ There are two parts to the lemma and we prove each in turn.
 	\diff{}{x}H(x)
 	&amp;= \diff{}{x}\left( G(x)-F(x) \right)
 	= \diff{}{x} G(x) - \diff{}{x}F(x)
-	= f(x) - f(x) = 0
+        </mrow><mrow>
+	&amp;= f(x) - f(x) = 0
 	</mrow>
 	</md>
 	Since the derivative of <m>H(x)</m> is zero, <m>H(x)</m> must be a constant
@@ -567,7 +572,7 @@ Compute <m>\int_0^{\frac{\pi}{2}} \sin x\dee{x}</m>.
 	<mrow>
 	\int_0^{\frac{\pi}{2}} \sin x\dee{x}
 	&amp;= \left.-\cos x \right|_0^{\frac{\pi}{2}}
-	&amp;\text{since $-\cos x$ is an antiderivative of $\sin x$}
+	\qquad\text{since $-\cos x$ is an antiderivative of $\sin x$}
 	</mrow><mrow>
 	&amp;= -\cos\frac{\pi}{2}+\cos 0
 	</mrow><mrow>
@@ -784,7 +789,7 @@ For completeness we'll show how to evaluate this integral by sneaking up on the 
 <p>
 	The shaded area in the figure below illustrates a typical approximating integral, whose domain of integration consists of the original domain of integration, <m>[-1,1]</m>, but with the interval <m>[-t,T]</m> excluded.
 </p>
-<sidebyside width="50%">
+<sidebyside width="75%">
 <image source="text/figs/boobyTrap"/>
 </sidebyside>
 <p>
@@ -795,15 +800,15 @@ For completeness we'll show how to evaluate this integral by sneaking up on the 
 	For this example, the correct computation is
 	<md>
 	<mrow>
-	\int_{-1}^1\frac{1}{x^2}\dee{x} &amp;=\lim_{t\rightarrow 0^+}\int_{-1}^{-t}\frac{1}{x^2}\dee{x} \ +\ \lim_{T\rightarrow 0^+}\int_{T}^{1}\frac{1}{x^2}\dee{x}
+	&amp;\int_{-1}^1\frac{1}{x^2}\dee{x} =\lim_{t\rightarrow 0^+}\int_{-1}^{-t}\frac{1}{x^2}\dee{x} \ +\ \lim_{T\rightarrow 0^+}\int_{T}^{1}\frac{1}{x^2}\dee{x}
 	</mrow><mrow>
-	&amp;=\lim_{t\rightarrow 0^+}\bigg[-\frac{1}{x}\bigg]_{-1}^{-t} +\lim_{T\rightarrow 0^+}\bigg[-\frac{1}{x}\bigg]_{T}^1
+	&amp;\hskip0.25in=\lim_{t\rightarrow 0^+}\bigg[-\frac{1}{x}\bigg]_{-1}^{-t} +\lim_{T\rightarrow 0^+}\bigg[-\frac{1}{x}\bigg]_{T}^1
 	</mrow><mrow>
-	&amp;=\lim_{t\rightarrow 0^+} \Big[\Big(-\frac{1}{-t}\Big)-\Big(-\frac{1}{-1}\Big)\Big] +\lim_{T\rightarrow 0^+} \Big[\Big(-\frac{1}{1}\Big)-\Big(-\frac{1}{T}\Big)\Big]
+	&amp;\hskip0.25in=\lim_{t\rightarrow 0^+} \Big[\Big(-\frac{1}{-t}\Big)-\Big(-\frac{1}{-1}\Big)\Big] +\lim_{T\rightarrow 0^+} \Big[\Big(-\frac{1}{1}\Big)-\Big(-\frac{1}{T}\Big)\Big]
 	</mrow><mrow>
-	&amp;=\lim_{t\rightarrow 0^+}\frac{1}{t} +\lim_{T\rightarrow 0^+}\frac{1}{T}-2
+	&amp;\hskip0.25in=\lim_{t\rightarrow 0^+}\frac{1}{t} +\lim_{T\rightarrow 0^+}\frac{1}{T}-2
 	</mrow><mrow>
-	&amp;=+\infty
+	&amp;\hskip0.25in=+\infty
 	</mrow>
 	</md>
 </li>
