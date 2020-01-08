@@ -37,8 +37,15 @@ One is true, the other false.
 (a) This is true: it is an application of Theorem<nbsp/><xref ref="thm_subs_indef"/> with <m>f(x)=\sin x</m> and <m>u(x)=e^x</m>.
 </p>
 
-<p>(b) This is false: the upper limit of integration is incorrect. Using Theorem<nbsp/><xref ref="thm_subs_def"/>, the correct form is <me>
-\displaystyle\int_0^1 \sin(e^x)\cdot e^x\dee{x} = \displaystyle\int_1^{e} \sin(u)\dee u = -\cos(e) + \cos(1) = \cos(1)-\cos(e).</me>
+<p>(b) This is false: the upper limit of integration is incorrect. Using Theorem<nbsp/><xref ref="thm_subs_def"/>, the correct form is 
+<md>
+<mrow>
+\displaystyle\int_0^1 \sin(e^x)\cdot e^x\dee{x} 
+&amp;= \displaystyle\int_1^{e} \sin(u)\dee u = -\cos(e) + \cos(1) 
+</mrow><mrow>
+&amp;= \cos(1)-\cos(e).
+</mrow>
+</md>
 </p>
 
 <p>Alternately, we can use the Fundamental Theorem of Calculus Part 2, and our answer from (a):
@@ -57,6 +64,8 @@ Is the following reasoning sound? If not, fix it.
 <blockquote>
 <p>
 <em>Problem:</em> Evaluate <m>\displaystyle\int (2x+1)^2 \dee{x}</m>.
+</p>
+<p>
 <em>Work:</em> We use the substitution <m>u=2x+1</m>. Then:
 <md>
 <mrow>
@@ -79,6 +88,8 @@ The reasoning is not sound: when we do a substitution, we need to take care of t
 <blockquote>
 <p>
 <em>Problem:</em> Evaluate <m>\displaystyle\int (2x+1)^2 \dee{x}</m>.
+</p>
+<p>
 <em>Work:</em> We use the substitution <m>u=2x+1</m>. Then <m>\dee{u}=2\dee{x}</m>, so <m>\dee{x} = \frac{1}{2}\dee{u}</m>:
 <md>
 <mrow>
@@ -99,6 +110,8 @@ The reasoning is not sound: when we do a substitution, we need to take care of t
 <blockquote>
 <p>
 <em>Problem:</em> Evaluate <m>\displaystyle\int (2x+1)^2 \dee{x}</m>.
+</p>
+<p>
 <em>Work:</em> We use the substitution <m>u=2x+1</m>. Then <m>\dee{u}=2\dee{x}</m>, so <m>\dee{x} = \frac{1}{2}\dee{u}</m>:
 <md>
 <mrow>
@@ -123,6 +136,8 @@ Is the following reasoning sound? If not, fix it.
 <blockquote>
 <p>
 <em>Problem:</em> Evaluate <m>\displaystyle\int_{1}^{\pi} \dfrac{\cos(\log t)}{t}\dee{t}</m>.
+</p>
+<p>
 <em>Work:</em> We use the substitution <m>u=\log t</m>, so <m>\dee{u}=\frac{1}{t}\dee{t}</m>. Then:
 <md>
 <mrow>
@@ -144,6 +159,8 @@ The problem is with the limits of integration, as in Question<nbsp/><xref ref="p
 <blockquote>
 <p>
 <em>Problem:</em> Evaluate <m>\displaystyle\int_{1}^{\pi} \dfrac{\cos(\log t)}{t}\dee{t}</m>.
+</p>
+<p>
 <em>Work:</em> We use the substitution <m>u=\log t</m>, so <m>\dee{u}=\frac{1}{t}\dee{t}</m>. When <m>t=1</m>, we have <m>u=\log 1 =0</m> and when <m>t=\pi</m>, we have <m>u=\log(\pi)</m>.
 Then:
 <md>
@@ -165,6 +182,8 @@ The problem is with the limits of integration, as in Question<nbsp/><xref ref="p
 <blockquote>
 <p>
 <em>Problem:</em> Evaluate <m>\displaystyle\int_{1}^{\pi} \dfrac{\log(\log t)}{t}\dee{t}</m>.
+</p>
+<p>
 <em>Work:</em> We use the substitution <m>u=\log t</m>, so <m>\dee{u}=\frac{1}{t}\dee{t}</m>.
 When <m>t=1</m>, we have <m>u=\log 1 =0</m> and when <m>t=\pi</m>, we have <m>u=\log(\pi)</m>. Then:
 <md>
@@ -190,6 +209,8 @@ Is the following reasoning sound? If not, fix it.
 <blockquote>
 <p>
 <em>Problem:</em> Evaluate <m>\displaystyle\int_{0}^{\pi/4} x\tan (x^2) \dee{x}</m>.
+</p>
+<p>
 <em>Work:</em> We begin with the substitution <m>u=x^2</m>,  <m>\dee{u} = 2x\dee{x}</m>:
 <md>
 <mrow>
@@ -228,6 +249,8 @@ Perhaps shorter ways exist, but the reasoning here is valid.
 <blockquote>
 <p>
 <em>Problem:</em> Evaluate <m>\displaystyle\int_{0}^{\pi/4} x\tan (x^2) \dee{x}</m>.
+</p>
+<p>
 <em>Work:</em> We begin with the substitution <m>u=x^2</m>,  <m>\dee{u} = 2x\dee{x}</m>:
 <textred>
 If <m>u=x^2</m>, then <m>\diff{u}{x} = 2x</m>, so indeed <m>\dee{u}=2x\dee{x}</m>.
@@ -238,26 +261,39 @@ If <m>u=x^2</m>, then <m>\diff{u}{x} = 2x</m>, so indeed <m>\dee{u}=2x\dee{x}</m
 </mrow><mrow>
 &amp;=\int_{0}^{\pi^2/16} \frac{1}{2}\tan u\dee{u}
 </mrow>
-<intertext>
-<textred>Every piece is changed from <m>x</m> to <m>u</m>: integrand, differential, limits.</textred>
-</intertext>
+</md>
+<textred>Note that every piece was changed from <m>x</m> to <m>u</m>: integrand, differential, limits.</textred> So
+<md>
 <mrow>
+\int_{0}^{\pi/4} x\tan (x^2) \dee{x}
 &amp;=\frac{1}{2}\int_{0}^{\pi^2/16} \dfrac{\sin u}{\cos u}\dee{u}
-&amp;\color{red}{\tan u = \frac{\sin u}{\cos u}}
 </mrow>
-<intertext>Now we use the substitution <m>v=\cos u</m>, <m>\dee{v}=-\sin u \dee{u}</m>:
-</intertext><mrow>
+</md>
+since <m>\tan u = \frac{\sin u}{\cos u}</m>.
+Now we use the substitution <m>v=\cos u</m>, <m>\dee{v}=-\sin u \dee{u}</m>:
+<md>
+<mrow>
+\frac{1}{2}\int_{0}^{\pi^2/16} \dfrac{\sin u}{\cos u}\dee{u}
 &amp;=\frac{1}{2}\int_{\cos 0}^{\cos(\pi^2/16)} -\dfrac{1}{v}\dee{v}
 </mrow>
-<intertext><textred>Every piece is changed from <m>u</m> to <m>v</m>: integrand, differential, limits.</textred>
-</intertext><mrow>
-&amp;=-\frac{1}{2}\int_{1}^{\cos(\pi^2/16)} \dfrac{1}{v}\dee{v}&amp;\color{red}{ \cos(0)=1}
+</md>
+<textred>Note that every piece was changed from <m>u</m> to <m>v</m>: integrand, differential, limits.</textred> So
+<md>
+<mrow>
+\int_{0}^{\pi/4} x\tan (x^2) \dee{x}
+&amp;=-\frac{1}{2}\int_{1}^{\cos(\pi^2/16)} \dfrac{1}{v}\dee{v}
 </mrow><mrow>
-&amp;=-\frac{1}{2}\bigg[\log|v|\bigg]_{1}^{\cos(\pi^2/16)}&amp;\color{red}\mbox{FTC Part 2}
+&amp;\hskip1in \text{since }\color{red}{\cos(0)=1}
+</mrow><mrow>
+&amp;=-\frac{1}{2}\bigg[\log|v|\bigg]_{1}^{\cos(\pi^2/16)}
+</mrow><mrow>
+&amp;\hskip1in\color{red}{\text{FTC Part 2}}
 </mrow><mrow>
 &amp;=-\frac{1}{2}\left(\log\left(\cos(\pi^2/16)\right)-\log(1)\right)
 </mrow><mrow>
-&amp;=-\frac{1}{2}\log\left(\cos(\pi^2/16)\right)&amp;\color{red} \log(1)=0
+&amp;=-\frac{1}{2}\log\left(\cos(\pi^2/16)\right)
+</mrow><mrow>
+&amp;\hskip1in \text{since }\color{red}{\log(1)=0}
 </mrow>
 </md>
 </p>
@@ -507,11 +543,14 @@ Evaluate <m>\displaystyle \int_{0}^{\pi/2} \cos x \cdot (1+\sin^2 x)\,\dee{x}</m
 
 <solution><p>
 Setting <m>\textcolor{red}{u=\sin x}</m>, we have <m>\textcolor{blue}{\dee{u} = \cos x \dee{x}}</m> and so
-<me>
+<md>
+<mrow>
  \int_{0}^{\pi/2} \textcolor{blue}{\cos x} \cdot (1+\textcolor{red}{\sin}^2 \textcolor{red}x)\textcolor{blue}{\dee{x} }
-  = \int_{x=0}^{x=\pi/2} (1+\textcolor{red}{\sin}^2 \textcolor{red}{x})\cdot \textcolor{blue}{\cos x \dee{x} }
-   = \int_{u=0}^{u=1} (1+\textcolor{red}{u}^2) \,\textcolor{blue}{\dee{u}},
-</me>
+  &amp;= \int_{x=0}^{x=\pi/2} (1+\textcolor{red}{\sin}^2 \textcolor{red}{x})\cdot \textcolor{blue}{\cos x \dee{x} }
+</mrow><mrow>
+   &amp;= \int_{u=0}^{u=1} (1+\textcolor{red}{u}^2) \,\textcolor{blue}{\dee{u}},
+</mrow>
+</md>
 since <m>u=\sin 0=0</m> when <m>x=0</m> and <m>u=\sin(\pi/2)=1</m> when <m>x=\pi/2</m>. Then, by the Fundamental Theorem of Calculus Part 2,
 <me>
 \int_{0}^{1} (1+u^2) \,\dee{u}
@@ -921,7 +960,7 @@ Since <m>x_0^*=0</m> and <m>x_n^*=1</m>, the right hand side is the definition
 \int_0^1 f(x)\,\dee{x}
 &amp;=\int_0^1 \textcolor{blue}{x}\cos(\textcolor{red}{x^2})\,\textcolor{blue}{\dee{x}}
 </mrow><mrow>
-&amp;=\textcolor{blue}{\frac{1}{2}}\int_0^1 \cos(\textcolor{red}{y})\,\textcolor{blue}{\dee{y} }\qquad\text{with } textcolor{red}{y=x^2}, \textcolor{blue}{\dee{y}=2x\,\dee{x}}
+&amp;=\textcolor{blue}{\frac{1}{2}}\int_0^1 \cos(\textcolor{red}{y})\,\textcolor{blue}{\dee{y} }\qquad\text{with } \textcolor{red}{y=x^2}, \textcolor{blue}{\dee{y}=2x\,\dee{x}}
 </mrow><mrow>
 &amp;=\frac{1}{2}\Big[\sin(y)\Big]_0^1
 </mrow><mrow>
@@ -993,13 +1032,13 @@ Find the right Riemann sum for both definite integrals.
 Using the definition of a definite integral with right Riemann sums:
 <md>
 <mrow>
-\color{red}{\int_a^b 2f(2x)\dee{x}}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x \cdot 2f(2(a+i\Delta x))&amp;\Delta x = \frac{b-a}{n}
+\color{red}{\int_a^b 2f(2x)\dee{x}}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x \cdot 2f(2(a+i\Delta x))\qquad\Delta x = \frac{b-a}{n}
 </mrow><mrow>
 &amp;=\lim_{n \to \infty}\sum_{i=1}^n \left(\frac{b-a}{n}\right)\cdot2 f\left(2\left(a+i\left(\frac{b-a}{n}\right)\right)\right)
 </mrow><mrow>
 &amp;=\lim_{n \to \infty}\sum_{i=1}^n \left(\frac{2b-2a}{n}\right)\cdot f\left(2a+i\left(\frac{2b-2a}{n}\right)\right)
 </mrow><mrow>
-\color{blue}{\int_{2a}^{2b} f(x)\dee{x}}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x \cdot f(2a+i\Delta x)&amp;\Delta x = \frac{2b-2a}{n}
+\color{blue}{\int_{2a}^{2b} f(x)\dee{x}}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x \cdot f(2a+i\Delta x)\qquad\Delta x = \frac{2b-2a}{n}
 </mrow><mrow>
 &amp;=\lim_{n \to \infty}\sum_{i=1}^n \left(\frac{2b-2a}{n}\right) \cdot f\left(2a+i \left(\frac{2b-2a}{n}\right)\right)
 </mrow>
@@ -1013,13 +1052,13 @@ Using the definition of a definite integral with right Riemann sums:
 Using the definition of a definite integral with right Riemann sums:
 <md>
 <mrow>
-\color{red}{\int_a^b 2f(2x)\dee{x}}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x \cdot 2f(2(a+i\Delta x))&amp;\Delta x = \frac{b-a}{n}
+\color{red}{\int_a^b 2f(2x)\dee{x}}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x \cdot 2f(2(a+i\Delta x))\qquad\Delta x = \frac{b-a}{n}
 </mrow><mrow>
 &amp;=\lim_{n \to \infty}\sum_{i=1}^n \left(\frac{b-a}{n}\right)\cdot2 f\left(2\left(a+i\left(\frac{b-a}{n}\right)\right)\right)
 </mrow><mrow>
 &amp;=\lim_{n \to \infty}\sum_{i=1}^n \left(\frac{2b-2a}{n}\right)\cdot f\left(2a+i\left(\frac{2b-2a}{n}\right)\right)
 </mrow><mrow>
-\color{blue}{\int_{2a}^{2b} f(x)\dee{x}}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x \cdot f(2a+i\Delta x)&amp;\Delta x = \frac{2b-2a}{n}
+\color{blue}{\int_{2a}^{2b} f(x)\dee{x}}&amp;=\lim_{n \to \infty}\sum_{i=1}^n \Delta x \cdot f(2a+i\Delta x)\qquad\Delta x = \frac{2b-2a}{n}
 </mrow><mrow>
 &amp;=\lim_{n \to \infty}\sum_{i=1}^n \left(\frac{2b-2a}{n}\right) \cdot f\left(2a+i \left(\frac{2b-2a}{n}\right)\right)
 </mrow>
