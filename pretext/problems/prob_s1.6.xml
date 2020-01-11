@@ -9,7 +9,7 @@
 <exercise>
 <statement><p>
 Consider a right circular cone.
-</p><sidebyside width="33%">
+</p><sidebyside width="25%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw (0,0)node[thin, gray, shape=ellipse, minimum width=3cm, minimum height=1cm, draw, fill=black, fill opacity=0.1] {};
 \draw (-1.5,0)--(0,3)--(1.5,0);
@@ -34,7 +34,7 @@ If we take a horizontal slice of a cone, we get a circle. If we take a vertical 
 Two potters start with a block of clay <m>h</m> units tall, and identical square cookie cutters. They form columns by pushing the square cookie cutter straight down over the clay, so that its cross-section is the same square as the cookie cutter. Potter A pushes their cookie cutter down while their clay block is sitting motionless on a table; Potter B pushes their cookie cutter down while their clay block is rotating on a potter's wheel, so their column looks twisted. Which column has greater volume?
 </p>
 
-<sidebyside width="25%">
+<sidebyside width="20%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[thick] (-1.5,-3) --(-0,-3.5)--(1.5,-3)--(1.5,3)--(0,2.5)--(-1.5,3)--cycle;
 \draw[thick] (-1.5,3)--(0,3.5)--(1.5,3) (0,2.5)--(0,-3.5);
@@ -84,7 +84,7 @@ The columns have the same volume. We can see this by chopping up the columns int
 <statement><p>
 Let <m>R</m> be the region bounded above by the graph of <m>y=f(x)</m> shown below and bounded below by the <m>x</m>-axis, from <m>x=0</m> to <m>x=6</m>. Sketch the washers that are formed by rotating <m>R</m> about the <m>y</m>-axis.
 In your sketch, label the all radii in terms of <m>y</m>, and label the thickness.
-</p><sidebyside width="50%">
+</p><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{7}{1}{4}
 \draw[ultra thick, blue] (0,0)--(1,1)--(2,0)--(4,3)--(6,0);
@@ -510,7 +510,7 @@ volume <m>\pi\big[{(9-x^2)}^2-{(x^2+1)}^2\big]\,\dee{x}</m>.
 A tetrahedron is a three-dimensional shape with four faces, each of which is an equilateral triangle. (You might have seen this shape as a 4-sided die; think of a pyramid with a triangular base.) Using the methods from this section, calculate the volume of a tetrahedron with side-length <m>\ell</m>. You may assume without proof that the height of a tetrahedron with side-length <m>\ell</m> is <m>\sqrt{\frac{2}{3}}\ell</m>.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="40%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw (0,0) coordinate(a0);
 \draw (3,0) coordinate(a1);
@@ -834,7 +834,7 @@ The region <m>R</m> is the region
 between the blue and red curves, with <m>3\le x\le 5</m>,  in the figures below.
 </p>
 
-<sidebyside width="33%">
+<sidebyside widths="40% 40%">
 <image source="problems/figs/graphE1"/>
 <image source="problems/figs/graphE1b"/>
 </sidebyside>
@@ -897,7 +897,7 @@ See Example <xref ref="eg_rot_yaxis"/>.
 The region <m>R</m> is sketched below.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="40%">
 <image source="problems/figs/graphE2l"/>
 </sidebyside>
 <p>
@@ -1119,7 +1119,7 @@ A frustrum of a right circular cone (as shown below) has
 height <m>h</m>. Its base is a circular disc with radius <m>4</m> and its top is
 a circular disc with radius <m>2</m>. Calculate the volume of the frustrum.
 </p>
-<sidebyside width="40%">
+<sidebyside width="33%">
 <image source="problems/figs/OE01D_4b"/>
 </sidebyside>
 </statement>
@@ -1699,9 +1699,14 @@ It would be useful to review that problem.
 </p></hint>
 
 <answer><p>
-<m>\displaystyle\int_{\pi/2}^\pi \pi\big[(5 + \pi \sin x)^2-(5 + 2\pi - 2x)^2\big]\dee{x}
-   +\displaystyle\int^{3\pi/2}_\pi \pi\big[(5 + 2\pi - 2x)^2-(5 + \pi \sin x)^2\big]\
-            \dee{x}</m>
+<md>
+<mrow>
+&amp;\displaystyle\int_{\pi/2}^\pi \pi\big[(5 + \pi \sin x)^2-(5 + 2\pi - 2x)^2\big]\dee{x}
+</mrow><mrow>
+&amp;\hskip0.5in+\displaystyle\int^{3\pi/2}_\pi \pi\big[(5 + 2\pi - 2x)^2-(5 + \pi \sin x)^2\big]\
+            \dee{x}
+</mrow>
+</md>
 </p></answer>
 
 <solution><p>
