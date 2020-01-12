@@ -397,10 +397,11 @@ We can also use integration by parts to eliminate higher powers of <m>x</m>. We 
 	We can, if needed, check our answer by differentiating:
 	<md>
 	<mrow>
-	  \diff{}{x} \left( x^2 e^x - 2xe^x + 2e^x + C \right)
-	  &amp;= \left( x^2 e^x + 2xe^x \right) - \left(2x e^x + 2e^x \right) + 2e^x + 0
+	  &amp;\diff{}{x} \left( x^2 e^x - 2xe^x + 2e^x + C \right)
+        </mrow><mrow>
+	  &amp;\hskip1in= \left( x^2 e^x + 2xe^x \right) - \left(2x e^x + 2e^x \right) + 2e^x + 0
 	</mrow><mrow>
-	  &amp;= x^2 e^x \checkmark
+	  &amp;\hskip1in= x^2 e^x \checkmark
 	</mrow>
 	</md>
 </li>
@@ -685,25 +686,27 @@ at more or less the same time.
 	<md>
 	<mrow>
 	I_1 &amp;=\Big[-e^x\cos x +e^x\sin x\Big]_a^b -I_1
-	&amp; \text{which implies}&amp;&amp;
-	I_1&amp;=\frac{1}{2}\Big[e^x\big(\sin x-\cos x\big)\Big]_a^b
+        </mrow><mrow>
+	&amp;\hskip0.5in \text{which implies}\qquad
+	I_1=\frac{1}{2}\Big[e^x\big(\sin x-\cos x\big)\Big]_a^b
 	</mrow>
 	</md>
 	If we substitute the other way around we get
 	<md>
 	<mrow>
 	I_2 &amp;=\Big[e^x\sin x +e^x\cos x\Big]_a^b -I_2
-	&amp; \text{which implies}&amp;&amp;
-	I_2&amp;=\frac{1}{2}\Big[e^x\big(\sin x+\cos x\big)\Big]_a^b
+        </mrow><mrow>
+	&amp;\hskip0.5in \text{which implies}\qquad
+	I_2=\frac{1}{2}\Big[e^x\big(\sin x+\cos x\big)\Big]_a^b
 	</mrow>
 	</md>
 	That is,
 	<md>
 	<mrow>
-	\int_a^b e^x\sin x\dee{x}=
+	\int_a^b e^x\sin x\dee{x}&amp;=
 	\frac{1}{2}\Big[e^x\big(\sin x-\cos x\big)\Big]_a^b
-	\qquad
-	\int_a^b e^x\cos x\dee{x}=
+	</mrow><mrow>
+	\int_a^b e^x\cos x\dee{x}&amp;=
 	\frac{1}{2}\Big[e^x\big(\sin x+\cos x\big)\Big]_a^b
 	</mrow>
 	</md>
@@ -720,7 +723,8 @@ at more or less the same time.
 	Note that we can always check whether or not this is correct. It is  correct if and only if the derivative of the right hand side is <m>e^x\sin x</m>.  Here goes. By the product rule
 	<md>
 	<mrow>
-	\diff{}{x}\Big[\frac{1}{2}e^x\big(\sin x-\cos x\big)+C\Big]
+	&amp;=\diff{}{x}\Big[\frac{1}{2}e^x\big(\sin x-\cos x\big)+C\Big]
+        </mrow><mrow>
 	&amp;=\frac{1}{2}\Big[e^x\big(\sin x-\cos x\big)+e^x\big(\cos x+\sin x\big)\Big]
 	=e^x\sin x
 	</mrow>

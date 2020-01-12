@@ -280,8 +280,9 @@ so that <m>v=-\cos x</m> and <m>\dee{u} = \dee{x}</m>:
 <md>
 <mrow>
 \int_0^\pi x\sin x\,\dee{x}
-   = \underbrace{-x\cos x}_{uv} \Big|_0^\pi -\int_0^\pi \underbrace{(-\cos x)}_v\,\underbrace{\dee{x}}_{\dee{u}}
-   = \Big[-x\cos x +\sin x\Big]_0^\pi
+   &amp;= \underbrace{-x\cos x}_{uv} \Big|_0^\pi -\int_0^\pi \underbrace{(-\cos x)}_v\,\underbrace{\dee{x}}_{\dee{u}}
+   </mrow><mrow>
+   &amp;= \Big[-x\cos x +\sin x\Big]_0^\pi
    =-\pi(-1)
    =\pi
 </mrow>
@@ -314,8 +315,9 @@ so that <m>v=\sin x</m> and <m>\dee{u} = \dee{x}</m>:
 <md>
 <mrow>
 \int_0^{\frac{\pi}{2}} x\cos x\,\dee{x}
-   = \underbrace{x}_u\underbrace{\sin x}_v \Big|_0^{\frac{\pi}{2}} -\int_0^{\frac{\pi}{2}} \underbrace{\sin x}_v\,\underbrace{\dee{x}}_{\dee{u}}
-   = \Big[x\sin x +\cos x\Big]_0^{\frac{\pi}{2}}
+   &amp;= \underbrace{x}_u\underbrace{\sin x}_v \Big|_0^{\frac{\pi}{2}} -\int_0^{\frac{\pi}{2}} \underbrace{\sin x}_v\,\underbrace{\dee{x}}_{\dee{u}}
+  </mrow><mrow>
+  &amp;= \Big[x\sin x +\cos x\Big]_0^{\frac{\pi}{2}}
    =\frac{\pi}{2} - 1
 </mrow>
 </md>
@@ -373,10 +375,11 @@ This integrand is the product of two functions, with no obvious substitution. So
 <p>Let's check that this makes sense: the derivative of <m>e^x\left(x^3-3x^2+6x - 6\right)+C</m> should be <m>x^3e^x</m>. We differentiate using the product rule.
 <md>
 <mrow>
-\diff{}{x}\left\{e^x\left(x^3-3x^2+6x - 6\right)+C\right\}
-&amp;=e^x\left(x^3-3x^2+6x - 6\right)+e^x\left(3x^2-6x+6\right)
+&amp;\diff{}{x}\left\{e^x\left(x^3-3x^2+6x - 6\right)+C\right\}
 </mrow><mrow>
-&amp;=e^x\left(x^3-3x^2+3x^2+6x-6x-6+6\right)=x^3e^x
+&amp;\hskip0.5in=e^x\left(x^3-3x^2+6x - 6\right)+e^x\left(3x^2-6x+6\right)
+</mrow><mrow>
+&amp;\hskip0.5in=e^x\left(x^3-3x^2+3x^2+6x-6x-6+6\right)=x^3e^x
 </mrow>
 </md>
 </p>
@@ -505,10 +508,14 @@ This problem is similar to Questions<nbsp/><xref ref="p1_7_xlogx" text="local"/>
 <p>So, we use <m>u=\log t</m>, <m>\dee{v}= 3t^2-5t+6</m>, <m>\dee{u}=\frac{1}{t}\dee{t}</m>, and <m>v = t^3 - \frac{5}{2}t^2+6t</m>.
 <md>
 <mrow>
-\int (3t^2-5t+6)\log t\dee{t}&amp;=\underbrace{\log t}_u\left(\underbrace{ t^3 - \frac{5}{2}t^2+6t}_v\right) - \int \underbrace{\frac{1}{t}\left( t^3 - \frac{5}{2}t^2+6t\right)\dee{t}}_{v\dee{u}}
-</mrow><mrow>&amp;=\left( t^3 - \frac{5}{2}t^2+6t \right)\log t- \int\left(
+&amp;\int (3t^2-5t+6)\log t\dee{t}
+</mrow><mrow>
+&amp;\hskip0.5in=\underbrace{\log t}_u\left(\underbrace{ t^3 - \frac{5}{2}t^2+6t}_v\right) - \int \underbrace{\frac{1}{t}\left( t^3 - \frac{5}{2}t^2+6t\right)\dee{t}}_{v\dee{u}}
+</mrow><mrow>
+&amp;\hskip0.5in=\left( t^3 - \frac{5}{2}t^2+6t \right)\log t- \int\left(
 t^2-\frac{5}{2}t+6 \right)\dee{t}
-</mrow><mrow>&amp;=\left( t^3 - \frac{5}{2}t^2+6t \right)\log t -\frac{1}{3}t^3 +\frac{5}{4}t^2-6t+C
+</mrow><mrow>&amp;\hskip0.5in
+=\left( t^3 - \frac{5}{2}t^2+6t \right)\log t -\frac{1}{3}t^3 +\frac{5}{4}t^2-6t+C
 </mrow>
 </md>
 </p></solution>
@@ -758,15 +765,24 @@ Option 1 seems likelier. Let's see how it plays out. We use integration by parts
 </ul>
 <md>
 <mrow>
-\int x^2\arctan x \dee{x}&amp;=\underbrace{x^2}_{u}\underbrace{\left(x\arctan x - \frac{1}{2}\log(1+x^2)\right)}_v - \int \underbrace{\left(x\arctan x - \frac{1}{2}\log(1+x^2)\right)}_v\cdot \underbrace{2x\dee{x}}_{\dee{u}}
+\int x^2\arctan x \dee{x}&amp;=\underbrace{x^2}_{u}\underbrace{\left(x\arctan x - \frac{1}{2}\log(1+x^2)\right)}_v 
 </mrow><mrow>
-&amp;=x^3\arctan x - \frac{x^2}{2}\log(1+x^2)- 2\int x^2\arctan x \dee{x} + \int x\log(1+x^2)\dee{x}
+&amp;\hskip0.25in
+- \int \underbrace{\left(x\arctan x - \frac{1}{2}\log(1+x^2)\right)}_v\cdot \underbrace{2x\dee{x}}_{\dee{u}}
+</mrow><mrow>
+&amp;=x^3\arctan x - \frac{x^2}{2}\log(1+x^2)- 2\int x^2\arctan x \dee{x} 
+</mrow><mrow>
+&amp;\hskip0.25in+ \int x\log(1+x^2)\dee{x}
 </mrow>
 <intertext>Adding <m>\quad 2\displaystyle\int x^2\arctan x \dee{x} \quad </m> to both sides:
 </intertext><mrow>
-3\int x^2\arctan x \dee{x}&amp;=x^3\arctan x - \frac{x^2}{2}\log(1+x^2) + \int x\log(1+x^2)\dee{x}
+3\int x^2\arctan x \dee{x}&amp;=x^3\arctan x - \frac{x^2}{2}\log(1+x^2) 
 </mrow><mrow>
-\int x^2\arctan x \dee{x}&amp;=\frac{x^3}{3}\arctan x - \frac{x^2}{6}\log(1+x^2) + \frac{1}{3}\int x\log(1+x^2)\dee{x}
+&amp;\hskip0.5in+ \int x\log(1+x^2)\dee{x}
+</mrow><mrow>
+\int x^2\arctan x \dee{x}&amp;=\frac{x^3}{3}\arctan x - \frac{x^2}{6}\log(1+x^2) 
+</mrow><mrow>
+&amp;\hskip0.5in+ \frac{1}{3}\int x\log(1+x^2)\dee{x}
 </mrow>
 <intertext>Using the substitution <m>s=1+x^2</m>, <m>\dee{s}=2x\dee{x}</m>:
 </intertext><mrow>
@@ -777,7 +793,8 @@ Option 1 seems likelier. Let's see how it plays out. We use integration by parts
 <mrow>
 &amp;=\frac{x^3}{3}\arctan x - \frac{x^2}{6}\log(1+x^2) + \frac{1}{6}\left(s\log s - s\right)+C
 </mrow><mrow>
-&amp;=\frac{x^3}{3}\arctan x - \frac{x^2}{6}\log(1+x^2) + \frac{1}{6}\left((1+x^2)\log (1+x^2) - (1+x^2)\right)+C
+&amp;=\frac{x^3}{3}\arctan x - \frac{x^2}{6}\log(1+x^2) + \frac{1}{6}\big((1+x^2)\log (1+x^2) </mrow><mrow>
+&amp;\hskip3in- (1+x^2)\big)+C
 </mrow><mrow>
 &amp;=\frac{x^3}{3}\arctan x + \left[-\frac{x^2}{6}+\frac{1+x^2}{6}\right]\log(1+x^2)-\frac{1}{6}(1+x^2)+C
 </mrow><mrow>
@@ -820,8 +837,13 @@ This example is similar to  Example<nbsp/><xref ref="eg_circularint"/> in the te
 -\int\underbrace{4e^{x/2}\cos(2x)\dee{x}}_{v\dee{u}}
 \right]
 </mrow>
-<intertext>So, we've found the equation</intertext><mrow>
-\color{red}{\int e^{x/2}\cos(2x)\dee{x}}&amp;=2e^{x/2}\cos(2x)+8e^{x/2}\sin(2x)-\color{red}{16\int e^{x/2}\cos(2x)\dee{x}} +C
+</md>
+So, we've found the equation
+<md>
+<mrow>
+\color{red}{\int e^{x/2}\cos(2x)\dee{x}}&amp;=2e^{x/2}\cos(2x)+8e^{x/2}\sin(2x)
+</mrow><mrow>
+&amp;\hskip0.5in-\color{red}{16\int e^{x/2}\cos(2x)\dee{x}} +C
 </mrow>
 <intertext>We add <m>\quad 16\displaystyle\int e^{x/2}\cos(2x)\dee{x} \quad</m> to both sides.
 </intertext><mrow>
@@ -1092,11 +1114,14 @@ Applying this reduction formula, with <m>n=8,6,4,2</m>:
 \int_0^{\pi/2}\sin^8(x)\,\dee{x}
 &amp;=\frac{7}{8}\int_0^{\pi/2}\sin^6(x)\,\dee{x}
 =\frac{7}{8}\cdot\frac{5}{6}\int_0^{\pi/2}\sin^4(x)\,\dee{x}
-=\frac{7}{8}\cdot\frac{5}{6}\cdot\frac{3}{4}\int_0^{\pi/2}\sin^2(x)\,\dee{x}
+</mrow><mrow>
+&amp;=\frac{7}{8}\cdot\frac{5}{6}\cdot\frac{3}{4}\int_0^{\pi/2}\sin^2(x)\,\dee{x}
 </mrow><mrow>
 &amp;=\frac{7}{8}\cdot\frac{5}{6}\cdot\frac{3}{4}\cdot\frac{1}{2}\int_0^{\pi/2}\,\dee{x}
-=\frac{7}{8}\cdot\frac{5}{6}\cdot\frac{3}{4}\cdot\frac{1}{2}\cdot\frac{\pi}{2}
-=\frac{35}{256}\pi
+</mrow><mrow>
+&amp;=\frac{7}{8}\cdot\frac{5}{6}\cdot\frac{3}{4}\cdot\frac{1}{2}\cdot\frac{\pi}{2}
+</mrow><mrow>
+&amp;=\frac{35}{256}\pi
 </mrow>
 </md>
 Using a calculator, we see this is approximately <m>0.4295</m>.
@@ -1137,8 +1162,10 @@ See Examples <xref ref="eg_invtan"/> and  <xref ref="eg_rot_yaxis"/> for refresh
 By integration by parts with <m>u=\arctan x</m>, <m>\dee{v}=\dee{x}</m>,  <m>v=x</m> and <m>\dee{u}=\frac{1}{1+x^2}\,\dee{x}</m>, and then the substitution <m>s=1+x^2</m>,
 <md>
 <mrow>
-A&amp;=\int_0^1\arctan x\dee{x}=\underbrace{ x\arctan x}_{uv}\Big|_0^1-\int_0^1\underbrace{\frac{x}{1+x^2}\,\dee{x}}_{v\dee{u}}
-=\arctan 1-\half\log(1+x^2)\Big|_0^1
+A&amp;=\int_0^1\arctan x\dee{x}
+=\underbrace{ x\arctan x}_{uv}\Big|_0^1-\int_0^1\underbrace{\frac{x}{1+x^2}\,\dee{x}}_{v\dee{u}}
+</mrow><mrow>
+&amp;=\arctan 1-\half\log(1+x^2)\Big|_0^1
 </mrow><mrow>
 &amp;=\frac{\pi}{4}-\frac{\log 2}{2}
 </mrow>
@@ -1174,7 +1201,8 @@ strip is at <m>y=\frac{\pi}{4}</m> (since at the top <m>x=1</m> and <m>x=\tan y<
 \text{Volume}
 &amp;= \int _0^{\frac{\pi}{4}} \pi(1-\tan^2 y)\dee{y}
 = \int _0^{\frac{\pi}{4}} \pi(2-\sec^2 y)\dee{y}
-=\pi\big[2y -\tan y\big]_0^{\frac{\pi}{4}}
+</mrow><mrow>
+&amp;=\pi\big[2y -\tan y\big]_0^{\frac{\pi}{4}}
 </mrow><mrow>
 &amp;= \frac{\pi^2}{2}-\pi
 </mrow>
@@ -1229,9 +1257,10 @@ so that <m>\dee{u}=\dee{x}</m> and <m>v(x)=\frac16e^{6x}</m>:
 Therefore, the total volume is
 <md>
 <mrow>
-  V = \pi \bigg[\frac{e^{18}}{2} - \bigg( \frac{e^{18}}{36} - \frac1{36} \bigg) \bigg]
+  V &amp;= \pi \bigg[\frac{e^{18}}{2} - \bigg( \frac{e^{18}}{36} - \frac1{36} \bigg) \bigg]
                - \pi \bigg[\frac{3^2}{2} + \frac{4\cdot3^3}{3} + 3^4 \bigg]
-    = \pi \bigg( \frac{17 e^{18}-4373}{36} \bigg).
+   </mrow><mrow>
+    &amp;= \pi \bigg( \frac{17 e^{18}-4373}{36} \bigg).
 </mrow>
 </md>
 </p></solution>
