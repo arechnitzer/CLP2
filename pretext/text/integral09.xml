@@ -161,7 +161,7 @@ As a warm-up, consider the area of a quarter of the unit circle.
 	</mrow><mrow>
 	&amp;= \int \sin^2u \dee{u}
 	</mrow><mrow>
-	&amp;= \frac{1}{2} \int (1-\cos 2u) \dee{u} &amp;
+	&amp;= \frac{1}{2} \int (1-\cos 2u) \dee{u} \qquad
 	\text{by Equation }<xref ref="eq_TRGINTtrigidentityF"/>
 	</mrow><mrow>
 	&amp;= \frac{u}{2} - \frac{1}{4}\sin 2u +C
@@ -475,7 +475,7 @@ above.
 	&amp;= \int \frac{\sec^2 u}{\sqrt{\sec^2u-1}} \sec u \tan u \dee{u}
 	</mrow><mrow>
 	&amp;= \int \sec^3 u \cdot \frac{ \tan u}{\sqrt{\tan^2u}}  \dee{u}
-	\qquad\qquad \text{since $\tan^2u = \sec^2u-1$}
+	\qquad \text{since $\tan^2u = \sec^2u-1$}
 	</mrow><mrow>
 	&amp;= \int \sec^3u \cdot \frac{\tan u}{|\tan u|} \dee{u}
 	</mrow>
@@ -657,7 +657,7 @@ This time we have an integral with a square root in the integrand, but the argum
 	&amp;=\int_0^{\pi/3} 2\sqrt{\sec^2 u -1}\ \tan u\dee{u}
 	</mrow><mrow>
 	&amp;=2\int_0^{\pi/3} \tan^2 u\dee{u}
-	\qquad\qquad\text{since } \sec^2u=1+\tan^2u
+	\qquad\text{since } \sec^2u=1+\tan^2u
 	</mrow>
 	<intertext>
 		In taking the square root of <m>\sec^2u-1=\tan^2u</m> we used that <m>\tan u\ge 0</m> on  the range <m>0\le u\le \frac{\pi}{3}</m>.
