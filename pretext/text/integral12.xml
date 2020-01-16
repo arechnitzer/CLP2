@@ -79,7 +79,7 @@ is applicable only when <m>F'(x)</m> exists and equals <m>f(x)</m> for <em>all</
 Let us put this example to one side for a moment and turn to the integral <m>\int_a^\infty\frac{\dee{x}}{1+x^2}</m>. In this case, the integrand is bounded but the  domain of integration extends to <m>+\infty</m>. We can evaluate this integral by sneaking up  on it. We compute it on a  bounded domain of integration, like  <m>\int_a^R\frac{\dee{x}}{1+x^2}</m>, and then take the limit <m>R\rightarrow\infty</m>.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="66%">
 <image source="text/figs/impInfDomain"/>
 </sidebyside>
 
@@ -281,14 +281,13 @@ Consider the integral
 	<md>
 	<mrow>
 	\int_{-\infty}^\infty\frac{\dee{x}}{(x-2)x^2}
-	=\int_{-\infty}^{a} \frac{\dee{x}}{(x-2)x^2}
-	 \ +\ \int_{a}^0 \frac{\dee{x}}{(x-2)x^2}
-	 \ +\ \int_0^b \frac{\dee{x}}{(x-2)x^2}
-	 </mrow>
-	 <mrow>
-	 \ +\ \int_b^2 \frac{\dee{x}}{(x-2)x^2}
-	 \ +\ \int_2^c \frac{\dee{x}}{(x-2)x^2}
-	 \ +\ \int_c^\infty \frac{\dee{x}}{(x-2)x^2}
+	&amp;=\int_{-\infty}^{a} \frac{\dee{x}}{(x-2)x^2}
+	 +\int_{a}^0 \frac{\dee{x}}{(x-2)x^2}
+	 +\int_0^b \frac{\dee{x}}{(x-2)x^2}
+	 </mrow><mrow>
+	 &amp;+\int_b^2 \frac{\dee{x}}{(x-2)x^2}
+	      +\int_2^c \frac{\dee{x}}{(x-2)x^2}
+	      +\int_c^\infty \frac{\dee{x}}{(x-2)x^2}
 	 </mrow>
 	</md>
 	where
@@ -520,7 +519,7 @@ With the more formal definitions out of the way, we are now ready for some (impo
 This is a pretty subtle example. Look at the sketch below:
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="50%">
 <image source="text/figs/impPlusMinus"/>
 </sidebyside>
 
@@ -534,16 +533,16 @@ But both of the integrals
 <mrow>
 \int_0^1\frac{\dee{x}}{x}
 &amp;=\lim_{t\rightarrow 0+}\int_t^1\frac{\dee{x}}{x}
-&amp;&amp;=\lim_{t\rightarrow 0+}\Big[\log x\Big]_t^1
-&amp;&amp;=\lim_{t\rightarrow 0+}\log\frac{1}{t}
-&amp;=+\infty
+=\lim_{t\rightarrow 0+}\Big[\log x\Big]_t^1
+=\lim_{t\rightarrow 0+}\log\frac{1}{t}
+=+\infty
 </mrow>
 <mrow>
 \int_{-1}^0\frac{\dee{x}}{x}
 &amp;=\lim_{T\rightarrow 0-}\int_{-1}^T\frac{\dee{x}}{x}
-&amp;&amp;=\lim_{T\rightarrow 0-}\Big[\log|x|\Big]_{-1}^T
-&amp;&amp;=\lim_{T\rightarrow 0-}\log|T|\
-&amp;=-\infty
+=\lim_{T\rightarrow 0-}\Big[\log|x|\Big]_{-1}^T
+=\lim_{T\rightarrow 0-}\log|T|\
+=-\infty
 </mrow>
 </md>
 diverge so <m>\int_{-1}^1\frac{\dee{x}}{x}</m> diverges. Don't make the mistake of thinking  that <m>\infty-\infty=0</m>. <alert>It is undefined</alert>. And it is undefined for good  reason.
@@ -604,14 +603,14 @@ Since
 <mrow>
 \lim_{R\rightarrow\infty}\int_0^R\frac{\dee{x}}{1+x^2}
 &amp;=\lim_{R\rightarrow\infty}\Big[\arctan x\Big]_0^R
-&amp;=\lim_{R\rightarrow\infty} \arctan R
-&amp;=\frac{\pi}{2}
+=\lim_{R\rightarrow\infty} \arctan R
+=\frac{\pi}{2}
 </mrow>
 <mrow>
 \lim_{r\rightarrow-\infty}\int_r^0\frac{\dee{x}}{1+x^2}
 &amp;=\lim_{r\rightarrow-\infty}\Big[\arctan x\Big]_r^0
-&amp;=\lim_{r\rightarrow-\infty} -\arctan r
-&amp;=\frac{\pi}{2}
+=\lim_{r\rightarrow-\infty} -\arctan r
+=\frac{\pi}{2}
 </mrow>
 </md>
 The integral <m>\int_{-\infty}^\infty\frac{\dee{x}}{1+x^2}</m> converges and takes
