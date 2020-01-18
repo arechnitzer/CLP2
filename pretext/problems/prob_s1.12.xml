@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Copyright 2018 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
-<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShaffreAlike 4.0 International License-->
 <!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
 <exercises>
 
-<exercisegroup><title><conceptual/></title><introduction/>
+<exercisegroup><title><conceptual/></title><introduction/>f
 
 <exercise purpose="RQS">
 <statement><p>
@@ -334,14 +334,16 @@ converges to some finite number, or it is infinite. We want to generate a guess 
 <p>When <m>x</m> is small, <m>\sqrt{x} \gt x^2</m>, so we might guess that our integral behaves like the integral of <m>\frac{1}{\sqrt{x}}</m> when <m>x</m> is near to 0. On the other hand, when <m>x</m> is large, <m>\sqrt{x} \lt x^2</m>, so we might guess that our integral behaves like the integral of <m>\frac{1}{x^2}</m> as <m>x</m> goes to infinity.  This is the hunch that drives the following work:
 <md>
 <mrow>
-0\le\frac{1}{x^2+\sqrt{x}}
-&amp;\le \frac{1}{\sqrt{x}}\quad
-&amp;&amp;\text{and the integral }\int_0^1\frac{\dee{x}}{\sqrt{x}}\text{ converges by Example }<xref ref="eg_IMPp2"/>\text{, and}
+0\amp\le\frac{1}{x^2+\sqrt{x}}
+\le \frac{1}{\sqrt{x}}
+</mrow><mrow>
+\amp\text{and the integral }\int_0^1\frac{\dee{x}}{\sqrt{x}}\text{ converges by Example }<xref ref="eg_IMPp2"/>\text{, and}
 </mrow>
 <mrow>
-0\le\frac{1}{x^2+\sqrt{x}}
-&amp;\le \frac{1}{x^2}
-&amp;&amp;\text{and the integral }\int_1^\infty\frac{\dee{x}}{x^2}\text{ converges by Example }<xref ref="eg_IMPp1"/>
+0\amp\le\frac{1}{x^2+\sqrt{x}}
+\le \frac{1}{x^2}
+</mrow><mrow>
+\amp\text{and the integral }\int_1^\infty\frac{\dee{x}}{x^2}\text{ converges by Example }<xref ref="eg_IMPp1"/>
 </mrow>
 </md>
 Note <m>\frac{\dee{x}}{x^2+\sqrt{x}}</m> is defined and continuous everywhere, <m>\frac{1}{\sqrt{x}}</m> is defined and continuous for <m>x \gt 0</m>, and <m>\frac{1}{x^2}</m> is defined and continuous for <m>x \ge 1</m>.
@@ -547,8 +549,9 @@ So, we split the integral in two, and treat the two halves separately. The integ
 &amp;=\lim_{R\rightarrow\infty}\int_{-R}^0\frac{x}{x^2+1}\dee{x}
 =\lim_{R\rightarrow\infty}\frac{1}{2}\log(x^2+1)\Big|_{-R}^0
 </mrow><mrow>
-&amp;=\lim_{R \to \infty}\frac{1}{2}\left[\log 1-\log(R^2+1)\right]=\lim_{R\rightarrow\infty}-\frac{1}{2}\log(R^2+1)
-=-\infty
+&amp;=\lim_{R \to \infty}\frac{1}{2}\left[\log 1-\log(R^2+1)\right]=\lim_{R\rightarrow\infty}-\frac{1}{2}\log(R^2\!+\!1)
+</mrow><mrow>
+\amp=-\infty
 </mrow><mrow>
 \color{red}{\int_0^{+\infty}\frac{x}{x^2+1}\dee{x}}
 &amp;=\lim_{R\rightarrow\infty}\int_0^R\frac{x}{x^2+1}\dee{x}
@@ -556,7 +559,8 @@ So, we split the integral in two, and treat the two halves separately. The integ
 </mrow><mrow>
 &amp;=\lim_{R \to \infty}\frac{1}{2}\left[ \log(R^2+1)-\log 1\right]
 =\lim_{R\rightarrow\infty}\frac{1}{2}\log(R^2+1)
-=+\infty
+</mrow><mrow>
+\amp=+\infty
 </mrow>
 </md>
 Both halves diverge, so the whole integral diverges.
@@ -599,15 +603,16 @@ Since both terms in the denominator give positive numbers when <m>x</m> is posit
 <p>When <m>x</m> is positive and close to zero, <m>x^{1/2}  \ge x^{3/2}</m>, so we guess that we should compare our integrand to <m>\frac{1}{x^{1/2}}</m> near the limit <m>x=0</m>. In contrast, when <m>x</m> is very large, <m>x^{1/2}  \le x^{3/2}</m>, so we guess that we should compare our integrand to <m>\frac{1}{x^{3/2}}</m> as <m>x</m> goes to infinity.
 <md>
 <mrow>
-\frac{|\sin x|}{x^{3/2}+x^{1/2}}
-&amp;\le \frac{1}{x^{1/2}}
-\quad&amp;&amp;\text{and the integral }\int_0^1\frac{\dee{x}}{x^{1/2}}\text{ converges
-by the $p$-test,  Example }<xref ref="eg_IMPp2"/>
+\amp\frac{|\sin x|}{x^{3/2}+x^{1/2}}
+\le \frac{1}{x^{1/2}}
+</mrow><mrow>
+\amp\hskip0.25in\text{and the integral }\int_0^1\frac{\dee{x}}{x^{1/2}}\text{ converges by the $p$-test,  Example }<xref ref="eg_IMPp2"/>
 </mrow>
 <mrow>
-\frac{|\sin x|}{x^{3/2}+x^{1/2}}
-&amp;\le \frac{1}{x^{3/2}}
-\quad&amp;&amp;\text{and the integral }\int_1^\infty\frac{\dee{x}}{x^{3/2}}\text{ converges by the $p$-test, Example }<xref ref="eg_IMPp1"/>
+\amp\frac{|\sin x|}{x^{3/2}+x^{1/2}}
+\le \frac{1}{x^{3/2}}
+</mrow><mrow>
+\amp\hskip0.25in\text{and the integral }\int_1^\infty\frac{\dee{x}}{x^{3/2}}\text{ converges by the $p$-test, Example }<xref ref="eg_IMPp1"/>
 </mrow>
 </md>
 </p>
@@ -660,8 +665,9 @@ So we split up the integral.
 <md>
 <mrow>
 \int_0^\infty\frac{x+1}{x^{1/3}(x^2+x+1)}\,\dee{x}
-= \int_0^1\frac{x+1}{x^{1/3}(x^2+x+1)}\,\dee{x}
-  +\int_1^\infty\frac{x+1}{x^{1/3}(x^2+x+1)}\,\dee{x}
+\amp= \int_0^1\frac{x+1}{x^{1/3}(x^2+x+1)}\,\dee{x}
+</mrow><mrow>
+\amp\hskip0.25in  +\int_1^\infty\frac{x+1}{x^{1/3}(x^2+x+1)}\,\dee{x}
 </mrow>
 </md>
 Let's develop a hunch about whether the integral converges or diverges. When <m>x\approx 0</m>,  <m>x^2</m> and <m>x</m> are both a lot smaller than 1, so we guess we should compare the integrand to <m>\frac{1}{x^{1/3}}</m>.
@@ -802,7 +808,10 @@ The integrand is <m>x^{-5q}</m>, so when <m>-5q \neq -1</m>, we use the power ru
 Therefore,
 <md>
 <mrow>
-\int_1^\infty \frac1{x^{5q}}\,\dee{x} = \displaystyle\lim_{t\to\infty} \left( \int_1^t \frac1{x^{5q}}\,\dee{x} \right) = \begin{cases}
+\int_1^\infty \frac1{x^{5q}}\,\dee{x} 
+\amp= \displaystyle\lim_{t\to\infty} \left( \int_1^t \frac1{x^{5q}}\,\dee{x} \right) 
+</mrow><mrow>
+\amp= \begin{cases}
 \frac1{1-5q}\left(\displaystyle\lim_{t\to\infty} t^{1-5q}-1\right) = \infty &amp;\text{if } q  \lt  \frac15 \\
 \displaystyle\lim_{t\to\infty}\log t = \infty &amp;\text{if } q = \frac15 \\
 \frac1{5q-1}\left(1-\displaystyle\lim_{t\to\infty}\frac1{t^{5q-1}}\right) = \frac1{5q-1} &amp;\text{if } q  \gt  \frac15.
@@ -882,10 +891,11 @@ Recall <m>\displaystyle\lim_{x \to \infty}\arctan x = \frac{\pi}{2}</m>. For the
 </ul>
 <md>
 <mrow>
-\frac{1}{t^4-1} &amp;= \frac{1}{(t^2+1)(t^2-1)}= \frac{1}{(t^2+1)(t+1)(t-1)} = \frac{At+B}{t^2+1} + \frac{C}{t+1}+\frac{D}{t-1}
+\frac{1}{t^4-1} \amp= \frac{1}{(t^2+1)(t^2-1)}= \frac{1}{(t^2+1)(t+1)(t-1)} 
+</mrow><mrow>\amp= \frac{At+B}{t^2+1} + \frac{C}{t+1}+\frac{D}{t-1}
 </mrow>
 <intertext>Multiply by the original denominator.</intertext><mrow>
-1&amp;=(At+B)(t+1)(t-1) + C(t^2+1)(t-1) +D(t^2+1)(t+1)\tag{$*$}
+1&amp;=(At\!+\!B)(t\!+\!1)(t\!-\!1) + C(t^2\!+\!1)(t\!-\!1) +D(t^2\!+\!1)(t\!+\!1)\tag{$*$}
 </mrow>
 <intertext>Set <m>t=1</m>.</intertext><mrow>
 1&amp;=0+0+D(2)(2) \qquad \Rightarrow \qquad \color{red}{D=\frac{1}{4}}
@@ -911,7 +921,8 @@ Recall <m>\displaystyle\lim_{x \to \infty}\arctan x = \frac{\pi}{2}</m>. For the
 </mrow><mrow>
 &amp;=\lim_{R \to \infty} \left[-\frac{1}{2}\arctan t + \frac{1}{4}\log\left| \frac{t-1}{t+1} \right|\right]_2^R
 </mrow><mrow>
-&amp;=\lim_{R \to \infty} \left(-\frac{1}{2}\arctan R +\frac12\arctan 2 + \frac{1}{4}\log\left| \frac{R-1}{R+1} \right|-\frac{1}{4}\log\left| \frac{2-1}{2+1} \right|\right)
+&amp;=\lim_{R \to \infty} \Big(-\frac{1}{2}\arctan R +\frac12\arctan 2 + \frac{1}{4}\log\left| \frac{R-1}{R+1} \right|
+</mrow><mrow>\amp\hskip0.5in-\frac{1}{4}\log\left| \frac{2-1}{2+1} \right|\Big)
 </mrow>
 <intertext>We can use l'Hôpital's rule to see <m>\displaystyle\lim_{R \to \infty}\frac{R-1}{R+1}=1</m>. Also note <m>-\log (1/3) = \log 3</m>.
 </intertext><mrow>
@@ -940,17 +951,22 @@ There are three singularities in the integrand: <m>x=0</m>, <m>x=1</m>, and <m>x
 &amp;\int_{-5}^5 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}
 </mrow><mrow>
 =
-&amp;\int_{-5}^0 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}+
+&amp;\int_{-5}^0 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}
+</mrow><mrow>
+\amp\hskip0.5in+
 \int_{0}^1 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}
 </mrow><mrow>+&amp;
-\int_{1}^2 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}+
+\int_{1}^2 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}</mrow><mrow>
+\amp\hskip0.5in+
 \int_{2}^5 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}
 </mrow>
 </md>
 This looks rather unfortunate. Let's think again. If all of the integrals below converge, then we can write:
 <md>
 <mrow>
-\int_{-5}^5 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}&amp;=
+\amp\int_{-5}^5 \left(\frac{1}{\sqrt{|x|}} + \frac{1}{\sqrt{|x-1|}}+\frac{1}{\sqrt{|x-2|}}\right)\dee{x}
+</mrow><mrow>
+\amp\hskip0.5in=
 \int_{-5}^5 \frac{1}{\sqrt{|x|}} \dee{x}+
 \int_{-5}^5 \frac{1}{\sqrt{|x-1|}}\dee{x}+
 \int_{-5}^5\frac{1}{\sqrt{|x-2|}}\dee{x}
@@ -1237,7 +1253,7 @@ We have a hunch that our integral behaves similarly to <m>\int_0^\infty \frac{1}
 Hmm... this looks hard. Instead of dealing with it directly, let's use the squeeze theorem (see CLP-1 notes).
 <md>
 <mrow>
-0 &amp;&amp;\leq&amp;&amp; \frac{x}{e^{x/2}+\frac{\sqrt{x}}{e^{x/2 }}}&amp;&amp;\leq&amp;&amp; \frac{x}{e^{x/2}}
+0 \leq \frac{x}{e^{x/2}+\frac{\sqrt{x}}{e^{x/2 }}}\leq \frac{x}{e^{x/2}}
 </mrow>
 </md>
 Using l'Hôpital's rule,
@@ -1248,10 +1264,15 @@ Using l'Hôpital's rule,
 <p>So, by the squeeze theorem <m>\lim\limits_{x \to 0}\frac{\frac{x}{e^x+\sqrt{x}}}{\frac{1}{e^{x/2}}}=0</m>. Since this limit exists, <m>\frac{1}{e^{x/2}}</m> is a reasonable function to use in the limiting comparison test (provided its integral converges). So, we need to show that <m>\int_0^\infty \frac{1}{e^{x/2}}\,\dee{x}</m> converges. This can be done by simply evaluating it:
 </p>
 
-<p><me>
-\int_0^\infty \frac{1}{e^{x/2}}\,\dee{x} = \lim_{b \to \infty}\int_0^b {e^{-x/2}}\,\dee{x}
+<p>
+<md>
+<mrow>
+\int_0^\infty \frac{1}{e^{x/2}}\,\dee{x} \amp= \lim_{b \to \infty}\int_0^b {e^{-x/2}}\,\dee{x}
 = \lim_{b \to \infty} -\frac{1}{2}\big[e^{-x/2}\big]_0^b
-= \lim_{b \to \infty} -\frac{1}{2}\left[\frac{1}{e^{b/2}}-1\right] = \frac{1}{2}</me>
+</mrow><mrow>
+\amp= \lim_{b \to \infty} -\frac{1}{2}\left[\frac{1}{e^{b/2}}-1\right] = \frac{1}{2}
+</mrow>
+</md>
 </p>
 
 <p>So, all together:
@@ -1329,8 +1350,9 @@ Choose, for example, <m>t=10</m>.
 <md>
 <mrow>
 f(x)=\frac{e^{-x}}{1+x}
-\implies f'(x)=-\frac{e^{-x}}{1+x}-\frac{e^{-x}}{(1+x)^2}
-\implies f''(x)&amp;=\frac{e^{-x}}{1+x}+2\frac{e^{-x}}{(1+x)^2}
+\amp\implies f'(x)=-\frac{e^{-x}}{1+x}-\frac{e^{-x}}{(1+x)^2}
+</mrow><mrow>
+\amp\implies f''(x)=\frac{e^{-x}}{1+x}+2\frac{e^{-x}}{(1+x)^2}
 +2\frac{e^{-x}}{(1+x)^3}
 </mrow>
 </md>
@@ -1386,7 +1408,9 @@ have nice results about the area under an even/odd curve.
 <li> Since <m>f(x)</m> is odd, using the reasoning of Example<nbsp/><xref ref="eg_areaunderoddfunction"/>,
 <md>
 <mrow>
-\int_{-\infty}^{-1} f(x) \dee{x}&amp;=\lim_{t \to \infty}\int_{-t}^{-1}f(x) \dee{x}=\lim_{t \to \infty}-\int_{1}^{t} f(x) \dee{x}=-\lim_{t \to \infty} \int_{1}^{t} f(x) \dee{x}
+\int_{-\infty}^{-1} f(x) \dee{x}\amp=\lim_{t \to \infty}\int_{-t}^{-1}f(x) \dee{x}=\lim_{t \to \infty}-\int_{1}^{t} f(x) \dee{x}
+</mrow><mrow>
+\amp=-\lim_{t \to \infty} \int_{1}^{t} f(x) \dee{x}
 </mrow>
 </md>
 Since <m>\displaystyle\int_1^\infty f(x) \dee{x}</m> converges, the last limit above converges. Therefore, <m>\displaystyle\int_{-\infty\vphantom{\frac12}}^{-1} f(x) \dee{x}</m> converges.
@@ -1394,7 +1418,9 @@ Since <m>\displaystyle\int_1^\infty f(x) \dee{x}</m> converges, the last limit a
 <li> Since <m>f(x)</m> is even, using the reasoning of Example<nbsp/><xref ref="eg_lefthalfevenfunction"/>,
 <md>
 <mrow>
-\int_{-\infty}^{-1} f(x) \dee{x}&amp;=\lim_{t \to \infty}\int_{-t}^{-1}f(x) \dee{x}=\lim_{t \to \infty}\int_{1}^{t} f(x) \dee{x}=\lim_{t \to \infty} \int_{1}^{t} f(x) \dee{x}
+\int_{-\infty}^{-1} f(x) \dee{x}\amp=\lim_{t \to \infty}\int_{-t}^{-1}f(x) \dee{x}=\lim_{t \to \infty}\int_{1}^{t} f(x) \dee{x}
+</mrow><mrow>
+\amp=\lim_{t \to \infty} \int_{1}^{t} f(x) \dee{x}
 </mrow>
 <intertext>Since <m>\displaystyle\int_1^\infty f(x) \dee{x}</m> converges, the last limit above converges.  Since <m>f(x)</m> is continuous everywhere, by Theorem<nbsp/><xref ref="thm_IMPfiniteSHift"/>,  <m>\displaystyle\int_{-1}^\infty f(x) \dee{x}</m> converges (note the adjusted lower limit). Then, since
 </intertext><mrow>
@@ -1403,7 +1429,7 @@ Since <m>\displaystyle\int_1^\infty f(x) \dee{x}</m> converges, the last limit a
 \int_{-1}^\infty f(x) \dee{x}
 </mrow>
 </md>
-and both summands converge, our original integral converges as well.
+and both terms converge, our original integral converges as well.
 </li>
 </ol>
 </p></solution>
