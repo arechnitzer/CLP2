@@ -13,7 +13,7 @@
 If you support a body at its center of mass (in a uniform gravitational field) it balances perfectly. That's the definition of the center of mass of the body.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="33%">
 <image source="text/figs/seesaw3"/>
 </sidebyside>
 
@@ -92,7 +92,7 @@ Now suppose that we lift all of the masses, against gravity, to height <m>Z</m>.
 </mrow>
 </md>
 </p>
-<sidebyside width="15%">
+<sidebyside width="10%">
 <image source="text/figs/array"/>
 </sidebyside>
 <p>
@@ -262,7 +262,7 @@ M&amp;= \rho\int_c^d [R(y)-L(y)]\,\dee{y} =\rho A
 Find the <m>x</m>-coordinate of the centroid (centre of gravity) of the plane region <m>R</m> that lies in the first quadrant <m>x\ge 0, \ y\ge 0</m> and inside the ellipse <m>4x^2+9y^2=36</m>. (The area bounded by the ellipse <m>\frac{x^2}{a^2}+\frac{y^2}{b^2}=1</m> is <m>\pi ab</m> square units.)
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="33%">
 <image source="text/figs/centroidQuarterEllipse"/>
 </sidebyside>
 
@@ -290,7 +290,7 @@ Sub in <m>u=1-\frac{x^2}{9}</m>, <m>du=-\frac{2}{9}x\,\dee{x}</m>.
   Find the centroid of the quarter circular disk <m>x\ge 0</m>, <m>y\ge 0</m>, <m>x^2+y^2\le r^2</m>.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="33%">
 <image source="text/figs/centroidQuarterCircle"/>
 </sidebyside>
 
@@ -305,7 +305,7 @@ To evaluate the integral, sub in <m>u=r^2-x^2</m>, <m>du=-2x\,\dee{x}</m>.
 \int_0^r x\sqrt{r^2-x^2}\,\dee{x} = \int_{r^2}^0 \sqrt{u}\,\frac{du}{-2}
 = -\frac{1}{2}\Big[\frac{u^{3/2}}{3/2}\Big]^0_{r^2}
 = \frac{r^3}{3}
-\tag{*}
+\tag{$*$}
 </me>
 So
 <me>
@@ -337,7 +337,7 @@ as expected.
   Find the centroid of the half circular disk <m>y\ge 0</m>, <m>x^2+y^2\le r^2</m>.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="40%">
 <image source="text/figs/centroidHalfCircle"/>
 </sidebyside>
 
@@ -364,7 +364,7 @@ Once again, we have a symmetry <mdash/>- namely the half disk is symmetric about
 Find the centroid of the region <m>R</m> in the diagram.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="40%">
 <image source="text/figs/PSIVc"/>
 </sidebyside>
 
@@ -445,7 +445,8 @@ As the area of the triangle is <m>A=\half (c-a)b</m>,
 &amp;=\frac{2}{b^2}\frac{b^3}{6}=\frac{b}{3}
 </mrow><mrow>
 \bar x&amp;=\frac{1}{A}\int_0^b \frac{a+c}{2b}(b-y)\ \ell(y)\dee{y}
-=\frac{2}{(c-a)b}\int_0^b \frac{a+c}{2b}(b-y)\frac{c-a}{b}(b-y)\dee{y}
+</mrow><mrow>
+\amp=\frac{2}{(c-a)b}\int_0^b \frac{a+c}{2b}(b-y)\frac{c-a}{b}(b-y)\dee{y}
 </mrow>
 <mrow>
 &amp; =\frac{a+c}{b^3}\int_0^b (y-b)^2\dee{y}
@@ -647,7 +648,7 @@ In this notation
 		</md>
 		is proportional to <m>\omega</m>, which is the rate of rotation about the origin.
 	</p>
-	<sidebyside width="50%">
+	<sidebyside width="40%">
 	<image source="text/figs/circularMotion"/>
 	</sidebyside>
 	</li>
@@ -675,7 +676,7 @@ Now suppose that the piece of wood is a seesaw that is long and thin and  is lyi
 <p>
 	force <m>F</m> imposed by the fulcrum that is pushing straight up on the particle  at <m>x=p</m>.
 </p>
-<sidebyside width="66%">
+<sidebyside width="50%">
 <image source="text/figs/seesaw2"/>
 </sidebyside>
 </li>

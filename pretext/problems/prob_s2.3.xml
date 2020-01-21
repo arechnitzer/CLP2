@@ -10,7 +10,7 @@
 <exercise purpose="RQS">
 <statement><p>
 Using symmetry, find the centroid of the finite region between the curves <m>y=(x-1)^2</m> and <m>y=-x^2+2x+1</m>.
-</p><sidebyside width="50%">
+</p><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{3}{1}{3}
 \draw[thick, blue] plot[domain=-.5:2.5 ](\x,{(\x-1)*(\x-1)}) node[right]{$y=(x-1)^2$};
@@ -26,7 +26,7 @@ It might help to know that <m>-x^2+2x+1 = 2-(x-1)^2</m>.
 <solution><p>
 Note <m>-x^2+2x+1 = 2-(x-1)^2</m>. So,
 both parabolas are symmetric about the line <m>x=1</m>, and the <m>x</m>-coordinate of the centroid is <m>x=1</m>.
-</p><sidebyside width="50%">
+</p><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{3}{1}{3}
 \draw[thick, blue] plot[domain=-.5:2.5 ](\x,{(\x-1)*(\x-1)}) node[right]{$y=(x-1)^2$};
@@ -49,7 +49,7 @@ x=0,\quad x&amp;=2
 At both these points, <m>y=1</m>, so we see the figure is symmetric about the line <m>y=1</m>. Then the <m>y</m>-coordinate of the centroid is <m>1</m>.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{3}{1}{3}
 \draw[thick, blue] plot[domain=-.5:2.5 ](\x,{(\x-1)*(\x-1)}) node[right]{$y=(x-1)^2$};
@@ -163,7 +163,7 @@ For each picture below, determine whether the centroid is to the left of, to the
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside>
 
-<sidebyside width="40%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[thick, fill, fill opacity=0.2, yshift=.5cm] (0,-1)--(0,-2) -|(1,-1.1)--(3,-.1)--(3,-1)--(4,-1)--(4,0)--(3,0)--(1,-1)--cycle;
 \draw[decorate, decoration = {brace, amplitude=5pt}]
@@ -314,8 +314,14 @@ The volume of water in Tank A is <m>\frac{4}{3}\pi(1)^3 = \frac{4}{3}\pi</m> cub
 <li> So, the point mass in our model is moved from <m>\bar y_1=4</m> to <m>\bar y_2=\frac{2}{3}\pi</m>, a distance of <m>4-\frac{2}{3}\pi</m> metres, by gravity.
 </li>
 <li> The work involved is:
-<me>
-\left(\frac{4000}{3}\pi \text{kg}\right)\times\left(4-\frac{2}{3}\pi \text{m}\right)\times\left(9.8 \frac{\text{m}}{\text{sec}^2}\right) = \frac{78400\pi}{9}(6-\pi)\approx 78,225 \text{J}</me>
+<md>
+<mrow>
+\left(\frac{4000}{3}\pi \text{kg}\right)\times\left(4-\frac{2}{3}\pi \text{m}\right)\times\left(9.8 \frac{\text{m}}{\text{sec}^2}\right) 
+\amp= \frac{78400\pi}{9}(6-\pi)
+</mrow><mrow>
+\amp\approx 78,225 \text{J}
+</mrow>
+</md>
 </li>
 </ul>
 </p></solution>
@@ -426,11 +432,17 @@ a+(i-\tfrac12)\left(\tfrac{b-a}{n}\right)
 <ol label="a">
 <li>
 <p>
-If we chop <m>R</m> into <m>n</m> pieces, each piece has length <m>\frac{b-a}{\vphantom{\frac12}n}</m>. Then our <m>i</m>th cut is at position <m>a+i\left(\frac{b-a}{n}\right)</m>, so our <m>i</m>th piece runs from <m>a+(i-1)\left(\frac{b-a}{n}\right)</m> to <m>a+i\left(\frac{b-a}{n}\right)</m>. The approximation of the mass of this piece comes from the density at its midpoint, <me>
-m_i=\frac{\left[a+(i-1)\left(\frac{b-a}{n}\right)\right]+\left[a+i\left(\frac{b-a}{n}\right)\right]}{2} = a+(i-\tfrac12)\left(\frac{b-a}{n}\right)</me>
+If we chop <m>R</m> into <m>n</m> pieces, each piece has length <m>\frac{b-a}{\vphantom{\frac12}n}</m>. Then our <m>i</m>th cut is at position <m>a+i\left(\frac{b-a}{n}\right)</m>, so our <m>i</m>th piece runs from <m>a+(i-1)\left(\frac{b-a}{n}\right)</m> to <m>a+i\left(\frac{b-a}{n}\right)</m>. The approximation of the mass of this piece comes from the density at its midpoint,
+<md>
+<mrow>
+m_i\amp=\frac{\left[a+(i-1)\left(\frac{b-a}{n}\right)\right]+\left[a+i\left(\frac{b-a}{n}\right)\right]}{2} 
+</mrow><mrow>
+\amp= a+(i-\tfrac12)\left(\frac{b-a}{n}\right)
+</mrow>
+</md>
 </p>
 
-<sidebyside width="80%">
+<sidebyside width="95%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[rounded corners] (0,0) rectangle (12,.5);
 \foreach \x in {1,2,3}{
@@ -1015,7 +1027,7 @@ we would have to split the domain of integration in two: <m>-3\le y\le 0</m>
 and <m>0\le y\le 3</m>.)
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="40%">
 <image source="problems/figs/OQ16_4_3"/>
 </sidebyside>
 <p>
@@ -1026,11 +1038,14 @@ y = B(x) = 3x.
 </me>
 The area of the triangle is <m>A=\frac12(6)(1)=3</m>.
 Now, we can apply the vertical-slice versions of Equation<nbsp/><xref ref="eq_TRQcentroid"/>.
-<me>
-\bar x = \frac{1}{A}\int_{-1}^0 x \big[T(x)- B(x)\big]\dee{x}
+<md>
+<mrow>
+\bar x \amp= \frac{1}{A}\int_{-1}^0 x \big[T(x)- B(x)\big]\dee{x}
 = \frac{1}{3} \int_{-1}^0 x \big[({-}3x)-(3x)\big]\dee{x}
-= -\frac{1}{3} \int_{-1}^0 6x^2\dee{x}
-</me>
+</mrow><mrow>
+\amp= -\frac{1}{3} \int_{-1}^0 6x^2\dee{x}
+</mrow>
+</md>
 </p>
 
 </solution>
@@ -1112,7 +1127,7 @@ the equation of the top of the region is <m>y=T(x)=1</m>, and the equation of th
 bottom of the region is <m>y=B(x)=-e^x</m>, for all <m>x</m>  from <m>a=0</m> to <m>b=1</m>. So, we use vertical strips.
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="28%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{.5}{2}{3}{1.5}
 \YEycoord{1}{1}
@@ -1125,10 +1140,11 @@ Using Equation<nbsp/><xref ref="eq_TRQcentroid"/>, the <m>y</m>-coordinate of th
 <mrow>
 \bar y &amp; = \frac{1}{2A}\int_0^1  \big[T(x)^2-B(x)^2\big]\,\dee{x}
 = \frac{1}{2e}\int_0^1 \Big(1-e^{2x} \Big) \,\dee{x}
-= \frac{1}{2e}\bigg[x-\frac{1}{2}e^{2x}\bigg]_0^1
 </mrow><mrow>
-&amp;= \frac{1}{2e}\Big[1-\frac{e^2}{2} -0 + \frac{1}{2}\Big]
-=\frac{3}{4e}-\frac{e}{4}
+\amp= \frac{1}{2e}\bigg[x-\frac{1}{2}e^{2x}\bigg]_0^1
+= \frac{1}{2e}\Big[1-\frac{e^2}{2} -0 + \frac{1}{2}\Big]
+</mrow><mrow>
+\amp=\frac{3}{4e}-\frac{e}{4}
 </mrow>
 </md>
 </p>
@@ -1284,9 +1300,10 @@ of the region is <m>y=B(x)=\sin(x)</m>. So, the
 area of the region is
 <md>
 <mrow>
-\null\hskip0.5inA&amp;=\int_0^{\pi/4}\big(T(x)-B(x)\big)\,\dee{x}
+A&amp;=\int_0^{\pi/4}\big(T(x)-B(x)\big)\,\dee{x}
 =\int_0^{\pi/4}\big(\cos(x)-\sin(x)\big)\,\dee{x}
-=\Big[\sin(x)+\cos(x)\Big]_0^{\pi/4}
+</mrow><mrow>
+\amp=\Big[\sin(x)+\cos(x)\Big]_0^{\pi/4}
 </mrow><mrow>
 &amp;=\left[\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}\right]-\left[0+1\right]=\sqrt{2}-1
 </mrow>
@@ -1464,9 +1481,10 @@ vertical strips, as in the figure on the  right above, the area of <m>R</m> is
 <md>
 <mrow>
 \int_0^2\big[(x-x^2)-(x^2-3x)\big]\,\dee{x}
-=\int_0^2\big[4x-2x^2\big]\,\dee{x}
+\amp=\int_0^2\big[4x-2x^2\big]\,\dee{x}
 =\left[2x^2-\frac{2}{3}x^3\right]_0^2
-=8-\frac{16}{3}=\frac{8}{3}
+</mrow><mrow>
+\amp=8-\frac{16}{3}=\frac{8}{3}
 </mrow>
 </md>
 </p>
@@ -1478,7 +1496,8 @@ Using Equation<nbsp/><xref ref="eq_TRQcentroid"/>, the <m>x</m>-coordinate of th
 <mrow>
 \bar x &amp;= \frac{3}{8}\int_0^2x\big[(x\!-\!x^2)-(x^2\!-\!3x)\big]\,\dee{x}
 = \frac{3}{8}\int_0^2\big[4x^2-2x^3\big]\,\dee{x}
-= \frac{3}{8}\Big[\frac{4}{3}x^3-\half x^4\Big]_0^2
+</mrow><mrow>
+\amp= \frac{3}{8}\Big[\frac{4}{3}x^3-\half x^4\Big]_0^2
 = \frac{3}{8}\Big[\frac{32}{3}-8\Big]
 </mrow><mrow>
 &amp;=1
@@ -1524,7 +1543,7 @@ which consists of a semicircle of radius <m>3</m> on top
 of a rectangle of width <m>6</m> and height <m>2</m>.
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image source="problems/figs/OE13A_5"/>
 </sidebyside>
 </statement>
@@ -1549,7 +1568,7 @@ By symmetry, the centroid lies on the <m>y</m>-axis, so <m>\bar x=0</m>.
 <p>We'll use vertical strips as in the sketch below.
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="50%">
 <image source="problems/figs/OE13A_5b"/>
 </sidebyside>
 <p>
@@ -1609,7 +1628,7 @@ For <m>x^2 \gt \frac{9}{4}</m>, <m>y</m> is not even defined. So, on <m>D</m>, <
 <m>\sqrt{9-4x^2}</m>. Here is a sketch of <m>D</m>.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="66%">
 <image source="problems/figs/OE15A_8"/>
 </sidebyside>
 <p>
@@ -1639,13 +1658,15 @@ So <m>-\frac{\pi}{2}\le\theta\le\frac{\pi}{2}</m> and
 &amp;= \int_{-\pi/2}^{\pi/2}
            \sqrt{9-4\big({\textstyle\frac{3}{2}}\sin\theta\big)^2}
     \cdot \frac{3}{2}\cos\theta\,\dee{\theta}
-= \int_{-\pi/2}^{\pi/2}
+</mrow><mrow>
+\amp= \int_{-\pi/2}^{\pi/2}
            \sqrt{9-9\sin^2\theta}
     \cdot \frac{3}{2}\cos\theta\,\dee{\theta}
   </mrow><mrow>
 &amp;=\frac{9}{2}  \int_{-\pi/2}^{\pi/2}\cos^2\theta\,\dee{\theta}
 = \frac{9}{2}  \int_{-\pi/2}^{\pi/2}\frac{\cos(2\theta)+1}{2}\dee{\theta}
-=\frac{9}{4}\Big[\frac{\sin(2\theta)}{2}+\theta\Big]_{-\pi/2}^{\pi/2}
+</mrow><mrow>
+\amp=\frac{9}{4}\Big[\frac{\sin(2\theta)}{2}+\theta\Big]_{-\pi/2}^{\pi/2}
 =\frac{9}{4}\pi
 </mrow>
 </md>
@@ -1661,11 +1682,14 @@ to <m>b=\frac{3}{2}</m>,  Equation<nbsp/><xref ref="eq_TRQcentroid"/> gives us <
   <mrow>
 \bar y &amp;=\frac{1}{2A}\int_a^b\big[T(x)^2-B(x)^2\big]\dee{x}
 =\frac{2}{9\pi}\int_{-3/2}^{3/2}\big[9-4x^2\big]\dee{x}
-=\frac{4}{9\pi}\int_0^{3/2}\big[9-4x^2\big]\dee{x}
 </mrow><mrow>
-&amp;= \frac{4}{9\pi}\Big[9x-\frac{4}{3}x^3\Big]_0^{3/2}
-= \frac{4}{9\pi}\Big[9\cdot\frac{3}{2}-\frac{4}{3}\cdot\frac{3^3}{2^3}\Big]
-= \frac{4}{9\pi}\Big[9\cdot\frac{3}{2}-9\cdot\frac{1}{2}\Big] = \frac{4}{\pi}
+\amp=\frac{4}{9\pi}\int_0^{3/2}\big[9-4x^2\big]\dee{x}
+= \frac{4}{9\pi}\Big[9x-\frac{4}{3}x^3\Big]_0^{3/2}
+</mrow><mrow>
+&amp;= \frac{4}{9\pi}\Big[9\cdot\frac{3}{2}-\frac{4}{3}\cdot\frac{3^3}{2^3}\Big]
+= \frac{4}{9\pi}\Big[9\cdot\frac{3}{2}-9\cdot\frac{1}{2}\Big] 
+</mrow><mrow>
+&amp;= \frac{4}{\pi}
 </mrow>
 </md>
 </p>
@@ -1765,7 +1789,7 @@ Start with a picture: whether you use vertical slices or horizontal, you'll need
 </p></answer>
 <solution><p>
 We'll start by sketching the region.
-</p><sidebyside width="33%">
+</p><sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{.5}{5}{2}{7.5}
 \YExcoord{4}{2}
@@ -1779,7 +1803,7 @@ We'll start by sketching the region.
 </sidebyside><p>If we use horizontal slices, we need to divide our figure into three regions, as in the figure below, because the left and right functions change at the dashed lines.
 </p>
 
-<sidebyside width="75%">
+<sidebyside width="90%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{.5}{5}{2}{7.5}
 \YExcoord{4}{2}
@@ -1798,7 +1822,7 @@ We'll start by sketching the region.
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
 If we use vertical slices, we only need two regions (shown below) to account for the different top and bottom functions. This seems easier than three regions, so we use vertical slices.
-</p><sidebyside width="40%">
+</p><sidebyside width="60%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{.5}{5}{2}{7.5}
 \YExcoord{4}{2}
@@ -1885,7 +1909,8 @@ The area of the region is
 A&amp;=\int_1^\infty \frac{8}{x^3}\,\dee{x}
 = \lim_{t\to\infty} \bigg( \int_1^t \frac{8}{x^3}\,\dee{x} \bigg)
 = \lim_{t\to\infty} \bigg[ {-}\frac{4}{x^2}\bigg]_1^t
-= \lim_{t\to\infty} \bigg[ {-}\frac{4}{t^2} + \frac{4}{1^2} \bigg]
+</mrow><mrow>
+\amp= \lim_{t\to\infty} \bigg[ {-}\frac{4}{t^2} + \frac{4}{1^2} \bigg]
 = 0 + 4
 </mrow>
 </md>
@@ -2029,7 +2054,8 @@ It could also be evaluated as
   &amp;= \frac{3}{44} \bigg[36x-6x^2+\frac{x^3}3 - \frac{x^5}5\bigg]_0^2
 </mrow><mrow>
   &amp;= \frac{3}{44} \bigg( 72-24+\frac83-\frac{32}5 \bigg)
-   = \frac{3}{44}\frac{664}{15}
+</mrow><mrow>
+  \amp= \frac{3}{44}\frac{664}{15}
    = \frac{166}{55}
 </mrow>
 </md>
@@ -2041,7 +2067,7 @@ we start by converting both equations <m>y=6-x</m> and <m>y=x^2</m> into equatio
 the form <m>x=f(y)</m>. To do so we solve for <m>x</m> in both equations, yielding <m>x=\sqrt y</m> and <m>x=6-y</m>.
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="40%">
 <image source="problems/figs/OE16A_8b"/>
 </sidebyside>
 
@@ -2125,7 +2151,8 @@ we see that <m>R</m> has area
 A &amp; = \int_0^1 \big[T(x)-B(x)\big]\,\dee{x}
 = \int_0^1 \big[e^x-(-1)\big]\,\dee{x}
 = \int_0^1 \big[e^x+1\big]\,\dee{x}
-= \big[e^x+x\big]_0^1
+</mrow><mrow>
+\amp= \big[e^x+x\big]_0^1
 = e
 </mrow>
 </md>
@@ -2172,7 +2199,8 @@ strip is at <m>x=1</m>, the total volume is
 <mrow>
 \pi \int_0^1 (e^x+1)^2\,\dee{x}
 &amp;=\pi \int_0^1 (e^{2x}+2e^x+1)\,\dee{x}
-=\pi\bigg[\frac{e^{2x}}{2}+2e^x + x\bigg]_0^1
+</mrow><mrow>
+\amp=\pi\bigg[\frac{e^{2x}}{2}+2e^x + x\bigg]_0^1
 </mrow><mrow>
 &amp;=\pi\bigg[\Big(\frac{e^{2}}{2}+2e + 1\Big)
           -\Big(\frac{1}{2}+2 + 0\Big)\bigg]
@@ -2192,7 +2220,7 @@ strip is at <m>x=1</m>, the total volume is
 Suppose a rectangle has width 4 m, height 3 m, and its density <m>x</m> metres from its left edge is <m>x^2</m> kg/m<m>^2</m>. Find the centre of mass of the rectangle.
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="40%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{.5}{4.5}{.5}{3.5}
 \YExcoord{4}{4}
@@ -2366,7 +2394,7 @@ N&amp;=\frac{135}{2}\pi+162\int_{0}^{\pi/2}  \frac{1}{8}\big(1-\cos(4\theta)\big
 A right circular cone of uniform density has base radius <m>r</m> m and height <m>h</m> m. We want to find its centre of mass. By symmetry, we know that the centre of mass will occur somewhere along the straight vertical line through the tip of the cone and the centre of its base. The only question is the <em>height</em> of the centre of mass.
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{3.5}{3.5}{1.5}{4.5}
 \YEycoord{4}{h}
@@ -2380,7 +2408,7 @@ We will model the cone as a rod <m>R</m> with height <m>h</m>, such that the mas
 )
 </p>
 
-<sidebyside width="66%">
+<sidebyside width="80%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{3.5}{3.5}{1.5}{4.5}
 \YEycoord{4}{h}
@@ -2426,7 +2454,7 @@ The model in the question gives you the setup to solve this problem. You know ho
 To find the centre of mass of the rod <m>R</m>, we need to know its density at height <m>y</m>, <m>\rho(y)</m>. Since the mass of a section of <m>R</m> is the same as the volume of a section of the cone, let's find the volume of a thin horizontal slice of the cone at height <m>y</m>, with thickness <m>\dee{y}.</m> To find its radius <m>s</m>, we use similar triangles. The diagram below represents a vertical cross-section of the cone.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{3.5}{3.5}{1.5}{4.5}
 \YEycoord{4}{h}
@@ -2498,7 +2526,7 @@ So, the centre of mass of the cone occurs <m>\frac{h}{4}</m> metres above its ba
 An hourglass is shaped like two identical truncated cones attached together. Their base radius is 5 cm, the height of the entire hourglass is 18 cm, and the radius at the thinnest point is <m>.5</m> cm. The hourglass contains sand that fills up the bottom 6 cm when it's settled, with mass <m>600</m> grams and uniform density. We want to know the work done flipping the hourglass smoothly, so the sand settles into a truncated, inverted-cone shape before it starts to fall down.
 </p>
 
-<sidebyside width="80%">
+<sidebyside width="95%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[|-|, gray] (-3,-4.5)--(-3,4.5) node[midway, left]{$18$ cm};
 \draw[|-|, gray] (-2.5,5.5)--(0,5.5) node[midway, above]{$5$ cm};
@@ -2540,7 +2568,7 @@ about 0.833 N
 </p></answer>
 <solution><p>
 To use the result of Question<nbsp/><xref ref="prob_s2_3_cone" text="local"/>, we need to now the dimensions of the cone that was truncated to make the hourglass. The bottom (or top) half of our hourglass has base radius 5 cm,  height 9 cm, and top radius 0.5 cm. Imagine extending it to a full cone. Let <m>t</m> be the distance from the top of the half hourglass to the tip of the full cone.
-</p><sidebyside width="33%">
+</p><sidebyside width="40%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[ultra thick, red] (0,0)--(2.5,0) node[midway, below]{5};
 \draw[ultra thick, red] (0,0)--(0,3) node[midway, left]{9};
@@ -2678,7 +2706,7 @@ Option 1: As in Question<nbsp/><xref ref="prob_s2_3_cone" text="local"/>, we'll 
 </p>
 
 <p>So, let's find <m>r(y)</m>, the radius of the slice of water at height <m>y</m>.
-</p><sidebyside width="45%">
+</p><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw (-2,0) arc (180:0:2cm) --cycle;
 \YEaaxis{3}{3}{1}{3}
@@ -2723,7 +2751,7 @@ Option 2: We can use the techniques of Section<nbsp/><xref ref="sec_work"/> to c
 <p>At height <m>y</m>, a horizontal layer of water in Tank <m>A</m> forms a disk with thickness <m>\dee{y}</m> and radius <m>\sqrt{1-y^2}</m>. (The radius  comes from the Pythagorean Theorem <mdash/> see  the diagram below.)
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{2.5}{2.5}{1}{2.5}
 \draw[thick, blue] (-2,0) arc (180:0:2cm);
@@ -2863,7 +2891,7 @@ n&amp;\geq \sqrt[4]{\frac{2075\pi^{5/2}}{36\sqrt{2}}}\approx 5.17
 So, <m>n=6</m> intervals suffices. Then <m>\De x = \frac{b-a}{6} = \frac{1}{6}\sqrt{\frac{\pi}{2}}</m> and our grid points are <m>x_0=0</m>, <m>x_1=\frac{1}{6}\sqrt{\frac{\pi}{2}}</m>, <m>x_2=\frac{1}{3}\sqrt{\frac{\pi}{2}}</m>, <m>x_3=\frac{1}{2}\sqrt{\frac{\pi}{2}}</m>, <m>x_4=\frac{2}{3}\sqrt{\frac{\pi}{2}}</m>, <m>x_5=\frac{5}{6}\sqrt{\frac{\pi}{2}}</m>, and , <m>x_6=\sqrt{\frac{\pi}{2}}</m>.
 </p>
 
-<sidebyside width="90%">
+<sidebyside width="100%">
 <image><latex-image><![CDATA[\begin{tikzpicture}[scale=1.8]
 \draw[ \lt - \gt , thick] (-1,0)--(7,0);
 \YExcoord{0}{0}
@@ -2880,26 +2908,33 @@ Following Equation<nbsp/><xref ref="eq_SIMPrule"/>, the Simpson's rule approxima
 <mrow>
 &amp;\frac{\De x}{3}\Big[f(x_0)+4f(x_1)+2f(x_2)+4f(x_3)+2f(x_4)+4f(x_5)+f(x_6)\Big]
 </mrow><mrow>
-=&amp;\frac{1}{6}\sqrt{\frac{\pi}{2}}\cdot\frac{1}{3}\bigg[
-0+4\times \frac{2\pi}{72}\sin\left(\frac{\pi}{72}\right)+2\times\frac{2\pi}{18}\sin\left(\frac{\pi}{18}\right)+4\times\frac{2\pi}{8}\sin\left(\frac{\pi}{8}\right)+
+&amp;=\frac{1}{6}\sqrt{\frac{\pi}{2}}\cdot\frac{1}{3}\bigg[
+0+4\times \frac{2\pi}{72}\sin\left(\frac{\pi}{72}\right)
++2\times\frac{2\pi}{18}\sin\left(\frac{\pi}{18}\right)
+</mrow><mrow>
+\amp\hskip1.5in+4\times\frac{2\pi}{8}\sin\left(\frac{\pi}{8}\right)+
 2\times \frac{8\pi}{18}\sin\left(\frac{4\pi}{18}\right)
 </mrow><mrow>
-&amp;+4\times \frac{50\pi}{72}\sin\left(\frac{25\pi}{72}\right)
+&amp;\hskip1.5in+4\times \frac{50\pi}{72}\sin\left(\frac{25\pi}{72}\right)
 +\frac{2\pi}{2}\sin\left(\frac{\pi}{2}\right)
 \bigg]
-</mrow><mrow>=&amp;\frac{1}{18}\sqrt{\frac{\pi}{2}}\bigg[
+</mrow><mrow>&amp;=\frac{1}{18}\sqrt{\frac{\pi}{2}}\bigg[
 \frac{\pi}{9}\sin\left(\frac{\pi}{72}\right)+\frac{2\pi}{9}\sin\left(\frac{\pi}{18}\right)+\pi\sin\left(\frac{\pi}{8}\right)+
 \frac{8\pi}{9}\sin\left(\frac{2\pi}{9}\right)
 </mrow><mrow>
-&amp;+\frac{25\pi}{9}\sin\left(\frac{25\pi}{72}\right)
+&amp;\hskip1.5in+\frac{25\pi}{9}\sin\left(\frac{25\pi}{72}\right)
 +\pi\bigg]
-</mrow><mrow>=&amp;\frac{\pi}{18}\sqrt{\frac{\pi}{2}}\bigg[
+</mrow><mrow>&amp;=\frac{\pi}{18}\sqrt{\frac{\pi}{2}}\bigg[
 \frac{1}{9}\sin\left(\frac{\pi}{72}\right)+\frac{2}{9}\sin\left(\frac{\pi}{18}\right)+\sin\left(\frac{\pi}{8}\right)+
-\frac{8}{9}\sin\left(\frac{2\pi}{9}\right)+\frac{25}{9}\sin\left(\frac{25\pi}{72}\right)
+\frac{8}{9}\sin\left(\frac{2\pi}{9}\right)
+</mrow><mrow>
+\amp\hskip1.5in+\frac{25}{9}\sin\left(\frac{25\pi}{72}\right)
 +1\bigg]
-</mrow><mrow>=&amp;\frac{\pi}{162}\sqrt{\frac{\pi}{2}}\bigg[
+</mrow><mrow>&amp;=\frac{\pi}{162}\sqrt{\frac{\pi}{2}}\bigg[
 \sin\left(\frac{\pi}{72}\right)+2\sin\left(\frac{\pi}{18}\right)+9\sin\left(\frac{\pi}{8}\right)+
-8\sin\left(\frac{2\pi}{9}\right)+25\sin\left(\frac{25\pi}{72}\right)
+8\sin\left(\frac{2\pi}{9}\right)
+</mrow><mrow>
+\amp\hskip1.5in+25\sin\left(\frac{25\pi}{72}\right)
 +9\bigg]
 </mrow><mrow>
 &amp;\approx 0.976
