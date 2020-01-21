@@ -149,7 +149,7 @@ As we saw in Question<nbsp/><xref ref="prob_s2_1_integralsandunits" text="local"
 You want to weigh your luggage  before a flight. You don't have a scale or balance, but you do have a heavy-duty spring from your local engineering-supply store. You nail it to your wall, marking where the bottom hangs. You hang a one-litre bag of water (with mass one kilogram)  from the spring, and observe that the spring stretches 1 cm. Where on the wall should you mark the bottom of the spring corresponding to a hanging mass of 10kg?
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw (0,0) rectangle (9,6);
 \draw (1,5) node[vertex]{};
@@ -439,20 +439,27 @@ So, at height <m>y</m>, the cable is subject to a downward gravitational force
 of <m>8\big(1-\frac{y}{5}\big)\cdot9.8</m> N; to raise the cable we need
 to apply a compensating upward force of <m>8\big(1-\frac{y}{5}\big)\cdot9.8</m> N.
 So, the work required is
-<me>
+<md>
+<mrow>
 \int_0^{5}8\Big(1-\frac{y}{5}\Big)\cdot9.8\,\dee{y}
-=8\bigg[\Big(y-\frac{y^2}{10}\Big)\cdot9.8\bigg]_0^{5}
-=8\cdot 2.5\cdot 9.8 \quad\text{ N}\cdot\text{m}= 196\ \mathrm{J}.
-</me>
+\amp=8\bigg[\Big(y-\frac{y^2}{10}\Big)\cdot9.8\bigg]_0^{5}
+</mrow><mrow>
+\amp=8\cdot 2.5\cdot 9.8 \quad\text{ N}\cdot\text{m}= 196\ \mathrm{J}.
+</mrow>
+</md>
 </p>
 
 <p>Alternatively, the cable has linear density <m>8</m> kg<m>{}/5</m> m<m>{}= 1.6</m> kg<m>{}/{}</m>m, and so the work required to lift a small piece of the cable (of length <m>\Delta y</m>) from height <m>y</m> m to height <m>5</m> m is
 <me>
 \underbrace{\underbrace{1.6\Delta y}_{\text{mass}}\cdot\underbrace{9.8\vphantom{y}}_{\text{gravity}}}_{\text{force}}\cdot\underbrace{(5-y)}_{\text{distance}}.</me>
  The total work required is therefore
-<me>
-\int_0^{5} 1.6\cdot9.8(5-y) \,\dee{y} = 1.6\cdot9.8\left[5y-\frac{1}{2}y^2\right]_0^5=1.6\cdot9.8\cdot\left(25-\frac{25}{2}\right) = 196\ \mathrm{J}
-</me>
+<md>
+<mrow>
+\int_0^{5} 1.6\cdot9.8(5-y) \,\dee{y} \amp= 1.6\cdot9.8\left[5y-\frac{1}{2}y^2\right]_0^5
+</mrow><mrow>
+\amp=1.6\cdot9.8\cdot\left(25-\frac{25}{2}\right) = 196\ \mathrm{J}
+</mrow>
+</md>
 as before.
 </p></solution>
 </exercise>
@@ -463,7 +470,7 @@ A  tank 1 metre high has pentagonal cross sections of area 3 m<m>^2</m> and is f
 </p>
 
 <p>You may assume the density of water is 1 kg per 1000 cm<m>^3</m>.
-</p><sidebyside width="50%">
+</p><sidebyside width="40%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[thick] (-3,1)--(0,0)--(3,1)--(1.5,2)--(-1.5,2)--cycle;
 \draw[thick] (-3,1)--(-3,-1.5) (0,0)--(0,-2.5) (3,1)--(3,-1.5) (-3,-1.5)--(0,-2.5)--(3,-1.5);
@@ -657,17 +664,27 @@ Let <m>M</m> be the mass of the rope. Then its density is <m>\frac{M}{4}</m> kg/
 </li>
 </ul>
 All together, the work involved in hauling up the wood is
-<me>
-\int_0^4\left(\left[\frac{M}{4}(4-y)+10\right]\times 9.8\right)\dee{y} =
-9.8\int_0^4\left((M+10) - \frac{M}{4}y\right)\dee{y}=9.8(2M+40) \text{ J}</me>
+<md>
+<mrow>
+\int_0^4\left(\left[\frac{M}{4}(4-y)+10\right]\times 9.8\right)\dee{y} 
+\amp=9.8\int_0^4\left((M+10) - \frac{M}{4}y\right)\dee{y}
+</mrow><mrow>
+\amp=9.8(2M+40) \text{ J}
+</mrow>
+</md>
 </p>
 
 <p>Since the work was 400 joules, solving <m>400=9.8(2M+40)</m> for <m>M</m> tells us the mass of the rope is <m>\frac{200}{9.8}-20 = \frac{20}{49}</m> kg, or about 408 g.
 </p>
 
 <p>Alternately, the work involved in lifting up the wood is <m>10\times 9.8 \times 4 = 392</m> J, so the work in lifting up the rope is 8 J. A small section of rope of length <m>\dee{y}</m>, that starts at height <m>y</m> above the ground, has mass <m>\frac{M}{4}\dee{y}</m> kg and is lifted <m>(4-y)</m> metres, so the work involved in lifting this section of rope is <m>9.8 \times (4-y) \times \frac{M}{4}\dee y</m>. Then the amount of work to lift the whole rope (but not the wood) is
-<me>
-8 \text{ J} = \int_0^4 \left(9.8 \times (4-y) \times \frac{M}{4}\right)\dee y  = \frac{9.8 \times M}{4}\int_0^4 (4-y)\dee{y} = \frac{9.8 \times M}{4}\times 8</me>
+<md>
+<mrow>
+8 \text{ J} \amp= \int_0^4 \left(9.8 \times (4-y) \times \frac{M}{4}\right)\dee y  = \frac{9.8 \times M}{4}\int_0^4 (4-y)\dee{y} 
+</mrow><mrow>
+\amp= \frac{9.8 \times M}{4}\times 8
+</mrow>
+</md>
 </p>
 
 <p>which again results in <m>M = \frac{4}{9.8}=\frac{20}{49}</m> kg.
@@ -752,7 +769,8 @@ Now, suppose <m>y</m> metres of the rope have been pulled in, and <m>5  \lt  y \
 <p>All together, the work needed to lift the rope is
 <md>
 <mrow>
-W = \int_0^{10} F(y) \dee{y} &amp;= \textcolor{red}{\int_0^5 \left(58.8-0.98y\right)\dee{y}} + \textcolor{blue}{\int_5^{10}\left(9.8-0.98y\right)\dee{y}}
+W \amp= \int_0^{10} F(y) \dee{y} 
+</mrow><mrow>\amp= \textcolor{red}{\int_0^5 \left(58.8-0.98y\right)\dee{y}} + \textcolor{blue}{\int_5^{10}\left(9.8-0.98y\right)\dee{y}}
 </mrow><mrow>
 &amp;=\left[58.8y - 0.49y^2\right]_0^{5} + \left[9.8 y - 0.49 y^2\right]_5^{10}
 </mrow><mrow>
@@ -818,7 +836,7 @@ use the principle (introduced after Definition<nbsp/><xref ref="def_WKwork"/> an
 A ball of mass 1 kg is attached to a spring, and the spring is attached to a table. The ball moves with some initial velocity, and the spring slows it down. At its farthest, the spring stretches 10 cm past its natural length. If the spring constant is 5 N/m, what was the initial velocity of the ball?
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="30%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[decorate, decoration={coil, amplitude=10pt}] (0,0)--(3,0);
 \draw(3,0)--(3.5,0);
@@ -899,7 +917,7 @@ Since the change in kinetic energy is <m>16\,800</m> J, and the struts can safel
 <exercise xml:id="prob_s2_1_tank2">
 <statement><p>
 A disposable paper cup has the shape of a right circular cone with radius 5 cm and height 15 cm, and is completely filled with water. How much work is done sucking all the water out of the cone with a straw?
-</p><sidebyside width="33%">
+</p><sidebyside width="23%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[thick] (0,0) node[shape=ellipse, minimum width=4cm, minimum height=2cm, draw, thick, fill, fill opacity=0.2, left color=black, right color=black, middle color=white]{};
 \filldraw[thick, left color=black, right color=black, middle color=gray] (-2,0)--(0,-4.5)--(2,0) arc(0:-180:2cm and 1cm);
@@ -918,7 +936,7 @@ To find the radius of a horizontal layer of water, use similar triangles. Be car
 Let's consider sucking up a flat, horizontal layer of water. If the water is <m>y</m> metres above bottom of the cone, then it needs to be raised <m>0.15-y</m> metres. So, if its mass is <m>m</m> kg, then the force of gravity acting on it is <m>9.8m</m> N and the work involved in slurping it to the top of the cone is <m>9.8m(0.15-y)</m> J. So, what we need to find is the mass of a layer of water <m>y</m> metres from the bottom of the cone.
 </p>
 
-<sidebyside width="33%" valign="middle">
+<sidebyside width="40%" valign="middle">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[thick] (0,0) node[shape=ellipse, minimum width=4cm, minimum height=2cm, draw]{};
 \draw[thick] (-2,0)--(0,-4.5)--(2,0);
@@ -969,7 +987,7 @@ per cubic metre. The acceleration due to gravity is <m>9.8</m> metres
 per second squared.
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="30%">
 <image source="problems/figs/OE14A_4"/>
 </sidebyside>
 </statement>
@@ -990,7 +1008,7 @@ Imagine slicing the water into horizontal pancakes of thickness <m>\dee{x}</m> a
 </p>
 
 
-<sidebyside width="40%">
+<sidebyside width="30%">
 <image source="problems/figs/OE14A_4a"/>
 </sidebyside>
 
@@ -1052,7 +1070,7 @@ The basic ideas you've used already with <q>cable problems</q>  still work, you 
 Let's consider the work involved in lifting up a small section of cable, with length <m>\dee{y}</m>, distance <m>y</m> from the bottom end of the cable.
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[ \lt - \gt , help lines] (0,-6)--(0,1);
 \draw[thick] (0.9,0)--(0.9,-5.5) arc(180:360:1cm and .5cm) --(2.9,0);
@@ -1098,7 +1116,7 @@ Alternately, we can continue to use the basic method of Example<nbsp/><xref ref=
 <p>Let's consider pulling the cable up a tiny distance of <m>\dee{y}</m> metres, after we have already lifted it <m>y</m> metres (so  <m>(5-y)</m> metres of the cable is still in the hole).
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[ \lt - \gt , help lines] (0,-6)--(0,1);
 \draw[thick] (0.9,0)--(0.9,-5.5) arc(180:360:1cm and .5cm) --(2.9,0);
@@ -1210,7 +1228,7 @@ To calculate the force on the entire plunger, first find the force on a horizont
 The force of the depends on depth, which varies. So, consider a thin rectangle of the plunger at depth <m>y</m>, with height <m>\dee{y}</m> and width 1 m (the width of the entire plunger). Let the area of this rectangle be <m>\dee{A}</m>.
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[thick] (0,0) rectangle (3,3);
 \draw[help lines,  \lt - \gt ] (-1,-.5)--(-1,3.5) node[above]{depth};
@@ -1259,7 +1277,9 @@ W &amp;= \int_3^1 -F(x)\,\dee{x}  = \int_1^3 F(x)\,\dee{x}
 <m>F(x)</m>  is exactly what we found in (b):
 <m>F(x) = \frac{44100}{x^2}\text{ N}</m>.
 </intertext><mrow>
-W&amp;= \int_1^3 F(x)\,\dee{x} = \int_1^3 \frac{44100}{x^2}\,\dee{x} = 44100\left[-\frac{1}{x}\right]_1^3 = 44100\cdot \frac{2}{3} = 29\,400\text{ J}
+W&amp;= \int_1^3 F(x)\,\dee{x} = \int_1^3 \frac{44100}{x^2}\,\dee{x} = 44100\left[-\frac{1}{x}\right]_1^3 
+</mrow><mrow>
+\amp= 44100\cdot \frac{2}{3} = 29\,400\text{ J}
 </mrow>
 </md>
 
@@ -1286,8 +1306,13 @@ Let's start by converting from time spent pulling to amount pulled. When <m>y</m
 </p>
 
 <p>When we've pulled up <m>y</m> metres of rope, the mass in the bucket is <m>(5-\frac{1}{5}y)</m> kg, so the force of gravity acting on it is <m>9.8(5-\frac{1}{5}y)</m> N. Since we pull up 5 metres of rope, the work done is:
-<me>
-W = \int_0^5 9.8\left(5-\frac{1}{5}y\right) \,\dee{y} = 9.8\left[5y-\frac{1}{10}y^2\right]_0^5 = 9.8\left[25-2.5\right]=220.5\text{ J}</me>
+<md>
+<mrow>
+W \amp= \int_0^5 9.8\left(5-\frac{1}{5}y\right) \,\dee{y} = 9.8\left[5y-\frac{1}{10}y^2\right]_0^5 = 9.8\left[25-2.5\right]
+</mrow><mrow>
+\amp=220.5\text{ J}
+</mrow>
+</md>
 </p>
 
 </solution>
@@ -1352,7 +1377,7 @@ W&amp;=\int_a^\infty F(r)\,\dee{r} =\lim_{b \to \infty} \int_a^b  G\dfrac{m_1m_2
 True or false: the work done pulling up a dangling cable of length <m>\ell</m> and mass <m>m</m> (with uniform density) is the same as the work done lifting up a ball of mass <m>m</m> a height of <m>\ell/2</m>.
 </p>
 
-<sidebyside  width="33%" valign="middle">
+<sidebyside  width="25%" valign="middle">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw (.2,-.4)--(1,0)--(1,2)--(-1,1)--(-1,-1)--(0,-.5);
 \draw[rounded corners] (0,-.5)--(0,-3.5)--(.2,-3.5)--(.2,-.4);
@@ -1421,7 +1446,7 @@ W = \int_0^19.8(1-h)M(h) \tag{$*$} </me>
 <p>At  height <m>h</m> metres, the cross-section of the tank is shaped like the finite region bounded by the curves <m>y=x^2</m> and <m>y=2-h-3x^2</m>. To find this area, we need an integral (see Section 1.5 for a refresher), and to find the limits of integration, we need to know where the two curves meet. By solving <m>x^2 =2-h-3x^2</m>, we find that they meet at <m>x = \pm\frac{1}{2}\sqrt{2-h}</m>. (Recall <m>h</m> is between 0 and 1, so <m>\sqrt{2-h}</m> is a real number, i.e. the curves do indeed meet.) Furthermore, when <m>-\frac{1}{2}\sqrt{2-h}\le x \le \frac{1}{2}\sqrt{2-h}</m>, then <m>x^2 \leq 2-h-3x^2</m>, so <m>y=x^2</m> is the bottom function and <m>2-h-3x^2</m> is the top function.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{3}{3}{2}{3}
 \YExcoord{-1.22}{-\frac{1}{2}\sqrt{2-h}}
@@ -1484,7 +1509,7 @@ An hourglass is 0.2 m tall and shaped such that that <m>y</m> metres above or be
 <p>How much work is done on the sand by quickly flipping the hourglass over?
 </p>
 
-<sidebyside width="50%">
+<sidebyside widths="40%  22%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[thick] plot[domain=-2.5:2.5]({\x*\x/4+.25},\x);
 \draw[thick] plot[domain=-2.5:2.5]({-\x*\x/4-.25},\x);
@@ -1498,8 +1523,8 @@ plot[domain=-2.5:0]({\x*\x/4+.25},\x) arc (0:-180:.25cm and .07cm) plot[domain=0
 \draw[ultra thick, decorate, decoration={coil, amplitude=20pt, segment length=7.5mm}] (2.6,0)--(4.6,0);
 \draw[ultra thick, - \gt ] (4.6,0)--(4.8,0);
 \end{tikzpicture}]]></latex-image></image>
-</sidebyside>
-<sidebyside width="33%">
+<!--  </sidebyside>
+<sidebyside width="25%"> -->
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[thick] plot[domain=-2.5:2.5]({\x*\x/4+.25},\x);
 \draw[thick] plot[domain=-2.5:2.5]({-\x*\x/4-.25},\x);
@@ -1549,12 +1574,16 @@ Since the only work done is against the force of gravity, we only need to know h
 Using <m>V</m> is the volume of sand in the hourglass, and <m>M</m> is its mass (we're given <m>M  =\frac{1}{7}</m> kg) then  the total work flipping <em>all</em> the sand is:
 </p>
 
-<p><md>
+<p>
+<md>
 <mrow>
-W &amp;= \int_0^{0.1} 9.8\frac{M}{V}\pi\left(y^2+0.01\right)^22y\,\dee{y} = \frac{19.6M\pi}{V}\int_0^{0.1}\big(y^5+0.02y^3+0.0001y\big)\,\dee{y}
+W &amp;= \int_0^{0.1} 9.8\frac{M}{V}\pi\left(y^2+0.01\right)^22y\,\dee{y} 
+</mrow><mrow>
+\amp= \frac{19.6M\pi}{V}\int_0^{0.1}\big(y^5+0.02y^3+0.0001y\big)\,\dee{y}
 </mrow><mrow>
 &amp;= \frac{19.6M\pi}{V}\int_0^{1/10}\left(y^5+\frac{2}{10^2}y^3+\frac{1}{10^4}y\right)\,\dee{y}
-= \frac{19.6M\pi}{V}\left[\frac{1}{6}y^6+\frac{1}{2\cdot10^2}y^4+\frac{1}{2\cdot 10^4}y^2\right]_0^{1/10}
+</mrow><mrow>
+\amp= \frac{19.6M\pi}{V}\left[\frac{1}{6}y^6+\frac{1}{2\cdot10^2}y^4+\frac{1}{2\cdot 10^4}y^2\right]_0^{1/10}
 </mrow><mrow>
 &amp;= \frac{19.6M\pi}{V}\left[\left(\frac{1}{6\cdot 10^6}+\frac{1}{2\cdot10^6}+\frac{1}{2\cdot 10^6}\right) - 0\right]
 </mrow><mrow>
@@ -1566,7 +1595,7 @@ W &amp;= \int_0^{0.1} 9.8\frac{M}{V}\pi\left(y^2+0.01\right)^22y\,\dee{y} = \fra
 <p>It remains to find <m>V</m>: the volume of sand in the hourglass. We know the sand is in the shape of a solid of rotation. Recall from Section 1.6 that we can find the volume of such shapes by slicing them into thin disks.
 </p>
 
-<sidebyside width="66%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \begin{scope}[xshift=-3cm]
 \draw[ \lt - \gt , help lines] (0,-3)--(0,.5);
