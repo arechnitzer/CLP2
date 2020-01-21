@@ -17,7 +17,7 @@ base <m>e</m>. In other courses it is often denoted <m>\ln x</m>.
 <exercise purpose="RQS" xml:id="prob_s2_2_avgvalue">
 <statement><p>
 Below is the graph of a function <m>y=f(x)</m>. Its average value on the interval  <m>[0,5]</m> is <m>A</m>. Draw a rectangle on the graph with area <m>\int_0^5 f(x)\,\dee{x}</m>.
-</p><sidebyside width="50%">
+</p><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{7}{2}{3}
 \draw[thick, blue] plot[domain=0:6.28, samples=100](\x,{-.5*\x*sin(\x r)});
@@ -30,7 +30,7 @@ See Definition<nbsp/><xref ref="def_AVaverage"/> and the discussion following it
 </p></hint>
 <answer><p>
 The most straightforward of many possible answers is shown.
-</p><sidebyside width="50%">
+</p><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{7}{2}{3}
 \draw[thick, blue] plot[domain=0:6.28, samples=100](\x,{-.5*\x*sin(\x r)});
@@ -55,7 +55,7 @@ So, a rectangle with width 5 and height <m>A</m> has area
 <p>That is: if we replace <m>f(x)</m> with the constant function <m>g(x)=A</m>, then on the interval <m>[0,5]</m>, the area under the curve is unchanged.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{7}{2}{3}
 \draw[thick, blue] plot[domain=0:6.28, samples=100](\x,{-.5*\x*sin(\x r)});
@@ -164,10 +164,12 @@ Part (a) is asking the length of the pieces we've cut our interval into. Part (c
 <m>f\left(a+3\frac{b-a}{n}\right)</m>, etc. Since there are <m>n</m> of them, we divide their sum by <m>n</m>. So, the average is:
 <md>
 <mrow>
-&amp; \frac{f(a)+f\left(a+\frac{b-a}{n}\right)+
-f\left(a+2\frac{b-a}{n}\right)+\cdots + f\left(a+(n-1)\frac{b-a}{n}\right)}{n}
+&amp; \frac{f(a)+f\left(a\!+\!\frac{b-a}{n}\right)+
+f\left(a\!+\!2\frac{b-a}{n}\right)+\cdots + f\left(a\!+\!(n-1)\frac{b-a}{n}\right)}{n}
 </mrow><mrow>
-&amp;=\frac{1}{n}\left[f(a)+f\left(a+\frac{b-a}{n}\right)f\left(a+2\frac{b-a}{n}\right)+\cdots + f\left(a+(n-1)\frac{b-a}{n}\right)\right]
+&amp;=\frac{1}{n}\bigg[f(a)+f\left(a+\frac{b-a}{n}\right)f\left(a+2\frac{b-a}{n}\right)+\cdots 
+</mrow><mrow>
+\amp\hskip2.2in+ f\left(a+(n-1)\frac{b-a}{n}\right)\bigg]
 </mrow><mrow>
 &amp;= \frac{1}{n}\sum_{i=1}^nf\left(a+(i-1)\frac{b-a}{n}\right)
 </mrow>
@@ -277,10 +279,13 @@ We now observe that <m>\sin(5x)</m> is an odd function, and hence its integral o
 Alternatively, using the fundamental theorem of calculus, the average equals:
 <md>
 <mrow>
-\frac{1}{\pi}\bigg[\frac{-\cos (5x) }{5} +x  \bigg]_{-\pi/2}^{\pi/2}
-= \frac{1}{\pi}\bigg\{\bigg[\frac{-\cos (5\pi/2) }{5} +\frac{\pi}{2}\bigg]
+\amp\frac{1}{\pi}\bigg[\frac{-\cos (5x) }{5} +x  \bigg]_{-\pi/2}^{\pi/2}
+</mrow><mrow>
+\amp\hskip0.1in= \frac{1}{\pi}\bigg\{\bigg[\frac{-\cos (5\pi/2) }{5} +\frac{\pi}{2}\bigg]
    -\bigg[ \frac{-\cos (-5\pi/2) }{5} + \frac{-\pi}{2} \bigg]\bigg\}
-= \frac{\pi }{\pi}=1
+
+</mrow><mrow>
+\amp\hskip0.1in= \frac{\pi }{\pi}=1
 </mrow>
 </md>
 </p>
@@ -341,10 +346,13 @@ You can antidifferentiate an odd power of cosine with a substitution; for an eve
 
 <solution><p>
 By definition, the average value in question equals
-<me>
-\frac1{\pi/2-0} \int_0^{\pi/2} ( 3\cos^3x + 2\cos^2x ) \,\dee{x}
-= \frac2\pi \bigg( \int_0^{\pi/2} 3\cos^3x \,\dee{x} + \int_0^{\pi/2} 2\cos^2x \,\dee{x} \bigg)
-</me>
+<md>
+<mrow>
+\amp\frac1{\pi/2-0} \int_0^{\pi/2} ( 3\cos^3x + 2\cos^2x ) \,\dee{x}
+</mrow><mrow>
+\amp\hskip0.5in= \frac2\pi \bigg( \int_0^{\pi/2} 3\cos^3x \,\dee{x} + \int_0^{\pi/2} 2\cos^2x \,\dee{x} \bigg)
+</mrow>
+</md>
 For the first integral we use the substitution <m>u = \sin x</m>,
 <m>\dee{u}=\cos x\,\dee{x}</m>, <m>\cos^2 x=1-\sin^2 x = 1-u^2</m>.
 Note that the endpoints
@@ -417,7 +425,7 @@ Note that the endpoints
 <p>Remark: the average does not depend on <m>k</m>. To see why this is, note that <m>\sin(kx)</m> runs between <m>-1</m> and <m>1</m> as <m>x</m> changes. When <m>x=0</m>, <m>kx=0</m>, and when <m>x=\pi/k</m>, <m>kx=\pi</m>. So, our function <m>\sin (kx)</m> runs exactly from <m>\sin  0 =0</m> to <m>\sin(\pi/2)=1</m>, then back down to <m>\sin\pi=0</m>.
 </p>
 
-<sidebyside width="66%">
+<sidebyside width="80%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{7}{1}{2.5}
 \YExcoord{6.28}{\frac{\pi}{k}}
@@ -462,7 +470,10 @@ By definition, the average temperature is
 <intertext>
 Setting <m>x=4</m>, we see <m>80=8A</m>, so <m>\textcolor{red}{A=10}</m>. Setting <m>x=-4</m>, we see <m>80=8B</m>, so <m>\textcolor{red}{B=10}</m>.
 </intertext><mrow>
-\frac{1}{3}\int_0^3 \frac{80}{16-x^2}\,\dee{x}&amp;=\frac{1}{3}\int_0^3 \frac{80}{(4-x)(4+x)}\,\dee{x}=\frac{1}{3}\int_0^3 \Big[\frac{\textcolor{red}{10}}{4-x}+\frac{\textcolor{red}{10}}{4+x}\Big]\,\dee{x}
+\frac{1}{3}\int_0^3 \frac{80}{16-x^2}\,\dee{x}
+&amp;=\frac{1}{3}\int_0^3 \frac{80}{(4-x)(4+x)}\,\dee{x}
+</mrow><mrow>
+\amp=\frac{1}{3}\int_0^3 \Big[\frac{\textcolor{red}{10}}{4-x}+\frac{\textcolor{red}{10}}{4+x}\Big]\,\dee{x}
 </mrow><mrow>
 &amp;=\frac{1}{3}\int_0^3 \Big[-\frac{10}{x-4}+\frac{10}{4+x}\Big]\,\dee{x}
 </mrow><mrow>
@@ -527,9 +538,11 @@ By definition, the average value is:
 <md>
 <mrow>
 \frac{1}{2\pi}\int_0^{2\pi}\cos^2x\,\dee{x}
-=\frac{1}{2\pi}\cdot\frac{1}{2}\int_0^{2\pi}\big(\cos(2x)+1\big)\,\dee{x}
-=\frac{1}{4\pi}\Big[\frac{\sin(2x)}{2}+x\Big]_0^{2\pi}
-=\frac{1}{4\pi}\cdot 2\pi
+\amp=\frac{1}{2\pi}\cdot\frac{1}{2}\int_0^{2\pi}\big(\cos(2x)+1\big)\,\dee{x}
+</mrow><mrow>
+\amp=\frac{1}{4\pi}\Big[\frac{\sin(2x)}{2}+x\Big]_0^{2\pi}
+</mrow><mrow>
+\amp=\frac{1}{4\pi}\cdot 2\pi
 =\frac{1}{2}
 </mrow>
 </md>
@@ -587,7 +600,8 @@ The term <m>50\cos\left(\frac{t}{12}\pi\right)</m> has a period of 24 hours, whi
 &amp;=\frac{1}{8760}\int_0^{8760}400\,\dee{t}
 +
 \textcolor{red}{\frac{50}{8760}\int_0^{8760}\cos\left(\frac{t}{12}\pi\right)\,\dee{t}}
-+
+</mrow><mrow>
+\amp\hskip2in+
 \textcolor{blue}{\frac{200}{8760}\int_0^{8760}\cos\left(\frac{t}{4380}\pi\right)\,\dee{t}}
 </mrow><mrow>
 &amp;= 400 +\textcolor{red}{ \frac{5}{876}\left[\frac{12}{\pi}\sin\left(\frac{t}{12}\pi\right)\right]_0^{8760}}+
@@ -608,10 +622,10 @@ Remark: for the portions of the integral in red and blue, we also could have not
 <mrow>
 &amp;\frac{1}{24}\int_0^{24} \left(400+\textcolor{red}{50\cos\left(\frac{t}{12}\pi\right)}+\textcolor{blue}{200\cos\left(\frac{t}{4380}\pi\right)}\right)\,\dee{t}
 </mrow><mrow>
-&amp;=\frac{1}{24}\int_0^{24}400\,\dee{t}
+&amp;=\frac{1}{24}\int_0^{24}\!\!400\,\dee{t}
 +
-\textcolor{red}{\frac{50}{24}\int_0^{24}\cos\left(\frac{t}{12}\pi\right)\,\dee{t}}+
-\textcolor{blue}{\frac{200}{24}\int_0^{24}\cos\left(\frac{t}{4380}\pi\right)\,\dee{t}}
+\textcolor{red}{\frac{50}{24}\int_0^{24}\!\!\cos\left(\frac{t}{12}\pi\right)\,\dee{t}}+
+\textcolor{blue}{\frac{200}{24}\int_0^{24}\!\!\cos\left(\frac{t}{4380}\pi\right)\,\dee{t}}
 </mrow>
 <intertext>Note <m>t=0</m> to <m>t=24</m> is one complete period for the integrand in red, so the red integral will evaluate to zero. However, <m>t=0</m> to <m>t=24</m> is <em>less</em> than one cycle for the integrand in blue, so we expect this will contribute some nonzero quantity to the average.</intertext><mrow>
 &amp;=400+\textcolor{red}{0} + \textcolor{blue}{\frac{200}{24}\left[\frac{4380}{\pi}\sin\left(\frac{t}{4380}\pi\right)\right]_0^{24}}
@@ -631,11 +645,14 @@ Remark: <m>C(0) = 400+\textcolor{red}{50}+\textcolor{blue}{200}</m>. The red ter
 <p> (c) The average of <m>N(t)</m> over <m>[0,8760]</m> is:
 <md>
 <mrow>
-\frac{1}{8760}\int_0^{8760} \left ( 350+200\cos\left(\frac{t}{4380}\pi\right)\right)\,\dee{t}&amp;=350 + \frac{200}{8760}\bigg[\frac{4380}{\pi}\sin\left(\frac{t}{4380}\pi\right)\bigg]_0^{8760}
-</mrow><mrow>&amp;=350+\frac{200}{8760}\left[\frac{4380}{\pi}\sin\left(\frac{8760}{4380}\pi\right)\right]
+\amp\frac{1}{8760}\int_0^{8760} \left ( 350+200\cos\left(\frac{t}{4380}\pi\right)\right)\,\dee{t}
 </mrow><mrow>
-&amp;=350+\frac{100}{\pi}\sin\left(2\pi\right)
-</mrow><mrow>&amp;=350
+&amp;\hskip0.5in=350 + \frac{200}{8760}\bigg[\frac{4380}{\pi}\sin\left(\frac{t}{4380}\pi\right)\bigg]_0^{8760}
+</mrow><mrow>
+&amp;\hskip0.5in=350+\frac{200}{8760}\left[\frac{4380}{\pi}\sin\left(\frac{8760}{4380}\pi\right)\right]
+</mrow><mrow>
+&amp;\hskip0.5in=350+\frac{100}{\pi}\sin\left(2\pi\right)
+</mrow><mrow>&amp;\hskip0.5in=350
 </mrow>
 </md>
 Since the average of <m>C(t)</m> was 400, this gives us an absolute error of <m>|400-350|=50</m> ppm, for a relative error of
@@ -798,7 +815,9 @@ Our interval encompasses three full periods of sine, so the  average will be zer
 <p>Alternately, we can compute, using the definition of an average:
 <md>
 <mrow>
-\text{Avg}&amp;=\frac{1}{6}\int_0^6 3\sin(t\pi)\,\dee{t}= \frac{1}{6}\left[-\frac{3}{\pi}\cos(t\pi)\right]_0^6=\frac{1}{2\pi}\left[\cos 0 - \cos (6\pi)\right]=0
+\text{Avg}&amp;=\frac{1}{6}\int_0^6 3\sin(t\pi)\,\dee{t}= \frac{1}{6}\left[-\frac{3}{\pi}\cos(t\pi)\right]_0^6
+</mrow><mrow>
+\amp=\frac{1}{2\pi}\left[\cos 0 - \cos (6\pi)\right]=0
 </mrow>
 </md>
 </p>
@@ -871,7 +890,9 @@ is
 <mrow>
 \int_0^2 v(t)\,dt
 &amp;\approx\De t\Big[\half v(0)+v(1/3)+v(2/3)+v(3/3)
-                      +v(4/3)+v(5/3)+\half v(2)\Big]
+                      +v(4/3)
+</mrow><mrow>
+\amp\hskip2.5in+v(5/3)+\half v(2)\Big]
 </mrow><mrow>
 &amp;=\frac{1}{3}\Big[\half 50+70+80+55+60+80+\half 40\Big]
 =130\text{ km}
@@ -909,15 +930,23 @@ To find a definite integral of the absolute value of a function, break up the in
 </p></answer>
 <solution><p>
 <ol label="a">
-<li> Using the definition of an average,
+<li> <p>Using the definition of an average,
 <me>
-A=\frac{1}{1-0}\int_0^1 e^t\,\dee{t} = e-1</me>
+A=\frac{1}{1-0}\int_0^1 e^t\,\dee{t} = e-1
+</me>
+</p>
 </li>
 <li>
 <p>
 Since <m>s(t)-A = e^t-e+1</m>, its average on <m>[0,1]</m> is
-<me>
-\frac{1}{1-0}\int_0^1 \left(e^t-e+1\right)\,\dee{t} = \left[e^t -et+t\right]_0^1 = (e-e+1)-(1)=0</me>
+<md>
+<mrow>
+\frac{1}{1-0}\int_0^1 \left(e^t-e+1\right)\,\dee{t} 
+\amp= \left[e^t -et+t\right]_0^1 
+</mrow><mrow>
+\amp= (e-e+1)-(1)=0
+</mrow>
+</md>
 </p>
 
 <p>Remark: what's happening here is that the average difference between <m>s(t)</m> and <m>A</m> is zero, because the values of <m>s(t)</m> that are larger than <m>A</m> (and give a positive value of <m>s(t)-A</m>) exactly cancel out the values of <m>s(t)</m> that are smaller than <m>A</m> (and give a negative value of <m>s(t)-A</m>). However, knowing how far the average value is from our calculated average is a reasonable thing to measure. That's where (c) comes in.
@@ -933,14 +962,18 @@ Using the definition of an average, the quantity we want is:
 <p>To deal with the absolute value, we consider the integral over two intervals: one where <m>e^t-e+1</m> is positive, and one where it's negative. To decide where to break the limits of integration, notice <m>e^t-e+1 \gt 0</m> exactly when <m>e^t \gt e-1</m>, so <m>t \gt \log(e-1)</m>.
 <md>
 <mrow>
-&amp;\frac{1}{1-0}\int_0^1\left| e^t-e+1\right|\,\dee{t}=\int_0^{\log(e-1)}|\underbrace{e^t-e+1}_{\text{negative}}|\,\dee{t}+\int_{\log(e-1)}^1|\underbrace{e^t-e+1}_{\text{positive}}|\,\dee{t}
+&amp;\frac{1}{1-0}\int_0^1\left| e^t-e+1\right|\,\dee{t}
+</mrow><mrow>
+\amp=\int_0^{\log(e-1)}|\underbrace{e^t-e+1}_{\text{negative}}|\,\dee{t}+\int_{\log(e-1)}^1|\underbrace{e^t-e+1}_{\text{positive}}|\,\dee{t}
 </mrow><mrow>
 &amp;=\int_0^{\log(e-1)}\big(-e^t+e-1\big)\,\dee{t}+\int_{\log(e-1)}^1\big(e^t-e+1\big)\,\dee{t}
 </mrow><mrow>
 &amp;=\Big[-e^t+(e-1)t\Big]_0^{\log(e-1)}+
 \Big[e^t-(e-1)t\Big]_{\log(e-1)}^1
 </mrow><mrow>
-&amp;=\left[-(e-1)+(e-1)\log(e-1)+1\right]+
+&amp;=\left[-(e-1)+(e-1)\log(e-1)+1\right]
+</mrow><mrow>
+\amp\hskip1in+
 \left[e-(e-1)-(e-1)+(e-1)\log(e-1)\right]
 </mrow><mrow>&amp;=4-2e+2(e-1)\log(e-1)
 </mrow><mrow>
@@ -1125,10 +1158,14 @@ Yes, but if <m>a\neq0</m>, then <m>s=t</m>.
 The information given in the question is:
 <md>
 <mrow>
-\frac{\big(as^2+bs+c\big)+\big(at^2+bt+c\big)}{2}&amp;=\frac{1}{t-s}\int_s^t \big(ax^2+bx+c\big)\,\dee{x}
+\frac{\big(as^2+bs+c\big)+\big(at^2+bt+c\big)}{2}
+&amp;=\frac{1}{t-s}\int_s^t \big(ax^2+bx+c\big)\,\dee{x}
 </mrow><mrow>
 &amp;=\frac{1}{t-s}\left[\frac{a}{3}x^3+\frac{b}{2}x^2+cx\right]_s^t
-</mrow><mrow>&amp;=\frac{1}{t-s}\left[\frac{a}{3}(t^3-s^3)+\frac{b}{2}(t^2-s^2)+c(t-s)\right]
+</mrow><mrow>
+&amp;=\frac{1}{t-s}\bigg[\frac{a}{3}(t^3-s^3)+\frac{b}{2}(t^2-s^2)
+</mrow><mrow>
+\amp\hskip1.7in+c(t-s)\bigg]
 </mrow><mrow>
 &amp;=\frac{a}{3}(t^2+st+s^2)+\frac{b}{2}(t+s)+c
 </mrow><mrow>
@@ -1199,14 +1236,14 @@ For (b), express <m>A(x)</m> as an integral, then differentiate.
 <li>  The function <m>A(x)</m> only gives us information about an integral when one limit of integration is zero. We can get around this by using properties of definite integrals from Section 1.2 to break our integral into two integrals, each of which has 0 as one limit of integration. So, we find the average of <m>f(t)</m> on <m>[a,b]</m> as follows:
 <md>
 <mrow>
-\frac{1}{b-a}\int_a^b f(t)\,\dee{t}&amp;=
+\amp\frac{1}{b-a}\int_a^b f(t)\,\dee{t}=
 \frac{1}{b-a}\left(\int_a^0 f(t)\,\dee{t} + \int_0^b f(t)\,\dee{t}\right)
 </mrow><mrow>
-&amp;=\frac{1}{b-a}\left(-\int_0^a f(t)\,\dee{t} + \int_0^b f(t)\,\dee{t} \right)
+&amp;\hskip0.5in=\frac{1}{b-a}\left(-\int_0^a f(t)\,\dee{t} + \int_0^b f(t)\,\dee{t} \right)
 </mrow><mrow>
-&amp;=\frac{1}{b-a}\left(-a\cdot\underbrace{\frac{1}{a}\int_0^a f(t)\,\dee{t}}_{A(a)} + b\cdot\underbrace{\frac{1}{b}\int_0^b f(t)\,\dee{t}}_{A(b)} \right)
+&amp;\hskip0.5in=\frac{1}{b-a}\left(-a\cdot\underbrace{\frac{1}{a}\int_0^a f(t)\,\dee{t}}_{A(a)} + b\cdot\underbrace{\frac{1}{b}\int_0^b f(t)\,\dee{t}}_{A(b)} \right)
 </mrow><mrow>
-&amp;=\frac{1}{b-a}\left(-aA(a)+bA(b) \right) = \frac{bA(b) - aA(a)}{b-a}
+&amp;\hskip0.5in=\frac{1}{b-a}\left(-aA(a)+bA(b) \right) = \frac{bA(b) - aA(a)}{b-a}
 </mrow>
 </md>
 </li>
