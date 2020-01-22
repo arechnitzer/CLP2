@@ -293,7 +293,7 @@ None exists.
 </p>
 
 <p>The graph of <m>Cx</m> is given below for some positive constant <m>C</m>, also with the graph of <m>-Cx</m>. If <m>y=f(x)</m> were sometimes the top function, and other times the bottom function, then there would be a jump discontinuity where it switched. Then the derivative of <m>f(x)</m> would not exist, violating the second property.
-</p><sidebyside width="33%">
+</p><sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{.5}{3.5}{2.5}{2.5}
 \draw[very thick, blue] (0,0)--(3,2) node[right]{$y=Cx$};
@@ -1222,7 +1222,7 @@ and so <m>C=-2</m>. Therefore
  y^2 &amp;= 10x^3 + 4x^2 + 6x - 4
  </mrow>
 <intertext>This leaves us with two possible functions for <m>y</m>:</intertext><mrow>
-  y =  \sqrt{10x^3 + 4x^2 + 6x - 4} &amp;\qquad\text{OR}\qquad   y = - \sqrt{10x^3 + 4x^2 + 6x - 4}
+  y =  \sqrt{10x^3 + 4x^2 + 6x - 4} &amp;\qquad\text{or}\qquad   y = - \sqrt{10x^3 + 4x^2 + 6x - 4}
   </mrow>
 <intertext>When <m>x=1</m>, <m>y=4</m>. This only fits the first equation, so</intertext><mrow>
     y &amp;=  \sqrt{10x^3 + 4x^2 + 6x - 4}
@@ -1260,7 +1260,7 @@ The given differential equation is separable and we solve it accordingly.
 |y|&amp;=e^{x^4/4}
 </mrow>
 <intertext>This leaves us with two potential functions:</intertext><mrow>
-y=e^{x^4/4}&amp;\qquad\text{OR}\qquad y=-e^{x^4/4}
+y=e^{x^4/4}&amp;\qquad\text{or}\qquad y=-e^{x^4/4}
 </mrow>
 <intertext>The first is always positive, and the second is always negative. Since <m>y=1</m> (a positive number) when <m>x=0</m>, we see</intertext><mrow>
 y&amp;=e^{x^4/4}
@@ -1840,7 +1840,8 @@ D&amp;=2
 \lim_{t\rightarrow\infty}x(t)
 &amp;=\lim_{t\rightarrow\infty}\underbrace{\frac{3-4e^{kt}}{1-2e^{kt}}}_{\atp{\mathrm{num}\to-\infty}{\mathrm{den}\to-\infty}}
 =\lim_{t \to \infty} \frac{3-4e^{kt}}{1-2e^{kt}}\cdot\frac{e^{-kt}}{e^{-kt}}
-=\lim_{t\rightarrow\infty}\frac{3e^{-kt}-4}{e^{-kt}-2}
+</mrow><mrow>
+\amp=\lim_{t\rightarrow\infty}\frac{3e^{-kt}-4}{e^{-kt}-2}
 =\frac{0-4}{0-2}
 =2
 </mrow>
@@ -2204,9 +2205,9 @@ m= \frac{30000}{50} = \$600
 <statement><p>
 A certain continuous function <m>y=y(x)</m> satisfies the integral
 equation
-<men>
+<me>
 y(x)=3+\int_0^x\big(y(t)^2-3y(t)+2\big)\sin t \dee{t} \tag{$*$}
-</men>
+</me>
 for all <m>x</m> in some open interval containing <m>0</m>. Find <m>y(x)</m> and the largest
 interval for which <m>(*)</m> holds.
 </p></statement>
@@ -2227,10 +2228,13 @@ or, roughly, <m> - 1.259  \lt  x  \lt    1.259</m>.
 <solution><p>
 What we're given is an equation relating <m>y</m> to the integral of a function of <m>y</m>. What we know how to solve is an equation relating the <em>derivative</em> of <m>y</m> to a function of <m>y</m>. We can create this by differentiating the given integral equation.
 By the Fundamental Theorem of Calculus, part 1:
-<me>
-y'(x)=\diff{}{x}\left\{\int_0^x\big(y(t)^2-3y(t)+2\big)\sin t\dee{t}\right\}
-=\big(y(x)^2-3y(x)+2\big)\sin x
-</me>
+<md>
+<mrow>
+y'(x)\amp=\diff{}{x}\left\{\int_0^x\big(y(t)^2-3y(t)+2\big)\sin t\dee{t}\right\}
+</mrow><mrow>
+\amp=\big(y(x)^2-3y(x)+2\big)\sin x
+</mrow>
+</md>
 So <m>y(x)</m> satisfies the differential equation <m>y'=\big(y^2-3y+2\big)\sin x
 =(y-2)(y-1)\sin x</m>
 and the initial equation <m>y(0)=3</m> (just substitute <m>x=0</m> into <m>(*)</m>).
@@ -2297,7 +2301,7 @@ Solving for <m>y</m>,</intertext><mrow>
 <p>Let <m>L=1-\log 2</m>, for brevity, and note that <m>L \gt 0</m>. (This can be seen by observing <m>2 \lt e</m>, so, <m>\log 2 \lt \log e = 1</m>, hence <m>1-\log 2 \gt 0</m>.)
 </p>
 
-<sidebyside width="75%">
+<sidebyside width="95%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[help lines,  \lt - \gt ] (-6.5,0)--(6.5,0)
 node[right]{$x$};
@@ -2315,7 +2319,7 @@ node[right]{$x$};
 We know <m>x=0</m> is in the domain of our function, but the points  <m>x=\pm \arccos(L) = \pm\arccos(1-\log 2)</m> are <em>not</em>.
 </p>
 
-<sidebyside width="75%">
+<sidebyside width="95%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[ \lt - \gt , help lines] (-6,0)--(6,0) node[right]{$x$};
 \YExcoord{-1}{0}
@@ -2763,113 +2767,121 @@ For (a), think of a very simple function.
 </li>
 <li>
 Let's start by simplifying the given equation.
-<mdn>
-<mrow number="no">
+<md>
+<mrow>
 \frac{1}{x-a}\int_a^x f(t)\,\dee{t}&amp;=\sqrt{\frac{1}{x-a}\int_a^x f^2(t)\,\dee{t}}
-</mrow>
-<mrow xml:id="prob_s2_4_eq_simplified">
+</mrow><mrow>
 \frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}&amp;=\sqrt{\int_a^x f^2(t)\,\dee{t}}
-</mrow>
-<mrow xml:id="prob_s2_4_eq_diffbothsides">
+\tag{E1}
+</mrow><mrow>
 \color{red}{\diff{}{x}\left\{\frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}\right\}}
 &amp;=\color{blue}{\diff{}{x}\left\{\sqrt{\int_a^x f^2(t)\,\dee{t}}\right\}}
+\tag{E2}
 </mrow>
-</mdn>
+</md>
 For the derivative on the left, we use the product rule and the Fundamental Theorem of Calculus, part 1.
 <md>
 <mrow>
-\color{red}{\diff{}{x}\left\{\frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}\right\}}
-&amp;=\diff{}{x}\left\{\frac{1}{\sqrt{x-a}}\right\}\int_a^x f(t)\,\dee{t} + \frac{1}{\sqrt{x-a}}\cdot\diff{}{x}\left\{\int_a^x f(t)\,\dee{t}\right\}
+\amp\color{red}{\diff{}{x}\left\{\frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}\right\}}
 </mrow><mrow>
-&amp;=-\frac{1}{2\sqrt{x-a}^3}\int_a^x f(t)\,\dee{t} + \frac{f(x)}{\sqrt{x-a}}
+\amp\hskip0.1in=\diff{}{x}\left\{\frac{1}{\sqrt{x-a}}\right\}\int_a^x f(t)\,\dee{t} + \frac{1}{\sqrt{x-a}}\cdot\diff{}{x}\left\{\int_a^x f(t)\,\dee{t}\right\}
 </mrow><mrow>
-&amp;=\color{red}{
+&amp;\hskip0.1in=-\frac{1}{2\sqrt{x-a}^3}\int_a^x f(t)\,\dee{t} + \frac{f(x)}{\sqrt{x-a}}
+</mrow><mrow>
+&amp;\hskip0.1in=\color{red}{
 \frac{1}{\sqrt{x-a}}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]}
 </mrow>
-<intertext>For the derivative on the right in Equation<nbsp/><xref ref="prob_s2_4_eq_diffbothsides"/> we use the chain rule and the Fundamental Theorem of Calculus  part 1
-</intertext>
+</md>
+For the derivative on the right in Equation (E2)  we use the chain rule and the Fundamental Theorem of Calculus  part 1
+<md>
 <mrow>
 \color{blue}{
 \diff{}{x}\left\{\sqrt{\int_a^x f^2(t)\,\dee{t}}\right\}
-}&amp;=\frac{1}{2}\left(\int_a^x f^2(t)\,\dee{t}\right)^{-\frac12}\cdot\diff{}{x}\left\{\int_a^x f^2(t)\,\dee{t}\right\}
+}&amp;=\frac{1}{2}\left(\int_a^x f^2(t)\,\dee{t}\right)^{-\frac12}\!\!\cdot\diff{}{x}\left\{\int_a^x f^2(t)\,\dee{t}\right\}
 </mrow><mrow>
 &amp;=\color{blue}{\frac{f^2(x)}{2\sqrt{\int_a^xf^2(t)\,\dee{t}}}}
 </mrow>
 </md>
-So, Equation<nbsp/>(<xref ref="prob_s2_4_eq_diffbothsides"/>) yields the following:
-
-<men xml:id="prob_s2_4_b">
+So, Equation (E2) yields the following:
+<me>
 \color{red}{
-\frac{1}{\sqrt{x-a}}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]}
+\!\!\frac{1}{\sqrt{x\!-\!a}}\left[f(x) - \frac{1}{2(x\!!a)}\int_a^x\!\! f(t)\,\dee{t}\right]}
 =\color{blue}{ \frac{f^2(x)}{2\sqrt{\int_a^xf^2(t)\,\dee{t}}}}
-</men>
+\tag{E3}
+</me>
 </li>
 <li>
-From Equation<nbsp/>(<xref ref="prob_s2_4_eq_simplified"/>), <m>\sqrt{\int_a^x f^2(t)\,\dee{t}} = \frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}</m>.
-<md>
-<mrow>
-\frac{1}{\sqrt{x-a}}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]&amp;=\frac{f^2(x)}{2\frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}}
-</mrow><mrow>
-\frac{2}{x-a}\int_a^x f(t)\,\dee{t}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]&amp;=f^2(x)
-</mrow>
-</md>
+From Equation<nbsp/>(E1), <m>\sqrt{\int_a^x f^2(t)\,\dee{t}} = \frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}</m>.
+<me>
+\frac{1}{\sqrt{x-a}}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]=\frac{f^2(x)}{2\frac{1}{\sqrt{x-a}}\int_a^x f(t)\,\dee{t}}
+</me>
+and
+<me>
+\frac{2}{x-a}\int_a^x f(t)\,\dee{t}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]=f^2(x)
+</me>
 </li>
 <li>
 <p>
-Now what we have is a differential equation, although it might not look like it. Let <m>Y = \int_a^x f(t)\,\dee{t}</m>. Then <m>\diff{Y}{x} = f(x)</m>.
-<mdn>
-<mrow xml:id="prob_s2_4_eq_diffeq">
+Now what we have is a differential equation, although it might not look like it. Let <m>Y(x) = \int_a^x f(t)\,\dee{t}</m>. Then <m>\diff{Y}{x}(x) = f(x)</m>.
+<md>
+<mrow>
 \frac{2}{x-a}Y\left[\diff{Y}{x} - \frac{1}{2(x-a)}Y\right]&amp;=\left(\diff{Y}{x}\right)^2
+\tag{E4}
 </mrow>
-<intertext>We're used to solving differential equations of the form <m>\diff{Y}{x}=</m>(something). So, let's manipulate our equation until it has this form.
-</intertext>
-<mrow number="no"> \left(\diff{Y}{x}\right)^2-\left(\frac{2Y}{x-a}\right)\left(\diff{Y}{x}\right)+\left(\frac{Y}{x-a}\right)^2&amp;=0
+</md>
+We're used to solving differential equations of the form <m>\diff{Y}{x}=</m>(something). So, let's manipulate our equation until it has this form.
+<md>
+<mrow> 
+\left(\diff{Y}{x}\right)^2-\left(\frac{2Y}{x-a}\right)\left(\diff{Y}{x}\right)+\left(\frac{Y}{x-a}\right)^2=0
 </mrow>
-</mdn>
+</md>
 This is a quadratic equation, with variable <m>\diff{Y}{x}</m>. Its solutions are:
-<mdn>
-<mrow number="no">
+<md>
+<mrow>
 \diff{Y}{x}&amp;=\frac{\left(\frac{2Y}{x-a}\right)\pm\sqrt{\left(\frac{2Y}{x-a}\right)^2-4\cdot\left(\frac{Y}{x-a}\right)^2}}{2}
-</mrow>
-<mrow number="no">
+</mrow><mrow>
 &amp;=\frac{\frac{2Y}{x-a}\pm 0}{2}
 </mrow>
 <mrow number="no">
 &amp;=\frac{Y}{x-a}
 </mrow>
-<intertext>This gives us the separable differential equation</intertext>
-<mrow number="no">
+</md>
+This gives us the separable differential equation
+<md>
+<mrow>
 \diff{Y}{x}&amp;=\frac{Y}{x-a}
 </mrow>
-<mrow xml:id="prob_s2_4_eq_diffeqdivide">
+<mrow>
 \frac{\dee{Y}}{Y}&amp;=\frac{\dee{x}}{x-a}
+\tag{E5}
 </mrow>
-<mrow number="no">
+<mrow>
 \int\frac{\dee{Y}}{Y}&amp;=\int\frac{\dee{x}}{x-a}
 </mrow>
-<mrow number="no">
+<mrow>
 \log|Y|&amp;=\log|x-a|+C
 </mrow>
-<mrow number="no">
-|Y|&amp;=e^{\log(x-a)+C} = (x-a)e^C
+<mrow>
+|Y|&amp;=e^{\log|x-a|+C} = |x-a|e^C
 </mrow>
-<mrow number="no">
+<mrow>
 Y&amp;=D(x-a)
 </mrow>
-</mdn>
-where <m>D</m> is some constant, <m>e^C</m> or <m>-e^C</m>. Note this covers all real constants except <m>D=0</m>. If <m>D=0</m>, then <m>Y(x)=0</m> for all <m>x</m>. This function also satisfies Equation<nbsp/>(<xref ref="prob_s2_4_eq_diffeq"/>), so indeed,
-<men xml:id="prob_s2_4_eq_d">
+</md>
+where <m>D</m> is some constant, <m>e^C</m> or <m>-e^C</m>. Note this covers all real constants except <m>D=0</m>. If <m>D=0</m>, then <m>Y(x)=0</m> for all <m>x</m>. This function also satisfies Equation<nbsp/>(E4), so indeed,
+<me>
 Y(x)=D(x-a)
-</men>
+\tag{E6}
+</me>
 for <em>any</em> constant <m>D</m> is the family of equations satisfying our differential equation.
 </p>
 
-<p>Remark: the reason we <q>lost</q> the solution <m>Y(x)=0</m> is that in Equation<nbsp/>(<xref ref="prob_s2_4_eq_diffeqdivide"/>), we divided by <m>Y</m>, thus tacitly assuming it was not identically 0.
+<p>Remark: the reason we <q>lost</q> the solution <m>Y(x)=0</m> is that in Equation (E5), we divided by <m>Y</m>, thus tacitly assuming it was not identically 0.
 </p>
 </li>
 <li>
 <p>
-Remember <m>Y=\int_a^x f(t)\,\dee{t}</m>. So, Equation<nbsp/>(<xref ref="prob_s2_4_eq_d"/>) tells us:
+Remember <m>Y=\int_a^x f(t)\,\dee{t}</m>. So, Equation (E6) tells us:
 <md>
 <mrow>
 \int_a^x f(t)\,\dee{t}&amp;=D(x-a)
@@ -2885,16 +2897,18 @@ We should check that this function works.
 f_{\text{avg}} &amp;= \frac{1}{x-a}\int_a^x D\,\dee{t} = \frac{1}{x-a}\Big[Dt\Big]_{t=a}^{t=x} = \frac{Dx-Da}{x-a}=D
 </mrow><mrow>
 f_{\text{RMS}} &amp;= \sqrt{\frac{1}{x-a}\int_a^x D^2\,\dee{t}}
-=\sqrt{\frac{1}{x-a}\Big[D^2x\Big]_{t=a}^{t=x}}=\sqrt{\frac{D^2x-D^2a}{x-a}}=\sqrt{D^2}=|D|
+=\sqrt{\frac{1}{x-a}\Big[D^2t\Big]_{t=a}^{t=x}}
+</mrow><mrow>
+\amp=\sqrt{\frac{D^2x-D^2a}{x-a}}=\sqrt{D^2}=|D|
 </mrow>
 </md>
 So, <m>f(x)=D</m> works only if <m>D</m> is nonnegative.
 </p>
 
-<p>That is: the only functions whose average matches their root square mean over every interval are constant, nonnegative functions.
+<p>That is: the only functions whose average matches their root mean square over every interval are constant, nonnegative functions.
 </p>
 
-<p>Remark: it was step (c) where we introduced the erroneous answer <m>f(x)=D</m>, <m>D \lt 0</m> to our solution. In Equation<nbsp/>(<xref ref="prob_s2_4_b"/>), <m>f(x)=D</m> is not a solution if <m>D \lt 0</m>:
+<p>Remark: it was step (c) where we introduced the erroneous answer <m>f(x)=D</m>, <m>D \lt 0</m> to our solution. In Equation (E3), <m>f(x)=D</m> is not a solution if <m>D \lt 0</m>:
 <md>
 <mrow>
 \frac{1}{\sqrt{x-a}}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]&amp;=\frac{f^2(x)}{2\sqrt{\int_a^x f^2(t)\,\dee{t}}}
