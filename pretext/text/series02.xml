@@ -421,14 +421,17 @@ In this example, we are going to study the series  <m>\sum\limits_{n=1}^\infty\l
 <md alignment="alignat">
 <mrow>
 \sum_{n=1}^\infty\log\Big(1+\frac{1}{n}\Big)
-&amp;=\overbrace{\log\Big(1+\frac{1}{1}\Big)}^{n=1}&amp;&amp;
- +\overbrace{\log\Big(1+\frac{1}{2}\Big)}^{n=2}&amp;&amp;
- +\overbrace{\log\Big(1+\frac{1}{3}\Big)}^{n=3}&amp;&amp;
+&amp;=\overbrace{\log\Big(1+\frac{1}{1}\Big)}^{n=1}
+ +\overbrace{\log\Big(1+\frac{1}{2}\Big)}^{n=2}
+ +\overbrace{\log\Big(1+\frac{1}{3}\Big)}^{n=3}
+</mrow><mrow>
+\amp\hskip1in
  +\overbrace{\log\Big(1+\frac{1}{4}\Big)}^{n=4} +\cdots
  </mrow>
  <mrow>
-&amp;=\log(2)&amp;&amp;+\log\Big(\frac{3}{2}\Big)&amp;&amp; +\log\Big(\frac{4}{3}\Big)&amp;&amp;
-    +\log\Big(\frac{5}{4}\Big) + \cdots
+&amp;=\log(2)+\log\Big(\frac{3}{2}\Big) +\log\Big(\frac{4}{3}\Big)
+</mrow><mrow>
+\amp\hskip1in  +\log\Big(\frac{5}{4}\Big) + \cdots
 </mrow>
 </md>
 This is pretty suggestive since
@@ -449,7 +452,8 @@ S_N&amp;=\sum_{n=1}^N\log\Big(1+\frac{1}{n}\Big)
 &amp;=\overbrace{\log\Big(1+\frac{1}{1}\Big)}^{n=1}
  +\overbrace{\log\Big(1+\frac{1}{2}\Big)}^{n=2}
  +\overbrace{\log\Big(1+\frac{1}{3}\Big)}^{n=3} + \cdots
- +\overbrace{\log\Big(1+\frac{1}{N-1}\Big)}^{n=N-1}
+</mrow><mrow>
+\amp\hskip1in +\overbrace{\log\Big(1+\frac{1}{N-1}\Big)}^{n=N-1}
  +\overbrace{\log\Big(1+\frac{1}{N}\Big)}^{n=N}
  </mrow>
  <mrow>
