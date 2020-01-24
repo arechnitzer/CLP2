@@ -52,7 +52,7 @@ Assuming the sequences continue as shown, estimate the limit of each sequence fr
 Not every limit exists.
 </p></hint>
 <answer><p>
-(a) <m>-2</m> (b) 0  (c) the limit does not exist
+(a) <m>-2\qquad</m>(b) <m>0\qquad</m>  (c) the limit does not exist
 </p></answer>
 <solution><p>
 (a) The values of the sequence seem to be getting closer and closer to -2, so we guess the limit of this sequence is -2.
@@ -103,7 +103,7 @@ Let <m>\{a_n\}_{n=1}^{\infty}</m>, <m>\{b_n\}_{n=1}^{\infty}</m>,  and <m>\{c_n\
 <m>\displaystyle\lim_{n \to \infty}a_{2n+5}=\lim_{n \to \infty}a_{n}</m>
 </p></hint>
 <answer><p>
-(a) <m>\dfrac{A-B}{C}</m>  (b) 0  (c) <m>\dfrac{A}{B}</m>
+(a) <m>\dfrac{A-B}{C}\qquad</m> (b) <m>0\qquad</m>   (c) <m>\dfrac{A}{B}</m>
 </p></answer>
 <solution><p>
 (a) We follow the arithmetic of limits, Theorem<nbsp/><xref ref="thm_SRlimarith"/> in the CLP-2 text:
@@ -383,7 +383,7 @@ You can use the fact that <m>\pi</m> is somewhat close to <m>\dfrac{22}{7}</m>, 
 <p>(b) Some possible answers: <m>a_{11}\approx 0.0044</m>, <m>a_{33}\approx -0.0133</m>, and <m>a_{55}\approx 0.0221</m>.
 </p>
 <p>
-The integers 11, 33, and 55 were found by approximating <m>\pi</m> by <m>\dfrac{22}{7}</m> and finding when an odd multiple of <m>\dfrac{11}{7}</m> (which is the corresponding approximation of <m>\dfrac{\pi}{2}</m>) is an integer.
+The integers 11, 33, and 55 were found by approximating <m>\pi</m> by <m>\dfrac{22}{7}</m> and finding when an odd multiple of <m>\dfrac{11}{7}</m> (which is the corresponding approximation of <m>\pi/2</m>) is an integer.
 </p></answer>
 <solution><p>
 (a) We want to find odd multiples of <m>\pi</m> that are close to integers.
@@ -565,7 +565,7 @@ Determine the limits of the following sequences.
 <hint><p>
 You can compare the leading terms, or factor a high power of <m>n</m> from the numerator and denominator.
 </p></hint>
-<answer><p> (a) <m>\infty</m>  (b) <m>\dfrac{3}{4}</m>
+<answer><p> (a) <m>\infty\qquad</m> (b) <m>\dfrac{3}{4}\qquad</m>
  (c) 0
 </p></answer>
 <solution><p>
@@ -1066,11 +1066,13 @@ First, although this sequence is not defined for some small values of <m>n</m>, 
 <p>A standard trick we saw last semester with functions of this form was to multiply and divide by the conjugate of the expression, <m>\sqrt{n^2+5n}+\sqrt{n^2-5n}</m>. Then the denominator will be the <em>sum</em> of two similar things, rather than their difference. See the work below to find out why that is helpful.
 <md>
 <mrow>
-\sqrt{n^2+5n}-\sqrt{n^2-5n}&amp;=\big(\sqrt{n^2+5n}-\sqrt{n^2-5n}\big)\left(\frac{\sqrt{n^2+5n}+\sqrt{n^2-5n}}{\sqrt{n^2+5n}+\sqrt{n^2-5n}}\right)
+\amp\sqrt{n^2+5n}-\sqrt{n^2-5n}
 </mrow><mrow>
-&amp;=\frac{(n^2+5n)-(n^2-5n)}{\sqrt{n^2+5n}+\sqrt{n^2-5n}}
+&amp;\hskip0.25in=\big(\sqrt{n^2+5n}-\sqrt{n^2-5n}\big)\left(\frac{\sqrt{n^2+5n}+\sqrt{n^2-5n}}{\sqrt{n^2+5n}+\sqrt{n^2-5n}}\right)
 </mrow><mrow>
-&amp;=\frac{10n}{\sqrt{n^2+5n}+\sqrt{n^2-5n}}
+&amp;\hskip0.25in=\frac{(n^2+5n)-(n^2-5n)}{\sqrt{n^2+5n}+\sqrt{n^2-5n}}
+</mrow><mrow>
+&amp;\hskip0.25in=\frac{10n}{\sqrt{n^2+5n}+\sqrt{n^2-5n}}
 </mrow>
 <intertext>Now, we'll cancel out <m>n</m> from the top and the bottom. Note <m>n=\sqrt{n^2}</m>.</intertext>
 <mrow>
@@ -1245,7 +1247,7 @@ The area of an isosceles triangle with two sides of length 1, meeting at an angl
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside></hint>
 <answer><p>
-(a) <m>A_n = \dfrac{n}{2}\sin\left(\dfrac{2\pi}{n}\right)</m>  (b) <m>\pi</m>
+(a) <m>A_n = \dfrac{n}{2}\sin\left(\dfrac{2\pi}{n}\right)\qquad</m>(b) <m>\pi</m>
 </p></answer>
 <solution><p>
 (a)
@@ -1479,7 +1481,8 @@ If this limit exists, it is equal to <m>\lim\limits_{n \to \infty}b_n</m>.
   \lim_{x \to 0^+}f(x)&amp;= \lim_{x \to 0^+} \left(1+3x+5x^2\right)^{1/x}
 </mrow><mrow>
   \lim_{x \to 0^+}\log[f(x)]&amp;= \lim_{x \to 0^+} \log\left[\left(1+3x+5x^2\right)^{1/x}\right]
-  =\underbrace{ \lim_{x \to 0^+}\frac{ \log\left[1+3x+5x^2 \right]}{x}}_{\atp{\mathrm{num}\to 0}{\mathrm{den}\to0}}
+</mrow><mrow>
+ \amp=\underbrace{ \lim_{x \to 0^+}\frac{ \log\left[1+3x+5x^2 \right]}{x}}_{\atp{\mathrm{num}\to 0}{\mathrm{den}\to0}}
 </mrow><mrow>
   &amp;=\lim_{x \to 0^+}\frac{\frac{3+10x}{1+3x+5x^2}}{1}=3
 </mrow><mrow>
@@ -1499,10 +1502,14 @@ g(x)&amp;=\left(1+\frac{3}{x}+\frac{5}{x^2}\right)^x
 \log [g(x)]&amp;= x\log\left[1+\frac{3}{x}+\frac{5}{x^2}\right]
 =\underbrace{\frac{\log\left[1+\frac{3}{x}+\frac{5}{x^2}\right]}{1/x}}_{\atp{\mathrm{num}\to 0}{\mathrm{den}\to0}}
 </mrow><mrow>
-\lim_{x \to \infty} \log[g(x)]&amp;=\lim_{x \to \infty}\dfrac{\frac{-\frac{3}{x^2}-\frac{10}{x^3}}{1+\frac{3}{x}+\frac{5}{x^2}}}{\frac{-1}{x^2}}=
-\lim_{x \to \infty}x^2\frac{\frac{3}{x^2}+\frac{10}{x^3}}{1+\frac{3}{x}+\frac{5}{x^2}}
-=
-\lim_{x \to \infty}\frac{3+\frac{10}{x}}{1+\frac{3}{x}+\frac{5}{x^2}} = \frac{3+0}{1+0+0}=3
+\lim_{x \to \infty} \log[g(x)]
+&amp;=\lim_{x \to \infty}\dfrac{\frac{-\frac{3}{x^2}-\frac{10}{x^3}}{1+\frac{3}{x}+\frac{5}{x^2}}}{\frac{-1}{x^2}}
+=\lim_{x \to \infty}x^2\frac{\frac{3}{x^2}+\frac{10}{x^3}}{1+\frac{3}{x}+\frac{5}{x^2}}
+</mrow><mrow>
+\amp=
+\lim_{x \to \infty}\frac{3+\frac{10}{x}}{1+\frac{3}{x}+\frac{5}{x^2}} = \frac{3+0}{1+0+0}
+</mrow><mrow>
+\amp=3
 </mrow><mrow>
 \lim_{x \to \infty} f(x)&amp;=e^3</mrow>
 </md>
@@ -1540,7 +1547,7 @@ where <m>L</m> is the solution to equation above.
 </p></hint>
 
 <answer><p>
-(a) 4  (b) <m>x=4</m>
+(a) <m>4\qquad</m>(b) <m>x=4\qquad</m>
 (c) see solution
 </p></answer>
 
@@ -1600,7 +1607,7 @@ So, the distance between our sequence terms and the number 4 is decreasing by a 
 	Your answer from (b) will help you a lot with the subsequent parts.
 </p></hint>
 <answer><p>
-	(a) decreasing (b)<m>f_n=\frac{1}{n}f_1</m> (c)  <m>2\%</m>(d) <m>0.18\%</m>
+	(a) decreasing<m>\qquad</m> (b)<m>f_n=\frac{1}{n}f_1\qquad</m> (c)  <m>2\%\qquad</m> (d) <m>0.18\%</m>
 	</p><p>
 	(e) <q>be</q>:  11,019,308; <q>and</q>:  7,346,205
 </p></answer>
