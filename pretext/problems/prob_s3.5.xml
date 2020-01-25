@@ -174,10 +174,11 @@ so that <m>R=\frac{1}{A}=\frac{1}{2}</m>, again.
 <md>
 <mrow>
 \sum_{k=0}^\infty (-1)^k 2^{k+1} x^k
-=2 \sum_{k=0}^\infty (-2x)^k
+\amp=2 \sum_{k=0}^\infty (-2x)^k
 =2\sum_{k=0}^\infty r^k\Big|_{r=-2x}
 =2\times\frac{1}{1-r}
-=\frac{2}{1+2x}
+</mrow><mrow>
+\amp=\frac{2}{1+2x}
 </mrow>
 </md>
 for all <m>|r|=|2x| \lt 1</m>, i.e. all <m>|x| \lt \frac{1}{2}</m>.
@@ -452,9 +453,10 @@ Since
 \lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
 &amp; =\lim_{n\rightarrow\infty}\left|\frac{\frac{(x+2)^{n+1}}{(n+1)^2}}
                                        {\frac{(x+2)^n}{n^2}}\right|
+ =\lim_{n\rightarrow\infty}\frac{n^2}{{(n+1)}^2}|x+2|
 </mrow>
 <mrow>
-&amp; =\lim_{n\rightarrow\infty}\frac{n^2}{{(n+1)}^2}|x+2|
+&amp;
 =\lim_{n\rightarrow\infty}\frac{1}{{(1+1/n)}^2}|x+2|
 =|x+2|
 </mrow>
@@ -497,12 +499,15 @@ Since
 </mrow>
 </md>
 the series converges if
-<me>
+<md>
+<mrow>
 4|x-1| \lt 1
-\iff -1 \lt 4(x-1) \lt 1
+\amp\iff -1 \lt 4(x-1) \lt 1
 \iff -\frac{1}{4} \lt x-1 \lt \frac{1}{4}
-\iff \frac{3}{4} \lt x \lt \frac{5}{4}
-</me>
+</mrow><mrow>
+\amp\iff \frac{3}{4} \lt x \lt \frac{5}{4}
+</mrow>
+</md>
 and diverges if <m>4|x-1| \gt 1</m>.
 Checking the right endpoint <m>x=\frac{5}{4}</m>, we see that
 <md>
@@ -559,7 +564,8 @@ the series converges if
 \frac{|x-1|}{2} \lt 1
 &amp;\iff |x-1| \lt 2
 \iff -2 \lt (x-1) \lt 2
-\iff -1 \lt x \lt 3
+</mrow><mrow>
+\amp\iff -1 \lt x \lt 3
 </mrow>
 </md>
 and diverges if <m>|x-1| \gt 2</m>. So the series has radius of convergence <m>2</m>.
@@ -613,12 +619,15 @@ Since
 </mrow>
 </md>
 the series converges if
-<me>
+<md>
+<mrow>
 |x-a|^2 \lt 1
-\iff |x-a| \lt 1
+\amp\iff |x-a| \lt 1
 \iff-1 \lt x-a \lt 1
-\iff a-1 \lt x \lt a+1
-</me>
+</mrow><mrow>
+\amp\iff a-1 \lt x \lt a+1
+</mrow>
+</md>
 and diverges if <m>|x-a| \gt 1</m>.
 Checking both endpoints <m>x-a=\pm 1</m>, we see that
 <md>
@@ -698,14 +707,15 @@ or <m>-10\le x\le 8</m>  or <m>[-10,8]</m>.
 The partial sum
 <md>
 <mrow>
-\sum_{k=1}^N\Big(\frac{a_k}{a_{k+1}}
+\amp\sum_{k=1}^N\Big(\frac{a_k}{a_{k+1}}
                          -\frac{a_{k+1}}{a_{k+2}}\Big)
-&amp; =\Big(\frac{a_1}{a_2}-\frac{a_2}{a_3}\Big)
+</mrow><mrow>
+&amp;\hskip0.5in =\Big(\frac{a_1}{a_2}-\frac{a_2}{a_3}\Big)
  +\Big(\frac{a_2}{a_3}-\frac{a_3}{a_4}\Big)
 +\cdots+ \Big(\frac{a_N}{a_{N+1}}-\frac{a_{N+1}}{a_{N+2}}\Big)
 </mrow>
 <mrow>
-&amp; =\frac{a_1}{a_2}-\frac{a_{N+1}}{a_{N+2}}
+&amp;\hskip0.5in =\frac{a_1}{a_2}-\frac{a_{N+1}}{a_{N+2}}
 </mrow>
 </md>
 We are told that <m>{\displaystyle \sum_{k=1}^\infty \Big(\frac{a_k}{a_{k+1}}
@@ -968,7 +978,8 @@ So let's check the first few terms.
 \frac{1}{(3n+1)4^{3n+1}}\bigg|_{n=2}&amp;=\frac{1}{7\times 4^7}
                          =\frac{1}{7\times 2^{14}}
                          =\frac{1}{7\times16\times 1024}
-                         =\frac{1}{112\times 1024} \lt \frac{1}{10^5}
+</mrow><mrow>
+                         \amp=\frac{1}{112\times 1024} \lt \frac{1}{10^5}
 </mrow>
 </md>
 So we need to keep two terms (the <m>n=0</m> and <m>n=1</m> terms).
@@ -1020,11 +1031,15 @@ as desired.
 </p>
 
 <p> (b) Differentiating both sides of the conclusion of part (a) gives
-<me>
-\sum_{n=0}^\infty n^2 x^{n-1}=\frac{(1-x)^2-2x(x-1)}{(1-x)^4}
+<md>
+<mrow>
+\sum_{n=0}^\infty n^2 x^{n-1}
+\amp=\frac{(1-x)^2-2x(x-1)}{(1-x)^4}
 =\frac{(1-x)(1-x+2x)}{(1-x)^4}
-=\frac{1+x}{(1-x)^3}
-</me>
+</mrow><mrow>
+\amp=\frac{1+x}{(1-x)^3}
+</mrow>
+</md>
 Now multiplying both sides by <m>x</m> gives
 <me>
 \sum_{n=0}^\infty n^2 x^n=\frac{x(1+x)}{(1-x)^3}
