@@ -1862,6 +1862,16 @@ Create a bullseye using the following method:
 Continue in this way indefinitely: dividing the radius of the innermost circle into thirds, creating two rings and another circle, and colouring the middle ring blue.
 </p>
 
+<sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+\draw[ultra thick, fill=red] (3,0)  arc (0:360:3cm);
+\fill[fill=blue] (1,0) arc (0:360:1cm)--(2,0) arc (360:0:2cm)--(1,0);
+\fill[fill=blue] (.33,0) arc (0:360:.33cm)--(.67,0) arc (360:0:.67cm)--(.33,0);
+\fill[fill=blue] (.11,0) arc (0:360:.11cm)--(.22,0) arc (360:0:.22cm)--(.11,0);
+\fill[fill=blue] (.037,0) arc (0:360:.037cm)--(.074,0) arc (360:0:.074cm)--(.037,0);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>
+
 
 <!-- <sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
