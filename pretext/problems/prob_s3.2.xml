@@ -63,7 +63,7 @@ Note <m>C_k</m> is the cumulative number of cookies.
 If there were a total of 17 cookies before Student 11 came, and 20 cookies after, then Student 11 brought 3 cookies.
 </p>
 
-<sidebyside width="75%">
+<sidebyside width="95%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \foreach \x in {1,...,17}{
 	\draw[fill=red] (\x/2,0) arc(0:360:1.5mm);}
@@ -104,8 +104,8 @@ How is (a) related to Question<nbsp/><xref ref="prob_s3_2_cookies" text="local"/
 (a) <m>\displaystyle a_n = \begin{cases}
 \frac12 &amp;\mbox{ if } n=1\\
 \dfrac{1}{n(n+1)} &amp;\mbox{ else }\\
-\end{cases}</m>
-(b) 0
+\end{cases}\qquad</m>
+(b) <m>0\qquad</m>
 (c) 1
 </p></answer>
 <solution><p>
@@ -387,7 +387,7 @@ Suppose the square outlined in red in the picture below has area one.
 Compare to Question<nbsp/><xref ref="prob_s3_2_pic1" text="local"/>.
 </p></hint>
 <answer><p>
-(a) <m>\displaystyle\sum_{n=1}^\infty \frac{1}{9^n}</m>  (b) <m>\dfrac{1}{8}</m>
+(a) <m>\displaystyle\sum_{n=1}^\infty \frac{1}{9^n}\qquad</m>  (b) <m>\dfrac{1}{8}</m>
 </p></answer>
 <solution><p>
 (a) The pattern can be described as follows: divide the innermost square into 9 equal parts (a <m>3\times 3</m> grid), choose one square to be black, and another square to subdivide.
@@ -690,7 +690,7 @@ All together, there were 36 cookies brought by Student 11 through Student 20.
 After twenty students have brought their cookies, the pile numbers 53 cookies. 17 of these cookies were brought by students one through ten. So, the remainder (<m>53-17=36</m>) is the number of cookies brought by students 11, 12, 13, 14, 15, 16, 17, 18, 19, and 20, together.
 </p>
 
-<sidebyside width="80%">
+<sidebyside width="95%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \foreach \x in {1,...,17}{
 	\draw[fill=red] (\x/3.75,0) arc(0:360:1mm);}
@@ -783,11 +783,11 @@ with <m>a=\dfrac{1}{5^{50}},</m> <m>r=\dfrac15</m>, and <m>N=50</m>.</intertext>
 Express your gains in (a) and (c) as series.
 </p></hint>
 <answer><p>
-(a) As time passes, your gains increase, approaching <dollar/>1.
+(a) As time passes, your gains increase, approaching <dollar/>1.<m>\qquad</m>
 (b) 1
 </p>
 <p>
-(c) As time passes, you <em>lose</em> more and more money, without bound.
+(c) As time passes, you <em>lose</em> more and more money, without bound.<m>\qquad</m>
 (d) <m>-\infty</m>
 </p></answer>
 <solution><p>
@@ -936,9 +936,11 @@ What kind of a series is this?
 We recognize that this is a geometric series:
  <md>
 <mrow>
- 1 + \frac{1}{3} + \frac{1}{9} + \frac{1}{27}+ \frac{1}{81}+ \frac{1}{243} + \cdots&amp;=\frac{1}{3^0}+\frac{1}{3^1}+\frac{1}{3^2}+\frac{1}{3^3}+\frac{1}{3^4}+\frac{1}{3^5}+\cdot
+\amp 1 + \frac{1}{3} + \frac{1}{9} + \frac{1}{27}+ \frac{1}{81}+ \frac{1}{243} + \cdots
 </mrow><mrow>
- &amp;=\sum_{n=0}^\infty \frac{1}{3^n}
+\amp\hskip1in=\frac{1}{3^0}+\frac{1}{3^1}+\frac{1}{3^2}+\frac{1}{3^3}+\frac{1}{3^4}+\frac{1}{3^5}+\cdot
+</mrow><mrow>
+ &amp;\hskip1in=\sum_{n=0}^\infty \frac{1}{3^n}
  </mrow>
 <intertext>Using Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text with <m>r=\dfrac13</m> and <m>a=1</m>,</intertext>
 <mrow>
@@ -1130,7 +1132,7 @@ Review Definition  <xref ref="def_SRseries"/> in the CLP-2 text.
 </p></hint>
 
 <answer><p>
-(a) <m>\displaystyle a_n= \frac{11}{16n^2 + 24n +5}</m>
+(a) <m>\displaystyle a_n= \frac{11}{16n^2 + 24n +5}\qquad</m>
 (b) <m> \dfrac{3}{4}</m>
 </p>
 
@@ -1253,12 +1255,12 @@ Review Example  <xref ref="eg_SRgeomB"/> in the CLP-2 text. To write the number 
 The number is:
 <md>
 <mrow>
-0.2 + \frac{3}{100} + \frac{3}{1000} + \frac{3}{10000} + \cdots
-&amp;=\frac{1}{5}+\frac{3}{10^2}+\frac{3}{10^3}+\frac{3}{10^4}+\cdots
+\amp 0.2 + \frac{3}{100} + \frac{3}{1000} + \frac{3}{10000} + \cdots
+=\frac{1}{5}+\frac{3}{10^2}+\frac{3}{10^3}+\frac{3}{10^4}+\cdots
 </mrow><mrow>
-&amp;=\frac{1}{5}+\frac{3}{10^2}\left(\frac{1}{10^0}+\frac{1}{10^1}+\frac{1}{10^2}+\cdots\right)
+&amp;\hskip1in=\frac{1}{5}+\frac{3}{10^2}\left(\frac{1}{10^0}+\frac{1}{10^1}+\frac{1}{10^2}+\cdots\right)
 </mrow><mrow>
-&amp; =\frac15 + \frac{3}{10^2}\sum_{n=0}^{\infty} \frac{1}{10^{n}}
+&amp;\hskip1in =\frac15 + \frac{3}{10^2}\sum_{n=0}^{\infty} \frac{1}{10^{n}}
 </mrow>
 <intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text with <m>r=\dfrac{1}{10}</m>.
 </intertext>
@@ -1364,7 +1366,9 @@ We split the sum into two parts.
 
 <p><md>
 <mrow>
-\sum_{n=2}^\infty \bigg( \frac{2^{n+1}}{3^n} + \frac1{2n-1} - \frac1{2n+1} \bigg)&amp;=
+\amp\sum_{n=2}^\infty \bigg( \frac{2^{n+1}}{3^n} + \frac1{2n-1} - \frac1{2n+1} \bigg)
+</mrow><mrow>
+&amp;\hskip1in=
 \color{blue}{ \sum_{n=2}^\infty \frac{2^{n+1}}{3^n}} \quad
 \textcolor{black}{+}\quad
 \color{red}{ \sum_{n=2}^\infty \bigg(  \frac1{2n-1} - \frac1{2n+1} \bigg) }
@@ -1417,13 +1421,17 @@ s_N&amp;=\frac{1}{3}-\frac{1}{2N+1}
 </mrow><mrow>
 &amp;=\color{red}{\frac{1}{3}}
 </mrow>
-<intertext>All together,</intertext><mrow>
-\sum_{n=2}^\infty \bigg( \frac{2^{n+1}}{3^n} + \frac1{2n-1} - \frac1{2n+1} \bigg)&amp;=
+</md>
+All together,
+<md><mrow>
+\amp\sum_{n=2}^\infty \bigg( \frac{2^{n+1}}{3^n} + \frac1{2n-1} - \frac1{2n+1} \bigg)
+</mrow><mrow>
+&amp;\hskip1in=
 \color{blue}{ \sum_{n=2}^\infty \frac{2^{n+1}}{3^n} } \quad
 \textcolor{black}{+} \quad
 \color{red}{ \sum_{n=2}^\infty \bigg(  \frac1{2n-1} - \frac1{2n+1} \bigg) }
 </mrow><mrow>
-&amp;=\textcolor{blue}{\frac83}+\textcolor{red}{\frac13}=3
+&amp;\hskip1in=\textcolor{blue}{\frac83}+\textcolor{red}{\frac13}=3
 </mrow>
 </md>
 </p></solution>
@@ -1525,7 +1533,7 @@ Using logarithm rules, we see
 
 <p><me>
 \begin{array}{c||cc||c}
-\mathbf{n}&amp;\mathbf{\log(n-3)}&amp;\mathbf{-\log n}&amp;\mathbf{s_n}\\
+\mathbf{n}&amp;\mathbf{\log(n\!-\!3)}\!\!&amp;\mathbf{-\log n}&amp;\mathbf{s_n}\\
 \hline
 5&amp;\log 2&amp;\color{red}{-\log 5}&amp;\log 2 - \color{red}{\log 5}\\
 6&amp;\log 3&amp;\color{green}{-\log 6}&amp;\log 2 +\log 3- \color{red}{\log 5}\color{green}{-\log 6}\\
@@ -1546,9 +1554,10 @@ Using logarithm rules, we see
 <p>There is a <q>lag</q> before the terms cancel, which is why they <q>build up</q> more than we saw in past examples. Still, we can clearly see the <m>N</m>th partial sum:
 <md>
 <mrow>
-\sum_{n=5}^N \Big(\log(n-3)-\log(n)\Big)&amp;=\log 2+\log 3 + \log 4 - \log(N-2)-\log(N-1)-\log(N)
+\amp\sum_{n=5}^N \Big(\log(n-3)-\log(n)\Big)
+</mrow><mrow>&amp;\hskip0.5in=\log 2+\log 3 + \log 4 - \log(N-2)-\log(N-1)-\log(N)
 </mrow><mrow>
-&amp;=\log \left(\frac{24}{N(N-1)(N-2)}\right)
+&amp;\hskip0.5in=\log \left(\frac{24}{N(N-1)(N-2)}\right)
 </mrow>
 <intertext>when <m>N \geq 7</m>. So,</intertext><mrow>
 \sum_{n=5}^\infty \Big(\log(n-3)-\log(n)\Big)&amp;=
@@ -1843,9 +1852,7 @@ Create a bullseye using the following method:
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[ultra thick, fill=red] (3,0)  arc (0:360:3cm);
 \fill[fill=blue] (1,0) arc (0:360:1cm)--(2,0) arc (360:0:2cm)--(1,0);
-</p>
-
-<p>\filldraw[fill=blue] (.33,0) arc (0:360:.33cm)--(.67,0) arc (360:0:.67cm)--(.33,0);
+\filldraw[fill=blue] (.33,0) arc (0:360:.33cm)--(.67,0) arc (360:0:.67cm)--(.33,0);
 \fill[pattern=crosshatch, pattern color=white] (.33,0) arc (0:360:.33cm);
 \draw[line width=5pt] (.33,-.2)--(.33,.2) (.67,-.2)--(.67,.2);
 \draw[ultra thick](0,0)--(.33,0);
@@ -1855,17 +1862,31 @@ Create a bullseye using the following method:
 Continue in this way indefinitely: dividing the radius of the innermost circle into thirds, creating two rings and another circle, and colouring the middle ring blue.
 </p>
 
-<sidebyside width="50%">
+
+<!-- <sidebyside width="50%">
+<image><latex-image><![CDATA[\begin{tikzpicture}
+  \fill[fill=red] (0,0) circle (3cm);
+  \fill[fill=blue] (0,0) cirle (2cm);
+  \fill[fill=red] (0,0) circle (1cm);
+  \fill[fill=blue] (0,0) cirle (0.6667cm);
+  \fill[fill=red] (0,0) circle (0.3333cm);
+  \fill[fill=blue] (0,0) cirle (0.2222cm);
+  \fill[fill=red] (0,0) circle (0.1111cm);
+\end{tikzpicture}]]></latex-image></image>
+</sidebyside>  -->
+
+<!-- <sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \foreach \level in {1,...,5}{
 	\POWER{3}{\level}{\expo}
 	\DIVIDE{81}{\expo}{\R}
 	\MULTIPLY{\R}{.6667}{\r}
-	\fill[red] (\R,0) arc(0:360:\R cm);
-	\fill[blue] (\r,0) arc(0:360:\r cm);
+	\fill[red] (\R,0) arc (0:360:\R cm);
+	\fill[blue] (\r,0) arc (0:360:\r cm);
 	}
 \end{tikzpicture}]]></latex-image></image>
-</sidebyside><p>
+</sidebyside> -->
+<p>
 What is the area of the red  portion?
 </p>
 

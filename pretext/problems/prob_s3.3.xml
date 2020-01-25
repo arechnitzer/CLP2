@@ -110,10 +110,10 @@ Suppose there is some threshold after which a person is considered old, and befo
 This isn't a trick. It's meant to give you intuition to the direct comparison test.
 </p></hint>
 <answer><p>
-(a) I am old  (b) not enough information to tell
+(a) I am old<m>\quad</m>  (b) not enough information to tell
 </p>
 <p>
-(c) not enough information to tell  (d) I am young
+(c) not enough information to tell <m>\qquad</m> (d) I am young
 </p></answer>
 <solution><p>
 (a) If Olaf is old, and I am <em>even older</em>, then I am old as well.
@@ -297,10 +297,13 @@ Think about Question<nbsp/><xref ref="prob_s3_3_compareintuitive" text="local"/>
 <p>Note that all the comparison series have positive terms, so we don't need to worry about that part of the limit comparison test.
 </p></hint>
 <answer><p>
-(a) both direct comparison and limit comparison  (b) direct comparison
+(a) both direct comparison and limit comparison
+</p> 
+<p>
+(b) direct comparison
 </p>
 <p>
- (c) limit comparison  (d) neither
+ (c) limit comparison <m>\qquad</m> (d) neither
 </p></answer>
 <solution><p>
 (a) Since <m>\sum \frac{1}{n}</m> is divergent, we can only use it to prove series with <em>larger</em> terms are divergent. This is the case here, since <m>\frac{1}{n-1} \gt \frac{1}{n}</m>. So, the direct comparison test is valid.
@@ -917,11 +920,13 @@ This is a geometric series with <m>r=\frac{-1}{5}</m>. Since <m>|r| \lt 1</m>, i
 \sum_{n=3}^\infty \left(\frac{-1}{5}\right)^n&amp;=
 \sum_{n=0}^\infty \left(\frac{-1}{5}\right)^n-
 \sum_{n=0}^2 \left(\frac{-1}{5}\right)^n
-=\frac{1}{1-(-1/5)} - \left(1-\frac{1}{5}+\frac{1}{25} \right)
+</mrow><mrow>
+\amp=\frac{1}{1-(-1/5)} - \left(1-\frac{1}{5}+\frac{1}{25} \right)
 </mrow><mrow>
 &amp;=\frac{1}{6/5}-1+\frac{1}{5}-\frac{1}{25}
-=
-\frac{5}{6}+\frac{-25+5-1}{25}=-\frac{1}{150}
+=\frac{5}{6}+\frac{-25+5-1}{25}
+</mrow><mrow>
+\amp=-\frac{1}{150}
 </mrow>
 </md>
 </p></solution>
@@ -986,7 +991,8 @@ Factorials grow super fast. Like, wow, really fast. Even faster than exponential
 <md>
 <mrow>
 \frac{a_{k+1}}{a_k}&amp;=\frac{\frac{e^{k+1}}{(k+1)!}}{\frac{e^k}{k!}}=\frac{e^{k+1}}{e^k}\cdot\frac{k!}{(k+1)!}
-=
+</mrow><mrow>
+\amp=
 e\cdot\frac{k(k-1)\cdots(1)}{(k+1)(k)(k-1)\cdots(1)}=e\cdot\frac{1}{k+1}=\frac{e}{k+1}
 </mrow>
 <intertext>Since <m>e</m> is a constant,</intertext><mrow>
@@ -1044,18 +1050,23 @@ The series converges.
 Usually with factorials, we want to use the divergence test or the ratio test. Since the terms are indeed tending towards zero, we are left with the ratio test.
 <md>
 <mrow>
-\frac{a_{n+1}}{a_n}&amp;=\frac{\frac{(n+1)!(n+1)!}{(2n+2)!}}{\frac{n!n!}{(2n)!}}=\frac{(n+1)!(n+1)!}{n!n!}\cdot\frac{(2n)!}{(2n+2)!}
+\amp\frac{a_{n+1}}{a_n}=\frac{\frac{(n+1)!(n+1)!}{(2n+2)!}}{\frac{n!n!}{(2n)!}}=\frac{(n+1)!(n+1)!}{n!n!}\cdot\frac{(2n)!}{(2n+2)!}
 </mrow><mrow>
 &amp;=\tfrac{\textcolor{red}{(n+1)}{(n)}{(n-1)}\cdots{(1)}}{{n}{(n-1)}\cdots{(1)}}
 \cdot\tfrac{\textcolor{red}{(n+1)}{(n)}{(n-1)}\cdots{(1)}}{{n}{(n-1)}\cdots{(1)}}
 \cdot
 \tfrac{{(2n)}{(2n-1)}{(2n-2)}\cdots{(1)}}{\textcolor{red}{(2n+2)(2n+1)}{(2n)}{(2n-1)}{(2n-2)}\cdots{(1)}}
 </mrow><mrow>
-&amp;=(n+1)(n+1) \cdot \frac{1}{(2n+2)(2n+1)}\mbox{, so}
-</mrow><mrow>
+&amp;=(n+1)(n+1) \cdot \frac{1}{(2n+2)(2n+1)}
+</mrow>
+</md>
+So
+<md>
+<mrow>
 \lim_{n \rightarrow \infty}\frac{a_{n+1}}{a_n}&amp;=\lim_{n \rightarrow \infty}\frac{(n+1)(n+1)}{(2n+2)(2n+1)}
 =\lim_{n \rightarrow \infty}\frac{(n+1)(n+1)}{2(n+1)(2n+1)}
-=\lim_{n \rightarrow \infty}\frac{n+1}{4n+2}=\frac{1}{4}
+</mrow><mrow>
+\amp=\lim_{n \rightarrow \infty}\frac{n+1}{4n+2}=\frac{1}{4}
 </mrow>
 </md>
 Since the limit is a number less than 1, the series converges by the ratio test.
@@ -1083,12 +1094,15 @@ We want to make an estimation, when <m>n</m> gets big:
 </p>
 
 <p>Since <m>\sum \frac{1}{2n^2}</m> is a convergent series (by <m>p</m>-test, or integral test), we guess that our series is convergent as well. If we wanted to use comparison test, we should have to show <m>\frac{n^2+1}{2n^4+n} \lt \frac{1}{2n^2}</m>, which seems unpleasant, so let's use limit comparison.
-</p>
-
-<p><me>
-\lim_{n \rightarrow \infty}\frac{\frac{n^2+1}{2n^4+n}}{\frac{1}{2n^2}}=\lim_{n \rightarrow \infty}\frac{(n^2+1)2n^2}{2n^4+n}
-=\lim_{n \rightarrow \infty}\frac{2n^4+2n^2}{2n^4+n}\left(\frac{1/n^4}{1/n^4}\right)=\lim_{n \rightarrow \infty}\frac{2+\frac{2}{n^2}}{2+\frac{1}{n^3}}=1
-</me>
+<md>
+<mrow>
+\lim_{n \rightarrow \infty}\frac{\frac{n^2+1}{2n^4+n}}{\frac{1}{2n^2}}
+\amp=\lim_{n \rightarrow \infty}\frac{(n^2+1)2n^2}{2n^4+n}
+=\lim_{n \rightarrow \infty}\frac{2n^4+2n^2}{2n^4+n}\left(\frac{1/n^4}{1/n^4}\right)
+</mrow><mrow>
+\amp=\lim_{n \rightarrow \infty}\frac{2+\frac{2}{n^2}}{2+\frac{1}{n^3}}=1
+</mrow>
+</md>
 </p>
 
 <p>Since the limit is a positive finite number, by the Limit Comparison Test, <m>\sum \frac{n^1+1}{2n^4+n}</m> does the same thing <m>\sum\frac{1}{2n^2}</m> does: it converges.
@@ -1457,7 +1471,7 @@ Determine, with explanation, whether each of the following series converge or di
 </p></hint>
 
 <answer><p>
-(a) diverges (b) converges
+(a) diverges<m>\qquad</m> (b) converges
 </p></answer>
 
 <solution><p>
@@ -1523,7 +1537,8 @@ Since
 \lim_{k\rightarrow\infty} \frac{a_k}{b_k}
 &amp;=\lim_{k\rightarrow\infty} \frac{k^4-2k^3+2}{k^5+k^2+k}\cdot \frac{k}{1}
 =\lim_{k\rightarrow\infty} \frac{k^5-2k^4+k^2}{k^5+k^2+k}
-=\lim_{k\rightarrow\infty} \frac{1-2/k+1/k^3}{1+1/k^3+1/k^4}
+</mrow><mrow>
+\amp=\lim_{k\rightarrow\infty} \frac{1-2/k+1/k^3}{1+1/k^3+1/k^4}
 </mrow><mrow>
 &amp;=1
 </mrow>
@@ -1552,7 +1567,7 @@ When <m>m</m> is large, <m>3m+\sin\sqrt{m}\approx 3m</m>.
 </p></hint>
 
 <answer><p>
-(a) converges (b) diverges
+(a) converges <m>\qquad</m>(b) diverges
 </p></answer>
 
 <solution><p>
@@ -1571,7 +1586,8 @@ Since
 \lim_{n\rightarrow\infty} \frac{a_n}{b_n}
 &amp;=\lim_{n\rightarrow\infty} \frac{(n^2+n+1)/(n^5-n)}{1/n^3}
 =\lim_{n\rightarrow\infty} \frac{n^5+n^4+n^3}{n^5-n}
-=\lim_{n\rightarrow\infty} \frac{1+1/n+1/n^2}{1-1/n^4}
+</mrow><mrow>
+\amp=\lim_{n\rightarrow\infty} \frac{1+1/n+1/n^2}{1-1/n^4}
 </mrow><mrow>
 &amp;=1
 </mrow>
@@ -1595,7 +1611,8 @@ Since
 \lim_{m\rightarrow\infty} \frac{a_m}{b_m}
 &amp;=\lim_{m\rightarrow\infty} \frac{(3m+\sin\sqrt{m})/m^2}{1/m}
 =\lim_{m\rightarrow\infty} \frac{3m+\sin\sqrt{m}}{m}
-=\lim_{m\rightarrow\infty} 3+\frac{\sin\sqrt{m}}{m}
+</mrow><mrow>
+\amp=\lim_{m\rightarrow\infty} 3+\frac{\sin\sqrt{m}}{m}
 </mrow><mrow>
 &amp;=3
 </mrow>
@@ -1752,7 +1769,8 @@ Since
 &amp;=\frac{(2n+3)}{2^{2n+3}}\frac{2^{2n+1}}{(2n+1)}
 =\frac{1}{4}\frac{(2n+3)}{(2n+1)}
 =\frac{1}{4}\frac{(2+3/n)}{(2+1/n)}
-\rightarrow \frac{1}{4} \lt 1\text{ as }n\rightarrow\infty
+</mrow><mrow>
+\amp\rightarrow \frac{1}{4} \lt 1\text{ as }n\rightarrow\infty
 </mrow>
 </md>
 the series converges.
@@ -1825,7 +1843,8 @@ The <m>k^{\rm th}</m> term in this series is
 <mrow>
 \frac{a_{k+1}}{a_k}
 &amp;=\frac{(k+1)^{10}10^{k+1}((k+1)!)^2}{(2k+2)!}\cdot\frac{(2k)!}{k^{10}10^k(k!)^2}
-=10\Big(\frac{k+1}{k}\Big)^{10}\frac{(k+1)^2}{(2k+2)(2k+1)}
+</mrow><mrow>
+\amp=10\Big(\frac{k+1}{k}\Big)^{10}\frac{(k+1)^2}{(2k+2)(2k+1)}
 </mrow><mrow>
 &amp;=10\Big(1+\frac{1}{k}\Big)^{10}\frac{(1+1/k)^2}{(2+2/k)(2+1/k)}
 </mrow>
@@ -1849,11 +1868,11 @@ decreasing for <m>x\ge 3</m>.
 </mrow>
 <mrow>
 &amp;=\lim_{R\rightarrow\infty} \int_{\log 3}^{\log R} \frac{\dee{y}}{y\log y}
-    &amp;\qquad\text{with }y=\log x,\ \dee{y}=\frac{\dee{x}}{x}
+    \qquad\text{with }y=\log x,\ \dee{y}=\frac{\dee{x}}{x}
 </mrow>
 <mrow>
 &amp;= \lim_{R\rightarrow\infty}\int_{\log \log 3}^{\log \log R} \frac{\dee{t}}{t}
-    &amp; \qquad\text{with }t=\log y,\ \dee{t}=\frac{\dee{y}}{y}
+    \qquad\text{with }t=\log y,\ \dee{t}=\frac{\dee{y}}{y}
 </mrow>
 <mrow>
 &amp;=\lim_{R \to \infty}\Big[\log t\Big]_{\log \log 3}^{\log\log R}=\infty
@@ -2029,7 +2048,7 @@ Determine, with explanation, whether the following series converge or diverge.
 </p></statement>
 
 <answer><p>
-(a) converges  (b) converges
+(a) converges <m>\qquad</m> (b) converges
 </p></answer>
 
 <solution><p>
@@ -2040,7 +2059,8 @@ with <m>a_n= \frac{n^n}{9^n n!}</m>.
 \lim_{n\rightarrow\infty}\frac{a_{n+1}}{a_n}
 &amp;=\lim_{n\rightarrow\infty}\frac{(n+1)^{n+1}}{9^{n+1}(n+1)!}\frac{9^nn!}{n^n}
 =\lim_{n\rightarrow\infty}\frac{(n+1)^{n+1}}{n^n\,9\,(n+1)}
-=\lim_{n\rightarrow\infty}\frac{(1+1/n)^n}{9}
+</mrow><mrow>
+\amp=\lim_{n\rightarrow\infty}\frac{(1+1/n)^n}{9}
 =\frac{e}{9}
 </mrow>
 </md>
@@ -2087,25 +2107,16 @@ converges or diverges.
 </p></statement>
 
 <hint><p>
-For part (a),  see Example <xref ref="eg_IMPp8"/> in the
-</p>
-
-<p>CLP-2 text.
+For part (a),  see Example <xref ref="eg_IMPp8"/> in the CLP-2 text.
 </p>
 
 <p>
 
-For part (b), review  Theorem  <xref ref="thm_SRintegralTest"/> in the
-</p>
-
-<p>CLP-2 text.
+For part (b), review  Theorem  <xref ref="thm_SRintegralTest"/> in the CLP-2 text.
 </p>
 
 <p>
-For part (c),  see Example <xref ref="eg_SRlimCompA"/> in the
-</p>
-
-<p>CLP-2 text.
+For part (c),  see Example <xref ref="eg_SRlimCompA"/> in the CLP-2 text.
 </p></hint>
 
 <answer><p>
@@ -2208,9 +2219,9 @@ Therefore, <m>\displaystyle \int_2^\infty\frac{x+\sin x}{1+x^2}\ \dee{x}</m> con
 if <m>\displaystyle \int_2^\infty\frac{x}{1+x^2}\ \dee{x}</m> converges. But
 <md>
 <mrow>
-\int_2^\infty\frac{x}{1+x^2}\ \dee{x}
-=\lim_{r\rightarrow\infty}\int_2^r\frac{x}{1+x^2}\ \dee{x}
-=\lim_{r\rightarrow\infty}\Big[\half\log(1+x^2)\Big]_2^r=\infty
+\int_2^\infty\frac{x}{1\!+\!x^2}\ \dee{x}
+=\lim_{r\rightarrow\infty}\int_2^r\frac{x}{1\!+\!x^2}\ \dee{x}
+=\lim_{r\rightarrow\infty}\Big[\half\log(1\!+\!x^2)\Big]_2^r=\infty
 </mrow>
 </md>
 diverges, so <m> \displaystyle\int_2^\infty\frac{x+\sin x}{1+x^2}\ \dee{x}</m>
@@ -2226,8 +2237,9 @@ The problem is that <m>f(x)=\dfrac{x+\sin x}{1+x^2}</m> is not
 a decreasing function. To see this, compute the derivative:
 <md>
 <mrow>
-f'(x)=\frac{(1+\cos x)(1+x^2)-(x+\sin x)(2x)}{{(1+x^2)}^2}
-=\frac{(\cos x-1)x^2-2x\sin x +1+\cos x}{{(1+x^2)}^2}
+f'(x)\amp=\frac{(1+\cos x)(1+x^2)-(x+\sin x)(2x)}{{(1+x^2)}^2}
+</mrow><mrow>
+\amp\hskip0.5in=\frac{(\cos x-1)x^2-2x\sin x +1+\cos x}{{(1+x^2)}^2}
 </mrow>
 </md>
 If <m>x=2m\pi</m>, the numerator is <m>0-0+1+1 \gt 0</m>.
@@ -2256,13 +2268,16 @@ in the CLP-2 text) with <m>p=1</m>.
 <li> <em>Step 2: Verify intuition.</em>
 To confirm our intuition we set <m>b_n=\frac{1}{n}</m> and
 compute the limit
-<me>
+<md>
+<mrow>
 \lim_{n\rightarrow\infty}\frac{a_n}{b_n}
-=\lim_{n\rightarrow\infty}\frac{ \frac{n+\sin n}{1+n^2} } {\frac{1}{n}}
+\amp=\lim_{n\rightarrow\infty}\frac{ \frac{n+\sin n}{1+n^2} } {\frac{1}{n}}
 =\lim_{n\rightarrow\infty}\frac{n[n+\sin n]} {1+n^2}
-=\lim_{n\rightarrow\infty}\frac{1+\frac{\sin n}{n}} {\frac{1}{n^2}+1}
+</mrow><mrow>
+\amp=\lim_{n\rightarrow\infty}\frac{1+\frac{\sin n}{n}} {\frac{1}{n^2}+1}
 =1
-</me>
+</mrow>
+</md>
 We already know that the series <m>\sum\limits_{n=1}^\infty b_n
 =\sum\limits_{n=1}^\infty\frac{1}{n}</m> diverges by the <m>p</m>-test with <m>p=1</m>.
 So our series diverges by the limit comparison test,
@@ -2515,6 +2530,8 @@ S_N&amp;=-\log a_1 + \sum_{n=1}^N \big[\log(a_n)-\log(a_{n+1})\big]
 &amp;=-\log a_1 + \big[\log(a_1)-\log(a_2)\big]
            + \big[\log(a_2)-\log(a_3)\big]
            + \cdots
+</mrow><mrow>
+\amp\hskip1in
            + \big[\log(a_N)-\log(a_{N+1})\big]
 </mrow><mrow>
 &amp;=-\log(a_{N+1})
@@ -2524,9 +2541,10 @@ and then take the limit <m>N\rightarrow\infty</m>
 <md>
 <mrow>
 -\log a_1 + \sum_{n=1}^\infty \big[\log(a_n)-\log(a_{n+1})\big]
-=\lim_{N\rightarrow\infty} S_N
+\amp=\lim_{N\rightarrow\infty} S_N
 =- \lim_{N\rightarrow\infty} \log(a_{N+1})
-=-\log 2 =\log\frac{1}{2}
+</mrow><mrow>
+\amp=-\log 2 =\log\frac{1}{2}
 </mrow>
 </md>
 </p></solution>
@@ -2781,24 +2799,28 @@ We want our error to be less than one million, so we need to choose a value of <
 <p>
 <md>
 <mrow>
-&amp;\int_3^{2\times 10^6+1}\frac{1}{x}\dee{x}&amp;&amp; \lt &amp;&amp;\sum_{n=3}^{2\times 10^6}\frac{1}{n} &amp;&amp; \lt &amp;&amp;\int_4^{2\times10^6}\frac{1}{x}\dee{x}
+\int_3^{2\times 10^6+1}\frac{1}{x}\dee{x}&amp; \lt \sum_{n=3}^{2\times 10^6}\frac{1}{n} \lt \int_4^{2\times10^6}\frac{1}{x}\dee{x}
 </mrow>
 <mrow>
-&amp;\log\left(2\times 10^6+1\right)-\log(3) &amp;&amp; \lt &amp;&amp;\sum_{n=3}^{2\times 10^6}\frac{1}{n} &amp;&amp; \lt &amp;&amp;\log\left(2\times10^6\right)-\log(4)
+\log\left(2\times 10^6+1\right)-\log(3) &amp; \lt \sum_{n=3}^{2\times 10^6}\frac{1}{n} \lt \log\left(2\times10^6\right)-\log(4)
 </mrow>
 <mrow>
-\textcolor{red}{1+\frac12}+&amp;\log\left(2\times 10^6+1\right)-\log(3) &amp;&amp; \lt &amp;&amp;\sum_{n=\textcolor{red}{1}}^{2\times 10^6}\frac{1}{n} &amp;&amp; \lt &amp;\textcolor{red}{1+\frac12}+&amp;\log\left(2\times10^6\right)-\log(4)
+\textcolor{red}{1+\frac12}+\log\left(2\times 10^6+1\right)-\log(3) &amp; \lt \sum_{n=\textcolor{red}{1}}^{2\times 10^6}\frac{1}{n}  \lt \textcolor{red}{1+\frac12}+\log\left(2\times10^6\right)
+</mrow><mrow>\amp\hskip2in-\log(4)
 </mrow>
 <mrow>
-\frac32+ &amp;\log\left(\frac{2\times 10^6+1}{3}\right) &amp;&amp; \lt &amp;&amp;\sum_{n=1}^{2\times 10^6}\frac{1}{n} &amp;&amp; \lt &amp;\frac32+&amp;6\log(10)-\log(2)
-</mrow>
-<mrow>
-\textcolor{red}{2\times10^6}\Big(\frac32+ &amp;\log\left(\tfrac{2}{3}\times 10^6+\tfrac{1}{3}\right)\Big) &amp;&amp; \lt &amp;&amp;\sum_{n=1}^{2\times 10^6}\frac{\textcolor{red}{2\times10^6}}{n} &amp;&amp; \lt &amp;\textcolor{red}{2\times10^6}\Big(\frac32+&amp;6\log\left(10\right)-\log(2)\Big)
-</mrow>
-<mrow>
-&amp;29,820,091&amp;&amp; \lt &amp;&amp;\text{population}&amp;&amp; \lt &amp;&amp;29,244,727
+\frac32+ \log\left(\frac{2\times 10^6+1}{3}\right) &amp; \lt \sum_{n=1}^{2\times 10^6}\frac{1}{n} \lt \frac32+6\log(10)-\log(2)
 </mrow>
 </md>
+So the population, namely 
+<m> \sum_{n=1}^{2\times 10^6}\frac{\textcolor{red}{2\times10^6}}{n}</m>, is between
+<me>
+\textcolor{red}{2\times10^6}\Big(\frac32+ \log\left(\tfrac{2}{3}\times 10^6+\tfrac{1}{3}\right)\Big)=29,820,091
+</me>
+and
+<me>
+\textcolor{red}{2\times10^6}\Big(\frac32+6\log\left(10\right)-\log(2)\Big)=29,244,727
+</me>
 </p>
 
 </solution>
