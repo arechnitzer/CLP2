@@ -735,7 +735,7 @@ $2e^{\cos x}[1-\cos x]+C$
 \begin{solution}
 It's not obvious where to start, but in general it's nice to have the arguments of our trig functions the same. So, we use the identity $\sin(2x)=2\sin x \cos x$.
 \begin{align*}
-\int e^{\cos x}\sin(2x)\dee{x}&=2\int e^{\cos x}\cos x \sin x
+\int e^{\cos x}\sin(2x)\dee{x}&=2\int e^{\cos x}\cos x \sin x\,\dee{x}
 \intertext{Now we can use the substitution $w=\cos x$, $\dee{w}=-\sin x \dee{x}$.}
 &=-2\int we^w\dee{w}
 \intertext{From here the integral should look more familiar. We can use integration by parts with $u=w$, $\dee{v} = e^w\dee{w}$, $\dee{u}=\dee{w}$, and $v=e^w$.}

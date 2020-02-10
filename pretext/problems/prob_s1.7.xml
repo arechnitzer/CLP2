@@ -979,7 +979,7 @@ Evaluate <m>\displaystyle\int e^{\cos x}\sin(2x)\dee{x}</m>.
 It's not obvious where to start, but in general it's nice to have the arguments of our trig functions the same. So, we use the identity <m>\sin(2x)=2\sin x \cos x</m>.
 <md>
 <mrow>
-\int e^{\cos x}\sin(2x)\dee{x}&amp;=2\int e^{\cos x}\cos x \sin x
+\int e^{\cos x}\sin(2x)\dee{x}&amp;=2\int e^{\cos x}\cos x \sin x\,\dee{x}
 </mrow>
 <intertext>Now we can use the substitution <m>w=\cos x</m>, <m>\dee{w}=-\sin x \dee{x}</m>.
 </intertext><mrow>
