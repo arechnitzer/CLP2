@@ -1652,9 +1652,9 @@ which is equivalent to $N+1 \geq 10^3$ and $N\geq 999$.
 
 
 \begin{question}[2015A]
-The series $\displaystyle \sum_{n=1}^\infty \frac{(-1)^{n+1}}{(2n+1)^2}$ converges to some number~$S$ (you don't have to prove this). According to the Alternating Series Estimation Theorem, what is the smallest value of $n$ for which the $n^{\rm th}$
-partial sum of the series is at most $\frac1{100}$ away from $S$? For this value of $n$,
-write out the $n^{\rm th}$ partial sum of the series.
+The series $\displaystyle \sum_{n=1}^\infty \frac{(-1)^{n+1}}{(2n+1)^2}$ converges to some number~$S$ (you don't have to prove this). According to the Alternating Series Estimation Theorem, what is the smallest value of $N$ for which the $N^{\rm th}$
+partial sum of the series is at most $\frac1{100}$ away from $S$? For this value of $N$,
+write out the $N^{\rm th}$ partial sum of the series.
 \end{question}
 
 \begin{hint}
@@ -1665,24 +1665,24 @@ CLP--II text.
 \end{hint}
 
 \begin{answer}
-We need  $n=4$ and then
+We need  $N=4$ and then
 $
    S_4= \frac{1}{3^2}-\frac{1}{5^2} +\frac{1}{7^2} -\frac{1}{9^2}
 $
 \end{answer}
 
 \begin{solution}
-The  error introduced when we approximate $S$ by the $n^{\rm th}$ partial
-sum $S_n$ lies between $0$ and the first term dropped, which is
-$\frac{(-1)^{n+2}}{(2n+3)^2}$.
-So we need the smallest positive integer $n$ obeying
+The  error introduced when we approximate $S$ by the $N^{\rm th}$ partial
+sum $S_N=\sum_{n=1}^N \frac{(-1)^{n+1}}{(2n+1)^2}$ lies between $0$ and the first term dropped, which is
+$\frac{(-1)^{n+1}}{(2n+1)^2}\Big|_{n=N+1}=\frac{(-1)^{N+2}}{(2N+3)^2}$.
+So we need the smallest positive integer $N$ obeying
 \begin{align*}
-\frac{1}{(2n+3)^2} &\le\frac{1}{100}
-\\ (2n+3)^2&\ge 100
-\\ 2n+3&\ge 10
-\\ n&\ge\frac{7}{2}
+\frac{1}{(2N+3)^2} &\le\frac{1}{100}
+\\ (2N+3)^2&\ge 100
+\\ 2N+3&\ge 10
+\\ N&\ge\frac{7}{2}
 \end{align*}
-So we need  $n=4$ and then
+So we need  $N=4$ and then
 \begin{equation*}
    S_4= \frac{1}{3^2}-\frac{1}{5^2} +\frac{1}{7^2} -\frac{1}{9^2}
 \end{equation*}
