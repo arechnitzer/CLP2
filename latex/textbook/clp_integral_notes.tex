@@ -2366,20 +2366,20 @@ be integrable on the interval $a\le x\le b$.
 \begin{enumerate}[(a)]
 \item If $f(x)\ge 0$ for all $a\le x\le b$, then
 \begin{align*}
-\int_a^b f(x)\dee{x} \ge 0
+\int_a^b f(x)\,\dee{x} \ge 0
+\end{align*}
+\item If $f(x)\le g(x)$ for all $a\le x\le b$, then
+\begin{align*}
+\int_a^b f(x)\,\dee{x} \le \int_a^b g(x)\,\dee{x}
 \end{align*}
 \item If there are constants $m$ and $M$ such that  $m\le f(x)\le M$
 for all $a\le x\le b$, then
 \begin{align*}
-m(b-a)\le \int_a^b f(x)\dee{x} \le M(b-a)
-\end{align*}
-\item If $f(x)\le g(x)$ for all $a\le x\le b$, then
-\begin{align*}
-\int_a^b f(x)\dee{x} \le \int_a^b g(x)\dee{x}
+m(b-a)\le \int_a^b f(x)\,\dee{x} \le M(b-a)
 \end{align*}
 \item We have
 \begin{align*}
-\bigg|\int_a^b f(x)\dee{x}\bigg|\le \int_a^b |f(x)|\dee{x}
+\bigg|\int_a^b f(x)\,\dee{x}\bigg|\le \int_a^b |f(x)|\,\dee{x}
 \end{align*}
 \end{enumerate}
 \end{theorem}
@@ -2388,7 +2388,7 @@ m(b-a)\le \int_a^b f(x)\dee{x} \le M(b-a)
 \begin{enumerate}[(a)]
  \item By interpreting the integral as the signed area, this statement
 simply says that if the curve $y=f(x)$ lies above the
-$x$--axis and $a\le b$, then the signed area of
+$x$--axis and $a\le b$, then the signed area of the set
 $\big\{\ (x,y)\ \big|\ a\le x\le b,\   0\le y\le f(x)\ \big\}$
 is at least zero. This is quite clear. Alternatively, we could argue more
 algebraically from Definition~\ref{def:INTintegral}. We observe that when we
@@ -2396,38 +2396,24 @@ define $\int_a^b f(x)\dee{x}$ via Riemann sums, every
 summand, $f(x_{i,n}^*)\,\frac{b-a}{n}\ge 0$. Thus the whole sum is nonnegative
 and consequently, so is the limit, and thus so is the integral.
 
-\item We can argue this from (a) with a little massaging. Let $g(x) =
-M-f(x)$, then since $f(x)\le M$, we have $g(x) = M-f(x)\ge 0$ so that
+\item We are assuming that $g(x)-f(x)\geq 0$, so part (a) gives
 \begin{align*}
-\int_a^b\big(M-f(x)\big)\dee{x}
-&= \int_a^b g(x) \dee{x} \geq 0.
-\intertext{but we also have}
-\int_a^b\big(M-f(x)\big)\dee{x}
-&= \int_a^b M\dee{x} -\int_a^b f(x)\dee{x}\\
-&= M(b-a)-\int_a^b f(x)\dee{x}
+\int_a^b\big[g(x)-f(x)\big]\dee{x}\ge 0
+&\implies \int_a^b g(x)\,\dee{x}-\int_a^b f(x)\,\dee{x}\ge 0 \\
+&\implies \int_a^b f(x)\,\dee{x} \le \int_a^b g(x)\,\dee{x}
 \end{align*}
-Thus
-\begin{align*}
-M(b-a)-\int_a^b f(x)\dee{x} & \geq 0 & \text{rearrange}\\
-  M(b-a) & \geq \int_a^b f(x)\dee{x}
-\end{align*}
-as required. The argument showing $\int_a^b f(x)\dee{x} \ge m(b-a)$ is similar.
 
-\item Now let $h(x) = g(x)-f(x)$. Since $f(x) \le g(x)$, we have
-$h(x) = g(x)-f(x)\ge 0$ so that
+\item Applying part (b) with $g(x)=M$ for all $a\le x\le b$ gives
 \begin{align*}
-\int_a^b\big(g(x)-f(x)\big)\dee{x}
-&= \int_a^b h(x) \dee{x} \geq 0
-\intertext{But we also have that}
-\int_a^b\big(g(x)-f(x)\big)\dee{x}
-&= \int_a^b g(x) \dee{x} - \int_a^b f(x) \dee{x}
+\int_a^b f(x)\,\dee{x} \le \int_a^b M\,\dee{x} = M(b-a)
 \end{align*}
-Thus
+Similarly, viewing $m$ as a (constant) function, and applying part (b) 
+gives
 \begin{align*}
-\int_a^b g(x) \dee{x} - \int_a^b f(x) \dee{x} & \geq 0 & \text{rearrange}\\
-\int_a^b g(x) \dee{x} & \geq  \int_a^b f(x) \dee{x}
+m\le f(x) \implies \overbrace{\int_a^bm\,\dee{x}}^{=m(b-a)} \le 
+\int_a^b f(x)\,\dee{x}
 \end{align*}
-as required.
+
 
 \item  For any $x$, $|f(x)|$ is either $f(x)$ or $-f(x)$ (depending on whether
 $f(x)$ is positive or negative), so we certainly have
@@ -2437,15 +2423,15 @@ f(x)&\le |f(x)| & \text{and}&&
 \end{align*}
 Applying part (c) to each of those inequalities gives
 \begin{align*}
-\int_a^b f(x)\dee{x} &\le \int_a^b |f(x)|\dee{x} & \text{and} &&
--\int_a^b f(x)\dee{x} &\le \int_a^b |f(x)|\dee{x}
+\int_a^b f(x)\,\dee{x} &\le \int_a^b |f(x)|\,\dee{x} & \text{and} &&
+-\int_a^b f(x)\,\dee{x} &\le \int_a^b |f(x)|\,\dee{x}
 \end{align*}
-Now $|\int_a^b f(x)\dee{x}|$ is either equal to $\int_a^b f(x)\dee{x}$ or
-$-\int_a^b f(x)\dee{x}$ (depending on whether the integral is positive or
+Now $\Big|\int_a^b f(x)\,\dee{x}\Big|$ is either equal to $\int_a^b f(x)\,\dee{x}$ or
+$-\int_a^b f(x)\,\dee{x}$ (depending on whether the integral is positive or
 negative). In either case we can apply the above two inequalities to get the
 same result, namely
 \begin{align*}
-  \left|\int_a^b f(x)\dee{x}\right| &\leq \int_a^b |f(x)|\dee{x}.
+  \left|\int_a^b f(x)\,\dee{x}\right| &\leq \int_a^b |f(x)|\,\dee{x}.
 \end{align*}
 \end{enumerate}
 \end{proof}
@@ -2468,7 +2454,7 @@ values between $1$ and $\frac{1}{\sqrt{2}}$. That is
  \frac{1}{\sqrt{2}} &\le \sqrt{\cos x} \le 1
 & \text{for $0\le x\le \frac{\pi}{3}$}.
 \end{align*}
-Consequently, by Theorem \ref{thm:INTineq}(b) with
+Consequently, by Theorem \ref{thm:INTineq}(c) with
 $a=0$, $b=\frac{\pi}{3}$, $m= \frac{1}{\sqrt{2}}$ and $M=1$,
 \begin{align*}
 \frac{\pi}{3\sqrt{2}} &\le \int_0^{\nicefrac{\pi}{3}} \sqrt{\cos x}\dee{x}
