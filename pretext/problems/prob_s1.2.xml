@@ -484,7 +484,8 @@ Using part (d) of the <q>arithmetic of integration</q> Theorem <xref ref="thm_In
 </p></hint>
 <answer><p>
 <ol label="a">
-<li> <m>\frac{\pi}{4} - \frac{1}{2}\arccos(-a)-\frac{1}{2}a\sqrt{1-a^2}</m>
+<li> <m>\frac{\pi}{4}\! -\! \frac{1}{2}\arccos(-a)-\frac{1}{2}a\sqrt{1\!-\!a^2}
+       = -\frac{\pi}{4}\! +\! \frac{1}{2}\arccos(a)-\frac{1}{2}a\sqrt{1\!-\!a^2}</m>
 </li>
 <li> <m>\frac{1}{2}\arccos(a)-\frac{1}{2}a\sqrt{1-a^2}</m>
 </li>
@@ -495,11 +496,18 @@ Using part (d) of the <q>arithmetic of integration</q> Theorem <xref ref="thm_In
 <li> Since <m>\sqrt{1-x^2}</m> is an even function,
 <md>
 <mrow>
-\displaystyle\int_{a}^0 \sqrt{1-x^2}\dee{x} &amp;=\displaystyle\int_{0}^{|a|} \sqrt{1-x^2}\dee{x}  
+\int_{a}^0 \sqrt{1-x^2}\dee{x} &amp;=\int_{0}^{|a|} \sqrt{1-x^2}\dee{x}  
 </mrow><mrow>
 &amp;= \frac{\pi}{4} - \frac{1}{2}\arccos(|a|)+\frac{1}{2}|a|\sqrt{1-|a|^2}
 </mrow><mrow>
 &amp;=\frac{\pi}{4} - \frac{1}{2}\arccos(-a)-\frac{1}{2}a\sqrt{1-a^2}
+</mrow>
+</md>
+Alternatively, since <m>\arccos(-a) = \pi-\arccos(a)</m> we also have
+<md>
+<mrow>
+\int_{a}^0 \sqrt{1-x^2}\ \dee{x} 
+\amp=-\frac{\pi}{4} + \frac{1}{2}\arccos(a)-\frac{1}{2}a\sqrt{1-a^2}
 </mrow>
 </md>
 </li>

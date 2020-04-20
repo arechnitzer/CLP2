@@ -431,7 +431,8 @@ Using this fact, evaluate the following:
 \end{hint}
 \begin{answer}
 \begin{enumerate}[(a)]
-\item $\frac{\pi}{4} - \frac{1}{2}\arccos(-a)-\frac{1}{2}a\sqrt{1-a^2}$
+\item $\frac{\pi}{4} - \frac{1}{2}\arccos(-a)-\frac{1}{2}a\sqrt{1-a^2}
+=-\frac{\pi}{4} + \frac{1}{2}\arccos(a)-\frac{1}{2}a\sqrt{1-a^2}$
 \item $\frac{1}{2}\arccos(a)-\frac{1}{2}a\sqrt{1-a^2}$
 \end{enumerate}
 \end{answer}
@@ -439,9 +440,16 @@ Using this fact, evaluate the following:
 \begin{enumerate}[(a)]
 \item Since $\sqrt{1-x^2}$ is an even function,
 \begin{align*}
-\displaystyle\int_{a}^0 \sqrt{1-x^2}\ \dee{x} &=\displaystyle\int_{0}^{|a|} \sqrt{1-x^2}\ \dee{x}  = \frac{\pi}{4} - \frac{1}{2}\arccos(|a|)+\frac{1}{2}|a|\sqrt{1-|a|^2}\\
+\int_{a}^0 \sqrt{1-x^2}\ \dee{x} 
+&=\int_{0}^{|a|} \sqrt{1-x^2}\ \dee{x}  = \frac{\pi}{4} - \frac{1}{2}\arccos(|a|)+\frac{1}{2}|a|\sqrt{1-|a|^2}\\
 &=\frac{\pi}{4} - \frac{1}{2}\arccos(-a)-\frac{1}{2}a\sqrt{1-a^2}
 \end{align*}
+Alternatively, since $\arccos(-a) = \pi-\arccos(a)$ we also have
+\begin{align*}
+\int_{a}^0 \sqrt{1-x^2}\ \dee{x} 
+&=-\frac{\pi}{4} + \frac{1}{2}\arccos(a)-\frac{1}{2}a\sqrt{1-a^2}
+\end{align*}
+
 \item Note $\displaystyle\int_{0}^1 \sqrt{1-x^2}\ \dee{x}=\frac{\pi}{4}$, since the area under the curve represents one-quarter of the unit circle. Then,
 \begin{align*}\displaystyle\int_{a}^1 \sqrt{1-x^2}\ \dee{x}&=
 \displaystyle\int_{0}^1 \sqrt{1-x^2}\ \dee{x}-
