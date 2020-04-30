@@ -36,7 +36,7 @@ Each option in each column should be used exactly once.
 (A) Note $\int f'(x)f(x)\ \dee{x} = \int u\ \dee{u} $ if we substitute $u=f(x)$. This is the kind of integrand described in (I). It's quite possible that a $u$-substitution would work on the others, as well, but (I) is the most reliable kind of integrand for a $u$-substitution.\\
 (B) A trigonometric substitution usually allows us to cancel out a square root containing a quadratic function, as in (IV).\\
 (C) We can often antidifferentiate the product of a polynomial with an exponential function using integration by parts: see Examples~\eref{CLP101}{eg:PRTSxex}, \eref{CLP101}{eg:PRTSxtwoex}
- in the CLP--II text. If we let $u$ be the polynomial function and $\dee{v}$ be the exponential, as long as we can antidifferentiate $\dee{v}$, we can repeatedly apply integration by parts until the polynomial function goes away. So, we go with (II)\\
+ in the CLP-2 text. If we let $u$ be the polynomial function and $\dee{v}$ be the exponential, as long as we can antidifferentiate $\dee{v}$, we can repeatedly apply integration by parts until the polynomial function goes away. So, we go with (II)\\
 (D) We apply partial fractions to rational functions, (III).
 
 Note: without knowing more about the functions, there's no guarantee that the methods we chose will be the best methods, or even that they will work (with the exception of (I)).  With practice, you gain intuition about likely methods for different integrals. Luckily for you, there's lots of practice below.
@@ -54,7 +54,7 @@ $\displaystyle\int_0^{{\pi}/{2}} \sin^4 x \cos^5 x~ \dee{x}$.
 \end{question}
 
 \begin{hint}
-The integrand is the product of sines and cosines. See how this was handled with a substitution in Section~\eref{CLP101}{sec:sincos} of the CLP--II text.%1.8.1
+The integrand is the product of sines and cosines. See how this was handled with a substitution in Section~\eref{CLP101}{sec:sincos} of the CLP-2 text.%1.8.1
 
 After your substitution, you should have a polynomial expression in $u$--but it might take some simplification to get it into a form you can easily integrate.
 \end{hint}
@@ -101,7 +101,7 @@ $\displaystyle\int \sqrt{3-5x^2}~\dee{x}$.
 
 \begin{hint}
 We notice that the integrand has a quadratic polynomial under the square root. If that polynomial were a perfect square, we could get rid of the square root:
-try a trig substitution, as in Section~\eref{CLP101}{sec trigsub} of the CLP--II text.
+try a trig substitution, as in Section~\eref{CLP101}{sec trigsub} of the CLP-2 text.
 
 The identity $\sin(2\theta)=2\sin\theta\cos\theta$ might come in handy.
 \end{hint}
@@ -270,7 +270,7 @@ We start by completing the square on the denominator.
 &=\int -2\dfrac{1}{\cos\theta}\cdot\dfrac{\cos\theta}{\sin\theta} \dee{\theta}\\
 &=\int -2\dfrac{1}{\sin\theta} \dee{\theta}\\
 &=\int -2\csc\theta \dee{\theta}
-\intertext{Using the result of Example~\eref{CLP101}{eg:TRGINToptc} in the CLP--II text,
+\intertext{Using the result of Example~\eref{CLP101}{eg:TRGINToptc} in the CLP-2 text,
 or a table of integrals:}
 &=2\log\left|\csc\theta+\cot\theta \right|+C
 \end{align*}
@@ -494,8 +494,8 @@ $\displaystyle\int_3^5\frac{4x}{(x^2-1)(x^2+1)}\,\dee{x}$
 \begin{hint}
 For the integral of secant, see
 See Section~\eref{CLP101}{sec:secantEtc} or Example \eref{CLP101}{eg:PFe} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text.
 
 In (c), notice the denominator is not yet entirely factored.
 \end{hint}
@@ -834,7 +834,7 @@ $\displaystyle\int\frac{x+1}{x^2(x-1)}\ \dee{x}$
 If you're stumped, review Sections~\eref{CLP101}{sec trigint},
 \eref{CLP101}{sec trigsub},
 and
-\eref{CLP101}{sec parfrac} in the CLP--II text.
+\eref{CLP101}{sec parfrac} in the CLP-2 text.
 \end{hint}
 
 \begin{answer} (a)
@@ -919,11 +919,11 @@ $\displaystyle\int_3^\infty\frac{1}{(x-1)^2(x-2)}\,\dee{x}$
 
 \begin{hint}
 For part (a), see  Example \eref{CLP101}{eg:PRTSexsinx} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text.
 For part (d), see  Example \eref{CLP101}{eg:PFdd} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text.
 
 \end{hint}
 
@@ -1423,7 +1423,7 @@ You may use that  $\int \sec x\dee{x} = \log|\sec x+\tan x| +C$.
 \end{question}
 
 \begin{hint}
-Note the quadratic function under the square root: you can solve this with trigonometric substitution, as in Section~\eref{CLP101}{sec trigsub} of the CLP--II text.
+Note the quadratic function under the square root: you can solve this with trigonometric substitution, as in Section~\eref{CLP101}{sec trigsub} of the CLP-2 text.
 \end{hint}
 
 \begin{answer}
@@ -1497,7 +1497,7 @@ $\displaystyle\int_0^{\pi/4} \sec^4x\tan^5x\,\dee{x}$.
 \end{question}
 
 \begin{hint}
-Try a $u$-substitution, as in Section~\eref{CLP101}{sec:tansec} of the CLP--II text%1.8.2.
+Try a $u$-substitution, as in Section~\eref{CLP101}{sec:tansec} of the CLP-2 text%1.8.2.
 \end{hint}
 
 \begin{answer}
@@ -1507,7 +1507,7 @@ $\dfrac{7}{24}$
 \begin{solution}
 
 This is the product of secants and tangents, as in Section~\eref{CLP101}{sec:tansec}
-of the CLP--II text. %1.8.2.
+of the CLP-2 text. %1.8.2.
  If $u=\tan x$, then $\dee{u}=\sec^2x\dee{x}$. We can get the remaining two secants to turn into tangents with the identity $\sec^2x=1+\tan^2x$, so we'll use this substitution.
 
 \begin{align*}
@@ -1734,7 +1734,7 @@ If we let $x=\sin\theta$, then $\sqrt{1-x^2}=\sqrt{\cos^2\theta}=\cos\theta$. So
 &=3x^3\arcsin x - \int \frac{3\sin^3\theta}{\sqrt{1-\sin^2\theta}}\cos\theta \dee{\theta}
 \\
 &=
-3x^3\arcsin x - \int {3\sin^3\theta \dee{\theta}}\intertext{And now: a substitution from Section~\eref{CLP101}{sec:sincos} of the CLP--II text, %1.8.1,
+3x^3\arcsin x - \int {3\sin^3\theta \dee{\theta}}\intertext{And now: a substitution from Section~\eref{CLP101}{sec:sincos} of the CLP-2 text, %1.8.1,
  $u=\cos x$ and $\dee{u}=-\sin x \dee{x}$}
 3x^3\arcsin x - \int {3\sin^3\theta \dee{\theta}}&=3x^3\arcsin x - 3\int\sin^2\theta \sin\theta \dee{\theta}\\
 &=3x^3\arcsin x - 3\int(1-\cos^2\theta) \sin\theta \dee{\theta}\\
@@ -1900,7 +1900,7 @@ $\dee{x} = x\,\dee{u}= e^u\,\dee{u}$.
 &=\int\sin(u)\ e^u\ \dee{u}
 \end{align*}
 We have already seen, in Example \eref{CLP101}{eg:PRTSexsinx} of
-the CLP--II text, that
+the CLP-2 text, that
 \begin{equation*}
 \int\sin(u)\ e^u\ \dee{u}
 =\frac{1}{2}e^u\big(\sin u -\cos u\big)+C

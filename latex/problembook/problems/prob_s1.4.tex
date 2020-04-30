@@ -27,10 +27,10 @@ One is true, the other false.
 \end{answer}
 \begin{solution}
 (a) This is true: it is an application of Theorem~\eref{CLP101}{thm subs
-indef} in the CLP--II text with $f(x)=\sin x$ and $u(x)=e^x$.
+indef} in the CLP-2 text with $f(x)=\sin x$ and $u(x)=e^x$.
 
 (b) This is false: the upper limit of integration is incorrect. Using
-Theorem~\eref{CLP101}{thm subs def} in the CLP--II text, the correct form
+Theorem~\eref{CLP101}{thm subs def} in the CLP-2 text, the correct form
 is \[\displaystyle\int_0^1 \sin(e^x)\cdot e^x\ \dee{x} = \displaystyle\int_1^{e} \sin(u)\ \dee u = -\cos(e) + \cos(1)
 = \cos(1)-\cos(e).\]
 
@@ -185,7 +185,9 @@ to the integral $\displaystyle \int_0^{\pi/2} f(\sin x)\,\dee{x}$?
 %\end{hint}
 
 \begin{answer}
- $\displaystyle\int_{0}^{1} \frac{f(u)}{\sqrt{1-u^2}}\,\dee{u}$
+ $\displaystyle\int_{0}^{1} \frac{f(u)}{\sqrt{1-u^2}}\,\dee{u}$.
+Because the denominator $\sqrt{1-u^2}$ vanishes when $u=1$, this is what is known as an improper integral. Improper integrals will be discussed in 
+\S~\eref{CLP101}{sec improp int} of the CLP-2 text.
 \end{answer}
 
 \begin{solution}
@@ -201,6 +203,8 @@ u\left(\frac{\pi}{2}\right)&=\sin\left(\frac{\pi}{2}\right)=1
      \int_{x=0}^{x=\pi/2} f(\sin x)\,\dee{x}
 &= \int_{u=0}^{u=1} f(u)\,\frac{\dee{u}}{\sqrt{1-u^2}}
 \end{align*}
+Because the denominator $\sqrt{1-u^2}$ vanishes when $u=1$, this is what is known as an improper integral. Improper integrals will be discussed in 
+\S~\eref{CLP101}{sec improp int} of the CLP-2 text.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 
@@ -515,7 +519,7 @@ is a antiderivative for the integrand $x e^{x^2}$. So
 
 \item[The really sneaky method:]
 The integrand $f(x) = x e^{x^2}$ is an odd function (meaning that $f(-x)=-f(x)$).
-So by Theorem \eref{CLP101}{thm:INTevenodd} in the  CLP--II text every integral
+So by Theorem \eref{CLP101}{thm:INTevenodd} in the  CLP-2 text every integral
 of the form $\int_{-a}^a x e^{x^2}\,\dee{x}$ is zero.
 \end{description}
 \end{solution}
@@ -533,7 +537,7 @@ Review the definition of the definite integral and in particular
 Definitions  \eref{CLP101}{def:INTintegral}  and
                  \eref{CLP101}{def:INTthreeRiemannSums} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP 101 notes}.
-CLP--II text.
+CLP-2 text.
 \end{hint}
 
 \begin{answer}
@@ -605,7 +609,7 @@ Then $\textcolor{blue}{\dee{u}=\sec^2\theta\ \dee{\theta}}$. This doesn't show u
 &= \int \textcolor{red}{\tan \theta}\cdot \left(\sec^2\ \theta-1\right) \dee{\theta}\\
 &= \int \textcolor{red}{\tan \theta}\cdot \textcolor{blue}{\sec^2\ \theta \dee{\theta}}
 -\int \tan \theta \ \dee{\theta}
-\intertext{ In Example \eref{CLP101}{eg:substitution9}  of the CLP--II text, we learned $\int \tan \theta \ \dee{\theta} = \log |\sec \theta|+C$}
+\intertext{ In Example \eref{CLP101}{eg:substitution9}  of the CLP-2 text, we learned $\int \tan \theta \ \dee{\theta} = \log |\sec \theta|+C$}
 &=\int \textcolor{red}{u}\ \textcolor{blue}{\dee{u}}
 -\log|\sec \theta|+C\\
 &=\frac{1}{2}u^2
@@ -705,7 +709,7 @@ Review the definition of the definite integral and in particular
 Definitions  \eref{CLP101}{def:INTintegral}  and
                  \eref{CLP101}{def:INTthreeRiemannSums} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP 101 notes}.
-CLP--II text.
+CLP-2 text.
 \end{hint}
 
 \begin{answer}
@@ -745,7 +749,7 @@ Review the definition of the definite integral and in particular
 Definitions  \eref{CLP101}{def:INTintegral}  and
                  \eref{CLP101}{def:INTthreeRiemannSums} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP 101 notes}.
-CLP--II text.
+CLP-2 text.
 \end{hint}
 
 \begin{answer}

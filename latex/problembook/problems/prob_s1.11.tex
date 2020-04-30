@@ -182,13 +182,13 @@ Question~\ref{prob_s1.11_exactM} has a further investigation of ``sloppy" bounds
 \begin{Mquestion}\label{prob_s1.11:approxerror1}
 Consider the quantity $A=\displaystyle\int_{-\pi}^{\pi} \cos x~\dee{x}$.
 \begin{enumerate}[(a)]
-\item Find the upper bound on the error using Simpson's rule with $n=4$ to approximate $A$ using Theorem~\eref{CLP101}{thm num int err} in the CLP--II text.
+\item Find the upper bound on the error using Simpson's rule with $n=4$ to approximate $A$ using Theorem~\eref{CLP101}{thm num int err} in the CLP-2 text.
 \item Find the Simpson's rule approximation of $A$ using $n=4$.
 \item What is the (actual) absolute error in the Simpson's rule approximation of $A$ with $n=4$?
 \end{enumerate}
 \end{Mquestion}
 \begin{hint}
-To compute the upper bound on the error, find an upper bound on the fourth derivative of cosine, then use Theorem~\eref{CLP101}{thm num int err} in the CLP--II text.
+To compute the upper bound on the error, find an upper bound on the fourth derivative of cosine, then use Theorem~\eref{CLP101}{thm num int err} in the CLP-2 text.
 
 To find the actual error, you need to find the actual value of $A$.
 \end{hint}
@@ -200,11 +200,11 @@ To find the actual error, you need to find the actual value of $A$.
 \begin{enumerate}[(a)]
 \item Let $f(x) = \cos x$. Then $f^{(4)}(x)=\cos x$, so $|f^{(4)}(x)| \leq 1$ when $-\pi \leq x \leq \pi$. So, using $L=1$, we find the upper bound of the error using Simpson's rule with $n=4$ is:
 \[\frac{L(b-a)^5}{180 n^4} = \frac{(2\pi)^5}{180\cdot 4^4} = \frac{\pi^5}{180\cdot8}\approx 0.2\]
-The error bound comes from Theorem~\eref{CLP101}{thm num int err} in the CLP--II text.
+The error bound comes from Theorem~\eref{CLP101}{thm num int err} in the CLP-2 text.
 We used a calculator to find the approximate decimal value.
 \item
 We use the general form of Simpson's rule (Equation~\eref{CLP101}{eq:SIMPrule} in
-the CLP--II text) with $\Delta x = \frac{b-a}{n}=\frac{2\pi}{4} = \frac{\pi}{2}$.
+the CLP-2 text) with $\Delta x = \frac{b-a}{n}=\frac{2\pi}{4} = \frac{\pi}{2}$.
 \begin{align*}
 A& \approx \frac{\Delta x}{3}\left(f(x_0) + 4f(x_1)+2f(x_2)+4f(x_3)+f(x_4)\right)
 \\&=\frac{\pi/2}{3}\left(f(-\pi) + 4f(\tfrac{-\pi}{2})+2f(0)+4f(\tfrac{\pi}{2})+f(\pi)\right)\\
@@ -233,7 +233,7 @@ Find a function with $f''(x)=3$ for all $x$ in $[0,1]$.
 Possible answers: $f(x) = \dfrac{3}{2}x^2+Cx+D$ for any constants $C$, $D$.
 \end{answer}
 \begin{solution}
-Using Theorem~\eref{CLP101}{thm num int err} in the CLP--II text, the error using the trapezoidal rule as described is \emph{at most}
+Using Theorem~\eref{CLP101}{thm num int err} in the CLP-2 text, the error using the trapezoidal rule as described is \emph{at most}
 \[\dfrac{M(b-a)^3}{12\cdot n^2} = \dfrac{M}{48} \leq \frac{3}{48}=\frac{1}{16}.\] So, we're really being asked to find a function with the maximum possible error using the trapezoidal rule, given its second derivative.
 
 With that in mind, our function should have the largest second derivative possible: let's set $f''(x)=3$ for every $x$. Then:
@@ -386,13 +386,13 @@ Give a polynomial $f(x)$ with the property that
  the Simpson's rule approximation of $\displaystyle\int_a^b f(x)~\dee{x}$ is exact for all $a$, $b$, and $n$.
 \end{question}
 \begin{hint}
-The error bound for the approximation is given in Theorem~\eref{CLP101}{thm num int err} in the CLP--II text. You want this bound to be zero.
+The error bound for the approximation is given in Theorem~\eref{CLP101}{thm num int err} in the CLP-2 text. You want this bound to be zero.
 \end{hint}
 \begin{answer}
 Any polynomial of degree at most 3 will do. For example, $f(x)=5x^3-27$, or $f(x)=x^2$.
 \end{answer}
 \begin{solution}
-According to Theorem~\eref{CLP101}{thm num int err}  in the CLP--II text, the error associated with the Simpson's rule approximation is no more than $\dfrac{L}{180}\dfrac{(b-a)^5}{n^4}$, where $L$ is a constant such that $|f^{(4)}(x)| \leq L$ for all $x$ in $[a,b]$. If $L=0$, then the error is no more than 0 regardless of $a$, $b$, or $n$--that is, the approximation is exact.
+According to Theorem~\eref{CLP101}{thm num int err}  in the CLP-2 text, the error associated with the Simpson's rule approximation is no more than $\dfrac{L}{180}\dfrac{(b-a)^5}{n^4}$, where $L$ is a constant such that $|f^{(4)}(x)| \leq L$ for all $x$ in $[a,b]$. If $L=0$, then the error is no more than 0 regardless of $a$, $b$, or $n$--that is, the approximation is exact.
 
 Any polynomial $f(x)$ of degree at most 3 has $f^{(4)}(x)=0$ for all $x$. So, any polynomial of degree at most 3 is an acceptable answer. For example, $f(x)=5x^3-27$, or $f(x)=x^2$.
 \end{solution}
@@ -406,13 +406,13 @@ Any polynomial $f(x)$ of degree at most 3 has $f^{(4)}(x)=0$ for all $x$. So, an
 \Instructions{Questions
 \ref{prob_s1.11_int1} and \ref{prob_s1.11_int2}
 ask you to approximate a given integral  using the formulas in Equations~\eref{CLP101}{eq:MPrule},
-\eref{CLP101}{eq:TRPrule}, and \eref{CLP101}{eq:SIMPrule} in the CLP--II text.}
+\eref{CLP101}{eq:TRPrule}, and \eref{CLP101}{eq:SIMPrule} in the CLP-2 text.}
 \begin{Mquestion}\label{prob_s1.11_int1}
 Write out all three approximations of $\displaystyle\int_0^{30} \frac{1}{x^3+1}~\dee{x}$ with $n=6$. (That is: midpoint, trapezoidal, and Simpson's.) You do not need to simplify your answers.
 \end{Mquestion}
 \begin{hint}
 Follow the formulas in Equations~\eref{CLP101}{eq:MPrule},
-\eref{CLP101}{eq:TRPrule}, and \eref{CLP101}{eq:SIMPrule} in the CLP--II text.
+\eref{CLP101}{eq:TRPrule}, and \eref{CLP101}{eq:SIMPrule} in the CLP-2 text.
 \end{hint}
 \begin{answer}
 
@@ -487,7 +487,7 @@ $
   \end{tikzpicture}
   \end{center}
 
-\item  Following Equation~\eref{CLP101}{eq:MPrule} in the CLP--II text,
+\item  Following Equation~\eref{CLP101}{eq:MPrule} in the CLP-2 text,
 the midpoint rule approximation is:
 \begin{align*}
 \int_0^{30} \frac{1}{x^3+1}\,\dee{x}&\approx\Big[f(\bar x_1)+f(\bar x_2)+\cdots
@@ -502,7 +502,7 @@ the midpoint rule approximation is:
 \end{align*}
 
  \item
-  Following Equation~\eref{CLP101}{eq:TRPrule} in the CLP--II text, the trapezoidal rule approximation is:
+  Following Equation~\eref{CLP101}{eq:TRPrule} in the CLP-2 text, the trapezoidal rule approximation is:
 \begin{align*}
 \int_0^{30} \frac{1}{x^3+1}\,\dee{x}
 &\approx\Big[\half f(x_0)+f(x_1)+f(x_2)+\cdots+ f(x_{n-1})+\half f(x_n)\Big]\De x\\
@@ -517,7 +517,7 @@ the midpoint rule approximation is:
 \right]5
 \end{align*}
 
-\item Following Equation~\eref{CLP101}{eq:SIMPrule} in the CLP--II text, the Simpson's rule approximation is:
+\item Following Equation~\eref{CLP101}{eq:SIMPrule} in the CLP-2 text, the Simpson's rule approximation is:
 \begin{align*}
 \int_0^{30} \frac{1}{x^3+1}\,\dee{x}
 &\approx\Big[f(x_0)\!+4f(x_1)\!+2f(x_2)\!+4f(x_3)\!+2f(x_4)\!+4f(x_{5})\!+ f(x_6)\Big]\tfrac{\De x}{3}\\
@@ -536,8 +536,8 @@ with $n = 3$.
 
 \begin{hint}
 See Section~\eref{CLP101}{sec:midpointRule} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text. You should be able to simplify your answer to an exact value (in terms of $\pi$).
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text. You should be able to simplify your answer to an exact value (in terms of $\pi$).
 \end{hint}
 
 \begin{answer}
@@ -545,7 +545,7 @@ $\dfrac{2\pi}{3}$
 \end{answer}
 
 \begin{solution}
-By Equation~\eref{CLP101}{eq:MPrule} in the CLP--II text,
+By Equation~\eref{CLP101}{eq:MPrule} in the CLP-2 text,
 the midpoint rule approximation
 to $\int_a^b f(x)\ \dee{x}$ with $n=3$ is
 \begin{align*}
@@ -633,11 +633,11 @@ the volume of $V$.
 
 \begin{hint}
 See Section~\eref{CLP101}{sec:trapRule} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text.
 To set up the volume integral, see Example \eref{CLP101}{eg:VOLb} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text. Note the dimensions given for the cross sections are diameters, not radii.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text. Note the dimensions given for the cross sections are diameters, not radii.
 \end{hint}
 
 \begin{answer}
@@ -647,8 +647,8 @@ $1720\pi\approx 5403.5\ {\rm cm}^3$
 \begin{solution}
 Let $f(x)$ denote the diameter at height $x$.
 As in Example \eref{CLP101}{eg:VOLb} of the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text, we slice $V$  into thin horizontal ``pancakes'', which in
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text, we slice $V$  into thin horizontal ``pancakes'', which in
 this case are circular.
 
 \begin{center}
@@ -715,8 +715,8 @@ given below:
 
 \begin{hint}
 See Section \eref{CLP101}{sec:Simpson} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text, and compare to Question~\ref{prob_s1.11_tableproblem1}. Note the table gives diameters, not radii.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text, and compare to Question~\ref{prob_s1.11_tableproblem1}. Note the table gives diameters, not radii.
 \end{hint}
 
 \begin{answer}
@@ -788,11 +788,11 @@ cross--sections of the tree are circular disks.
 
 \begin{hint}
 See \S\eref{CLP101}{sec:Simpson} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text.
 To set up the volume integral, see Example \eref{CLP101}{eg:VOLb} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text, or Question~\ref{prob_s1.11tableproblem2}.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text, or Question~\ref{prob_s1.11tableproblem2}.
 
 Note that the table gives the circumference, not radius, of the tree at a given height.
 \end{hint}
@@ -1111,7 +1111,7 @@ and $L\ge |f^{(4)}(x)|$ for all $a\le x\le b$.
 \end{question}
 
 \begin{hint}
-As usual, the biggest part of this problem is finding $L$. Don't be thrown off by the error bound being given slightly differently from Theorem~\eref{CLP101}{thm num int err} in the CLP--II text: these expressions are equivalent, since $\De x = \frac{b-a}{n}$.
+As usual, the biggest part of this problem is finding $L$. Don't be thrown off by the error bound being given slightly differently from Theorem~\eref{CLP101}{thm num int err} in the CLP-2 text: these expressions are equivalent, since $\De x = \frac{b-a}{n}$.
 \end{hint}
 
 \begin{answer}
@@ -1313,7 +1313,7 @@ $\big|f^{(k)}(x)\big|\le K_k$ on $[a,b]$, then
 \begin{hint}
 The ``best ... approximations that you can" means using the maximum number of intervals, given the information available.
 
-The final sentence in part (b) is just a re-statement of the error bounds we're familiar with from Theorem~\eref{CLP101}{thm num int err} in the CLP--II text. The information $\big|s^{(k)}(x)\big|\le \dfrac{k}{1000}$ gives you values of $M$ and $L$ when you set $k=2$ and $k=4$, respectively.
+The final sentence in part (b) is just a re-statement of the error bounds we're familiar with from Theorem~\eref{CLP101}{thm num int err} in the CLP-2 text. The information $\big|s^{(k)}(x)\big|\le \dfrac{k}{1000}$ gives you values of $M$ and $L$ when you set $k=2$ and $k=4$, respectively.
 \end{hint}
 
 \begin{answer}
@@ -1423,11 +1423,11 @@ volume of the pool.
 
 \begin{hint}
 See Section \eref{CLP101}{sec:Simpson} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text.
 To set up the volume integral, see Example \eref{CLP101}{eg:VOLs} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text.
 
 Since the cross-sections of the pool are semi-circular disks, a section that is $d$ metres across will have area $\frac{1}{2}\pi\left(\frac{d}{2}\right)^2$ square feet.  Based on the drawing, you may assume the very ends of the pool have distance 0 feet across.
 \end{hint}
@@ -1503,8 +1503,8 @@ to $I$ using $n$ subintervals.
 
 \begin{hint}
 See Example \eref{CLP101}{eg:MidpointErr2} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text.
 
 Don't get caught up in the interpretation of the integral. It's nice to see how integrals can be used, but for this problem, you're still just approximating the integral given, and bounding the error.
 
@@ -1573,8 +1573,8 @@ are the end points of the interval.
 
 \begin{hint}
 See Example \eref{CLP101}{eg:SimpsonErr} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text. You'll want to use a calculator for the approximation in (a), and for finding the appropriate number of intervals in (b). Remember that Simpson's rule requires an even number of intervals.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text. You'll want to use a calculator for the approximation in (a), and for finding the appropriate number of intervals in (b). Remember that Simpson's rule requires an even number of intervals.
 \end{hint}
 
 \begin{answer} (a)
@@ -1642,8 +1642,8 @@ interval $[a,b]$.
 
 \begin{hint}
 See Example \eref{CLP101}{eg:SimpsonErr} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text.
 
 Rather than calculating the fourth derivative of the integrand, use the graph to find the largest absolute value it attains over our interval.
 \end{hint}
@@ -1692,13 +1692,13 @@ are the limits of integration.
 
 \begin{hint}
 See Example \eref{CLP101}{eg:MidpointErr2} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text.
 
 You'll have to differentiate $f(x)$. To that end, you may also want to review the fundamental theorem of calculus
 and, in particular, Example \eref{CLP101}{eg:INTftocB} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text.
 
 You don't have to find the best possible value for $M$. A reasonable upper bound on $|f''(x)|$ will do.
 

@@ -84,7 +84,7 @@ Remark: the centroid of a region doesn't have to be a point in the region!
  A long, straight, thin rod has a number of weights attached along it. True or false: if it balances at  position $x$, then the mass to the right of $x$ is the same as the mass to the left of $x$.
 \end{Mquestion}
 \begin{hint}
-Read over the very beginning of Section~\eref{CLP101}{sec com} in the CLP--II text, specifically Equation~\eref{CLP101}{eq:weightedrod}.
+Read over the very beginning of Section~\eref{CLP101}{sec com} in the CLP-2 text, specifically Equation~\eref{CLP101}{eq:weightedrod}.
 \end{hint}
 \begin{answer}
 In general, false.
@@ -105,13 +105,13 @@ A straight rod with negligible mass has the following weights attached to it:
 Where is the centre of mass of the weighted rod?
 \end{question}
 \begin{hint}
-Use Equation~\eref{CLP101}{eq:weightedrod} in the CLP--II text.
+Use Equation~\eref{CLP101}{eq:weightedrod} in the CLP-2 text.
 \end{hint}
 \begin{answer}
 $3.5$ metres from the left end
 \end{answer}
 \begin{solution}
-Following Equation~\eref{CLP101}{eq:weightedrod} in the CLP--II text, the centre of mass of the rod is at:
+Following Equation~\eref{CLP101}{eq:weightedrod} in the CLP-2 text, the centre of mass of the rod is at:
 \begin{align*}
 \bar x &=\frac{\sum \text{(mass)$\times$(position)}}{\sum \text {(mass)}} = \frac{1\times 1 + 2\times 3 + 2\times 4 + 1 \times 6}{1+2+2+1}=\frac{21}{6}=\frac{7}{2}
 \end{align*}
@@ -320,19 +320,19 @@ Think about whether your answers should have repetition.
 \[\int_1^3 \frac{1}{x}\,\dee{x} = \log 3\]
 \item Adding up all our tiny pieces from (b) gives us the total mass of $R$:
 \[\int_1^3 \frac{1}{x}\,\dee{x}=\log 3\]
-\item Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text,
+\item Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text,
  the $x$-coordinate of the centroid of $S$ is
  \[\frac{\int_1^3 x\cdot\frac{1}{x}\,\dee{x}}{\int_1^3\frac{1}{x}\,\dee{x}} = \frac{\int_1^3 1\,\dee{x}}{\log 3} = \frac{2}{\log 3}\]
-\item Using Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP--II text,
+\item Using Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP-2 text,
  the centre of mass of $R$ is
  \[\frac{\int_1^3 x\cdot\frac{1}{x}\,\dee{x}}{\int_1^3\frac{1}{x}\,\dee{x}} = \frac{\int_1^3 1\,\dee{x}}{\log 3} = \frac{2}{\log 3}\]
 \end{enumerate}
-Remark: following the derivation of Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text,
+Remark: following the derivation of Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text,
 if we wanted to find the $x$-coordinate of the centroid of $S$, we would set up a rod that had exactly the characteristics of $R$. That's why all the answers were repeated.
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%
-\Instructions{In Questions~\ref{prob_s2.3:rod} through \ref{prob_s2.3:ybar}, you will derive the formulas for the centre of mass of a rod of variable density, and the centroid of a two-dimensional region using vertical slices (Equations~\eref{CLP101}{eq:TRQvariabledensityrod} and \eref{CLP101}{eq:TRQcentroid} in the CLP--II text). Knowing the equations by heart will allow you to answer many questions in this section; understanding where they came from will you allow to generalize their ideas to answer even more questions.}
+\Instructions{In Questions~\ref{prob_s2.3:rod} through \ref{prob_s2.3:ybar}, you will derive the formulas for the centre of mass of a rod of variable density, and the centroid of a two-dimensional region using vertical slices (Equations~\eref{CLP101}{eq:TRQvariabledensityrod} and \eref{CLP101}{eq:TRQcentroid} in the CLP-2 text). Knowing the equations by heart will allow you to answer many questions in this section; understanding where they came from will you allow to generalize their ideas to answer even more questions.}
 %%%%%%%%%%%%%%%%%%%
 \begin{Mquestion}\label{prob_s2.3:rod}
 Suppose  $R$ is a straight, thin rod with density $\rho(x)$ at a position $x$. Let the left endpoint of $R$ lie at $x=a$, and the right endpoint lie at $x=b$.
@@ -356,7 +356,7 @@ Suppose  $R$ is a straight, thin rod with density $\rho(x)$ at a position $x$. L
 \end{enumerate}
 \end{Mquestion}
 \begin{hint}
-The definition of a definite integral (Definition~\eref{CLP101}{def:INTintegral} in the CLP--II text) will tell you how to convert your limits of sums into integrals.
+The definition of a definite integral (Definition~\eref{CLP101}{def:INTintegral} in the CLP-2 text) will tell you how to convert your limits of sums into integrals.
 \end{hint}
 \begin{answer}
 (a) \quad$\displaystyle\frac{\sum\limits_{i=1}^n\left[\frac{b-a}{n}\rho\left(\textcolor{red}{a+\left(i-\tfrac12\right)(\tfrac{b-a}{n})}\right)\times\left(
@@ -391,7 +391,7 @@ If we chop $R$ into $n$ pieces, each piece has length $\frac{b-a}{\vphantom{\fra
 So, the $i$th piece has length $\frac{b-a}{\vphantom{\frac12}n}$, with approximate density $\rho\left(m_i\right)=\rho\left(a+(i-\tfrac12)\left(\frac{b-a}{n}\right)\right)$. We approximate that the $i$th piece has mass
 $\left(\frac{b-a}{n}\right)\cdot\rho\left(m_i\right)$
 and position
-$m_i$. Using Equation~\eref{CLP101}{eq:weightedrod} in the CLP--II text, the centre of mass of $R$ is approximately at position:
+$m_i$. Using Equation~\eref{CLP101}{eq:weightedrod} in the CLP-2 text, the centre of mass of $R$ is approximately at position:
 \begin{align*}
 \bar x_n &= \frac{\sum\limits_{i=1}^n\text{(mass of $i$th piece)}\times\text{(position of $i$th piece)}}{\sum\limits_{i=1}^n\text{(mass of $i$th piece)}}\\
 &=\frac{\sum\limits_{i=1}^n\left[\frac{b-a}{n}\rho(\textcolor{red}{m_i})\times\textcolor{red}{m_i}\right]}{\sum\limits_{i=1}^n\frac{b-a}{n}\rho(\textcolor{red}{m_i})}\\
@@ -411,11 +411,11 @@ Remember the definition of a midpoint Riemann sum:
 The numerator of our approximation in part (a) is, therefore, a midpoint Riemann sum of $\int_a^b \rho(x)\times x\,\dee{x}$, and the denominator is a midpoint Riemann sum of
 $\int_a^b \rho(x)\,\dee{x}$.
 
-Using the definition of a definite integral (Definition~\eref{CLP101}{def:INTintegral} in the CLP--II text), we see the limit of the approximation in (a) as $x$ goes to infinity is
+Using the definition of a definite integral (Definition~\eref{CLP101}{def:INTintegral} in the CLP-2 text), we see the limit of the approximation in (a) as $x$ goes to infinity is
 \[\bar x=\frac{\int_a^b x\rho(x)\,\dee{x}}{\int_a^b\rho(x)\,\dee{x}}\]
 This gives us the exact centre of mass of our rod.
 
-Remark: this is Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP--II text.
+Remark: this is Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP-2 text.
 \end{enumerate}
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
@@ -514,7 +514,7 @@ Our result from Question~\ref{prob_s2.3:rod}(\ref{prob_s2.3:rodb}) tells us the 
 \intertext{In (c), we found $\rho(x)=T(x)-B(x)$. So, for  the solid $S$ bounded by $T(x)$ and $B(x)$ on the interval $[a,b]$,}
 \bar x&=\frac{\int_a^b x(\textcolor{red}{T(x)-B(x)})\,\dee{x}}{\int_a^b(\textcolor{red}{T(x)-B(x)})\,\dee{x}}
 \end{align*}
-Remark: the denominator is the area of $S$. This formula is the same as the formula found in Equation~\eref{CLP101}{eq:TRQcentroid} of the CLP--II text.
+Remark: the denominator is the area of $S$. This formula is the same as the formula found in Equation~\eref{CLP101}{eq:TRQcentroid} of the CLP-2 text.
 \end{enumerate}
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
@@ -854,13 +854,13 @@ If we cut $S$ into $n$ strips, then the strip at position $x_i$ has area $(T(x_i
 &=\frac{\sum\limits_{i=1}^n \left((T(x_i)-B(x_i))\De x\right)\times\left(\dfrac{T(x_i)+B(x_i)}{2}\right)  }{\sum\limits_{i=1}^n (T(x_i)-B(x_i))\De x}
 \\&=\frac{\sum\limits_{i=1}^n (T(x_i)^2-B(x_i)^2)\De x }{2\sum\limits_{i=1}^n (T(x_i)-B(x_i))\De x}
 \intertext{We use the definition of a definite integral (Definition~\eref{CLP101}{def:INTintegral}
- in the CLP--II text) to re-write the limit of the above function.}
+ in the CLP-2 text) to re-write the limit of the above function.}
 \bar y &=\lim_{n \to \infty}\frac{\sum\limits_{i=1}^n (T(x_i)^2-B(x_i)^2)\De x }{2\sum\limits_{i=1}^n (T(x_i)-B(x_i))\De x}\\
 &=\frac{\int_a^b \big(T(x)^2-B(x)^2\big)\,\dee{x}}{2\int_a^b\big( T(x)-B(x)\big)\,\dee{x}}
 \end{align*}
 
 Remark: the denominator is twice the area of $S$. This equation for the $y$-coordinate of the centroid is the same as the one given in Equation~\eref{CLP101}{eq:TRQcentroid} in the
-CLP--II text.
+CLP-2 text.
 
 
 \end{enumerate}
@@ -900,7 +900,7 @@ y = B(x) = 3x.
 \end{equation*}
 The area of the triangle is $A=\frac12(6)(1)=3$.
 Now, we can apply the vertical-slice versions of Equation~\eref{CLP101}{eq:TRQcentroid}
- in the CLP--II text.
+ in the CLP-2 text.
 \begin{equation*}
 \bar x = \frac{1}{A}\int_{-1}^0 x \big[T(x)- B(x)\big]\ \dee{x}
 = \frac{1}{3} \int_{-1}^0 x \big[({-}3x)-(3x)\big]\ \dee{x}
@@ -921,7 +921,7 @@ Now, we can apply the vertical-slice versions of Equation~\eref{CLP101}{eq:TRQce
 
 \Instructions{
 Use Equations~\eref{CLP101}{eq:TRQvariabledensityrod}
-and \eref{CLP101}{eq:TRQcentroid} in the CLP--II text to find centroids and centres of mass in
+and \eref{CLP101}{eq:TRQcentroid} in the CLP-2 text to find centroids and centres of mass in
  Questions~\ref{prob_s2.3:stage2a}
 through \ref{prob_s2.3:stage2b}.}
 
@@ -930,13 +930,13 @@ A long, thin rod extends from $x=0$ to $x=7$ metres, and its density at position
 \end{question}
 \begin{hint}
 This is a straightforward application of Equation~\eref{CLP101}{eq:TRQvariabledensityrod}
- in the CLP--II text.
+ in the CLP-2 text.
 \end{hint}
 \begin{answer}
 $\bar x=\dfrac{14}{3}$
 \end{answer}
 \begin{solution}
-Applying Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP--II text,
+Applying Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP-2 text,
 \[\bar x = \frac{\int_0^7 x\cdot x\,\dee{x}}{\int_0^7 x\,\dee{x}} =
 \frac{ \left[\frac{1}{3}x^3\right]_0^7}{\left[\frac{1}{2}x^2\right]_0^7} = \frac{\frac{1}{3}(7^3)}{\frac{1}{2}(7^2)} =\frac{14}{3}\]
 \end{solution}
@@ -951,7 +951,7 @@ Remember the derivative of arctangent is $\frac{1}{1+x^2}$
 $\displaystyle \bar x=\frac{\log 10.1}{2(\arctan 10 + \arctan(3))}\approx 0.43$
 \end{answer}
 \begin{solution}
-Applying Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP--II text,
+Applying Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP-2 text,
 \begin{align*}\bar x &= \frac{\int_{-3}^{10} x\cdot \frac{1}{1+x^2}\,\dee{x}}{\int_{-3}^{10} \frac{1}{1+x^2}\,\dee{x}}
 \intertext{For the numerator, we use the substitution $u=1+x^2$, $\dee{u}=2x\,\dee{x}$.}
  &= \frac{\frac{1}{2}\int_{10}^{101} \frac{1}{u}\,\dee{u}}{\Big[\arctan x \Big]_{-3}^{10} }
@@ -971,8 +971,8 @@ of this region equals $e$.
 
 \begin{hint}
 This is a straightforward application of Equations~\eref{CLP101}{eq:TRQcentroid} and  \eref{CLP101}{eq:TRQcentroidy} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text. Note that you're only asked for the $y$-coordinate of the centroid.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text. Note that you're only asked for the $y$-coordinate of the centroid.
 \end{hint}
 
 \begin{answer}
@@ -993,7 +993,7 @@ bottom of the region is $y=B(x)=-e^x$, for all $x$  from $a=0$ to $b=1$. So, we 
 \end{tikzpicture}
 \end{center}
 
-Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text, the $y$-coordinate of the centre of mass is
+Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text, the $y$-coordinate of the centre of mass is
 \begin{align*}
 \bar y & = \frac{1}{2A}\int_0^1  \big[T(x)^2-B(x)^2\big]\,\dee{x}
 = \frac{1}{2e}\int_0^1 \Big(1-e^{2x} \Big) \,\dee{x}
@@ -1078,7 +1078,7 @@ $x=4\sin t,\ \dee{x}=4\cos t \dee{t}, \sqrt{16-x^2}=4\cos t$.
 %the average value of $y$ is $\frac{1/2}{\sqrt{16-x^2}}$. The $y$--coordinate
 %of the centroid is the weighted average of $\frac{1/2}{\sqrt{16-x^2}}$
 %with the strip counted as having weight $\frac{1}{\sqrt{16-x^2}}\,\dee{x}$.
-Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text,
+Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text,
 \begin{align*}
 \bar y &=
 \frac{\int_0^2\big[T(x)^2-B(x)^2\big]\,\dee{x}}{2A}
@@ -1135,7 +1135,7 @@ area of the region is
 &=\left[\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}\right]-\left[0+1\right]=\sqrt{2}-1
 \end{align*}
 If we use horizontal slices, we'll need to break up the object into two regions, so let's use vertical slices.
-Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text,
+Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text,
 the region has centroid $(\bar x,\bar y)$ with:
 \begin{align*}
 \bar x&= \frac{1}{A}\int_0^{\pi/4} x\big(T(x)-B(x)\big)\,\dee{x}
@@ -1149,7 +1149,7 @@ $\dee{u}=\dee{x}$, $v=\sin x + \cos x$.}
 1\right]\\
 &=\frac{\frac{\pi}{4}\sqrt{2}-1}{A}=\frac{\frac{\pi}{4}\sqrt{2}-1}{\sqrt{2}-1}
 %%%
-\intertext{Again using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text,}
+\intertext{Again using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text,}
 \bar y&= \frac{1}{2A}\int_0^{\pi/4} \big(T(x)^2-B(x)^2\big)\,\dee{x}
 =\frac{1}{2A}\int_0^{\pi/4} \big(\cos^2(x)-\sin^2(x)\big)\,\dee{x} \\
 &=\frac{1}{2A}\int_0^{\pi/4} \cos(2x)\,\dee{x}
@@ -1190,7 +1190,7 @@ If we make vertical slices, we don't have to turn our region into two parts, so 
 %\vadjust{\null\hfill \includegraphics{graphE4c}\hfill\null}
 %between $x$ and $x+\dee{x}$ has width $\dee{x}$ and height $\frac{k}{\sqrt{1+x^2}}$.
 %So it has area, and hence weight, $\frac{k}{\sqrt{1+x^2}}\dee{x}$.
-Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text,
+Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text,
 the $x$--coordinate of the centroid is% the weighted average of $x$ or
 \begin{align*}
 \bar x &=\frac{1}{A}\int_0^2 x(T(x)-B(x))\,\dee{x}= \frac{1}{A}\int_0^1x\frac{k}{\sqrt{1+x^2}}\,\dee{x}
@@ -1199,7 +1199,7 @@ the $x$--coordinate of the centroid is% the weighted average of $x$ or
 =\frac{k}{2A}\left[\frac{\sqrt{u}}{1/2}\right]_1^2
 =\frac{k}{A}\big[\sqrt{2}-1\big]
 \end{align*}
-Again using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text, the $y$--coordinate of the centroid is
+Again using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text, the $y$--coordinate of the centroid is
 \begin{align*}
 \bar y &=
 \frac{1}{2A}\int_0^1(T(x)^2-B(x)^2)\,\dee{x} = \frac{1}{2A}\int_0^1\frac{k^2}{1+x^2}\,\dee{x}\\
@@ -1282,7 +1282,7 @@ vertical strips, as in the figure on the  right above, the area of $R$ is
 \end{align*}
 
 \noindent (c)
-Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text, the $x$--coordinate of the centroid of $R$ (i.e. the weighted average of
+Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text, the $x$--coordinate of the centroid of $R$ (i.e. the weighted average of
 $x$ over $R$)  is
 \begin{align*}
 \bar x &= \frac{3}{8}\int_0^2x\big[(x\!-\!x^2)-(x^2\!-\!3x)\big]\,\dee{x}
@@ -1310,7 +1310,7 @@ $\dfrac{2}{\pi}\log 2\approx 0.44127$
 \end{answer}
 
 \begin{solution}
-Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text, the $x$--coordinate of the centroid is
+Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text, the $x$--coordinate of the centroid is
 \begin{align*}
 \bar x&=\frac{\int_0^1 x\frac{1}{1+x^2}\,\dee{x}}{\int_0^1\frac{1}{1+x^2}\,\dee{x}}
 \intertext{We can guess the antiderivative in the numerator, or use the substitution $u=1+x^2$, $\dee{u}=2x\,\dee{x}$.}
@@ -1354,7 +1354,7 @@ We'll use vertical strips as in the sketch below.
 \end{center}
 
 \noindent
-The top function of our figure is $T(x)=\sqrt{9-x^2}$, and the bottom function of our figure is $B(x)=-2$. Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text, the $y$--coordinate of the centroid is:
+The top function of our figure is $T(x)=\sqrt{9-x^2}$, and the bottom function of our figure is $B(x)=-2$. Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text, the $y$--coordinate of the centroid is:
 \begin{align*}
 \bar y &=\frac{1}{2A}\int_a^b\big(T(x)^2-B(x)^2\big)\,\dee{x}\\
 &=\frac{1}{2A}\int_{-3}^3 \left( \sqrt{9-x^2}^2-(-2)^2\right)\,\dee{x}\\
@@ -1439,7 +1439,7 @@ The region $D$ is symmetric about the $y$ axis. So the
 centre of mass lies on the $y$ axis. That is, $\bar x=0$.
 Since $D$ has area $A=\frac{9}{4}\pi$, top equation $y=T(x)=\sqrt{9-4x^2}$
 and bottom equation $y=B(x)=0$, with $x$ running from $a=-\frac{3}{2}$
-to $b=\frac{3}{2}$,  Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text gives us $\bar y$:
+to $b=\frac{3}{2}$,  Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text gives us $\bar y$:
 \begin{alignat*}{3}
 \bar y &=\frac{1}{2A}\int_a^b\big[T(x)^2-B(x)^2\big]\ \dee{x}
 =\frac{2}{9\pi}\int_{-3/2}^{3/2}\big[9-4x^2\big]\ \dee{x}
@@ -1489,7 +1489,7 @@ A&=\int_{-\pi/2}^{\pi/2} \big( (\textcolor{blue}{2-\sin y}) - (\textcolor{red}{\
 
 From symmetry, it is clear that $\bar x = 1$.
 We find $\bar y$
-using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text.
+using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text.
 \begin{align*}
 \bar y &= \frac{\int_{-\pi/2}^{\pi/2} y\left[\textcolor{blue}{R(y)}
 -
@@ -1598,7 +1598,7 @@ A&=\int_0^2 (T(x)-B(x))\,\dee{x} = \int_0^1 (e^x-0)\,\dee{x} + \int_1^2(e^x-3(x-
 &=\Big[e^x\Big]_0^2 - \left[\frac{3}{2}(x-1)^2\right]_1^2\\
 &=e^2-1 -\frac{3}{2} = e^2 - \frac52
 \intertext{
- Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text:}
+ Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text:}
 \bar x &=\frac{\int_0^2 x(T(x)-B(x))\,\dee{x}}{A} \\&= \frac{1}{e^2-5/2}\left[\int_0^1x\left(e^x-0\right)\,\dee{x} + \int_1^2 x\left(e^x-3(x-1)\right)\,\dee{x}\right]\\
 &= \frac{1}{e^2-5/2}\left[\int_0^2 xe^x\,\dee{x} - \int_1^2 3x(x-1)\,\dee{x}\right]
 \intertext{For the left integral, we use integration by parts with $u=x$, $\dee{v}=e^x\,\dee{x}$; $\dee{u}=\dee{x}$, $v=e^x$.}
@@ -1607,7 +1607,7 @@ A&=\int_0^2 (T(x)-B(x))\,\dee{x} = \int_0^1 (e^x-0)\,\dee{x} + \int_1^2(e^x-3(x-
 &= \frac{1}{e^2-5/2}\left((2e^2-e^2)-(-1) - 3\left(\frac{8}{3}-2-\frac{1}{3}+\frac{1}{2}\right)\right)\\
 &= \frac{e^2-3/2}{e^2-5/2}\approx 1.2
 \intertext{
- Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text again:}
+ Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text again:}
  \bar y &=\frac{\int_0^2\left(T(x)^2-B(x)^2\right)\,\dee{x}}{2A}\\
  &=\frac{1}{2(e^2-5/2)}\left[\int_0^1\left(e^{2x} - 0\right)\,\dee{x} + \int_1^2\left(e^{2x} - 9(x-1)^2\right)\,\dee{x}\right]
 \\&=\frac{1}{2(e^2-5/2)}\left[\int_0^2 e^{2x}\,\dee{x} - \int_1^2 9(x-1)^2\,\dee{x}\right]
@@ -1631,8 +1631,8 @@ the graph of $y=8/x^3$.
 
 \begin{hint}
 %Review (\eref{CLP101}{eq:TRQcentroid}) and  (\eref{CLP101}{eq:TRQcentroidy}) in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-%CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+%CLP-2 text.
  For practice, do the computation twice --- once with horizontal strips and once with vertical strips. Watch for improper integrals.
 \end{hint}
 
@@ -1763,7 +1763,7 @@ It could also be evaluated as
 \end{align*}
 
 \noindent (b)
-The question specifies the use of horizontal slices (as in Example  \eref{CLP101}{eg rot yaxis} of the CLP--II text). The radius of the slice at height $y$ is the $x$-value of the right-hand boundary of the region at that point. So,
+The question specifies the use of horizontal slices (as in Example  \eref{CLP101}{eg rot yaxis} of the CLP-2 text). The radius of the slice at height $y$ is the $x$-value of the right-hand boundary of the region at that point. So,
 we start by converting both equations $y=6-x$ and $y=x^2$ into equations of
 the form $x=f(y)$. To do so we solve for $x$ in both equations, yielding $x=\sqrt y$ and $x=6-y$.
 
@@ -1897,19 +1897,19 @@ Suppose a rectangle has width 4 m, height 3 m, and its density $x$ metres from i
 
 \end{Mquestion}
 \begin{hint}
-Go back to the derivation of Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text (centroid for a region) to figure out what to do when your surface does not have uniform density. We will consider a rod $R$ that reaches from $x=0$ to $x=4$, and the mass of the section of the rod along $[a,b]$ is equal to the mass of the strip of our rectangle along $[a,b]$.
+Go back to the derivation of Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text (centroid for a region) to figure out what to do when your surface does not have uniform density. We will consider a rod $R$ that reaches from $x=0$ to $x=4$, and the mass of the section of the rod along $[a,b]$ is equal to the mass of the strip of our rectangle along $[a,b]$.
 \end{hint}
 \begin{answer}
 $(3,1.5)$
 \end{answer}
 \begin{solution}
-By symmetry, $\bar y = 1.5$. We can't immediately use Equation~\eref{CLP101}{eq:TRQcentroid}  in the CLP--II text to find $\bar x$, because the density is not constant. Instead, we'll go through the derivation of Equation~\eref{CLP101}{eq:TRQcentroid}, to figure out what to do with a non-constant density. (This is a good time to review Questions~\ref{prob_s2.3:xbar} and \ref{prob_s2.3:ybar} in this section.)
+By symmetry, $\bar y = 1.5$. We can't immediately use Equation~\eref{CLP101}{eq:TRQcentroid}  in the CLP-2 text to find $\bar x$, because the density is not constant. Instead, we'll go through the derivation of Equation~\eref{CLP101}{eq:TRQcentroid}, to figure out what to do with a non-constant density. (This is a good time to review Questions~\ref{prob_s2.3:xbar} and \ref{prob_s2.3:ybar} in this section.)
 
 Our model is that we're making a rod $R$ that reaches from $x=0$ to $x=4$, and the mass of the section of the rod along $[a,b]$ is equal to the mass of the strip of our rectangle along $[a,b]$. If we have a formula $\rho(x)$ for the density of $R$, we can find the centre of mass of $R$, which is also the $x$-coordinate of the centre of mass of the rectangle.
 
 A thin vertical strip of the rectangle with length $\dee{x}$ at position $x$ has area $3\dee{x}$ m$^2$ and density $x^2$ kg/m$^2$, so it has mass $3x^2\,\dee{x}$ kg. Therefore, a short section of $R$ at position $x$ with length $\dee{x}$ ought to have mass $3x^2\,\dee{x}$ kg as well. Then its density at $x$ is $\rho(x) = \frac{3x^2\,\dee{x}\text{ kg}}{\dee{x} \text{ m}} = 3x^2$ kg/m.
 
-Now, we can use Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP--II text to find the centre of mass of the rod, which is also the $x$-coordinate of the centre of mass of our rectangle:
+Now, we can use Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP-2 text to find the centre of mass of the rod, which is also the $x$-coordinate of the centre of mass of our rectangle:
 \begin{align*}
 \bar x &= \frac{\int_0^4 x\rho(x)\,\dee{x}}{\int_0^4 \rho(x)\,\dee{x}}
 = \frac{\int_0^4 3x^3\,\dee{x}}{\int_0^4 3x^2\,\dee{x}} =
@@ -1942,11 +1942,11 @@ The equation of a circle of radius 3, centred at $(0,3)$, is $x^2+(y-3)^2=9$.
 $(0,3.45)$
 \end{answer}
 \begin{solution}
-By symmetry, the $x$-coordinate of the centre of mass will be $\bar x =0$; that is, exactly in the middle, horizontally. To find the $y$-coordinate of the centre of mass, we need to consider the origin of Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text.
+By symmetry, the $x$-coordinate of the centre of mass will be $\bar x =0$; that is, exactly in the middle, horizontally. To find the $y$-coordinate of the centre of mass, we need to consider the origin of Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text.
 
 We can make vertical strips or horizontal strips. A vertical strip of the circle has a density that varies from the bottom of the strip to the top, but a horizontal strip has a constant density (assuming the strip is very thin). So it seems that horizontal strips in this case will be the easier route.
 
-Following the derivation of Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text, we model our circle as a vertical rod $R$, filling the $y$-interval $[0, 6]$. A portion of the rod with $a \le y \le b$ should have the same mass as the portion of the circle with $a \le y \le b$. To achieve this, we slice the circle into thin horizontal strips of thickness $\dee{y}$, calculate their mass, then use that to find $\rho(y)$, the density of $R$.
+Following the derivation of Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text, we model our circle as a vertical rod $R$, filling the $y$-interval $[0, 6]$. A portion of the rod with $a \le y \le b$ should have the same mass as the portion of the circle with $a \le y \le b$. To achieve this, we slice the circle into thin horizontal strips of thickness $\dee{y}$, calculate their mass, then use that to find $\rho(y)$, the density of $R$.
 
 {First, let's find a formula for the mass of a thin horizontal strip of the circle at position $y$ with height $\dee{y}$.}
 
@@ -1970,7 +1970,7 @@ The circle with radius 3 centred at $(0,3)$ has equation $x^2+(y-3)^2=9$. So, th
 
 Now we can find $\rho(y)$, the density of $R$ at position $y$. The mass of the section of $R$ at position $y$ with length $\dee{y}$ is $2(2+y)\sqrt{9-(y-3)^2}\,\dee{y}$ kg (the mass of the strip in the paragraph above), so its density is $\frac{2(2+y)\sqrt{9-(y-3)^2}\,\dee{y}~\text{kg}}{\dee{y}~\text{m}} = 2(2+y)\sqrt{9-(y-3)^2}~\frac{\text{kg}}{\text{m}} = \rho(y)$.
 
-Now, Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP--II text will tell us the centre of mass of $R$, which is also the $y$-coordinate of the centre of mass of the circle.
+Now, Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP-2 text will tell us the centre of mass of $R$, which is also the $y$-coordinate of the centre of mass of the circle.
 
 \begin{align*}
 \bar y &= \frac{\int_a^b y\rho(y)\,\dee{y}}{\int_a^b \rho(y)\,\dee{y}} =
@@ -2071,7 +2071,7 @@ We will model the cone as a rod $R$ with height $h$, such that the mass of the s
 \end{Mquestion}
 \begin{hint}
 The model in the question gives you the setup to solve this problem. You know how to find the centre of mass of a rod--that's
- Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP--II text --- so all you need to find is $\rho(y)$, the density of the rod at position $y$. To find this, consider a thin slice of the cone at position $y$ with thickness $\dee{y}$. Its volume $V(y)$ is the same as the mass of the small section of the rod at position $y$ with thickness $\dee{y}$. So, the density of the rod at position $y$ is $\rho(y)=\frac{V(y)}{\dee{y}}$.
+ Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP-2 text --- so all you need to find is $\rho(y)$, the density of the rod at position $y$. To find this, consider a thin slice of the cone at position $y$ with thickness $\dee{y}$. Its volume $V(y)$ is the same as the mass of the small section of the rod at position $y$ with thickness $\dee{y}$. So, the density of the rod at position $y$ is $\rho(y)=\frac{V(y)}{\dee{y}}$.
 \end{hint}
 \begin{answer}
 (a) $\dfrac{h}{4}$\qquad (b) $\displaystyle\frac{\frac{1}{2}h^2k - \frac{2}{3}hk^2+\frac{1}{4}k^3}{h^2-hk+\frac{1}{3}k^2}$
@@ -2298,7 +2298,7 @@ Using the Pythagorean Theorem, $r = \sqrt{1-y^2}$. Therefore,
 
 \[\rho(y)= 1000\pi(1-y^2)\]
 
-We use Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP--II text to calculate the centre of mass of the rod, which is the height of the centre of mass of Tank $A$:
+We use Equation~\eref{CLP101}{eq:TRQvariabledensityrod} in the CLP-2 text to calculate the centre of mass of the rod, which is the height of the centre of mass of Tank $A$:
 \begin{align*}
 \bar y_A&=\frac{\int_0^1 y\rho(y)\,\dee{y}}{\int_0^1 \rho(y)\,\dee{y}} =
 \frac{\int_0^1 1000\pi y(1-y^2)\,\dee{y}}{\int_0^1 1000\pi(1-y^2)\,\dee{y}}\\
@@ -2311,7 +2311,7 @@ W&=\left(\frac{2000}{3}\pi~\text{kg}\right)\times\left(3 - \frac{3}{8}~\text{m}\
 &=17,150\pi~\text{J}
 \end{align*}
 \item[Option 2:] We can use the techniques of Section~\eref{CLP101}{sec work}
- in the CLP--II text to calculate the amount of work it takes to pump the water from tank $A$ to a height of 3 metres. That solves part (a), and we can use the amount of work to figure out the centre of gravity of the water in Tank $A$ to help us solve part (b).
+ in the CLP-2 text to calculate the amount of work it takes to pump the water from tank $A$ to a height of 3 metres. That solves part (a), and we can use the amount of work to figure out the centre of gravity of the water in Tank $A$ to help us solve part (b).
 
 At height $y$, a horizontal layer of water in Tank $A$ forms a disk with thickness $\dee{y}$ and radius $\sqrt{1-y^2}$. (The radius  comes from the Pythagorean Theorem--see  the diagram below.)
 
@@ -2383,7 +2383,7 @@ $\displaystyle \bar x =\frac{\pi}{162}\sqrt{\frac{\pi}{2}}\bigg[
 +9\bigg]\approx 0.976$
 \end{answer}
 \begin{solution}
-Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP--II text with $T(x) = 2x\sin (x^2)$ and $B(x)=0$,
+Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text with $T(x) = 2x\sin (x^2)$ and $B(x)=0$,
 
 \[\bar x = \frac{\displaystyle\int_0^{\sqrt{\pi/2}} 2x^2\sin(x^2)\,\dee{x}}{\displaystyle\int_0^{\sqrt{\pi/2}} 2x\sin(x^2)\,\dee{x}}\]
 
@@ -2420,7 +2420,7 @@ So, $n=6$ intervals suffices. Then $\De x = \frac{b-a}{6} = \frac{1}{6}\sqrt{\fr
 \end{tikzpicture}
 \end{center}
 
-Following Equation~\eref{CLP101}{eq:SIMPrule} in the CLP--II text, the Simpson's rule approximation of $\displaystyle\int_0^{\sqrt{\pi/2}}2x^2\sin(x^2)\,\dee{x}$ is:
+Following Equation~\eref{CLP101}{eq:SIMPrule} in the CLP-2 text, the Simpson's rule approximation of $\displaystyle\int_0^{\sqrt{\pi/2}}2x^2\sin(x^2)\,\dee{x}$ is:
 \begin{align*}
 &\frac{\De x}{3}\Big[f(x_0)+4f(x_1)+2f(x_2)+4f(x_3)+2f(x_4)+4f(x_5)+f(x_6)\Big]\\
 =&\frac{1}{6}\sqrt{\frac{\pi}{2}}\cdot\frac{1}{3}\bigg[
