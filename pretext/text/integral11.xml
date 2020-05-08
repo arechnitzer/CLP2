@@ -73,7 +73,7 @@ We will explain these rules in detail below, but we give a brief overview here:
 	<md>
 	<mrow>
 	  \int_{x_{j-1}}^{x_{j}} f(x) \dee{x}
-	  &amp; \approx \frac{1}{2} \left(f(x_{j-1})+f(x_j \right) \De x
+	  &amp; \approx \frac{1}{2} \left[f(x_{j-1})+f(x_j) \right] \De x
 	</mrow>
 	</md>
 	The trapezoid is illustrated in the middle figure above. We shall derive the formula  for the area shortly.
@@ -83,7 +83,7 @@ We will explain these rules in detail below, but we give a brief overview here:
 	<md>
 	<mrow>
 	  \int_{x_{j-1}}^{x_{j+1}} f(x) \dee{x}
-	  &amp; \approx \frac{1}{3} \left(f(x_{j-1})+4f(x_j)+f(x_{j+1} \right) \De x
+	  &amp; \approx \frac{1}{3} \left[f(x_{j-1})+4f(x_j)+f(x_{j+1}) \right] \De x
 	</mrow>
 	</md>
 	The parabola is illustrated in the right hand figure above. We shall derive the  formula for the area shortly.
@@ -159,11 +159,11 @@ The midpoint rule approximation is
 where <m>\De x = \tfrac{b-a}{n}</m> and
 <md>
 <mrow>
-x_0&amp;=a&amp;\quad
-x_1&amp;=a+\De x&amp;\quad
-x_2&amp;=a+2\De x&amp;\quad
-&amp;\cdots&amp;\quad
-x_{n-1}&amp;=b-\De x&amp;\quad
+x_0&amp;=a&amp;
+x_1&amp;=a+\De x&amp;
+x_2&amp;=a+2\De x&amp;
+&amp;\cdots&amp;
+x_{n-1}&amp;=b-\De x&amp;
 x_n&amp;=b
 </mrow>
 <mrow>
@@ -222,8 +222,9 @@ We approximate the above integral using the midpoint rule with <m>n=8</m> step.
 				 \frac{4}{1+\tfrac{3^2}{16^2}}+
 				 \frac{4}{1+\tfrac{5^2}{16^2}}+
 				 \frac{4}{1+\tfrac{7^2}{16^2}}
-				  +\frac{4}{1+\tfrac{9^2}{16^2}}+
-				 \frac{4}{1+\tfrac{11^2}{16^2}}+
+				  +\frac{4}{1+\tfrac{9^2}{16^2}}
+                                  </mrow><mrow>&amp;\hskip2in
+				 +\frac{4}{1+\tfrac{11^2}{16^2}}+
 				 \frac{4}{1+\tfrac{13^2}{16^2}}+
 				 \frac{4}{1+\tfrac{15^2}{16^2}}\bigg]\frac{1}{8}
 	</mrow><mrow>
@@ -232,6 +233,7 @@ We approximate the above integral using the midpoint rule with <m>n=8</m> step.
 				 3.64413 +
 				 3.35738 +
 				 3.03858 +
+                                 </mrow><mrow>&amp;\hskip2in
 				 2.71618 +
 				 2.40941 +
 				 2.12890 \big]\frac{1}{8}
@@ -344,6 +346,7 @@ As a second example, we apply the midpoint rule with <m>n=8</m> steps to the abo
 				 \sin(\tfrac{5\pi}{16})+
 				 \sin(\tfrac{7\pi}{16})+
 				 \sin(\tfrac{9\pi}{16})+
+                                 </mrow><mrow>&amp;\hskip2in
 				 \sin(\tfrac{11\pi}{16})+
 				 \sin(\tfrac{13\pi}{16})+
 				 \sin(\tfrac{15\pi}{16})\Big]\tfrac{\pi}{8}
@@ -353,6 +356,7 @@ As a second example, we apply the midpoint rule with <m>n=8</m> steps to the abo
 				 0.8315+
 				 0.9808+
 				 0.9808+
+                                 </mrow><mrow>&amp;\hskip2in
 				 0.8315+
 				 0.5556+
 				 0.1951\Big]\times 0.3927
@@ -506,38 +510,38 @@ To compare and contrast we apply the trapezoidal rule to the examples we did abo
 	Applying the trapezoidal rule, Equation<nbsp/><xref ref="eq_TRPrule"/>, gives
 	<md>
 	<mrow>
-	\int_0^1 \frac{4}{1+x^2}\,\dee{x}
-	&amp;\approx
-	\bigg[\frac{1}{2}\overbrace{\frac{4}{1+x_0^2}}^{f(x_0)}
-				+\overbrace{\frac{4}{1+x_1^2}}^{f(x_1)}
+        &amp;\int_0^1 \frac{4}{1+x^2}\,\dee{x}
+	\approx
+	\bigg[\frac{1}{2}\overbrace{\frac{4}{1\!+\!x_0^2}}^{f(x_0)}
+				+\overbrace{\frac{4}{1\!+\!x_1^2}}^{f(x_1)}
 				+\!\cdots\!
-				 +\overbrace{\frac{4}{1+x_7^2}}^{f(x_{n-1})}
-				 +\frac{1}{2}\overbrace{\frac{4}{1+x_8^2}}^{f(x_n)}
+				 +\overbrace{\frac{4}{1\!+\!x_7^2}}^{f(x_{n-1})}
+				 +\frac{1}{2}\overbrace{\frac{4}{1\!+\!x_8^2}}^{f(x_n)}
 				 \bigg]\De x
 	</mrow><mrow>
-	&amp;=\bigg[\frac{1}{2}\frac{4}{1+0^2}+
+	&amp;\hskip0.25in=\bigg[\frac{1}{2}\frac{4}{1+0^2}+
 				 \frac{4}{1+\tfrac{1}{8^2}}+
 				 \frac{4}{1+\tfrac{2^2}{8^2}}+
 				 \frac{4}{1+\tfrac{3^2}{8^2}}
 	</mrow><mrow>
-	&amp; +\frac{4}{1+\tfrac{4^2}{8^2}}+
+	&amp;\hskip0.5in +\frac{4}{1+\tfrac{4^2}{8^2}}+
 				 \frac{4}{1+\tfrac{5^2}{8^2}}+
 				 \frac{4}{1+\tfrac{6^2}{8^2}}+
 				 \frac{4}{1+\tfrac{7^2}{8^2}}+
 			\frac{1}{2}\frac{4}{1+\tfrac{8^2}{8^2}}\bigg]\frac{1}{8}
 	</mrow><mrow>
-	&amp;=\Big[\frac{1}{2}\times 4+
+	&amp;\hskip0.25in=\Big[\frac{1}{2}\times 4+
 				 3.939+
 				 3.765+
 				 3.507
 	</mrow><mrow>
-	&amp; +3.2+
+	&amp;\hskip0.5in  +3.2+
 				 2.876+
 				 2.56+
 				 2.266+
 			\frac{1}{2}\times 2\Big]\frac{1}{8}
 	</mrow><mrow>
-	&amp;=3.139
+	&amp;\hskip0.25in =3.139
 	</mrow>
 	</md>
 	to three decimal places.
@@ -583,8 +587,9 @@ We proceed very similarly to Example<nbsp/><xref ref="eg_Midpoint"/> and again u
 				 \sin\tfrac{2\pi}{8}+
 				 \sin\tfrac{3\pi}{8}+
 				 \sin\tfrac{4\pi}{8}+
-				 \sin\tfrac{5\pi}{8}+
-				 \sin\tfrac{6\pi}{8}+
+				 \sin\tfrac{5\pi}{8}
+                                 </mrow><mrow>
+				 &amp;\hskip0.5in+\sin\tfrac{6\pi}{8}+
 				 \sin\tfrac{7\pi}{8}+
 			\half\sin\tfrac{8\pi}{8}\Big]\tfrac{\pi}{8}
 	</mrow><mrow>
@@ -594,6 +599,8 @@ We proceed very similarly to Example<nbsp/><xref ref="eg_Midpoint"/> and again u
 				 0.9239+
 				 1.0000+
 				 0.9239+
+                                 </mrow><mrow>
+				 &amp;\hskip0.5in
 				 0.7071+
 				 0.3827+
 			\half\!\times\! 0\Big]\times 0.3927
@@ -760,7 +767,7 @@ The Simpson's rule approximation is
 &amp;\approx\Big[f(x_0)\!+4f(x_1)\!+2f(x_2)\!+4f(x_3)\!+2f(x_4)\!
 +\cdots
 </mrow><mrow>
-&amp; \cdots + 2f(x_{n-2})\!+4f(x_{n-1})\!+ f(x_n)\Big]\tfrac{\De x}{3}
+&amp;\hskip2in \cdots + 2f(x_{n-2})\!+4f(x_{n-1})\!+ f(x_n)\Big]\tfrac{\De x}{3}
 </mrow>
 </md>
 where <m>n</m> is even and
@@ -777,16 +784,8 @@ x_0=a,\quad x_1=a+\De x,\quad
 </fact>
 
 <p>
-Notice that Simpson's rule requires essentially no more work than the trapezoidal rule.  In both rules we must evaluate <m>f(x)</m> at <m>x=x_0,x_1,<ellipsis/>,x_n</m>, but we add those terms  multiplied by different constants
-	<fn>
-		There is an easy generalisation of Simpson's  rule that uses cubics instead of parabolas. It leads to the formula
-		<md>
-		<mrow>
-		\int_a^b f(x)\dee{x} &amp;
-		= \left[ f(x_0)+3f(x_1)+3f(x_2)+2f(x_3)+ 2f(x_4)+3f(x_5)+3f(x_6)+2f(x_7)+\cdots+f(x_n) \right]\frac{3\De x}{8}
-		</mrow>
-		</md>
-		where <m>n</m> is a multiple of 3. This result is known as Simpson's second rule and Simpson's  <m>\frac38</m> rule. While one can push this approach further (using quartics, quintics  etc), it can sometimes lead to larger errors <mdash/> the interested reader should look up  Runge's phenomenon.
+Notice that Simpson's rule requires essentially no more work than the trapezoidal rule.  In both rules we must evaluate <m>f(x)</m> at <m>x=x_0,x_1,\cdots,x_n</m>, but we add those terms  multiplied by different constants
+	<fn> There is an easy generalisation of Simpson's  rule that uses cubics instead of parabolas. It is known as Simpson's second rule and Simpson's  <m>\frac38</m> rule. While one can push this approach further (using quartics, quintics  etc), it can sometimes lead to larger errors <mdash/> the interested reader should look up  Runge's phenomenon.
 	</fn>.
 </p>
 
@@ -804,26 +803,29 @@ We proceed almost identically to Example<nbsp/><xref ref="eg_TrapB"/> and again 
 	Applying Equation<nbsp/><xref ref="eq_SIMPrule"/> gives
 	<md>
 	<mrow>
-	\int_0^1 \frac{4}{1+x^2}\,\dee{x}
-	&amp;\approx
+	&amp;\int_0^1 \frac{4}{1+x^2}\,\dee{x}
+	</mrow><mrow>
+        &amp;\approx
 	\bigg[\frac{4}{1+0^2}+
 				 4\frac{4}{1+\tfrac{1}{8^2}}+
 				 2\frac{4}{1+\tfrac{2^2}{8^2}}+
-				 4\frac{4}{1+\tfrac{3^2}{8^2}}
-	</mrow><mrow>
-	&amp; +2\frac{4}{1+\tfrac{4^2}{8^2}}+
-				 4\frac{4}{1+\tfrac{5^2}{8^2}}+
+				 4\frac{4}{1+\tfrac{3^2}{8^2}}+
+	                         2\frac{4}{1+\tfrac{4^2}{8^2}}
+                                 </mrow><mrow>
+	                         &amp;\hskip0.5in
+				 +4\frac{4}{1+\tfrac{5^2}{8^2}}+
 				 2\frac{4}{1+\tfrac{6^2}{8^2}}+
 				 4\frac{4}{1+\tfrac{7^2}{8^2}}+
 				\frac{4}{1+\tfrac{8^2}{8^2}}\bigg]\frac{1}{8\times 3}
 	</mrow><mrow>
-	&amp;=\Big[         4 +
-			4\times 3.938461538 +
-			2\times 3.764705882 +
-			4\times 3.506849315
-	</mrow><mrow>
-	&amp; +2\times 3.2 +
-			  4\times 2.876404494 +
+	&amp;=\Big[         4\!+\!
+			4\times 3.938461538 \!+\!
+			2\times 3.764705882 \!+\!
+			4\times 3.506849315 \!+\!
+                	2\times 3.2 
+                         </mrow><mrow>
+                	&amp;\hskip0.5in
+			 +4\times 2.876404494 +
 			 2\times 2.56 +
 			 4\times 2.265486726 +
 				2\Big]\frac{1}{8\times 3}
@@ -844,13 +846,13 @@ We proceed almost identically to Example<nbsp/><xref ref="eg_TrapB"/> and again 
 It is striking that the absolute error approximating with Simpson's rule is so much  smaller than the error from the midpoint and trapezoidal rules.
 <md>
 <mrow>
-&amp;\text{midpoint error} &amp;&amp;= 0.0013
+&amp;\text{midpoint error}\hskip-0.35in &amp;&amp;= 0.0013
 </mrow>
 <mrow>
-&amp;\text{trapezoid error} &amp;&amp;= 0.0026
+&amp;\text{trapezoid error}\hskip-0.35in &amp;&amp;= 0.0026
 </mrow>
 <mrow>
-&amp;\text{Simpson error} &amp;&amp;= 0.00000015
+&amp;\text{Simpson error}\hskip-0.35in &amp;&amp;= 0.00000015
 </mrow>
 </md>
 </p>
@@ -870,34 +872,35 @@ Buoyed by this success, we will also redo Example<nbsp/><xref ref="eg_Trap"/> us
 	Applying Equation<nbsp/><xref ref="eq_SIMPrule"/> gives
 	<md>
 	<mrow>
-	\int_0^\pi\sin x\,\dee{x}
-	&amp;\approx
+	&amp;\int_0^\pi\sin x\,\dee{x}
+        </mrow><mrow>
+	&amp;\hskip0.5in\approx
 	\Big[\sin(x_0)+4\sin(x_1)+2\sin(x_2)+\cdots+4\sin(x_7)+\sin(x_8)\Big]\tfrac{\De x}{3}
 	</mrow><mrow>
-	&amp;=\Big[\sin(0)+
+	&amp;\hskip0.5in=\Big[\sin(0)+
 				 4\sin(\tfrac{\pi}{8})+
 				 2\sin(\tfrac{2\pi}{8})+
 				 4\sin(\tfrac{3\pi}{8})+
 				 2\sin(\tfrac{4\pi}{8})\cr
-	&amp;\phantom{=\Big[\sin(0)\,}
+	&amp;\hskip0.5in\phantom{=\Big[\sin(0)\,}
 	+4\sin(\tfrac{5\pi}{8})+
 				 2\sin(\tfrac{6\pi}{8})+
 				 4\sin(\tfrac{7\pi}{8})+
 				 \sin(\tfrac{8\pi}{8})\Big]\tfrac{\pi}{8\times 3}\cr
-	&amp;=\Big[ 0+
+	&amp;=\hskip0.5in\Big[ 0+
 				4\times 0.382683+
 				2\times 0.707107+
 				4\times 0.923880+
 				2\times 1.0
 	</mrow><mrow>
-	&amp;\phantom{=\Big[ 0\,}+
+	&amp;\hskip0.5in\phantom{=\Big[ 0\,}+
 				4\times 0.923880+
 				2\times 0.707107+
 				4\times 0.382683+0\Big]\tfrac{\pi}{8\times 3}
 	</mrow><mrow>
-	&amp;=15.280932\times 0.130900
+	&amp;\hskip0.5in=15.280932\times 0.130900
 	</mrow><mrow>
-	&amp;=2.00027
+	&amp;\hskip0.5in=2.00027
 	</mrow>
 	</md>
 </li>
@@ -912,13 +915,13 @@ Buoyed by this success, we will also redo Example<nbsp/><xref ref="eg_Trap"/> us
 Again we contrast the error we achieved with the other two rules:
 <md>
 <mrow>
-&amp;\text{midpoint error} &amp;&amp;= 0.013
+&amp;\text{midpoint error}\hskip-0.35in &amp;&amp;= 0.013
 </mrow>
 <mrow>
-&amp;\text{trapezoid error} &amp;&amp;= 0.026
+&amp;\text{trapezoid error}\hskip-0.35in &amp;&amp;= 0.026
 </mrow>
 <mrow>
-&amp;\text{Simpson error} &amp;&amp;= 0.00027
+&amp;\text{Simpson error}\hskip-0.35in &amp;&amp;= 0.00027
 </mrow>
 </md>
 </p>
@@ -1006,15 +1009,15 @@ So it looks like
 <md>
 <mrow>
 &amp;\hbox{approx value of $\ds\int_a^b f(x)\,\dee{x}$ given by $n$ midpoint steps  }
-&amp;&amp;\approx \int_a^b f(x)\,\dee{x}+K_M\cdot \frac{1}{n^2}
+\hskip-0.35in&amp;&amp;\approx \int_a^b f(x)\,\dee{x}+K_M\cdot \frac{1}{n^2}
 </mrow>
 <mrow>
 &amp;\hbox{approx value of $\ds\int_a^b f(x)\,\dee{x}$ given by $n$ trapezoidal steps  }
-&amp;&amp;\approx  \int_a^b f(x)\,\dee{x}+K_T\cdot \frac{1}{n^2}
+\hskip-0.35in&amp;&amp;\approx  \int_a^b f(x)\,\dee{x}+K_T\cdot \frac{1}{n^2}
 </mrow>
 <mrow>
 &amp;\hbox{approx value of $\ds\int_a^b f(x)\,\dee{x}$ given by $n$ Simpson's steps  }
-&amp;&amp;\approx  \int_a^b f(x)\,\dee{x}+K_M\cdot \frac{1}{n^4}
+\hskip-0.35in&amp;&amp;\approx  \int_a^b f(x)\,\dee{x}+K_M\cdot \frac{1}{n^4}
 </mrow>
 </md>
 with some constants <m>K_M,\ K_T</m> and <m>K_S</m>. It also seems that <m>K_T\approx 2 K_M</m>.
@@ -1184,7 +1187,7 @@ to within an accuracy of <m>10^{-6}</m>.
 	The first two derivatives of the integrand are
 	<md>
 	<mrow>
-	\diff{}{x}e^{-x^2}&amp;=-2xe^{-x^2} &amp; \text{and}
+	\diff{}{x}e^{-x^2}&amp;=-2xe^{-x^2} \hskip2in \text{and}
 	</mrow><mrow>
 	\ddiff{2}{}{x}e^{-x^2}  &amp;=\diff{}{x}\big(-2xe^{-x^2}\big)  =-2e^{-x^2}+4x^2e^{-x^2}=2(2x^2-1)e^{-x^2}
 	</mrow>

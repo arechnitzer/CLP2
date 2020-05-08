@@ -264,11 +264,14 @@ f^{(n)}(x)&amp;=(-1)^{n-1}(n-1)!\,x^{-n} &amp; f^{(n)}(1)&amp;=(-1)^{n-1}(n-1)!
 </mrow>
 </md>
 Using the convention <m>0!=1</m>, our pattern for <m>f^{(n)}(1)</m> begins when <m>n=1</m>.
-<me>
+<md>
+<mrow>
 \sum_{n=0}^\infty \frac{f^{(n)}(1)}{n!}(x-1)^n
-=0+\sum_{n=1}^\infty \frac{(-1)^{n-1}(n-1)! }{n!}(x-1)^n
-=\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}(x-1)^n
-</me>
+\amp=0+\sum_{n=1}^\infty \frac{(-1)^{n-1}(n-1)! }{n!}(x-1)^n
+</mrow><mrow>
+\amp=\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}(x-1)^n
+</mrow>
+</md>
 </p>
 
 </solution>
@@ -305,9 +308,13 @@ The terms <m>f^{(n)}(\pi)</m> are going to be similar to the terms <m>f^{(n)}(0)
 <p>	In our Taylor series, every even-indexed term will be zero, and we will be left with only odd-indexed terms. If we let <m>n</m> be our index, then the term <m>2n+1</m> will capture all the odd numbers. Since the signs alternate, <m>f^{(2n+1)}(\pi)=(-1)^{n+1}</m>. So, our Taylor series is:
 </p>
 
-<p>	<md>
+<p>	
+<md>
 <mrow>
-	\sum_{k=0}^\infty \frac{f^{(k)}(\pi)}{k!}(x-\pi)^k &amp;= \sum_{n=0}^\infty \frac{f^{(2n+1)}(\pi)}{(2n+1)!}(x-\pi)^{2n+1} \qquad\text{(since the even terms are all zero)}
+	\sum_{k=0}^\infty \frac{f^{(k)}(\pi)}{k!}(x-\pi)^k 
+&amp;= \sum_{n=0}^\infty \frac{f^{(2n+1)}(\pi)}{(2n+1)!}(x-\pi)^{2n+1} 
+</mrow><mrow>
+\amp\hskip1in\text{(since the even terms are all zero)}
 </mrow><mrow>
 	&amp;=\sum_{n=0}^\infty \frac{(-1)^{n+1}}{(2n+1)!}(x-\pi)^{2n+1}
 	</mrow>
@@ -509,9 +516,9 @@ Hence, for all <m>-\tfrac{1}{2}\lt x\lt \tfrac{1}{2}</m>,
 <md>
 <mrow>
 f(x) &amp;=\frac{3}{x+1} - \frac{1}{2x-1} = \frac{3}{1-(-x)} + \frac{1}{1-2x}
-=3\sum_{n=0}^\infty (-1)^nx^n  +  \sum_{n=0}^\infty 2^nx^n
 </mrow><mrow>
-&amp;=\sum_{n=0}^\infty \big(3(-1)^n + 2^n\big)x^n
+&amp;=3\sum_{n=0}^\infty (-1)^nx^n  +  \sum_{n=0}^\infty 2^nx^n
+=\sum_{n=0}^\infty \big(3(-1)^n + 2^n\big)x^n
 </mrow>
 </md>
 So <m>b_n = 3(-1)^n + 2^n</m>.
@@ -575,16 +582,17 @@ for all <m>|x| \lt \frac{1}{2}</m>
 Since
 <me>
 f'(t) =\diff{}{t}\log(1+2t) = \frac{2}{1+2t} = 2\sum_{n=0}^\infty(-2t)^n
-\qquad\text{if }|2t| \lt 1\text{ i.e. }|t| \lt \frac{1}{2}
+\quad\text{if }|2t| \lt 1\text{ i.e. }|t| \lt \frac{1}{2}
 </me>
 and <m>f(0)=0</m>, we have
 <md>
 <mrow>
-f(x)
-&amp;=\int_0^x f'(t) \,\dee{t}
+\amp f(x)
+=\int_0^x f'(t) \,\dee{t}
 =2 \sum_{n=0}^\infty \int_0^x (-1)^n 2^n t^n\,\dee{t}
 =\sum_{n=0}^\infty  (-1)^n 2^{n+1} \frac{x^{n+1}}{n+1}
-\qquad\text{ for all }|x| \lt \frac{1}{2}
+</mrow><mrow>
+\amp\text{ for all }|x| \lt \frac{1}{2}.
 </mrow>
 </md>
 </p></solution>
@@ -1019,15 +1027,17 @@ So, the series diverges.
 	Our series looks something like the Taylor series for sine, <m>\sin x = \displaystyle\sum_{n=0}^\infty \frac{(-1)^{n}}{(2n+1)!}x^{2n+1}</m>.
 	<md>
 <mrow>
-	\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}\left(\frac{\pi}{4} \right)^{2n+1}\left(1+2^{2n+1} \right)&amp;=
+\amp\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}\left(\frac{\pi}{4} \right)^{2n+1}\left(1+2^{2n+1} \right)
+</mrow><mrow>
+\amp\hskip0.5in=
 	\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}\left[\left(\frac{\pi}{4}\right)^{2n+1}+\left(\frac{\pi}{2}\right)^{2n+1} \right]
 </mrow><mrow>
-	&amp;=\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}\left(\frac{\pi}{4}\right)^{2n+1}
+	&amp;\hskip0.5in=\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}\left(\frac{\pi}{4}\right)^{2n+1}
 	+\sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!}\left(\frac{\pi}{2}\right)^{2n+1}
 </mrow><mrow>
-	&amp;=\sin\left(\frac{\pi}{4} \right)+\sin\left(\frac{\pi}{2} \right)
+	&amp;\hskip0.5in=\sin\left(\frac{\pi}{4} \right)+\sin\left(\frac{\pi}{2} \right)
 </mrow><mrow>
-	&amp;=\frac{1}{\sqrt{2}}+1=\frac{1+\sqrt{2}}{\sqrt{2}}
+	&amp;\hskip0.5in=\frac{1}{\sqrt{2}}+1=\frac{1+\sqrt{2}}{\sqrt{2}}
 	</mrow>
 </md>
 </p></solution>
@@ -1179,7 +1189,9 @@ for every real <m>x</m>.
 	Using the Taylor series for arctangent:
 	<md>
 <mrow>
-	\pi=16\arctan\frac15-4\arctan\frac{1}{239}&amp;=16\sum_{n=0}^\infty(-1)^n\frac{1}{(2n+1)5^{2n+1}}-
+	\pi&amp;=16\arctan\frac15-4\arctan\frac{1}{239}
+</mrow><mrow>
+\amp=16\sum_{n=0}^\infty(-1)^n\frac{1}{(2n+1)5^{2n+1}}-
 	4\sum_{n=0}^\infty(-1)^n\frac{1}{(2n+1)\cdot 239^{2n+1}}
 </mrow><mrow>
 	&amp;=\sum_{n=0}^\infty\frac{(-1)^n}{2n+1}\left(\frac{16}{5^{2n+1}}-\frac{4}{239^{2n+1}} \right)
@@ -1211,7 +1223,11 @@ Again, we use the Taylor series for arctangent.
 <md>
 <mrow>
 	\arctan\frac12+\arctan\frac13&amp;=\arctan\left(\frac{3+2}{2\cdot3-1}\right)=\arctan(1)=\frac{\pi}{4}
-</mrow><mrow>
+</mrow>
+</md>
+so that
+<md>
+<mrow>
 	\pi&amp;=4\left(\arctan\frac12+\arctan\frac13 \right)
 </mrow><mrow>
 	&amp;=4\sum_{n=0}^\infty (-1)^n\frac{1}{(2n+1)2^{2n+1}}+4\sum_{n=0}^\infty (-1)^n\frac{1}{(2n+1)3^{2n+1}}
@@ -1425,7 +1441,9 @@ Now we want a reasonable bound on <m>f^{(N+1)}(c)</m>, when <m>c</m> is in <m>(0
 <p><md>
 <mrow>
 \left|\frac{\textcolor{blue}{f^{(N+1)}(c)}}{(N+1)!}\left(\frac{1}{10}\right)^{N+1}\right|&amp; \lt
-\frac{\textcolor{blue}{N!\left(\tfrac{10}{9}\right)^{N+1}}}{(N+1)!}\left(\frac{1}{10}\right)^{N+1}=\frac{1}{9^{N+1}\cdot (N+1)}
+\frac{\textcolor{blue}{N!\left(\tfrac{10}{9}\right)^{N+1}}}{(N+1)!}\left(\frac{1}{10}\right)^{N+1}
+</mrow><mrow>
+\amp=\frac{1}{9^{N+1}\cdot (N+1)}
 </mrow><mrow>
 \text{So, we want:}\qquad \frac{1}{9^{N+1}\cdot (N+1)}&amp; \lt 5\times 10^{-11}
 </mrow>
@@ -1593,7 +1611,7 @@ E_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}</me>
 &amp;=\frac{1}{7!}\cdot\textcolor{blue}{\frac{6!}{2}\left[\left(1-c\right)^{-7}+(-1)^{6}\left(1+c\right)^{-7} \right]}\left(-\frac56 \right)^7
 </mrow><mrow>
 &amp;=\frac{-5^7}{14\cdot 6^7}\cdot\left[\left(1-c\right)^{-7}+\left(1+c\right)^{-7} \right]
-&amp;=</mrow>
+</mrow>
 </md>
 </p>
 
@@ -1775,11 +1793,21 @@ Recall <m>\log(1+y)=\displaystyle\sum_{n=1}^\infty \frac{(-1)^{n+1}y^n}{n}</m>, 
 &amp;=2+2x-\frac{(x+x^2)^2}{2x}+\frac{(x+x^2)^3}{3x}-\cdots
 </mrow><mrow>
 &amp;=2+2x-\frac{(x^2+x)(1+x)}{2}+\frac{(x^2+x)^2(1+x)}{3}-\cdots
+</mrow>
+</md>
+so that
+<md>
+<mrow>
+\amp\lim_{x \to 0}\log(f(x))
 </mrow><mrow>
-\lim_{x \to 0}\log(f(x))&amp;=\lim_{x \to 0}\left[2+2x-\frac{(x^2+x)(1+x)}{2}+\frac{(x^2+x)^2(1+x)}{3}-\cdots\right]
+\amp\hskip0.25in=\lim_{x \to 0}\left[2+2x-\frac{(x^2+x)(1+x)}{2}+\frac{(x^2+x)^2(1+x)}{3}-\cdots\right]
 </mrow><mrow>
-&amp;=2+0+0\cdots=2
-</mrow><mrow>
+&amp;\hskip0.25in=2+0+0\cdots=2
+</mrow>
+</md>
+and
+<md>
+<mrow>
 \lim_{x \to 0} f(x)&amp;=\lim_{x \to 0}e^{\log f(x)}=e^2
 </mrow>
 </md>
@@ -2102,7 +2130,8 @@ I(1/2)&amp;=\sum_{n=0}^\infty (-1)^n\ \frac{1}{(4n+1)2^{4n+1}}
 -\frac{1}{13\times 2^{13}}+\cdots
 </mrow><mrow>
 &amp;=0.5-0.00625+0.000217-0.0000094+\cdots
-=\boxed{0.493967}-0.0000094+\cdots
+</mrow><mrow>
+\amp=\boxed{0.493967}-0.0000094+\cdots
 </mrow>
 </md>
 See part (c) for the error analysis.
@@ -2269,7 +2298,8 @@ CLP-2 text.
 <mrow>
 e^{-t} =\sum_{n=0}^\infty \frac{(-t)^n}{n!}
 &amp;\implies e^{-t}-1 =\sum_{n=1}^\infty (-1)^n\frac{t^n}{n!}
-\implies \frac{e^{-t}-1}{t} =\sum_{n=1}^\infty (-1)^n\frac{t^{n-1}}{n!}
+</mrow><mrow>
+\amp\implies \frac{e^{-t}-1}{t} =\sum_{n=1}^\infty (-1)^n\frac{t^{n-1}}{n!}
 </mrow>
 </md>
 Substituting this into our integral,
@@ -2380,7 +2410,8 @@ So
 \Si(x)
 &amp;=\int_0^x\frac{\sin t}{t}\,\dee{t}
 =\sum_{n=0}^\infty (-1)^n\int_0^x \frac{t^{2n}}{(2n+1)!}\,\dee{t}
-=\sum_{n=0}^\infty (-1)^n\ \frac{x^{2n+1}}{(2n+1)(2n+1)!}
+</mrow><mrow>
+\amp=\sum_{n=0}^\infty (-1)^n\ \frac{x^{2n+1}}{(2n+1)(2n+1)!}
 </mrow>
 </md>
 </p>
@@ -2464,14 +2495,17 @@ Using the Taylor series expansion of <m>\cos t</m>,
 <md alignment="alignat">
   <mrow>
 \cos t&amp;=1-\frac{t^2}{2!}+\frac{t^4}{4!}-\frac{t^6}{6!}+\cdots
-         &amp;&amp;=\sum_{n=0}^\infty(-1)^n\frac{t^{2n}}{(2n)!}
+  </mrow><mrow>
+         &amp;=\sum_{n=0}^\infty(-1)^n\frac{t^{2n}}{(2n)!}
  </mrow><mrow>
 \frac{\cos t-1}{t^2}&amp;= -\frac{1}{2!}+\frac{t^2}{4!}-\frac{t^4}{6!}+\cdots
-         &amp;&amp;=\sum_{n=1}^\infty(-1)^n\frac{t^{2n-2}}{(2n)!}
+  </mrow><mrow>
+         &amp;=\sum_{n=1}^\infty(-1)^n\frac{t^{2n-2}}{(2n)!}
  </mrow><mrow>
 I(x)=\int_0^x \frac{\cos t-1}{t^2}\,\dee{t}
       &amp;=-\frac{x}{2!}+\frac{x^3}{4!3}-\frac{x^5}{6!5}+\cdots
-      &amp;&amp;=\sum_{n=1}^\infty(-1)^n\frac{x^{2n-1}}{(2n)!(2n-1)}
+  </mrow><mrow>
+      &amp;=\sum_{n=1}^\infty(-1)^n\frac{x^{2n-1}}{(2n)!(2n-1)}
 </mrow>
 </md>
 </p>
@@ -2538,35 +2572,48 @@ CLP-2 text.
 Using the Taylor series expansions of <m>\sin x</m> and <m>\cos x</m> with <m>x=t</m>,
 <md>
 <mrow>
-\sin t &amp;= \sum_{n=0}^\infty (-1)^n\frac{t^{2n+1}}{(2n+1)!}&amp;=&amp; t-\frac{t^3}{3!}+\frac{t^5}{5!}-\frac{t^7}{7!}+\cdots
+\sin t &amp;= \sum_{n=0}^\infty (-1)^n\frac{t^{2n+1}}{(2n+1)!}
 </mrow><mrow>
-\textcolor{red}{t\sin t} &amp;= \sum_{n=0}^\infty (-1)^n\frac{t^{2n+2}}{(2n+1)!}&amp;=&amp;\textcolor{red}{\phantom{1-\ }t^2-\frac{t^4}{3!}+\frac{t^6}{5!}-\frac{t^8}{7!}+\cdots}
+&amp;= t-\frac{t^3}{3!}+\frac{t^5}{5!}-\frac{t^7}{7!}+\cdots
+</mrow><mrow>
+\textcolor{red}{t\sin t} &amp;= \sum_{n=0}^\infty (-1)^n\frac{t^{2n+2}}{(2n+1)!}
+</mrow><mrow>
+&amp;=\textcolor{red}{\phantom{1-\ }t^2-\frac{t^4}{3!}+\frac{t^6}{5!}-\frac{t^8}{7!}+\cdots}
 </mrow><mrow>
 &amp;=\textcolor{red}{ -\sum_{n=1}^\infty (-1)^n\frac{t^{2n}}{(2n-1)!} }
 </mrow><mrow>
-\cos t &amp;=\sum_{n=0}^\infty (-1)^n\frac{t^{2n}}{(2n)!}&amp;=&amp; 1-\frac{t^2}{2!}+\frac{t^4}{4!}-\frac{t^6}{6!}+\frac{t^8}{8!}+\cdots
+\cos t &amp;=\sum_{n=0}^\infty (-1)^n\frac{t^{2n}}{(2n)!}
 </mrow><mrow>
-\textcolor{blue}{\cos t-1} &amp;=\textcolor{blue}{\sum_{n=1}^\infty (-1)^n\frac{t^{2n}}{(2n)!}}&amp;=&amp;\textcolor{blue}{ -\frac{t^2}{2!}+\frac{t^4}{4!}-\frac{t^6}{6!}+\frac{t^8}{8!}+\cdots}
+&amp;= 1-\frac{t^2}{2!}+\frac{t^4}{4!}-\frac{t^6}{6!}+\frac{t^8}{8!}+\cdots
 </mrow><mrow>
-\textcolor{blue}{\cos t} + \textcolor{red}{t\sin t}\textcolor{blue}{ -1}&amp;=\textcolor{blue}{\sum_{n=1}^\infty (-1)^n\frac{t^{2n}}{(2n)!}} \textcolor{red}{-\sum_{n=1}^\infty (-1)^n\frac{t^{2n}}{(2n-1)!} }
-</mrow><mrow>&amp;=\sum_{n=1}^\infty (-1)^nt^{2n}\left(\frac{1}{(2n)!}-\frac{1}{(2n-1)!}\right)&amp;=&amp;\Big(1-\frac{1}{2!}\Big)t^2
+\textcolor{blue}{\cos t-1} &amp;=\textcolor{blue}{\sum_{n=1}^\infty (-1)^n\frac{t^{2n}}{(2n)!}}</mrow><mrow>
+&amp;=\textcolor{blue}{ -\frac{t^2}{2!}+\frac{t^4}{4!}-\frac{t^6}{6!}+\frac{t^8}{8!}+\cdots}
+</mrow><mrow>
+\textcolor{blue}{\cos t} + \textcolor{red}{t\sin t}\textcolor{blue}{ -1}
+&amp;=\textcolor{blue}{\sum_{n=1}^\infty (-1)^n\frac{t^{2n}}{(2n)!}} \textcolor{red}{-\sum_{n=1}^\infty (-1)^n\frac{t^{2n}}{(2n-1)!} }
+</mrow><mrow>&amp;=\sum_{n=1}^\infty (-1)^nt^{2n}\left(\frac{1}{(2n)!}-\frac{1}{(2n-1)!}\right)
+</mrow><mrow>
+&amp;=\Big(1-\frac{1}{2!}\Big)t^2
 -\Big(\frac{1}{3!}-\frac{1}{4!}\Big)t^4
 +\cdots
 </mrow><mrow>
 &amp;=\sum_{n=1}^\infty (-1)^nt^{2n}\left(\frac{1}{(2n)!}-\frac{2n}{(2n)!}\right)
 </mrow><mrow>
 &amp;=\sum_{n=1}^\infty (-1)^nt^{2n}\left(\frac{1-2n}{(2n)!}\right)
-&amp;=&amp;\Big(\frac{2}{2!}-\frac{1}{2!}\Big)t^2
+</mrow><mrow>
+&amp;=\Big(\frac{2}{2!}-\frac{1}{2!}\Big)t^2
 -\Big(\frac{4}{4!}-\frac{1}{4!}\Big)t^4
 +\cdots
 </mrow><mrow>
 &amp;=\sum_{n=1}^\infty (-1)^{n+1}t^{2n}\left(\frac{2n-1}{(2n)!}\right)
-&amp;=&amp;\frac{1}{2!}t^2-\frac{3}{4!}t^4
+</mrow><mrow>
+&amp;=\frac{1}{2!}t^2-\frac{3}{4!}t^4
 +\frac{5}{6!}t^6
 -\frac{7}{8!}t^8+\cdots
 </mrow><mrow>
 \frac{\cos t + t\sin t -1}{t^2}&amp;=\sum_{n=1}^\infty (-1)^{n+1}t^{2n-2}\left(\frac{2n-1}{(2n)!}\right)
-&amp;=&amp;\frac{1}{2!}t-\frac{3}{4!}t^2
+</mrow><mrow>
+&amp;=\frac{1}{2!}t-\frac{3}{4!}t^2
 +\frac{5}{6!}t^4
 -\frac{7}{8!}t^6+\cdots
 </mrow>
@@ -2575,18 +2622,27 @@ Using the Taylor series expansions of <m>\sin x</m> and <m>\cos x</m> with <m>x=
 Now, we're ready to integrate.
 <md>
 <mrow>
-I(x)=\int_0^x\left( \frac{\cos t + t\sin t -1}{t^2}\right)&amp;=\int_0^x \left(\sum_{n=1}^\infty (-1)^{n+1}t^{2n-2}\left(\frac{2n-1}{(2n)!} \right)\right) \dee{t}
+\amp I(x)=\int_0^x\left( \frac{\cos t + t\sin t -1}{t^2}\right)
 </mrow><mrow>
-&amp;= \left[\sum_{n=1}^\infty (-1)^{n+1}\frac{t^{2n-1}}{(2n)!}\right]_0^x
+\amp\hskip0.5in=\int_0^x \left(\sum_{n=1}^\infty (-1)^{n+1}t^{2n-2}\left(\frac{2n-1}{(2n)!} \right)\right) \dee{t}
 </mrow><mrow>
-&amp;=\sum_{n=1}^\infty (-1)^{n+1}\frac{x^{2n-1}}{(2n)!}
+&amp;\hskip0.5in= \left[\sum_{n=1}^\infty (-1)^{n+1}\frac{t^{2n-1}}{(2n)!}\right]_0^x
+</mrow><mrow>
+&amp;\hskip0.5in=\sum_{n=1}^\infty (-1)^{n+1}\frac{x^{2n-1}}{(2n)!}
 </mrow>
 </md>
 </p>
 
 <p> (b)
-<m>I(1)=\frac{1}{2!}-\frac{1}{4!}+\frac{1}{6!}-\frac{1}{8!}+\cdots
-=0.5-0.041\dot6+0.00139-0.000024+\cdots=\boxed{0.460}\,</m>.
+<md>
+<mrow>
+I(1)\amp=\frac{1}{2!}-\frac{1}{4!}+\frac{1}{6!}-\frac{1}{8!}+\cdots
+</mrow><mrow>
+\amp=0.5-0.041\dot6+0.00139-0.000024+\cdots
+</mrow><mrow>
+\amp=\boxed{0.460}
+</mrow>
+</md>
 The error analysis is in part (c).
 </p>
 
@@ -2751,7 +2807,11 @@ For part (c), compare two power series term-by-term.
 <m>\cosh(x)=\displaystyle \sum\limits_{\genfrac{}{}{0pt}{}{n=0}{n\text{ even}}}^\infty
                                       \frac{x^n}{n!}
          = \sum\limits_{n=0}^\infty\frac{x^{2n}}{(2n)!}</m> for all <m>x</m>.
-</p></answer>
+</p>
+<p>
+(b), (c) See the solution.
+</p>
+</answer>
 
 <solution><p> (a) We know that
 <m>e^x = \sum\limits_{n=0}^\infty \frac{x^n}{n!}</m> for all <m>x</m>.
@@ -2760,11 +2820,12 @@ Replacing <m>x</m> by <m>-x</m>, we also have
 and hence
 <md>
 <mrow>
-\cosh(x) =\frac{1}{2}\big[e^x+e^{-x}\big]
+\cosh(x) \amp=\frac{1}{2}\big[e^x+e^{-x}\big]
          =\frac{1}{2}\Big[\sum_{n=0}^\infty \frac{x^n}{n!}
                          + \sum_{n=0}^\infty \frac{(-x)^n}{n!}\Big]
          = \sum_{\genfrac{}{}{0pt}{}{n=0}{n\text{ even}}}^\infty\frac{x^n}{n!}
-         = \sum_{n=0}^\infty\frac{x^{2n}}{(2n)!}
+</mrow><mrow>
+         \amp = \sum_{n=0}^\infty\frac{x^{2n}}{(2n)!}
 </mrow>
 </md>
 for all <m>x</m>. In particular, the interval of convergence is all real numbers.
@@ -2792,9 +2853,10 @@ is
 <md>
 <mrow>
 \frac{b_{n+1}}{b_n}
-= \frac{2^{2n+2}/2^{2n}}{(2n+2)!/(2n)!}
+\amp= \frac{2^{2n+2}/2^{2n}}{(2n+2)!/(2n)!}
 =\frac{4}{(2n+2)(2n+1)}
-\le \frac{4}{8\times 7}
+</mrow><mrow>
+\amp\le \frac{4}{8\times 7}
 =\frac{1}{14}\qquad
 \text{for all }n\ge 3
 </mrow>
@@ -2817,14 +2879,17 @@ Hence
 </p>
 
 <p> (c) Comparing
-<me>
-\cosh(t) = \sum_{n=0}^\infty\frac{t^{2n}}{(2n)!}
+<md>
+<mrow>
+\cosh(t) \amp= \sum_{n=0}^\infty\frac{t^{2n}}{(2n)!}
  = \sum_{n=0}^\infty\frac{{(t^2)}^n}{(2n)!}
-\qquad\text{and}\qquad
+</mrow><mrow>
+\text{and}\qquad
 e^{\frac{1}{2}t^2}
-    = \sum_{n=0}^\infty\frac{{(\frac{1}{2}t^2)}^n}{n!}
+    \amp= \sum_{n=0}^\infty\frac{{(\frac{1}{2}t^2)}^n}{n!}
     = \sum_{n=0}^\infty\frac{{(t^2)}^n}{2^n n!}
-</me>
+</mrow>
+</md>
 we see that it suffices to show that <m>(2n)! \ge 2^n n!</m>.
 Now. for all <m>n\ge 1</m>,
 <md>
@@ -2881,13 +2946,22 @@ x_{n+1}=x_n - \frac{x_n^3-2}{3x_n^2}=\frac23\left(x_n+\frac{1}{x_n^2}\right).</m
 We want to start somewhere reasonably close to the actual root we want, so let's set <m>x_0=1</m>. (Your starting point may vary.)
 <md>
 <mrow>
-x_0&amp;=1 &amp;&amp;\implies x_1=\dfrac23\left(1+\frac11\right)=\dfrac{4}{3}&amp;\approx&amp;1.3333
+x_0&amp;=1 &amp;\implies x_1\amp=\dfrac23\left(1+\frac11\right)=\dfrac{4}{3}
 </mrow><mrow>
- x_1&amp;=\dfrac43 &amp;&amp;\implies x_2=\dfrac23\left(\frac43+\frac{9}{16}\right)=\dfrac{91}{72}&amp;\approx&amp;1.2639
+&amp;&amp;\amp\approx 1.3333
 </mrow><mrow>
-  x_2&amp;=\dfrac{91}{72} &amp;&amp;\implies x_3=\dfrac23\left(\dfrac{91}{72}+\dfrac{72^2}{91^2}\right)=\dfrac{1126819 }{894348 }&amp;\approx&amp;1.2599
+ x_1&amp;=\dfrac43 &amp;\implies x_2\amp=\dfrac23\left(\frac43+\frac{9}{16}\right)
+        =\dfrac{91}{72}
 </mrow><mrow>
-    x_3&amp;=\dfrac{1126819 }{894348 } &amp;&amp;\implies x_4=\dfrac23\left(\dfrac{1126819 }{894348 }+\dfrac{894348^2}{1126819^2}\right)&amp;\approx&amp;1.2599
+&amp;&amp;\amp\approx1.2639
+</mrow><mrow>
+  x_2&amp;=\dfrac{91}{72} &amp;\implies x_3\amp=\dfrac23\left(\dfrac{91}{72}+\dfrac{72^2}{91^2}\right)=\dfrac{1126819 }{894348 }
+</mrow><mrow>
+&amp;&amp;\amp\approx1.2599
+</mrow><mrow>
+    x_3&amp;=\dfrac{1126819 }{894348 } &amp;\implies x_4\amp=\dfrac23\left(\dfrac{1126819 }{894348 }+\dfrac{894348^2}{1126819^2}\right)
+</mrow><mrow>
+&amp;&amp;\amp\approx1.2599
 </mrow>
 </md>
 So, <m>\sqrt[3]{2}\approx 1.26</m>.
@@ -3007,11 +3081,12 @@ f^{(10)}\left(\frac{1}{5}\right)&amp;=\sum_{n=2}^\infty (-1)^n\frac{(6n+3)!}{(2n
 <p>So, <m>S_5</m> is a sufficient approximation. That is,
 <md>
 <mrow>
-f^{(10)}\left(\frac15\right)&amp;\approx \sum_{n=2}^5 (-1)^n\frac{(6n+3)!}{(2n+1)(6n-7)!\cdot 5^{6n-7}}
+\amp f^{(10)}\left(\frac15\right)\approx \sum_{n=2}^5 (-1)^n\frac{(6n+3)!}{(2n+1)(6n-7)!\cdot 5^{6n-7}}
 </mrow><mrow>
 &amp;=(-1)^2\frac{15!}{5\cdot 5!\cdot 5^{5}}+(-1)^3\frac{21!}{7!\cdot 11!\cdot 5^{11}}+
-(-1)^4\frac{27!}{9!\cdot 17!\cdot 5^{17}}+
-(-1)^5\frac{33!}{11!\cdot 23!\cdot 5^{23}}
+(-1)^4\frac{27!}{9!\cdot 17!\cdot 5^{17}}
+</mrow><mrow>
+\amp\hskip2in +(-1)^5\frac{33!}{11!\cdot 23!\cdot 5^{23}}
 </mrow><mrow>
 &amp;=\frac{15!}{5!\cdot5^6}-\frac{21!}{7!\cdot 11!\cdot 5^{11}}+\frac{27!}{9!\cdot 17!\cdot 5^{17}}-\frac{33!}{11!\cdot 23!\cdot 5^{23}}
 </mrow>
@@ -3047,7 +3122,7 @@ e^{-1/x^2} &amp; x \neq 0\\
 <answer><p>
 	(a)
 	</p>
-	<sidebyside width="50%">
+	<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 	\YEaaxis{4}{4}{.5}{2.5}
 	\draw (0,0) node[vertex]{};
@@ -3084,7 +3159,7 @@ To sketch <m>y=f(x)</m>, we note the following:
 <li> For <m>x\neq 0</m>,  <m>f''(x)=2x^{-6}(2-3x^2)e^{-1/x^2}</m>, so our curve is concave up on <m>(-\sqrt{2/3},\sqrt{2/3})</m>, and concave down elsewhere.
 </li>
 </ul>
-</p><sidebyside width="50%">
+</p><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 		\YEaaxis{4}{4}{.5}{2.5}
 		\draw (0,0) node[vertex]{};
@@ -3128,15 +3203,36 @@ Since <m>f(x)</m> is odd, <m>f(-x)=-f(x)</m> for all <m>x</m> in its domain. Con
 f(-x)&amp;=-f(x)
 </mrow><mrow>
 \sum_{n=0}^\infty\frac{f^{(n)}(0)}{n!}(-x)^n&amp;=-\sum_{n=0}^\infty\frac{f^{(n)}(0)}{n!}x^n
+</mrow>
+</md>
+Now separating the even powered and odd powered terms
+<md>
+<mrow>
+\amp\textcolor{red}{\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{(2n+1)!}(-x)^{2n+1}}+
+\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}(-x)^{2n}}
 </mrow><mrow>
-\textcolor{red}{\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{(2n+1)!}(-x)^{2n+1}}+
-\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}(-x)^{2n}}&amp;=\textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{n!}x^{2n+1}}\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{n!}x^{2n}}
+&amp;\hskip0.5in
+=\textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{n!}x^{2n+1}}\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{n!}x^{2n}}
+</mrow>
+</md>
+For any integer <m>n</m>, we have that <m>(-1)^{2n}=1</m> and <m>(-1)^{2n+1}=-1</m> so that
+<md>
+<mrow>
+\amp\textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{(2n+1)!}x^{2n+1}}+
+\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}
 </mrow><mrow>
-\textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{(2n+1)!}x^{2n+1}}+
-\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&amp;=\textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{n!}x^{2n+1}}\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{n!}x^{2n}}
-</mrow><mrow>
+&amp;\hskip0.5in=\textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{n!}x^{2n+1}}\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{n!}x^{2n}}
+</mrow>
+</md>
+and
+<md>
+<mrow>
 \textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&amp;=\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{n!}x^{2n}}
-</mrow><mrow>
+</mrow>
+</md>
+and
+<md>
+<mrow>
 2\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&amp;=0
 </mrow><mrow>
 \textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&amp;=0

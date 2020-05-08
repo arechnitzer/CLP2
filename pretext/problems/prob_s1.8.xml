@@ -41,11 +41,17 @@ Go ahead and try it!
 If <m>u=\cos x</m>, then <m>-\dee{u}=\dee{x}</m>. If <m>n \neq -1</m>, then
 <md>
 <mrow>
-\int_0^{\pi/4} \sin x \cos^n x \dee{x}&amp;= - \int_1^{1/\sqrt2} u^n \dee{u} = \left[-\frac{1}{n+1}u^{n+1}\right]_1^{1/\sqrt2}=\frac{1}{n+1}\left(1-\frac{1}{\sqrt{2}^{n+1}}\right)
+\int_0^{\pi/4} \sin x \cos^n x \dee{x}
+&amp;= - \int_1^{1/\sqrt2} u^n \dee{u} 
+= \left[-\frac{1}{n+1}u^{n+1}\right]_1^{1/\sqrt2}
+</mrow><mrow>
+&amp;=\frac{1}{n+1}\left(1-\frac{1}{\sqrt{2}^{n+1}}\right)
 </mrow>
 <intertext>If <m>n=-1</m>, then</intertext><mrow>
 \int_0^{\pi/4} \sin x \cos^n x \dee{x}&amp;= - \int_1^{1/\sqrt2} u^n \dee{u} =
- - \int_1^{1/\sqrt2} \frac{1}{u} \dee{u} =\bigg[ -\log|u|\bigg]_1^{1/\sqrt2}
+ - \int_1^{1/\sqrt2} \frac{1}{u} \dee{u} 
+</mrow><mrow>
+&amp;=\bigg[ -\log|u|\bigg]_1^{1/\sqrt2}
 </mrow><mrow>
 &amp; =-\log\left(\frac{1}{\sqrt2}\right) = \frac{1}{2}\log 2
 </mrow>
@@ -358,10 +364,11 @@ gives
 \int \tan^3 x \sec^5x \,\dee{x}
 &amp;=\int\frac{\sin^3 x}{\cos^8 x}\,\dee{x}
 =\int\frac{(1-\cos^2 x)\sin x}{\cos^8 x}\,\dee{x}
-=-\int\frac{1-u^2}{u^8}\,\dee{u}
 </mrow><mrow>
-&amp;=-\Big[\frac{u^{-7}}{-7}-\frac{u^{-5}}{-5}\Big]+C
-=\frac{1}{7}\sec^7 x -\frac{1}{5}\sec^5 x + C
+&amp;=-\int\frac{1-u^2}{u^8}\,\dee{u}
+=-\Big[\frac{u^{-7}}{-7}-\frac{u^{-5}}{-5}\Big]+C
+</mrow><mrow>
+&amp;=\frac{1}{7}\sec^7 x -\frac{1}{5}\sec^5 x + C
 </mrow>
 </md>
 </li>
@@ -373,10 +380,11 @@ gives
 <mrow>
 \int \tan^3 x \sec^5x \,\dee{x}
 &amp;=\int \tan^2 x \sec^4x\ (\tan x\sec x)\,\dee{x}
-=\int (u^2-1) u^4\,\dee{u}
 </mrow><mrow>
-&amp;=\Big[\frac{u^{7}}{7}-\frac{u^{5}}{5}\Big]+C
-=\frac{1}{7}\sec^7 x -\frac{1}{5}\sec^5 x + C
+&amp;=\int (u^2-1) u^4\,\dee{u}
+=\Big[\frac{u^{7}}{7}-\frac{u^{5}}{5}\Big]+C
+</mrow><mrow>
+&amp;=\frac{1}{7}\sec^7 x -\frac{1}{5}\sec^5 x + C
 </mrow>
 </md>
 </li>
@@ -403,10 +411,12 @@ Use the substitution <m>u=\tan x</m>, so that <m>\dee{u}=\sec^2 x\,\dee{x}</m>:
 <md>
 <mrow>
 \int\sec^4x\,\tan^{46}x\,\dee{x}
-&amp;=\int(\tan^2x+1) \tan^{46}x\, \sec^2 x\,\dee{x} =\int (u^2+1)u^{46}\,\dee{u}
+&amp;=\int(\tan^2x+1) \tan^{46}x\, \sec^2 x\,\dee{x} 
 </mrow><mrow>
-&amp;=\frac{u^{49}}{49}+\frac{u^{47}}{47}+C
-=\frac{\tan^{49}x}{49}+\frac{\tan^{47}x}{47}+C
+&amp;=\int (u^2+1)u^{46}\,\dee{u}
+=\frac{u^{49}}{49}+\frac{u^{47}}{47}+C
+</mrow><mrow>
+&amp;=\frac{\tan^{49}x}{49}+\frac{\tan^{47}x}{47}+C
 </mrow>
 </md>
 </p></solution>
@@ -572,14 +582,14 @@ b^a = \cos x = \left(\sec x\right)^{-1}</m>.
 <statement><p> Evaluate <m>\displaystyle\int_0^{\pi/6} \tan^6 x \dee{x}</m>.
 </p></statement>
 <hint><p>
-Integrating even powers of tangent is surprisingly different from integrating odd powers of tangent. You'll want to use the identity <m>\tan^2x  = \sec^2 x -1</m>, then use the substitution <m>u=\tan x</m>, <m>\dee{u}=\sec^2 x\dee{x}</m> on (parhaps only a part of) the resulting integral.
+Integrating even powers of tangent is surprisingly different from integrating odd powers of tangent. You'll want to use the identity <m>\tan^2x  = \sec^2 x -1</m>, then use the substitution <m>u=\tan x</m>, <m>\dee{u}=\sec^2 x\dee{x}</m> on (perhaps only a part of) the resulting integral.
  Example<nbsp/><xref ref="eg_TRGINTi"/> show you how this can be accomplished.
 </p></hint>
 <answer><p>
 <m>\dfrac{41}{45\sqrt{3}} - \dfrac{\pi}{6}</m>
 </p></answer>
 <solution><p>
-Integrating even powers of tangent is surprisingly different from integrating odd powers of tangent. For even powers, we use the identity <m>\tan^2x  = \sec^2 x -1</m>, then use the substitution <m>u=\tan x</m>, <m>\dee{u}=\sec^2 x\dee{x}</m> on (parhaps only a part of) the resulting integral.
+Integrating even powers of tangent is surprisingly different from integrating odd powers of tangent. For even powers, we use the identity <m>\tan^2x  = \sec^2 x -1</m>, then use the substitution <m>u=\tan x</m>, <m>\dee{u}=\sec^2 x\dee{x}</m> on (perhaps only a part of) the resulting integral.
 <md>
 <mrow>
 \int_0^{\pi/6} \tan^6 x \dee{x}&amp;=\int_0^{\pi/6} \tan^4 x(\sec^2 x -1) \dee{x}
@@ -588,7 +598,7 @@ Integrating even powers of tangent is surprisingly different from integrating od
 </mrow><mrow>
 &amp;=\int_0^{\pi/6} \bigg(\tan^4 x \sec^2 x - \tan^2 x(\sec^2 x-1)\bigg)\dee{x}
 </mrow><mrow>&amp;=\int_0^{\pi/6}\bigg( \tan^4 x \sec^2 x - \underbrace{\tan^2 x\sec^2 x}_{u^2\dee{u}}+\tan^2 x\bigg)\dee{x}
-</mrow><mrow>&amp;=\int_0^{\pi/6}\bigg( \tan^4 x \sec^2 x - \tan^2 x\sec^2 x+(\underbrace{\sec^2x}_{\dee{u}}-1)\bigg)\dee{x}
+</mrow><mrow>&amp;=\int_0^{\pi/6}\!\bigg(\!\tan^4 x \sec^2 x - \tan^2 x\sec^2 x+(\underbrace{\sec^2x}_{\dee{u}}-1)\bigg)\dee{x}
 </mrow><mrow>&amp;=\int_0^{\pi/6}\left( \tan^4 x  - \tan^2 x+1\right)\sec^2 x\dee{x} - \int_0^{\pi/6} 1\dee{x}
 </mrow>
 <intertext> Note <m>\tan(0)=0</m>, and <m>\tan(\pi/6)=1/\sqrt{3}</m>.
@@ -685,7 +695,7 @@ Remember <m>e</m> is some constant. What are our strategies when the power of se
 Since the power of secant is even and positive, we can reserve two secants for <m>\dee{u}</m>, and change the rest into tangents, setting the stage for the substitution <m>u = \tan \theta</m>, <m>\dee{u}=\sec^2 \theta\dee{\theta}</m>.
 <md>
 <mrow>
-\int \sec^{8}\theta \tan^{e}\theta \dee{\theta}&amp;=\int \sec^6 \theta \tan^e \theta \sec^2 \theta\dee{\theta}
+&amp;\int \sec^{8}\theta \tan^{e}\theta \dee{\theta}=\int \sec^6 \theta \tan^e \theta \sec^2 \theta\dee{\theta}
 </mrow><mrow>
 &amp;=\int (\tan^2 \theta +1)^3  \tan^e \theta \sec^2 \theta\dee{\theta}
 </mrow><mrow>
@@ -697,7 +707,9 @@ Since the power of secant is even and positive, we can reserve two secants for <
 </mrow><mrow>
 &amp;=\frac{1}{7+e}u^{7+e}+\frac{3}{5+e}u^{5+e}+\frac{3}{3+e}u^{3+e}+\frac{1}{1+e}u^{1+e}+C
 </mrow><mrow>
-&amp;=\frac{1}{7+e}\tan^{7+e}\theta+\frac{3}{5+e}\tan^{5+e}\theta+\frac{3}{3+e}\tan^{3+e}\theta+\frac{1}{1+e}\tan^{1+e}\theta+C
+&amp;=\frac{1}{7+e}\tan^{7+e}\theta+\frac{3}{5+e}\tan^{5+e}\theta+\frac{3}{3+e}\tan^{3+e}\theta
+</mrow><mrow>
+&amp;\hskip2in+\frac{1}{1+e}\tan^{1+e}\theta+C
 </mrow><mrow>
 &amp;=\tan^{1+e}\theta\left(
 \frac{\tan^{6}\theta}{7+e}+\frac{3\tan^4\theta}{5+e}+\frac{3\tan^2\theta}{3+e}+\frac{1}{1+e}
@@ -737,9 +749,11 @@ See Example <xref ref="eg_TRGINTi"/> for a strategy for integrating powers of ta
 <mrow>
 \int\tan^nx\dee{x}
 &amp;=\int\tan^{n-2}x\ \tan^2x\dee{x}
+</mrow><mrow>
 &amp;=\int\tan^{n-2}x\ \sec^2x\dee{x}-\int\tan^{n-2}x\dee{x}
 </mrow><mrow>
 &amp;=\int y^{n-2}\,\dee{y}-\int\tan^{n-2}x\dee{x}
+</mrow><mrow>
 &amp;=\frac{y^{n-1}}{n-1}-\int\tan^{n-2}x\dee{x}
 </mrow><mrow>
 &amp;=\frac{\tan^{n-1}x}{n-1} -\int\tan^{n-2}x\dee{x}
@@ -757,10 +771,12 @@ Using the trig identity <m>\tan^2x=\sec^2 x-1</m> and the substitution
   <mrow>
 \int\tan^nx\dee{x}
 &amp;=\int\tan^{n-2}x\ \tan^2x\dee{x}
-&amp;&amp;=\int\tan^{n-2}x\ \sec^2x\dee{x}-\int\tan^{n-2}x\dee{x}
+</mrow><mrow>
+&amp;=\int\tan^{n-2}x\ \sec^2x\dee{x}-\int\tan^{n-2}x\dee{x}
 </mrow><mrow>
 &amp;=\int y^{n-2}\,\dee{y}-\int\tan^{n-2}x\dee{x}
-&amp;&amp;=\frac{y^{n-1}}{n-1}-\int\tan^{n-2}x\dee{x}
+</mrow><mrow>
+&amp;=\frac{y^{n-1}}{n-1}-\int\tan^{n-2}x\dee{x}
 </mrow><mrow>
 &amp;=\frac{\tan^{n-1}x}{n-1} -\int\tan^{n-2}x\dee{x}
 </mrow>
@@ -783,8 +799,11 @@ We apply this reduction formula, with <m>n=6,4,2</m>.
 <mrow>
 \int_0^{\pi/4}\tan^6(x)\,\dee{x}
 &amp;=\frac{1}{5}-\int_0^{\pi/4}\tan^4(x)\,\dee{x}
-=\frac{1}{5}-\frac{1}{3}+\int_0^{\pi/4}\tan^2(x)\,\dee{x}
-=\frac{1}{5}-\frac{1}{3}+1-\int_0^{\pi/4}\,\dee{x}\cr
+</mrow><mrow>
+&amp;=\frac{1}{5}-\frac{1}{3}+\int_0^{\pi/4}\tan^2(x)\,\dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{5}-\frac{1}{3}+1-\int_0^{\pi/4}\,\dee{x}
+</mrow><mrow>
 &amp;=\frac{1}{5}-\frac{1}{3}+1-\frac{\pi}{4}
 =\frac{13}{15}-\frac{\pi}{4}
 </mrow>
@@ -1006,7 +1025,9 @@ v=\int \sin x  \cos x \dee{x}&amp;=\int u \dee{u} = \frac{1}{2}u^2+C = \frac{1}{
 </mrow><mrow>&amp;=x\sin^2 x - \int x \sin x \cos x\dee{x} - \frac{x}{2} +\frac{1}{4}\sin(2x)+C
 </mrow>
 <intertext>So, we have the equation</intertext><mrow>
-\color{red}{\int x\sin x  \cos x \dee{x}}&amp;=x\sin^2 x -\textcolor{red}{ \int x \sin x \cos x\dee{x}} - \frac{x}{2} + \frac{1}{4}\sin(2x)+C
+\color{red}{\int x\sin x  \cos x \dee{x}}&amp;=x\sin^2 x -\textcolor{red}{ \int x \sin x \cos x\dee{x}} 
+</mrow><mrow>
+&amp;\hskip1in- \frac{x}{2} + \frac{1}{4}\sin(2x)+C
 </mrow><mrow>
 \color{red}{2\int x\sin x  \cos x \dee{x}} &amp;=x\sin^2 x - \frac{x}{2} + \frac{1}{4}\sin(2x)+C
 </mrow><mrow>

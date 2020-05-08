@@ -269,8 +269,9 @@ For any constant <m>C</m>, <m>F(x)+C</m> is an antiderivative of <m>f(x)</m>, be
 <li> We differentiate with respect to <m>a</m>. Recall <m>\diff{}{x}\{\arccos x\} = \frac{-1}{\sqrt{1-x^2}}</m>. To differentiate <m>\frac{1}{2}a\sqrt{1-a^2}</m>, we use the product and chain rules.
 <md>
 <mrow>
-\diff{}{a}\left\{\frac{\pi}{4} - \frac{1}{2}\arccos(a)+\frac{1}{2}a\sqrt{1-a^2}\right\} &amp;=
-0-\frac{1}{2}\cdot\frac{-1}{\sqrt{1-a^2}} + \left(\frac{1}{2}a\right)\cdot\frac{-2a}{2\sqrt{1-a^2}} + \frac{1}{2}\sqrt{1-a^2}
+&amp;\diff{}{a}\left\{\frac{\pi}{4} - \frac{1}{2}\arccos(a)+\frac{1}{2}a\sqrt{1-a^2}\right\}
+</mrow><mrow> 
+&amp;=0-\frac{1}{2}\cdot\frac{-1}{\sqrt{1-a^2}} + \left(\frac{1}{2}a\right)\cdot\frac{-2a}{2\sqrt{1-a^2}} + \frac{1}{2}\sqrt{1-a^2}
 </mrow><mrow>
 &amp;=\frac{1}{2\sqrt{1-a^2}}-
 \frac{a^2}{2\sqrt{1-a^2}}+\frac{1-a^2}{2\sqrt{1-a^2}}
@@ -291,8 +292,9 @@ For any constant <m>C</m>, <m>F(x)+C</m> is an antiderivative of <m>f(x)</m>, be
 <li>  We differentiate with respect to <m>a</m>. Recall <m>\diff{}{x}\{\arccos x\} = \frac{-1}{\sqrt{1-x^2}}</m>. To differentiate <m>\frac{1}{2}a\sqrt{1-a^2}</m>, we use the product and chain rules.
 <md>
 <mrow>
-\diff{}{a}\left\{\frac{\pi}{4} - \frac{1}{2}\arccos(a)+\frac{1}{2}a\sqrt{1-a^2}\right\} &amp;=
-0-\frac{1}{2}\cdot\frac{-1}{\sqrt{1-a^2}} + \left(\frac{1}{2}a\right)\cdot\frac{-2a}{2\sqrt{1-a^2}} + \frac{1}{2}\sqrt{1-a^2}
+&amp;\diff{}{a}\left\{\frac{\pi}{4} - \frac{1}{2}\arccos(a)+\frac{1}{2}a\sqrt{1-a^2}\right\}
+</mrow><mrow>
+&amp;=0-\frac{1}{2}\cdot\frac{-1}{\sqrt{1-a^2}} + \left(\frac{1}{2}a\right)\cdot\frac{-2a}{2\sqrt{1-a^2}} + \frac{1}{2}\sqrt{1-a^2}
 </mrow><mrow>
 &amp;=\frac{1}{2\sqrt{1-a^2}}-
 \frac{a^2}{2\sqrt{1-a^2}}+\frac{1-a^2}{2\sqrt{1-a^2}}
@@ -360,7 +362,7 @@ In order to apply the Fundamental Theorem of Calculus Part 2, the integrand must
 <exercise xml:id="p1_1_FTC1">
 <statement><p>  As in the proof of the Fundamental Theorem of Calculus, let <m>F(x) = \int_{a}^x f(t)\dee{t}</m>.
 In the diagram below, shade the area corresponding to <m>F(x+h)-F(x)</m>.
-</p><sidebyside width="40%">
+</p><sidebyside width="60%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEtaaxis{1}{5}{1}{3}
 \YExcoord{1}{a}
@@ -371,7 +373,7 @@ In the diagram below, shade the area corresponding to <m>F(x+h)-F(x)</m>.
 </sidebyside></statement>
 <hint><p> Use the definition of <m>F(x)</m> as an area.
 </p></hint>
-<answer><sidebyside width="40%">
+<answer><sidebyside width="60%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEtaaxis{1}{5}{1}{3}
 \YExcoord{1}{a}
@@ -386,7 +388,7 @@ In the diagram below, shade the area corresponding to <m>F(x+h)-F(x)</m>.
 <p>Using the definition of <m>F</m>, <m>\textcolor{red}{F(x)}</m> is the area under the curve from <m>a</m> to <m>x</m>, and <m>\textcolor{blue}{F(x+h)}</m> is the area under the curve from <m>a</m> to <m>x+h</m>. These are shown on the same diagram, below.
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="60%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEtaaxis{1}{5}{1}{3}
 \YExcoord{1}{a}
@@ -400,7 +402,7 @@ In the diagram below, shade the area corresponding to <m>F(x+h)-F(x)</m>.
 Then the area represented by <m>\textcolor{blue}{F(x+h)}-\textcolor{red}{F(x)}</m> is the area that is outside the red, but inside the blue. Equivalently, it is <m>\int\limits_{x}^{x+h} f(t)\dee{t}</m>.
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="60%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEtaaxis{1}{5}{1}{3}
 \YExcoord{1}{a}
@@ -421,7 +423,7 @@ Let <m>F(x) = \displaystyle\int_0^x f(t)dt</m>, where <m>f(t)</m> is shown in th
 <li> Where is <m>F(x)</m> increasing and where is it decreasing?
 </li>
 </ol>
-</p><sidebyside width="33%">
+</p><sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEtaaxis{1}{5}{3}{3}
 \draw[thick] plot[domain=-1:4.3, samples=60] (\x,{(\x+.5)*(\x-1)*(\x-3)/(abs(\x)+1)});
@@ -454,7 +456,7 @@ Let <m>G(x) = \displaystyle\int_x^0 f(t)dt</m>, where <m>f(t)</m> is shown in th
 <li> Where is <m>G(x)</m> increasing and where is it decreasing?
 </li>
 </ol>
-</p><sidebyside width="33%">
+</p><sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEtaaxis{1}{5}{3}{3}
 \draw[thick] plot[domain=-1:4.3, samples=60] (\x,{(\x+.5)*(\x-1)*(\x-3)/(abs(\x)+1)});
@@ -508,7 +510,7 @@ Using the definition of the derivative,
 </md>
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEtaaxis{1}{3}{1}{3}
 \YExcoord{1}{x}
@@ -539,7 +541,7 @@ Using the definition of the derivative,
 &amp;=x
 </mrow>
 </md>
-</p><sidebyside width="33%">
+</p><sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEtaaxis{1}{3}{1}{3}
 \YExcoord{1}{x}
@@ -594,14 +596,17 @@ If <m>\diff{}{x}\{F(x)\}=f(x)</m>, that tells us <m>\int f(x)\dee{x} = F(x)+C</m
 <solution><p>
 <md>
 <mrow>
-\diff{}{x}\{x\log(ax)-x\}&amp;=x\left(\frac{a}{ax}\right)+\log(ax)-1 &amp;\mbox{(product rule, chain rule)}
+\diff{}{x}\{x\log(ax)-x\}&amp;=x\left(\frac{a}{ax}\right)+\log(ax)-1\quad\mbox{(product rule, chain rule)}
 </mrow><mrow>
 &amp;=\log(ax)
 </mrow>
 <intertext>So, we know</intertext><mrow>
-\int \log(ax)\dee{x}&amp;= x\log(ax)-x+C&amp;\mbox{where $a$ is a given constant, and $C$ is any constant.}
+\int \log(ax)\dee{x}&amp;= x\log(ax)-x+C
 </mrow>
 </md>
+where <m>a</m> is a given constant, and <m>C</m> is any constant.
+</p>
+<p>
 Remark: <m>\int \log(ax)\dee{x}</m> can be calculated using the method of Integration by Parts, which you will learn in Section<nbsp/><xref ref="sec_intbyparts"/>.
 </p></solution>
 </exercise>
@@ -619,8 +624,10 @@ When you're differentiating, you can leave the <m>e^x</m> factored out.
 <solution><p>
 <md>
 <mrow>
-\diff{}{x}\left\{e^x\left(x^3-3x^2+6x-6\right)\right\}&amp;=e^x\left(3x^2-6x+6\right)+e^x\left(x^3-3x^2+6x-6\right)
-&amp;\mbox{(product rule)}
+&amp;\diff{}{x}\left\{e^x\left(x^3-3x^2+6x-6\right)\right\}
+</mrow><mrow>
+&amp;=e^x\left(3x^2-6x+6\right)+e^x\left(x^3-3x^2+6x-6\right)
+\quad\mbox{(product rule)}
 </mrow><mrow>
 &amp;=e^x\left(3x^2-6x+6+x^3-3x^2+6x-6\right)
 </mrow><mrow>
@@ -651,9 +658,10 @@ After differentiation, you can simplify pretty far. Keep at it!
 <solution><p>
 <md>
 <mrow>
-\diff{}{x}\left\{\log\left|x+\sqrt{x^2+a^2}\right|\right\}&amp;=
-\frac{1}{x+\sqrt{x^2+a^2}}\cdot \left(1+\frac{1}{2\sqrt{x^2+a^2}}\cdot 2x\right)
-&amp;\mbox{(chain rule)}
+\diff{}{x}\left\{\log\left|x+\sqrt{x^2+a^2}\right|\right\}
+&amp;=\frac{1}{x+\sqrt{x^2+a^2}}\cdot \left(1+\frac{1}{2\sqrt{x^2+a^2}}\cdot 2x\right)
+</mrow><mrow>
+&amp;\hskip2in\mbox{(chain rule)}
 </mrow><mrow>
 &amp;=\frac{1+\frac{x}{\sqrt{x^2+a^2}}}{x+\sqrt{x^2+a^2}}
 =\frac{\frac{\sqrt{x^2+a^2}+x}{\sqrt{x^2+a^2}}}{x+\sqrt{x^2+a^2}}
@@ -769,9 +777,10 @@ Then by the Fundamental Theorem of Calculus Part 2,
 <md>
 <mrow>
 \int_1^2 \dee{x} + 2\int_1^2 \frac{1}{x^2}\,\dee{x}
-=\Big[x\Big]_1^2 + 2\Big[-\frac{1}{x}\Big]_1^2
+&amp;=\Big[x\Big]_1^2 + 2\Big[-\frac{1}{x}\Big]_1^2
 =\big[2-1\big] + 2\Big[-\frac{1}{2}+1\Big]
-=2
+</mrow><mrow>
+&amp;=2
 </mrow>
 </md>
 </p>
@@ -1159,9 +1168,10 @@ Then by the chain rule,
 <md>
 <mrow>
 \diff{}{u} \left\{ \int_{\cos u}^0 \frac{\dee{t}}{1+t^3} \right\}
-= \diff{}{u} G(\cos u)
+&amp;= \diff{}{u} G(\cos u)
 =  G'(\cos u) \cdot \diff{}{u}\cos u
-= {-}\frac{1}{1+\cos^3 u} \cdot (-\sin{u}).
+</mrow><mrow>
+&amp;= {-}\frac{1}{1+\cos^3 u} \cdot (-\sin{u}).
 </mrow>
 </md>
 </p></solution>
@@ -1249,7 +1259,7 @@ See Example <xref ref="eg_INTftocC"/>.
 (a) Write
 <md>
 <mrow>
-F(x)=G(x^2)-H(-x)\qquad\hbox{with}\quad G(y)=\int_0^{y} e^{-t}\,\dee{t},\
+F(x)=G(x^2)-H(-x)\quad\hbox{with}\quad G(y)=\int_0^{y} e^{-t}\,\dee{t},\
 H(y)=\int^{y}_0 e^{-t^2}\,\dee{t}
 </mrow>
 </md>
@@ -1376,7 +1386,7 @@ F'(x) &amp;= G'(-x^2)\ \diff{}{x}\big\{-x^2\big\} - G'(x^5)\ \diff{}{x}\big\{x^5
 <exercise><title><fromexam>2014D</fromexam></title>
 <statement><p>
 Differentiate
-<m>\displaystyle \int_x^{e^x} \sqrt{\sin t}\,\dee{t}</m>.
+<m>\displaystyle \int_x^{e^x} \sqrt{\sin t}\,\dee{t}</m>  for <m>0\lt x\lt \log \pi</m>.
 </p></statement>
 
 <hint><p>
@@ -1390,7 +1400,7 @@ See Example <xref ref="eg_INTftocC"/>.
 <solution><p>
 Define
 with
-<m>G(y) = \displaystyle\int_0^y \sqrt{\sin t}\,\dee{t}</m>
+<m>G(y) = \displaystyle\int_0^y \sqrt{\sin t}\,\dee{t}</m>.
 Then:
 <md>
 <mrow>
@@ -1711,7 +1721,7 @@ Below is the graph of <m>y=f(t)</m>, <m>-5 \leq t \leq 5</m>.
 Define <m>F(x) = \displaystyle\int_{0}^x f(t)\dee{t}</m> for any <m>x</m> in <m>[-5,5]</m>. Sketch <m>F(x)</m>.
 </p>
 
-<sidebyside width="75%">
+<sidebyside width="90%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{6}{8}{2}{4}
 \draw[thick, blue] plot[domain=-5:5, samples=100] (\x,{(\x*\x)/3+1)*cos(\x*1.57 r)/2}) node[above right]{$y=f(x)$};
@@ -1727,7 +1737,7 @@ Carefully check the Fundamental Theorem of Calculus: as written, it only applies
 <p>Is <m>F(x)</m> even or odd?
 </p></hint>
 <answer><p> In the sketch below, open dots denote inflection points, and closed dots denote extrema.
-</p><sidebyside width="75%">
+</p><sidebyside width="90%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{6}{8}{2}{4}
 \draw[thick, red] plot[domain=0:5, samples=100]
@@ -1762,7 +1772,7 @@ We learned quite a lot last semester about curve sketching. We can use those tec
 <li>
 <p>
 Using the Fundamental Theorem of Calculus Part 1, <m>F'(x) \gt 0</m> when <m>0 \lt x \lt 1</m> and when <m>3 \lt x \lt 5</m>; <m>F'(x) \lt 0</m> when <m>1 \lt x \lt 3</m>. So, <m>F(x)</m> is decreasing from 1 to 3, and increasing from 0 to 1 and also from 3 to 5. That gives us a skeleton to work with.
-</p><sidebyside width="40%">
+</p><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{6}{1}{3}
 \foreach \x in {1,3,5}{
@@ -1781,7 +1791,7 @@ We can use <m>F''(x)</m> to get the concavity of <m>F(x)</m>. Note <m>F''(x)=f'(
 Further, <m>f(x)</m> is increasing on (roughly) <m>(2.5,4)</m>, so <m>F(x)</m> is concave up there, and has inflection points at about <m>x=2.5</m> and <m>x=4</m>.
 </p>
 
-<sidebyside width="75%">
+<sidebyside width="90%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{6}{8}{2}{4}
 \draw[thick, red] plot[domain=0:5, samples=100]
@@ -1807,9 +1817,11 @@ Now we can consider the left half of the graph. If you stare at it long enough, 
 <md>
 <mrow>
 F(-x)&amp;=\int_0^{-x} f(t)\dee{t}
-&amp;\text{As in Example }<xref ref="eg_lefthalfevenfunction"/>\text{, since $f(t)$ is even,}
+=\int_x^0 f(t)\dee{t}
 </mrow><mrow>
-&amp;=\int_x^0 f(t)\dee{t}=-\int_0^x f(t)\dee{t}
+&amp;\hskip0.5in\text{as in Example }<xref ref="eg_lefthalfevenfunction"/>\text{, since $f(t)$ is even,}
+</mrow><mrow>
+&amp;=-\int_0^x f(t)\dee{t}
 </mrow><mrow>
 &amp;=-F(x)
 </mrow>
@@ -1817,7 +1829,7 @@ F(-x)&amp;=\int_0^{-x} f(t)\dee{t}
 Knowing that <m>F(x)</m> is odd allows us to finish our sketch.
 </p>
 
-<sidebyside width="75%">
+<sidebyside width="90%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{6}{8}{2}{4}
 \draw[thick, red] plot[domain=0:5, samples=100]
@@ -1872,21 +1884,21 @@ Using the product rule, followed by the chain rule, followed
 by the Fundamental Theorem of Calculus Part 1,
 <md>
 <mrow>
-f'(x) &amp; = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
+f'(x)&amp;= 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
            x^3\diff{}{x}\int_{0}^{x^3+1} e^{t^3} \dee{t}
 </mrow><mrow>
-&amp; = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
+&amp;= 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
            x^3\ \big[3x^2\big]
-           \Bigg[\frac{d\hfill}{dy}\int_{0}^{y} e^{t^3} \dee{t}\Bigg]_{y=x^3+1}
+           \Bigg[\diff{}{y}\int_{0}^{y} e^{t^3} \dee{t}\Bigg]_{y=x^3+1}
 </mrow><mrow>
-&amp; = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
+&amp;= 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
            x^3\ \big[3x^2\big]
            \Big[e^{y^3}\Big]_{y=x^3+1}
 </mrow><mrow>
-&amp; = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t}
+&amp;= 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t}
            + x^3\ \big[3x^2\big]  e^{(x^3+1)^3}
 </mrow><mrow>
-&amp; = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t}
+&amp;= 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t}
             + 3x^5  e^{(x^3+1)^3}
 </mrow>
 </md>

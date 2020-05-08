@@ -34,7 +34,7 @@ $\sum\limits_{n=1}^{\infty}(-1)^{n+1}b_n
 converges by the alternating series test, but
 $\sum\limits_{n=1}^{\infty} \frac{1}{n}$ diverges by the $p$--test.
 
-Remark: if we had added that $\{b_n\}$ is a sequence of \emph{alternating terms}, then by Theorem~\eref{CLP101}{thm:SRabs} in the CLP--II text, the statement would have been true. This is because $\displaystyle\sum_{n=1}^{\infty}(-1)^{n+1}b_n$ would either be equal to $\displaystyle\sum_{n=1}^{\infty} |b_n|$ or $-\displaystyle\sum_{n=1}^{\infty} |b_n|$.
+Remark: if we had added that $\{b_n\}$ is a sequence of \emph{alternating terms}, then by Theorem~\eref{CLP101}{thm:SRabs} in the CLP-2 text, the statement would have been true. This is because $\displaystyle\sum_{n=1}^{\infty}(-1)^{n+1}b_n$ would either be equal to $\displaystyle\sum_{n=1}^{\infty} |b_n|$ or $-\displaystyle\sum_{n=1}^{\infty} |b_n|$.
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%%
@@ -56,7 +56,7 @@ $\displaystyle\sum_{n=1}^\infty a_n$ and $\displaystyle\sum_{n=1}^\infty |a_n|$ 
 \end{Mquestion}
 \begin{hint}
 If $\sum |a_n|$ converges, then $\sum a_n$ is guaranteed to converge as well. \\
-(That's Theorem~\eref{CLP101}{thm:SRabs} in the CLP--II text.) So, one of the blank spaces describes an impossible sequence.
+(That's Theorem~\eref{CLP101}{thm:SRabs} in the CLP-2 text.) So, one of the blank spaces describes an impossible sequence.
 \end{hint}
 \begin{answer}
 \begin{center}
@@ -72,9 +72,9 @@ If $\sum |a_n|$ converges, then $\sum a_n$ is guaranteed to converge as well. \\
 \end{center}
 \end{answer}
 \begin{solution}
-Absolute convergence describes the situation where $\sum |a_n|$ converges (see Definition~\eref{CLP101}{def:SRabsCond} in the CLP--II text). By Theorem~\eref{CLP101}{thm:SRabs} in the CLP--II text, this guarantees that also $\sum a_n$ converges.
+Absolute convergence describes the situation where $\sum |a_n|$ converges (see Definition~\eref{CLP101}{def:SRabsCond} in the CLP-2 text). By Theorem~\eref{CLP101}{thm:SRabs} in the CLP-2 text, this guarantees that also $\sum a_n$ converges.
 
-Conditional convergence describes the situation where $\sum |a_n|$ diverges but $\sum a_n$ converges (see again Definition~\eref{CLP101}{def:SRabsCond} in the CLP--II text).
+Conditional convergence describes the situation where $\sum |a_n|$ diverges but $\sum a_n$ converges (see again Definition~\eref{CLP101}{def:SRabsCond} in the CLP-2 text).
 
 If $\sum a_n$ diverges, we just say it diverges. The reason is that if $\sum a_n$ diverges, we automatically know $\sum |a_n|$ diverges as well, so there's no need for a special name.
 \begin{center}
@@ -360,7 +360,7 @@ It converges absolutely.
 \begin{solution}
 This series converges by the alternating series test. We want to know whether it converges absolutely, so we consider the seris$\displaystyle\sum_{n=2}^\infty\left|\frac{(-1)^n}{n(\log n)^{101}}\right|=\sum_{n=2}^\infty\frac{1}{n(\log n)^{101}}$.
 
-We've seen similar function before (e.g. Example \eref{CLP101}{eg:SRlnpTest} in the CLP--II text, with $p=101>1$) and it yields nicely to the integral test. Let $f(x) = \frac{1}{x(\log x)^{101}}$. Note $f(x)$ is positive and decreasing for $n \ge 3$. Then by the integral test, the series
+We've seen similar function before (e.g. Example \eref{CLP101}{eg:SRlnpTest} in the CLP-2 text, with $p=101>1$) and it yields nicely to the integral test. Let $f(x) = \frac{1}{x(\log x)^{101}}$. Note $f(x)$ is positive and decreasing for $n \ge 3$. Then by the integral test, the series
 $\sum_{n=2}^\infty\frac{1}{n(\log n)^{101}}$ converges if and only if the integral
 $\int_2^\infty \frac{1}{x(\log x)^{101}}\dee{x}$ does. We evaluate the integral using the substitution $u=\log x$, $\dee{u}=\frac{1}{x}\,\dee{x}$.
 \begin{align*}

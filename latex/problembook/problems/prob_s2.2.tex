@@ -25,7 +25,7 @@ Below is the graph of a function $y=f(x)$. Its average value on the interval  $[
 \end{center}
 \end{Mquestion}
 \begin{hint}
-See Definition~\eref{CLP101}{def:AVaverage} in the CLP--II text and the discussion following it for the link between area under the curve and averages.
+See Definition~\eref{CLP101}{def:AVaverage} in the CLP-2 text and the discussion following it for the link between area under the curve and averages.
 \end{hint}
 \begin{answer}
 The most straightforward of many possible answers is shown.
@@ -40,7 +40,7 @@ The most straightforward of many possible answers is shown.
 \end{center}
 \end{answer}
 \begin{solution}
-Since the average of $f(x)$ on the interval $[0,5]$ is $A$, using Definition~\eref{CLP101}{def:AVaverage} in the CLP--II text,
+Since the average of $f(x)$ on the interval $[0,5]$ is $A$, using Definition~\eref{CLP101}{def:AVaverage} in the CLP-2 text,
 \begin{align*}
 A&=\frac{1}{5}\int_0^5 f(x)\,\dee{x}\\
 5A&=\int_0^5 f(x)\,\dee{x}
@@ -67,14 +67,14 @@ That is: if we replace $f(x)$ with the constant function $g(x)=A$, then on the i
 Suppose a car travels for 5 hours in a straight line, with an average velocity of 100 kph. How far did the car travel?
 \end{question}
 \begin{hint}
-Average velocity is discussed in Example~\eref{CLP101}{eg:AVvelocity} of the CLP--II text.
+Average velocity is discussed in Example~\eref{CLP101}{eg:AVvelocity} of the CLP-2 text.
 You don't need an integral for this.
 \end{hint}
 \begin{answer}
 500 km
 \end{answer}
 \begin{solution}
-Average velocity,  as discussed in Example~\eref{CLP101}{eg:AVvelocity} of the CLP--II text,
+Average velocity,  as discussed in Example~\eref{CLP101}{eg:AVvelocity} of the CLP-2 text,
 is change in position divided by change in time. So, the change in position (i.e. distance travelled) is (100 km/h)(5 h) = 500 km.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
@@ -190,7 +190,7 @@ The answer is something very simple.
 0
 \end{answer}
 \begin{solution}
-Recall the definition of an odd function: $f(-x)=-f(x)$. Since the domain of integration is symmetric, the signed area on one side of the $y$-axis ``cancels out" the signed area on the other--this is Theorem~\eref{CLP101}{thm:INTevenodd} in the CLP--II text.
+Recall the definition of an odd function: $f(-x)=-f(x)$. Since the domain of integration is symmetric, the signed area on one side of the $y$-axis ``cancels out" the signed area on the other--this is Theorem~\eref{CLP101}{thm:INTevenodd} in the CLP-2 text.
 \begin{align*}\frac{1}{20}\int_{-10}^{10}f(x)\,\dee{x}&=\frac{1}{20}(0)=0
 \end{align*}
 \end{solution}
@@ -208,8 +208,8 @@ Find the average value of $f(x) = \sin(5x)+1$ over the interval $-\pi/2 \le x \l
 
 \begin{hint}
 Apply the definition of ``average value'' in Section~\eref{CLP101}{sec avg} of the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text.
 \end{hint}
 
 \begin{answer}
@@ -556,7 +556,7 @@ Remark: this is the same as the volume of $S$, so the average cross-sectional ar
 \end{enumerate}
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
-\Instructions{For Questions \ref{prob_s2.2:RMS1} through \ref{prob_s2.2:RMS3}, let the root mean square of $f(x)$ on $[a,b]$ be $\displaystyle\sqrt{\frac{1}{b-a}\int_a^b f^2(x)\,\dee{x}}$. This is the formula used in Example~\eref{CLP101}{eg:peakvsrms} in the CLP--II text.}
+\Instructions{For Questions \ref{prob_s2.2:RMS1} through \ref{prob_s2.2:RMS3}, let the root mean square of $f(x)$ on $[a,b]$ be $\displaystyle\sqrt{\frac{1}{b-a}\int_a^b f^2(x)\,\dee{x}}$. This is the formula used in Example~\eref{CLP101}{eg:peakvsrms} in the CLP-2 text.}
 %%%%%%%%%%%%%%%%%%%
 
 \begin{Mquestion}\label{prob_s2.2:RMS1}
@@ -680,8 +680,8 @@ the car during this period.
 \end{Mquestion}
 \begin{hint}
 The trapezoidal rule is found in  Section  \eref{CLP101}{sec:trapRule} of the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+CLP-2 text.
 \end{hint}
 
 \begin{answer}
@@ -749,7 +749,7 @@ To deal with the absolute value, we consider the integral over two intervals: on
 \end{align*}
 Remark: what we just measured is how far $s(t)$ is, on average, from $A$. We had to neglect whether $s(t)$ was above or below $A$, because (as we saw in (b)) the values above $A$ ``cancel out" the values below $A$. That's where the absolute value came in.
 
- Knowing how well most of your function's values match the average is an important measure, but dealing with absolute values can be a little clumsy. Therefore, the \textbf{variance} of a function squares the differences, rather than taking their absolute value. (In our example, that means looking at $(s(t)-A)^2$, rather than $|s(t)-A|$.) To compensate for the change in magnitude involve in squaring, the \textbf{standard deviation} is the square root of the variance. These are two very commonly used measures of how similar a function is to its average. Compare standard deviation to root-square-mean voltage from Example~\eref{CLP101}{eg:peakvsrms} in the CLP--II text and Questions~\ref{prob_s2.2:RMS1} to \ref{prob_s2.2:RMS3}.
+ Knowing how well most of your function's values match the average is an important measure, but dealing with absolute values can be a little clumsy. Therefore, the \textbf{variance} of a function squares the differences, rather than taking their absolute value. (In our example, that means looking at $(s(t)-A)^2$, rather than $|s(t)-A|$.) To compensate for the change in magnitude involve in squaring, the \textbf{standard deviation} is the square root of the variance. These are two very commonly used measures of how similar a function is to its average. Compare standard deviation to root-square-mean voltage from Example~\eref{CLP101}{eg:peakvsrms} in the CLP-2 text and Questions~\ref{prob_s2.2:RMS1} to \ref{prob_s2.2:RMS3}.
 \end{enumerate}
 \end{solution}
 
@@ -833,7 +833,7 @@ Suppose the root mean square of a function $f(x)$ on the interval $[a,b]$ is $R$
 \draw[blue] (3.25,-1)node[below right]{$y=f(x)$};
 \end{tikzpicture}
 \end{center}
-As in Example~\eref{CLP101}{eg:peakvsrms} of the CLP--II text, let the root mean square of $f(x)$ on $[a,b]$ be $\displaystyle\sqrt{\frac{1}{b-a}\int_a^b f^2(x)\,\dee{x}}$.
+As in Example~\eref{CLP101}{eg:peakvsrms} of the CLP-2 text, let the root mean square of $f(x)$ on $[a,b]$ be $\displaystyle\sqrt{\frac{1}{b-a}\int_a^b f^2(x)\,\dee{x}}$.
 \end{question}
 \begin{hint}
 Slice the solid into circular disks of radius $|f(x)|$ and thickness $\dee{x}$.
@@ -980,7 +980,7 @@ So, $f(t)=A(t)+tA'(t)$.
 \end{enumerate}
 \end{Mquestion}
 \begin{hint}
-For (b), consider the cases that $f(x)$ is always bigger or always smaller than 0. Then, use the intermediate value theorem, Theorem~\eref{CLP100}{thm ivt} in the CLP--I text.
+For (b), consider the cases that $f(x)$ is always bigger or always smaller than 0. Then, use the intermediate value theorem, Theorem~\eref{CLP100}{thm ivt} in the CLP-1 text.
 \end{hint}
 \begin{answer}
 \begin{enumerate}[(a)]
@@ -993,7 +993,7 @@ For (b), consider the cases that $f(x)$ is always bigger or always smaller than 
 \item[Note 1:] Suppose $f(x)>0$ for all $x$ in $[-1,1]$. Then $\frac{1}{2}\int_{-1}^1f(x)\,\dee{x} > \frac{1}{2}\int_{-1}^10\,\dee{x} =0 $. That is, the average value of $f(x)$ on the interval $[-1,1]$ is not zero--it's something greater than zero.
 \item[Note 2:] Suppose $f(x)<0$ for all $x$ in $[-1,1]$. Then $\frac{1}{2}\int_{-1}^1f(x)\,\dee{x} < \frac{1}{2}\int_{-1}^10\,\dee{x} =0 $. That is, the average value of $f(x)$ on the interval $[-1,1]$ is not zero--it's something less than zero.
 \end{description}
-So, if the average value of $f(x)$ is zero, then $f(x)\ge 0$ for some $x$ in $[-1,1]$, and $f(y) \le 0$ for some $y \in [-1,1]$. Since $f$ is a continuous function, and 0 is between $f(x)$ and $f(y)$, by the intermediate value theorem (Theorem~\eref{CLP100}{thm ivt} in the  in the CLP--I text) there is some value $c$ between $x$ and $y$ such that $f(c)=0$. Since $x$ and $y$ are both in $[-1,1]$, then $c$ is as well. Therefore, no function exists as described in the question.
+So, if the average value of $f(x)$ is zero, then $f(x)\ge 0$ for some $x$ in $[-1,1]$, and $f(y) \le 0$ for some $y \in [-1,1]$. Since $f$ is a continuous function, and 0 is between $f(x)$ and $f(y)$, by the intermediate value theorem (Theorem~\eref{CLP100}{thm ivt} in the  in the CLP-1 text) there is some value $c$ between $x$ and $y$ such that $f(c)=0$. Since $x$ and $y$ are both in $[-1,1]$, then $c$ is as well. Therefore, no function exists as described in the question.
 \end{enumerate}
 \end{answer}
 \begin{solution}
@@ -1007,7 +1007,7 @@ So, if the average value of $f(x)$ is zero, then $f(x)\ge 0$ for some $x$ in $[-
 \item[Note 1:] Suppose $f(x)>0$ for all $x$ in $[-1,1]$. Then $\frac{1}{2}\int_{-1}^1f(x)\,\dee{x} > \frac{1}{2}\int_{-1}^10\,\dee{x} =0 $. That is, the average value of $f(x)$ on the interval $[-1,1]$ is not zero--it's something greater than zero.
 \item[Note 2:] Suppose $f(x)<0$ for all $x$ in $[-1,1]$. Then $\frac{1}{2}\int_{-1}^1f(x)\,\dee{x} < \frac{1}{2}\int_{-1}^10\,\dee{x} =0 $. That is, the average value of $f(x)$ on the interval $[-1,1]$ is not zero--it's something less than zero.
 \end{description}
-So, if the average value of $f(x)$ is zero, then $f(x)\ge 0$ for some $x$ in $[-1,1]$, and $f(y) \le 0$ for some $y \in [-1,1]$. Since $f$ is a continuous function, and 0 is between $f(x)$ and $f(y)$, by the intermediate value theorem (Theorem~\eref{CLP100}{thm ivt} in the CLP--I text) there is some value $c$ between $x$ and $y$ such that $f(c)=0$. Since $x$ and $y$ are both in $[-1,1]$, then $c$ is as well. Therefore, no function exists as described in the question.
+So, if the average value of $f(x)$ is zero, then $f(x)\ge 0$ for some $x$ in $[-1,1]$, and $f(y) \le 0$ for some $y \in [-1,1]$. Since $f$ is a continuous function, and 0 is between $f(x)$ and $f(y)$, by the intermediate value theorem (Theorem~\eref{CLP100}{thm ivt} in the CLP-1 text) there is some value $c$ between $x$ and $y$ such that $f(c)=0$. Since $x$ and $y$ are both in $[-1,1]$, then $c$ is as well. Therefore, no function exists as described in the question.
 \end{enumerate}
 \end{solution}
 %%%%%%%%%%%%%%%%%%%

@@ -88,7 +88,8 @@ This looks illegal, and indeed is illegal <mdash/> <m>\diff{y}{x}</m> is not a f
 	  <mrow>y'(x) = f(x)\ g(y(x)) \amp \iff \frac{y'(x)}{g(y(x))}=f(x)\iff \int\frac{y'(x)}{g(y(x))}\,\dee{x}= \int f(x)\,\dee{x}
 		</mrow>
 	  <mrow> \amp \iff \int\frac{\dee{y}}{g(y)}\bigg|_{y=y(x)}= \int f(x)\,\dee{x}
-		\amp \text{with the substitution }y=y(x), \dee y = y'(x)\,\dee{x}</mrow>
+             </mrow><mrow>
+		\amp\hskip0.5in \text{with the substitution }y=y(x), \dee y = y'(x)\,\dee{x}</mrow>
 	</md>
 </p></li>
 <li>That's our answer <xref ref="eq_SDEbasicSln"/> again.</li>
@@ -657,7 +658,8 @@ We will assume that the body's temperature obeys Newton's law of cooling.
 	<mrow>
 	37 = T(t_d) = 20+7 e^{-0.139 t_d}
 	&amp;\implies e^{-0.139 t_d} = \tfrac{17}{7}
-	\implies -0.139 t_d =\log\big(\tfrac{17}{7}\big)
+        </mrow><mrow>
+	\amp\implies -0.139 t_d =\log\big(\tfrac{17}{7}\big)
 	</mrow><mrow>
 	&amp;\implies t_d = -\tfrac{1}{0.139}\log\big(\tfrac{17}{7}\big)
 	 = - 6.38
@@ -963,7 +965,7 @@ As a result,
 These curves are sketched in the figure below. We conclude that for any initial population size <m>P(0)</m>, except <m>P(0)=0</m>, the population size approaches <m>2000</m> as <m>t\rightarrow\infty</m>.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="40%">
 <image source="text/figs/pop2"/>
 </sidebyside>
 
@@ -997,7 +999,9 @@ We now know <m>a</m> and <m>K</m> and can solve the (separable) differential equ
 <md>
 <mrow>
 \frac{\dee{y}}{dt}=ay(K-y)&amp;\implies
-\frac{\dee{y}}{y(K-y)}=a\,dt\implies
+\frac{\dee{y}}{y(K-y)}=a\,dt
+</mrow><mrow>
+\amp\implies
 \int\frac{1}{K}\Big[\frac{1}{y}-\frac{1}{y-K}\Big]\dee{y}=\int a\,dt
 </mrow><mrow>
 &amp;\implies \frac{1}{K}[\log |y|-\log|y-K|]=at+C
@@ -1021,11 +1025,11 @@ So the solution obeys the algebraic equation
 which we can solve to get <m>y</m> as a function of <m>t</m>.
 <md>
 <mrow>
- y=(100-y)\frac{5}{95}e^{2t/95} &amp;\implies 95y=(500-5y)e^{2t/95}
+ \amp y=(100-y)\frac{5}{95}e^{2t/95} \implies 95y=(500-5y)e^{2t/95}
 </mrow><mrow>
-     &amp;\implies \big(95+5e^{2t/95}\big)y=500 e^{2t/95}
+     &amp;\hskip0.5in\implies \big(95+5e^{2t/95}\big)y=500 e^{2t/95}
 </mrow><mrow>
-     &amp;\implies y=\frac{500e^{2t/95}}{95+5e^{2t/95}}
+     &amp;\hskip0.5in\implies y=\frac{500e^{2t/95}}{95+5e^{2t/95}}
 =\frac{100e^{2t/95}}{19+e^{2t/95}}
 =\frac{100}{1+19e^{-2t/95}}
 </mrow>
@@ -1275,12 +1279,12 @@ Let the interest rate be <m>r\%</m> per year. If you start with <m>\$P</m>, then
 &amp;P\big(1+\frac{r}{100\times 12}\big)^{120}=2P
 &amp;&amp;\Longrightarrow\quad
     \big(1+\frac{r}{1200}\big)^{120}=2
-</mrow>
-<mrow>
+</mrow><mrow>
 &amp;&amp;&amp;\Longrightarrow\quad 1+\frac{r}{1200}=2^{1/120}
 </mrow><mrow>
-&amp;\Longrightarrow\quad \frac{r}{1200}=2^{1/120}-1
-&amp;&amp;\Longrightarrow\quad
+&amp;&amp;&amp;\Longrightarrow\quad \frac{r}{1200}=2^{1/120}-1
+</mrow><mrow>
+&amp;&amp;&amp;\Longrightarrow\quad
 r=1200\big(2^{1/120}-1\big) =6.95\%
 </mrow>
 </md>
@@ -1358,13 +1362,13 @@ We want the account to be depleted when the graduate is 85. So, we want <m>A(20)
 20W+ e^{0.05\times 20}(625,015.05-20W) &amp; =0
 </mrow>
 <mrow>
-&amp;\implies
+\implies&amp;
 20W+ e(625,015.05-20W)=0
 </mrow><mrow>
-&amp;\implies
+\implies&amp;
 20(e-1)W= 625,015.05e
 </mrow><mrow>
-&amp;\implies
+\implies&amp;
 W=\frac{625,015.05e}{20(e-1)}=\$49,437.96
 </mrow>
 </md>

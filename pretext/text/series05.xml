@@ -324,13 +324,13 @@ Lets construct a series from the digits of <m>\pi</m>. Now to avoid dividing by 
 Since <m>\pi = 3.141591\dots</m>
 <md>
 <mrow>
-  A_0 &amp;= 4 &amp;
-  A_1 &amp;= 2 &amp;
-  A_2 &amp;= 5 &amp;
-  A_3 &amp;= 2 &amp;
-  A_4 &amp;= 6 &amp;
-  A_5 &amp;= 10 &amp;
-  A_6 &amp;= 2 &amp;
+  A_0 = 4 \quad
+  A_1 = 2 \quad
+  A_2 = 5 \quad
+  A_3 = 2 \quad
+  A_4 = 6 \quad
+  A_5 = 10 \quad
+  A_6 = 2 \quad
   \cdots
 </mrow>
 </md>
@@ -484,7 +484,7 @@ We are told that the series is centred at <m>3</m>, so its terms are all powers 
 A good way to summarise the convergence data we are given is with  a figure like the one below. Green dots mark the values of <m>x</m> where  the series is known to converge. (Recall that every power series  converges at its centre.)  The red dot marks the value of <m>x</m> where  the series is known to diverge. The bull's eye marks the centre.
 </p>
 
-<sidebyside width="66%">
+<sidebyside width="50%">
 <image source="text/figs/convDiv"/>
 </sidebyside>
 
@@ -645,17 +645,17 @@ Find a power series representation for <m>\frac{1}{1-x^2}</m>.
 The secret to finding power series representations for a good many functions is to manipulate them into a form in which <m>\frac{1}{1-y}</m> appears and use the geometric series representation  <m>\frac{1}{1-y} = \sum_{n=0}^\infty y^n</m>. We have deliberately renamed the variable to <m>y</m> here <mdash/> it does not have to be <m>x</m>. We can use that strategy to find a power series expansion for <m>\frac{1}{1-x^2}</m> <mdash/> we  just have to recognize that <m>\frac{1}{1-x^2}</m> is the same as  <m>\frac{1}{1-y}</m> if we set <m>y</m> to <m>x^2</m>.
 <md>
 <mrow>
-\frac{1}{1-x^2} &amp;= \frac{1}{1-y}\bigg|_{y=x^2}\quad &amp;
-             &amp;=\bigg[\sum_{n=0}^\infty y^n
+\frac{1}{1-x^2} &amp;= \frac{1}{1-y}\bigg|_{y=x^2}
+                     =\bigg[\sum_{n=0}^\infty y^n
                                      \bigg]_{y=x^2}
                    \quad\text{if $|y| \lt 1$, i.e. $|x| \lt 1$}
 </mrow>
 <mrow>
-             &amp;= \sum_{n=0}^\infty {\big(x^2\big)}^n &amp;
-             &amp;= \sum_{n=0}^\infty x^{2n}
+             &amp;= \sum_{n=0}^\infty {\big(x^2\big)}^n
+                  = \sum_{n=0}^\infty x^{2n}
 </mrow>
 <mrow>
-             &amp;= 1+x^2+x^4+x^6  +\cdots
+             &amp;= 1+x^2+x^4+x^6  +\cdots\hskip-0.2in
 </mrow>
 </md>
 This is a perfectly good power series. There is nothing wrong with the  power of <m>x</m> being <m>2n</m>. (This just means that the coefficients of all odd powers of <m>x</m> are zero.) In fact, you should try to always write power  series in forms that are as easy to understand as possible. The geometric  series that we used at the end of the first line converges for

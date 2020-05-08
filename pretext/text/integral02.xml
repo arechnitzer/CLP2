@@ -10,9 +10,9 @@
 When we studied limits and derivatives, we developed methods for taking limits  or derivatives of <q>complicated functions</q> like <m>f(x)=x^2 + \sin(x)</m> by  understanding how limits and derivatives interact with basic arithmetic  operations like addition and subtraction. This allowed us to reduce the problem  into one of of computing derivatives of simpler functions like <m>x^2</m> and  <m>\sin(x)</m>. Along the way we established  simple rules such as
 <md>
 <mrow>
-  \lim_{x\to a}(f(x)+g(x)) &amp;= \lim_{x\to a}f(x) + \lim_{x\to a} g(x)
-&amp;\text{and}&amp;&amp;
-  \diff{}{x}(f(x)+g(x)) &amp;= \diff{f}{x} + \diff{g}{x}
+  \lim_{x\to a}(f(x)+g(x)) = \lim_{x\to a}f(x) + \lim_{x\to a} g(x)
+\quad\text{and}\quad
+  \diff{}{x}(f(x)+g(x)) = \diff{f}{x} + \diff{g}{x}
 </mrow>
 </md>
 Some of these rules have very natural analogues for integrals and we discuss  them below. Unfortunately the analogous rules for integrals of products of  functions or integrals of compositions of functions are more complicated than  those for limits or derivatives. We discuss those rules at length in subsequent  sections. For now let us consider some of the simpler rules of the arithmetic  of  integrals.
@@ -84,7 +84,8 @@ to arrive at the  result.
 <mrow>
 \int_a^bh(x) \dee{x}
 &amp;= \sum_{i=1}^n h(x_{i,n}^*)\cdot\frac{b-a}{n}
-&amp;\text{by Definition }<xref ref="def_INTintegral"/>
+</mrow><mrow>
+&amp;\hskip0.5in\text{by Definition }<xref ref="def_INTintegral"/>
 </mrow><mrow>
 &amp;= \sum_{i=1}^n \left(Af(x_{i,n}^*)+Bg(x_{i,n}^*) \right)\cdot \frac{b-a}{n}
 </mrow><mrow>
@@ -93,14 +94,17 @@ to arrive at the  result.
 </mrow><mrow>
 &amp;= \left(\sum_{i=1}^n Af(x_{i,n}^*)\cdot \frac{b-a}{n}\right)
  + \left(\sum_{i=1}^n Bg(x_{i,n}^*)\cdot \frac{b-a}{n}\right)
-&amp;\text{by Theorem }<xref ref="thm_INTsummationArith"/>\text{(b)}
+</mrow><mrow>
+&amp;\hskip0.5in\text{by Theorem }<xref ref="thm_INTsummationArith"/>\text{(b)}
 </mrow><mrow>
 &amp;= A\left(\sum_{i=1}^n f(x_{i,n}^*)\cdot \frac{b-a}{n}\right)
  + B\left(\sum_{i=1}^n g(x_{i,n}^*)\cdot \frac{b-a}{n}\right)
-&amp;\text{by Theorem }<xref ref="thm_INTsummationArith"/>\text{(a)}
+</mrow><mrow>
+&amp;\hskip0.5in\text{by Theorem }<xref ref="thm_INTsummationArith"/>\text{(a)}
 </mrow><mrow>
 &amp;= A \int_a^b f(x) \dee{x} + B \int_a^b g(x) \dee{x}
-&amp;\text{by Definition }<xref ref="def_INTintegral"/>
+</mrow><mrow>
+&amp;\hskip0.5in\text{by Definition }<xref ref="def_INTintegral"/>
 </mrow>
 </md>
 as required.
@@ -186,37 +190,39 @@ Let us prove the statements in order.
 	Consider now the definite integral <m>\int_a^b f(x) \dee{x}</m>. We will sneak  up on the proof by first examining Riemann sum approximations to both this and  <m>\int_b^a f(x)\dee{x}</m>. The midpoint Riemann sum approximation to <m>\int_a^b  f(x)\dee{x}</m> with <m>4</m> subintervals (so that each subinterval has width  <m>\frac{b-a}{4}</m>) is
 	<md>
 	<mrow>
-	&amp;\left\{f\Big(a+\frac{1}{2}\frac{b-a}{4}\Big)
-		  +f\Big(a+\frac{3}{2}\frac{b-a}{4}\Big)
-		  +f\Big(a+\frac{5}{2}\frac{b-a}{4}\Big)
-	  + f\Big(a+\frac{7}{2}\frac{b-a}{4}\Big)
-	  \right\}\cdot\frac{b-a}{4}
+	&amp;\left\{f\big(a+\tfrac{1}{2}\tfrac{b-a}{4}\big)
+		  +f\big(a+\tfrac{3}{2}\tfrac{b-a}{4}\big)
+		  +f\big(a+\tfrac{5}{2}\tfrac{b-a}{4}\big)
+	  + f\big(a+\tfrac{7}{2}\tfrac{b-a}{4}\big)
+	  \right\}\cdot\tfrac{b-a}{4}
 	</mrow><mrow>
-	&amp;=\left\{f\Big(\frac{7}{8}a+\frac{1}{8}b\Big)
-	   +f\Big(\frac{5}{8}a+\frac{3}{8}b\Big)
-	   +f\Big(\frac{3}{8}a+\frac{5}{8}b\Big)
-	   +f\Big(\frac{1}{8}a+\frac{7}{8}b\Big)\right\}\cdot\frac{b-a}{4}
+	&amp;=\left\{f\big(\tfrac{7}{8}a+\tfrac{1}{8}b\big)
+	   +f\big(\tfrac{5}{8}a+\tfrac{3}{8}b\big)
+	   +f\big(\tfrac{3}{8}a+\tfrac{5}{8}b\big)
+	   +f\big(\tfrac{1}{8}a+\tfrac{7}{8}b\big)\right\}\cdot\tfrac{b-a}{4}
 	</mrow>
 	</md>
 	Now we do the same for <m>\int_b^a f(x)\dee{x}</m> with <m>4</m> subintervals. Note that <m>b</m>  is now the lower limit on the integral and <m>a</m> is now the upper limit on the  integral. This is likely to cause confusion when we write out the Riemann sum, so we'll temporarily rename <m>b</m> to <m>A</m> and <m>a</m> to <m>B</m>. The midpoint Riemann sum  approximation to <m>\int_A^B f(x)\dee{x}</m> with <m>4</m> subintervals is
 	<md>
 	<mrow>
-	&amp;\left\{f\Big(A+\frac{1}{2}\frac{B-A}{4}\Big)
-		  +f\Big(A+\frac{3}{2}\frac{B-A}{4}\Big)
-		  +f\Big(A+\frac{5}{2}\frac{B-A}{4}\Big)
-	   +f\Big(A+\frac{7}{2}\frac{B-A}{4}\Big)\right\}\cdot \frac{B-A}{4}
+	&amp;\Big\{f\big(A+\tfrac{1}{2}\tfrac{B-A}{4}\big)
+		  +f\big(A+\tfrac{3}{2}\tfrac{B-A}{4}\big)
+		  +f\big(A+\tfrac{5}{2}\tfrac{B-A}{4}\big)
+        </mrow><mrow>
+	  &amp;\hskip2.5in +f\big(A+\tfrac{7}{2}\tfrac{B-A}{4}\big)\Big\}\cdot \tfrac{B-A}{4}
 	</mrow><mrow>
-	&amp;=\left\{f\Big(\frac{7}{8}A+\frac{1}{8}B\Big)
-	   +f\Big(\frac{5}{8}A+\frac{3}{8}B\Big)
-	   +f\Big(\frac{3}{8}A+\frac{5}{8}B\Big)
-	   +f\Big(\frac{1}{8}A+\frac{7}{8}B\Big)\right\}\cdot \frac{B-A}{4}
+	&amp;=\Big\{f\big(\tfrac{7}{8}A+\tfrac{1}{8}B\big)
+	   +f\big(\tfrac{5}{8}A+\tfrac{3}{8}B\big)
+	   +f\big(\tfrac{3}{8}A+\tfrac{5}{8}B\big)
+           </mrow><mrow>
+	   &amp;\hskip2.5in+f\big(\tfrac{1}{8}A+\tfrac{7}{8}B\big)\Big\}\cdot \tfrac{B-A}{4}
 	</mrow>
 	<intertext>Now recalling that <m>A=b</m> and <m>B=a</m>, we have that the midpoint  Riemann sum approximation to <m>\int_b^a f(x)\dee{x}</m> with  <m>4</m> subintervals is</intertext>
 	<mrow>
-	&amp;\left\{f\Big(\frac{7}{8}b+\frac{1}{8}a\Big)
-	   +f\Big(\frac{5}{8}b+\frac{3}{8}a\Big)
-	   +f\Big(\frac{3}{8}b+\frac{5}{8}a\Big)
-	   +f\Big(\frac{1}{8}b+\frac{7}{8}a\Big)\right\}\cdot \frac{a-b}{4}
+	&amp;\left\{f\big(\tfrac{7}{8}b+\tfrac{1}{8}a\big)
+	   +f\big(\tfrac{5}{8}b+\tfrac{3}{8}a\big)
+	   +f\big(\tfrac{3}{8}b+\tfrac{5}{8}a\big)
+	   +f\big(\tfrac{1}{8}b+\tfrac{7}{8}a\big)\right\}\cdot \tfrac{a-b}{4}
 	</mrow>
 	</md>
 	Thus we see that the Riemann sums for the two integrals are nearly identical  <mdash/> the only difference being the factor of <m>\frac{b-a}{4}</m> versus  <m>\frac{a-b}{4}</m>. Hence the two Riemann sums are negatives of each other.
@@ -244,10 +250,11 @@ Let us prove the statements in order.
 	and
 	<md>
 	<mrow>
-	\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le b,\ 0\le y\le f(x)\ \big\}
-	&amp;=\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le c,\ 0\le y\le f(x)\ \big\}
+	&amp;\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le b,\ 0\le y\le f(x)\ \big\}
+        </mrow><mrow>
+	&amp;\hskip0.25in=\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le c,\ 0\le y\le f(x)\ \big\}
 	</mrow><mrow>
-	&amp;
+	&amp;\hskip0.5in
 	+\text{Area}\big\{\ (x,y)\ \big|\ c\le x\le b,\ 0\le y\le f(x)\ \big\}
 	</mrow>
 	</md>
@@ -270,7 +277,7 @@ Let us prove the statements in order.
 For notational simplicity, let's assume that <m>a\le c\le b</m> and <m>f(x)\ge 0</m> for all <m>a\le x\le b</m>.  The geometric interpretations of the identities
 <md>
 <mrow>
-\int_a^a f(x)\dee{x}=0\qquad\text{and}\qquad
+\int_a^a f(x)\dee{x}=0\quad\text{and}\quad
 \int_a^b f(x)\dee{x}= \int_a^c f(x)\dee{x} + \int_c^b f(x)\dee{x}
 </mrow>
 </md>
@@ -283,17 +290,18 @@ are
 and
 <md>
 <mrow>
-\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le b,\ 0\le y\le f(x)\ \big\}
-&amp;=\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le c,\ 0\le y\le f(x)\ \big\}
+&amp;\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le b,\ 0\le y\le f(x)\ \big\}
 </mrow><mrow>
-&amp;
+&amp;\hskip0.25in=\text{Area}\big\{\ (x,y)\ \big|\ a\le x\le c,\ 0\le y\le f(x)\ \big\}
+</mrow><mrow>
+&amp;\hskip0.5in
 +\text{Area}\big\{\ (x,y)\ \big|\ c\le x\le b,\ 0\le y\le f(x)\ \big\}
 </mrow>
 </md>
 respectively. Both of these geometric statements are intuitively obvious. See the figures below. We won't give a formal proof.
 </p>
 
-<sidebyside widths="33% 50%" valign="middle">
+<sidebyside widths="29% 60%" valign="middle">
 <image source="text/figs/areaAA"/>
   <image source="text/figs/areaABC"/>
 </sidebyside>
@@ -303,39 +311,39 @@ So we concentrate on the formula <m>\int_b^a f(x)\dee{x}= -\int_a^b f(x)\dee{x}<
 is
 <mdn>
 <mrow number="no">
-&amp;\Big\{f\Big(a+\frac{1}{2}\frac{b-a}{4}\Big)
-      +f\Big(a+\frac{3}{2}\frac{b-a}{4}\Big)
-      +f\Big(a+\frac{5}{2}\frac{b-a}{4}\Big)
-   +f\Big(a+\frac{7}{2}\frac{b-a}{4}\Big)\Big\}\ \frac{b-a}{4}
+&amp;\Big\{f\big(a+\tfrac{1}{2}\tfrac{b-a}{4}\big)
+      +f\big(a+\tfrac{3}{2}\tfrac{b-a}{4}\big)
+      +f\big(a+\tfrac{5}{2}\tfrac{b-a}{4}\big)
+   +f\big(a+\tfrac{7}{2}\tfrac{b-a}{4}\big)\big\}\ \tfrac{b-a}{4}
 </mrow>
 <mrow  xml:id="eq_INTflipL" tag="star">
-&amp;=\Big\{f\Big(\frac{7}{8}a+\frac{1}{8}b\Big)
-   +f\Big(\frac{5}{8}a+\frac{3}{8}b\Big)
-   +f\Big(\frac{3}{8}a+\frac{5}{8}b\Big)
-   +f\Big(\frac{1}{8}a+\frac{7}{8}b\Big)\Big\}\ \frac{b-a}{4}
+&amp;=\Big\{f\big(\tfrac{7}{8}a+\tfrac{1}{8}b\big)
+   +f\big(\tfrac{5}{8}a+\tfrac{3}{8}b\Big)
+   +f\big(\tfrac{3}{8}a+\tfrac{5}{8}b\Big)
+   +f\big(\tfrac{1}{8}a+\tfrac{7}{8}b\big)\Big\}\ \tfrac{b-a}{4}
 </mrow>
 </mdn>
 We're now going to write out the midpoint Riemann sum approximation to  <m>\int_b^a f(x)\dee{x}</m> with <m>4</m> subintervals. Note that <m>b</m> is now the lower limit on the integral and <m>a</m> is now the upper limit on the integral. This is likely to cause confusion when we write out the Riemann sum, so we'll temporarily rename <m>b</m> to <m>A</m> and <m>a</m> to <m>B</m>. The midpoint Riemann sum approximation to <m>\int_A^B f(x)\dee{x}</m> with  <m>4</m> subintervals is
 <md>
 <mrow>
-&amp;\Big\{f\Big(A+\frac{1}{2}\frac{B-A}{4}\Big)
-      +f\Big(A+\frac{3}{2}\frac{B-A}{4}\Big)
-      +f\Big(A+\frac{5}{2}\frac{B-A}{4}\Big)
-   +f\Big(A+\frac{7}{2}\frac{B-A}{4}\Big)\Big\}\ \frac{B-A}{4}
+&amp;\Big\{f\big(A+\tfrac{1}{2}\tfrac{B-A}{4}\big)
+      +f\big(A+\tfrac{3}{2}\tfrac{B-A}{4}\big)
+      +f\big(A+\tfrac{5}{2}\tfrac{B-A}{4}\big)
+   +f\big(A+\tfrac{7}{2}\tfrac{B-A}{4}\big)\Big\}\ \tfrac{B-A}{4}
 </mrow><mrow>
-&amp;=\Big\{f\Big(\frac{7}{8}A+\frac{1}{8}B\Big)
-   +f\Big(\frac{5}{8}A+\frac{3}{8}B\Big)
-   +f\Big(\frac{3}{8}A+\frac{5}{8}B\Big)
-   +f\Big(\frac{1}{8}A+\frac{7}{8}B\Big)\Big\}\ \frac{B-A}{4}
+&amp;=\Big\{f\big(\tfrac{7}{8}A+\tfrac{1}{8}B\big)
+   +f\big(\tfrac{5}{8}A+\tfrac{3}{8}B\big)
+   +f\big(\tfrac{3}{8}A+\tfrac{5}{8}B\big)
+   +f\big(\tfrac{1}{8}A+\tfrac{7}{8}B\big)\Big\}\ \tfrac{B-A}{4}
 </mrow>
 </md>
 Now recalling that <m>A=b</m> and <m>B=a</m>, we have that the midpoint Riemann  sum approximation to <m>\int_b^a f(x)\dee{x}</m> with  <m>4</m> subintervals is
 <mdn>
 <mrow xml:id="eq_INTflipR" tag="dstar">
-\Big\{f\Big(\frac{7}{8}b+\frac{1}{8}a\Big)
-   +f\Big(\frac{5}{8}b+\frac{3}{8}a\Big)
-   +f\Big(\frac{3}{8}b+\frac{5}{8}a\Big)
-   +f\Big(\frac{1}{8}b+\frac{7}{8}a\Big)\Big\}\ \frac{a-b}{4}
+\Big\{f\big(\frac{7}{8}b+\frac{1}{8}a\big)
+   +f\big(\tfrac{5}{8}b+\tfrac{3}{8}a\big)
+   +f\big(\tfrac{3}{8}b+\tfrac{5}{8}a\big)
+   +f\big(\tfrac{1}{8}b+\tfrac{7}{8}a\big)\Big\}\ \tfrac{a-b}{4}
 </mrow>
 </mdn>
 The curly brackets in <xref ref="eq_INTflipL"/> and <xref ref="eq_INTflipR"/> are equal to each other <mdash/> the terms are just in the reverse order. The factors multiplying the curly brackets in <xref ref="eq_INTflipL"/> and  <xref ref="eq_INTflipR"/>, namely <m>\frac{b-a}{4}</m> and <m>\frac{a-b}{4}</m>, are negatives of each other, so  <xref ref="eq_INTflipR"/><m>=-</m><xref ref="eq_INTflipL"/>. The same computation with <m>n</m> subintervals shows that the midpoint Riemann sum approximations to  <m>\int_b^a f(x)\dee{x}</m> and <m>\int_a^b f(x)\dee{x}</m> with <m>n</m> subintervals are negatives of each other. Taking the limit <m>n\rightarrow\infty</m> gives <m>\int_b^a f(x)\dee{x}= -\int_a^b f(x)\dee{x}</m>.
@@ -675,15 +683,7 @@ Let <m>a\le b</m>  be real numbers and let the functions <m>f(x)</m> and <m>g(x)
 	If <m>f(x)\ge 0</m> for all <m>a\le x\le b</m>, then
 	<md>
 	<mrow>
-	\int_a^b f(x)\dee{x} \ge 0
-	</mrow>
-	</md>
-</li>
-<li>
-	If there are constants <m>m</m> and <m>M</m> such that  <m>m\le f(x)\le M</m>  for all <m>a\le x\le b</m>, then
-	<md>
-	<mrow>
-	m(b-a)\le \int_a^b f(x)\dee{x} \le M(b-a)
+	\int_a^b f(x)\,\dee{x} \ge 0
 	</mrow>
 	</md>
 </li>
@@ -691,7 +691,15 @@ Let <m>a\le b</m>  be real numbers and let the functions <m>f(x)</m> and <m>g(x)
 	If <m>f(x)\le g(x)</m> for all <m>a\le x\le b</m>, then
 	<md>
 	<mrow>
-	\int_a^b f(x)\dee{x} \le \int_a^b g(x)\dee{x}
+	\int_a^b f(x)\,\dee{x} \le \int_a^b g(x)\,\dee{x}
+	</mrow>
+	</md>
+</li>
+<li>
+	If there are constants <m>m</m> and <m>M</m> such that  <m>m\le f(x)\le M</m>  for all <m>a\le x\le b</m>, then
+	<md>
+	<mrow>
+	m(b-a)\le \int_a^b f(x)\,\dee{x} \le M(b-a)
 	</mrow>
 	</md>
 </li>
@@ -699,7 +707,7 @@ Let <m>a\le b</m>  be real numbers and let the functions <m>f(x)</m> and <m>g(x)
 	We have
 	<md>
 	<mrow>
-	\bigg|\int_a^b f(x)\dee{x}\bigg|\le \int_a^b |f(x)|\dee{x}
+	\bigg|\int_a^b f(x)\,\dee{x}\bigg|\le \int_a^b |f(x)|\,\dee{x}
 	</mrow>
 	</md>
 </li>
@@ -714,50 +722,31 @@ Let <m>a\le b</m>  be real numbers and let the functions <m>f(x)</m> and <m>g(x)
 	By interpreting the integral as the signed area, this statement  simply says that if the curve <m>y=f(x)</m> lies above the <m>x</m>-axis and <m>a\le b</m>, then the signed area of  <m>\big\{\ (x,y)\ \big|\ a\le x\le b,\   0\le y\le f(x)\ \big\}</m> is at least zero. This is quite clear. Alternatively, we could argue more  algebraically from Definition<nbsp/><xref ref="def_INTintegral"/>. We observe that when we  define <m>\int_a^b f(x)\dee{x}</m> via Riemann sums, every  summand, <m>f(x_{i,n}^*)\,\frac{b-a}{n}\ge 0</m>. Thus the whole sum is nonnegative  and consequently, so is the limit, and thus so is the integral.
 </li>
 <li>
-	We can argue this from (a) with a little massaging. Let <m>g(x) =  M-f(x)</m>, then since <m>f(x)\le M</m>, we have <m>g(x) = M-f(x)\ge 0</m> so that
-	<md>
-	<mrow>
-	\int_a^b\big(M-f(x)\big)\dee{x} &amp;= \int_a^b g(x) \dee{x} \geq 0.
-	</mrow>
-	<intertext>but we also have</intertext>
-	<mrow>
-	\int_a^b\big(M-f(x)\big)\dee{x} &amp;= \int_a^b M\dee{x} -\int_a^b f(x)\dee{x}
-	</mrow><mrow>
-	&amp;= M(b-a)-\int_a^b f(x)\dee{x}
-	</mrow>
-	</md>
-	Thus
-	<md>
-	<mrow>
-	M(b-a)-\int_a^b f(x)\dee{x} &amp; \geq 0 &amp; \text{rearrange}
-	</mrow><mrow>
-	  M(b-a) &amp; \geq \int_a^b f(x)\dee{x}
-	</mrow>
-	</md>
-	as required. The argument showing <m>\int_a^b f(x)\dee{x} \ge m(b-a)</m> is similar.
+We are assuming that <m>g(x)-f(x)\geq 0</m>, so part (a) gives
+<md>
+<mrow>
+\int_a^b\big[g(x)-f(x)\big]\,\dee{x}\ge 0
+\amp\implies \int_a^b g(x)\,\dee{x}-\int_a^b f(x)\,\dee{x}\ge 0 
+</mrow>
+<mrow>
+\amp\implies \int_a^b f(x)\,\dee{x} \le \int_a^b g(x)\,\dee{x}
+</mrow>
+</md>
 </li>
 <li>
-	Now let <m>h(x) = g(x)-f(x)</m>. Since <m>f(x) \le g(x)</m>, we have
-	<m>h(x) = g(x)-f(x)\ge 0</m> so that
-	<md>
-	<mrow>
-	\int_a^b\big(g(x)-f(x)\big)\dee{x} &amp;= \int_a^b h(x) \dee{x} \geq 0
-	</mrow>
-	<intertext>But we also have that</intertext>
-	<mrow>
-	\int_a^b\big(g(x)-f(x)\big)\dee{x} &amp;= \int_a^b g(x) \dee{x} - \int_a^b f(x) \dee{x}
-	</mrow>
-	</md>
-	Thus
-	<md>
-	<mrow>
-	\int_a^b g(x) \dee{x} - \int_a^b f(x) \dee{x} &amp; \geq 0 &amp; \text{rearrange}
-	</mrow>
-	<mrow>
-	\int_a^b g(x) \dee{x} &amp; \geq  \int_a^b f(x) \dee{x}
-	</mrow>
-	</md>
-	as required.
+Applying part (b) with <m>g(x)=M</m> for all <m>a\le x\le b</m> gives
+<md>
+<mrow>
+\int_a^b f(x)\,\dee{x} \le \int_a^b M\,\dee{x} = M(b-a)
+</mrow>
+</md>
+Similarly, viewing <m>m</m> as a (constant) function, and applying part (b) 
+gives
+<md>
+<mrow>
+m\le f(x) \implies \overbrace{\int_a^bm\,\dee{x}}^{=m(b-a)} \le \int_a^b f(x)\,\dee{x}
+</mrow>
+</md>
 </li>
 <li>
 	For any <m>x</m>, <m>|f(x)|</m> is either <m>f(x)</m> or <m>-f(x)</m> (depending on whether  <m>f(x)</m> is positive or negative), so we certainly have
@@ -773,7 +762,7 @@ Let <m>a\le b</m>  be real numbers and let the functions <m>f(x)</m> and <m>g(x)
 	-\int_a^b f(x)\dee{x} &amp;\le \int_a^b |f(x)|\dee{x}
 	</mrow>
 	</md>
-	Now <m>|\int_a^b f(x)\dee{x}|</m> is either equal to <m>\int_a^b f(x)\dee{x}</m> or  <m>-\int_a^b f(x)\dee{x}</m> (depending on whether the integral is positive or  negative). In either case we can apply the above two inequalities to get the  same result, namely
+	Now <m>\Big|\int_a^b f(x)\dee{x}\Big|</m> is either equal to <m>\int_a^b f(x)\dee{x}</m> or  <m>-\int_a^b f(x)\dee{x}</m> (depending on whether the integral is positive or  negative). In either case we can apply the above two inequalities to get the  same result, namely
 	<md>
 	<mrow>
 	  \left|\int_a^b f(x)\dee{x}\right| &amp;\leq \int_a^b |f(x)|\dee{x}.

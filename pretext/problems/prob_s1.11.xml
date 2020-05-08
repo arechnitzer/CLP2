@@ -155,7 +155,7 @@ Differentiating, we find <m>f''(x) = -x^2+7x-6</m>. Since <m>f''(x)</m> is quadr
 </li>
 </ul>
  Therefore, over the interval <m>[1,6]</m>, the largest positive value of <m>f''(x)</m> occurs when <m>x=3.5</m>, and this is <m>f''(3.5) = -(3.5-6)(3.5-1)=6.25</m>.
-</p><sidebyside width="33%">
+</p><sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{.5}{3.5}{2.5}{2.5}
 \draw[thick, blue] plot[domain=0:7, samples=50](\x/2,{(-\x*\x+7*\x-6)/3}) node[above right]{$y=f''(x)$};
@@ -313,7 +313,9 @@ Using Theorem<nbsp/><xref ref="thm_num_int_err"/> in the text, the error using t
 </mrow><mrow>
 &amp;\mbox{Approximate:}&amp;\int_0^1 f(x) \dee{x}&amp;\approx \Delta x \left[\frac{1}{2}f(0)+f(\tfrac{1}{2})+\frac{1}{2}f(1)\right]
 </mrow><mrow>
-&amp;&amp;&amp;=\frac{1}{2}\left[\frac{1}{2}(D)+\left(\frac{3}{8}+\frac{C}{2}+D\right)+\frac{1}{2}\left(\frac{3}{2}+C+D\right)\right]
+&amp;&amp;&amp;=\frac{1}{2}\bigg[\frac{1}{2}(D)+\left(\frac{3}{8}+\frac{C}{2}+D\right)
+</mrow><mrow>
+&amp;&amp;&amp;\hskip1.0in+\frac{1}{2}\left(\frac{3}{2}+C+D\right)\bigg]
 </mrow><mrow>
 &amp;&amp;&amp;=\frac{1}{2}\left[\frac{9}{8}+C+2D\right]
 </mrow><mrow>
@@ -377,7 +379,7 @@ For part (b), consider Question<nbsp/><xref ref="prob_s1_11_mom" text="local"/>.
 </p>
 
 <p>To see how the trapezoid approximation could be better than the corresponding midpoint approximation in some cases, consider the function <m>f(x)</m> sketched below.
-</p><sidebyside width="33%">
+</p><sidebyside width="40%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{4}{1}{3}
 \YExcoord{1}{a}
@@ -439,7 +441,7 @@ the graph of <m>f(x)</m> is always below the top edges of the trapezoids
 used in the trapezoidal rule.
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{3}{3}{1}{3}
 \draw[thick, blue] plot[domain=-3:3](\x,{\x*\x/4+.5}) node[right]{$y=f(x)$};
@@ -455,7 +457,7 @@ the graph of <m>f(x)</m> is always below the top edges of the trapezoids
 used in the trapezoidal rule.
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{3}{3}{1}{3}
 \draw[thick, blue] plot[domain=-3:3](\x,{\x*\x/4+.5}) node[right]{$y=f(x)$};
@@ -503,38 +505,51 @@ Follow the formulas in Equations<nbsp/><xref ref="eq_MPrule"/>,
 <answer>
 
 <p>Midpoint:
-<me>
-\displaystyle
-\int_0^{30} \frac{1}{x^3+1}\,\dee{x}\approx\left[\tfrac{1}{\left(2.5\right)^3+1}
-+\tfrac{1}{\left(7.5\right)^3+1}
-+\tfrac{1}{\left(12.5\right)^3+1}
-+\tfrac{1}{\left(17.5\right)^3+1}
-+\tfrac{1}{\left(22.5\right)^3+1}
+<md>
+<mrow>
+\int_0^{30} \frac{1}{x^3+1}\,\dee{x}
+&amp;\approx\bigg[\tfrac{1}{\left(2.5\right)^3+1}
++\frac{1}{\left(7.5\right)^3+1}
++\frac{1}{\left(12.5\right)^3+1}
++\frac{1}{\left(17.5\right)^3+1}
+</mrow><mrow>
+&amp;\hskip2in
++\frac{1}{\left(22.5\right)^3+1}
 +\tfrac{1}{\left(27.5\right)^3+1}
-\right]5
-</me>
+\bigg]5
+</mrow>
+</md>
 </p>
 
 <p>Trapezoidal:
-<me>
-\displaystyle\int_0^{30} \frac{1}{x^3+1}\,\dee{x}
-\approx\left[
+<md>
+<mrow>
+\int_0^{30} \frac{1}{x^3+1}\,\dee{x}
+&amp;\approx\bigg[
 \frac{1/2}{0^3+1}+
 \frac{1}{5^3+1}+
 \frac{1}{10^3+1}+
 \frac{1}{15^3+1}+
-\frac{1}{20^3+1}+
-\frac{1}{25^3+1}+
+\frac{1}{20^3+1}
+</mrow><mrow>
+&amp;\hskip2in
++\frac{1}{25^3+1}+
 \frac{1/2}{30^3+1}
-\right]5
-</me>
+\bigg]5
+</mrow>
+</md>
 </p>
 
 <p>Simpson's:
-<me>
-\displaystyle\int_0^{30} \frac{1}{x^3+1}\,\dee{x}\approx
-\Big[\frac{1}{{0}^3+2}\!+\frac{4}{{5}^3+1}\!+\frac{2}{{10}^3+1}\!+\frac{4}{{15}^3+1}\!+\frac{2}{{20}^3+1}\!+\frac{4}{{25}^3+1}\!+ \frac{1}{{30}^3+1}\Big]\frac{5}{3}
-</me>
+<md>
+<mrow>
+\int_0^{30} \frac{1}{x^3+1}\,\dee{x}
+&amp;\approx
+\bigg[\frac{1}{{0}^3+1}\!+\frac{4}{{5}^3+1}\!+\frac{2}{{10}^3+1}\!+\frac{4}{{15}^3+1}\!+\frac{2}{{20}^3+1}\!
+</mrow><mrow>
+&amp;\hskip2in+\frac{4}{{25}^3+1}\!+ \frac{1}{{30}^3+1}\bigg]\frac{5}{3}
+</mrow>
+</md>
 </p></answer>
 <solution><p>
 <ul>
@@ -546,7 +561,7 @@ For the trapezoidal rule and Simpson's rule, the <m>x</m>-values where we evalua
   <m>x_4=20</m>, <m>x_5=25</m>, and <m>x_6=30</m>.
 </p>
 
-<sidebyside width="75%">
+<sidebyside width="90%">
 <image><latex-image><![CDATA[\begin{tikzpicture}[scale=1.8]
   \draw[ \lt - \gt , thick] (-1,0)--(7,0);
   \foreach \x in {0,...,6}{
@@ -583,16 +598,18 @@ For the midpoint rule, the <m>x</m>-values where we evaluate <m>\dfrac{1}{x^3+1}
 the midpoint rule approximation is:
 <md>
 <mrow>
-\int_0^{30} \frac{1}{x^3+1}\,\dee{x}&amp;\approx\Big[f(\bar x_1)+f(\bar x_2)+\cdots
+&amp;\int_0^{30} \frac{1}{x^3+1}\,\dee{x}\approx\Big[f(\bar x_1)+f(\bar x_2)+\cdots
 +f(\bar x_n)\Big]\De x
 </mrow><mrow>
-&amp;=\left[\tfrac{1}{\left(2.5\right)^3+1}
-+\tfrac{1}{\left(7.5\right)^3+1}
-+\tfrac{1}{\left(12.5\right)^3+1}
-+\tfrac{1}{\left(17.5\right)^3+1}
-+\tfrac{1}{\left(22.5\right)^3+1}
-+\tfrac{1}{\left(27.5\right)^3+1}
-\right]5
+&amp;=\bigg[\tfrac{1}{\left(2.5\right)^3+1}
++\frac{1}{\left(7.5\right)^3+1}
++\frac{1}{\left(12.5\right)^3+1}
++\frac{1}{\left(17.5\right)^3+1}
+</mrow><mrow>
+&amp;\hskip2.25in
++\frac{1}{\left(22.5\right)^3+1}
++\frac{1}{\left(27.5\right)^3+1}
+\bigg]5
 </mrow>
 </md>
 </li>
@@ -600,28 +617,34 @@ the midpoint rule approximation is:
   Following Equation<nbsp/><xref ref="eq_TRPrule"/>, the trapezoidal rule approximation is:
 <md>
 <mrow>
-\int_0^{30} \frac{1}{x^3+1}\,\dee{x}
+&amp;\int_0^{30} \frac{1}{x^3+1}\,\dee{x}
+</mrow><mrow>
 &amp;\approx\Big[\half f(x_0)+f(x_1)+f(x_2)+\cdots+ f(x_{n-1})+\half f(x_n)\Big]\De x
 </mrow><mrow>
-&amp;=\left[
+&amp;=\bigg[
 \frac{1/2}{0^3+1}+
 \frac{1}{5^3+1}+
 \frac{1}{10^3+1}+
 \frac{1}{15^3+1}+
-\frac{1}{20^3+1}+
-\frac{1}{25^3+1}+
+\frac{1}{20^3+1}
+</mrow><mrow>
+&amp;\hskip2.5in
++\frac{1}{25^3+1}+
 \frac{1/2}{30^3+1}
-\right]5
+\bigg]5
 </mrow>
 </md>
 </li>
 <li> Following Equation<nbsp/><xref ref="eq_SIMPrule"/>, the Simpson's rule approximation is:
 <md>
 <mrow>
-\int_0^{30} \frac{1}{x^3+1}\,\dee{x}
-&amp;\approx\Big[f(x_0)\!+4f(x_1)\!+2f(x_2)\!+4f(x_3)\!+2f(x_4)\!+4f(x_{5})\!+ f(x_6)\Big]\tfrac{\De x}{3}
+&amp;\int_0^{30} \frac{1}{x^3+1}\,\dee{x}
 </mrow><mrow>
-&amp;=\Big[\frac{1}{{0}^3+2}\!+\frac{4}{{5}^3+1}\!+\frac{2}{{10}^3+1}\!+\frac{4}{{15}^3+1}\!+\frac{2}{{20}^3+1}\!+\frac{4}{{25}^3+1}\!+ \frac{1}{{30}^3+1}\Big]\frac{5}{3}
+&amp;\approx\Big[f(x_0)\!+\!4f(x_1)\!+\!2f(x_2)\!+\!4f(x_3)\!+\!2f(x_4)\!+\!4f(x_{5})\!+\!f(x_6)\Big]\frac{\De x}{3}
+</mrow><mrow>
+&amp;=\bigg[\frac{1}{{0}^3+1}\!+\frac{4}{{5}^3+1}\!+\frac{2}{{10}^3+1}\!+\frac{4}{{15}^3+1}\!+\frac{2}{{20}^3+1}
+</mrow><mrow>
+&amp;\hskip2.5in+\frac{4}{{25}^3+1}\!+ \frac{1}{{30}^3+1}\bigg]\frac{5}{3}
 </mrow>
 </md>
 </li>
@@ -780,13 +803,14 @@ thickness <m>\dee{x}</m> and hence
 <p> Hence the volume of <m>V</m> is
 <md>
 <mrow>
-\int_0^{40}\pi\Big{[\frac{f(x)}{2}\Big]}^2\,\dee{x}
-&amp;\approx \frac{\pi}{4}10\Big[\half f(0)^2+f(10)^2+f(20)^2+f(30)^2+\half
+&amp;\int_0^{40}\pi{\Big[\frac{f(x)}{2}\Big]}^2\,\dee{x}
+</mrow><mrow>
+&amp;\hskip0.5in\approx \frac{\pi}{4}10\Big[\half f(0)^2+f(10)^2+f(20)^2+f(30)^2+\half
 f(40)^2\Big]
 </mrow><mrow>
-&amp;=\frac{\pi}{4}10\Big[\half 24^2+16^2+10^2+6^2+\half 4^2\Big]
+&amp;\hskip0.5in=\frac{\pi}{4}10\Big[\half 24^2+16^2+10^2+6^2+\half 4^2\Big]
 </mrow><mrow>
-&amp;=688\times 2.5\pi
+&amp;\hskip0.5in=688\times 2.5\pi
 =1720\pi\approx 5403.5
 </mrow>
 </md>
@@ -863,7 +887,8 @@ the volume
 of the log is:
 <md>
 <mrow>
-V=\int_0^6 \frac{\pi}{4}f(x)^2\,\dee{x}
+&amp;V=\int_0^6 \frac{\pi}{4}f(x)^2\,\dee{x}
+</mrow><mrow>
 &amp;\approx\frac{\pi}{4}\frac{1}{3}
 \Big[f(0)^2+4f(1)^2+2f(2)^2+4f(3)^2+2f(4)^2+4f(5)^2+f(6)^2\Big]
 </mrow><mrow>
@@ -920,7 +945,7 @@ radius is <m>\dfrac{c(x)}{2\pi}</m>, so the corresponding cross--sectional area
 is <m>\pi\left(\dfrac{c(x)}{2\pi}\right)^2=\dfrac{c(x)^2}{4\pi}</m>.
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="60%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[thick, rounded corners](3,0)--(2.75,2)--(3.25,4)--(2.25,6)--(.5,8);
 \draw[thick, rounded corners](-3,0)--(-2.75,2)--(-3.25,4)--(-2.25,6)--(-.5,8);
@@ -997,8 +1022,9 @@ For both approximations, <m>\De x = 10</m> and <m>n=6</m>.
 The Trapezoidal Rule gives
 <md>
 <mrow>
-V&amp;=\int_0^{60} A(h)\,\dee{h}
-\approx 10\Big[\half A(0)+A(10)+A(20)+A(30)+A(40)+A(50)+\half A(60)\Big]
+&amp;V=\int_0^{60} A(h)\,\dee{h}
+</mrow><mrow>
+&amp;\approx 10\Big[\half A(0)+A(10)+A(20)+A(30)+A(40)+A(50)+\half A(60)\Big]
 </mrow><mrow>
 &amp;=\text{363,500}
 </mrow>
@@ -1009,8 +1035,9 @@ V&amp;=\int_0^{60} A(h)\,\dee{h}
 Simpson's Rule gives
 <md>
 <mrow>
-V&amp;=\int_0^{60} A(h)\,\dee{h}
-\approx \frac{10}{3}\Big[A(0)+4A(10)+2A(20)+4A(30)+2A(40)+4A(50)+A(60)\Big]
+&amp;V=\int_0^{60} A(h)\,\dee{h}
+</mrow><mrow>
+&amp;\approx \frac{10}{3}\Big[A(0)\!+\!4A(10)\!+\!2A(20)\!+\!4A(30)\!+\!2A(40)\!+\!4A(50)\!+\!A(60)\Big]
 </mrow><mrow>
 &amp;=\text{367,000}
 </mrow>
@@ -1117,8 +1144,9 @@ we have
 <md>
 <mrow>
 \left|2\cos(x^2) - 4x^2\sin(x^2)\right|
-\le 2|\cos(x^2)| +  4x^2|\sin(x^2)|
-\le 2\times 1 +4\times 1\times 1
+&amp;\le 2|\cos(x^2)| +  4x^2|\sin(x^2)|
+</mrow><mrow>
+&amp;\le 2\times 1 +4\times 1\times 1
 = 2+4 = 6
 </mrow>
 </md>
@@ -1138,8 +1166,9 @@ we have
 <md>
 <mrow>
 \left|2\cos(x^2) - 4x^2\sin(x^2)\right|
-\le 2|\cos(x^2)| +  4x^2|\sin(x^2)|
-\le 2\times 1 +4\times 1\times 1
+&amp;\le 2|\cos(x^2)| +  4x^2|\sin(x^2)|
+</mrow><mrow>
+&amp;\le 2\times 1 +4\times 1\times 1
 = 2+4 = 6
 </mrow>
 </md>
@@ -1219,7 +1248,14 @@ The main steps in part (b) are to find the smallest possible values of
 </p></hint>
 
 <answer><p>
-(a) <m>\dfrac{1/3}3 \Big( (-3)^5 + 4\Big( \frac13-3 \Big)^5 + 2\Big( \frac23-3 \Big)^5 + 4(-2)^5 + 2\Big( \frac43-3 \Big)^5 + 4\Big( \frac53-3 \Big)^5 + (-1)^5 \Big)</m>
+(a) 
+<md>
+<mrow>
+&amp;\dfrac{1/3}3 \Big( (-3)^5 + 4\Big( \frac13-3 \Big)^5 + 2\Big( \frac23-3 \Big)^5 + 4(-2)^5 + 2\Big( \frac43-3 \Big)^5
+</mrow><mrow>
+&amp;\hskip2in + 4\Big( \frac53-3 \Big)^5 + (-1)^5 \Big)
+</mrow>
+</md>
 </p>
 
 <p>  (b)
@@ -1240,7 +1276,9 @@ Rule with <m>n=6</m> in general is
 the desired approximation is
 <md>
 <mrow>
-\frac{1/3}3 \bigg( (-3)^5 + 4\Big( \frac13-3 \Big)^5 + 2\Big( \frac23-3 \Big)^5 + 4(-2)^5 + 2\Big( \frac43-3 \Big)^5 + 4\Big( \frac53-3 \Big)^5 + (-1)^5 \bigg)
+&amp;\frac{1/3}3 \bigg( (-3)^5 + 4\Big( \frac13-3 \Big)^5 + 2\Big( \frac23-3 \Big)^5 + 4(-2)^5 + 2\Big( \frac43-3 \Big)^5 
+</mrow><mrow>
+&amp;\hskip2in+ 4\Big( \frac53-3 \Big)^5 + (-1)^5 \bigg)
 </mrow>
 </md>
 </p>
@@ -1360,10 +1398,11 @@ and <m>L\ge |f^{(4)}(x)|</m> for all <m>a\le x\le b</m>. In this case, <m>a=0</m
 <m>n=6</m> and <m>f(x)=e^{-2x}+3x^3</m>. We need to find <m>L</m>, so we differentiate.
 <md>
 <mrow>
-f'(x)=-2e^{-2x}+9x^2\qquad
-f''(x)=4e^{-2x}+18x\qquad
-f^{(3)}(x)=-8e^{-2x}+18\qquad
-f^{(4)}(x)= 16 e^{-2x}
+f'(x)&amp;=-2e^{-2x}+9x^2 &amp;
+f''(x)&amp;=4e^{-2x}+18x
+</mrow><mrow>
+f^{(3)}(x)&amp;=-8e^{-2x}+18 &amp;
+f^{(4)}(x)&amp;= 16 e^{-2x}
 </mrow>
 </md>
 Since <m>e^{-2x} = \dfrac{1}{e^{2x}}</m>, we see <m>f^{(4)}(x)</m> is a positive, decreasing function. So, its maximum occurs when <m>x</m> is as small as possible. In the interval <m>[0,1]</m>, that means <m>x=0</m>.
@@ -1375,9 +1414,10 @@ Since <m>e^{-2x} = \dfrac{1}{e^{2x}}</m>, we see <m>f^{(4)}(x)</m> is a positive
 So, we  take <m>L=16</m> and <m>\De x=\frac{1-0}{6}=\frac{1}{6}</m>.
 <md>
 <mrow>
-|\text{Error }|\le \frac{L(b-a)}{180}(\De x)^4=\frac{16(1-0)}{180}(1/6)^4
+|\text{Error}|&amp;\le \frac{L(b-a)}{180}(\De x)^4=\frac{16(1-0)}{180}(1/6)^4
    =\frac{16}{180\times 6^4}
-   =\frac{1}{180\times 3^4}
+</mrow><mrow>
+&amp;=\frac{1}{180\times 3^4}
   =\frac{1}{14580}
 </mrow>
 </md>
@@ -1562,7 +1602,9 @@ T_4&amp;={\De x}\left[\frac{1}{2}s(0)+s(2)+s(4)+s(6)+\frac{1}{2}s(8)\right]
 </mrow><mrow>
 S_4&amp;=\frac{\De x}{3}\big[s(0)+4s(2)+2s(4)+4s(6)+s(8)\big]
 </mrow><mrow>
-&amp;=\frac{2}{3}\big[1.00664+4\times 1.00543+2\times 1.00435+4\times1.00331+ 1.00233\big]
+&amp;=\frac{2}{3}\big[1.00664+4\times 1.00543+2\times 1.00435+4\times1.00331
+</mrow><mrow>
+&amp;\hskip3in + 1.00233\big]
 </mrow><mrow>
 &amp;\approx 8.03509
 </mrow>
@@ -1578,8 +1620,8 @@ The information <m>\big|s^{(k)}(x)\big|\le \dfrac{k}{1000}</m>, with <m>k=2</m>,
 <md>
 <mrow>
 \bigg|\int_a^b f(x)\ dx -T_n\bigg|&amp;\le \frac{K_2(b-a)^3}{12n^2}
-&amp;&amp;\le \frac{2}{1000}\cdot\frac{8^3}{12(4)^2}
-&amp;\le 0.00533
+\le \frac{2}{1000}\cdot\frac{8^3}{12(4)^2}
+\le 0.00533
 </mrow>
 </md>
 </p>
@@ -1591,8 +1633,8 @@ The information <m>\big|s^{(k)}(x)\big|\le \dfrac{k}{1000}</m>, with <m>k=2</m>,
 <md>
 <mrow>
 \bigg|\int_a^b f(x)\ dx -S_n\bigg|&amp;\le \frac{K_4(b-a)^5}{180n^4}
-&amp;&amp;\le \frac{4}{1000}\cdot\frac{8^5}{180(4)^4}
-&amp;\le0.00284
+\le \frac{4}{1000}\cdot\frac{8^5}{180(4)^4}
+\le0.00284
 </mrow>
 </md>
 </p>
@@ -1651,7 +1693,7 @@ volume of the pool.
 <sidebyside width="66%">
 <image source="problems/figs/pool"/>
 </sidebyside>
-></statement>
+</statement>
 
 <hint><p>
 See Section <xref ref="sec_Simpson"/>.
@@ -1672,20 +1714,27 @@ from the left-hand end. From the sketch, <m>f(0)=0</m>, <m>f(2)=10</m>, <m>f(4)=
 </p>
 
 <p>A cross-section of the pool <m>x</m> feet from the left end is half of a circular disk with diameter <m>f(x)</m> (so, radius <m>\frac{f(x)}{2}</m>) and thickness <m>\dee{x}</m>. So, the volume of
-the part of the pool with <m>x</m>--coordinate running from <m>x</m> to (<m>x+\dee{x}</m>) is
-<m>\half\pi\big(\frac{f(x)}{2}\big)^2\,\dee{x} = \frac{\pi}{8}[f(x)]^2\,\dee{x}</m>.
+the part of the pool with <m>x</m>--coordinate running from <m>x</m> to <m>x+\dee{x}</m> is
+<m>\half\pi\Big(\frac{f(x)}{2}\Big)^2\,\dee{x} = \frac{\pi}{8}[f(x)]^2\,\dee{x}</m>.
 </p>
 
 <p>The total volume is given by the following integral.
 <md>
 <mrow>
-V&amp;=\frac{\pi}{8}\int_0^{16}f(x)^2\,\dee{x}\cr
+V&amp;=\frac{\pi}{8}\int_0^{16}f(x)^2\,\dee{x}
+</mrow><mrow>
 &amp;\approx\frac{\pi}{8}\cdot\frac{\De x}{3}
 \Big[f(0)^2+4f(2)^2+2f(4)^2+4f(6)^2+2f(8)^2
-+4f(10)^2+2f(12)^2+4f(14)^2\!+f(16)^2\Big]\cr
++4f(10)^2
+</mrow><mrow>
+&amp;\hskip2.5in+2f(12)^2+4f(14)^2\!+f(16)^2\Big]
+</mrow><mrow>
 &amp;=\frac{\pi}{8}\cdot\frac{2}{3}
 \Big[0+4(10)^2+2(12)^2+4(10)^2+2(8)^2
-+4(6)^2+2(8)^2+4(10)^2+0\Big]\cr
++4(6)^2+2(8)^2
+</mrow><mrow>
+&amp;\hskip2.5in+4(10)^2+0\Big]
+</mrow><mrow>
 &amp;=\frac{472}{3}\pi\approx 494 \ {\rm ft}^3
 </mrow>
 </md>
@@ -1762,7 +1811,8 @@ See Example <xref ref="eg_MidpointErr2"/>.
  The Trapezoidal Rule with <m>n=4</m>, <m>a=0</m>, <m>b=1</m>, and <m>\De x = \frac{1}{4}</m> gives:
 <md>
 <mrow>
-W=2\pi 10^{-6}\int_0^1 rg(r)\,\dee{r}
+&amp;W=2\pi 10^{-6}\int_0^1 rg(r)\,\dee{r}
+</mrow><mrow>
 &amp;\approx 2\pi 10^{-6}\De x\left[\frac{1}{2}x_0g(x_0)+x_1g(x_1)+x_2g(x_2)+x_3g(x_3)+ \frac{1}{2}x_4g(x_4)\right]
 </mrow><mrow>
 &amp;=2\pi 10^{-6}\ \frac{1}{4}
@@ -1849,7 +1899,8 @@ Let <m>f(x)=\frac{1}{x}</m>, <m>a=1</m>, <m>b=2</m> and
 &amp;\approx \frac{\De x}{3}\Big[
 f(1)+4f\Big(\frac{7}{6}\Big)+2f\Big(\frac{8}{6}\Big)
 +4f\Big(\frac{9}{6}\Big)+2f\Big(\frac{10}{6}\Big)
-+4f\Big(\frac{11}{6}\Big)+f(2)\Big]
+</mrow><mrow>
+&amp;\hskip2.5in+4f\Big(\frac{11}{6}\Big)+f(2)\Big]
 </mrow><mrow>
 &amp;= \frac{1}{18}\Big[
 1+\frac{24}{7}+\frac{12}{8}+\frac{24}{9}+\frac{12}{10}+\frac{24}{11}
@@ -2043,7 +2094,7 @@ To find the maximum value of <m>|f''(x)|</m>, check its critical points and endp
 </p></hint>
 <answer><p>
 (a) When <m>0 \leq x \leq1</m>, then <m>x^2 \leq 1</m> and <m>x+1 \geq 1</m>, so
-<me>|f''(x)| = \dfrac{x^2}{|x+1|}\leq \dfrac{1}{1}=1.</me>.
+<me>|f''(x)| = \dfrac{x^2}{|x+1|}\leq \dfrac{1}{1}=1</me>
 </p><p>
 (b) <m>\dfrac{1}{2}</m>
 </p><p>
@@ -2148,14 +2199,20 @@ n&amp; \gt \sqrt[4]{\frac{128}{3}}\approx  2.6
 Since <m>n</m> must be even, <m>n=4</m> is enough intervals to guarantee our error is not too high for any <m>x</m> in <m>[1,3]</m>. Now we find our Simpson's rule approximation with <m>n=4</m>, <m>a=1</m>, <m>b=x</m>,  and <m>\Delta x = \dfrac{x-1}{4}</m>. The points where we evaluate <m>\frac{1}{t}</m> are:
 <md>
 <mrow>
-x_0 =&amp; 1 &amp; x_1&amp;=1+ \frac{x-1}{4}&amp; x_2&amp;=1+2\cdot\frac{x-1}{4}&amp; x_3&amp;=1+3\cdot\frac{x-1}{4}&amp; x_4&amp;=1+4\cdot\frac{x-1}{4}
-</mrow><mrow>
-&amp;  &amp; &amp;=\frac{x+3}{4}&amp; &amp;=\frac{x+1}{2}&amp;&amp;=\frac{3x+1}{4}&amp; &amp;=x
+x_0 =&amp; 1 &amp; 
+          x_1&amp;=1+ \frac{x-1}{4}&amp; x_2&amp;=1+2\cdot\frac{x-1}{4}&amp;
+   </mrow><mrow>
+&amp;  &amp; &amp;=\frac{x+3}{4}&amp;       &amp;=\frac{x+1}{2}&amp;
+  </mrow><mrow>
+&amp;  &amp;x_3&amp;=1+3\cdot\frac{x-1}{4}&amp; x_4&amp;=1+4\cdot\frac{x-1}{4}
+  </mrow><mrow>
+&amp;  &amp;   &amp;=\frac{3x+1}{4}&amp;           &amp;=x
 </mrow>
+
 </md>
 </p>
 
-<sidebyside>
+<sidebyside width="90%">
 <image><latex-image><![CDATA[\begin{tikzpicture}[scale=1.8]
   \draw[ \lt - \gt , thick] (-.5,0)--(8.5,0);
 	\YExcoord{0}{\atp{1}{x_{0}}}
@@ -2177,7 +2234,7 @@ x_0 =&amp; 1 &amp; x_1&amp;=1+ \frac{x-1}{4}&amp; x_2&amp;=1+2\cdot\frac{x-1}{4}
 </p>
 
 <p>Below is a graph of our approximation <m>f(x)</m> and natural logarithm on the same axes. The natural logarithm function is shown red and dashed, while our approximating function is solid blue. Our approximation appears to be quite accurate for small, positive values of <m>x</m>.
-</p><sidebyside width="66%">
+</p><sidebyside width="90%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{11}{2}{6.5}
 \draw[ultra thick, blue] plot[domain=.4:10.5, samples=100](\x,{2*(\x-1)/12*(1+16/(\x+3)+4/(\x+1)+16/(3*\x+1)+1/\x)}) node[above]{$y=f(x)$};
@@ -2235,21 +2292,21 @@ Using an approximation of the area under the curve <m>\dfrac{1}{x^2+1}</m>, show
 <p>So,
 <md>
 <mrow>
--0.00067 &amp;&amp; \lt &amp;&amp;  \int_1^2 \frac{1}{1+x^2}\,\dee{x} - A &amp;&amp; \lt &amp;&amp; 0.00067
+-0.00067 &amp; \lt  \int_1^2 \frac{1}{1+x^2}\,\dee{x} - A  \lt  0.00067
 </mrow><mrow>
-A-0.0067 &amp;&amp; \lt &amp;&amp;  \int_1^2 \frac{1}{1+x^2}\,\dee{x}  &amp;&amp; \lt &amp;&amp; A+0.00067
+A-0.0067 &amp; \lt  \int_1^2 \frac{1}{1+x^2}\,\dee{x}   \lt  A+0.00067
 </mrow><mrow>
-A-0.00067 &amp;&amp; \lt &amp;&amp; \arctan(2)-\arctan(1) &amp;&amp; \lt &amp;&amp; A+0.00067
+A-0.00067 &amp; \lt  \arctan(2)-\arctan(1)  \lt  A+0.00067
 </mrow><mrow>
-A-0.00067 &amp;&amp; \lt &amp;&amp; \arctan(2)-\frac{\pi}{4} &amp;&amp; \lt &amp;&amp; A+0.00067
+A-0.00067 &amp; \lt \arctan(2)-\frac{\pi}{4}  \lt  A+0.00067
 </mrow><mrow>
-\frac{\pi}{4}+A-0.00067 &amp;&amp; \lt &amp;&amp; \arctan(2) &amp;&amp; \lt &amp;&amp;\frac{\pi}{4}+ A+0.00067
+\frac{\pi}{4}+A-0.00067 &amp; \lt \arctan(2) \lt \frac{\pi}{4}+ A+0.00067
 </mrow><mrow>
-\frac{\pi}{4}+0.321748-0.00067 &amp;&amp; \lt &amp;&amp; \arctan(2) &amp;&amp; \lt &amp;&amp;\frac{\pi}{4}+0.321748+0.00067
+\frac{\pi}{4}+0.321748-0.00067 &amp; \lt  \arctan(2)  \lt \frac{\pi}{4}+0.321748+0.00067
 </mrow><mrow>
-\frac{\pi}{4}+0.321078 &amp;&amp; \lt &amp;&amp; \arctan(2) &amp;&amp; \lt &amp;&amp;\frac{\pi}{4}+0.322418
+\frac{\pi}{4}+0.321078 &amp; \lt \arctan(2) \lt \frac{\pi}{4}+0.322418
 </mrow><mrow>
-\frac{\pi}{4}+0.321 &amp;&amp; \lt &amp;&amp; \arctan(2) &amp;&amp; \lt &amp;&amp;\frac{\pi}{4}+0.323
+\frac{\pi}{4}+0.321 &amp; \lt \arctan(2) \lt \frac{\pi}{4}+0.323
 </mrow>
 </md>
 This was the desired bound.
@@ -2311,27 +2368,27 @@ x_0 = 1 \qquad x_1=\frac{5}{4} \qquad x_2 = \frac{3}{2} \qquad x_3 = \frac{7}{4}
 <p>Now we can find our Simpson's rule approximation <m>A</m>:
 <md>
 <mrow>
-\int_0^1 \frac{1}{1+x^2} \dee{x}&amp;\approx \frac{\De x}{3}\big[
+&amp;\int_0^1 \frac{1}{1+x^2} \dee{x}\approx \frac{\De x}{3}\big[
 f(x_0) + 4f(x_1)+2f(x_2)+4f(x_3)+f(x_4)
 \big]
 </mrow><mrow>
-&amp;=\frac{1/4}{3}\big[
+&amp;\hskip0.25in=\frac{1/4}{3}\big[
 f(1) + 4f(5/4)+2f(3/2)+4f(7/4)+f(2)
 \big]
 </mrow><mrow>
-&amp;=\frac{1}{12}\left[
+&amp;\hskip0.25in=\frac{1}{12}\left[
 \frac{1}{1+1} + \frac{4}{25/16+1}+\frac{2}{9/4+1}+\frac{4}{49/16+1}+\frac{1}{4+1}
 \right]
 </mrow><mrow>
-&amp;=\frac{1}{12}\left[
+&amp;\hskip0.25in=\frac{1}{12}\left[
 \frac{1}{2} + \frac{4\cdot 16}{25+16}+\frac{2\cdot 4}{9+4}+\frac{4\cdot 16}{49+16}+\frac{1}{5}
 \right]
 </mrow><mrow>
-&amp;=\frac{1}{12}\left[
+&amp;\hskip0.25in=\frac{1}{12}\left[
 \frac{1}{2} + \frac{64}{41}+\frac{8}{13}+\frac{64}{65}+\frac{1}{5}
 \right]
 </mrow><mrow>
-&amp;\approx 0.321748=A
+&amp;\hskip0.25in\approx 0.321748=A
 </mrow>
 </md>
 </p>
@@ -2339,17 +2396,17 @@ f(1) + 4f(5/4)+2f(3/2)+4f(7/4)+f(2)
 <p>As we saw before, the error associated with this approximation is at most <m> \dfrac{30.75}{180\cdot 4^4}  \lt  0.00067=\varepsilon</m>. So,
 <md>
 <mrow>
-&amp;A-\varepsilon \quad&amp;&amp;\leq\quad &amp;&amp; \int_1^2\frac{1}{1+x^2} \dee{x}   &amp;\leq \quad &amp;A+\varepsilon&amp;
+&amp;&amp;A-\varepsilon &amp;\leq \int_1^2\frac{1}{1+x^2} \dee{x} \leq A+\varepsilon
 </mrow><mrow>
-\Rightarrow\qquad&amp;0.321748 - 0.00067 \quad&amp;&amp;\leq\quad &amp;&amp; \int_1^2\frac{1}{1+x^2} \dee{x}  \quad &amp;\leq \quad &amp;0.321748 + 0.00067&amp;
+&amp;\Rightarrow&amp;0.321748 - 0.00067 &amp;\leq \int_1^2\frac{1}{1+x^2} \dee{x}\leq 0.321748 + 0.00067
 </mrow><mrow>
-\Rightarrow\qquad&amp;0.321078 &amp;&amp;\leq\quad &amp; &amp;\int_1^2\frac{1}{1+x^2} \dee{x}\quad   &amp;\leq \quad &amp;0.322418&amp;
+&amp;\Rightarrow&amp;0.321078 &amp;\leq \int_1^2\frac{1}{1+x^2} \dee{x}\leq 0.322418
 </mrow><mrow>
-\Rightarrow\qquad&amp;0.321 &amp;&amp;\leq\quad  &amp;&amp;\int_1^2\frac{1}{1+x^2} \dee{x}\quad   &amp;\leq \quad &amp;0.323&amp;
+&amp;\Rightarrow&amp;0.321 &amp;\leq\int_1^2\frac{1}{1+x^2} \dee{x}\leq 0.323
 </mrow><mrow>
-\Rightarrow\qquad&amp;\frac{\pi}{4}+0.321 &amp;&amp; \leq\quad  &amp;&amp;\int_1^2\frac{1}{1+x^2} \dee{x}+\frac{\pi}{4}\quad   &amp;\leq \quad &amp;\frac{\pi}{4}+0.323&amp;
+&amp;\Rightarrow&amp;\frac{\pi}{4}+0.321 &amp; \leq\int_1^2\frac{1}{1+x^2} \dee{x}+\frac{\pi}{4}\leq \frac{\pi}{4}+0.323
 </mrow><mrow>
-\Rightarrow\qquad&amp;\frac{\pi}{4}+0.321 &amp;&amp; \leq\quad &amp;&amp;\arctan(2)   &amp;\leq \quad &amp;\frac{\pi}{4}+0.323&amp;
+&amp;\Rightarrow&amp;\frac{\pi}{4}+0.321 &amp; \leq \arctan(2) \leq \frac{\pi}{4}+0.323;
 </mrow>
 </md>
 </p>

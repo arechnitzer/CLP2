@@ -9,7 +9,7 @@
 <exercise>
 <statement><p>
 Consider a right circular cone.
-</p><sidebyside width="33%">
+</p><sidebyside width="25%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw (0,0)node[thin, gray, shape=ellipse, minimum width=3cm, minimum height=1cm, draw, fill=black, fill opacity=0.1] {};
 \draw (-1.5,0)--(0,3)--(1.5,0);
@@ -34,7 +34,7 @@ If we take a horizontal slice of a cone, we get a circle. If we take a vertical 
 Two potters start with a block of clay <m>h</m> units tall, and identical square cookie cutters. They form columns by pushing the square cookie cutter straight down over the clay, so that its cross-section is the same square as the cookie cutter. Potter A pushes their cookie cutter down while their clay block is sitting motionless on a table; Potter B pushes their cookie cutter down while their clay block is rotating on a potter's wheel, so their column looks twisted. Which column has greater volume?
 </p>
 
-<sidebyside width="25%">
+<sidebyside width="20%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[thick] (-1.5,-3) --(-0,-3.5)--(1.5,-3)--(1.5,3)--(0,2.5)--(-1.5,3)--cycle;
 \draw[thick] (-1.5,3)--(0,3.5)--(1.5,3) (0,2.5)--(0,-3.5);
@@ -84,7 +84,7 @@ The columns have the same volume. We can see this by chopping up the columns int
 <statement><p>
 Let <m>R</m> be the region bounded above by the graph of <m>y=f(x)</m> shown below and bounded below by the <m>x</m>-axis, from <m>x=0</m> to <m>x=6</m>. Sketch the washers that are formed by rotating <m>R</m> about the <m>y</m>-axis.
 In your sketch, label the all radii in terms of <m>y</m>, and label the thickness.
-</p><sidebyside width="50%">
+</p><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{7}{1}{4}
 \draw[ultra thick, blue] (0,0)--(1,1)--(2,0)--(4,3)--(6,0);
@@ -165,7 +165,7 @@ When <m>0 \le y  \lt  1</m>, we have a <q>double washer,</q> two concentric ring
 Notice <m>f(x)</m> is a piecewise linear function, so we can find explicit equations for each of its pieces from the graph. The radii will be determined by the <m>x</m>-values, so below we give the <m>x</m>-values as functions of <m>y</m>.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{7}{1}{4}
 \draw[ultra thick, blue] (0,0)--(1,1)--(2,0)--(4,3)--(6,0);
@@ -340,8 +340,9 @@ when <m>y\le 1</m> and
 strip is at <m>y=4</m>, the total volume is
 <md>
 <mrow>
-\int _0^1  \pi\big[\big(3+\sqrt{y}\big)^2-\big(3-\sqrt{y}\big)^2\big]\dee{y}
-+\int _ 1^4  \pi\big[\big(5-y\big)^2-\big(3-\sqrt{y}\big)^2\big]\dee{y}
+&amp;\int _0^1  \pi\big[\big(3+\sqrt{y}\big)^2-\big(3-\sqrt{y}\big)^2\big]\dee{y}
+</mrow><mrow>
+&amp;\hskip0.5in+\int _ 1^4  \pi\big[\big(5-y\big)^2-\big(3-\sqrt{y}\big)^2\big]\dee{y}
 </mrow>
 </md>
 </li>
@@ -510,7 +511,7 @@ volume <m>\pi\big[{(9-x^2)}^2-{(x^2+1)}^2\big]\,\dee{x}</m>.
 A tetrahedron is a three-dimensional shape with four faces, each of which is an equilateral triangle. (You might have seen this shape as a 4-sided die; think of a pyramid with a triangular base.) Using the methods from this section, calculate the volume of a tetrahedron with side-length <m>\ell</m>. You may assume without proof that the height of a tetrahedron with side-length <m>\ell</m> is <m>\sqrt{\frac{2}{3}}\ell</m>.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="40%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw (0,0) coordinate(a0);
 \draw (3,0) coordinate(a1);
@@ -536,7 +537,7 @@ If you take horizontal slices (parallel to one face), they will all be equilater
 We'll make horizontal slices, parallel to one of the faces of the tetrahedron. Then our slices will be equilateral triangles, of varying sizes.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="40%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw (0,0) coordinate(a0);
 \draw (3,0) coordinate(a1);
@@ -612,7 +613,7 @@ We know the length of the hypotenuse of this right triangle (it's <m>\ell</m>), 
 <p>Here is a sketch of the base of the pyramid:
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw node[vertex]{};
 \foreach \x in {0,1,2}{
@@ -686,7 +687,7 @@ Using the substitution <m>u=2x^2</m>, so that <m>\dee{u}=4x\,\dee{x}</m>:
 </mrow>
 </md>
 </p>
-<sidebyside width="33%">
+<sidebyside width="40%">
 <image source="problems/figs/OQ16_3_4b"/>
 </sidebyside>
 
@@ -727,7 +728,7 @@ when
 </p>
 
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image source="problems/figs/OE14A_3"/>
 </sidebyside>
 <p>
@@ -742,11 +743,12 @@ This washer has volume
 Hence the volume of the solid is
 <md>
 <mrow>
-\pi\int_{1/3}^3\Big(\frac{100}{9}-\frac{20}{3}x+x^2-\frac{1}{x^2}\Big)\,\dee{x}
-&amp;=\pi\Big[\frac{100x}{9}-\frac{10}{3}x^2+\frac{1}{3}x^3
+&amp;\pi\int_{1/3}^3\Big(\frac{100}{9}-\frac{20}{3}x+x^2-\frac{1}{x^2}\Big)\,\dee{x}
+</mrow><mrow>
+&amp;\hskip0.5in=\pi\Big[\frac{100x}{9}-\frac{10}{3}x^2+\frac{1}{3}x^3
               +\frac{1}{x}\Big]_{1/3}^3
 </mrow><mrow>
-&amp;=\pi\Big[\frac{38}{3}-\frac{514}{3^4}\Big] = \pi\frac{512}{81}
+&amp;\hskip0.5in=\pi\Big[\frac{38}{3}-\frac{514}{3^4}\Big] = \pi\frac{512}{81}
 </mrow>
 </md>
 </p></solution>
@@ -790,11 +792,14 @@ When <m>R</m> is rotated about the <m>x</m>--axis, the vertical strip of
 <m>R</m> in the figure above sweeps out a washer with thickness <m>\dee{x}</m>,
 outer radius <m>T(x)</m> and inner radius <m>B(x)</m>. This washer has
 volume
-<me>
+<md>
+<mrow>
 \pi\big(T(x)^2- B(x)^2\big)\,\dee{x}
-= \pi\big(T(x)+ B(x)\big)\big(T(x)- B(x)\big)\,\dee{x}
-= \pi\times 4\times 2\sqrt{1-x^2}\,\dee{x}
-</me>
+&amp;= \pi\big(T(x)+ B(x)\big)\big(T(x)- B(x)\big)\,\dee{x}
+</mrow><mrow>
+&amp;= \pi\times 4\times 2\sqrt{1-x^2}\,\dee{x}
+</mrow>
+</md>
 Hence the volume of the solid is
 <me>
 8\pi\int_{-1}^1\sqrt{1-x^2}\,\dee{x}
@@ -834,7 +839,7 @@ The region <m>R</m> is the region
 between the blue and red curves, with <m>3\le x\le 5</m>,  in the figures below.
 </p>
 
-<sidebyside width="33%">
+<sidebyside widths="50% 45%">
 <image source="problems/figs/graphE1"/>
 <image source="problems/figs/graphE1b"/>
 </sidebyside>
@@ -864,7 +869,8 @@ radius <m>\sqrt{8x}</m> and thickness <m>\dee{x}</m>. The surface area of the wa
 <mrow>
 \int_3^5 \pi(8x-x^2-15)\,\dee{x}
 &amp;=\pi\Big[4x^2-\frac{1}{3}x^3-15 x\Big]_3^5
-=\pi\Big[100-\frac{125}{3}-75-36+9+45\Big]
+</mrow><mrow>
+&amp;=\pi\Big[100-\frac{125}{3}-75-36+9+45\Big]
 </mrow><mrow>
 &amp;=\frac{4}{3}\pi\approx 4.19
 </mrow>
@@ -897,7 +903,7 @@ See Example <xref ref="eg_rot_yaxis"/>.
 The region <m>R</m> is sketched below.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="40%">
 <image source="problems/figs/graphE2l"/>
 </sidebyside>
 <p>
@@ -940,9 +946,9 @@ strip is at <m>y=\log 2</m> (since at the top <m>x=2</m> and <m>x=e^y</m>), the 
 \text{Volume}
 &amp;= \int _0^{\log 2} \pi\big(4-e^{2y}\big)\dee{y}
 =\pi\big[4y -e^{2y}/2\big]_0^{\log 2}
-=\pi\Big[4\log 2 - 2 +\frac{1}{2}\Big]
 </mrow><mrow>
-&amp;=\pi\Big[4\log 2 - \frac{3}{2}\Big]
+&amp;=\pi\Big[4\log 2 - 2 +\frac{1}{2}\Big]
+=\pi\Big[4\log 2 - \frac{3}{2}\Big]
 </mrow>
 </md>
 Using a calculator, we see this is approximately <m>3.998</m>.
@@ -972,7 +978,7 @@ Sketch the region. To find where the curves intersect, look at where
 Here is a sketch of the curves <m>y = \cos(\frac x2)</m> and <m>y = x^2 - \pi^2</m>.
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image source="problems/figs/OQ16_3_4"/>
 </sidebyside>
 <p>
@@ -1091,7 +1097,7 @@ See Example <xref ref="eg_VOLb"/>. Imagine cross-sections with shadow parallel t
 <solution><p>
 Here is a sketch of the base region.
 </p>
-<sidebyside width="33%">
+<sidebyside width="50%">
 <image source="problems/figs/graphE98A_7"/>
 </sidebyside>
 <p>
@@ -1119,7 +1125,7 @@ A frustrum of a right circular cone (as shown below) has
 height <m>h</m>. Its base is a circular disc with radius <m>4</m> and its top is
 a circular disc with radius <m>2</m>. Calculate the volume of the frustrum.
 </p>
-<sidebyside width="40%">
+<sidebyside width="33%">
 <image source="problems/figs/OE01D_4b"/>
 </sidebyside>
 </statement>
@@ -1147,15 +1153,16 @@ frustrum is
 <md>
 <mrow>
 \pi\int_0^h \big(2+2t/h\big)^2 \dee{t}
-=4\pi\int_0^h \big(1+t/h\big)^2 \dee{t}
+&amp;=4\pi\int_0^h \big(1+t/h\big)^2 \dee{t}
 =4\pi\left[\frac{(1+t/h)^3}{3/h}\right]_0^h
-=\frac{4}{3}\pi h\times 7
+</mrow><mrow>
+&amp;=\frac{4}{3}\pi h\times 7
 =\frac{28}{3}\pi h
 </mrow>
 </md>
 </p>
 
-<p>Remark: we could also solve this problem using the formula for the volume of a cone. Using similar triangles, the frustrum in question is shaped like a right circular cone of height <m>2h</m> and base radius 4 (and hence of volume <m>\dfrac{1}{3}\pi(4^2)(2h)</m>), but missing its top, which is a right circular cone of height <m>h</m> and base radius <m>2</m> (and hence volume <m>\dfrac{1}{3}\pi(2^2)h</m>). So, the volume of the frustrum is <m>\dfrac{1}{3}\pi(4^2)(2h) - \dfrac{1}{3}\pi(2^2)h = \dfrac{28}{3}\pi h</m>.
+<p>Remark: we could also solve this problem using the formula for the volume of a cone. Using similar triangles, the frustrum in question is shaped like a right circular cone of height <m>2h</m> and base radius 4 (and hence of volume <m>\dfrac{1}{3}\pi(4^2)(2h)</m>), but missing its top, which is a right circular cone of height <m>h</m> and base radius <m>2</m> (and hence volume <m>\dfrac{1}{3}\pi(2^2)h</m>). So, the volume of the frustrum is <me>\dfrac{1}{3}\pi(4^2)(2h) - \dfrac{1}{3}\pi(2^2)h = \dfrac{28}{3}\pi h</me>.
 </p></solution>
 </exercise>
 </exercisegroup>
@@ -1344,7 +1351,7 @@ Thus the intersection points are <m>(-1,0)</m> and <m>(2,3)</m>.
 Here is a sketch of <m>R</m>:
 </p>
 
-<sidebyside width="33%">
+<sidebyside width="60%">
 <image source="problems/figs/OE12A_2a"/>
 </sidebyside>
 <p>
@@ -1367,7 +1374,7 @@ All together <m>R</m> has
 We'll use vertical washers as in Example  <xref ref="eg_VOLe"/>. Note that the highest point achieved by <m>y=4-(x-1)^2</m> is <m>y=4</m>, so rotating around the line <m>y=5</m> causes no unexpected problems.
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="60%">
 <image source="problems/figs/OE12A_2b"/>
 </sidebyside>
 <p>
@@ -1699,9 +1706,14 @@ It would be useful to review that problem.
 </p></hint>
 
 <answer><p>
-<m>\displaystyle\int_{\pi/2}^\pi \pi\big[(5 + \pi \sin x)^2-(5 + 2\pi - 2x)^2\big]\dee{x}
-   +\displaystyle\int^{3\pi/2}_\pi \pi\big[(5 + 2\pi - 2x)^2-(5 + \pi \sin x)^2\big]\
-            \dee{x}</m>
+<md>
+<mrow>
+&amp;\displaystyle\int_{\pi/2}^\pi \pi\big[(5 + \pi \sin x)^2-(5 + 2\pi - 2x)^2\big]\dee{x}
+</mrow><mrow>
+&amp;\hskip0.5in+\displaystyle\int^{3\pi/2}_\pi \pi\big[(5 + 2\pi - 2x)^2-(5 + \pi \sin x)^2\big]\
+            \dee{x}
+</mrow>
+</md>
 </p></answer>
 
 <solution><p>

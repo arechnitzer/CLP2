@@ -169,7 +169,13 @@ In this example we'll do two sample computations.
 <p>Now for the full computation that gives the exact area.</p>
 <example xml:id="eg_INTexpareaB"><title>Computing an area exactly</title>
 <p>
-Recall that we wish to compute the area of <m>\big\{\ (x,y)\ \big|\ 0\le y\le  e^x</m>, <m>0\le x\le 1\ \big\}</m> and that our strategy is to approximate this area by  the area of a union of a large number of very thin rectangles, and then take the limit as the number of rectangles goes to infinity. In Example<nbsp/><xref ref="eg_INTexparea"/>, we used just four rectangles. Now we'll consider a  general number of rectangles, that we'll call <m>n</m>. Then we'll take the limit  <m>n\rightarrow\infty</m>. So
+Recall that we wish to compute the area of 
+<md>
+<mrow>
+\big\{\ (x,y)\ \big|\ 0\le y\le  e^x,\ 0\le x\le 1\ \big\}
+</mrow>
+</md>
+and that our strategy is to approximate this area by  the area of a union of a large number of very thin rectangles, and then take the limit as the number of rectangles goes to infinity. In Example<nbsp/><xref ref="eg_INTexparea"/>, we used just four rectangles. Now we'll consider a  general number of rectangles, that we'll call <m>n</m>. Then we'll take the limit  <m>n\rightarrow\infty</m>. So
 <ul>
 <li> pick a natural number <m>n</m> and </li>
 <li>
@@ -274,15 +280,16 @@ The derivation of the above formula is not too difficult. So let's  derive it in
 Denote the sum as
 <md>
 <mrow>
-S &amp;=
-1 + r + r^2 + \cdots + r^{n-1}
+S&amp; =1 + r + r^2 + \cdots + r^{n-1}
 </mrow>
 </md>
 Notice that if we multiply the whole sum by <m>r</m> we get back almost the same
 thing:
 <md>
 <mrow>
-rS&amp;= r\left(1+ r +r^2 +\cdots+ r^{n-1}\right)
+&amp;rS
+</mrow><mrow>
+&amp;= r\left(1+ r +\cdots+ r^{n-1}\right)
 </mrow><mrow>
    &amp;= r+ r^2+ r^3 +\cdots+ r^n
 </mrow>
@@ -290,7 +297,7 @@ rS&amp;= r\left(1+ r +r^2 +\cdots+ r^{n-1}\right)
 This right hand side differs from the original sum <m>S</m> only in that
 <ul>
 <li>
-	the right hand side is missing the <q><m>1+\,</m></q> that <m>S</m> starts with and
+	the right hand side, which starts with <q><m>r+\,</m></q>,  is missing the <q><m>1+\,</m></q> that <m>S</m> starts with, and
 </li>
 <li>
 	the right hand side has an extra <q><m>+r^n\,</m></q> at the end that does not appear in <m>S</m>.
@@ -472,22 +479,22 @@ to establish  the result.
 	\frac{1}{n}e^{\frac{1}{n}}
 	&amp;\le {\rm Area}\big\{\ (x,y)\ \big|\
 				 \frac{1}{n}\le x\le \frac{2}{n},\ 0\le y\le e^x\ \big\}
-	&amp;\le \frac{1}{n}e^{\frac{2}{n}}
+	\ \ \ \le \frac{1}{n}e^{\frac{2}{n}}
 	</mrow>
 	<mrow>
 	\frac{1}{n}e^{\frac{2}{n}}
 	&amp;\le {\rm Area}\big\{\ (x,y)\ \big|\
 				\frac{2}{n}\le x\le \frac{3}{n},\ 0\le y\le e^x\ \big\}
-	&amp;\le \frac{1}{n}e^{\frac{3}{n}}
+	\ \ \ \le \frac{1}{n}e^{\frac{3}{n}}
 	</mrow>
 	<mrow>
-	\vdots &amp; \vdots &amp;\vdots
+	&amp; \vdots
 	</mrow>
 	<mrow>
 	\frac{1}{n}e^{\frac{(n-1)}{n}}
 	&amp;\le {\rm Area}\big\{\ (x,y)\ \big|\
 			  \frac{(n-1)}{n}\le x\le \frac{n}{n},\ 0\le y\le e^x\ \big\}
-	&amp;\ \le\frac{1}{n}e^{\frac{n}{n}}
+	\le\frac{1}{n}e^{\frac{n}{n}}
 	</mrow>
 	</md>
 </p>
@@ -497,13 +504,13 @@ to establish  the result.
 	Adding these <m>n</m> inequalities together gives
 	<md>
 	<mrow>
-	\frac{1}{n}\left(1+e^{\frac{1}{n}}+\cdots+e^{\frac{(n-1)}{n}}\right)
+	&amp;\frac{1}{n}\left(1+e^{\frac{1}{n}}+\cdots+e^{\frac{(n-1)}{n}}\right)
 	</mrow>
 	<mrow>
-	\le {\rm Area}\big\{\ (x,y)\ \big|\ 0\le x\le 1,\ 0\le y\le e^x\ \big\}
+	&amp;\le {\rm Area}\big\{\ (x,y)\ \big|\ 0\le x\le 1,\ 0\le y\le e^x\ \big\}
 	</mrow>
 	<mrow>
-	\le \frac{1}{n}\left(e^{\frac{1}{n}}+e^{\frac{2}{n}}+\cdots+
+	&amp;\le \frac{1}{n}\left(e^{\frac{1}{n}}+e^{\frac{2}{n}}+\cdots+
 			 e^{\frac{n}{n}}\right)
 	</mrow>
 	</md>
@@ -875,7 +882,7 @@ Before we explain more precisely what the definite integral actually is, a few r
 <p>
 	If <m>f(x)\ge 0</m> and <m>a\le b</m>, one interpretation of the symbol <m>\ds \int_a^b f(x)\dee{x}</m> is <q>the area of the region <m>\big\{\ (x,y)\ \big|\ a\le x\le b,\   0\le y\le f(x)\ \big\}</m></q>.
 </p>
-<sidebyside width="50%">
+<sidebyside width="66%">
 <image source="text/figs/areaSqrt"/>
 </sidebyside>
 
@@ -905,7 +912,7 @@ Before we explain more precisely what the definite integral actually is, a few r
 	</mrow>
 	</md>
 </p>
-  <sidebyside width="50%">
+  <sidebyside width="66%">
   <image source="text/figs/signedArea"/>
   </sidebyside>
 </li>
@@ -1251,7 +1258,7 @@ The integral <m>\int_0^1 \sqrt{1-x^2}\dee{x}</m>  has integrand <m>f(x)=\sqrt{1-
 </md>
 But this is the (implicit) equation for a circle <mdash/> the extra condition that  <m>y\geq0</m>  makes it the equation for the semi-circle centred at the origin with radius 1  lying on  and above the <m>x</m>-axis. Thus the integral represents the area of the quarter  circle of  radius <m>1</m>, as shown in the figure on the right below. So
 </p>
-<sidebyside widths="33% 33%" valign="middle">
+<sidebyside widths="33% 25%" valign="middle">
 <p><m>
 \int_0^1 \sqrt{1-x^2}\dee{x} = \frac{1}{4}\pi(1)^2 = \frac{\pi}{4}
 </m></p>
@@ -1267,7 +1274,7 @@ This next one is a little trickier and relies on us knowing the symmetries of th
 <p>
 The integral <m>\int_{-\pi}^\pi \sin x\dee{x}</m>  is the signed area of the shaded region in the figure on the right below. It naturally splits into  two  regions, one on either side of the <m>y</m>-axis. We don't know the formula for the  area of  either of these regions (yet), however the two regions are very nearly the same.  In  fact, the part of the shaded region below the <m>x</m>-axis is exactly the reflection, in the <m>x</m>-axis, of the part of the shaded region above the <m>x</m>-axis. So the signed area of part of the shaded region below the <m>x</m>-axis is the negative of the signed area of part of the shaded region above the <m>x</m>-axis and
 </p>
-<sidebyside widths="33% 33%" valign="middle">
+<sidebyside widths="33% 40%" valign="middle">
 <p><m>
 \int_{-\pi}^\pi \sin x\dee{x} = 0
 </m></p>

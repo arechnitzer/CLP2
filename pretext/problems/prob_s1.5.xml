@@ -13,7 +13,7 @@ We want to approximate the area between the graphs of <m>y=\cos x</m> and <m>y=\
 <li> Calculate the Riemann approximation.
 </li>
 </ol>
-</p><sidebyside width="33%">
+</p><sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{4.5}{2}{2.25};
 \YExcoord{3.14}{\pi}
@@ -31,7 +31,7 @@ When we say <q>area between,</q> we want positive area, <em>not</em> signed area
 Area between curves <m>\approx \frac{\pi}{4}\left(2+\sqrt{2}\right)</m>
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{4.5}{2}{2.25};
 \YExcoord{3.14}{\pi}
@@ -46,7 +46,7 @@ Area between curves <m>\approx \frac{\pi}{4}\left(2+\sqrt{2}\right)</m>
 (2.36,-1.41) rectangle (3.14,1.41);
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside></answer>
-<solution><sidebyside width="40%">
+<solution><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{4.5}{2}{2.25};
 \YExcoord{3.14}{\pi}
@@ -90,7 +90,7 @@ We want to approximate the bounded area between the curves <m>y=\arcsin\left(\df
 <li> Draw  five rectangles on the picture below we might use if we were using horizontal rectangles.
 </li>
 </ol>
-</p><sidebyside width="40%">
+</p><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1.5}{7}{1.5}{6}
 \YExcoord{6.28}{\frac{\pi}{2}}
@@ -105,7 +105,7 @@ We're taking rectangles that reach from one function to the other.
 </p></hint>
 <answer><p>
 (a) Vertical rectangles:
-</p><sidebyside width="40%">
+</p><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1.5}{7}{1.5}{6}
 \foreach \x/\l in {1.26/\frac{\pi}{10},2.51/\frac{\pi}{5},3.77/\frac{3\pi}{10},5.03/\frac{2\pi}{5},6.28/\frac{\pi}{2}}
@@ -124,7 +124,7 @@ We're taking rectangles that reach from one function to the other.
 </sidebyside>
 
 <p>(b) One possible answer:
-</p><sidebyside width="40%">
+</p><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1.5}{7}{1.5}{7}
 \foreach \x/\l in {1.26/\frac{\pi}{10},2.51/\frac{\pi}{5},3.77/\frac{3\pi}{10},5.03/\frac{2\pi}{5},6.28/\frac{\pi}{2}}
@@ -157,7 +157,7 @@ We are finding the area in the interval from <m>x=0</m> to <m>x=\frac{\pi}{2}</m
 \left[\frac{2\pi}{5},\frac{\pi}{2}\right].</me>
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1.5}{7}{1.5}{6}
 \foreach \x/\l in {1.26/\frac{\pi}{10},2.51/\frac{\pi}{5},3.77/\frac{3\pi}{10},5.03/\frac{2\pi}{5},6.28/\frac{\pi}{2}}
@@ -189,7 +189,7 @@ We are finding the area in the interval from <m>y=0</m> to <m>y=\frac{\pi}{2}</m
 <p>The question doesn't specify which endpoints we're using. Let's use upper endpoints, to match part (a).
 </p>
 
-<sidebyside width="40%">
+<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1.5}{7}{1.5}{7}
 \foreach \x/\l in {1.26/\frac{\pi}{10},2.51/\frac{\pi}{5},3.77/\frac{3\pi}{10},5.03/\frac{2\pi}{5},6.28/\frac{\pi}{2}}
@@ -249,7 +249,7 @@ For <m>x\ge 0</m>, the curves intersect at <m>(0,0)</m> and <m>(\sqrt{2},\sqrt{2
 <p>
 Using vertical strips:
 </p>
-<sidebyside width="33%">
+<sidebyside width="40%">
 <image source="problems/figs/OE02A_2a"/>
 </sidebyside>
 <p>
@@ -257,8 +257,10 @@ The top and bottom boundaries of the specified region are <m>y=T(x)=x</m>
 and <m>y=B(x)=x^3-x</m>, respectively. So,
 <md>
 <mrow>
-{\rm Area} = \int_0^{\sqrt{2}}\big[T(x)-B(x)\big]\dee{x}
-= \int_0^{\sqrt{2}}\big[x-(x^3-x)\big]\dee{x} = \int_0^{\sqrt{2}} 2x-x^3 \dee{x}
+{\rm Area} &amp;= \int_0^{\sqrt{2}}\big[T(x)-B(x)\big]\dee{x}
+= \int_0^{\sqrt{2}}\big[x-(x^3-x)\big]\dee{x} 
+</mrow><mrow>
+&amp;= \int_0^{\sqrt{2}} \big[2x-x^3\big] \dee{x}
 </mrow>
 </md>
 </p>
@@ -303,7 +305,7 @@ x=-8,\quad x&amp;=3
 strips:
 </p>
 
-<sidebyside width="66%">
+<sidebyside width="75%">
 <image source="problems/figs/OE00D_3a"/>
 </sidebyside>
 <p>
@@ -389,7 +391,7 @@ The curves intersect when <m>x=4y^2</m> and <m>0=4y^2+12y+5
 =(2y+5)(2y+1)</m>. So, the curves intersect at <m>(1,-\half)</m> and <m>(25,-\frac{5}{2})</m>.
 Using vertical strips:
 </p>
-<sidebyside width="75%">
+<sidebyside width="90%">
 <image source="problems/figs/OE01D_3a"/>
 </sidebyside>
 <p>
@@ -496,9 +498,10 @@ We therefore evaluate the integral:
 <md>
 <mrow>
  \int_0^2 \big[ (3x-x^2) - x \big] \,\dee{x}
-  = \int_0^2 [2x-x^2]\,\dee{x}
+  &amp;= \int_0^2 [2x-x^2]\,\dee{x}
    = \bigg[x^2 - \frac{x^3}{3}\bigg]^{2}_{0}
-   = \bigg[ 4-\frac{8}{3} \bigg] -0
+</mrow><mrow>
+   &amp;= \bigg[ 4-\frac{8}{3} \bigg] -0
    = \frac{4}{3}
 </mrow>
 </md>
@@ -522,7 +525,7 @@ Guess the intersection points by trying small integers.
 By inspection, the two curves cross at <m>(0,1)</m> and <m>(1,2)</m>.
 </p>
 
-<sidebyside width="50%">
+<sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{1}{3}{1}{3}
 \draw[thick, blue] plot[domain=0:2, xscale=2, yscale=1.5, samples=140](\x,{sqrt(\x)+1});
@@ -582,11 +585,14 @@ works great on problem sets and exams.
 </fn>
 when <m>x=1</m>. So, using vertical strips as in
 the figure above, the area (including the multiplication by 2) is
-<me>
+<md>
+<mrow>
 2\int_0^1 \big[\sqrt{2} \cos(\pi x/4) - x\big]\,\dee{x}
-= 2\bigg[\sqrt{2}\,\frac{4}{\pi} \sin(\pi x/4)-\frac{x^2}{2}\bigg]_0^1
-= 2\bigg[\frac{4}{\pi}-\frac{1}{2}\bigg] = \frac{8}{\pi}-1
-</me>
+&amp;= 2\bigg[\sqrt{2}\,\frac{4}{\pi} \sin(\pi x/4)-\frac{x^2}{2}\bigg]_0^1
+</mrow><mrow>
+&amp;= 2\bigg[\frac{4}{\pi}-\frac{1}{2}\bigg] = \frac{8}{\pi}-1
+</mrow>
+</md>
 </p>
 
 </solution>
@@ -614,7 +620,10 @@ For our computation, we will need an antiderivative of
 <m>u=x^3+1</m>, <m>\dee{u} = 3x^2\,\dee{x}</m>:
 <md>
 <mrow>
-\int x^2\sqrt{x^3+1} \, \dee{x} = \int \sqrt u \cdot \frac13\,\dee{u} = \frac13\int u^{1/2}\,\dee{u} = \frac13\cdot \frac{u^{3/2}}{3/2}+C = \frac29(x^3+1)^{3/2} + C.
+\int x^2\sqrt{x^3+1} \, \dee{x} &amp;= \int \sqrt u \cdot \frac13\,\dee{u} 
+= \frac13\int u^{1/2}\,\dee{u} 
+</mrow><mrow>
+&amp;= \frac13\cdot \frac{u^{3/2}}{3/2}+C = \frac29(x^3+1)^{3/2} + C.
 </mrow>
 </md>
 </p>
@@ -644,11 +653,11 @@ is very small <m>f(x)=x^2\sqrt{x^3+1}\approx x^2</m> and <m>g(x)=3x^2</m>.
 The area in question is therefore:
 <md>
 <mrow>
-\int_0^2 \big( 3x^2 - x^2\sqrt{x^3+1} \big) \, \dee{x} &amp;= \bigg( {x^3} - \frac29(x^3+1)^{3/2} \bigg) \bigg|_0^2
+&amp;\int_0^2 \big( 3x^2 - x^2\sqrt{x^3+1} \big) \, \dee{x} = \bigg( {x^3} - \frac29(x^3+1)^{3/2} \bigg) \bigg|_0^2
 </mrow><mrow>
-&amp;= \bigg( 2^3 - \frac2 9(2^3+1)^{3/2} \bigg) - \bigg( 0^3 - \frac29(0^3+1)^{3/2} \bigg)
+&amp;\hskip0.5in = \bigg( 2^3 - \frac2 9(2^3+1)^{3/2} \bigg) - \bigg( 0^3 - \frac29(0^3+1)^{3/2} \bigg)
 </mrow><mrow>
-&amp;= \bigg( 8 - 6 \bigg) - \bigg( 0 - \frac 2 9 \bigg) =\frac{20}9.
+&amp;\hskip0.5in = \bigg( 8 - 6 \bigg) - \bigg( 0 - \frac 2 9 \bigg) =\frac{20}9.
 </mrow>
 </md>
 </p></solution>
@@ -688,7 +697,7 @@ First, let's figure out what our curve <m>x=y^2+y=y(y+1)</m> looks like.
 </mrow>
 </md>
 </p>
-<sidebyside width="33%">
+<sidebyside width="40%">
 <image source="problems/figs/quiz2M1prob2"/>
 </sidebyside>
 </solution>
@@ -707,7 +716,7 @@ Writing an integral for this is nasty. How can you avoid it?
 </p></answer>
 <solution><p>
 Let's begin by sketching our region. Note that <m>y=\sqrt{1-x^2}</m> and <m>y=\sqrt{9-x^2}</m> are the top halves of circles centred at the origin with radii 1 and 3, respectively.
-</p><sidebyside width="50%">
+</p><sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \YEaaxis{4}{4}{1}{4}
 \draw[thick] (-3,3)--(0,0)--(3,3);
@@ -782,8 +791,7 @@ By looking at the sketch above, we guess the line <m>y = 4 + 2\pi - 2x</m> inter
 </sidebyside>
 
 <p>
-Also from
-the sketch, we see that:
+Also from the sketch, we see that:
 <ul>
 <li>
 When <m>\frac{\pi}{2} \le x \le \pi</m>, the top of the strip is at
@@ -805,7 +813,8 @@ Now we can calculate:
 <mrow>
 \hbox{Area}
 &amp;= \int_{\pi/2}^\pi \big[(4 + \pi \sin x)-(4 + 2\pi - 2x)\big]\dee{x}
-   +\int^{3\pi/2}_\pi \big[(4 + 2\pi - 2x)-(4 + \pi \sin x)\big]\dee{x}
+</mrow><mrow>
+   &amp;\hskip0.5in+\int^{3\pi/2}_\pi \big[(4 + 2\pi - 2x)-(4 + \pi \sin x)\big]\dee{x}
 </mrow><mrow>
 &amp;= \int_{\pi/2}^\pi \big[\pi \sin x- 2\pi + 2x\big]\dee{x}
    +\int^{3\pi/2}_\pi \big[2\pi - 2x- \pi \sin x\big]\dee{x}
@@ -856,8 +865,9 @@ The area of the part between them with <m>0\le x\le 2</m> is:
 The area of the part between the two curves with <m>2\le x\le 3</m> is:
 <md>
 <mrow>
-\int_2^3 \big[x^2-(x+2)\big]\,\dee{x}=\Big[\frac{1}{3}x^3-\frac{1}{2} x^2-2x\Big]_2^3
-=9-\frac{9}{2}-6-\frac{8}{3}+2+4=\frac{11}{6}
+\int_2^3 \big[x^2-(x+2)\big]\,\dee{x}&amp;=\Big[\frac{1}{3}x^3-\frac{1}{2} x^2-2x\Big]_2^3
+</mrow><mrow>
+&amp;=9-\frac{9}{2}-6-\frac{8}{3}+2+4=\frac{11}{6}
 </mrow>
 </md>
 The total area is <m>\dfrac{10}{3}+\dfrac{11}{6}=\dfrac{31}{6}</m>.
@@ -929,7 +939,8 @@ while <m>u(0)=25-0^2=25</m> when <m>x=0</m>. Therefore
 <mrow>
 A_1 &amp;= \int_{x=0}^{x=4} x \sqrt{25-x^2}\,\dee{x}
 = -\frac{1}{2} \int_{u=25}^{u=9} \sqrt{u}\,\dee{u}
-= \left[-\frac{1}{3} u^{3/2} \right]_{25}^{9}
+</mrow><mrow>
+&amp;= \left[-\frac{1}{3} u^{3/2} \right]_{25}^{9}
 = \frac{125 - 27}{3} = \frac{98}{3}
 </mrow>
 </md>
@@ -1054,16 +1065,16 @@ Since 0 is in the interval <m>\left[-1-\sqrt{2},-1+\sqrt{2}\right]</m>, <m>x(x^2
 Since 1 is in the interval <m>\left[-1+\sqrt{2},2\right]</m>, <m>x-2</m> is the top function in that interval. Now we can set up the integral to evaluate the area:
 <md>
 <mrow>
-\mbox{Area}&amp;=\int_{-1-\sqrt{2}}^{-1+\sqrt{2}}\left[x(x^2-4) - (x-2)\right]\dee{x}  \quad&amp;&amp;+ \quad
-&amp;&amp;\int_{-1+\sqrt{2}}^{2}\left[(x-2)-x(x^2-4)\right]\dee{x}
-</mrow>
-<mrow>
-&amp;=\int_{-1-\sqrt{2}}^{-1+\sqrt{2}}\left[x^3-5x+2\right]\dee{x}  \quad&amp;&amp;+ \quad
-&amp;&amp;\int_{-1+\sqrt{2}}^{2}\left[-x^3+5x-2\right]\dee{x}
-</mrow>
-<mrow>
-&amp;=\left[\frac{1}{4}x^4 - \frac{5}{2}x^2+2x\right]_{-1-\sqrt{2}}^{-1+\sqrt{2}}  \quad&amp;&amp;+ \quad
-&amp;&amp;\left[-\frac{1}{4}x^4 + \frac{5}{2}x^2-2x\right]_{-1+\sqrt{2}}^{2}
+\mbox{Area}&amp;=\int_{-1-\sqrt{2}}^{-1+\sqrt{2}}\left[x(x^2-4) - (x-2)\right]\dee{x}  
+</mrow><mrow>
+&amp;\hskip0.5in+\int_{-1+\sqrt{2}}^{2}\left[(x-2)-x(x^2-4)\right]\dee{x}
+</mrow><mrow>
+&amp;=\int_{-1-\sqrt{2}}^{-1+\sqrt{2}}\left[x^3-5x+2\right]\dee{x}  
+</mrow><mrow>
+&amp;\hskip0.5in +\int_{-1+\sqrt{2}}^{2}\left[-x^3+5x-2\right]\dee{x}
+</mrow><mrow>
+&amp;=\left[\frac{1}{4}x^4 - \frac{5}{2}x^2+2x\right]_{-1-\sqrt{2}}^{-1+\sqrt{2}}  
+</mrow><mrow>&amp;\hskip0.5in+\left[-\frac{1}{4}x^4 + \frac{5}{2}x^2-2x\right]_{-1+\sqrt{2}}^{2}
 </mrow>
 <intertext>After some taxing but rudimentary algebra:</intertext><mrow>
 &amp;=\left(8\sqrt{2}\right)+\left(4\sqrt{2}-\frac{13}{4}\right)=12\sqrt{2}-\frac{13}{4}

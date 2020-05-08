@@ -338,13 +338,16 @@ a_n= \frac{n^2-\sin n}{n^6+n^2} \quad\text{and}\quad b_n= \frac{1}{n^4}
 </mrow>
 </md>
 which is valid since
-<me>
+<md>
+<mrow>
 \lim_{n\rightarrow\infty} \frac{a_n}{b_n}
-=\lim_{n\rightarrow\infty}\left|\frac{(n^2-\sin n)}{n^6+n^2}\right|\cdot\frac{n^4}{1}
+\amp=\lim_{n\rightarrow\infty}\left|\frac{(n^2-\sin n)}{n^6+n^2}\right|\cdot\frac{n^4}{1}
 =\lim_{n\rightarrow\infty}\frac{|n^6-n^4\sin n|}{n^6+n^2}
-=\lim_{n\rightarrow\infty}\frac{1-n^{-2}\sin n}{1+n^{-4}}
+</mrow><mrow>
+\amp=\lim_{n\rightarrow\infty}\frac{1-n^{-2}\sin n}{1+n^{-4}}
 =1
-</me>
+</mrow>
+</md>
 exists and is nonzero. Since the series <m>\sum\limits_{n=1}^\infty b_n</m>
 converges, the series <m>\sum\limits_{n=1}^\infty\dfrac{|n^2-\sin n|}{n^6+n^2}</m> converges too. Therefore, the series <m>\sum\limits_{n=1}^\infty\dfrac{n^2-\sin n}{n^6+n^2}</m> converges absolutely.
 </p></solution>
@@ -377,10 +380,12 @@ without the sign) and check to see whether <m>a_{n+1}</m> is bigger than or smal
 \frac{a_{n+1}}{a_n}
 &amp;=\frac{(2n+2)!}{((n+1)^2+1)((n+1)!)^2}
 \frac{(n^2+1)(n!)^2}{(2n)!}
-=\frac{(2n+2)(2n+1)}{(n+1)^2}\frac{n^2+1}{(n+1)^2+1}
+</mrow><mrow>
+\amp=\frac{(2n+2)(2n+1)}{(n+1)^2}\frac{n^2+1}{(n+1)^2+1}
 </mrow><mrow>
 &amp;=\frac{2(2n+1)}{(n+1)}\frac{1+1/n^2}{(1+1/n)^2+1/n^2}
-=4\frac{1+1/2n}{1+1/n}\frac{1+1/n^2}{(1+1/n)^2+1/n^2}
+</mrow><mrow>
+\amp=4\frac{1+1/2n}{1+1/n}\frac{1+1/n^2}{(1+1/n)^2+1/n^2}
 </mrow>
 </md>
 So
@@ -582,7 +587,9 @@ and the integral test applies. The substitution <m>u=x^3</m>,
 <md>
 <mrow>
 \int f(x) \,\dee{x}
-= \int 24x^2 e^{-x^3} \,\dee{x} = \int 8 e^{-u}\,\dee{u} = -8e^{-u} + C = -8e^{-x^3} + C.
+\amp= \int 24x^2 e^{-x^3} \,\dee{x} = \int 8 e^{-u}\,\dee{u} = -8e^{-u} + C 
+</mrow><mrow>
+\amp= -8e^{-x^3} + C.
 </mrow>
 </md>
 Therefore

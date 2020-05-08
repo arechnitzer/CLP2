@@ -343,8 +343,8 @@ rS&= r\left(1+ r +r^2 +\cdots+ r^{n-1}\right) \\
 This right hand side differs from the original sum $S$ only in that
 \begin{itemize}
 \item
-the right hand side is missing the ``$1+\,$'' that $S$ starts
-with and
+the right hand side, which starts with ``$r+\,$'', is missing the ``$1+\,$'' 
+that $S$ starts with, and
 \item
 the right hand side has an extra ``$+r^n\,$'' at the end that does
 not appear in $S$.
@@ -2366,20 +2366,20 @@ be integrable on the interval $a\le x\le b$.
 \begin{enumerate}[(a)]
 \item If $f(x)\ge 0$ for all $a\le x\le b$, then
 \begin{align*}
-\int_a^b f(x)\dee{x} \ge 0
+\int_a^b f(x)\,\dee{x} \ge 0
+\end{align*}
+\item If $f(x)\le g(x)$ for all $a\le x\le b$, then
+\begin{align*}
+\int_a^b f(x)\,\dee{x} \le \int_a^b g(x)\,\dee{x}
 \end{align*}
 \item If there are constants $m$ and $M$ such that  $m\le f(x)\le M$
 for all $a\le x\le b$, then
 \begin{align*}
-m(b-a)\le \int_a^b f(x)\dee{x} \le M(b-a)
-\end{align*}
-\item If $f(x)\le g(x)$ for all $a\le x\le b$, then
-\begin{align*}
-\int_a^b f(x)\dee{x} \le \int_a^b g(x)\dee{x}
+m(b-a)\le \int_a^b f(x)\,\dee{x} \le M(b-a)
 \end{align*}
 \item We have
 \begin{align*}
-\bigg|\int_a^b f(x)\dee{x}\bigg|\le \int_a^b |f(x)|\dee{x}
+\bigg|\int_a^b f(x)\,\dee{x}\bigg|\le \int_a^b |f(x)|\,\dee{x}
 \end{align*}
 \end{enumerate}
 \end{theorem}
@@ -2388,7 +2388,7 @@ m(b-a)\le \int_a^b f(x)\dee{x} \le M(b-a)
 \begin{enumerate}[(a)]
  \item By interpreting the integral as the signed area, this statement
 simply says that if the curve $y=f(x)$ lies above the
-$x$--axis and $a\le b$, then the signed area of
+$x$--axis and $a\le b$, then the signed area of the set
 $\big\{\ (x,y)\ \big|\ a\le x\le b,\   0\le y\le f(x)\ \big\}$
 is at least zero. This is quite clear. Alternatively, we could argue more
 algebraically from Definition~\ref{def:INTintegral}. We observe that when we
@@ -2396,38 +2396,24 @@ define $\int_a^b f(x)\dee{x}$ via Riemann sums, every
 summand, $f(x_{i,n}^*)\,\frac{b-a}{n}\ge 0$. Thus the whole sum is nonnegative
 and consequently, so is the limit, and thus so is the integral.
 
-\item We can argue this from (a) with a little massaging. Let $g(x) =
-M-f(x)$, then since $f(x)\le M$, we have $g(x) = M-f(x)\ge 0$ so that
+\item We are assuming that $g(x)-f(x)\geq 0$, so part (a) gives
 \begin{align*}
-\int_a^b\big(M-f(x)\big)\dee{x}
-&= \int_a^b g(x) \dee{x} \geq 0.
-\intertext{but we also have}
-\int_a^b\big(M-f(x)\big)\dee{x}
-&= \int_a^b M\dee{x} -\int_a^b f(x)\dee{x}\\
-&= M(b-a)-\int_a^b f(x)\dee{x}
+\int_a^b\big[g(x)-f(x)\big]\dee{x}\ge 0
+&\implies \int_a^b g(x)\,\dee{x}-\int_a^b f(x)\,\dee{x}\ge 0 \\
+&\implies \int_a^b f(x)\,\dee{x} \le \int_a^b g(x)\,\dee{x}
 \end{align*}
-Thus
-\begin{align*}
-M(b-a)-\int_a^b f(x)\dee{x} & \geq 0 & \text{rearrange}\\
-  M(b-a) & \geq \int_a^b f(x)\dee{x}
-\end{align*}
-as required. The argument showing $\int_a^b f(x)\dee{x} \ge m(b-a)$ is similar.
 
-\item Now let $h(x) = g(x)-f(x)$. Since $f(x) \le g(x)$, we have
-$h(x) = g(x)-f(x)\ge 0$ so that
+\item Applying part (b) with $g(x)=M$ for all $a\le x\le b$ gives
 \begin{align*}
-\int_a^b\big(g(x)-f(x)\big)\dee{x}
-&= \int_a^b h(x) \dee{x} \geq 0
-\intertext{But we also have that}
-\int_a^b\big(g(x)-f(x)\big)\dee{x}
-&= \int_a^b g(x) \dee{x} - \int_a^b f(x) \dee{x}
+\int_a^b f(x)\,\dee{x} \le \int_a^b M\,\dee{x} = M(b-a)
 \end{align*}
-Thus
+Similarly, viewing $m$ as a (constant) function, and applying part (b) 
+gives
 \begin{align*}
-\int_a^b g(x) \dee{x} - \int_a^b f(x) \dee{x} & \geq 0 & \text{rearrange}\\
-\int_a^b g(x) \dee{x} & \geq  \int_a^b f(x) \dee{x}
+m\le f(x) \implies \overbrace{\int_a^bm\,\dee{x}}^{=m(b-a)} \le 
+\int_a^b f(x)\,\dee{x}
 \end{align*}
-as required.
+
 
 \item  For any $x$, $|f(x)|$ is either $f(x)$ or $-f(x)$ (depending on whether
 $f(x)$ is positive or negative), so we certainly have
@@ -2437,15 +2423,15 @@ f(x)&\le |f(x)| & \text{and}&&
 \end{align*}
 Applying part (c) to each of those inequalities gives
 \begin{align*}
-\int_a^b f(x)\dee{x} &\le \int_a^b |f(x)|\dee{x} & \text{and} &&
--\int_a^b f(x)\dee{x} &\le \int_a^b |f(x)|\dee{x}
+\int_a^b f(x)\,\dee{x} &\le \int_a^b |f(x)|\,\dee{x} & \text{and} &&
+-\int_a^b f(x)\,\dee{x} &\le \int_a^b |f(x)|\,\dee{x}
 \end{align*}
-Now $|\int_a^b f(x)\dee{x}|$ is either equal to $\int_a^b f(x)\dee{x}$ or
-$-\int_a^b f(x)\dee{x}$ (depending on whether the integral is positive or
+Now $\Big|\int_a^b f(x)\,\dee{x}\Big|$ is either equal to $\int_a^b f(x)\,\dee{x}$ or
+$-\int_a^b f(x)\,\dee{x}$ (depending on whether the integral is positive or
 negative). In either case we can apply the above two inequalities to get the
 same result, namely
 \begin{align*}
-  \left|\int_a^b f(x)\dee{x}\right| &\leq \int_a^b |f(x)|\dee{x}.
+  \left|\int_a^b f(x)\,\dee{x}\right| &\leq \int_a^b |f(x)|\,\dee{x}.
 \end{align*}
 \end{enumerate}
 \end{proof}
@@ -2468,7 +2454,7 @@ values between $1$ and $\frac{1}{\sqrt{2}}$. That is
  \frac{1}{\sqrt{2}} &\le \sqrt{\cos x} \le 1
 & \text{for $0\le x\le \frac{\pi}{3}$}.
 \end{align*}
-Consequently, by Theorem \ref{thm:INTineq}(b) with
+Consequently, by Theorem \ref{thm:INTineq}(c) with
 $a=0$, $b=\frac{\pi}{3}$, $m= \frac{1}{\sqrt{2}}$ and $M=1$,
 \begin{align*}
 \frac{\pi}{3\sqrt{2}} &\le \int_0^{\nicefrac{\pi}{3}} \sqrt{\cos x}\dee{x}
@@ -3621,16 +3607,16 @@ redo the previous example by this approach.
 % explicitly deciding what $f(u)$ is. One just has to note that the
 % integrand on the right hand side of the substitution rule
 % \begin{align*}
-% \int_a^b f\big(u(x)\big)\,u'(x)\dee{x}=\int_{u(a)}^{u(b)} f(u)\,du
+% \int_a^b f\big(u(x)\big)\,u'(x)\dee{x}=\int_{u(a)}^{u(b)} f(u)\,\dee{u}
 % \end{align*}
 % is constructed from the integrand on the left hand side by
 % \begin{itemize}
 % \item substituting $u$ for $u(x)$ and
-% \item substituting $du$ for $u'(x)\dee{x}$
+% \item substituting $\dee{u}$ for $u'(x)\dee{x}$
 % \end{itemize}
-% The substitution $du=u'(x)\dee{x}$ is easily remembered by \emph{pretending} that
-% $\tfrac{du}{dx}$ is an ordinary fraction. Then cross--multiplying
-% $\tfrac{du}{dx}=u'(x)$ gives $du=u'(x)\dee{x}$.
+% The substitution $\dee{u}=u'(x)\dee{x}$ is easily remembered by \emph{pretending} that
+% $\tfrac{\dee{u}}{dx}$ is an ordinary fraction. Then cross--multiplying
+% $\tfrac{\dee{u}}{dx}=u'(x)$ gives $\dee{u}=u'(x)\dee{x}$.
 %
 % \medskip
 \begin{eg}[\emph{Example \ref{eg:substitution2} revisited}]
@@ -3745,7 +3731,7 @@ This integral looks a lot like that of Example \ref{eg:substitution2}. It makes
 sense to try $u(x)=1-x^3$ since it is the argument of $\sin(1-x^3)$. We
 \begin{itemize}
 \item substitute $u=1-x^3$ and
-\item replace $\dee{x}$ with $\frac{1}{u'(x)}du = \frac{1}{-3x^2}\dee{u}$,
+\item replace $\dee{x}$ with $\frac{1}{u'(x)}\dee{u} = \frac{1}{-3x^2}\dee{u}$,
 \item  when $x=0$, we have $u=1-0^3=1$ and
 \item  when $x=1$, we have $u=1-1^3=0$.
 \end{itemize}
@@ -4228,8 +4214,8 @@ substitution rule. In particular, set $u=2x+6$ and replace $\dee{x} \rightarrow
 \frac{1}{2}\dee{u}$. Also $u(-3)=0, u(-1)=4, u(5)=16$. Hence
 \begin{align*}
 \text{Area}
-  &= 2\int_0^4\sqrt{u}\ \frac{du}{2}
-          +\int_4^{16} \sqrt{u}\ \frac{du}{2}
+  &= 2\int_0^4\sqrt{u}\ \frac{\dee{u}}{2}
+          +\int_4^{16} \sqrt{u}\ \frac{\dee{u}}{2}
           -\int_{-1}^5 (x-1)\dee{x} \\
   &= 2\bigg[\frac{ u^{\nicefrac{3}{2}} }{ \nicefrac{3}{2} }\frac{1}{2}\bigg]_0^4
  +\bigg[\frac{ u^{\nicefrac{3}{2}} }{ \nicefrac{3}{2} }\frac{1}{2}\bigg]_4^{16}
@@ -5057,7 +5043,7 @@ Let $u(x)$ and $v(x)$ be continuously differentiable. Then
 \begin{align*}
 \int u(x)\,v'(x)\dee{x} = u(x)\,v(x)-\int v(x)\,u'(x)\dee{x}
 \end{align*}
-If we write $dv$ for $v'(x)\dee{x}$ and $du$ for $u'(x)\dee{x}$ (as the substitution rule
+If we write $dv$ for $v'(x)\dee{x}$ and $\dee{u}$ for $u'(x)\dee{x}$ (as the substitution rule
 suggests), then the formula becomes
 \begin{align*}
 \int u\dee{v}= u\,v-\int v\dee{u}
@@ -5575,7 +5561,7 @@ This method can be used whenever $n$ is an odd integer.
 Here is an example.
 \begin{eg}[$\int \sin^2 x\cos^3 x\dee{x}$]\label{eg:TRGINTa}
 Start by factoring off one power of $\cos x$ to combine with $dx$
-to get $\cos x\dee{x}=du$.
+to get $\cos x\dee{x}=\dee{u}$.
 \begin{align*}
 \int \sin^2 x\cos^3 x\dee{x}
 &= \int \underbrace{\sin^2 x}_{=u^2}\underbrace{\cos^2 x}_{=1-u^2}\ \underbrace{\cos
@@ -5706,17 +5692,17 @@ x$ and $\cos x$:
        &=\big(\frac{\sin x}{\cos x}\big)^m \big(\frac{1}{\cos x}\big)^n\dee{x}\\
        &=\frac{\sin^{m-1}x}{\cos^{n+m}x}\ \sin x\dee{x}
 \end{align*}
-and then substitute $u=\cos x$, $du = -\sin x\dee{x}$, $\sin^2x = 1-\cos^2x=1-u^2$. See
+and then substitute $u=\cos x$, $\dee{u} = -\sin x\dee{x}$, $\sin^2x = 1-\cos^2x=1-u^2$. See
 Examples \ref{eg:TRGINTg} and \ref{eg:TRGINTh}.
  \item Alternatively, if $m$ is odd and $n \geq 1$ move one factor of
 $\sec x\,\tan x$ to the side so that you can see $\sec x\,\tan x\dee{x}$
-in the integral, and substitute $u=\sec x$, $du=\sec x\,\tan x\,\dee{x}$
+in the integral, and substitute $u=\sec x$, $\dee{u}=\sec x\,\tan x\,\dee{x}$
 and $\tan^2 x = \sec^2 x-1=u^2-1$. See Example \ref{eg:TRGINTf}.
 
 \item
 If $n$ is even with $n\ge 2$, move one factor of $\sec^2 x$ to
 the side so that you can see $\sec^2 x\dee{x}$ in the integral, and
-substitute $u=\tan x$, $du=\sec^2 x\,\dee{x}$ and $\sec^2 x = 1+\tan^2 x=1+u^2$.
+substitute $u=\tan x$, $\dee{u}=\sec^2 x\,\dee{x}$ and $\sec^2 x = 1+\tan^2 x=1+u^2$.
 See Example \ref{eg:TRGINTe}.
 
 \item When $m$ is even and $n=0$ --- that is the integrand is just an even power of
@@ -5743,7 +5729,7 @@ $u=\cos x, \dee{u}=-\sin x \dee{x}$.
 \soln
 \begin{itemize}
  \item Write the integrand $\tan x=\frac{1}{\cos x}\sin x$.
-\item Now substitute $u=\cos x$, $du=-\sin x\,\dee{x}$ just as we did in treating
+\item Now substitute $u=\cos x$, $\dee{u}=-\sin x\,\dee{x}$ just as we did in treating
 integrands of the form $\sin^mx\,\cos^nx$ with $m$ odd.
 \begin{align*}
   \int \tan x\,\dee{x}
@@ -5761,7 +5747,7 @@ integrands of the form $\sin^mx\,\cos^nx$ with $m$ odd.
 \soln
 \begin{itemize}
  \item Write the integrand $\tan^3 x=\frac{\sin^2x}{\cos^3 x}\sin x$.
- \item Again substitute $u=\cos x$, $du=-\sin x\,\dee{x}$. We rewrite the remaining even
+ \item Again substitute $u=\cos x$, $\dee{u}=-\sin x\,\dee{x}$. We rewrite the remaining even
 powers of $\sin x$ using $\sin^2x=1-\cos^2x=1-u^2$.
 \item Hence
 \begin{align*}
@@ -5784,7 +5770,7 @@ x$ in terms of $\sec x$ using $\tan^2x = \sec^2 x-1=u^2-1$.
 \soln
 \begin{itemize}
  \item Start by factoring off one copy of $\sec x\tan x$ and combine it
-with $dx$ to form $\sec x\tan x\dee{x}$, which will be $du$.
+with $dx$ to form $\sec x\tan x\dee{x}$, which will be $\dee{u}$.
 \item Now substitute $u=\sec x$,
 $\dee{u}=\sec x\tan x\dee{x}$ and $\tan^2x = \sec^2 x-1=u^2-1$.
 \item This gives
@@ -5792,7 +5778,7 @@ $\dee{u}=\sec x\tan x\dee{x}$ and $\tan^2x = \sec^2 x-1=u^2-1$.
 \int \tan^3x \sec^4 x\dee{x}
 &= \int \underbrace{\tan^2 x}_{u^2-1}\
         \underbrace{\sec^3 x}_{u^3}\
-        \underbrace{\sec x\tan x\dee{x}}_{du}  \\
+        \underbrace{\sec x\tan x\dee{x}}_{\dee{u}}  \\
 &= \int \big[u^2-1]u^3\dee{u} \\
 &=\frac{u^6}{6}-\frac{u^4}{4}+C \\
 &=\frac{1}{6}\sec^6 x-\frac{1}{4}\sec^4 x + C
@@ -5811,14 +5797,14 @@ any remaining even powers of $\sec x$ as powers of $\tan x$ using $\sec^2x =
 \soln
 \begin{itemize}
  \item Factor off one copy of $\sec^2 x$ and combine it with $dx$
-to form $\sec^2 x\dee{x}$, which will be $du$.
-\item Then substitute $u=\tan x$, $du=\sec^2 x\dee{x}$ and rewrite any remaining even
+to form $\sec^2 x\dee{x}$, which will be $\dee{u}$.
+\item Then substitute $u=\tan x$, $\dee{u}=\sec^2 x\dee{x}$ and rewrite any remaining even
 powers of $\sec x$ as powers of $\tan x=u$ using $\sec^2x = 1+\tan^2 x=1+u^2$.
 \item This gives
 \begin{align*}
 \int \sec^4 x\dee{x}
 &= \int \underbrace{\sec^2 x}_{1+u^2}\
-        \underbrace{\sec^2 x\dee{x}}_{du}  \\
+        \underbrace{\sec^2 x\dee{x}}_{\dee{u}}  \\
 &= \int \big[1+u^2]\dee{u} \\
 &=u+\frac{u^3}{3}+C \\
 &=\tan x+\frac{1}{3}\tan^3 x + C
@@ -5830,14 +5816,14 @@ powers of $\sec x$ as powers of $\tan x=u$ using $\sec^2x = 1+\tan^2 x=1+u^2$.
 \soln Let us revisit this example using this slightly different approach.
 \begin{itemize}
  \item Factor off one copy of $\sec^2 x$ and combine it with $dx$
-to form $\sec^2 x\dee{x}$, which will be $du$.
-\item Then substitute $u=\tan x$, $du=\sec^2 x\dee{x}$ and rewrite any remaining even
+to form $\sec^2 x\dee{x}$, which will be $\dee{u}$.
+\item Then substitute $u=\tan x$, $\dee{u}=\sec^2 x\dee{x}$ and rewrite any remaining even
 powers of $\sec x$ as powers of $\tan x=u$ using $\sec^2x = 1+\tan^2 x=1+u^2$.
 \item This gives
 \begin{align*}
 \int \tan^3x \sec^4 x\dee{x}
 &= \int \underbrace{\tan^3x}_{u^3} \underbrace{\sec^2 x}_{1+u^2}\
-        \underbrace{\sec^2 x\dee{x}}_{du}  \\
+        \underbrace{\sec^2 x\dee{x}}_{\dee{u}}  \\
 &= \int \big[u^3+u^5]\dee{u} \\
 &=\frac{u^4}{4}+ \frac{u^6}{6} + C \\
 &=\frac{1}{4}\tan^4 x+\frac{1}{6}\tan^6 x + C
@@ -6019,14 +6005,63 @@ to recover the trick. Here it is.
 
 \end{itemize}
 \end{eg}
-There is a second method for integrating $\int \sec x\dee{x}$, that is
-more tedious, but more straight forward. In particular, it does not involve a memorized
-trick. The integral $\int \sec x\,\dee{x}$ is converted into the integral
-$\int\frac{du}{1-u^2}$ by using the substitution $u=\sin x$, $du=\cos x\,\dee{x}$. The
-integral $\int\frac{du}{1-u^2}$ is then integrated by the method of
-partial fractions, which we shall learn about in Section~\ref{sec parfrac} ``Partial
-Fractions''. The details are in Example~\ref{eg:PFe} in those notes. This second method
-gives the answer
+There is another method for integrating $\int \sec x\dee{x}$, that is
+more tedious, but more straight forward. In particular, it does not involve 
+a memorized trick. We first use the substitution $u=\sin x$, 
+$\dee{u}=\cos x\,\dee{x}$, together with $\cos^2 x = 1-\sin^2x=1-u^2$. 
+This converts the integral into
+\begin{align*}
+\int \sec x\dee{x}
+  &= \int\frac{1}{\cos x}\dee{x} 
+  = \int\frac{\cos x\ \dee{x}}{\cos^2 x} \\
+  &= \int \frac{\dee{u}}{1-u^2}\bigg|_{u=\sin x}
+\end{align*}
+The integrand $\frac{1}{1-u^2}$ is a rational function,
+i.e. a ratio of two polynomials. There is a procedure, called  the method of
+partial fractions, that may be used to integrate any rational function.
+We shall learn about it in Section~\ref{sec parfrac} ``Partial Fractions''. 
+The detailed evaluation of the integral $\int \sec x\,\dee{x}
+=\int\frac{\dee{u}}{1-u^2}$ by the method of partial fractions is presented 
+in Example~\ref{eg:PFe} below.
+
+In addition, there is a standard trick for evaluating $\int\frac{\dee{u}}{1-u^2}$ that allows us to avoid going through the whole partial fractions algorithm.
+
+\begin{eg}[$\int \sec x\dee{x}$ --- by more trickery]\label{eg:TRGINToptb}
+\soln 
+We have already seen that
+\begin{align*}
+\int \sec x\dee{x}
+  &= \int \frac{\dee{u}}{1-u^2}\bigg|_{u=\sin x}
+\end{align*}
+The trick uses the obervations that
+\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt %\itemindent-15pt
+\item[$\circ$]
+$\frac{1}{1-u^2}=\frac{1+u-u}{1-u^2}=\frac{1}{1-u}-\frac{u}{1-u^2}$
+\item[$\circ$] $\frac{1}{1-u}$ has antiderivative $-\log(1-u)$ (for $u<1$)
+\item[$\circ$] The derivative $\diff{}{u}(1-u^2)=-2u$ of the denominator of  
+$\frac{u}{1-u^2}$ is the same, up to a factor of $-2$, as the numerator of
+$\frac{u}{1-u^2}$. So we can easily evaluate the integral of $\frac{u}{1-u^2}$
+by substituting $v=1-u^2$, $\dee{v}=-2u\,\dee{u}$.
+\begin{align*}
+\int \frac{u\,\dee{u}}{1-u^2} 
+= \int \frac{\frac{\dee{v}}{-2}}{v}\bigg|_{v=1-u^2}
+=-\frac{1}{2}\log(1-u^2)+C
+\end{align*}
+\end{itemize}
+Combining these observations gives
+\begin{align*}
+\int \sec x\dee{x}
+  &=\bigg[\int \frac{\dee{u}}{1-u^2}\bigg]_{u=\sin x}
+   =\bigg[\int\frac{1}{1-u}\dee{u}
+              -\int\frac{u}{1-u^2}\dee{u}\bigg]_{u=\sin x}\\
+  &=\Big[-\log(1-u)+\frac{1}{2}\log(1-u^2)+C\Big]_{u=\sin x}\\
+  &=-\log(1-\sin x)+\frac{1}{2}\log(1-\sin^2 x)+C\\
+  &=-\log(1-\sin x)+\frac{1}{2}\log(1-\sin x)+\frac{1}{2}\log(1+\sin x)+C\\
+  &=\frac{1}{2}\log\frac{1+\sin x}{1-\sin x}+C.
+\end{align*}
+\end{eg} 
+
+Example \ref{eg:TRGINToptb} has given the answer
 \begin{align*}
 \int \sec x\dee{x}
    =\frac{1}{2}\log\frac{1+\sin x}{1-\sin x}+C
@@ -6054,7 +6089,7 @@ the methods above. That is either
 x-\csc x}$ and  then substituting $u=\cot x -\csc x$,
 $\dee{u} = (-\csc^2 x+\csc x \cot x)\,\dee{x}$, or
 \item by substituting $u=\cos x$, $\dee{u}=-\sin x\,\dee{x}$ to give
-$\int \csc x\dee{x}=-\int\frac{du}{1-u^2}$ and then using the
+$\int \csc x\dee{x}=-\int\frac{\dee{u}}{1-u^2}$ and then using the
 method of partial fractions.
 \end{itemize}
 These two methods give the answers
@@ -6112,7 +6147,7 @@ Let's use this substitution to evaluate $\int \csc x\,\dee{x}$.
 \begin{align*}
 \int \csc x\dee{x}
 &=\int \frac{1}{\sin x}\dee{x}
-=\int \frac{1+u^2}{2u}\ \frac{2}{1+u^2}du
+=\int \frac{1+u^2}{2u}\ \frac{2}{1+u^2}\dee{u}
 =\int \frac{1}{u}\dee{u}
 =\log|u|+C \\[0.05in]
 &=\log\Big|\tan\frac{x}{2}\Big|+C
@@ -6160,7 +6195,7 @@ $v=\tan x$ and
 \int \sec^3 x\dee{x}
 &=\int \underbrace{\sec x}_{u}\ \underbrace{\sec^2 x\dee{x}}_{dv} \\
 &=\underbrace{\sec x}_{u}\ \underbrace{\tan x}_{v}
-         -\int \underbrace{\tan x}_{v}\ \underbrace{\sec x\tan x\dee{x}}_{du}
+         -\int \underbrace{\tan x}_{v}\ \underbrace{\sec x\tan x\dee{x}}_{\dee{u}}
 \end{align*}
 \item Since $\tan^2 x+1=\sec^2 x$, we have $\tan^2 x=\sec^2 x-1$ and
 \begin{align*}
@@ -6184,8 +6219,8 @@ for a new arbitrary constant $C$ (which is just one half the old one).
 The integral $\int \sec^3\dee{x}$ can also be evaluated by two other
 methods.
 \begin{itemize}\itemsep1pt \parskip0pt \parsep0pt %\itemindent-15pt
-\item Substitute $u=\sin x$, $du=\cos x\dee{x}$ to convert
-$\int\sec^3 x\dee{x}$ into $\int\frac{du}{{[1-u^2]}^2}$ and evaluate the latter
+\item Substitute $u=\sin x$, $\dee{u}=\cos x\dee{x}$ to convert
+$\int\sec^3 x\dee{x}$ into $\int\frac{\dee{u}}{{[1-u^2]}^2}$ and evaluate the latter
 using the method of partial fractions. This is done in Example~\ref{eg:PFf} in
 Section~\ref{sec parfrac}.
 \item Use the $u=\tan\frac{x}{2}$ substitution. We use this method to
@@ -7592,22 +7627,22 @@ $\frac{ay+b}{y^2+1}$. In this case
 \frac{x+2}{(x+1)^2+4}=\frac{1}{4}\frac{x+2}{(\frac{x+1}{2})^2+1}
 \end{align*}
 so we make the change of variables $y=\frac{x+1}{2},\dee{y}=\frac{dx}{2},\
-x=2y-1,\dee{x}=2\,dy$
+x=2y-1,\dee{x}=2\,\dee{y}$
 \begin{align*}
 \int \frac{x+2}{(x+1)^2+4}\dee{x}
 &=\frac{1}{4}\int \frac{x+2}{{(\frac{x+1}{2})}^2+1}\dee{x} \\[0.1in]
-&=\frac{1}{4}\int \frac{(2y-1)+2}{y^2+1}\,2\,dy
-\ =\ \frac{1}{2}\int \frac{2y+1}{y^2+1}\,dy\\[0.1in]
-&=\int \frac{y}{y^2+1}\,dy + \frac{1}{2}\int \frac{1}{y^2+1}\,dy
+&=\frac{1}{4}\int \frac{(2y-1)+2}{y^2+1}\,2\,\dee{y}
+\ =\ \frac{1}{2}\int \frac{2y+1}{y^2+1}\,\dee{y}\\[0.1in]
+&=\int \frac{y}{y^2+1}\,\dee{y} + \frac{1}{2}\int \frac{1}{y^2+1}\,\dee{y}
 \end{align*}
 Both integrals are easily evaluated, using the substitution $u=y^2+1$,
-$du=2y\,dy$ for the first.
+$\dee{u}=2y\,\dee{y}$ for the first.
 \begin{align*}
-\int \frac{y}{y^2+1}\,dy
-&\ =\ \int \frac{1}{u}\frac{du}{2}
+\int \frac{y}{y^2+1}\,\dee{y}
+&\ =\ \int \frac{1}{u}\frac{\dee{u}}{2}
 \ =\ \frac{1}{2}\log|u|=\frac{1}{2}\log(y^2+1)
 \ =\ \frac{1}{2}\log\Big[\Big(\frac{x+1}{2}\Big)^2+1\Big]\\[0.1in]
-\frac{1}{2}\int \frac{1}{y^2+1}\,dy
+\frac{1}{2}\int \frac{1}{y^2+1}\,\dee{y}
 &\ =\ \frac{1}{2}\arctan y
 \ =\ \frac{1}{2}\arctan\Big(\frac{x+1}{2}\Big)
 \end{align*}
@@ -8006,9 +8041,9 @@ we first make one of our old substitutions.
 \begin{align*}
 \int \sec x\dee{x}
   &= \int\frac{1}{\cos x}\dee{x} & \text{massage the expression a little}\\
-  &= \int\frac{\cos x}{\cos^2 x}\dee{x} & \text{substitute $u=\sin x$,\ $du = \cos
+  &= \int\frac{\cos x}{\cos^2 x}\dee{x} & \text{substitute $u=\sin x$,\ $\dee{u} = \cos
 x\dee{x}$}\\
-  &= -\int \frac{du}{u^2-1} & \text{and use $\cos^2x=1-\sin^2x=1-u^2$}
+  &= -\int \frac{\dee{u}}{u^2-1} & \text{and use $\cos^2x=1-\sin^2x=1-u^2$}
 \end{align*}
 So we now have to integrate $\frac{1}{u^2-1}$, which is a rational function
 of $u$, and so is perfect for partial fractions.
@@ -8983,7 +9018,7 @@ This is illustrated in the leftmost figure above.
 vertices at $(x_{j-1},0), (x_{j-1},f(x_{j-1})), (x_{j},f(x_{j})), (x_{j},0)$:
 \begin{align*}
   \int_{x_{j-1}}^{x_{j}} f(x) \dee{x}
-  & \approx \frac{1}{2} \left(f(x_{j-1})+f(x_j \right) \De x
+  & \approx \frac{1}{2} \left[f(x_{j-1})+f(x_j) \right] \De x
 \end{align*}
 The trapezoid is illustrated in the middle figure above. We shall derive the formula
 for the area shortly.
@@ -8993,7 +9028,7 @@ a parabola that passes through the points $(x_{j-1},f(x_{j-1}))$,
 $(x_{j},f(x_{j}))$ and $(x_{j+1},f(x_{j+1}))$:
 \begin{align*}
   \int_{x_{j-1}}^{x_{j+1}} f(x) \dee{x}
-  & \approx \frac{1}{3} \left(f(x_{j-1})+4f(x_j)+f(x_{j+1} \right) \De x
+  & \approx \frac{1}{3} \left[f(x_{j-1})+4f(x_j)+f(x_{j+1}) \right] \De x
 \end{align*}
 The parabola is illustrated in the right hand figure above. We shall derive the
 formula for the area shortly.
@@ -10529,7 +10564,7 @@ because $1-p>0$ and the term $R^{1-p}$ diverges to $+\infty$.
 
 \item Finally when $p=1$
 \begin{align*}
-\int_1^R\frac{\dee{x}}{x} &= \log|R|-\log 0 = \log R
+\int_1^R\frac{\dee{x}}{x} &= \log|R|-\log 1 = \log R
 \end{align*}
 Then taking the limit as $R \to \infty$ gives us
 \begin{align*}
@@ -10863,7 +10898,7 @@ for all  $x\ge a$.
 \item If $|f(x)|\le g(x)$ for all $x\ge a$ and if $\int_a^\infty g(x)\ \dee{x}$
   converges then $\int_a^\infty f(x)\ \dee{x}$ also converges.
 \item If $f(x)\ge g(x)$ for all $x\ge a$ and if $\int_a^\infty g(x)\ \dee{x}$
- diverges then $\int_a^\infty f(x)$ diverges.
+ diverges then $\int_a^\infty f(x)\ \dee{x}$ also diverges.
 \end{enumerate}
 \end{theorem}
 

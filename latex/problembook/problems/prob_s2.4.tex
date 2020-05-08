@@ -64,7 +64,7 @@ So, $y=x^{3/2}+x$ is not a solution to the differential equation $\left(\diff{y}
 
 %%%%%%%%%%%%%%%%%%%
 \begin{Mquestion}
-Following Definition~\eref{CLP101}{def:SDEsepdiffeq} in the CLP--II text, a separable differential equation has the form
+Following Definition~\eref{CLP101}{def:SDEsepdiffeq} in the CLP-2 text, a separable differential equation has the form
 \[\diff{y}{x}(x) = f(x)\ g\big(y(x)\big).\]
 Show that each of the following equations can be written in this form, identifying $f(x)$ and $g(y)$.
 \begin{enumerate}[(a)]
@@ -81,7 +81,7 @@ For (d), note the equation given is quadratic in the variable $\diff{y}{x}$.
 \begin{enumerate}[(a)]
 \item One possible answer: $f(x)=x$, $g(y)=\dfrac{\sin y}{3y}$.
 \item One possible answer:  $f(x) = e^x$, $g(y) = e^y$.
-\item One possible answer:  $f(x) = x+1$, $g(y) = 1$.
+\item One possible answer:  $f(x) = x-1$, $g(y) = 1$.
 \item The given equation is equivalent to the equation $\diff{y}{x}=x$, which fits the form of a separable equation with $f(x)=x$, $g(y)=1$.
 \end{enumerate}
 \end{answer}
@@ -90,7 +90,7 @@ For (d), note the equation given is quadratic in the variable $\diff{y}{x}$.
 \item $3y\diff{y}{x}=x\sin y$ can be written as $\diff{y}{x} = x\left(\frac{\sin y}{3y}\right)$, which fits the form of a separable equation with $f(x)=x$, $g(y) = \frac{\sin y}{3y}$.
 \item $\diff{y}{x} = e^{x+y} = e^xe^y$
 which fits the form of a separable equation using $f(x) = e^x$, $g(y) = e^y$.
-\item  $\diff{y}{x}+1=x$ can be written as $\diff{y}{x} = (x-1)$, which fits the form of a separable equation using $f(x)=x+1$, $g(y)=1$. (We can solve it by simply antidifferentiating.)
+\item  $\diff{y}{x}+1=x$ can be written as $\diff{y}{x} = (x-1)$, which fits the form of a separable equation using $f(x)=x-1$, $g(y)=1$. (We can solve it by simply antidifferentiating.)
 \item Notice the left side of the equation $\left(\diff{y}{x}\right)^2-2x\diff{y}{x}+x^2=0$ is a perfect square. So, this equation is equivalent to $\left(\diff{y}{x}-x\right)^2=0$, that is, $\diff{y}{x}=x$. This has the form of a separable equation with $f(x)=x$, $g(y)=1$.
 \end{enumerate}
 \end{solution}
@@ -106,7 +106,7 @@ Suppose we have the following functions:
 
 In the work below, we set up a solution to the separable differential equation
 \[\diff{y}{x}=f(x)g(y)=f(x)g(y(x)))\]
-without using the mnemonic of Equation~\eref{CLP101}{eq:SDEbasicSln} in the CLP--II text.
+without using the mnemonic of Equation~\eref{CLP101}{eq:SDEbasicSln} in the CLP-2 text.
 
 By deleting some portion of our work, we can create the solution as it would look using the mnemonic. What portion can be deleted?
 
@@ -430,7 +430,7 @@ Our red marks run out that high up, but we now $y'=\frac{1}{2}y-1$, so $y'$ incr
 \end{center}
 If $y(0)=2$, we see another possible curve is the constant function $y(x)=2$.
 \end{enumerate}
-Remark: from Theorem~\eref{CLP101}{thm:linearODE} in the CLP--II text, we see the solutions to the equation $y'=\frac{1}{2}y-1 = \frac{1}{2}(y-2)$ are of the form $y(x)=Ce^{x/2}+2$ for some constant $C$. Check that the curves you're sketching look exponential.
+Remark: from Theorem~\eref{CLP101}{thm:linearODE} in the CLP-2 text, we see the solutions to the equation $y'=\frac{1}{2}y-1 = \frac{1}{2}(y-2)$ are of the form $y(x)=Ce^{x/2}+2$ for some constant $C$. Check that the curves you're sketching look exponential.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%%%
 \begin{question}
@@ -755,7 +755,7 @@ $C=\log 3$. Thus:}
 &=\log\sqrt{1+x^2}+\log 3\\&=\log 3\sqrt{1+x^2}
 \intertext{So,}
 |y|&=3\sqrt{1+x^2}
-\intertext{We are told to find a functon $y(x)$. So far, we have two possible functions from the work above: maybe $y=3\sqrt{1+x^2}$, and maybe $y=-3\sqrt{1+x^2}$. It's important to note that $y=\pm3\sqrt{1+x^2}$ is not a function: for an equation to represent a function, for every input in the domain, there must only be one output. That is, functions pass the vertical line test. (Definition~\eref{CLP100}{def function} in the CLP--I text gives a formal definition of a function.) So, we need to decide whether our function is $y=3\sqrt{1+x^2}$ or $y=-3\sqrt{1+x^2}$. Since $y(0)=3$, we conclude}
+\intertext{We are told to find a functon $y(x)$. So far, we have two possible functions from the work above: maybe $y=3\sqrt{1+x^2}$, and maybe $y=-3\sqrt{1+x^2}$. It's important to note that $y=\pm3\sqrt{1+x^2}$ is not a function: for an equation to represent a function, for every input in the domain, there must only be one output. That is, functions pass the vertical line test. (Definition~\eref{CLP100}{def function} in the CLP-1 text gives a formal definition of a function.) So, we need to decide whether our function is $y=3\sqrt{1+x^2}$ or $y=-3\sqrt{1+x^2}$. Since $y(0)=3$, we conclude}
 y(x)&=3\sqrt{1+x^2}
 \end{align*}
 \end{solution}
@@ -1276,7 +1276,7 @@ m\diff{v}{t}&=-(mg+kv^2)\\
 \intertext{The left integral looks something like the antiderivative of arctangent. Let's factor out that $mg$ from the denominator.}
 \frac{1}{mg}\int\frac{m}{1+\frac{k}{mg}v^2}\,\dee{v}&=-t+C\\
 \frac{1}{g}\int\frac{1}{1+\left(\sqrt{\frac{k}{mg}}v\right)^2}\,\dee{v}&=-t+C
-\intertext{Now it looks even more like the derivative of arctangent. We can guess the antiderivative from here, or use the substitution $u=\sqrt{\frac{k}{mg}}v$, $\dee{u}=\frac{k}{mg}\,\dee{v}$.}
+\intertext{Now it looks even more like the derivative of arctangent. We can guess the antiderivative from here, or use the substitution $u=\sqrt{\frac{k}{mg}}v$, $\dee{u}=\sqrt{\frac{k}{mg}}\,\dee{v}$.}
 \frac{1}{g}\sqrt{\frac{mg}{k}}\arctan\left(\sqrt{\frac{k}{mg}}v\right)&=-t+C\\
 \sqrt{\frac{m}{gk}}\arctan\left(\sqrt{\frac{k}{mg}}v\right)&=-t+C\tag{$*$}
 \intertext{At $t=0$, $v=v_0$, so: }
@@ -1680,7 +1680,7 @@ form
 \diff{B}{t} = a\Big(B-\frac{m}{a}\Big)
 \end{align*}
 it is of the form covered by Theorem \eref{CLP101}{thm:linearODE}
-in the CLP--II text. So that theorem tells us that the solution is
+in the CLP-2 text. So that theorem tells us that the solution is
 \begin{align*}
 B(t) = \left(B(0)-\frac{m}{a}\right) e^{at} + \frac{m}{a}
 \end{align*}

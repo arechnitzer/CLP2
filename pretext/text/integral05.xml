@@ -84,7 +84,7 @@ quite explicit.
 	Before we do any calculus, it is a very good idea to make a sketch of the area in  question. The curves <m>y=x</m>, <m>x=-1</m> and <m>x=1</m> are all straight lines, while the curve  <m>y=4-x^2</m> is a parabola whose apex is at <m>(0,4)</m> and then curves down  (because of the  minus sign in <m>-x^2</m>) with <m>x</m>-intercepts at <m>(\pm2,0)</m>. Putting these together gives
 </p>
 
-	<sidebyside width="40%">
+	<sidebyside width="66%">
 	<image source="text/figs/area_between3"/>
 	</sidebyside>
 
@@ -120,7 +120,7 @@ quite explicit.
 	</li>
 	</ul>
 </p>
-<sidebyside width="40%">
+<sidebyside width="66%">
 <image source="text/figs/area_between4"/>
 </sidebyside>
 </li>
@@ -137,7 +137,9 @@ quite explicit.
 	<md>
 	<mrow>
 	\lim_{n\rightarrow\infty}\sum_{i=1}^n  \big[T(x_i^*)-B(x_i^*)\big]\De x
-	&amp;=\int_a^b \big[T(x)-B(x)\big]\dee{x} \qquad \text{Riemann sum $\to$ integral}
+	&amp;=\int_a^b \big[T(x)-B(x)\big]\dee{x} 
+        </mrow><mrow>
+        &amp;\hskip1in \text{Riemann sum $\to$ integral}
 	</mrow><mrow>
 	&amp;=\int_{-1}^1\big[(4-x^2)-x\big]\dee{x}
 	</mrow><mrow>
@@ -178,7 +180,7 @@ Find the area bounded by the curves <m>y=4-x^2</m>, <m>y=x</m>, <m>x=-1</m> and 
 <p>
 	We first sketch the region
 </p>
-<sidebyside width="40%">
+<sidebyside width="66%">
 <image source="text/figs/area_between3"/>
 </sidebyside>
 <p>
@@ -301,7 +303,7 @@ Find the area of the finite region bounded by <m>y^2=2x+6</m> and  <m>y=x-1</m>.
 <p>
 	Putting this all together gives us the sketch
 </p>
-<sidebyside width="50%">
+<sidebyside width="66%">
 <image source="text/figs/areaY"/>
 </sidebyside>
 </li>
@@ -315,7 +317,7 @@ As noted above, we can find the area of this region by approximating it by a uni
 <p>
 	As we have done previously, we approximate the region by a union of narrow  vertical rectangles, each of width <m>\De x</m>. Two of those rectangles are illustrated in  the sketch
 </p>
-<sidebyside width="50%">
+<sidebyside width="66%">
 <image source="text/figs/areaYvert"/>
 </sidebyside>
 </li>
@@ -356,8 +358,8 @@ As noted above, we can find the area of this region by approximating it by a uni
 	<md>
 	<mrow>
 	\text{Area}
-	  &amp;= 2\int_0^4\sqrt{u}\ \frac{du}{2}
-			  +\int_4^{16} \sqrt{u}\ \frac{du}{2}
+	  &amp;= 2\int_0^4\sqrt{u}\ \frac{\dee{u}}{2}
+			  +\int_4^{16} \sqrt{u}\ \frac{\dee{u}}{2}
 			  -\int_{-1}^5 (x-1)\dee{x}
 	</mrow><mrow>
 	  &amp;= 2\bigg[\frac{ u^{\frac{3}{2}} }{ \frac{3}{2} }\frac{1}{2}\bigg]_0^4
@@ -435,7 +437,7 @@ The easy way to determine the area of our region is to approximate by narrow  ho
 </ul>
 </p>
 
-<sidebyside width="66%">
+<sidebyside width="80%">
 <image source="text/figs/areaYhor"/>
 </sidebyside>
 </li>
@@ -443,10 +445,12 @@ The easy way to determine the area of our region is to approximate by narrow  ho
 	The desired area is
 	<md>
 	<mrow>
-	\lim_{n\rightarrow\infty}\sum_{i=1}^n \big[R(y_i^*)-L(y_i^*)\big]\De y
-	&amp;=\int_c^d \big[R(y)-L(y)\big]\dee{y} \qquad \text{Riemann sum $\rightarrow$ integral}
+	&amp;\lim_{n\rightarrow\infty}\sum_{i=1}^n \big[R(y_i^*)-L(y_i^*)\big]\De y
+	=\int_c^d \big[R(y)-L(y)\big]\dee{y} 
+        </mrow><mrow>
+         &amp;\hskip2in\text{Riemann sum $\rightarrow$ integral}
 	</mrow><mrow>
-	&amp;=\int_{-2}^4 \big[(y+1)-\tfrac{1}{2}\big(y^2-6\big)\big]\dee{y}
+	&amp;\hskip1in=\int_{-2}^4 \big[(y+1)-\tfrac{1}{2}\big(y^2-6\big)\big]\dee{y}
 	</mrow><mrow>
 	&amp;=\int_{-2}^4 \big[-\tfrac{1}{2}y^2+y+4\big]\dee{y}
 	</mrow><mrow>

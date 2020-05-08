@@ -14,7 +14,7 @@ The method of integration by parts comes from the  $\rule{1.5cm}{0.15mm}$ rule f
 \end{Mquestion}
 \begin{hint}
 Read back over Sections~\eref{CLP101}{sec subs} and \eref{CLP101}{sec intbyparts}
-of the CLP--II text. When these methods are introduced, they are justified using the
+of the CLP-2 text. When these methods are introduced, they are justified using the
 corresponding differentiation rules.
 \end{hint}
 \begin{answer}
@@ -114,7 +114,7 @@ Since the terms with $C$ cancel out, it didn't matter what we chose for $C$--all
 \begin{question}\label{1.7_badchoices}
 Suppose you want to evaluate $\displaystyle\int f(x)\dee{x}$ using integration by parts. Explain why $\dee{v} = f(x)\dee{x}$, $u=1$ is generally a bad choice.
 
-Note: compare this to Example~\eref{CLP101}{eg:PRTSlnx} of the CLP--II text, where we chose $u=f(x)$, $\dee{v}=1\dee{x}$.
+Note: compare this to Example~\eref{CLP101}{eg:PRTSlnx} of the CLP-2 text, where we chose $u=f(x)$, $\dee{v}=1\dee{x}$.
 \end{question}
 \begin{hint}
 What integral do you have to evaluate, after you plug in your choices to the integration by parts formula?
@@ -135,7 +135,7 @@ Suppose we choose $\dee{v} = f(x)\dee{x}$, $u=1$. Then $v = \displaystyle\int f(
 \end{align*}
 In order to figure out the first product (and the second integrand), you need to know the antiderivative of $f(x)$--but that's exactly what you're trying to figure out! So, using integration by parts has not eased your pain.
 
-We note here that in certain cases, such as $\int\log x~ \dee{x}$ (Example~\eref{CLP101}{eg:PRTSlnx}  in the CLP--II text), it is useful to choose $\dee{v}=1\dee{x}$. This is similar to, but crucially different from, the do-nothing method in this problem.
+We note here that in certain cases, such as $\int\log x~ \dee{x}$ (Example~\eref{CLP101}{eg:PRTSlnx}  in the CLP-2 text), it is useful to choose $\dee{v}=1\dee{x}$. This is similar to, but crucially different from, the do-nothing method in this problem.
 \end{solution}
 
 
@@ -161,7 +161,7 @@ For integration by parts, we want to break the integrand into two pieces, multip
 
 \IBP{x}{x}{1}{\dfrac{1}{2}x^2}{\log x}{\dfrac{1}{x}}{??}
 
-In Example~\eref{CLP101}{eg:PRTSlnx} of the CLP--II text, we found the antiderivative of logarithm, but it wasn't trivial. We might reasonably want to avoid using this complicated antiderivative. Indeed,  Option 2 (differentiating logarithm, antidifferentiating $x$) looks promising--when we multiply the blue equations, we get something easily integrable-- so let's not even bother going deeper into Option 1.
+In Example~\eref{CLP101}{eg:PRTSlnx} of the CLP-2 text, we found the antiderivative of logarithm, but it wasn't trivial. We might reasonably want to avoid using this complicated antiderivative. Indeed,  Option 2 (differentiating logarithm, antidifferentiating $x$) looks promising--when we multiply the blue equations, we get something easily integrable-- so let's not even bother going deeper into Option 1.
 
 That is, we perform integration by parts with $u=\log x$ and $\dee{v}=x\,\dee{x}$,
 so that $\dee{u}=\frac{\dee{x}}{x}$ and $v = \frac{x^2}{2}$.
@@ -191,7 +191,7 @@ Our integrand is the product of two functions, and there's no clear substitution
 
 \IBP{x}{\log x}{\dfrac{1}{x}}{??}{x^{-7}}{-7x^{-8}}{\dfrac{1}{-6}x^{-6}}
 
-Again, we remember that logarithm has some antiderivative we found in Example~\eref{CLP101}{eg:PRTSlnx} of the CLP--II text, but it was something complicated. Luckily, we don't need to bother with it: when we multiply the red equations in Option 1, we get a perfectly workable integral.
+Again, we remember that logarithm has some antiderivative we found in Example~\eref{CLP101}{eg:PRTSlnx} of the CLP-2 text, but it was something complicated. Luckily, we don't need to bother with it: when we multiply the red equations in Option 1, we get a perfectly workable integral.
 
 We perform integration by parts with $u=\log x$ and $\dee{v}=x^{-7}\,\dee{x}$,
 so that $\dee{u}=\frac{\dee{x}}{x}$ and $v = -\frac{x^{-6}}{6}$.
@@ -211,7 +211,7 @@ Evaluate $\displaystyle\int_0^\pi x\sin x\,\dee{x}$.
 \begin{hint}
  Example \eref{CLP101}{eg:PRTSxsinx} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP 101 notes}.
-CLP--II text shows you how to find the antiderivative. Then the Fundamental Theorem of Calculus Part 2 gives you the definite integral.
+CLP-2 text shows you how to find the antiderivative. Then the Fundamental Theorem of Calculus Part 2 gives you the definite integral.
 \end{hint}
 
 \begin{answer}
@@ -327,7 +327,7 @@ Since our integrand is two functions multiplied together, and there isn't an obv
 \IBP{x}{x}{1}{\dfrac{1}{2}x^2}{\log^3 x}{3\log^2 x \cdot\frac{1}{x}}{??}
 
 This calls for some strategizing. Using the template of Example~\eref{CLP101}{eg:PRTSlnx}
- in the CLP--II text, we could probably figure out the antiderivative of $\log^3 x$. Option 1 is tempting, because our $x$-term goes away. So, there might be a benefit there, but on the other hand, the antiderivative of $\log^3 x$ is probably pretty complicated.
+ in the CLP-2 text, we could probably figure out the antiderivative of $\log^3 x$. Option 1 is tempting, because our $x$-term goes away. So, there might be a benefit there, but on the other hand, the antiderivative of $\log^3 x$ is probably pretty complicated.
 
 Now let's consider Option 2. When we multiply the blue functions together, we get something similar to our original integrand, but the power of logarithm is smaller. If we were to iterate this method (using integration by parts a few times, always choosing $u$ to be the part with a logarithm) then eventually we would end up differentiating logarithm. This seems like a safer plan: let's do Option 2.
 
@@ -435,7 +435,7 @@ Before we jump to integration by parts, we notice that the square roots lend the
 Evaluate $\displaystyle\int \log^2 x \dee{x}$.
 \end{question}
 \begin{hint}
-This can be solved using the same ideas as Example~\eref{CLP101}{eg:PRTSlnx}  in the CLP--II text.
+This can be solved using the same ideas as Example~\eref{CLP101}{eg:PRTSlnx}  in the CLP-2 text.
 \end{hint}
 \begin{answer}
 $x\log^2 x -2x\log x +2x+C$
@@ -444,7 +444,7 @@ $x\log^2 x -2x\log x +2x+C$
 Let's use integration by parts. What are our parts? We have a few options.
 
 \begin{description}
-\item[Solution 1:]  Following Example~\eref{CLP101}{eg:PRTSlnx} in the CLP--II text,
+\item[Solution 1:]  Following Example~\eref{CLP101}{eg:PRTSlnx} in the CLP-2 text,
 we choose $u=\log^2 x$ and $\dee{v}=\dee{x}$, so that $\dee{u}=\frac{2}{x}\log x ~\dee{x}$ and $v=x$.
 \begin{align*}
 \int \log^2 x \dee{x}&= \underbrace{x\log^2x}_{uv}
@@ -456,7 +456,7 @@ we choose $u=\log^2 x$ and $\dee{v}=\dee{x}$, so that $\dee{u}=\frac{2}{x}\log x
  \end{align*}
 
 \item[Solution 2:] Our integrand is two functions multiplied together: $\log x$ and $\log x$. So, we will use integration by parts with $u=\log x$, $\dee{v}=\log x$, $\dee{u}=\frac{1}{x}\dee{x}$, and (using the antiderivative of logarithm, found in Example~\eref{CLP101}{eg:PRTSlnx}
-in the CLP--II text) $v=x\log x -x$.
+in the CLP-2 text) $v=x\log x -x$.
 \begin{align*}
 \int \log^2 x ~\dee{x}&=(\underbrace{\log x}_u) (\underbrace{x\log x - x}_{v})
 -\int (\underbrace{x\log x-x}_v)\underbrace{ \frac{1}{x}\dee{x}}_{\dee{u}}\\
@@ -490,7 +490,7 @@ Evaluate $\displaystyle\int\arccos y\,\dee{y}$.
 
 \begin{hint}
 You know, or can easily look up, the derivative of arccosine.
-You can use a similar trick as the book did when antidifferentiating other inverse trigonometric functions in Example~\eref{CLP101}{eg:invtan} of the CLP--II text.
+You can use a similar trick as the book did when antidifferentiating other inverse trigonometric functions in Example~\eref{CLP101}{eg:invtan} of the CLP-2 text.
 \end{hint}
 
 \begin{answer}
@@ -498,7 +498,7 @@ $y \arccos y - \sqrt{1-y^2} + C$
 \end{answer}
 
 \begin{solution}
-In Example~\eref{CLP101}{eg:invtan} of the CLP--II text, we saw that integration by parts was useful when the integrand has a derivative that works nicely when multiplied by $x$. We use the same idea here.
+In Example~\eref{CLP101}{eg:invtan} of the CLP-2 text, we saw that integration by parts was useful when the integrand has a derivative that works nicely when multiplied by $x$. We use the same idea here.
 Let $u = \arccos y$ and $\dee{v} = \dee{y}$,
 so that $v=y$ and $du = -\frac{\dee{y}}{\sqrt{1-y^2}}$.
 \begin{align*}
@@ -525,8 +525,8 @@ Evaluate $\displaystyle\int 4y\arctan(2y) \,\dee{y}$.
 
 \begin{hint}
 %See Example \eref{CLP101}{eg:invtan} in the
-%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP--II text}.
-% CLP--II text.
+%\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP-2 text}.
+% CLP-2 text.
 After integrating by parts, do some algebraic manipulation to the integral until it's clear how to evaluate it.
 \end{hint}
 
@@ -569,7 +569,7 @@ After integration by parts, use a substitution.
 $\dfrac{x^3}{3}\arctan x- \dfrac{1}{6}(1+x^2) + \dfrac{1}{6}\log(1+x^2)+C$
 \end{answer}
 \begin{solution}
-We've got an integrand that consists of two functions multiplied together, and no obvious substitution. So, we think about integration by parts. Let's consider our options. Note in Example~\eref{CLP101}{eg:invtan} of the CLP--II text, we found that the antiderivative of arctangent is
+We've got an integrand that consists of two functions multiplied together, and no obvious substitution. So, we think about integration by parts. Let's consider our options. Note in Example~\eref{CLP101}{eg:invtan} of the CLP-2 text, we found that the antiderivative of arctangent is
 $x\arctan x -\frac{1}{2}\log(1+x^2)+C$.
 \IBP{x}{\arctan x}{\dfrac{1}{1+x^2}}{x\arctan x -\dfrac{1}{2}\log(1+x^2)}{x^2}{2x}{\dfrac{1}{3}x^3}
 
@@ -605,7 +605,7 @@ Option 1 seems likelier. Let's see how it plays out. We use integration by parts
 \intertext{Using the substitution $s=1+x^2$, $\dee{s}=2x\dee{x}$:}
 &=\frac{x^3}{3}\arctan x - \frac{x^2}{6}\log(1+x^2) + \frac{1}{6}\int\log s\dee{s}
 \intertext{Using the antiderivative of logarithm found in  Example~\eref{CLP101}{eg:PRTSlnx}
-of the CLP--II text,}
+of the CLP-2 text,}
 &=\frac{x^3}{3}\arctan x - \frac{x^2}{6}\log(1+x^2) + \frac{1}{6}\left(s\log s - s\right)+C\\
 &=\frac{x^3}{3}\arctan x - \frac{x^2}{6}\log(1+x^2) + \frac{1}{6}\left((1+x^2)\log (1+x^2) - (1+x^2)\right)+C\\
 &=\frac{x^3}{3}\arctan x + \left[-\frac{x^2}{6}+\frac{1+x^2}{6}\right]\log(1+x^2)-\frac{1}{6}(1+x^2)+C\\
@@ -619,14 +619,14 @@ of the CLP--II text,}
 Evaluate $\displaystyle\int e^{x/2}\cos(2x)\dee{x}$.
 \end{question}
 \begin{hint}
-This example is similar to  Example~\eref{CLP101}{eg:circularint} in the CLP--II text. The functions $e^{x/2}$ and $\cos(2x)$ both do not substantially alter when we differentiate or antidifferentiate them. If we use integration by parts twice, we'll end up with an expression that includes our original integral. Then we can just solve for the original integral in the equation, without actually integrating.
+This example is similar to  Example~\eref{CLP101}{eg:circularint} in the CLP-2 text. The functions $e^{x/2}$ and $\cos(2x)$ both do not substantially alter when we differentiate or antidifferentiate them. If we use integration by parts twice, we'll end up with an expression that includes our original integral. Then we can just solve for the original integral in the equation, without actually integrating.
 \end{hint}
 \begin{answer}
 $\dfrac{2}{17}e^{x/2}\cos(2x)+\dfrac{8}{17}e^{x/2}\sin(2x)+C
 $
 \end{answer}
 \begin{solution}
-This example is similar to  Example~\eref{CLP101}{eg:circularint} in the CLP--II text. The functions $e^{x/2}$ and $\cos(2x)$ both do not substantially alter when we differentiate or antidifferentiate them. If we use integration by parts twice, we'll end up with an expression that includes our original integral. Then we can just solve for the original integral in the equation, without actually antidifferentiating.
+This example is similar to  Example~\eref{CLP101}{eg:circularint} in the CLP-2 text. The functions $e^{x/2}$ and $\cos(2x)$ both do not substantially alter when we differentiate or antidifferentiate them. If we use integration by parts twice, we'll end up with an expression that includes our original integral. Then we can just solve for the original integral in the equation, without actually antidifferentiating.
 
 Let's use $u=\cos(2x)$ and $\dee{v} = e^{x/2}\dee{x}$, so $\dee{u}=-2\sin(2x)\dee{x}$ and $v=2e^{x/2}$.
 \begin{align*}
@@ -658,7 +658,7 @@ $\displaystyle\int \sin(\log x)\dee{x}$.
 \begin{hint}
 This looks a bit like a substitution problem, because we have an ``inside function."
 
-It might help to review Example~\eref{CLP101}{eg:PRTSexsinx} in the CLP--II text.
+It might help to review Example~\eref{CLP101}{eg:PRTSexsinx} in the CLP-2 text.
 \end{hint}
 \begin{answer}
 $\dfrac{x}{2} \big[\sin(\log x) - \cos (\log x)\big]+C$
@@ -670,13 +670,13 @@ This question looks like a substitution, since we have an ``inside function." So
 \begin{align*}
 \int \sin(\log x)\dee{x}&=\int \frac{x\sin(\log x)}{x}\dee{x}\\
 &=\int e^u \sin u ~\dee{u}
-\intertext{Using the result of Example~\eref{CLP101}{eg:PRTSexsinx} in the CLP--II text:}
+\intertext{Using the result of Example~\eref{CLP101}{eg:PRTSexsinx} in the CLP-2 text:}
 &=\frac{1}{2}e^u\left(\sin u - \cos u\right)+C\\
 &=\frac{1}{2}e^{\log x}\left(\sin(\log x) - \cos (\log x)\right)+C
 \\&=\frac{1}{2}x \left(\sin(\log x) - \cos (\log x)\right)+C
 \end{align*}
 
-\item[Solution 2:] It's not clear how to antidifferentiate the integrand, but we can certainly differentiate it. So, keeping in mind the method of Example~\eref{CLP101}{eg:PRTSexsinx} in the CLP--II text, we take $u=\sin(\log x)$ and $\dee{v}=\dee{x}$, so $\dee{u}=\frac{1}{x}\cos(\log x)\dee{x}$ and $v=x$.
+\item[Solution 2:] It's not clear how to antidifferentiate the integrand, but we can certainly differentiate it. So, keeping in mind the method of Example~\eref{CLP101}{eg:PRTSexsinx} in the CLP-2 text, we take $u=\sin(\log x)$ and $\dee{v}=\dee{x}$, so $\dee{u}=\frac{1}{x}\cos(\log x)\dee{x}$ and $v=x$.
 \begin{align*}
 \int \sin(\log x)\dee{x}&= \underbrace{x\sin(\log x)}_{uv}  - \int \underbrace{
 \cos(\log x)\dee{x}
@@ -714,7 +714,7 @@ We begin by simplifying the integrand.
 \int 2^{x+\log_2 x} \dee{x}&=
 \int 2^{x}\cdot 2^{\log_2 x} \dee{x}=
 \int 2^{x}\cdot x~ \dee{x}
-\intertext{This is similar to the integral $\displaystyle\int xe^x \dee{x}$, which we saw in Example~\eref{CLP101}{eg:PRTSxex} of the CLP--II text. Let's write $2=e^{\log 2}$ to take advantage of the easy integrability of $e^x$.}
+\intertext{This is similar to the integral $\displaystyle\int xe^x \dee{x}$, which we saw in Example~\eref{CLP101}{eg:PRTSxex} of the CLP-2 text. Let's write $2=e^{\log 2}$ to take advantage of the easy integrability of $e^x$.}
 &=\int x\cdot e^{x\log 2} \dee{x}
 \intertext{We use integration by parts with $u=x$, $\dee{v}=e^{x\log 2}\dee{x}$; $\dee{u}=\dee{x}$, $v = \frac{1}{\log 2}e^{x\log 2}$. (Remember $\log 2$ is a constant. If you'd prefer, you can do a substitution with $s= x\log 2$ first, to have a simpler exponent of $e$.)}
 &=\underbrace{\frac{x}{\log 2}e^{x\log 2}}_{uv} - \int \underbrace{\frac{1}{\log 2}e^{x\log 2}\dee{x}}_{v\dee{u}}\\
@@ -735,7 +735,7 @@ $2e^{\cos x}[1-\cos x]+C$
 \begin{solution}
 It's not obvious where to start, but in general it's nice to have the arguments of our trig functions the same. So, we use the identity $\sin(2x)=2\sin x \cos x$.
 \begin{align*}
-\int e^{\cos x}\sin(2x)\dee{x}&=2\int e^{\cos x}\cos x \sin x
+\int e^{\cos x}\sin(2x)\dee{x}&=2\int e^{\cos x}\cos x \sin x\,\dee{x}
 \intertext{Now we can use the substitution $w=\cos x$, $\dee{w}=-\sin x \dee{x}$.}
 &=-2\int we^w\dee{w}
 \intertext{From here the integral should look more familiar. We can use integration by parts with $u=w$, $\dee{v} = e^w\dee{w}$, $\dee{u}=\dee{w}$, and $v=e^w$.}
@@ -871,7 +871,7 @@ Find the volume of the solid obtained by rotating $R$ about the $y$--axis.
 See Examples \eref{CLP101}{eg:invtan} and  \eref{CLP101}{eg rot yaxis} in the
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf#section1.6}{CLP 101 notes}.
 %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP 101 notes}.
-CLP--II text for refreshers on integrating arctangent, and using washers.
+CLP-2 text for refreshers on integrating arctangent, and using washers.
 
  Remember $\tan^2  x + 1 = \sec^2 x$, and $\sec^2x$ is easy to integrate.
 \end{hint}
@@ -899,7 +899,7 @@ A&=\int_0^1\arctan x\ \dee{x}=\underbrace{ x\arctan x}_{uv}\Big|_0^1-\int_0^1\un
 \noindent (b)
 We'll use horizontal washers as in Example  \eref{CLP101}{eg rot yaxis}
 of the %\href{http://www.math.ubc.ca/%7Efeldman/m101/clp/clp_notes_101.pdf}{CLP 101 notes}.
-CLP--II text.
+CLP-2 text.
  \begin{itemize}
 \item We cut $R$ into thin horizontal  strips of width $\dee{y}$ as in
 the figure on the right above.
@@ -1014,7 +1014,7 @@ Interpret the limit as a right Riemann sum.
 $\dfrac{2}{e}$
 \end{answer}
 \begin{solution}
-As we saw in Section~\eref{CLP101}{sec:intdef} of the CLP--II text, there are many different ways to interpret a limit as a Riemann sum. In the absence of instructions that restrain our choices, we go with the most convenient interpretations.
+As we saw in Section~\eref{CLP101}{sec:intdef} of the CLP-2 text, there are many different ways to interpret a limit as a Riemann sum. In the absence of instructions that restrain our choices, we go with the most convenient interpretations.
 
 With that in mind, we choose:
 \begin{itemize}

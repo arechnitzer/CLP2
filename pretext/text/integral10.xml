@@ -389,7 +389,7 @@ In this example, we integrate <m>\frac{N(x)}{D(x)} =\frac{3x^3-8x^2+4x-1}{x^2-3x
 		Now we subtract <m>3x</m> times the denominator, <m>x^2-3x+2</m>, which is <m>3x^3-9x^2+6x</m>,  from the numerator.
 	</p>
 
-	<sidebyside width="66%">
+	<sidebyside width="75%">
 	<image source="text/figs/longdiv2b"/>
 	</sidebyside>
 	</li>
@@ -419,7 +419,8 @@ In this example, we integrate <m>\frac{N(x)}{D(x)} =\frac{3x^3-8x^2+4x-1}{x^2-3x
 		&amp;3x^3-8x^2+4x-1
 		\ -\ 3x(x^2-3x+2)
 		\ -\ 1(x^2-3x+2)
-		\ =\ x-3
+                </mrow><mrow>
+		 &amp;\hskip2.5in= x-3
 		</mrow>
 		</md>
 		or, collecting the two terms proportional to <m>(x^2-3x+2)</m>
@@ -439,15 +440,13 @@ In this example, we integrate <m>\frac{N(x)}{D(x)} =\frac{3x^3-8x^2+4x-1}{x^2-3x
 	</li>
 	</ul>
 	We have written the integrand in the form <m>\frac{N(x)}{D(x)}=P(x)+\frac{R(x)}{D(x)},</m> with the degree of <m>R(x)</m> strictly smaller than the degree of <m>D(x)</m>, which is what we  wanted. Observe  that <m>R(x)</m> is the final remainder of the long division procedure and <m>P(x)</m> is at the top of the long division computation.
+This is the end of Step 1. Oof! You should definitely practice this step.
 	</p>
 </li>
 <li>
 <sidebyside width="90%">
 <image source="text/figs/longdiv2ee"/>
 </sidebyside>
-<p>
-	This is the end of Step 1. Oof! You should definitely practice this step.
-</p>
 </li>
 <li> <em>Step 2.</em>
 	The second step is to factor the denominator
@@ -473,11 +472,12 @@ In this example, we integrate <m>\frac{N(x)}{D(x)} =\frac{3x^3-8x^2+4x-1}{x^2-3x
 	 The final step is to integrate.
 	<md>
 	<mrow>
-	\int\frac{3x^3-8x^2+4x-1}{x^2-3x+2}\dee{x}
-	&amp;=\int\big[3x+1\big]\dee{x}
+	&amp;\int\frac{3x^3-8x^2+4x-1}{x^2-3x+2}\dee{x}
+        </mrow><mrow>
+	&amp;\hskip0.5in=\int\big[3x+1\big]\dee{x}
 	   + \int \frac{2}{x-1}\dee{x} +\int \frac{-1}{x-2}\dee{x}
-	</mrow><mrow>[0.1in]
-	&amp;=\frac{3}{2}x^2+x+ 2\log|x-1|-\log|x-2|+C
+	</mrow><mrow>
+	&amp;\hskip0.5in=\frac{3}{2}x^2+x+ 2\log|x-1|-\log|x-2|+C
 	</mrow>
 	</md>
 </li>
@@ -521,7 +521,7 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{x^4+5x^3+16x^2+26x+22}
 	<p>
 		We start by observing that to get from the highest degree term in the denominator  (<m>x^3</m>) to the highest degree term in the numerator (<m>x^4</m>), we have to multiply by <m>x</m>.  So we write,
 	</p>
-	<sidebyside width="60%">
+	<sidebyside width="70%">
 	<image source="text/figs/longdiv6a"/>
 	</sidebyside>
 	</li>
@@ -529,7 +529,7 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{x^4+5x^3+16x^2+26x+22}
 	<p>
 		Now we subtract <m>x</m> times the denominator <m>x^3+3x^2+7x+5</m>, which is <m>x^4+3x^3+7x^2+5x</m>, from the numerator.
 	</p>
-	<sidebyside width="80%">
+	<sidebyside width="90%">
 	<image source="text/figs/longdiv6b"/>
 	</sidebyside>
 	</li>
@@ -545,7 +545,7 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{x^4+5x^3+16x^2+26x+22}
 	<p>
 		Now we subtract <m>2</m> times the denominator <m>x^3+3x^2+7x+5</m>, which is <m>2x^3+6x^2+14x+10</m>, from the remainder.
 	</p>
-	<sidebyside width="80%">
+	<sidebyside width="90%">
 	<image source="text/figs/longdiv6"/>
 	</sidebyside>
 	</li>
@@ -558,17 +558,19 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{x^4+5x^3+16x^2+26x+22}
 		<mrow>
 		&amp;x^4+5x^3+16x^2+26x+22
 		\ -\ x(x^3+3x^2+7x+5)
-		\ -\ 2(x^3+3x^2+7x+5)
+                </mrow><mrow>
+		&amp;\hskip2in\ -\ 2(x^3+3x^2+7x+5)
 		</mrow><mrow>
-		&amp; =3x^2+7x+12
+		&amp;\hskip0.5in =3x^2+7x+12
 		</mrow>
 		</md>
 		or, collecting the two terms proportional to <m>(x^3+3x^2+7x+5)</m> we get
 		<md>
 		<mrow>
-		x^4+5x^3+16x^2+26x+22
+		&amp;x^4+5x^3+16x^2+26x+22
 		\ -\ (x+2)(x^3+3x^2+7x+5)
-		\ =\ 3x^2+7x+12
+                </mrow><mrow>
+		&amp;\hskip0.5in=\ 3x^2+7x+12
 		</mrow>
 		</md>
 		Moving the <m>(x+2)(x^3+3x^2+7x+5)</m> to the right hand side and dividing the
@@ -634,7 +636,7 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{x^4+5x^3+16x^2+26x+22}
 	<p>
 		Dividing <m>D(x)</m> by <m>(x+1)</m> gives:
 	</p>
-	<sidebyside width="66%">
+	<sidebyside width="50%">
 	<image source="text/figs/longdiv7"/>
 	</sidebyside>
 	<p>
@@ -712,7 +714,8 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{x^4+5x^3+16x^2+26x+22}
 		&amp;\phantom{=} +
 		\frac{B_1x+C_1}{ \text{quadratic factor 1} }
 		+\frac{B_2x+C_2}{ \text{quadratic factor 2} } +\cdots
-		+\frac{B_mx+C_m}{ \text{quadratic factor m} }
+       </mrow><mrow>
+		&amp;\hskip2in+\frac{B_mx+C_m}{ \text{quadratic factor m} }
 	</mrow>
 	</md>
 </p>
@@ -762,16 +765,16 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{x^4+5x^3+16x^2+26x+22}
 		using the first equation, namely <m>A+B=3</m>, to determine <m>A</m> in terms of  <m>B</m>: <m>\ \ A=3-B</m>.
 	</li>
 	<li>
-		Substituting this into the remaining two equations eliminates the <m>A</m>'s from these two equations, leaving two equations in the two unknowns <m>B</m> and <m>C</m>.
+		Substituting <m>A=3-B</m> into the remaining two equations eliminates the <m>A</m>'s from these two equations, leaving two equations in the two unknowns <m>B</m> and <m>C</m>.
 		<md>
 		<mrow>
-		&amp; &amp; A&amp;=3-B\qquad &amp; 2A+B+C&amp;=7\qquad &amp; 5A+C&amp;=12
+		&amp; &amp; A=3-B\qquad 2A+B+C&amp;=7\quad &amp; 5A+C&amp;=12
 		</mrow>
 		<mrow>
-		&amp;\Rightarrow\qquad &amp; &amp; &amp; 2(3-B)+B+C&amp;=7 &amp; 5(3-B)+C&amp;=12
+		&amp;\Rightarrow &amp; 2(3-B)+B+C&amp;=7 &amp;\!\!\!\!\!\! 5(3-B)+C&amp;=12
 		</mrow>
 		<mrow>
-		&amp;\Rightarrow &amp; &amp; &amp; -B+C&amp;=1 &amp; -5B+C&amp;=-3
+		&amp;\Rightarrow &amp; -B+C&amp;=1 &amp; -5B+C&amp;=-3
 		</mrow>
 		</md>
 	</li>
@@ -911,32 +914,32 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{x^4+5x^3+16x^2+26x+22}
 	\frac{x+2}{(x+1)^2+4}=\frac{1}{4}\frac{x+2}{(\frac{x+1}{2})^2+1}
 	</mrow>
 	</md>
-	so we make the change of variables <m>y=\frac{x+1}{2},\dee{y}=\frac{dx}{2},\ x=2y-1,\dee{x}=2\,dy</m>
+	so we make the change of variables <m>y=\frac{x+1}{2},\dee{y}=\frac{dx}{2},\ x=2y-1,\dee{x}=2\,\dee{y}</m>
 	<md>
 	<mrow>
 	\int \frac{x+2}{(x+1)^2+4}\dee{x}
 	&amp;=\frac{1}{4}\int \frac{x+2}{{(\frac{x+1}{2})}^2+1}\dee{x}
 	</mrow>
 	<mrow>
-	&amp;=\frac{1}{4}\int \frac{(2y-1)+2}{y^2+1}\,2\,dy
-	\ =\ \frac{1}{2}\int \frac{2y+1}{y^2+1}\,dy
+	&amp;=\frac{1}{4}\int \frac{(2y-1)+2}{y^2+1}\,2\,\dee{y}
+	\ =\ \frac{1}{2}\int \frac{2y+1}{y^2+1}\,\dee{y}
 	</mrow>
 	<mrow>
-	&amp;=\int \frac{y}{y^2+1}\,dy + \frac{1}{2}\int \frac{1}{y^2+1}\,dy
+	&amp;=\int \frac{y}{y^2+1}\,\dee{y} + \frac{1}{2}\int \frac{1}{y^2+1}\,\dee{y}
 	</mrow>
 	</md>
-	Both integrals are easily evaluated, using the substitution <m>u=y^2+1</m>, <m>du=2y\,dy</m> for the first.
+	Both integrals are easily evaluated, using the substitution <m>u=y^2+1</m>, <m>\dee{u}=2y\,\dee{y}</m> for the first.
 	<md>
 	<mrow>
-	\int \frac{y}{y^2+1}\,dy
-	&amp;\ =\ \int \frac{1}{u}\frac{du}{2}
+	\int \frac{y}{y^2+1}\,\dee{y}
+	&amp;\ =\ \int \frac{1}{u}\frac{\dee{u}}{2}
 	\ =\ \frac{1}{2}\log|u|=\frac{1}{2}\log(y^2+1)
 	</mrow>
 	<mrow>
 	&amp; =\ \frac{1}{2}\log\Big[\Big(\frac{x+1}{2}\Big)^2+1\Big]
 	</mrow>
 	<mrow>
-	\frac{1}{2}\int \frac{1}{y^2+1}\,dy
+	\frac{1}{2}\int \frac{1}{y^2+1}\,\dee{y}
 	&amp;\ =\ \frac{1}{2}\arctan y
 	\ =\ \frac{1}{2}\arctan\Big(\frac{x+1}{2}\Big)
 	</mrow>
@@ -984,7 +987,7 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{4x^3+23x^2+45x+27}{x^3
 	</md>
 	with <m>P(x)</m> being a polynomial (which should be of degree <m>0</m>, i.e. just a constant) and <m>R(x)</m> being a polynomial of degree strictly smaller than the degree of <m>D(x)</m>. By long division
 	</p>
-	<sidebyside width="66%">
+	<sidebyside width="60%">
 	<image source="text/figs/longdiv8a"/>
 	</sidebyside>
 <p>
@@ -1008,11 +1011,11 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{4x^3+23x^2+45x+27}{x^3
 		We test to see if <m>\pm 1</m> are roots.
 		<md>
 		<mrow>
-		D(1)&amp;=(1)^3+5(1)^2+8(1)+4\ne 0&amp;&amp;\Rightarrow\quad\text{$x=1$ is not a root}
+		D(1)&amp;=(1)^3+5(1)^2+8(1)+4\ne 0&amp;&amp;\Rightarrow\ \text{$x=1$ is not a root}
 		</mrow>
 		<mrow>
-		D(-1)&amp;=(-1)^3+5(-1)^2+8(-1)+4= 0\quad&amp;&amp;\Rightarrow
-                   \quad\text{$x=-1$ is  a root}
+		D(-1)&amp;=(-1)^3\!+\!5(-1)^2\!+\!8(-1)\!+\!4= 0\!\!\!\!&amp;&amp;\Rightarrow
+                   \ \text{$x=-1$ is  a root}
 	   </mrow>
 	   </md>
 	   So <m>(x+1)</m> must divide <m>x^3+5x^2+8x+4</m> exactly.
@@ -1021,14 +1024,16 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{4x^3+23x^2+45x+27}{x^3
 	<p>
    		By long division
 	</p>
-	<sidebyside width="40%">
+	<sidebyside width="35%">
 	<image source="text/figs/longdiv9"/>
 	</sidebyside>
 	<p>
 		so
 		<md>
 		<mrow>
-		x^3+5x^2+8x+4=(x+1)(x^2+4x+4)=(x+1)(x+2)(x+2)
+		x^3+5x^2+8x+4&amp;=(x+1)(x^2+4x+4)
+                </mrow><mrow>
+                &amp;=(x+1)(x+2)(x+2)
 		</mrow>
 		</md>
 		</p>
@@ -1037,11 +1042,11 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{4x^3+23x^2+45x+27}{x^3
 		Notice that we could have instead checked whether or not <m>\pm 2</m> are roots
 		<md>
 		<mrow>
-		D(2)&amp;=(2)^3+5(2)^2+8(2)+4\ne 0&amp;&amp;\Rightarrow\quad\text{$x=2$ is not a root}
+		D(2)&amp;=(2)^3+5(2)^2+8(2)+4\ne 0&amp;&amp;\Rightarrow\ \text{$x=2$ is not a root}
 		</mrow>
 		<mrow>
-		D(-2)&amp;=(-2)^3+5(-2)^2+8(-2)+4= 0\quad&amp;&amp;\Rightarrow
-					   \quad\text{$x=-2$ is  a root}
+		D(-2)&amp;=(-2)^3\!+\!5(-2)^2\!+\!8(-2)\!+\!4= 0\!\!\!\!&amp;&amp;\Rightarrow
+					   \ \text{$x=-2$ is  a root}
 	   </mrow>
 	   </md>
 	   We now know that both <m>-1</m> and <m>-2</m> are roots of <m>x^3 + 5x^2 + 8x + 4</m> and hence both  <m>(x+1)</m> and <m>(x+2)</m> are factors of  <m>x^3 + 5x^2 + 8x + 4</m>. Because <m>x^3 + 5x^2 + 8x + 4</m>  is of degree three and the coefficient of <m>x^3</m> is <m>1</m>, we must have <m>x^3 + 5x^2 + 8x + 4  = (x+1)(x+2)(x+a)</m> for some constant <m>a</m>. Multiplying out the right hand side shows that  the constant term is <m>2a</m>. So <m>2a=4</m> and <m>a=2</m>.
@@ -1089,7 +1094,7 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{4x^3+23x^2+45x+27}{x^3
 	<mrow>
 	\frac{3x^2+13x+11}{(x+1)(x+2)^2}
 	&amp;=\frac{A}{x+1}+\frac{B}{x+2}+\frac{C}{(x+2)^2}
-	</mrow><mrow>[0.1in]
+	</mrow><mrow>
 	&amp;=\frac{A(x+2)^2+B(x+1)(x+2)+C(x+1)}{(x+1)(x+2)^2}
 	</mrow>
 	</md>
@@ -1164,7 +1169,7 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{4x^3+23x^2+45x+27}{x^3
 	The second, sneakier, method for finding <m>A</m>, <m>B</m> and <m>C</m> exploits the fact that <m>3x^2 + 13x + 11 = A(x+2)^2 + B(x+1)(x+2) + C(x+1)</m> must be true for all values of <m>x</m>. In particular, it must be true for <m>x=-1</m>. When <m>x=-1</m>, the factor <m>(x+1)</m> multiplying <m>B</m> and <m>C</m> is exactly zero. So <m>B</m> and <m>C</m> disappear from the equation, leaving us with an easy equation to solve for <m>A</m>:
 	<md>
 	<mrow>
-	3x^2+13x+11\Big|_{x=-1} &amp;=\Big[A(x+2)^2+B(x+1)(x+2) +C(x+1)\Big]_{x=-1}
+	3x^2+13x+11\Big|_{x=-1} &amp;=\Big[A(x\!+\!2)^2+B(x\!+\!1)(x\!+\!2) +C(x\!+\!1)\Big]_{x=-1}
 	</mrow>
 	<mrow>
 	\Longrightarrow 1&amp;=A
@@ -1176,13 +1181,17 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{4x^3+23x^2+45x+27}{x^3
 	3x^2+13x+11&amp;=(1)(x+2)^2+B(x+1)(x+2)+C(x+1)
 	</mrow>
 	<mrow>
-	2x^2+9x+7&amp;=B(x+1)(x+2)+C(x+1)=(xB+2B+C)(x+1)
+	2x^2+9x+7&amp;=B(x+1)(x+2)+C(x+1)
+         </mrow><mrow>
+         &amp;=(xB+2B+C)(x+1)
 	</mrow>
 	</md>
 	Since <m>(x+1)</m> is a factor on the right hand side, it must also be a factor on the left hand side.
 	<md>
 	<mrow>
-	(2x+7)(x+1)=(xB+2B+C)(x+1)\quad\Rightarrow\quad (2x+7)=(xB+2B+C)
+	&amp;(2x+7)(x+1)=(xB+2B+C)(x+1)
+        </mrow><mrow>
+        &amp;\hskip2in\Rightarrow\quad (2x+7)=(xB+2B+C)
 	</mrow>
 	</md>
 	For the coefficients of <m>x</m> to match, <m>B</m> must be <m>2</m>. For the constant terms to match, <m>2B+C</m> must be <m>7</m>, so <m>C</m> must be <m>3</m>. Hence we again have
@@ -1202,7 +1211,8 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{4x^3+23x^2+45x+27}{x^3
 	<em>Step 4.</em>  The final step is to integrate
 	<md>
 	<mrow>
-	\int\frac{4x^3+23x^2+45x+27}{x^3+5x^2+8x+4}\dee{x}
+	&amp;\int\frac{4x^3+23x^2+45x+27}{x^3+5x^2+8x+4}\dee{x}
+        </mrow><mrow>
 	&amp;=\int 4\dee{x}+\int\frac{1}{x+1}\dee{x}+\int\frac{2}{x+2}\dee{x}+
 	\int\frac{3}{(x+2)^2}\dee{x}
 	</mrow><mrow>
@@ -1227,10 +1237,10 @@ In this example, we integrate <m>\sec x</m>. It is not yet clear what this integ
 \int \sec x\dee{x}
   &amp;= \int\frac{1}{\cos x}\dee{x} &amp; \text{massage the expression a little}
 </mrow><mrow>
-  &amp;= \int\frac{\cos x}{\cos^2 x}\dee{x} &amp; \text{substitute $u=\sin x$, $du = \cos
+  &amp;= \int\frac{\cos x}{\cos^2 x}\dee{x} &amp; \text{substitute $u=\sin x$, $\dee{u} = \cos
 x\dee{x}$}
 </mrow><mrow>
-  &amp;= -\int \frac{du}{u^2-1} &amp; \text{and use $\cos^2x=1-\sin^2x=1-u^2$}
+  &amp;= -\int \frac{\dee{u}}{u^2-1} &amp; \text{and use $\cos^2x=1-\sin^2x=1-u^2$}
 </mrow>
 </md>
 So we now have to integrate <m>\frac{1}{u^2-1}</m>, which is a rational function of <m>u</m>, and so is perfect for partial fractions.
@@ -1312,8 +1322,8 @@ So we now have to integrate <m>\frac{1}{u^2-1}</m>, which is a rational function
 	<em>Step 4.</em>  The final step is to integrate.
 	<md>
 	<mrow>
-	\int \sec x\dee{x}
-	  &amp;= -\int \frac{\dee{u}}{u^2-1} &amp; \text{after substitution}
+	&amp;\int \sec x\dee{x}
+	  = -\int \frac{\dee{u}}{u^2-1} &amp; \text{after substitution}
 	</mrow><mrow>
 	  &amp; =-\frac{1}{2}\int \frac{\dee{u}}{u-1} +\frac{1}{2}\int \frac{\dee{u}}{u+1}
 	&amp; \text{partial fractions}
@@ -1380,20 +1390,24 @@ Another example in the same spirit, though a touch harder. Again, we saw this pr
 	It only remains to do the integrals and simplify.
 	<md>
 	<mrow>
-	\int \sec^3 x\dee{x}
-	&amp;= \frac{1}{4} \int  \Big[\frac{1}{(u-1)^2}-\frac{1}{u-1}+\frac{1}{u+1}+\frac{1}{(u+1)^2}\Big] \dee{u}
+	&amp;\int \sec^3 x\dee{x}
+	= \frac{1}{4} \int  \Big[\frac{1}{(u\!-\!1)^2}-\frac{1}{u\!-\!1}+\frac{1}{u\!+\!1}+\frac{1}{(u\!+\!1)^2}\Big] \dee{u}
 	</mrow><mrow>
 	&amp;=\frac{1}{4}\Big[-\frac{1}{u-1}-\log|u-1|+\log|u+1|-\frac{1}{u+1}\Big]+C
-	&amp;\text{group carefully}
+        </mrow><mrow>
+	&amp;\hskip2in\text{group carefully}
 	</mrow><mrow>
 	&amp;= \frac{-1}{4}\Big[\frac{1}{u-1} + \frac{1}{u+1} \Big]  + \frac{1}{4} \Big[ \log|u+1| - \log|u-1| \Big] + C
-	&amp;\text{sum carefully}
+	</mrow><mrow>
+	&amp;\hskip2in\text{sum carefully}
 	</mrow><mrow>
 	&amp;=-\frac{1}{4}\frac{2u}{u^2-1}+\frac{1}{4}\log\Big|\frac{u+1}{u-1}\Big|+C
-	&amp;\text{clean up}
+	</mrow><mrow>
+	&amp;\hskip2in\text{clean up}
 	</mrow><mrow>
 	&amp;= \frac{1}{2}\frac{u}{1-u^2}+\frac{1}{4}\log\Big|\frac{u+1}{u-1}\Big|+C
-	&amp; \text{put $u=\sin x$}
+	</mrow><mrow>
+	&amp;\hskip2in\text{put $u=\sin x$}
 	</mrow><mrow>
 	&amp; =\frac{1}{2}\frac{\sin x}{\cos^2x}
 			  +\frac{1}{4}\log\Big|\frac{\sin x+1}{\sin x-1}\Big|+C
@@ -1675,10 +1689,11 @@ This example is not so easy, so it should definitely be considered optional.
 	We set <m>u=x/2</m> and <m>\dee{v}=\frac{2x}{(x^2+1)^n}\dee{x}</m>, which gives  <m>\dee{u}=\frac{1}{2}\dee{x}</m> and <m>v=-\frac{1}{n-1} \cdot \frac{1}{(x^2+1)^{n-1}}</m>. You can  check <m>v</m> by differentiating. Integration by parts gives
 	<md>
 	<mrow>
-	  \int \frac{x}{2} \cdot \frac{2x}{(x^2+1)^n}\dee{x}
-	&amp;= - \frac{x}{2(n-1)(x^2+1)^{n-1}} + \int \frac{\dee{x}}{2(n-1)(x^2+1)^{n-1}}
+	 &amp; \int \frac{x}{2} \cdot \frac{2x}{(x^2+1)^n}\dee{x}
+        </mrow><mrow>
+	&amp;\hskip0.5in= - \frac{x}{2(n-1)(x^2+1)^{n-1}} + \int \frac{\dee{x}}{2(n-1)(x^2+1)^{n-1}}
 	</mrow><mrow>
-	&amp;= - \frac{x}{2(n-1)(x^2+1)^{n-1}} + \frac{1}{2(n-1)} \cdot I_{n-1}
+	&amp;\hskip0.5in= - \frac{x}{2(n-1)(x^2+1)^{n-1}} + \frac{1}{2(n-1)} \cdot I_{n-1}
 	</mrow>
 	</md>
 </li>
@@ -1903,9 +1918,10 @@ Let <m>N(x)</m> and <m>D(x)</m> be polynomials of degree <m>n</m> and <m>d</m> r
 	or equivalently, such that
 	<md>
 	<mrow>
-	\tilde P(z) z^m+A_1z^{m-1}\tilde D(z)+A_2z^{m-2}\tilde D(z)+\cdots
+	&amp;\tilde P(z) z^m+A_1z^{m-1}\tilde D(z)+A_2z^{m-2}\tilde D(z)+\cdots
 	+A_{m-1}z\tilde D(z)+A_m\tilde D(z)
-	=\tilde N(z)
+        </mrow><mrow>
+	&amp;\hskip3in=\tilde N(z)
 	</mrow>
 	</md>
 </li>
@@ -1916,9 +1932,10 @@ Let <m>N(x)</m> and <m>D(x)</m> be polynomials of degree <m>n</m> and <m>d</m> r
 	Now move <m>A_m\tilde D(z)</m> to the right hand side.
 	<md>
 	<mrow>
-	\tilde P(z) z^m+A_1z^{m-1}\tilde D(z)+A_2z^{m-2}\tilde D(z)+\cdots
+	&amp;\tilde P(z) z^m+A_1z^{m-1}\tilde D(z)+A_2z^{m-2}\tilde D(z)+\cdots
 	+A_{m-1}z\tilde D(z)
-	=\tilde N(z)-A_m\tilde D(z)
+	</mrow><mrow>
+	&amp;\hskip3in=\tilde N(z)-A_m\tilde D(z)
 	</mrow>
 	</md>
 	The constant terms in <m>\tilde N(z)</m> and <m>A_m\tilde D(z)</m> are the same, so the right hand side contains no constant term and the right hand side is of the form <m>\tilde N_1(z) z</m> with <m>\tilde N_1</m> a polynomial of degree at most <m>d+m-2</m>. (Recall that <m>\tilde N</m> is of degree at most <m>d+m-1</m> and <m>\tilde D</m> is of degree at most <m>d</m>.) Divide the whole equation by <m>z</m> to get
@@ -2325,7 +2342,8 @@ and if  <m>Q(x) =x^2+bx+c</m>, then each <m>P_i(x)</m> is a polynomial
 =\left\{n_1(x) + \frac{r_1(x)}{Q(x)}\right\}\frac{1}{Q(x)^{m-1}} 
 </mrow><mrow>
 &amp;= \frac{r_1(x)}{Q(x)^m}+\frac{n_1(x)}{Q(x)}\,\frac{1}{Q(x)^{m-2}}
-= \frac{r_1(x)}{Q(x)^m}
+</mrow><mrow>
+&amp;= \frac{r_1(x)}{Q(x)^m}
  +\left\{n_2(x) + \frac{r_2(x)}{Q(x)}\right\}\frac{1}{Q(x)^{m-2}} 
 </mrow><mrow>
 &amp;= \frac{r_1(x)}{Q(x)^m} + 
@@ -2339,7 +2357,8 @@ and if  <m>Q(x) =x^2+bx+c</m>, then each <m>P_i(x)</m> is a polynomial
 </mrow><mrow>
 &amp;=   \frac{r_1(x)}{Q(x)^m} + \frac{r_2(x)}{Q(x)^{m-1}} +\cdots+
       \frac{r_{m-2}(x)}{Q(x)^3}
-       +\left\{n_{m-1}(x) + \frac{r_{m-1}(x)}{Q(x)}\right\}\frac{1}{Q(x)}
+       +</mrow><mrow>
+&amp;\hskip1in\left\{n_{m-1}(x) + \frac{r_{m-1}(x)}{Q(x)}\right\}\frac{1}{Q(x)}
 </mrow><mrow>
 &amp;=   \frac{r_1(x)}{Q(x)^m} + \frac{r_2(x)}{Q(x)^{m-1}} +\cdots+
       \frac{r_{m-2}(x)}{Q(x)^3}+\frac{r_{m-1}(x)}{Q(x)^2}

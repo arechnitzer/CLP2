@@ -121,7 +121,7 @@ Remark: the formula given for $S_N$ has $S_0=0$, which makes sense: the sum of n
 \item
 \[\lim\limits_{n \to \infty} a_n =\lim\limits_{n \to \infty} \dfrac{1}{n(n+1)}=0.\]
 That is, the terms we're adding up are getting very, very small as we go along.
-\item By Definition~\eref{CLP101}{def:SRseries} in the CLP--II text,
+\item By Definition~\eref{CLP101}{def:SRseries} in the CLP-2 text,
 \[\sum_{n=1}^\infty a_n = \lim_{N \to \infty}S_N = \lim_{N \to \infty}\dfrac{N}{N+1}=1\]
 That is, as we add more and more terms of our series, our cumulative sum gets very, very close to 1.
 \end{enumerate}
@@ -575,14 +575,14 @@ Other solutions are possible, as well.
 Evaluate $\displaystyle\sum_{n=0}^{100}\frac{1}{5^n}$.
 \end{question}
 \begin{hint}
-Equation~\eref{CLP101}{eq:partialgeomsum} in the CLP--II text tells us
+Equation~\eref{CLP101}{eq:partialgeomsum} in the CLP-2 text tells us
 $\displaystyle\sum_{n=0}^N ar^n = a\dfrac{1-r^{N+1}}{1-r}$, for $r \neq 1$.
 \end{hint}
 \begin{answer}
 $\dfrac{5^{101}-1}{4\cdot 5^{100}}$
 \end{answer}
 \begin{solution}
-Equation~\eref{CLP101}{eq:partialgeomsum} in the CLP--II text tells us
+Equation~\eref{CLP101}{eq:partialgeomsum} in the CLP-2 text tells us
 $\displaystyle\sum_{n=0}^N ar^n = a\dfrac{1-r^{N+1}}{1-r}$, for $r \neq 1$.
 Our geometric sum has $a=1$, $r=\frac{1}{5}$, and $N=100$. So:
 \[\displaystyle\sum_{n=0}^{100}\frac{1}{5^n} =
@@ -643,7 +643,7 @@ $\dfrac{5^{51}-1}{4\cdot 5^{100}}$
 \begin{align*}
 \sum_{n={50}}^{100} \frac{1}{5^n}&=\sum_{n=0}^{100}\frac{1}{5^n}-\sum_{n=0}^{49}\frac{1}{5^n}
 \intertext{That is, we want start with the sum of all the terms up to $\dfrac{1}{5^{100}}$, and then subtract off the ones we actually don't want, which is everything up to $\dfrac{1}{5^{49}}$. Now, both series are in a form appropriate for Equation~\eref{CLP101}{eq:partialgeomsum}
- in the CLP--II text.}
+ in the CLP-2 text.}
 \sum_{n=0}^{100}\frac{1}{5^n}-\sum_{n=0}^{49}\frac{1}{5^n}&=\frac{1-\frac{1}{5^{101}}}{1-\frac15}-\frac{1-\frac{1}{5^{50}}}{1-\frac15}\\
 &=\frac{5^{101}-1}{4\cdot 5^{100}}-\frac{5^{50}-1}{4\cdot 5^{49}}\left(\frac{5^{51}}{5^{51}}\right)\\
 &=\frac{5^{101}-1}{4\cdot 5^{100}}-\frac{5^{101}-5^{51}}{4\cdot 5^{100}}\\
@@ -657,7 +657,7 @@ If we write out the first few terms of our series, we see we can factor out a co
 &=\frac{1}{5^{50}}\left(\frac{1}{5^0}+\frac{1}{5^1}+\frac{1}{5^2}+\frac{1}{5^3}+\cdots +\frac{1}{5^{50}}\right)\\
 &=\sum_{n=0}^{50}\frac{1}{5^{50}}\cdot\frac{1}{5^n}
 \intertext{Now, our sum is in the form of Equation~\eref{CLP101}{eq:partialgeomsum}
- in the CLP--II text
+ in the CLP-2 text
 with $a=\dfrac{1}{5^{50}},$ $r=\dfrac15$, and $N=50$.}
 \sum_{n=0}^{50}\frac{1}{5^{50}}\cdot\frac{1}{5^n}&=\frac{1}{5^{50}}\cdot\frac{1-\frac{1}{5^{51}}}{1-\frac15}=\frac{1-\frac{1}{5^{51}}}{4\cdot 5^{49}}\left(\frac{5^{51}}{5^{51}}\right)\\
 &=\frac{5^{51}-1}{4\cdot 5^{100}}
@@ -719,7 +719,7 @@ By day $d$, you've \emph{lost} \$ $d$ to your so-called friend. As time goes on,
 (d) The series $\displaystyle\sum_{d=1}^\infty ((d+1)-(d+2))$ exactly describes the scenario in part (c), so it diverges to $-\infty$. You can also see this by writing
 $\displaystyle\sum_{d=1}^\infty ((d+1)-(d+2)) =\sum_{d=1}^\infty (-1)=-1-1-1-1-1-\cdots$.
 
-Be careful to avoid a common mistake with telescoping series: if we look back at our account book, we see that every negative term will cancel with a positive term, with the initial $+2$ as the only term that never cancels. Your friend takes \$3, which they return the next day; then they take \$4, which they return the next day; then they take \$5, which they return the next day, and so on. It's extremely tempting to say that the series adds up to \$2, since every other term cancels out eventually. This is where we lean on Definition~\eref{CLP101}{def:SRseries} in the CLP--II text:
+Be careful to avoid a common mistake with telescoping series: if we look back at our account book, we see that every negative term will cancel with a positive term, with the initial $+2$ as the only term that never cancels. Your friend takes \$3, which they return the next day; then they take \$4, which they return the next day; then they take \$5, which they return the next day, and so on. It's extremely tempting to say that the series adds up to \$2, since every other term cancels out eventually. This is where we lean on Definition~\eref{CLP101}{def:SRseries} in the CLP-2 text:
 we evaluate the \emph{partial sums}, which always leave your friend's last withdrawal unreturned. This definition makes sense: saying ``I gained two bucks from this exchange" doesn't really capture the reality of your increasing debt.
 \end{solution}
 
@@ -739,7 +739,7 @@ $\displaystyle\sum_{n=1}^\infty c_{n+1}$, try writing out the first few terms.
 $A+B+C-c_1$
 \end{answer}
 \begin{solution}
-Using arithmetic of series, Theorem~\eref{CLP101}{thm:SRseriesarith} in the CLP--II text, we see
+Using arithmetic of series, Theorem~\eref{CLP101}{thm:SRseriesarith} in the CLP-2 text, we see
 \[\sum_{n=1}^\infty\left( a_n+b_n+c_{n+1}\right) = A+B+\sum_{n=1}^\infty c_{n+1}\]
 The question remaining is what do to with the last series. If we write out the terms, we see the difference between $\displaystyle\sum_{n=1}^\infty c_n$ and
 $\displaystyle\sum_{n=1}^\infty c_{n+1}$ is simply that the latter is missing $c_1$:
@@ -766,7 +766,7 @@ You might want to first consider a simpler true or false: \textcolor{blue}{$\dis
 in general, false
 \end{answer}
 \begin{solution}
-Theorem~\eref{CLP101}{thm:SRseriesarith} in the CLP--II text, arithmetic of series, doesn't mention division, because in general it doesn't work the way the question suggests. For example, let $\{a_n\}=\{b_n\} = \frac{1}{2^n}$. Then:
+Theorem~\eref{CLP101}{thm:SRseriesarith} in the CLP-2 text, arithmetic of series, doesn't mention division, because in general it doesn't work the way the question suggests. For example, let $\{a_n\}=\{b_n\} = \frac{1}{2^n}$. Then:
 \begin{itemize}
 \item $\sum_{n=0}^{\infty} a_n = \sum_{n=0}^\infty b_n = \frac{1}{1-\frac12}=2$, while
 \item $\sum_{n=0}^{\infty}\dfrac{a_n}{b_n} = \sum_{n=0}^{\infty}1 =\infty $.
@@ -801,7 +801,7 @@ We recognize that this is a geometric series:
  \begin{align*}
  1 + \frac{1}{3} + \frac{1}{9} + \frac{1}{27}+ \frac{1}{81}+ \frac{1}{243} + \cdots&=\frac{1}{3^0}+\frac{1}{3^1}+\frac{1}{3^2}+\frac{1}{3^3}+\frac{1}{3^4}+\frac{1}{3^5}+\cdot\\
  &=\sum_{n=0}^\infty \frac{1}{3^n}
- \intertext{Using Equation~\eref{CLP101}{eq:geomsum} in the CLP--II text with $r=\dfrac13$ and $a=1$,}
+ \intertext{Using Equation~\eref{CLP101}{eq:geomsum} in the CLP-2 text with $r=\dfrac13$ and $a=1$,}
  &=\frac{1}{1-\frac13}=\frac{3}{2}.
  \end{align*}
 \end{solution}
@@ -830,13 +830,13 @@ This is a geometric series, with ratio $r=\dfrac18$. However, it doesn't start a
 &=\frac{1}{8^7}\left(\frac{1}{8^0}+\frac{1}{8^1}+\frac{1}{8^2}+\cdots\right)\\
 &=\sum_{k=0}^\infty \frac{1}{8^7}\cdot \frac{1}{8^n}
 \intertext{We now evaluate the series using Equation~\eref{CLP101}{eq:geomsum}
- in the CLP--II text  with $r=\dfrac18$, $a=\dfrac{1}{8^7}$.}
+ in the CLP-2 text  with $r=\dfrac18$, $a=\dfrac{1}{8^7}$.}
 &=\frac{1}{8^7}\cdot\dfrac{1}{1-\frac18} = \dfrac{1}{7\times 8^6}
 \end{align*}
 \item[Solution 2:] Using the idea of Question~\ref{prob_s3.2:cookies2}, we express the series we're interested in as the difference of two series that we can easily evaluate.
 \begin{align*}
  \sum_{k=7}^{\infty} \frac{1}{8^k}&= \sum_{k=0}^{\infty} \frac{1}{8^k}- \sum_{k=0}^{6} \frac{1}{8^k}
- \intertext{Using Equations~\eref{CLP101}{eq:geomsum} and \eref{CLP101}{eq:partialgeomsum} in the CLP--II text,}
+ \intertext{Using Equations~\eref{CLP101}{eq:geomsum} and \eref{CLP101}{eq:partialgeomsum} in the CLP-2 text,}
  &=\frac{1}{1-\frac18}-\frac{1-\frac{1}{8^7}}{1-\frac18}\\
  &=\frac{1}{7\times 8^6}
 \end{align*}
@@ -887,7 +887,7 @@ Therefore, we can see directly that the sequence of partial sums $\{ s_n \}$ is 
 \begin{align*}
 \lim_{n\to\infty} s_n = \lim_{n\to\infty}  \bigg( 6- \frac{6}{(n+1)^2} \bigg) = 6
 \end{align*}
-By Definition~\eref{CLP101}{def:SRseries} in the CLP--II text the series is also convergent, with limit $6$.
+By Definition~\eref{CLP101}{def:SRseries} in the CLP-2 text the series is also convergent, with limit $6$.
 
 \end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -931,7 +931,7 @@ s_N &= \sum_{n=3}^N \bigg( \!\cos\Big( \frac \pi n \Big) - \cos\Big( \frac \pi{n
 &=\frac12  - \cos\Big( \frac \pi{N+1} \Big).
 \intertext{As $N\to\infty$, the argument $\frac{\pi}{N+1}$
 converges to $0$, and $\cos x$ is continuous at $x=0$. By
-Definition~\eref{CLP101}{def:SRseries} in the CLP--II text,
+Definition~\eref{CLP101}{def:SRseries} in the CLP-2 text,
 the value of the series is}
 \lim_{N\to\infty} s_N &= \lim_{N\to\infty}\left[\frac12  - \cos\Big( \frac \pi{N+1} \Big) \bigg) \right]\\&=
 \frac12 - \cos(0) = -\frac{1}{2}
@@ -953,7 +953,7 @@ have the formula $\displaystyle s_n = \frac{1+3n}{5+4n}$.
 \end{question}
 
 \begin{hint}
-Review Definition  \eref{CLP101}{def:SRseries} in the CLP--II text.
+Review Definition  \eref{CLP101}{def:SRseries} in the CLP-2 text.
 \end{hint}
 
 \begin{answer}
@@ -978,7 +978,7 @@ a_n &= s_n - s_{n-1} \\
 \end{align*}
 
 \noindent (b)
-Using Definition~\eref{CLP101}{def:SRseries} in the CLP--II text,
+Using Definition~\eref{CLP101}{def:SRseries} in the CLP-2 text,
 \begin{align*}
 \sum_{n=1}^\infty a_n&= \lim_{n \to \infty}  s_n
   = \lim_{n \to \infty} \frac{1 + 3n}{5+4n}
@@ -1019,7 +1019,7 @@ What we have is a geometric series, but we need to get it into the proper form b
 \frac{3}{2}\sum_{n=2}^\infty \left(\frac{4}{5}\right)^n&=
 \frac{3}{2}\sum_{n=2}^\infty \left(\frac{4}{5}\right)^2\left(\frac45\right)^{n-2}\\
 &=\frac{3}{2}\sum_{n=0}^\infty \left(\frac{4}{5}\right)^2\left(\frac45\right)^{n}
-\intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP--II text with $r=\dfrac45$.}
+\intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP-2 text with $r=\dfrac45$.}
 &=\frac{3}{2}\left(\frac{4}{5}\right)^2\cdot\frac{1}{1-\frac45}=\frac{24}{5}
 \end{align*}
 
@@ -1029,7 +1029,7 @@ Using the idea of Question~\ref{prob_s3.2:cookies2}, we view our series as a mor
 \frac{3}{2}\sum_{n=2}^\infty \left(\frac{4}{5}\right)^n&=
 \frac{3}{2}\left(\left[\sum_{n=0}^\infty \left(\frac{4}{5}\right)^n\right] - \left(\frac{4}{5}\right)^1- \left(\frac{4}{5}\right)^0\right)\\&=
 \frac{3}{2}\left(\sum_{n=0}^\infty \left(\frac{4}{5}\right)^n - \frac{9}{5}\right)
-\intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP--II text with $r=\dfrac45$.}
+\intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP-2 text with $r=\dfrac45$.}
 &=\frac{3}{2}\left(\frac{1}{1-\frac45} - \frac{9}{5}\right)=\frac{24}{5}
 \end{align*}
 \end{description}
@@ -1043,7 +1043,7 @@ fractions, with no decimals).
 \end{question}
 
 \begin{hint}
-Review Example  \eref{CLP101}{eg:SRgeomB} in the CLP--II text. To write the number as a geometric series, the first few terms might not fit the pattern of the rest of the terms.
+Review Example  \eref{CLP101}{eg:SRgeomB} in the CLP-2 text. To write the number as a geometric series, the first few terms might not fit the pattern of the rest of the terms.
 \end{hint}
 
 \begin{answer}
@@ -1057,7 +1057,7 @@ The number is:
 &=\frac{1}{5}+\frac{3}{10^2}+\frac{3}{10^3}+\frac{3}{10^4}+\cdots\\
 &=\frac{1}{5}+\frac{3}{10^2}\left(\frac{1}{10^0}+\frac{1}{10^1}+\frac{1}{10^2}+\cdots\right)\\
 & =\frac15 + \frac{3}{10^2}\sum_{n=0}^{\infty} \frac{1}{10^{n}}
-\intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP--II text with $r=\dfrac{1}{10}$.}
+\intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP-2 text with $r=\dfrac{1}{10}$.}
 &=\frac{1}{5}+\frac{3}{10^2}\cdot\frac{1}{1-\frac{1}{10}}\\
 &=\frac15+\frac{1}{30} = \frac{7}{30}
 \end{align*}
@@ -1084,7 +1084,7 @@ The number is:
 2+\frac{65}{100}+\frac{65}{10000}+\frac{65}{1000000}+\cdots&=
 2 + \frac{65}{100} + \frac{65}{100^2} + \frac{65}{100^3} + \cdots \\
  &= 2 + \frac{65}{100}\sum\limits_{n=0}^{\infty} \frac{1}{100^n}
- \intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP--II text with $r=\dfrac{1}{100}$.}
+ \intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP-2 text with $r=\dfrac{1}{100}$.}
  &= 2 + \frac{65}{100}\cdot\frac{1}{1-\frac{1}{100}}\\
  &=2+\frac{65}{99} = \frac{263}{99}
 \end{align*}
@@ -1098,7 +1098,7 @@ Express the decimal $0.\overline{321}=0.321321321\ldots$ as a fraction.
 \end{question}
 
 \begin{hint}
-Review Example  \eref{CLP101}{eg:SRgeomB} in the CLP--II text. Since the pattern repeats every three decimals, your common ratio $r$ will be $\dfrac{1}{10^3}$.
+Review Example  \eref{CLP101}{eg:SRgeomB} in the CLP-2 text. Since the pattern repeats every three decimals, your common ratio $r$ will be $\dfrac{1}{10^3}$.
 \end{hint}
 
 \begin{answer}
@@ -1112,7 +1112,7 @@ The number is:
 &= \frac{321}{1000} + \frac{321}{10^6} + \frac{321}{10^9} + \cdots \\
 &= \frac{321}{1000} \left(\left(\frac{1}{10^3}\right)^0+ \left(\frac{1}{10^3}\right)^1 + \left(\frac{1}{10^3}\right)^2 + \cdots \right)\\
  &= \frac{321}{1000} \sum_{n=0}^{\infty} \left(\frac{1}{10^3}\right)^n
-  \intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP--II text with $r=\dfrac{1}{10^3}$.}
+  \intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP-2 text with $r=\dfrac{1}{10^3}$.}
   &=\frac{321}{1000} \cdot\frac{1}{1-\frac{1}{10^3}}=\frac{321}{999}=\frac{107}{333}
 \end{align*}
 \end{solution}
@@ -1154,7 +1154,7 @@ We split the sum into two parts.
 \sum_{n=2}^\infty \frac{2^{n+1}}{3^n} &=
 \sum_{n=0}^\infty \frac{2^{n+3}}{3^{n+2}} =
 \sum_{n=0}^\infty \frac{2^3}{3^2}\cdot\left( \frac{2}{3}\right)^n
-  \intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP--II text with $r=\dfrac{2}{3}$ and $a=\dfrac{8}{9}$.}
+  \intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP-2 text with $r=\dfrac{2}{3}$ and $a=\dfrac{8}{9}$.}
   &=\frac{8}{9}\cdot\frac{1}{1-\frac23}=\color{blue}\frac{8}{3}
  \end{align*}
 
@@ -1221,7 +1221,7 @@ We split the sum into two parts.
  + \sum_{n=0}^\infty {\Big(-\frac{2}{5}\Big)}^{n}
 \\&= \frac{1}{3}\sum_{n=0}^\infty {\Big(\frac{1}{3}\Big)}^{n}
  + \sum_{n=0}^\infty {\Big(-\frac{2}{5}\Big)}^{n}
-   \intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP--II text with $a_1=\dfrac{1}{3}$ and $r_1=\dfrac{1}{3}$,
+   \intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP-2 text with $a_1=\dfrac{1}{3}$ and $r_1=\dfrac{1}{3}$,
  then with $a_2=1$ and $r_2=-\dfrac{2}{5}$.}
    &=\frac{1}{3}\cdot\frac{1}{1-\frac13}+\frac{1}{1+\frac25}\\
    &=\frac{1}{2}+\frac{5}{7}=\frac{17}{14}
@@ -1250,7 +1250,7 @@ We split the sum into two parts.
  + \sum_{n=0}^\infty \frac{3^{n+1}}{4^n}
 \\&= \sum_{n=0}^\infty \frac{1}{4^n}
  +3 \sum_{n=0}^\infty\left( \frac{3}{4}\right)^n
- \intertext{Using Equation~\eref{CLP101}{eq:geomsum} in the CLP--II text,}
+ \intertext{Using Equation~\eref{CLP101}{eq:geomsum} in the CLP-2 text,}
 &=\frac{1}{1-\frac14}+\frac{3}{1-\frac{3}{4}}\\
 &=\frac{4}{3}+12=\frac{40}{3}
 \end{align*}
@@ -1403,7 +1403,7 @@ v_n&=\dfrac{4}{3}\pi \left(\dfrac{1}{\pi^n}\right)^3=\frac{4\pi}{3}\left(\frac{1
 \sum_{n=1}^\infty v_n&=\sum_{n=1}^\infty \frac{4\pi}{3}\left(\frac{1}{\pi^3}\right)^{n}\\
 &=\sum_{n=0}^\infty \frac{4\pi}{3}\left(\frac{1}{\pi^3}\right)^{n+1}\\
 &=\sum_{n=0}^\infty \frac{4}{3\pi^2}\left(\frac{1}{\pi^3}\right)^{n}
-\intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP--II text
+\intertext{We use Equation~\eref{CLP101}{eq:geomsum} in the CLP-2 text
 with $a= \dfrac{4}{3\pi^2}$ and $r=\dfrac{1}{\pi^3}$. }
 &= \dfrac{4}{3\pi^2}\cdot\frac{1}{1-\frac{1}{\pi^3}} = \frac{4\pi}{3\left(\pi^3-1\right)}
 \end{align*}
@@ -1444,14 +1444,14 @@ This gives us an equation for the partial sum $s_N$, when $N \geq 4$:
 \begin{align*}
 s_N&=\sum_{n=3}^N\left(\frac{\sin^2 n}{2^n}+\frac{\cos^2(n+1)}{2^{n+1}} \right)\\
 &=\frac{\sin^23}{2^3} +\left( \sum_{n=4}^{N}\frac{1}{2^n} \right)+\frac{\cos^2(N+1)}{2^{N+1}}
-\intertext{Using Definition~\eref{CLP101}{def:SRseries} in the CLP--II text, our series evaluates to:}
+\intertext{Using Definition~\eref{CLP101}{def:SRseries} in the CLP-2 text, our series evaluates to:}
 \lim_{N \to \infty}s_N
 &=\lim_{N \to \infty}\left[\frac{\sin^23}{2^3} +\left( \sum_{n=4}^{N}\frac{1}{2^n} \right)+\frac{\cos^2(N+1)}{2^{N+1}}\right]\\
 &=\frac{\sin^23}{8}+\left[\lim_{N \to \infty}\frac{\cos^2(N+1)}{2^{N+1}}\right] +\sum_{n=4}^\infty \frac{1}{2^n}
 \intertext{We evaluate the limit using the squeeze theorem; the series is geometric.}
 &=\frac{\sin^23}{8}+0+\sum_{n=0}^\infty \frac{1}{2^{n+4}}
 \\&=\frac{\sin^23}{8}+\frac{1}{2^4}\sum_{n=0}^\infty \frac{1}{2^{n}}
- \intertext{Using Equation~\eref{CLP101}{eq:geomsum} in the CLP--II text,}
+ \intertext{Using Equation~\eref{CLP101}{eq:geomsum} in the CLP-2 text,}
  &=\frac{\sin^23}{8}+\frac{1}{2^4}\frac{1}{1-\frac12}\\
  &=\frac{\sin^23}{8}+\frac{1}{8}\approx 0.1275
 \end{align*}
