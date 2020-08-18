@@ -5689,7 +5689,8 @@ list below. These will become much more clear after an example (or two).
 x$ and $\cos x$:
 \begin{align*}
 \tan^m x\,\sec^n x\dee{x}
-       &=\big(\frac{\sin x}{\cos x}\big)^m \big(\frac{1}{\cos x}\big)^n\dee{x}\\
+       &=\left(\frac{\sin x}{\cos x}\right)^m 
+         \left(\frac{1}{\cos x}\right)^n\dee{x}\\
        &=\frac{\sin^{m-1}x}{\cos^{n+m}x}\ \sin x\dee{x}
 \end{align*}
 and then substitute $u=\cos x$, $\dee{u} = -\sin x\dee{x}$, $\sin^2x = 1-\cos^2x=1-u^2$. See
@@ -5736,8 +5737,8 @@ integrands of the form $\sin^mx\,\cos^nx$ with $m$ odd.
   &=\int \frac{1}{\cos x}\sin x\,\dee{x} & \text{substitute $u=\cos x$}\\
   &=\int \frac{1}{u} \cdot(-1) \dee{u} \\
   &=-\log|u|+C\\
-  &=-\log|\cos x|+C &\text{can also write in terms of secant}\\
-  &=\log|\cos x|^{-1}+C =\log|\sec x|+C
+  &=-\log\left|\cos x\right|+C &\text{can also write in terms of secant}\\
+  &=\log\left|\cos x\right|^{-1}+C =\log\left|\sec x\right|+C
 \end{align*}
 \end{itemize}
 \end{eg}
@@ -5755,8 +5756,8 @@ powers of $\sin x$ using $\sin^2x=1-\cos^2x=1-u^2$.
   &=\int \frac{\sin^2x}{\cos^3x}\sin x\,\dee{x} & \text{substitute $u=\cos x$}\\
   &=\int \frac{1-u^2}{u^3} (-1) \dee{u} \\
   &=\frac{u^{-2}}{2}+\log|u|+C \\
-  &=\frac{1}{2 \cos^2 x}+\log|\cos x|+C & \text{can rewrite in terms of secant}\\
-  &= \frac{1}{2}\sec^2 x - \log|\sec x|+C \\
+  &=\frac{1}{2 \cos^2 x}+\log\left|\cos x\right|+C & \text{can rewrite in terms of secant}\\
+  &= \frac{1}{2}\sec^2 x - \log\left|\sec x\right|+C \\
 \end{align*}
 \end{itemize}
 \end{eg}

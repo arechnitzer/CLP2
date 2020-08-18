@@ -295,7 +295,7 @@ We split the methods for integrating <m>\int \tan^m x\sec^n x\dee{x}</m> into 5 
 	<md>
 	<mrow>
 	\tan^m x\,\sec^n x\dee{x}
-		   &amp;=\big(\frac{\sin x}{\cos x}\big)^m \big(\frac{1}{\cos x}\big)^n\dee{x}
+		   &amp;=\left(\frac{\sin x}{\cos x}\right)^m \left(\frac{1}{\cos x}\right)^n\dee{x}
 	</mrow><mrow>
 		   &amp;=\frac{\sin^{m-1}x}{\cos^{n+m}x}\ \sin x\dee{x}
 	</mrow>
@@ -339,9 +339,9 @@ In this case we rewrite the integrand in terms of sine and cosine and then subst
 	</mrow><mrow>
 	  &amp;=-\log|u|+C
 	</mrow><mrow>
-	  &amp;=-\log|\cos x|+C \qquad\qquad \text{can also write in terms of secant}
+	  &amp;=-\log\left|\cos x\right|+C \qquad\qquad \text{can also write in terms of secant}
 	</mrow><mrow>
-	  &amp;=\log|\cos x|^{-1}+C =\log|\sec x|+C
+	  &amp;=\log\left|\cos x\right|^{-1}+C =\log\left|\sec x\right|+C
 	</mrow>
 	</md>
 </li>
@@ -369,9 +369,9 @@ In this case we rewrite the integrand in terms of sine and cosine and then subst
 	</mrow><mrow>
 	  &amp;=\frac{u^{-2}}{2}+\log|u|+C
 	</mrow><mrow>
-	  &amp;=\frac{1}{2 \cos^2 x}+\log|\cos x|+C \qquad \text{rewrite in terms of secant}
+	  &amp;=\frac{1}{2 \cos^2 x}+\log\left|\cos x\right|+C \qquad \text{rewrite in terms of secant}
 	</mrow><mrow>
-	  &amp;= \frac{1}{2}\sec^2 x - \log|\sec x|+C
+	  &amp;= \frac{1}{2}\sec^2 x - \log\left|\sec x\right|+C
 	</mrow>
 	</md>
 </li>
