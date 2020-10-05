@@ -312,10 +312,10 @@ Think about Question<nbsp/><xref ref="prob_s3_3_compareintuitive" text="local"/>
 <p>For the limit comparison test, we calculate:
 <md>
 <mrow>
-\lim_{n \to \infty}\frac{a_n}{b_n}&amp;=\lim_{n \to \infty}\frac{\frac{1}{n-1}}{\frac{1}{n}}=\lim_{n \to \infty}\frac{n}{1}
+\lim_{n \to \infty}\frac{a_n}{b_n}&amp;=\lim_{n \to \infty}\frac{\frac{1}{n-1}}{\frac{1}{n}}=\lim_{n \to \infty}\frac{1}{1-\frac{1}{n}}=1
 </mrow>
 </md>
-Since the limit is a real number and not zero, also the limit comparison test is valid.
+Since the limit exists and is not zero, the limit comparison test is also valid.
 </p>
 
 <p>(b) Since the series <m>\sum \frac{1}{n^2}</m> converges, we can only use the direct comparison test to show the convergence of a series if its terms have <em>smaller</em> absolute values. Indeed,
