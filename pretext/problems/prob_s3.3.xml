@@ -68,8 +68,7 @@ That is, if <m>f(x)</m> is a function with <m>f(n)=a_n</m> for all whole numbers
 </p></answer>
 <solution><p>
 Let <m>f(x)</m> be a function with <m>f(n)=a_n</m> for all whole numbers <m>n</m>.
-In order to apply the integral test (Theorem <xref ref="thm_SRintegralTest"/>
- in the CLP-2 text) we need <m>f(x)</m> to be positive and decreasing for all sufficiently large values of <m>n</m>.
+In order to apply the integral test (Theorem <xref ref="thm_SRintegralTest"/>) we need <m>f(x)</m> to be positive and decreasing for all sufficiently large values of <m>n</m>.
 <ol label="A">
 <li> <m>f(x) = \frac{1}{x}</m>, which is positive and decreasing for all <m>x \ge 1</m>, so the integral test does apply here.
 </li>
@@ -200,7 +199,7 @@ Below are graphs of two sequences with positive terms.  Assume the sequences con
 
 </statement>
 <hint><p>
-The comparison test is Theorem<nbsp/><xref ref="thm_SRcomparisonTest"/> in the CLP-2 text. However, rather than trying to memorize which way the inequalities go in all cases, you can use the same reasoning as Question<nbsp/><xref ref="prob_s3_3_oldies" text="local"/>.
+The comparison test is Theorem<nbsp/><xref ref="thm_SRcomparisonTest"/>. However, rather than trying to memorize which way the inequalities go in all cases, you can use the same reasoning as Question<nbsp/><xref ref="prob_s3_3_oldies" text="local"/>.
 </p></hint>
 <answer>
 
@@ -228,7 +227,7 @@ The comparison test is Theorem<nbsp/><xref ref="thm_SRcomparisonTest"/> in the C
 </answer>
 
 <solution><p>
-The comparison test is Theorem<nbsp/><xref ref="thm_SRcomparisonTest"/> in the CLP-2 text. However, rather than trying to memorize which way the inequalities go in all cases, we  use the same reasoning as Question<nbsp/><xref ref="prob_s3_3_oldies" text="local"/>.
+The comparison test is Theorem<nbsp/><xref ref="thm_SRcomparisonTest"/>. However, rather than trying to memorize which way the inequalities go in all cases, we  use the same reasoning as Question<nbsp/><xref ref="prob_s3_3_oldies" text="local"/>.
 </p>
 
 <p>If a sequence has positive terms, it either converges, or it diverges to infinity, with the partial sums increasing and increasing without bound. If one sequence diverges, and the other sequence is larger, then the other sequence diverges <mdash/> just like being older than an old person makes you old.
@@ -376,7 +375,7 @@ Since the limit is zero, the limit comparison test doesn't apply.
 Suppose <m>a_n</m> is a sequence with <m>\displaystyle\lim_{n \to \infty}a_n = \frac{1}{2}</m>. Does <m>\displaystyle\sum_{n=7}^\infty a_n</m> converge or diverge, or is it not possible to determine this from the information given? Why?
 </p></statement>
 <hint><p>
-The divergence test is Theorem<nbsp/><xref ref="thm_SRdivergenceTest"/> in the CLP-2 text.
+The divergence test is Theorem<nbsp/><xref ref="thm_SRdivergenceTest"/>.
 </p></hint>
 <answer><p>
 It diverges by the divergence test, because <m>\displaystyle\lim_{n \to \infty}a_n \neq 0</m>.
@@ -416,7 +415,7 @@ The limit is calculated correctly.
 We cannot use the divergence test to show that a series converges. It is inconclusive in this case.
 </p></answer>
 <solution><p>
- The divergence test (Theorem<nbsp/><xref ref="thm_SRdivergenceTest"/> in the CLP-2 text) is inconclusive when <m>\displaystyle\lim_{n \to \infty}a_n=0</m>. We cannot use the divergence test to show that a series converges.
+ The divergence test (Theorem<nbsp/><xref ref="thm_SRdivergenceTest"/>) is inconclusive when <m>\displaystyle\lim_{n \to \infty}a_n=0</m>. We cannot use the divergence test to show that a series converges.
 </p></solution>
 </exercise>
 
@@ -523,8 +522,7 @@ Which of the series below are alternating?
 (D) <m>\displaystyle\sum_{n=1}^\infty \frac{(-2)^n}{3^{n+1}}</m>
 </p></statement>
 <hint><p>
-The definition of an alternating series is given in the start of Section<nbsp/><xref ref="sec_AST"/>
- in the CLP-2 text.
+The definition of an alternating series is given in the start of Section<nbsp/><xref ref="sec_AST"/>.
 </p></hint>
 <answer><p>
 (B), (D)
@@ -635,7 +633,7 @@ exists and is nonzero. (You don't have to carry out the Limit Comparison Test)
 </p></statement>
 
 <hint><p>
-Review  Theorem <xref ref="thm_SRlimitComparison"/> and  Example <xref ref="eg_SRlimCompA"/> in the CLP-2 text.
+Review  Theorem <xref ref="thm_SRlimitComparison"/> and  Example <xref ref="eg_SRlimCompA"/>.
 </p>
 
 </hint>
@@ -804,8 +802,7 @@ is convergent or divergent. If it is convergent, find its value.
 </p></statement>
 
 <hint><p>
-Review the integral test, which is
-Theorem <xref ref="thm_SRintegralTest"/> in the CLP-2 text.
+Review the integral test, which is Theorem <xref ref="thm_SRintegralTest"/>.
 </p></hint>
 
 <answer><p>
@@ -824,7 +821,7 @@ We usually check the divergence test first, to look for low-hanging fruit. The l
 <p>Next, we might consider a comparison test <mdash/> these can also provide us (if we're lucky) with an easy path. The terms we're adding look somewhat like <m>\frac{1}{n}</m>, but our terms are <em>smaller</em> than these terms, which form the terms of the <em>divergent</em> harmonic series. So, a direct comparison seems unlikely. Now we search for more exotic tests.
 </p>
 
-<p>Let <m>\displaystyle f(x) =\frac{1}{x+\frac{1}{2}}</m>.  Note <m>f(x)</m> is positive and decreases as <m>x</m> increases. So, by the integral test, which is  Theorem <xref ref="thm_SRintegralTest"/> in the CLP-2 text, the given series converges if and only if the integral <m>\int_0^\infty\frac{1}{x+\frac{1}{2}} \,\dee{x}</m> converges.
+<p>Let <m>\displaystyle f(x) =\frac{1}{x+\frac{1}{2}}</m>.  Note <m>f(x)</m> is positive and decreases as <m>x</m> increases. So, by the integral test, which is  Theorem <xref ref="thm_SRintegralTest"/>, the given series converges if and only if the integral <m>\int_0^\infty\frac{1}{x+\frac{1}{2}} \,\dee{x}</m> converges.
 Since
 <md>
 <mrow>
@@ -1124,7 +1121,7 @@ Then <m>f(x)</m> is positive and decreases as <m>x</m> increases.
 So the sum <m>\displaystyle\sum_3^{\infty} f(n)</m> and the
 integral <m>\displaystyle\int_3^\infty f(x) \,\dee{x}</m>
 either both converge or both diverge, by the integral test, which is
-Theorem <xref ref="thm_SRintegralTest"/> in the CLP-2 text.
+Theorem <xref ref="thm_SRintegralTest"/>.
 For the integral, we use the substitution
 <m>u = \log x</m>, <m>\dee{u} = \frac{\dee{x}}{x}</m> to get
 <md>
@@ -1133,7 +1130,7 @@ For the integral, we use the substitution
 </mrow>
 </md>
 which converges by the <m>p</m>-test (which is
-Example <xref ref="eg_IMPp1"/> in the CLP-2 text)
+Example <xref ref="eg_IMPp1"/>)
 with <m>p=\frac{3}{2}  \gt  1</m>.
 </p></answer>
 
@@ -1146,7 +1143,7 @@ Then <m>f(x)</m> is positive and decreases as <m>x</m> increases.
 So the sum <m>\displaystyle\sum_3^{\infty} f(n)</m> and the
 integral <m>\displaystyle\int_3^\infty f(x) \,\dee{x}</m>
 either both converge or both diverge, by the integral test, which is
-Theorem <xref ref="thm_SRintegralTest"/> in the CLP-2 text.
+Theorem <xref ref="thm_SRintegralTest"/>.
 For the integral, we use the substitution
 <m>u = \log x</m>, <m>\dee{u} = \frac{\dee{x}}{x}</m> to get
 <md>
@@ -1155,7 +1152,7 @@ For the integral, we use the substitution
 </mrow>
 </md>
 which converges by the <m>p</m>-test (which is
-Example <xref ref="eg_IMPp1"/> in the CLP-2 text)
+Example <xref ref="eg_IMPp1"/>)
 with <m>p=\frac{3}{2}  \gt  1</m>.
 </p></solution>
 </exercise>
@@ -1167,8 +1164,7 @@ Find the values of <m>p</m> for which the series
 </p></statement>
 
 <hint><p>
-Combine the integral test with the results about <m>p</m>-series, Example<nbsp/><xref ref="eg_SRpTest"/>
- in the CLP-2 text.
+Combine the integral test with the results about <m>p</m>-series, Example<nbsp/><xref ref="eg_SRpTest"/>.
 </p></hint>
 
 <answer><p>
@@ -1177,7 +1173,7 @@ Combine the integral test with the results about <m>p</m>-series, Example<nbsp/>
 
 <solution><p>
 Let <m>f(x)=\frac{1}{x(\log x)^p}</m>. Then <m>f(x)</m> is positive for <m>n \ge 3</m>, and <m>f(x)</m> decreases as <m>x</m> increases. So, we can use the integral test,
-Theorem <xref ref="thm_SRintegralTest"/> in the CLP-2 text.
+Theorem <xref ref="thm_SRintegralTest"/>.
 </p>
 
 <p><md>
@@ -1188,7 +1184,7 @@ Theorem <xref ref="thm_SRintegralTest"/> in the CLP-2 text.
 \quad\text{with <m>u=\log x</m>, <m>\dee{u}=\frac{\dee{x}}{x}</m>}
 </mrow>
 </md>
-Using the results about <m>p</m>-series, Example<nbsp/><xref ref="eg_SRpTest"/> in the CLP-2 text,
+Using the results about <m>p</m>-series, Example<nbsp/><xref ref="eg_SRpTest"/>,
 we know this integral converges if and only if <m>p \gt 1</m>, so the same is true for the
 series by the integral test.
 </p></solution>
@@ -1253,8 +1249,7 @@ converges or diverges.
 </p></statement>
 
 <hint><p>
-Review Example <xref ref="eg_SRcomparisonTestA"/> in the
-CLP-2 text for developing intuition about comparisons, and Example<nbsp/><xref ref="eg_SRcomparisonTestB"/> for an example where finding an appropriate comparison series calls for some creativity.
+Review Example <xref ref="eg_SRcomparisonTestA"/> for developing intuition about comparisons, and Example<nbsp/><xref ref="eg_SRcomparisonTestB"/> for an example where finding an appropriate comparison series calls for some creativity.
 </p></hint>
 
 <answer><p>
@@ -1676,7 +1671,7 @@ This is a geometric series.
 \sum_{n=2}^\infty\frac{6}{7^n}&amp;=\sum_{n=0}^\infty\frac{6}{7^{n+2}}=
 \sum_{n=0}^\infty\frac{6}{7^2}\cdot\frac{1}{7^n}
 </mrow>
-<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text with
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> with
 <m>a=\frac{6}{7^2}</m> and <m>r=\frac{1}{7}</m>.</intertext>
 <mrow>
 &amp;=\frac{6}{7^2}\cdot\frac{1}{1-\frac17}=\frac{6}{42}=\frac17
@@ -1932,8 +1927,7 @@ within an accuracy of <m>10^{-6}</m>?
 
 <hint><p>
 Review the alternating series test, which is given in
-Theorem <xref ref="thm_SRalternating"/> in the
-CLP-2 text.
+Theorem <xref ref="thm_SRalternating"/>.
 </p></hint>
 
 <answer><p>
@@ -1970,8 +1964,7 @@ applied to this particular series.
 
 <hint><p>
 Review the alternating series test, which is given in
-Theorem <xref ref="thm_SRalternating"/> in the
-CLP-2 text.
+Theorem <xref ref="thm_SRalternating"/>.
 </p></hint>
 
 <answer><p>
@@ -1981,8 +1974,7 @@ CLP-2 text.
 <solution><p>
 The sequence <m>\{\frac{1}{n^2}\}</m> decreases to zero as <m>n</m> increases to infinity.
 So, by the alternating series error bound, which is given in
-Theorem <xref ref="thm_SRalternating"/> in the
-CLP-2 text, <m>\frac{\pi^2}{12}-S_N</m> lies between zero and
+Theorem <xref ref="thm_SRalternating"/>, <m>\frac{\pi^2}{12}-S_N</m> lies between zero and
 the first omitted term, <m> \frac{(-1)^{N}}{(N+1)^2}</m>.
 We therefore need <m>\frac{1}{(N+1)^2} \leq 10^{-6}</m>,
 which is equivalent to <m>N+1 \geq 10^3</m> and <m>N\geq 999</m>.
@@ -1998,7 +1990,7 @@ write out the <m>N^{\rm th}</m> partial sum of the series.
 
 <hint><p>
 Review the alternating series test, which is given in
-Theorem <xref ref="thm_SRalternating"/> in the  CLP-2 text.
+Theorem <xref ref="thm_SRalternating"/>.
 </p></hint>
 
 <answer><p>
@@ -2107,16 +2099,16 @@ converges or diverges.
 </p></statement>
 
 <hint><p>
-For part (a),  see Example <xref ref="eg_IMPp8"/> in the CLP-2 text.
+For part (a),  see Example <xref ref="eg_IMPp8"/>.
 </p>
 
 <p>
 
-For part (b), review  Theorem  <xref ref="thm_SRintegralTest"/> in the CLP-2 text.
+For part (b), review  Theorem  <xref ref="thm_SRintegralTest"/>.
 </p>
 
 <p>
-For part (c),  see Example <xref ref="eg_SRlimCompA"/> in the CLP-2 text.
+For part (c),  see Example <xref ref="eg_SRlimCompA"/>.
 </p></hint>
 
 <answer><p>
@@ -2188,11 +2180,11 @@ and compute
 <li>
 <p>
 Since <m>\displaystyle\int_2^\infty g(x)\ \dee{x} = \int_2^\infty\frac{\dee{x}}{x}</m>
-diverges, by Example  <xref ref="eg_IMPp1"/>  in the CLP-2 text
-<fn>To change the lower limit of integration from <m>1</m> to <m>2</m>, just apply Theorem <xref ref="thm_IMPfiniteSHift"/>  in the  CLP-2 text.
+diverges, by Example  <xref ref="eg_IMPp1"/>
+<fn>To change the lower limit of integration from <m>1</m> to <m>2</m>, just apply Theorem <xref ref="thm_IMPfiniteSHift"/>.
 </fn>,
 with <m>p=1</m>,
-Theorem  <xref ref="thm_IMPcomparisonLim"/>(b)  in the CLP-2 text now tells us that <m>\displaystyle\int_2^\infty f(x)\ \dee{x}  = \int_2^\infty\frac{x+\sin x}{1+x^2}\ \dee{x}</m>  diverges too.
+Theorem  <xref ref="thm_IMPcomparisonLim"/>(b) now tells us that <m>\displaystyle\int_2^\infty f(x)\ \dee{x}  = \int_2^\infty\frac{x+\sin x}{1+x^2}\ \dee{x}</m>  diverges too.
 </p>
 </li>
 </ul>
@@ -2262,8 +2254,7 @@ When <m>n\gg 1</m>,
 the numerator <m>n+\sin n\approx n</m>, and the denominator
 <m>1+n^2\approx n^2</m> so that
 <m>a_n\approx \frac{n}{n^2}=\frac{1}{n}</m> and it looks like
-our series should diverge by the <m>p</m>-test (Example <xref ref="eg_SRpTest"/>
-in the CLP-2 text) with <m>p=1</m>.
+our series should diverge by the <m>p</m>-test (Example <xref ref="eg_SRpTest"/>) with <m>p=1</m>.
 </li>
 <li> <em>Step 2: Verify intuition.</em>
 To confirm our intuition we set <m>b_n=\frac{1}{n}</m> and
@@ -2281,7 +2272,7 @@ compute the limit
 We already know that the series <m>\sum\limits_{n=1}^\infty b_n
 =\sum\limits_{n=1}^\infty\frac{1}{n}</m> diverges by the <m>p</m>-test with <m>p=1</m>.
 So our series diverges by the limit comparison test,
-Theorem <xref ref="thm_SRlimitComparison"/> in the CLP-2 text.
+Theorem <xref ref="thm_SRlimitComparison"/>.
 </li>
 </ul>
 </p>
@@ -2609,7 +2600,7 @@ So, in a text of 100 words, we expect the most frequently used word to appear <m
 
 </statement>
 <hint><p>
-	If we add together the frequencies of all the words, they should amount to 100<percent/>. We can approximate this sum using ideas from Example<nbsp/><xref ref="eg_firstIntTest"/> in the CLP-2 text.
+	If we add together the frequencies of all the words, they should amount to 100<percent/>. We can approximate this sum using ideas from Example<nbsp/><xref ref="eg_firstIntTest"/>.
 </p></hint>
 <answer><p>
 	About 9<percent/> to 10<percent/>

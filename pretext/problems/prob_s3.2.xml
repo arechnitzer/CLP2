@@ -149,7 +149,7 @@ Remark: the formula given for <m>S_N</m> has <m>S_0=0</m>, which makes sense: th
 <p>That is, the terms we're adding up are getting very, very small as we go along.
 </p>
 </li>
-<li> By Definition<nbsp/><xref ref="def_SRseries"/> in the CLP-2 text,
+<li> By Definition<nbsp/><xref ref="def_SRseries"/>,
 <me>
 \sum_{n=1}^\infty a_n = \lim_{N \to \infty}S_N = \lim_{N \to \infty}\dfrac{N}{N+1}=1
 </me>
@@ -655,14 +655,14 @@ In this setup, we notice that our strips come in pairs: two large vertical strip
 Evaluate <m>\displaystyle\sum_{n=0}^{100}\frac{1}{5^n}</m>.
 </p></statement>
 <hint><p>
-Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text tells us
+Lemma<nbsp/><xref ref="lem_geomsum"/> tells us
 <m>\displaystyle\sum_{n=0}^N ar^n = a\dfrac{1-r^{N+1}}{1-r}</m>, for <m>r \neq 1</m>.
 </p></hint>
 <answer><p>
 <m>\dfrac{5^{101}-1}{4\cdot 5^{100}}</m>
 </p></answer>
 <solution><p>
-Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text tells us
+Lemma<nbsp/><xref ref="lem_geomsum"/> tells us
 <m>\displaystyle\sum_{n=0}^N ar^n = a\dfrac{1-r^{N+1}}{1-r}</m>, for <m>r \neq 1</m>.
 Our geometric sum has <m>a=1</m>, <m>r=\frac{1}{5}</m>, and <m>N=100</m>. So:
 <me>
@@ -731,7 +731,7 @@ To adjust the starting index, either factor out the first term in the series, or
 <mrow>
 \sum_{n={50}}^{100} \frac{1}{5^n}&amp;=\sum_{n=0}^{100}\frac{1}{5^n}-\sum_{n=0}^{49}\frac{1}{5^n}
 </mrow>
-<intertext>That is, we want start with the sum of all the terms up to <m>\dfrac{1}{5^{100}}</m>, and then subtract off the ones we actually don't want, which is everything up to <m>\dfrac{1}{5^{49}}</m>. Now, both series are in a form appropriate for Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text.</intertext><mrow>
+<intertext>That is, we want start with the sum of all the terms up to <m>\dfrac{1}{5^{100}}</m>, and then subtract off the ones we actually don't want, which is everything up to <m>\dfrac{1}{5^{49}}</m>. Now, both series are in a form appropriate for Lemma<nbsp/><xref ref="lem_geomsum"/>.</intertext><mrow>
 \sum_{n=0}^{100}\frac{1}{5^n}-\sum_{n=0}^{49}\frac{1}{5^n}&amp;=\frac{1-\frac{1}{5^{101}}}{1-\frac15}-\frac{1-\frac{1}{5^{50}}}{1-\frac15}
 </mrow><mrow>
 &amp;=\frac{5^{101}-1}{4\cdot 5^{100}}-\frac{5^{50}-1}{4\cdot 5^{49}}\left(\frac{5^{51}}{5^{51}}\right)
@@ -753,7 +753,7 @@ If we write out the first few terms of our series, we see we can factor out a co
 </mrow><mrow>
 &amp;=\sum_{n=0}^{50}\frac{1}{5^{50}}\cdot\frac{1}{5^n}
 </mrow>
-<intertext>Now, our sum is in the form of Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text
+<intertext>Now, our sum is in the form of Lemma<nbsp/><xref ref="lem_geomsum"/>
 with <m>a=\dfrac{1}{5^{50}},</m> <m>r=\dfrac15</m>, and <m>N=50</m>.</intertext>
 <mrow>
 \sum_{n=0}^{50}\frac{1}{5^{50}}\cdot\frac{1}{5^n}&amp;=\frac{1}{5^{50}}\cdot\frac{1-\frac{1}{5^{51}}}{1-\frac15}=\frac{1-\frac{1}{5^{51}}}{4\cdot 5^{49}}\left(\frac{5^{51}}{5^{51}}\right)
@@ -841,7 +841,7 @@ Express your gains in (a) and (c) as series.
 <m>\displaystyle\sum_{d=1}^\infty ((d+1)-(d+2)) =\sum_{d=1}^\infty (-1)=-1-1-1-1-1-\cdots</m>.
 </p>
 
-<p>Be careful to avoid a common mistake with telescoping series: if we look back at our account book, we see that every negative term will cancel with a positive term, with the initial <m>+2</m> as the only term that never cancels. Your friend takes <dollar/>3, which they return the next day; then they take <dollar/>4, which they return the next day; then they take <dollar/>5, which they return the next day, and so on. It's extremely tempting to say that the series adds up to <dollar/>2, since every other term cancels out eventually. This is where we lean on Definition<nbsp/><xref ref="def_SRseries"/> in the CLP-2 text:
+<p>Be careful to avoid a common mistake with telescoping series: if we look back at our account book, we see that every negative term will cancel with a positive term, with the initial <m>+2</m> as the only term that never cancels. Your friend takes <dollar/>3, which they return the next day; then they take <dollar/>4, which they return the next day; then they take <dollar/>5, which they return the next day, and so on. It's extremely tempting to say that the series adds up to <dollar/>2, since every other term cancels out eventually. This is where we lean on Definition<nbsp/><xref ref="def_SRseries"/>:
 we evaluate the <em>partial sums</em>, which always leave your friend's last withdrawal unreturned. This definition makes sense: saying <q>I gained two bucks from this exchange</q> doesn't really capture the reality of your increasing debt.
 </p></solution>
 </exercise>
@@ -863,7 +863,7 @@ To find the difference between <m>\displaystyle\sum_{n=1}^\infty c_n</m> and
 <m>A+B+C-c_1</m>
 </p></answer>
 <solution><p>
-Using arithmetic of series, Theorem<nbsp/><xref ref="thm_SRseriesarith"/> in the CLP-2 text, we see
+Using arithmetic of series, Theorem<nbsp/><xref ref="thm_SRseriesarith"/>, we see
 <me>
 \sum_{n=1}^\infty\left( a_n+b_n+c_{n+1}\right) = A+B+\sum_{n=1}^\infty c_{n+1}</me>
 </p>
@@ -901,7 +901,7 @@ You might want to first consider a simpler true or false: <textblue><m>\displays
 in general, false
 </p></answer>
 <solution><p>
-Theorem<nbsp/><xref ref="thm_SRseriesarith"/> in the CLP-2 text, arithmetic of series, doesn't mention division, because in general it doesn't work the way the question suggests. For example, let <m>\{a_n\}=\{b_n\} = \frac{1}{2^n}</m>. Then:
+Theorem<nbsp/><xref ref="thm_SRseriesarith"/>, arithmetic of series, doesn't mention division, because in general it doesn't work the way the question suggests. For example, let <m>\{a_n\}=\{b_n\} = \frac{1}{2^n}</m>. Then:
 <ul>
 <li> <m>\sum_{n=0}^{\infty} a_n = \sum_{n=0}^\infty b_n = \frac{1}{1-\frac12}=2</m>, while
 </li>
@@ -942,7 +942,7 @@ We recognize that this is a geometric series:
 </mrow><mrow>
  &amp;\hskip1in=\sum_{n=0}^\infty \frac{1}{3^n}
  </mrow>
-<intertext>Using Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text with <m>r=\dfrac13</m> and <m>a=1</m>,</intertext>
+<intertext>Using Lemma<nbsp/><xref ref="lem_geomsum"/> with <m>r=\dfrac13</m> and <m>a=1</m>,</intertext>
 <mrow>
  &amp;=\frac{1}{1-\frac13}=\frac{3}{2}.
  </mrow>
@@ -976,7 +976,7 @@ This is a geometric series, with ratio <m>r=\dfrac18</m>. However, it doesn't st
 </mrow><mrow>
 &amp;=\sum_{k=0}^\infty \frac{1}{8^7}\cdot \frac{1}{8^n}
 </mrow>
-<intertext>We now evaluate the series using Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text  with <m>r=\dfrac18</m>, <m>a=\dfrac{1}{8^7}</m>.</intertext><mrow>
+<intertext>We now evaluate the series using Lemma<nbsp/><xref ref="lem_geomsum"/>  with <m>r=\dfrac18</m>, <m>a=\dfrac{1}{8^7}</m>.</intertext><mrow>
 &amp;=\frac{1}{8^7}\cdot\dfrac{1}{1-\frac18} = \dfrac{1}{7\times 8^6}
 </mrow>
 </md>
@@ -986,7 +986,7 @@ This is a geometric series, with ratio <m>r=\dfrac18</m>. However, it doesn't st
 <mrow>
  \sum_{k=7}^{\infty} \frac{1}{8^k}&amp;= \sum_{k=0}^{\infty} \frac{1}{8^k}- \sum_{k=0}^{6} \frac{1}{8^k}
  </mrow>
-<intertext>Using Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text,
+<intertext>Using Lemma<nbsp/><xref ref="lem_geomsum"/>,
 </intertext>
 <mrow>
  &amp;=\frac{1}{1-\frac18}-\frac{1-\frac{1}{8^7}}{1-\frac18}
@@ -1050,7 +1050,7 @@ Therefore, we can see directly that the sequence of partial sums <m>\{ s_n \}</m
 \lim_{n\to\infty} s_n = \lim_{n\to\infty}  \bigg( 6- \frac{6}{(n+1)^2} \bigg) = 6
 </mrow>
 </md>
-By Definition<nbsp/><xref ref="def_SRseries"/> in the CLP-2 text the series is also convergent, with limit <m>6</m>.
+By Definition<nbsp/><xref ref="def_SRseries"/> the series is also convergent, with limit <m>6</m>.
 </p>
 
 </solution>
@@ -1102,7 +1102,7 @@ s_N &amp;= \sum_{n=3}^N \bigg( \!\cos\Big( \frac \pi n \Big) - \cos\Big( \frac \
 </mrow>
 <intertext>As <m>N\to\infty</m>, the argument <m>\frac{\pi}{N+1}</m>
 converges to <m>0</m>, and <m>\cos x</m> is continuous at <m>x=0</m>. By
-Definition<nbsp/><xref ref="def_SRseries"/> in the CLP-2 text,
+Definition<nbsp/><xref ref="def_SRseries"/>,
 the value of the series is</intertext>
 <mrow>
 \lim_{N\to\infty} s_N &amp;= \lim_{N\to\infty}\left[\frac12  - \cos\Big( \frac \pi{N+1} \Big) \bigg) \right]
@@ -1128,7 +1128,7 @@ have the formula <m>\displaystyle s_n = \frac{1+3n}{5+4n}</m>.
 </p></statement>
 
 <hint><p>
-Review Definition  <xref ref="def_SRseries"/> in the CLP-2 text.
+Review Definition  <xref ref="def_SRseries"/>.
 </p></hint>
 
 <answer><p>
@@ -1163,7 +1163,7 @@ a_n &amp;= s_n - s_{n-1}
 </p>
 
 <p> (b)
-Using Definition<nbsp/><xref ref="def_SRseries"/> in the CLP-2 text,
+Using Definition<nbsp/><xref ref="def_SRseries"/>,
 <md>
 <mrow>
 \sum_{n=1}^\infty a_n&amp;= \lim_{n \to \infty}  s_n
@@ -1211,7 +1211,7 @@ What we have is a geometric series, but we need to get it into the proper form b
 </mrow><mrow>
 &amp;=\frac{3}{2}\sum_{n=0}^\infty \left(\frac{4}{5}\right)^2\left(\frac45\right)^{n}
 </mrow>
-<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text with <m>r=\dfrac45</m>.</intertext>
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> with <m>r=\dfrac45</m>.</intertext>
 <mrow>
 &amp;=\frac{3}{2}\left(\frac{4}{5}\right)^2\cdot\frac{1}{1-\frac45}=\frac{24}{5}
 </mrow>
@@ -1226,7 +1226,7 @@ Using the idea of Question<nbsp/><xref ref="prob_s3_2_cookies2" text="local"/>, 
 </mrow><mrow>&amp;=
 \frac{3}{2}\left(\sum_{n=0}^\infty \left(\frac{4}{5}\right)^n - \frac{9}{5}\right)
 </mrow>
-<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text with <m>r=\dfrac45</m>.</intertext>
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> with <m>r=\dfrac45</m>.</intertext>
 <mrow>
 &amp;=\frac{3}{2}\left(\frac{1}{1-\frac45} - \frac{9}{5}\right)=\frac{24}{5}
 </mrow>
@@ -1244,7 +1244,7 @@ fractions, with no decimals).
 </p></statement>
 
 <hint><p>
-Review Example  <xref ref="eg_SRgeomB"/> in the CLP-2 text. To write the number as a geometric series, the first few terms might not fit the pattern of the rest of the terms.
+Review Example  <xref ref="eg_SRgeomB"/>. To write the number as a geometric series, the first few terms might not fit the pattern of the rest of the terms.
 </p></hint>
 
 <answer><p>
@@ -1262,7 +1262,7 @@ The number is:
 </mrow><mrow>
 &amp;\hskip1in =\frac15 + \frac{3}{10^2}\sum_{n=0}^{\infty} \frac{1}{10^{n}}
 </mrow>
-<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text with <m>r=\dfrac{1}{10}</m>.
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> with <m>r=\dfrac{1}{10}</m>.
 </intertext>
 <mrow>
 &amp;=\frac{1}{5}+\frac{3}{10^2}\cdot\frac{1}{1-\frac{1}{10}}
@@ -1297,7 +1297,7 @@ The number is:
 </mrow><mrow>
  &amp;= 2 + \frac{65}{100}\sum\limits_{n=0}^{\infty} \frac{1}{100^n}
  </mrow>
-<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text with <m>r=\dfrac{1}{100}</m>.</intertext>
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> with <m>r=\dfrac{1}{100}</m>.</intertext>
 <mrow>
  &amp;= 2 + \frac{65}{100}\cdot\frac{1}{1-\frac{1}{100}}
 </mrow><mrow>
@@ -1313,7 +1313,7 @@ Express the decimal <m>0.\overline{321}=0.321321321\ldots</m> as a fraction.
 </p></statement>
 
 <hint><p>
-Review Example  <xref ref="eg_SRgeomB"/> in the CLP-2 text. Since the pattern repeats every three decimals, your common ratio <m>r</m> will be <m>\dfrac{1}{10^3}</m>.
+Review Example  <xref ref="eg_SRgeomB"/>. Since the pattern repeats every three decimals, your common ratio <m>r</m> will be <m>\dfrac{1}{10^3}</m>.
 </p></hint>
 
 <answer><p>
@@ -1332,7 +1332,7 @@ The number is:
 </mrow><mrow>
  &amp;= \frac{321}{1000} \sum_{n=0}^{\infty} \left(\frac{1}{10^3}\right)^n
   </mrow>
-<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text with <m>r=\dfrac{1}{10^3}</m>.
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> with <m>r=\dfrac{1}{10^3}</m>.
 </intertext>
 <mrow>
   &amp;=\frac{321}{1000} \cdot\frac{1}{1-\frac{1}{10^3}}=\frac{321}{999}=\frac{107}{333}
@@ -1383,7 +1383,7 @@ We split the sum into two parts.
 \sum_{n=0}^\infty \frac{2^{n+3}}{3^{n+2}} =
 \sum_{n=0}^\infty \frac{2^3}{3^2}\cdot\left( \frac{2}{3}\right)^n
   </mrow>
-<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text with <m>r=\dfrac{2}{3}</m> and <m>a=\dfrac{8}{9}</m>.</intertext>
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> with <m>r=\dfrac{2}{3}</m> and <m>a=\dfrac{8}{9}</m>.</intertext>
 <mrow>
   &amp;=\frac{8}{9}\cdot\frac{1}{1-\frac23}=\color{blue}{\frac{8}{3}}
  </mrow>
@@ -1468,7 +1468,7 @@ We split the sum into two parts.
 </mrow><mrow>&amp;= \frac{1}{3}\sum_{n=0}^\infty {\Big(\frac{1}{3}\Big)}^{n}
  + \sum_{n=0}^\infty {\Big(-\frac{2}{5}\Big)}^{n}
    </mrow>
-<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text with <m>a_1=\dfrac{1}{3}</m> and <m>r_1=\dfrac{1}{3}</m>, then with <m>a_2=1</m> and <m>r_2=-\dfrac{2}{5}</m>.
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> with <m>a_1=\dfrac{1}{3}</m> and <m>r_1=\dfrac{1}{3}</m>, then with <m>a_2=1</m> and <m>r_2=-\dfrac{2}{5}</m>.
 </intertext><mrow>
    &amp;=\frac{1}{3}\cdot\frac{1}{1-\frac13}+\frac{1}{1+\frac25}
 </mrow><mrow>
@@ -1501,7 +1501,7 @@ We split the sum into two parts.
 </mrow><mrow>
 &amp;= \sum_{n=0}^\infty \frac{1}{4^n} +3 \sum_{n=0}^\infty\left( \frac{3}{4}\right)^n
  </mrow>
-<intertext>Using Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text,</intertext>
+<intertext>Using Lemma<nbsp/><xref ref="lem_geomsum"/>,</intertext>
 <mrow>
 &amp;=\frac{1}{1-\frac14}+\frac{3}{1-\frac{3}{4}}
 </mrow><mrow>
@@ -1705,7 +1705,7 @@ v_n&amp;=\dfrac{4}{3}\pi \left(\dfrac{1}{\pi^n}\right)^3=\frac{4\pi}{3}\left(\fr
 </mrow><mrow>
 &amp;=\sum_{n=0}^\infty \frac{4}{3\pi^2}\left(\frac{1}{\pi^3}\right)^{n}
 </mrow>
-<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text
+<intertext>We use Lemma<nbsp/><xref ref="lem_geomsum"/>
 with <m>a= \dfrac{4}{3\pi^2}</m> and <m>r=\dfrac{1}{\pi^3}</m>.
 </intertext>
 <mrow>
@@ -1757,7 +1757,7 @@ s_N&amp;=\sum_{n=3}^N\left(\frac{\sin^2 n}{2^n}+\frac{\cos^2(n+1)}{2^{n+1}} \rig
 </mrow><mrow>
 &amp;=\frac{\sin^23}{2^3} +\left( \sum_{n=4}^{N}\frac{1}{2^n} \right)+\frac{\cos^2(N+1)}{2^{N+1}}
 </mrow>
-<intertext>Using Definition<nbsp/><xref ref="def_SRseries"/> in the CLP-2 text, our series evaluates to:</intertext>
+<intertext>Using Definition<nbsp/><xref ref="def_SRseries"/>, our series evaluates to:</intertext>
 <mrow>
 \lim_{N \to \infty}s_N
 &amp;=\lim_{N \to \infty}\left[\frac{\sin^23}{2^3} +\left( \sum_{n=4}^{N}\frac{1}{2^n} \right)+\frac{\cos^2(N+1)}{2^{N+1}}\right]
@@ -1769,7 +1769,7 @@ s_N&amp;=\sum_{n=3}^N\left(\frac{\sin^2 n}{2^n}+\frac{\cos^2(n+1)}{2^{n+1}} \rig
 </mrow><mrow>
 &amp;=\frac{\sin^23}{8}+\frac{1}{2^4}\sum_{n=0}^\infty \frac{1}{2^{n}}
  </mrow>
-<intertext>Using Lemma<nbsp/><xref ref="lem_geomsum"/> in the CLP-2 text,</intertext><mrow>
+<intertext>Using Lemma<nbsp/><xref ref="lem_geomsum"/>,</intertext><mrow>
  &amp;=\frac{\sin^23}{8}+\frac{1}{2^4} \frac{1}{1-\frac12}
 </mrow><mrow>
  &amp;=\frac{\sin^23}{8}+\frac{1}{8} \approx 0.1275

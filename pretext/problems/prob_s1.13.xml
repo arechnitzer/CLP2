@@ -50,8 +50,7 @@ Each option in each column should be used exactly once.
 (B) A trigonometric substitution usually allows us to cancel out a square root containing a quadratic function, as in (IV).
 </p>
 <p>
-(C) We can often antidifferentiate the product of a polynomial with an exponential function using integration by parts: see Examples<nbsp/><xref ref="eg_PRTSxex"/>, <xref ref="eg_PRTSxtwoex"/>
- in the CLP-2 text. If we let <m>u</m> be the polynomial function and <m>\dee{v}</m> be the exponential, as long as we can antidifferentiate <m>\dee{v}</m>, we can repeatedly apply integration by parts until the polynomial function goes away. So, we go with (II)
+(C) We can often antidifferentiate the product of a polynomial with an exponential function using integration by parts: see Examples<nbsp/><xref ref="eg_PRTSxex"/>, <xref ref="eg_PRTSxtwoex"/>. If we let <m>u</m> be the polynomial function and <m>\dee{v}</m> be the exponential, as long as we can antidifferentiate <m>\dee{v}</m>, we can repeatedly apply integration by parts until the polynomial function goes away. So, we go with (II)
 </p>
 <p>
 (D) We apply partial fractions to rational functions, (III).
@@ -70,7 +69,7 @@ Each option in each column should be used exactly once.
 </p></statement>
 
 <hint><p>
-The integrand is the product of sines and cosines. See how this was handled with a substitution in Section<nbsp/><xref ref="sec_sincos"/> of the CLP-2 text.
+The integrand is the product of sines and cosines. See how this was handled with a substitution in Section<nbsp/><xref ref="sec_sincos"/>.
 </p>
 
 <p>After your substitution, you should have a polynomial expression in <m>u</m><mdash/>but it might take some simplification to get it into a form you can easily integrate.
@@ -128,7 +127,7 @@ The integrand is the product of sines and cosines. See how this was handled with
 
 <hint><p>
 We notice that the integrand has a quadratic polynomial under the square root. If that polynomial were a perfect square, we could get rid of the square root:
-try a trig substitution, as in Section<nbsp/><xref ref="sec_trigsub"/> of the CLP-2 text.
+try a trig substitution, as in Section<nbsp/><xref ref="sec_trigsub"/>.
 </p>
 
 <p>The identity <m>\sin(2\theta)=2\sin\theta\cos\theta</m> might come in handy.
@@ -371,7 +370,7 @@ Now, let's  simplify a little and use this substitution on our integral:
 </mrow><mrow>
 &amp;\hskip0.5in=\int -2\csc\theta \dee{\theta}
 </mrow>
-<intertext>Using the result of Example<nbsp/><xref ref="eg_TRGINToptc"/> in the CLP-2 text,
+<intertext>Using the result of Example<nbsp/><xref ref="eg_TRGINToptc"/>,
 or a table of integrals:</intertext>
 <mrow>
 &amp;=2\log\left|\csc\theta+\cot\theta \right|+C
@@ -661,10 +660,7 @@ Evaluate the following integrals.
 
 <hint><p>
 For the integral of secant, see
-See Section<nbsp/><xref ref="sec_secantEtc"/> or Example <xref ref="eg_PFe"/> in the
-</p>
-
-<p>CLP-2 text.
+See Section<nbsp/><xref ref="sec_secantEtc"/> or Example <xref ref="eg_PFe"/>.
 </p>
 
 <p>In (c), notice the denominator is not yet entirely factored.
@@ -1883,7 +1879,7 @@ Solution 2: We have an integrand with <m>x</m> multiplied by something integrabl
 </p></statement>
 
 <hint><p>
-Note the quadratic function under the square root: you can solve this with trigonometric substitution, as in Section<nbsp/><xref ref="sec_trigsub"/> of the CLP-2 text.
+Note the quadratic function under the square root: you can solve this with trigonometric substitution, as in Section<nbsp/><xref ref="sec_trigsub"/>.
 </p></hint>
 
 <answer><p>
@@ -1985,7 +1981,7 @@ So <m>\tan \theta = \frac{\mbox{opp}}{\mbox{adj}}=\dfrac{\sqrt{x^2-2}}{\sqrt{2}}
 </p></statement>
 
 <hint><p>
-Try a <m>u</m>-substitution, as in Section<nbsp/><xref ref="sec_tansec"/> of the CLP-2 text
+Try a <m>u</m>-substitution, as in Section<nbsp/><xref ref="sec_tansec"/>.
 </p></hint>
 
 <answer><p>
@@ -1994,8 +1990,7 @@ Try a <m>u</m>-substitution, as in Section<nbsp/><xref ref="sec_tansec"/> of the
 
 <solution>
 
-<p>This is the product of secants and tangents, as in Section<nbsp/><xref ref="sec_tansec"/>
-of the CLP-2 text.
+<p>This is the product of secants and tangents, as in Section<nbsp/><xref ref="sec_tansec"/>.
  If <m>u=\tan x</m>, then <m>\dee{u}=\sec^2x\dee{x}</m>. We can get the remaining two secants to turn into tangents with the identity <m>\sec^2x=1+\tan^2x</m>, so we'll use this substitution.
 </p>
 
@@ -2258,7 +2253,7 @@ So: we've gotten rid of the ugly pairing of arcsine with a polynomial, but now w
 3x^3\arcsin x - \int {3\sin^3\theta \dee{\theta}}
 </mrow>
 </md>
-And now: a substitution from Section<nbsp/><xref ref="sec_sincos"/> of the CLP-2 text,
+And now: a substitution from Section<nbsp/><xref ref="sec_sincos"/>,
  <m>u=\cos x</m> and <m>\dee{u}=-\sin x \dee{x}</m>
 <md><mrow>
 \amp 3x^3\arcsin x - \int {3\sin^3\theta \dee{\theta}}=3x^3\arcsin x - 3\int\sin^2\theta \sin\theta \dee{\theta}
@@ -2472,8 +2467,7 @@ substitute <m>u=\log x</m>, <m>\dee{u}=\frac{1}{x}\,\dee{x}</m>. Then
 &amp;=\int\sin(u)\ e^u\ \dee{u}
 </mrow>
 </md>
-We have already seen, in Example <xref ref="eg_PRTSexsinx"/> of
-the CLP-2 text, that
+We have already seen, in Example <xref ref="eg_PRTSexsinx"/>, that
 <me>
 \int\sin(u)\ e^u\ \dee{u}
 =\frac{1}{2}e^u\big(\sin u -\cos u\big)+C
