@@ -13,7 +13,7 @@ For which values of $b$ is the integral
 $\displaystyle\int_0^b \frac{1}{x^2-1}~\dee{x}$ improper?
 \end{Mquestion}
 \begin{hint}
-There are two kinds of impropreity in an integral: an infinite discontinuity in the integrand, and an infinite limit of integration.
+There are two kinds of impropriety in an integral: an infinite discontinuity in the integrand, and an infinite limit of integration.
 \end{hint}
 \begin{answer}
 Any real number in $[1,\infty)$ or $(-\infty,-1]$, and $b = \pm \infty$.
@@ -324,7 +324,7 @@ There are two ``sources of impropriety:" the two (infinite) limits of integratio
 \int_{-\infty}^\infty \cos x~\dee{x}&=\int_{-\infty}^0 \cos x~\dee{x}+\int_{0}^\infty \cos x~\dee{x}\\
 &=\lim_{a \to \infty }\left[\int_{-a}^0 \cos x~\dee{x}\right]+
 \lim_{b \to \infty }\left[\int_{0}^b \cos x~\dee{x}\right]
-\intertext{These are easy enough to antdifferentiate.}
+\intertext{These are easy enough to antidifferentiate.}
 &=\lim_{a \to \infty }\left[\sin 0 - \sin(- a)
 \right]+
 \lim_{b \to \infty }\left[\sin b - \sin 0
@@ -960,7 +960,7 @@ The integral converges.
 Since the denominator is positive for all $x \geq 0$, the integrand is continuous over $[0, \infty)$. So, the only ``source of impropriety" is the infinite domain of integration.
 
 \begin{description}
-\item[Solution 1:] Let's try to use a direct comparison. Note $\dfrac{x}{e^x + \sqrt{x}} \geq 0$ whenever $x \geq 0$. Also note that, for large values of $x$, $e^x$ is much larger than $\sqrt{x}$. That leads us to consider the following inequalty:
+\item[Solution 1:] Let's try to use a direct comparison. Note $\dfrac{x}{e^x + \sqrt{x}} \geq 0$ whenever $x \geq 0$. Also note that, for large values of $x$, $e^x$ is much larger than $\sqrt{x}$. That leads us to consider the following inequality:
 \[
 0\leq \dfrac{x}{e^x + \sqrt{x}}  \leq \dfrac{x}{e^x }\]
 
@@ -1176,7 +1176,7 @@ F(x)=\int_0^x \frac{1}{e^{t}}\dee{t}&=\left[-\frac{1}{e^{t}}\right]_0^x
 \end{align*}
 So, the statement is false: there is no $x$ such that $F(x)=1$. For every real $x$, $F(x) < \frac{1}{e^0}=1$.
 
-We note here that $\displaystyle\lim_{x \to \infty} \int_0^x\frac{1}{e^{t}}\dee{t}=1$. So, as $x$ grows larger, the gap between $F(x)$ and 1 grows infintesimally small. But there is no real value of $x$ where $F(x)$ is exactly equal to 1.
+We note here that $\displaystyle\lim_{x \to \infty} \int_0^x\frac{1}{e^{t}}\dee{t}=1$. So, as $x$ grows larger, the gap between $F(x)$ and 1 grows infinitesimally small. But there is no real value of $x$ where $F(x)$ is exactly equal to 1.
 
 \end{solution}
 
