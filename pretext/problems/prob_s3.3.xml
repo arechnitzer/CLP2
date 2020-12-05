@@ -2595,7 +2595,7 @@ The <m>n</m>-th most frequently used word accounts for <m>\dfrac{\alpha}{n}</m> 
 So, in a text of 100 words, we expect the most frequently used word to appear <m>\alpha</m> times, while the second-most-frequently used word should appear about <m>\frac{\alpha}{2}</m> times, and so on.
 </p>
 
-<p>	If a text written in this language uses <m>20,000</m> distinct words, then the most commonly used word accounts for roughly what percentage of total words used?
+<p>	If books written in this language use <m>20,000</m> distinct words, then the most commonly used word accounts for roughly what percentage of total words used?
 </p>
 
 </statement>
@@ -2690,26 +2690,24 @@ As we see in the diagram above, <m>\displaystyle\sum_{n=1}^N \frac{\alpha}{n}</m
 <p>	Suppose the sizes of cities in a country adhere to the following pattern: if the largest city has population <m>\alpha</m>, then the <m>n</m>-th largest city has population <m>\frac{\alpha}{n}</m>.
 </p>
 
-<p>	If the largest city in this country has 2 million people, what do you expect the population of the entire country is? Make your answer accurate to within 1 million people.
+<p>	If the largest city in this country has 2 million people and the smallest city has 1 person, then the population of the entire country is <m>\sum_{n=1}^{2 \times 10^6}\frac{2\times 10^6}{n}</m>. (For many <m>n</m>'s in this sum <m>\frac{2\times 10^6}{n}</m> is not an integer. Ignore that.)
+Evaluate this sum approximately, with an error of no more than 1 million people.
 </p>
 
 </statement>
 <hint><p>
-	No city has fewer than one person, so we are approximating a finite sum <mdash/> not an infinite series. To get greater accuracy, use exact values for the first several terms in the sum, and use an integral to approximate the rest.
+	We are approximating a finite sum <mdash/> not an infinite series. To get greater accuracy, use exact values for the first several terms in the sum, and use an integral to approximate the rest.
 </p></hint>
 <answer><p>
-	The total population is between 29,820,091 and 29,244,727 people.
+	The total population is between 29,820,091 and 30,631,021 people.
 </p></answer>
 <solution><p>
-	Since no town has fewer than one person, the smallest town is the two-millionth town, with a single inhabitant. Therefore, there are 2 million towns, and the total population of the region is given by
-	<me>
-\sum_{n=1}^{2 \text{ mill}}\frac{2\text{ mill}}{n}=2\times 10^6 \sum_{n=1}^{2 \times 10^6}\frac{1}{n}
-</me>
 Generalizing our work in Question<nbsp/><xref ref="probs3_2_Zipf1" text="local"/>, we find the approximations:
 <me>
 \int_a^{b+1}\frac{1}{x}\dee{x} \lt \sum_{n=a}^b \frac{1}{n}  \lt  \int_{a-1}^{b}\frac{1}{x}\dee{x}
 </me>
-when <m>a \ge 2</m>.
+when <m>a \ge 2</m>. The inequality <m>\int\limits_a^{b+1}\frac{1}{x}\dee{x}\lt\sum\limits_{n=a}^b \frac{1}{n}</m>
+can be read off of the sketch
 </p>
 
 <sidebyside width="66%">
@@ -2728,7 +2726,7 @@ when <m>a \ge 2</m>.
 		\end{tikzpicture}]]></latex-image></image>
 </sidebyside>
 <p>
-<m>\int\limits_a^{b+1} \frac{1}{x}\dee{x} \lt \sum\limits_{n=a}^b \frac{1}{n}</m>
+and the inequality <m>\sum\limits_{n=a}^b \frac{1}{n}\lt\int\limits_{a-1}^{b}\frac{1}{x}\dee{x}</m> can be read off of the sketch
 </p>
 
 <sidebyside width="66%">
@@ -2746,10 +2744,14 @@ when <m>a \ge 2</m>.
 	\draw[thick, blue] plot[domain=.67:8, smooth](\x,{2/\x})node[above right]{$f(x)=\frac{1}{x}$};
 	\end{tikzpicture}]]></latex-image></image>
 </sidebyside>
-<p> <m>\sum\limits_{n=a}^b \frac{1}{n} \lt \int\limits_{a-1}^{b}\frac{1}{x}\dee{x}</m>
-</p>
-
 <p>
+We will evaluate the total population by writing
+<me>
+\sum_{n=1}^{2 \times 10^6}\frac{2\times 10^6}{n}
+=\sum_{n=1}^{a-1}\frac{2\times 10^6}{n}
++\sum_{n=a}^{2 \times 10^6}\frac{2\times 10^6}{n}
+</me>
+and applying the above integral approximations to the second sum.
 We want our error to be less than one million, so we need to choose a value of <m>a</m> such that:
 </p>
 
@@ -2790,17 +2792,23 @@ We want our error to be less than one million, so we need to choose a value of <
 <p>
 <md>
 <mrow>
-\int_3^{2\times 10^6+1}\frac{1}{x}\dee{x}&amp; \lt \sum_{n=3}^{2\times 10^6}\frac{1}{n} \lt \int_4^{2\times10^6}\frac{1}{x}\dee{x}
+\int_3^{2\times 10^6+1}\frac{1}{x}\dee{x}&amp; \lt \sum_{n=3}^{2\times 10^6}\frac{1}{n} 
+                                 \lt \int_2^{2\times10^6}\frac{1}{x}\dee{x}
 </mrow>
 <mrow>
-\log\left(2\times 10^6+1\right)-\log(3) &amp; \lt \sum_{n=3}^{2\times 10^6}\frac{1}{n} \lt \log\left(2\times10^6\right)-\log(4)
+\log\left(2\times 10^6+1\right)-\log(3) &amp; \lt \sum_{n=3}^{2\times 10^6}\frac{1}{n} 
+                               \lt \log\left(2\times10^6\right)-\log(2)
 </mrow>
 <mrow>
-\textcolor{red}{1+\frac12}+\log\left(2\times 10^6+1\right)-\log(3) &amp; \lt \sum_{n=\textcolor{red}{1}}^{2\times 10^6}\frac{1}{n}  \lt \textcolor{red}{1+\frac12}+\log\left(2\times10^6\right)
-</mrow><mrow>\amp\hskip2in-\log(4)
+\textcolor{red}{1+\frac12}+\log\left(2\times 10^6+1\right)-\log(3) 
+              &amp;  \lt \sum_{n=\textcolor{red}{1}}^{2\times 10^6}\frac{1}{n}  
+               \lt \textcolor{red}{1+\frac12}+\log\left(2\times10^6\right)
+</mrow><mrow>\amp\hskip2in-\log(2)
 </mrow>
 <mrow>
-\frac32+ \log\left(\frac{2\times 10^6+1}{3}\right) &amp; \lt \sum_{n=1}^{2\times 10^6}\frac{1}{n} \lt \frac32+6\log(10)-\log(2)
+\frac32+ \log\left(\frac{2\times 10^6+1}{3}\right) 
+                 &amp; \lt \sum_{n=1}^{2\times 10^6}\frac{1}{n} 
+                   \lt \frac32+6\log(10)
 </mrow>
 </md>
 So the population, namely 
@@ -2810,7 +2818,7 @@ So the population, namely
 </me>
 and
 <me>
-\textcolor{red}{2\times10^6}\Big(\frac32+6\log\left(10\right)-\log(2)\Big)=29,244,727
+\textcolor{red}{2\times10^6}\Big(\frac32+6\log\left(10\right)\Big)=30,631,021
 </me>
 </p>
 
