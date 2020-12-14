@@ -206,9 +206,11 @@ Note that all the comparison series have positive terms, so we don't need to wor
 
 For the limit comparison test, we calculate:
 \begin{align*}
-\lim_{n \to \infty}\frac{a_n}{b_n}&=\lim_{n \to \infty}\frac{\frac{1}{n-1}}{\frac{1}{n}}=\lim_{n \to \infty}\frac{n}{1}
+\lim_{n \to \infty}\frac{a_n}{b_n}&=\lim_{n \to \infty}\frac{\frac{1}{n-1}}{\frac{1}{n}}
+=\lim_{n \to \infty}\frac{1}{1-\frac{1}{n}}
+=1
 \end{align*}
-Since the limit is a real number and not zero, also the limit comparison test is valid.
+Since the limit exists and is not zero, the limit comparison test is also valid.
 
 (b) Since the series $\sum \frac{1}{n^2}$ converges, we can only use the direct comparison test to show the convergence of a series if its terms have \emph{smaller} absolute values. Indeed,
 \[\left| \frac{\sin n}{n^2+1}\right|=\frac{|\sin n|}{n^2+1}<\frac{1}{n^2}\]
@@ -1154,7 +1156,7 @@ Let's see whether the divergence test works here.
 The summands of our series do not converge to zero. By the divergence
 test, the series diverges.
 \item[Solution 2:]
-Let's develop some intuition for a comparisn. For very large $n$, $2n$ dominates
+Let's develop some intuition for a comparison. For very large $n$, $2n$ dominates
 $7$ so that
 \begin{align*}
 \frac{n^4 2^{n/3}}{(2n+7)^4}
@@ -2165,7 +2167,7 @@ there is an index $N$ such that $0\le a_n\le 1$ for all $n\ge N$. Then:
 	\begin{quote} \color{blue}The $n$-th most frequently used word accounts for $\dfrac{\alpha}{n}$ percent of the total words used.
 	\end{quote} So, in a text of 100 words, we expect the most frequently used word to appear $\alpha$ times, while the second-most-frequently used word should appear about $\frac{\alpha}{2}$ times, and so on.
 
-	If a text written in this language uses $20,000$ distinct words, then the most commonly used word accounts for roughly what percentage of total words used?
+	If books written in this language use $20,000$ distinct words, then the most commonly used word accounts for roughly what percentage of total words used?
 
 \end{question}
 \begin{hint}
@@ -2233,24 +2235,24 @@ there is an index $N$ such that $0\le a_n\le 1$ for all $n\ge N$. Then:
 
 	Suppose the sizes of cities in a country adhere to the following pattern: if the largest city has population $\alpha$, then the $n$-th largest city has population $\frac{\alpha}{n}$.
 
-	If the largest city in this country has 2 million people, what do you expect the population of the entire country is? Make your answer accurate to within 1 million people.
+	If the largest city in this country has 2 million people and the smallest city has 1 person, then the population of the entire country is
+$\sum_{n=1}^{2 \times 10^6}\frac{2\times 10^6}{n}$. (For many $n$'s in this sum 
+$\frac{2\times 10^6}{n}$ is not an integer. Ignore that.)
+Evaluate this sum approximately, with an error of no more than 1 million people.
 
 \end{question}
 \begin{hint}
-	No city has fewer than one person, so we are approximating a finite sum--not an infinite series. To get greater accuracy, use exact values for the first several terms in the sum, and use an integral to approximate the rest.
+	We are approximating a finite sum --- not an infinite series. To get greater accuracy, use exact values for the first several terms in the sum, and use an integral to approximate the rest.
 \end{hint}
 \begin{answer}
-	The total population is between 29,820,091 and 29,244,727 people.
+	The total population is between 29,820,091 and 30,631,021 people.
 \end{answer}
 \begin{solution}
-	Since no town has fewer than one person, the smallest town is the two-millionth town, with a single inhabitant. Therefore, there are 2 million towns, and the total population of the region is given by
-	\[\sum_{n=1}^{2 \text{ mill}}\frac{2\text{ mill}}{n}=2\times 10^6 \sum_{n=1}^{2 \times 10^6}\frac{1}{n}\]
-
 	Generalizing our work in Question~\ref{probs3.2_Zipf1}, we find the approximations:
 	\[\int_a^{b+1}\frac{1}{x}\dee{x}<\sum_{n=a}^b \frac{1}{n} < \int_{a-1}^{b}\frac{1}{x}\dee{x}\]
-	when $a \ge 2$.
-
-	\begin{figure}[h]\centering
+	when $a \ge 2$. The inequality $\int\limits_a^{b+1}\frac{1}{x}\dee{x}<\sum\limits_{n=a}^b \frac{1}{n}$
+can be read off of the sketch
+\begin{center}
 		\begin{tikzpicture}
 		\YEaaxis{.5}{8.6}{.5}{3}
 		\YExcoord{2}{a-1}
@@ -2264,10 +2266,9 @@ there is an index $N$ such that $0\le a_n\le 1$ for all $n\ge N$. Then:
 		\YEycoord{2}{1}
 		\draw[thick, blue] plot[domain=.67:8, smooth](\x,{2/\x})node[above right]{$f(x)=\frac{1}{x}$};
 		\end{tikzpicture}
-		\caption{$\int\limits_a^{b+1}\frac{1}{x}\dee{x}<\sum\limits_{n=a}^b \frac{1}{n}$}
-	\end{figure}
-
-\begin{figure}[h]\centering
+\end{center}
+and the inequality $\sum\limits_{n=a}^b \frac{1}{n}<\int\limits_{a-1}^{b}\frac{1}{x}\dee{x}$ can be read off of the sketch
+\begin{center}
 	\begin{tikzpicture}
 	\YEaaxis{.5}{8.6}{.5}{3}
 	\YExcoord{2}{a-1}
@@ -2281,10 +2282,16 @@ there is an index $N$ such that $0\le a_n\le 1$ for all $n\ge N$. Then:
 	\YEycoord{2}{1}
 	\draw[thick, blue] plot[domain=.67:8, smooth](\x,{2/\x})node[above right]{$f(x)=\frac{1}{x}$};
 	\end{tikzpicture}
-	\caption{$\sum\limits_{n=a}^b \frac{1}{n}<\int\limits_{a-1}^{b}\frac{1}{x}\dee{x}$}
-\end{figure}
+\end{center}
 
-	We want our error to be less than one million, so we need to choose a value of $a$ such that:
+We will evaluate the total population by writing
+\begin{equation*}
+\sum_{n=1}^{2 \times 10^6}\frac{2\times 10^6}{n}
+=\sum_{n=1}^{a-1}\frac{2\times 10^6}{n}
++\sum_{n=a}^{2 \times 10^6}\frac{2\times 10^6}{n}
+\end{equation*}
+and applying the above integral approximations to the second sum.
+We want our error to be less than one million, so we need to choose a value of $a$ such that:
 
 	\begin{align*}
 	\underbrace{2\times 10^6\int_{a-1}^{2\times 10^6} \frac{1}{x}\dee{x}}_{\text{upper bound}} -
@@ -2307,12 +2314,17 @@ there is an index $N$ such that $0\le a_n\le 1$ for all $n\ge N$. Then:
 	Since $\dfrac{\sqrt{e}}{\sqrt{e}-1} \approx 2.5$, we use $a=3$. That is, we will approximate the value of $\displaystyle\sum_{n=3}^{2\times 10^6}\frac{1}{n}$ using an integral. Then, we will use that approximation to estimate our total population.
 
 	\begin{alignat*}{5}
-&\int_3^{2\times 10^6+1}\frac{1}{x}\dee{x}&&<&&\sum_{n=3}^{2\times 10^6}\frac{1}{n} &&<&&\int_4^{2\times10^6}\frac{1}{x}\dee{x}\\
-&\log\left(2\times 10^6+1\right)-\log(3) &&<&&\sum_{n=3}^{2\times 10^6}\frac{1}{n} &&<&&\log\left(2\times10^6\right)-\log(4)\\
-\textcolor{red}{1+\frac12}+&\log\left(2\times 10^6+1\right)-\log(3) &&<&&\sum_{n=\textcolor{red}{1}}^{2\times 10^6}\frac{1}{n} &&<&\textcolor{red}{1+\frac12}+&\log\left(2\times10^6\right)-\log(4)\\
-\frac32+ &\log\left(\frac{2\times 10^6+1}{3}\right) &&<&&\sum_{n=1}^{2\times 10^6}\frac{1}{n} &&<&\frac32+&6\log(10)-\log(2)\\
-\textcolor{red}{2\times10^6}\Big(\frac32+ &\log\left(\tfrac{2}{3}\times 10^6+\tfrac{1}{3}\right)\Big) &&<&&\sum_{n=1}^{2\times 10^6}\frac{\textcolor{red}{2\times10^6}}{n} &&<&\textcolor{red}{2\times10^6}\Big(\frac32+&6\log\left(10\right)-\log(2)\Big)\\
-&29,820,091&&<&&\text{population}&&<&&29,244,727
+\int_3^{2\times 10^6+1}\frac{1}{x}\dee{x}&<\sum_{n=3}^{2\times 10^6}\frac{1}{n} &&<\int_2^{2\times10^6}\frac{1}{x}\dee{x}
+\\
+\log\left(2\times 10^6+1\right)-\log(3) &<\sum_{n=3}^{2\times 10^6}\frac{1}{n} &&<\log\left(2\times10^6\right)-\log(2)
+\\
+\textcolor{red}{1+\frac12}+\log\left(2\times 10^6+1\right)-\log(3) &<\sum_{n=\textcolor{red}{1}}^{2\times 10^6}\frac{1}{n} &&<\textcolor{red}{1+\frac12}+\log\left(2\times10^6\right)-\log(2)
+\\
+\frac32+ \log\left(\frac{2\times 10^6+1}{3}\right) &<\sum_{n=1}^{2\times 10^6}\frac{1}{n} &&<\frac32+6\log(10)
+\\
+\textcolor{red}{2\times10^6}\Big(\frac32+ \log\left(\tfrac{2}{3}\times 10^6+\tfrac{1}{3}\right)\Big) &<\sum_{n=1}^{2\times 10^6}\frac{\textcolor{red}{2\times10^6}}{n} &&<\textcolor{red}{2\times10^6}\Big(\frac32+6\log\left(10\right)\Big)
+\\
+29,820,091&<\text{population}&&<30,631,021
 	\end{alignat*}
 
 

@@ -92,13 +92,13 @@ Suppose <m>f(x)=\displaystyle\sum_{n=1}^\infty \dfrac{(x-5)^n}{n!+2}</m>. Give a
 	Let <m>f(x)</m> be a power series centred at <m>c=5</m>. If <m>f(x)</m> converges at <m>x=-1</m>, and diverges at <m>x=11</m>, what is the radius of convergence of <m>f(x)</m>?
 </p></statement>
 <hint><p>
-	Use Theorem<nbsp/><xref ref="thm_SRradiusofconvergence"/> in the CLP-2 text.
+	Use Theorem<nbsp/><xref ref="thm_SRradiusofconvergence"/>.
 </p></hint>
 <answer><p>
 	<m>R=6</m>
 </p></answer>
 <solution><p>
-	According to Theorem<nbsp/><xref ref="thm_SRradiusofconvergence"/> in the CLP-2 text, because <m>f(x)</m> diverges somewhere, and because it converges at a point other than its centre,  <m>f(x)</m> has a positive radius of convergence <m>R</m>. That is, <m>f(x)</m> converges whenever <m>|x-5| \lt R</m>, and it diverges whenever <m>|x-5| \gt R</m>.
+	According to Theorem<nbsp/><xref ref="thm_SRradiusofconvergence"/>, because <m>f(x)</m> diverges somewhere, and because it converges at a point other than its centre,  <m>f(x)</m> has a positive radius of convergence <m>R</m>. That is, <m>f(x)</m> converges whenever <m>|x-5| \lt R</m>, and it diverges whenever <m>|x-5| \gt R</m>.
 </p>
 
 <p>	If <m>R \gt 6</m>, then <m>|11-5| \lt R</m>, so <m>f(x)</m> converges at <m>x=11</m>; since we are told <m>f(x)</m> <em>diverges</em> at <m>x=11</m>, we see <m>R \le 6</m>.
@@ -132,7 +132,7 @@ Use this fact to evaluate the series in part (a).
 
 <hint><p>
 Review the discussion immediately following Definition
-<xref ref="def_SRpowerSeries"/> in the CLP-2 text.
+<xref ref="def_SRpowerSeries"/>.
 </p></hint>
 
 <answer><p>
@@ -195,7 +195,7 @@ Find the radius of convergence for the power series
 
 <hint><p>
 Review the discussion immediately following Definition
-<xref ref="def_SRpowerSeries"/> in the  CLP-2 text.
+<xref ref="def_SRpowerSeries"/>.
 </p></hint>
 
 <answer><p>
@@ -237,7 +237,7 @@ Find the radius of convergence for the power series
 
 <hint><p>
 Review the discussion immediately following Definition
-<xref ref="def_SRpowerSeries"/> in the CLP-2 text.
+<xref ref="def_SRpowerSeries"/>.
 </p></hint>
 
 <answer><p>
@@ -277,7 +277,7 @@ convergence of this series.
 </p></statement>
 
 <hint><p>
-See Example <xref ref="eg_SRintervalofconvergence"/> in the  CLP-2 text.
+See Example <xref ref="eg_SRintervalofconvergence"/>.
 </p></hint>
 
 <answer><p>
@@ -333,7 +333,7 @@ Find the radius of convergence and interval of convergence of the series
 </p></statement>
 
 <hint><p>
-See Example <xref ref="eg_SRintervalofconvergence"/> in the CLP-2 text.
+See Example <xref ref="eg_SRintervalofconvergence"/>.
 </p></hint>
 
 <answer><p>
@@ -927,8 +927,8 @@ required to guarantee that the resulting approximation is within
 </p></statement>
 
 <hint><p>
-See Example <xref ref="eg_SRpsrepD"/> in the CLP-2 text.
-For part (b), review §<xref ref="sec_AST"/> in the CLP-2 text.
+See Example <xref ref="eg_SRpsrepD"/>.
+For part (b), review §<xref ref="sec_AST"/>.
 </p></hint>
 
 <answer><p>
@@ -1072,7 +1072,7 @@ See the solution.
 By the divergence test, the fact that <m>\sum\limits_{n=0}^{\infty}(1-b_n)</m>
 converges guarantees that <m>\lim\limits_{n\rightarrow\infty}(1-b_n)=0</m>,
 or equivalently, that <m>\lim\limits_{n\rightarrow\infty}b_n=1</m>.  So, by
-equation  (<xref ref="eq_SRradConv"/>)  in the  CLP-2 text, the radius of convergence is
+equation  (<xref ref="eq_SRradConv"/>), the radius of convergence is
 <me>
 R =\bigg[\lim_{n\rightarrow\infty}\Big|\frac{b_{n+1}}{b_n}\Big|\bigg]^{-1}
    =\bigg[\frac{1}{1}\bigg]^{-1}
@@ -1172,17 +1172,16 @@ At what position is the centre of mass of the rod?
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside></statement>
 <hint><p>
-Equation<nbsp/><xref ref="eq_weightedrod"/> in the CLP-2 text tells us the centre of mass of a rod with weights <m>\{m_n\}</m> at positions <m>\{x_n\}</m> is <m>\displaystyle\bar x =\frac{\sum m_nx_n}{\sum m_n}</m> .
+Equation<nbsp/><xref ref="eq_weightedrod"/> tells us the centre of mass of a rod with weights <m>\{m_n\}</m> at positions <m>\{x_n\}</m> is <m>\displaystyle\bar x =\frac{\sum m_nx_n}{\sum m_n}</m> .
 </p></hint>
 <answer><p>
 	<m>\dfrac{4}{9}</m>
 </p></answer>
 <solution><p>
-Equation<nbsp/><xref ref="eq_weightedrod"/> in the CLP-2 text tells us the centre of mass of a rod with weights <m>\{m_n\}</m> at positions <m>\{x_n\}</m> is <m>\displaystyle\bar x =\frac{\sum m_nx_n}{\sum m_n}</m> .
+Equation<nbsp/><xref ref="eq_weightedrod"/> tells us the centre of mass of a rod with weights <m>\{m_n\}</m> at positions <m>\{x_n\}</m> is <m>\displaystyle\bar x =\frac{\sum m_nx_n}{\sum m_n}</m> .
 </p>
 
-<p>We find the combined mass of our weights using Lemma<nbsp/><xref ref="lem_geomsum"/>
- in the CLP-2 text with <m>r=\frac{1}{2}</m> and <m>r=\frac{1}{3}</m>, respectively.
+<p>We find the combined mass of our weights using Lemma<nbsp/><xref ref="lem_geomsum"/> with <m>r=\frac{1}{2}</m> and <m>r=\frac{1}{3}</m>, respectively.
 <md>
 <mrow>
 \sum_{n=1}^{\infty}\frac{1}{2^n}+\sum_{n=1}^{\infty}\frac{1}{3^n}&amp;=
@@ -1344,7 +1343,7 @@ The power series representation in Example<nbsp/><xref ref="eg_SRpsrepC"/> is an
 <m>x-\dfrac{x^2}{2}+\dfrac{x^3}{3}-\dfrac{x^4}{4}</m>
 </p></answer>
 <solution><p>
-As we saw in in Example<nbsp/><xref ref="eg_SRpsrepC"/>  of the CLP-2 text,
+As we saw in in Example<nbsp/><xref ref="eg_SRpsrepC"/>,
 <me>
 \log(1+ x) = \sum_{n=0}^\infty (-1)^n\frac{x^{n+1}}{n+1}</me>
 </p>
@@ -1408,7 +1407,7 @@ The power series representation in Example<nbsp/><xref ref="eg_SRpsrepD"/> is an
 <m>x-\dfrac{x^3}{3}+\dfrac{x^5}{5}</m>
 </p></answer>
 <solution><p>
-As we saw in in Example<nbsp/><xref ref="eg_SRpsrepD"/>  of the CLP-2 text,
+As we saw in in Example<nbsp/><xref ref="eg_SRpsrepD"/>,
 <me>
 \arctan x = \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}</me>
 </p>
