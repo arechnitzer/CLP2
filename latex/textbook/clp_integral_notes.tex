@@ -537,14 +537,19 @@ lower bound:
 +e^{\nicefrac{(n-1)}{n}}\right).
 \end{align*}
 
-\item We now apply the squeeze theorem to the above inequalities. In particular, the
-limits of the lower and upper bounds are
+\item We now apply the squeeze theorem to the above inequalities. 
+In particular, the limits of the lower and upper bounds are
+$\lim_{n\rightarrow\infty}\frac{1}{n}\frac{e-1}{e^{\nicefrac{1}{n}}-1}$ and
+$\lim_{n\rightarrow\infty}\frac{1}{n}e^{\nicefrac{1}{n}}\frac{e-1}{e^{\nicefrac{1}{n}}-1}$, respectively. As we did near the end of 
+Example \ref{eg:INTexpareaB}, we make these limits look more familiar 
+by renaming $\nicefrac{1}{n}$ to $X$. As $n$ tends to infinity, 
+$X$ tends to $0$, so the limits of the lower and upper bounds are
 \begin{align*}
 \lim_{n\rightarrow\infty}\frac{1}{n}\frac{e-1}{e^{\nicefrac{1}{n}}-1}
 &=(e-1)\lim_{X=\nicefrac{1}{n}\rightarrow 0}\frac{X}{e^X-1}
 =e-1
 \end{align*}
-(by l'H\^opital's rule) and
+(by l'H\^opital's rule) and 
 \begin{align*}
 \lim_{n\rightarrow\infty}\frac{1}{n}e^{\nicefrac{1}{n}}\frac{e-1}{e^{\nicefrac{1}{n}}-1}
 &=(e-1)\lim_{X=\nicefrac{1}{n}\rightarrow 0}\cdot \frac{Xe^X}{e^X-1}\\
@@ -1180,7 +1185,7 @@ into upper and lower bounds without much extra work.
 
 More precisely, we approximate $f(x)$ on each subinterval $x_{i-1}\le x\le x_i$
 \begin{itemize}
-\item by its smallest value on the subinterval, namely $f(x_{i-i})$, when
+\item by its smallest value on the subinterval, namely $f(x_{i-1})$, when
 we compute the left Riemann sum approximation and
 
 \item by its largest value on the subinterval, namely $f(x_i)$, when we
