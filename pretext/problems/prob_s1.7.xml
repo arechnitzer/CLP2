@@ -25,7 +25,7 @@ Integration by substitution is just using the chain rule, backwards:
 <mrow>
 &amp;&amp;\diff{}{x}\{f(g(x))\}&amp;=f'(g(x))g'(x)
 </mrow><mrow>
-&amp;\Leftrightarrow&amp; \int\diff{}{x}\{f(g(x))\}\dee{x}+C&amp;=\int f'(g(x))g'(x)\dee{x}
+&amp;\Leftrightarrow&amp; \int\diff{}{x}\{f(g(x))\}\dee{x}&amp;=\int f'(g(x))g'(x)\dee{x}
 </mrow><mrow>
 &amp;\Leftrightarrow&amp;\underbrace{ f(g(x))}_{f(u)} +C &amp;=\int \underbrace{f'(g(x))}_{f'(u)}\underbrace{g'(x)\dee{x}}_{\dee{u}}
 </mrow>
@@ -33,13 +33,15 @@ Integration by substitution is just using the chain rule, backwards:
 <mrow>
 &amp;&amp;\diff{}{x}\{f(x)g(x)\}&amp;=f'(x)g(x)+f(x)g'(x)
 </mrow><mrow>
-&amp;\Leftrightarrow&amp;\int\diff{}{x}\{f(x)g(x)\}\dee{x}+C&amp;=\int f'(x)g(x)+f(x)g'(x)\dee{x}
+&amp;\Leftrightarrow&amp;\int\diff{}{x}\{f(x)g(x)\}\dee{x}&amp;=\int f'(x)g(x)+f(x)g'(x)\dee{x}
 </mrow><mrow>
 &amp;\Leftrightarrow&amp;f(x)g(x)+C&amp;=\int f'(x)g(x)\dee{x}+\int f(x)g'(x)\dee{x}
 </mrow><mrow>
 &amp;\Leftrightarrow&amp;\int\underbrace{ f(x)}_{u}\underbrace{g'(x)\dee{x}}_{\dee{v}}&amp;=\underbrace{f(x)}_{u}\underbrace{g(x)}_{v}-\int \underbrace{g(x)}_{v}\underbrace{f'(x)\dee{x}}_{\dee{u}}\\
 </mrow>
 </md>
+In the last line, the <q><m>+C</m></q> has been absorbed into the indefinite
+integral on the right hand side.
 </p></solution>
 </exercise>
 
@@ -71,26 +73,29 @@ According to the quotient rule,
 <p>Antidifferentiate both sides of the equation, then solve for the expression in the question.
 </p></hint>
 <answer><p>
-<m>\displaystyle\int \frac{f'(x)}{g(x)}\dee{x}= \dfrac{f(x)}{g(x)} +\displaystyle\int\frac{f(x)g'(x)}{g^2(x)}\dee{x}+C</m>
+<m>\displaystyle\int \frac{f'(x)}{g(x)}\dee{x}= \dfrac{f(x)}{g(x)} +\displaystyle\int\frac{f(x)g'(x)}{g^2(x)}\dee{x}</m>
 </p></answer>
 <solution><p>
-We'll use the same ideas that lead to the methods of substitution and integration by parts. (You can review these in your text, or see the solution to Question<nbsp/><xref ref="p1_7_difftoint" text="local"/> in this section.)
+We'll use the same ideas that led to the method of integration by parts. (You can review this in your text, or see the solution to Question<nbsp/><xref ref="p1_7_difftoint" text="local"/> in this section.)
 According to the quotient rule,
 <md>
 <mrow>
 \diff{}{x}\left\{\dfrac{f(x)}{g(x)}\right\} &amp;= \frac{g(x)f'(x)-f(x)g'(x)}{g^2(x)}.
 </mrow>
 <intertext>Antidifferentiating both sides gives us:</intertext><mrow>
-\int\diff{}{x}\left\{\dfrac{f(x)}{g(x)}\right\} \dee{x}+C&amp;= \int\frac{g(x)f'(x)-f(x)g'(x)}{g^2(x)}\dee{x}
+\int\diff{}{x}\left\{\dfrac{f(x)}{g(x)}\right\} \dee{x}&amp;= \int\frac{g(x)f'(x)-f(x)g'(x)}{g^2(x)}\dee{x}
 </mrow><mrow>
 \dfrac{f(x)}{g(x)} +C&amp;= \int\frac{f'(x)}{g(x)}\dee{x}-\int\frac{f(x)g'(x)}{g^2(x)}\dee{x}
 </mrow><mrow>\int\frac{f'(x)}{g(x)}\dee{x}
-&amp;= \dfrac{f(x)}{g(x)}+\int\frac{f(x)g'(x)}{g^2(x)}\dee{x}+C
+&amp;= \dfrac{f(x)}{g(x)}+\int\frac{f(x)g'(x)}{g^2(x)}\dee{x}
 </mrow>
 </md>
+In the last line, the <q><m>+C</m></q> has been absorbed into the indefinite
+integral on the right hand side.
 </p>
 
-<p>This isn't quite at catchy as integration by parts--which is probably why it hasn't caught on as a rule with its own name.
+<p>This is exactly the integration by parts formula for the functions <m>u=1/g</m> 
+and <m>v=f</m>. 
 </p></solution>
 </exercise>
 
