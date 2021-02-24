@@ -20,7 +20,7 @@ Match the integration method to a common kind of integrand it's used to antidiff
 <sidebyside>
 <tabular left="minor" right="minor" top="minor" bottom="minor">
 <row>
-<cell> (A) <m>u</m>-substitution </cell><cell> (I)</cell><cell> a function multiplied by its derivative </cell>
+<cell> (A) <m>u=f(x)</m> substitution </cell><cell> (I)</cell><cell> a function multiplied by its derivative </cell>
 </row>
 <row>
 <cell>(B) trigonometric substitution </cell><cell> (II) </cell><cell>a polynomial times an exponential </cell>
@@ -44,7 +44,7 @@ Each option in each column should be used exactly once.
 (D)<ndash />(III)
 </p></answer>
 <solution><p>
-(A) Note <m>\int f'(x)f(x)\ \dee{x} = \int u\ \dee{u} </m> if we substitute <m>u=f(x)</m>. This is the kind of integrand described in (I). It's quite possible that a <m>u</m>-substitution would work on the others, as well, but (I) is the most reliable kind of integrand for a <m>u</m>-substitution.
+(A) Note <m>\int f'(x)f(x)\ \dee{x} = \int u\ \dee{u} </m> if we substitute <m>u=f(x)</m>. This is the kind of integrand described in (I). It's quite possible that a <m>u=f(x)</m> substitution would work on the others, as well, but (I) is the most reliable kind of integrand for a <m>u=f(x)</m> substitution.
 </p>
 <p>
 (B) A trigonometric substitution usually allows us to cancel out a square root containing a quadratic function, as in (IV).
@@ -256,7 +256,7 @@ First, we note the integral is improper. So, we'll need to replace the top bound
 </mrow><mrow>
 &amp; = \lim_{b \to \infty}\left[-\frac{x}{e^x}\right]_0^b = \lim_{b \to \infty}\bigg[-\underbrace{\frac{b}{e^b}}_{\atp{\mathrm{num}\to\infty}{\mathrm{den}\to\infty}}\bigg]
 </mrow><mrow>
-&amp; \stackrel{(*)}{=} \lim_{b \to \infty}\frac{1}{e^b}=0
+&amp; \stackrel{(*)}{=} \lim_{b \to \infty}-\frac{1}{e^b}=0
 </mrow>
 </md>
 (In the equality marked (<m>*</m>), we used l'Hôpital's rule.)
@@ -1367,7 +1367,7 @@ b(x-1)(x-2)&amp;=1+(x-2)-(x-1)^2
 Hence:
 <md>
 <mrow>
-\amp\int_3^\infty\frac{x}{(x-1)^2(x-2)}\,\dee{x}
+\amp\int_3^\infty\frac{1}{(x-1)^2(x-2)}\,\dee{x}
 </mrow><mrow>
 &amp;\hskip0.5in=\lim_{M\rightarrow\infty}
 \int_3^M\Big(-\frac{1}{(x-1)^2}-\frac{1}{x-1}+\frac{1}{x-2}\Big)\,\dee{x}

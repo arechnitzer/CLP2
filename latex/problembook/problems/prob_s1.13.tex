@@ -17,7 +17,7 @@ base $e$. In other courses it is often denoted $\ln x$.
 Match the integration method to a common kind of integrand it's used to antidifferentiate.
 
 \begin{tabular}{lrl}
- (A) $u$-substitution & (I)& a function multiplied by its derivative \\
+ (A) $u=f(x)$ substitution & (I)& a function multiplied by its derivative \\
 (B) trigonometric substitution & (II) &a polynomial function times an exponential function\\
 (C) integration by parts & (III) &a rational function\\
 (D) partial fractions & (IV) &the square root of a quadratic function
@@ -33,7 +33,7 @@ Each option in each column should be used exactly once.
 (D)--(III)
 \end{answer}
 \begin{solution}
-(A) Note $\int f'(x)f(x)\ \dee{x} = \int u\ \dee{u} $ if we substitute $u=f(x)$. This is the kind of integrand described in (I). It's quite possible that a $u$-substitution would work on the others, as well, but (I) is the most reliable kind of integrand for a $u$-substitution.\\
+(A) Note $\int f'(x)f(x)\ \dee{x} = \int u\ \dee{u} $ if we substitute $u=f(x)$. This is the kind of integrand described in (I). It's quite possible that a $u=f(x)$ substitution would work on the others, as well, but (I) is the most reliable kind of integrand for a $u=f(x)$ substitution.\\
 (B) A trigonometric substitution usually allows us to cancel out a square root containing a quadratic function, as in (IV).\\
 (C) We can often antidifferentiate the product of a polynomial with an exponential function using integration by parts: see Examples~\eref{CLP101}{eg:PRTSxex}, \eref{CLP101}{eg:PRTSxtwoex}
  in the CLP-2 text. If we let $u$ be the polynomial function and $\dee{v}$ be the exponential, as long as we can antidifferentiate $\dee{v}$, we can repeatedly apply integration by parts until the polynomial function goes away. So, we go with (II)\\
@@ -197,7 +197,7 @@ First, we note the integral is improper. So, we'll need to replace the top bound
 =-xe^{-x}+C\\
 \text{So,}\qquad\int_0^\infty \dfrac{x-1}{e^x}~\dee{x} & = \lim_{b \to \infty}\int_0^b \dfrac{x-1}{e^x}~\dee{x}\\
 & = \lim_{b \to \infty}\left[-\frac{x}{e^x}\right]_0^b = \lim_{b \to \infty}\bigg[-\underbrace{\frac{b}{e^b}}_{\atp{\mathrm{num}\to\infty}{\mathrm{den}\to\infty}}\bigg]\\
-& \stackrel{(*)}{=} \lim_{b \to \infty}\frac{1}{e^b}=0
+& \stackrel{(*)}{=} \lim_{b \to \infty}-\frac{1}{e^b}=0
 \end{align*}
 (In the equality marked ($*$), we used l'H\^{o}pital's rule.)
 
@@ -1018,7 +1018,7 @@ b(x-1)(x-2)&=1+(x-2)-(x-1)^2\\
 \end{align*}
 Hence:
 \begin{align*}
-\int_3^\infty\frac{x}{(x-1)^2(x-2)}\,\dee{x}
+\int_3^\infty\frac{1}{(x-1)^2(x-2)}\,\dee{x}
 &=\lim_{M\rightarrow\infty}
 \int_3^M\Big(-\frac{1}{(x-1)^2}-\frac{1}{x-1}+\frac{1}{x-2}\Big)\,\dee{x} \\
 &=\lim_{M\rightarrow\infty}
