@@ -325,7 +325,7 @@ Following Definition <xref ref="def_WKwork"/>, the work done compressing the air
 <me>
 W = \int_1^{1.5}F(x)\,\dee{x}
 </me>
-where <m>F(x)</m> is the amount of force applied when the plunger is <m>x</m> metres past its natural position. The amount of force applied is equal in magnitude to the amount of force supplied by the tube: <m>\frac{c}{\ell-x}</m> N. Note <m>\ell</m> and <m>c</m> are constants. We can guess the antiderivative, or use the substitution <m>u=\ell-x</m>, <m>\dee{u}=-x\,\dee{x}</m>.
+where <m>F(x)</m> is the amount of force applied when the plunger is <m>x</m> metres past its natural position. The amount of force applied is equal in magnitude to the amount of force supplied by the tube: <m>\frac{c}{\ell-x}</m> N. Note <m>\ell</m> and <m>c</m> are constants. We can guess the antiderivative, or use the substitution <m>u=\ell-x</m>, <m>\dee{u}=-\dee{x}</m>.
 <md>
 <mrow>
 W &amp;=\int_1^{1.5} \frac{c}{\ell-x}\,\dee{x}  = \big[-c\log|\ell-x|\big]_1^{1.5}
