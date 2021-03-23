@@ -900,7 +900,7 @@ class MathBookXMLtoSWS(object):
                 msg = 'creating multiple worksheets, filename should end in ".zip", not "{}"'
                 raise ValueError(msg.format(ext))
         if single:
-            # Singe worksheet: copy from temp/working to final resting place
+            # Single worksheet: copy from temp/working to final resting place
             # Prepend temp directory
             sws = os.path.join(self._tmp_dir, worksheets[0])
             shutil.copy2(sws, destination)
