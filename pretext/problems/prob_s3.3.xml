@@ -40,8 +40,8 @@ That is, which series have terms whose limit is not zero?
 </p>
 <p>
 Now we'll show that <m>\displaystyle\lim_{n \to \infty}\sin n</m> does not exist.
-Suppose that it does exist and takes the value <m>S</m>. Add together the two 
-trig identities (see Appendix <xref ref="sec_trig_add"/>) 
+Suppose that it does exist and takes the value <m>S</m>. We will now see that this assumption leads to a contradiction.  
+Add together the two trig identities (see Appendix <xref ref="sec_trig_add"/>) 
 <md>
 <mrow>
 \sin(n+1)  &amp;=  \sin(n)\cos(1)+\cos(n)\sin(1) 
@@ -62,7 +62,7 @@ Taking the limit as <m>n\rightarrow\infty</m> of that gives
 <me>
 \lim_{n\to\infty}\cos(n)  =  \frac{S-S\cos(1)}{\sin(1)}=0
 </me>
-But that's impossible. Because <m>\sin^2(n)+\cos^2(n)=1</m>, we can't have both <m>\sin(n)</m> and <m>\cos(n)</m> converging to zero.
+But that provides the contradiction. Because <m>\sin^2(n)+\cos^2(n)=1</m>, we can't have both <m>\sin(n)</m> and <m>\cos(n)</m> converging to zero. So <m>\displaystyle\lim_{n \to \infty}\sin n</m> does not exist.
 </p>
 </li>
 <li> For all whole numbers <m>n</m>, <m>\sin(\pi n)=0</m>, so <m>\displaystyle\lim_{n \to \infty}\sin(\pi n)=0</m> and the divergence test is inconclusive.
