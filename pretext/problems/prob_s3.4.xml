@@ -224,76 +224,66 @@ First, we'll develop some intuition. For very large <m>n</m>
 \le \frac{1}{n^{3/2}}
 </mrow>
 </md>
-since <m>\left|\cos(n)\right| \leq 1</m> for all <m>n</m>. By the <m>p</m>--test, the series
+since <m>\left|\cos(n)\right| \leq 1</m> for all <m>n</m>. By the <m>p</m>-test, which is in Example<nbsp/><xref ref="eg_SRpTest"/>, the series
 <m>\displaystyle \sum_{n=5}^\infty \frac{1}{n^p}</m> converges for all <m>p \gt 1</m>. So we would
 expect the given series to converge absolutely.
 </p>
 
-<p>Now, to confirm that our intuition is correct, we'll first try setting
+<p>Now, to confirm that our intuition is correct, we'll first try the limit comparison theorem, which is Theorem<nbsp/><xref ref="thm_SRlimitComparison"/>, with 
 <m>a_n=\left| \frac{\sqrt{n}\cos(n)}{n^2-1}\right|</m>
 and <m>b_n = \frac{1}{n^{3/2}}</m>.
 <md>
 <mrow>
-\lim_{n \to \infty}\frac{a_n}{b_n}&amp;=\lim_{n \to \infty} \frac{\left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right| }{\frac{1}{n^{3/2}}} = \lim_{n \to \infty}\frac{\sqrt{n}\cdot\sqrt{n}^3|\cos n|}{n^2-1}
+\lim_{n \to \infty}\frac{a_n}{b_n}
+&amp;=\lim_{n \to \infty} \frac{\left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right| }{\frac{1}{n^{3/2}}} 
+     = \lim_{n \to \infty}\frac{\sqrt{n}\cdot\sqrt{n}^3|\cos n|}{n^2-1}
 </mrow><mrow>
-&amp;=\lim_{n \to \infty}\frac{n^2|\cos n|}{n^2-1} = \lim_{n \to \infty}\left(\frac{n^2}{n^2-1}\right)|\cos n|
+&amp;=\lim_{n \to \infty}\frac{n^2|\cos n|}{n^2-1} 
+  = \lim_{n \to \infty}\left(\frac{1}{1-1/n^2}\right)|\cos n|
 </mrow><mrow>
 &amp; = \lim_{n \to \infty}1\cdot|\cos n|
 </mrow>
 </md>
-Unfortunately, this limit doesn't exist, so we can't use the limit comparison theorem. We'll need a slightly different tactic.
+Unfortunately, this limit doesn't exist, so this attempt to use the limit comparison theorem has failed. Fortunately, having seen that the <m>\cos n</m> caused the failure, it is not hard to adjust our strategy to get a successful proof of absolute convergence. First, in step 1 below, we use the comparison test to eliminate the <m>\cos n</m> and then, in step 2 below, we apply the limit comparison 
+test.
 </p>
 
 <p>
 <ul>
 <li><p>
-Solution 1: Let's try the limit comparison test with a different <m>p</m>-series. The question is, which one. Let's start by leaving <m>p</m> as a variable, then see what happens.
-</p>
-
-<p>We  apply the limit comparison test with  <m>a_n=\left| \frac{\sqrt{n}\cos(n)}{n^2-1}\right|</m>
-and  <m>b_n=\frac{1}{n^p}</m>. We'll choose a specific <m>p</m> shortly.
-<md>
-<mrow>
-\lim_{n\to\infty} \frac{a_n}{b_n}
-&amp;=\lim_{n\to\infty} \frac{\big|\sqrt n\,\cos n/(n^2-1)\big|}{1/n^p}
-</mrow><mrow>
-&amp;=\lim_{n\to\infty} \frac{n^{p+0.5}|\cos n|}
-                                   {n^2(1-1/n^2)}
-= \lim_{n\to\infty} \frac{|\cos n|}{n^{(3/2-p)}(1-1/n^2)}
-</mrow><mrow>
-&amp;=0\quad\text{ if <m>p \lt \frac{3}{2}</m>}
-</mrow>
-</md>
-the limit comparison test says that if <m>p \lt \frac{3}{2}</m> and the series
-<m>\sum\limits_{n=5}^\infty b_n</m> converges (which is the case if <m>p \gt 1</m>) then the series
-<m>\sum\limits_{n=5}^\infty  \left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right|</m> also converges.
-So choosing any <m>1 \lt p \lt \frac{3}{2}</m>, for example <m>p=\frac{5}{4}</m>, we conclude that
-the given series converges absolutely.
+Step 1: 
+Since <m>|\cos n|\le 1</m>, we have
+<me>
+\left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right|
+\le \frac{\sqrt{n}}{n^2-1}
+</me> 
+for all <m>n\gt 1</m>. So, by part (a) of the comparison test, which is 
+Theorem<nbsp/><xref ref="thm_SRcomparisonTest"/>, if the series <m>\displaystyle \sum_{n=5}^\infty \frac{\sqrt{n}}{n^2-1}</m> converges, then we will have that the series 
+<m>\displaystyle \sum_{n=5}^\infty \left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right|</m> also converges, and hence that the series <m>\displaystyle \sum_{n=5}^\infty \frac{\sqrt{n}\cos(n)}{n^2-1}</m> converges absolutely.
 </p>
 </li>
 <li><p>
-Solution 2:
-Let's try to use the direct comparison test. When we were trying to develop intuition, we noticed the following:
+Step 2:
+Now, to prove that the series <m>\displaystyle \sum_{n=5}^\infty \frac{\sqrt{n}}{n^2-1}</m> converges,  
+we apply the limit comparison test with <m>a_n=\frac{\sqrt{n}}{n^2-1}</m> 
+and <m>b_n = \frac{1}{n^{3/2}}</m> (for <m>n\ge 5</m>). Since 
 <md>
 <mrow>
-\left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right|
-&amp;\approx \left|\frac{\sqrt{n}\cos(n)}{n^2}\right|
-= \left|\frac{\cos(n)}{n^{3/2}}\right|
-\le \frac{1}{n^{3/2}}
+\lim_{n \to \infty}\frac{a_n}{b_n}
+&amp;=\lim_{n \to \infty} \frac{\frac{\sqrt{n}}{n^2-1}}{\frac{1}{n^{3/2}}} 
+= \lim_{n \to \infty}\frac{\sqrt{n}\cdot\sqrt{n}^3}{n^2-1}
+</mrow><mrow>
+&amp;=\lim_{n \to \infty}\frac{n^2}{n^2-1} 
+= \lim_{n \to \infty}\frac{1}{1-1/n^2}
+</mrow><mrow>
+&amp; = 1
 </mrow>
 </md>
-It's not the case that our terms are less than <m>\frac{1}{n^{3/2}}</m>, but perhaps they would be less than, say <m>\frac{2}{n^{3/2}}</m>. Let's trace our reasoning above backwards.
-<md>
-<mrow>
-\frac{2}{n^{3/2}} &amp;\geq \left|\frac{2\cos n}{n^{3/2}}\right|
-=\left|\frac{\sqrt{n}\cos n}{(1/2)n^{2}}\right|
-\geq \left|\frac{\sqrt{n}\cos n}{n^{2}-1}\right|
-</mrow>
-</md>
-where the final inequality holds for all <m>n \ge 2</m>.
-</p>
-
-<p>Since <m>\sum\limits_{n=1}^\infty \frac{2}{n^{3/2}}</m> converges by the <m>p</m>-test, our series  converges as well by the direct comparison test.
+and since <m>\displaystyle \sum_{n=5}^\infty \frac{1}{n^{3/2}}</m> converges by the 
+<m>p</m>-test, the limit comparison test tells us that the series 
+<m>\displaystyle\sum_{n=5}^\infty \frac{\sqrt{n}}{n^2-1}</m> converges. So, 
+by step 1, <m>\displaystyle\sum_{n=5}^\infty \frac{\sqrt{n}\cos(n)}{n^2-1}</m> 
+converges absolutely.
 </p>
 </li>
 </ul>

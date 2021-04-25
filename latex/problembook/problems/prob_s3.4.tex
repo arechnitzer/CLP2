@@ -206,20 +206,55 @@ First, we'll develop some intuition. For very large $n$
 = \left|\frac{\cos(n)}{n^{3/2}}\right|
 \le \frac{1}{n^{3/2}}
 \end{align*}
-since $\left|\cos(n)\right| \leq 1$ for all $n$. By the $p$--test, the series
+since $\left|\cos(n)\right| \leq 1$ for all $n$. By the $p$-test, 
+which is in Example~\eref{CLP101}{eg:SRpTest} in the CLP-2 text, the series
 $\displaystyle \sum_{n=5}^\infty \frac{1}{n^p}$ converges for all $p>1$. So we would
 expect the given series to converge absolutely.
 
-Now, to confirm that our intuition is correct, we'll first try setting
-$a_n=\left| \frac{\sqrt{n}\cos(n)}{n^2-1}\right|$
+Now, to confirm that our intuition is correct, we'll first try the limit comparison theorem, which is Theorem~\eref{CLP101}{thm:SRlimitComparison} 
+in the CLP-2 text, with $a_n=\left| \frac{\sqrt{n}\cos(n)}{n^2-1}\right|$
 and $b_n = \frac{1}{n^{3/2}}$.
 \begin{align*}
 \lim_{n \to \infty}\frac{a_n}{b_n}&=\lim_{n \to \infty} \frac{\left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right| }{\frac{1}{n^{3/2}}} = \lim_{n \to \infty}\frac{\sqrt{n}\cdot\sqrt{n}^3|\cos n|}{n^2-1}\\
-&=\lim_{n \to \infty}\frac{n^2|\cos n|}{n^2-1} = \lim_{n \to \infty}\left(\frac{n^2}{n^2-1}\right)|\cos n|\\
+&=\lim_{n \to \infty}\frac{n^2|\cos n|}{n^2-1} = \lim_{n \to \infty}\left(\frac{1}{1-1/n^2}\right)|\cos n|\\
 & = \lim_{n \to \infty}1\cdot|\cos n|
 \end{align*}
-Unfortunately, this limit doesn't exist, so we can't use the limit comparison theorem. We'll need a slightly different tactic.
+Unfortunately, this limit doesn't exist, so this attempt to use the limit comparison theorem has failed. Fortunately, having seen that the $\cos n$ caused the failure, it is not hard to adjust our strategy to get a successful proof of absolute convergence. First, in step 1 below, we use the comparison test to eliminate the $\cos n$ and then, in step 2 below, we apply the limit comparison 
+test.
+\begin{description}
+\item[Step 1:] Since $|\cos n|\le 1$, we have
+\begin{equation*}
+\left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right|
+\le \frac{\sqrt{n}}{n^2-1}
+\end{equation*} 
+for all $n> 1$. So, by part (a) of the comparison test, which is
+Theorem~\eref{CLP101}{thm:SRcomparisonTest} in the CLP-2 text, if
+the series $\displaystyle \sum_{n=5}^\infty \frac{\sqrt{n}}{n^2-1}$ converges, 
+then we will have that the series 
+$\displaystyle \sum_{n=5}^\infty \left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right|$ also converges, and hence that the series
+$\displaystyle \sum_{n=5}^\infty \frac{\sqrt{n}\cos(n)}{n^2-1}$ converges absolutely.
 
+\item[Step 2:]
+Now, to prove that the series 
+$\displaystyle \sum_{n=5}^\infty \frac{\sqrt{n}}{n^2-1}$ converges,  
+we apply the limit comparison test with $a_n=\frac{\sqrt{n}}{n^2-1}$ 
+and $b_n = \frac{1}{n^{3/2}}$ (for $n\ge 5$). Since 
+\begin{align*}
+\lim_{n \to \infty}\frac{a_n}{b_n}
+&=\lim_{n \to \infty} \frac{\frac{\sqrt{n}}{n^2-1}}{\frac{1}{n^{3/2}}} 
+= \lim_{n \to \infty}\frac{\sqrt{n}\cdot\sqrt{n}^3}{n^2-1}\\
+&=\lim_{n \to \infty}\frac{n^2}{n^2-1} 
+= \lim_{n \to \infty}\frac{1}{1-1/n^2}\\
+& = 1
+\end{align*}
+and since $\displaystyle \sum_{n=5}^\infty \frac{1}{n^{3/2}}$ converges by the 
+$p$-test, the limit comparison test tells us that the series 
+$\displaystyle\sum_{n=5}^\infty \frac{\sqrt{n}}{n^2-1}$ converges. So, 
+by step 1, $\displaystyle\sum_{n=5}^\infty \frac{\sqrt{n}\cos(n)}{n^2-1}$ 
+converges absolutely.
+\end{description}
+
+\begin{comment}
 \begin{description}
 \item[Solution 1:] Let's try the limit comparison test with a different $p$--series. The question is, which one. Let's start by leaving $p$ as a variable, then see what happens.
 
@@ -257,6 +292,7 @@ where the final inequality holds for all $n \ge 2$.
 
 Since $\sum\limits_{n=1}^\infty \frac{2}{n^{3/2}}$ converges by the $p$-test, our series  converges as well by the direct comparison test.
 \end{description}
+\end{comment}
 \end{solution}
 
 
