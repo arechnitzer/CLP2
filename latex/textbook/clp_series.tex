@@ -783,7 +783,9 @@ It is very common to encounter series for which it is difficult, or even
 virtually impossible, to determine the sum exactly. Often you try to evaluate
 the sum approximately by truncating it, i.e. having the index run only
 up to some finite $N$, rather than infinity. But there is no point in doing
-so if the series diverges. So you like to at least know if the series converges
+so if the series diverges\footnote{
+	The authors should be a little more careful making such a blanket statement. The field of asymptotic analysis often makes use of the first few terms of divergent series to generate approximate solutions to problems; this, along with numerical computations, is one of the most important techniques in applied mathematics. Indeed, there is a whole wonderful book devoted to playing with divergent series called, unsurprisingly, ``Divergent Series'' by G.H.~Hardy. This is not to be confused with the ``Divergent'' series by V.~Roth set in a post-apocalyptic dystopian Chicago. That latter series diverges quite dramatically from mathematical topics, while the former does not have a film adaptation (yet).
+}. So you like to at least know if the series converges
 or diverges. Furthermore you would also like to know what error is introduced
 when you approximate $\sum_{n=1}^\infty a_n$ by the ``truncated series''
 $\sum_{n=1}^Na_n$. That's called the truncation error. There are a number
@@ -3633,8 +3635,10 @@ $|x-c|=R$, i.e. when $x=c\pm R$. The following example shows that all four
 possibilities can occur.
 
 \begin{eg}\label{eg:SRintervalofconvergence}
-Let $p$ be any real number and consider the series
-$\sum_{n=0}^\infty \frac{x^n}{n^p}$. This series has $A_n= \frac{1}{n^p}$.
+Let $p$ be any real number\footnote{
+We avoid problems with $0^p$ by starting the series from $n=1$.
+} and consider the series
+$\sum_{n=1}^\infty \frac{x^n}{n^p}$. This series has $A_n= \frac{1}{n^p}$.
 Since
 \begin{equation*}
 \lim_{n\rightarrow\infty}\Big|\frac{A_{n+1}}{A_n}\Big|
@@ -3646,11 +3650,11 @@ the series has radius of convergence $1$. So it certainly converges for
 $|x|<1$ and diverges for $|x|>1$. That just leaves $x=\pm 1$.
 \begin{itemize}
 \item
-When $x=1$, the series reduces to $\sum_{n=0}^\infty \frac{1}{n^p}$.
+When $x=1$, the series reduces to $\sum_{n=1}^\infty \frac{1}{n^p}$.
 We know, from Example \ref{eg:SRpTest}, that this series converges if and
 only if $p>1$.
 \item
-When $x=-1$, the series reduces to $\sum_{n=0}^\infty \frac{(-1)^n}{n^p}$.
+When $x=-1$, the series reduces to $\sum_{n=1}^\infty \frac{(-1)^n}{n^p}$.
 By the alternating series test, Theorem \ref{thm:SRalternating}, this series
 converges whenever $p>0$ (so that $\frac{1}{n^p}$ tends to zero
 as $n$ tends to infinity). When $p\le 0$ (so that $\frac{1}{n^p}$ does
@@ -3659,13 +3663,13 @@ the divergence test, Theorem \ref{thm:SRdivergenceTest}.
 \end{itemize}
 So
 \begin{itemize}
-\item The power series $\sum_{n=0}^\infty x^n$ (i.e. $p=0$)
+\item The power series $\sum_{n=1}^\infty x^n$ (i.e. $p=0$)
 has interval of convergence $-1<x<1$.
-\item The power series $\sum_{n=0}^\infty \frac{x^n}{n}$ (i.e. $p=1$)
+\item The power series $\sum_{n=1}^\infty \frac{x^n}{n}$ (i.e. $p=1$)
 has interval of convergence $-1\le x<1$.
-\item The power series $\sum_{n=0}^\infty \frac{(-1)^n}{n}x^n$ (i.e. $p=1$)
+\item The power series $\sum_{n=1}^\infty \frac{(-1)^n}{n}x^n$ (i.e. $p=1$)
 has interval of convergence $-1< x\le 1$.
-\item The power series $\sum_{n=0}^\infty \frac{x^n}{n^2}$ (i.e. $p=2$)
+\item The power series $\sum_{n=1}^\infty \frac{x^n}{n^2}$ (i.e. $p=2$)
 has interval of convergence $-1\le x\le 1$.
 \end{itemize}
 \end{eg}

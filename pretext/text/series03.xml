@@ -7,7 +7,9 @@
 <introduction>
 
 <p>
-It is very common to encounter series for which it is difficult, or even virtually impossible, to determine the sum exactly. Often you try to evaluate the sum approximately by truncating it, i.e. having the index run only up to some finite <m>N</m>, rather than infinity. But there is no point in doing so if the series diverges. So you like to at least know if the series converges or diverges. Furthermore you would also like to know what error is introduced when you approximate <m>\sum_{n=1}^\infty a_n</m> by the <q>truncated series</q> <m>\sum_{n=1}^Na_n</m>. That's called the truncation error. There are a number  of <q>convergence tests</q> to help you with this.
+It is very common to encounter series for which it is difficult, or even virtually impossible, to determine the sum exactly. Often you try to evaluate the sum approximately by truncating it, i.e. having the index run only up to some finite <m>N</m>, rather than infinity. But there is no point in doing so if the series diverges<fn>
+	The authors should be a little more careful making such a blanket statement. The field of asymptotic analysis often makes use of the first few terms of divergent series to generate approximate solutions to problems; this, along with numerical computations, is one of the most important techniques in applied mathematics. Indeed, there is a whole wonderful book devoted to playing with divergent series called, unsurprisingly, <q>Divergent Series</q> by G.H.<nbsp/>Hardy. This is not to be confused with the <q>Divergent</q> series by V.<nbsp/>Roth set in a post-apocalyptic dystopian Chicago. That latter series diverges quite dramatically from mathematical topics, while the former does not have a film adaptation (yet).
+</fn>. So you like to at least know if the series converges or diverges. Furthermore you would also like to know what error is introduced when you approximate <m>\sum_{n=1}^\infty a_n</m> by the <q>truncated series</q> <m>\sum_{n=1}^Na_n</m>. That's called the truncation error. There are a number  of <q>convergence tests</q> to help you with this.
 </p>
 </introduction>
 
