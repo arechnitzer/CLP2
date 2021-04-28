@@ -18,17 +18,15 @@ application of integration is  computing averages and other statistical quantiti
 Let us start with the definition
 	<fn>
 		We are being a little loose here with the distinction between mean and average. To be  much more pedantic <mdash/> the average is the arithmetic mean. Other interesting <q>means</q> are  the geometric and harmonic means:
-		<md>
-		<mrow>
-		\text{arithmetic mean} &amp;= \frac{1}{n}\left( y_1 + y_2 + \cdots + y_n \right)
-		</mrow>
-		<mrow>
-		\text{geometric mean} &amp;= \left( y_1 \cdot y_2 \cdots y_n \right)^{\frac{1}{n}}
-		</mrow>
-		<mrow>
-		\text{harmonic mean} &amp;= \left[\frac{1}{n}\left(  \frac{1}{y_1} + \frac{1}{y_2} + \cdots \frac{1}{y_n}  \right)\right]^{-1}
-		</mrow>
-		</md>
+		<m>
+		\text{arithmetic mean} = \frac{1}{n}\left( y_1 + y_2 + \cdots + y_n \right)
+		</m>.
+		<m>
+		\text{geometric mean} = \left( y_1 \cdot y_2 \cdots y_n \right)^{\frac{1}{n}}
+		</m>.
+		<m>
+		\text{harmonic mean} = \left[\frac{1}{n}\left(  \frac{1}{y_1} + \frac{1}{y_2} + \cdots \frac{1}{y_n}  \right)\right]^{-1}
+		</m>.
 		All of these quantities, along with the median and mode, are ways to measure the typical  value of a set of numbers. They all have advantages and disadvantages <mdash/> another  interesting topic beyond the scope of this course, but plenty of fodder for the  interested reader and their favourite search engine. But let us put pedantry (and  beyond-the-scope-of-the-course-reading) aside and just use the terms average and mean  interchangeably for our purposes here.
 	</fn>
 of the average of a finite set of numbers.
@@ -266,10 +264,10 @@ This is clearly not a good indication of the typical voltage.
 What we actually want here is a measure of how far the voltage is from zero. Now we could  do this by taking the average of <m>|V(t)|</m>, but this is a little harder to work with.  Instead we take the average of the square
 	<fn>
 		For a finite  set of numbers one can compute the <q>quadratic mean</q> which is another way to generalise  the notion of the average:
-		<me>
+		<m>
 		\text{quadratic mean}
 		= \sqrt{\frac{1}{n}\left(y_1^2 + y_2^2 + \cdots + y_n^2 \right) }
-		</me>
+		</m>
 	</fn>
 of the voltage (so it is always positive) and then take the square root at the end. That is
 <md>

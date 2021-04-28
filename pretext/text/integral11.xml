@@ -822,7 +822,7 @@ We proceed almost identically to Example<nbsp/><xref ref="eg_TrapB"/> and again 
 			4\times 3.938461538 \!+\!
 			2\times 3.764705882 \!+\!
 			4\times 3.506849315 \!+\!
-                	2\times 3.2 
+                	2\times 3.2
                          </mrow><mrow>
                 	&amp;\hskip0.5in
 			 +4\times 2.876404494 +
@@ -1054,15 +1054,13 @@ for some constants <m>K</m> and <m>k</m>. We would like to test if this is reall
 Instead of plotting <m>Y</m> against <m>X</m>, we plot <m>\log Y</m> against <m>\log X</m>. This  transformation
 	<fn>
 		There is a variant of this trick that works even when you don't  know the answer to the integral ahead of time. Suppose that you suspect that the  approximation satisfies
-		<me>
+		<m>
 			M_n=A+K\tfrac{1}{n^k}
-		</me>
+		</m>
 		where <m>A</m> is the exact value of the integral and suppose that you  don't know the values of <m>A</m>, <m>K</m> and <m>k</m>. Then
-		<md>
-		<mrow>
-		M_{n}-M_{2n}  &amp;=K\tfrac{1}{n^k}-K\tfrac{1}{(2n)^k} =K\big(1-\tfrac{1}{2^k}\big)\tfrac{1}{n^k}
-		</mrow>
-		</md>
+		<m>
+		M_{n}-M_{2n} =K\tfrac{1}{n^k}-K\tfrac{1}{(2n)^k} =K\big(1-\tfrac{1}{2^k}\big)\tfrac{1}{n^k}
+	</m>
 		so plotting <m>y=\log(M_{n}-M_{2n})</m> against <m>x=\log n</m> gives the straight  line <m>y=\log \big[K\big(1-\frac{1}{2^k}\big)\big] -kx</m>.
 	</fn>
 works because when
@@ -1434,9 +1432,9 @@ Rearrange this expression a little and take absolute values
 where we have also made use of the triangle inequality
 	<fn>
 		The  triangle inequality says that for any real numbers <m>x,y</m>
-		<me>
+		<m>
 		|x+y| \leq |x| + |y|.
-		</me>
+		</m>
 	</fn>.
 By assumption <m>|f''(x)| \leq M</m> on the interval <m>\alpha \leq x \leq \beta</m>,  so
 <md>

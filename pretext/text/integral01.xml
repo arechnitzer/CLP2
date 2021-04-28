@@ -169,7 +169,7 @@ In this example we'll do two sample computations.
 <p>Now for the full computation that gives the exact area.</p>
 <example xml:id="eg_INTexpareaB"><title>Computing an area exactly</title>
 <p>
-Recall that we wish to compute the area of 
+Recall that we wish to compute the area of
 <md>
 <mrow>
 \big\{\ (x,y)\ \big|\ 0\le y\le  e^x,\ 0\le x\le 1\ \big\}
@@ -730,16 +730,11 @@ They are equal by the usual distributive law. The <q>distributive law</q> is the
 <p>Not many sums can be computed exactly
 	<fn>
 		Of course, any finite sum can be computed  exactly <mdash/> just sum together the terms. What we mean by <q>computed exactly</q> in this  context, is that we can rewrite the sum as a simple, and easily  evaluated, formula involving the terminals of the sum. For example
-		<me>
+		<m>
 		\sum_{k=m}^n r^k = \frac{r^{n+1}-r^m}{r-1} \qquad \qquad \text{provided $r\neq1$}
-		</me>
+		</m>
 		No matter what finite integers we choose for <m>m</m> and <m>n</m>, we can quickly compute the sum  in just a few arithmetic operations. On the other hand, the sums,
-		<md>
-		<mrow>
-		\sum_{k=m}^n \frac{1}{k} &amp;&amp;
-		\sum_{k=m}^n \frac{1}{k^2}
-		</mrow>
-		</md>
+		<m>\sum_{k=m}^n \frac{1}{k}</m> and <m>\sum_{k=m}^n \frac{1}{k^2}</m>,
 		cannot be expressed in such clean formulas (though you can rewrite them quite cleanly  using integrals). To explain more clearly we would need to go into a more detailed and  careful discussion that is beyond the scope of this course.
 		</fn>.
 Here are some that can. The  first few are used a lot.
@@ -1494,9 +1489,9 @@ We have approximated this area by <m>f(x_j^*)[x_j-x_{j-1}]</m> (see figure left)
 	Now since our function, <m>f(x)</m> is differentiable we can apply one of the  main  theorems we learned in CLP-1 <mdash/> the Mean Value  Theorem
 	<fn>
 		Recall that the mean value theorem states that for a function  continuous on <m>[a,b]</m> and differentiable on <m>(a,b)</m>, there exists a number <m>c</m>  between  <m>a</m> and <m>b</m> so that
-		<me>
+		<m>
 			f'(c) = \frac{f(b)-f(a)}{b-a}.
-		</me>
+		</m>
 	</fn>.
 	The MVT implies that there exists a <m>c</m> between <m>{\underline  x}_j</m> and <m>{\overline x}_j</m> such that
 	<md>

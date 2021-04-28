@@ -150,13 +150,13 @@ all close to <m>f(x)</m>.
 We can make the above more rigorous using the Mean Value Theorem
 	<fn>
 		The  MVT tells us that there is a number <m>c</m> between <m>x</m> and <m>x+h</m> so that
-		<me>
+		<m>
 		 F'(c) = \frac{F(x+h)-F(x)}{(x+h)-x} = \frac{F(x+h)-F(x)}{h}
-		 </me>
+	 </m>
 		 But since <m>F'(x) = f(x)</m>, this tells us that
-		 <me>
+		 <m>
 		  \frac{F(x+h)-F(x)}{h} = f(c)
-		</me>
+		</m>
 		where <m>c</m> is trapped between <m>x+h</m> and <m>x</m>. Now when we take the limit as <m>h \to 0</m> we have that this number <m>c</m> is squeezed to <m>x</m> and the result follows.
 		</fn>.
 </p>
@@ -238,15 +238,10 @@ In the previous example we were able to evaluate the integral explicitly,  so we
 We would like to find <m>\diff{}{x}\int_0^x e^{-t^2}\dee{t}</m>. In the previous  example, we were able to compute the corresponding derivative in two ways <mdash/> we could  explicitly compute the integral and then differentiate the result, or we could apply  part<nbsp/>1 of the fundamental theorem  of calculus. In this example we do not know the integral explicitly. Indeed it  is not possible to express
 	<fn>
 		The integral <m>\int_0^x e^{-t^2} \dee{t}</m> is  closely related to the <q>error function</q> which is an extremely important  function in mathematics. While we cannot express this integral (or the error  function) as a <em>finite</em> combination of polynomials, exponentials etc, we  can express it as an infinite series
-	<md>
-        <mrow>
+	<m>
 	  \int_0^x e^{-t^2}\dee{t}
-	  &amp;= x - \frac{x^3}{3\cdot 1} + \frac{x^5}{5\cdot 2} - \frac{x^7}{7\cdot 3!} +
-	\frac{x^9}{9\cdot 4!} +\cdots 
-         </mrow><mrow>
-          &amp;\hskip1in+ (-1)^k \frac{x^{2k+1}}{(2k+1)\cdot k!} + \cdots
-        </mrow>
-	</md>
+	  = x - \frac{x^3}{3\cdot 1} + \frac{x^5}{5\cdot 2} - \frac{x^7}{7\cdot 3!} +
+		\frac{x^9}{9\cdot 4!} +\cdots + (-1)^k \frac{x^{2k+1}}{(2k+1)\cdot k!} + \cdots</m>.
 	But more on this in Chapter<nbsp/><xref ref="chap_seq_ser"/>.
 	</fn>
 the integral <m>\int_0^x  e^{-t^2}\dee{t}</m> as a finite combination of standard functions such as  polynomials, exponentials, trigonometric functions and so on.
@@ -394,9 +389,9 @@ There are two parts to the lemma and we prove each in turn.
 	function
 	<fn>
 		This follows from the Mean Value Theorem. Say <m>H(x)</m> were not constant,  then there would be two numbers <m>a \lt b</m> so that <m>H(a)\neq H(b)</m>. Then the MVT tells us that  there is a number <m>c</m> between <m>a</m> and <m>b</m> so that
-		<me>
+		<m>
 		H'(c) = \frac{H(b)-H(a)}{b-a}.
-		</me>
+		</m>
 		Since both numerator and denominator are nonzero, we know the derivative at <m>c</m> is  nonzero. But this would contradict the assumption that derivative of <m>H</m> is zero. Hence  we cannot have <m>a \lt b</m> with <m>H(a)\neq H(b)</m> and so <m>H(x)</m> must be constant.
 	</fn>.
 	Thus <m>H(x)=G(x)-F(x)=C</m> for  some constant <m>C</m> and the result follows.
@@ -610,9 +605,9 @@ Find <m>\int_1^2 \frac{1}{x}\dee{x}</m>.
 	Fortunately, we also know
 	<fn>
 		Recall that in most mathematics  courses (especially this one) we use <m>\log x</m> without any indicated base  to denote the natural logarithm <mdash/> the logarithm base <m>e</m>.  Many widely used computer languages, like Java, C, Python, MATLAB, <m>\cdots</m>, use <m>\log(x)</m> to denote the logarithm base <m>e</m> too. But many texts also use <m>\ln x</m> to denote the natural logarithm
-		<me>
+		<m>
 		\log x = \log_e x = \ln x.
-		</me>
+		</m>
 		The reader should be comfortable with all three notations for this function. They should  also be aware that in different contexts <mdash/> such as in chemistry or physics <mdash/> it is  common to use <m>\log x</m> to denote the logarithm base 10, while in computer science often  <m>\log x</m> denotes the logarithm base 2. Context is key.
 	</fn>
 	that

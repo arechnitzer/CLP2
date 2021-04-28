@@ -263,10 +263,10 @@ and, if the integral is infinite, the sum <m>\sum_{n=I}^\infty a_n</m> is infini
 Now that we have the integral test, it is straightforward to determine  for which values of <m>p</m> the series
 	<fn>
 		This series, viewed  as a function of <m>p</m>, is called the Riemann zeta function, <m>\zeta(p)</m>,  or the Euler-Riemann zeta function. It is extremely important because  of its connections to prime numbers (among many other things). Indeed  Euler proved that
-		<me>
+		<m>
 		\zeta(p) = \sum_{n=1}^\infty \frac{1}{n^p}
            = \prod_{\text{P prime}} \left(1 - {\rm P}^{-p} \right)^{-1}
-	   </me>
+	   </m>
 	   Riemann showed the connections between the zeros of this function (over  complex numbers <m>p</m>) and the distribution of prime numbers. Arguably the  most famous unsolved problem in mathematics, the Riemann  hypothesis, concerns the locations of zeros of this function.
    </fn>
 <md>
@@ -428,22 +428,18 @@ We could determine whether or not the series <m>\sum_{n=1}^\infty\frac{1}{n^2+2n
 	<fn>
 		Go back and quickly scan Theorem<nbsp/><xref ref="thm_SRintegralTest"/>; to apply it we need to show that <m>\frac{1} {n^2+2n+3}</m> is  positive and decreasing (it is), and then  we need to integrate <m>\int \frac{1}{x^2+2x+3}\dee{x}</m>. To do that  we reread the notes on partial fractions, then rewrite <m>x^2+2x+3
 		= (x+1)^2+2</m> and so
-		<md>
-		<mrow>
+		<m>
 		  \int_1^\infty \frac{1}{x^2+2x+3}\dee{x}
-		  &amp;= \int_1^\infty \frac{1}{(x+1)^2+2}\dee{x} \cdots
-		</mrow>
-		</md>
+		  = \int_1^\infty \frac{1}{(x+1)^2+2}\dee{x} \cdots
+		</m>
 		and then arctangent appears,  etc etc. Urgh. Okay <mdash/> let's go  back to the text now and see how to avoid this.
 	</fn>.
 Whether or not any series converges is determined by the behaviour of the summand
 	<fn>
 		To understand this consider any series  <m>\sum_{n=1}^\infty a_n</m>. We can always cut such a series into  two parts <mdash/> pick some huge number like <m>10^6</m>. Then
-		<md>
-		<mrow>
-		\sum_{n=1}^\infty a_n &amp;= \sum_{n=1}^{10^6} a_n + \sum_{n=10^6+1}^\infty a_n
-		</mrow>
-		</md>
+		<m>
+		\sum_{n=1}^\infty a_n = \sum_{n=1}^{10^6} a_n + \sum_{n=10^6+1}^\infty a_n
+	</m>.
 		The first sum, though it could be humongous, is finite. So the left hand side, <m>\sum_{n=1}^\infty a_n</m>, is a well-defined finite number if and only if <m>\sum_{n=10^6+1}^\infty a_n</m>, is a well-defined  finite number. The convergence or divergence of the series is  determined by the second sum, which  only contains <m>a_n</m> for <q>large</q> <m>n</m>.
 	</fn>
 for very large <m>n</m>. So the first step in tackling such a problem is to develop some intuition about the behaviour of <m>a_n</m> when <m>n</m> is very large.
@@ -785,7 +781,7 @@ for that series.
 				-(\overbrace{A_{N+4}-A_{N+5}}^{\ge 0})-\cdots
         </mrow><mrow>
 	\amp\hskip1in -\overbrace{(A_{\ell'-1}-A_{\ell'})}^{\ge 0}
-	</mrow><mrow>	
+	</mrow><mrow>
          \amp\le A_{N+1}
 	</mrow><mrow>
 	(-1)^NS_{N,\ell'+1}&amp;=\overbrace{(-1)^N S_{N,\ell'}}^{\le A_{N+1}}

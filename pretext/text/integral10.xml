@@ -664,9 +664,9 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{x^4+5x^3+16x^2+26x+22}
 		It isn't quite time to stop yet; we should attempt to factor the quadratic  factor, <m>x^2+2x+5</m>. We can use the quadratic formula
 		<fn>
 			To be precise, the quadratic equation <m>ax^2+bx+c=0</m> has solutions
-			<me>
+			<m>
 			x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}.
-			</me>
+			</m>
 			The term <m>b^2-4ac</m> is called the discriminant and it tells us about the number of  solutions. If the discriminant is positive then there are two real solutions. When it is  zero, there is a single solution. And if it is negative, there is no real solutions (you  need complex numbers to say more than this).
 		</fn>
 		to find the roots of <m>x^2+2x+5</m>:
@@ -882,24 +882,14 @@ In this example, we integrate <m>\frac{N(x)}{D(x)}= \frac{x^4+5x^3+16x^2+26x+22}
 <p>
 	The final piece is a little harder. The idea is to complete the square
 	<fn>
-		This same  idea arose in Section<nbsp/><xref ref="sec_trigsub"/>. Given a quadratic written as
-		<md>
-		<mrow>
-		Q(x) &amp;= ax^2+bx+c
-		</mrow>
-		</md>
+		This same idea arose in Section<nbsp/><xref ref="sec_trigsub"/>. Given a quadratic written as
+		<m>Q(x)= ax^2+bx+c</m>
 		rewrite it as
-		<md>
-		<mrow>
-		  Q(x) &amp;= a(x+d)^2+e.
-		</mrow>
-		</md>
+		<m>Q(x) = a(x+d)^2+e</m>.
 		We can determine <m>d</m> and <m>e</m> by expanding and comparing coefficients of <m>x</m>:
-		<md>
-		<mrow>
-		  ax^2+bx+c &amp;= a(x^2+2dx+d^2)+e = ax^2 + 2dax + (e+ad^2)
-		</mrow>
-		</md>
+		<m>
+		  ax^2+bx+c = a(x^2+2dx+d^2)+e = ax^2 + 2dax + (e+ad^2)
+		</m>.
 		Hence <m>d=b/2a</m> and <m>e=c-ad^2</m>.
 	</fn>
 	in the denominator
@@ -2004,16 +1994,16 @@ which is exactly what we were trying to show.
 <p>
 We are now going to see that, in general, if <m>N(x)</m> and <m>D(x)</m> are polynomials
 with the degree of <m>N</m> being strictly smaller than the degree of <m>D</m>
-(which we'll denote <m>\deg(N) \lt \deg(D)</m>) and if 
+(which we'll denote <m>\deg(N) \lt \deg(D)</m>) and if
 <mdn>
 <mrow  xml:id="eq_INTfactD" tag="star">
 D(x)=K(x-a_1)^{m_1}\cdots(x-a_j)^{m_j}
 (x^2+b_1x+c_1)^{n_1}\cdots(x^2+b_kx+c_k)^{n_k}
 </mrow>
 </mdn>
-(with <m>b_\ell^2-4 c_\ell \lt 0</m> for all <m> 1\le\ell\le k</m> so that no 
+(with <m>b_\ell^2-4 c_\ell \lt 0</m> for all <m> 1\le\ell\le k</m> so that no
 quadratic factor can be written as a product of linear factors with real coefficients) then there are real numbers <m>A_{i,j}</m>, <m>B_{i,j}</m>, <m>C_{i,j}</m>
-such that 
+such that
 <md>
 <mrow>
 \frac{N(x)}{D(x)}
@@ -2035,14 +2025,14 @@ such that
 This was Equation<nbsp/><xref ref="eq_PFdecompd"/>.
 
 We start with two simpler results, that we'll use repeatedly to get Equation<nbsp/><xref ref="eq_PFdecompd"/>. In the first simpler result, we consider the fraction <m>\frac{P(x)}{Q_1(x)\,Q_2(x)}</m> with <m>P(x)</m>, <m>Q_1(x)</m>
-and <m>Q_2(x)</m> being polynomials with real coefficients and we are going to assume that when <m>P(x)</m>, <m>Q_1(x)</m> and <m>Q_2(x)</m> are factored as in  <xref ref="eq_INTfactD"/>, 
-no two of them have a common linear or quadratic factor. As an example, 
+and <m>Q_2(x)</m> being polynomials with real coefficients and we are going to assume that when <m>P(x)</m>, <m>Q_1(x)</m> and <m>Q_2(x)</m> are factored as in  <xref ref="eq_INTfactD"/>,
+no two of them have a common linear or quadratic factor. As an example,
 no two of
 <md>
 <mrow>
 P(x) &amp;= 2(x-3)(x-4)(x^2+3x+3)
 </mrow><mrow>
-Q_1(x) &amp;= 2(x-1)(x^2+2x+2) 
+Q_1(x) &amp;= 2(x-1)(x^2+2x+2)
 </mrow><mrow>
 Q_2(x) &amp;= 2(x-2)(x^2+2x+3)
 </mrow>
@@ -2050,9 +2040,9 @@ Q_2(x) &amp;= 2(x-2)(x^2+2x+3)
 have such a common factor. But, for
 <md>
 <mrow>
-P(x) &amp;= 2(x-3)(x-4)(x^2+x+1) 
+P(x) &amp;= 2(x-3)(x-4)(x^2+x+1)
 </mrow><mrow>
-Q_1(x) &amp;= 2(x-1)(x^2+2x+2) 
+Q_1(x) &amp;= 2(x-1)(x^2+2x+2)
 </mrow><mrow>
 Q_2(x) &amp;= 2(x-2)(x^2+x+1)
 </mrow>
@@ -2062,9 +2052,9 @@ Q_2(x) &amp;= 2(x-2)(x^2+x+1)
 <lemma xml:id="lemPFtwoFactors">
 <statement><p>
 Let <m>P(x)</m>, <m>Q_1(x)</m> and <m>Q_2(x)</m> be polynomials with real coefficients and
-with <m>\deg(P)\lt\deg(Q_1Q_2)</m>. Assume that no two of <m>P(x)</m>, <m>Q_1(x)</m> and  
-<m>Q_2(x)</m>  have a common linear or quadratic factor. Then there are 
-polynomials <m>P_1,\ P_2</m> with <m>\deg(P_1)\lt\deg(Q_1)</m>, <m>\deg(P_2)\lt\deg(Q_2)</m>, 
+with <m>\deg(P)\lt\deg(Q_1Q_2)</m>. Assume that no two of <m>P(x)</m>, <m>Q_1(x)</m> and
+<m>Q_2(x)</m>  have a common linear or quadratic factor. Then there are
+polynomials <m>P_1,\ P_2</m> with <m>\deg(P_1)\lt\deg(Q_1)</m>, <m>\deg(P_2)\lt\deg(Q_2)</m>,
 and
 <md>
 <mrow>
@@ -2079,7 +2069,7 @@ and
 We are to find polynomials <m>P_1</m> and <m>P_2</m> that obey
 <md>
 <mrow>
-P(x) = P_1(x)\,Q_2(x) + P_2(x)\,Q_1(x) 
+P(x) = P_1(x)\,Q_2(x) + P_2(x)\,Q_1(x)
 </mrow>
 </md>
 Actually, we are going to find polynomials <m>p_1</m> and <m>p_2</m> that obey
@@ -2089,16 +2079,16 @@ p_1(x)\,Q_1(x) +p_2(x)\,Q_2(x) = C
 </mrow>
 </mdn>
 for some nonzero constant <m>C</m>, and then just multiply <xref ref="eq_INTponeptwo"/> by <m>\frac{P(x)}{C}</m>.
-To find <m>p_1</m>, <m>p_2</m> and <m>C</m> we are going to use something called the 
+To find <m>p_1</m>, <m>p_2</m> and <m>C</m> we are going to use something called the
 Euclidean algorithm. It is an algorithm<fn>It appears in Euclid's Elements, which was written about 300 BC, and it was probably known even before that.</fn> that is used to efficiently find the greatest common divisors of two numbers. Because <m>Q_1(x)</m> and <m>Q_2(x)</m>
 have no common factors of degree <m>1</m> or <m>2</m>, their ``greatest common divisor''
 has degree <m>0</m>, i.e. is a constant.
 
 <ul>
 <li>
-The first step is to apply long division to <m>\frac{Q_1(x)}{Q_2(x)}</m> 
+The first step is to apply long division to <m>\frac{Q_1(x)}{Q_2(x)}</m>
 to find polynomials <m>n_0(x)</m>
-and <m>r_0(x)</m> such that 
+and <m>r_0(x)</m> such that
 <md>
 <mrow>
 \frac{Q_1(x)}{Q_2(x)} = n_0(x) +\frac{r_0(x)}{Q_2(x)}\qquad
@@ -2114,8 +2104,8 @@ Q_1(x) = n_0(x)\,Q_2(x) + r_0(x)\qquad
 </md>
 </li>
 <li>
-The second step is to apply long division to <m>\frac{Q_2(x)}{r_0(x)}</m> 
-to find polynomials <m>n_1(x)</m> and <m>r_1(x)</m> such that 
+The second step is to apply long division to <m>\frac{Q_2(x)}{r_0(x)}</m>
+to find polynomials <m>n_1(x)</m> and <m>r_1(x)</m> such that
 <md>
 <mrow>
 Q_2(x) = n_1(x)\,r_0(x) + r_1(x)\qquad
@@ -2124,9 +2114,9 @@ Q_2(x) = n_1(x)\,r_0(x) + r_1(x)\qquad
 </md>
 </li>
 <li>
-The third step (assuming that <m>r_1(x)</m> was not zero) is to apply long division 
-to <m>\frac{r_0(x)}{r_1(x)}</m> to find polynomials <m>n_2(x)</m> 
-and <m>r_2(x)</m> such that 
+The third step (assuming that <m>r_1(x)</m> was not zero) is to apply long division
+to <m>\frac{r_0(x)}{r_1(x)}</m> to find polynomials <m>n_2(x)</m>
+and <m>r_2(x)</m> such that
 <md>
 <mrow>
 r_0(x) = n_2(x)\,r_1(x) + r_2(x)\qquad
@@ -2143,31 +2133,31 @@ That is, we choose <m>\ell</m> to be index of the last nonzero remainder.
 Here is a summary of all of the long division steps.
 <md>
 <mrow>
-Q_1(x)&amp;=n_0(x)\, Q_2(x) + r_0(x)\qquad 
+Q_1(x)&amp;=n_0(x)\, Q_2(x) + r_0(x)\qquad
              &amp;&amp;\text{with }\deg(r_0)\lt\deg(Q_2)
 </mrow><mrow>
-Q_2(x)&amp;=n_1(x)\, r_0(x) + r_1(x)\qquad 
-             &amp;&amp;\text{with }\deg(r_1)\lt\deg(r_0) 
+Q_2(x)&amp;=n_1(x)\, r_0(x) + r_1(x)\qquad
+             &amp;&amp;\text{with }\deg(r_1)\lt\deg(r_0)
 </mrow><mrow>
-r_0(x)&amp;=n_2(x)\,r_1(x)+r_2(x)\qquad 
-            &amp;&amp;\text{with }\deg(r_2)\lt\deg(r_1) 
+r_0(x)&amp;=n_2(x)\,r_1(x)+r_2(x)\qquad
+            &amp;&amp;\text{with }\deg(r_2)\lt\deg(r_1)
 </mrow><mrow>
-r_1(x)&amp;=n_3(x)\,r_2(x)+r_3(x)\qquad 
-            &amp;&amp;\text{with }\deg(r_3)\lt\deg(r_2) 
+r_1(x)&amp;=n_3(x)\,r_2(x)+r_3(x)\qquad
+            &amp;&amp;\text{with }\deg(r_3)\lt\deg(r_2)
 </mrow><mrow>
-&amp;\ \ \vdots 
+&amp;\ \ \vdots
 </mrow><mrow>
-r_{\ell-2}(x)&amp;=n_\ell(x)\,r_{\ell-1}(x)+r_\ell(x)\qquad 
-            &amp;&amp;\text{with }\deg(r_\ell)\lt\deg(r_{\ell-1}) 
+r_{\ell-2}(x)&amp;=n_\ell(x)\,r_{\ell-1}(x)+r_\ell(x)\qquad
+            &amp;&amp;\text{with }\deg(r_\ell)\lt\deg(r_{\ell-1})
 </mrow><mrow>
-r_{\ell-1}(x)&amp;=n_{\ell+1}(x)\,r_\ell(x)+r_{\ell+1}(x)\qquad 
+r_{\ell-1}(x)&amp;=n_{\ell+1}(x)\,r_\ell(x)+r_{\ell+1}(x)\qquad
             &amp;&amp;\text{with }r_{\ell+1}=0
 </mrow>
 </md>
 Now we are going to take a closer look at all of the different remainders that we have generated.
 <ul>
 <li>
-From first long division step, namely 
+From first long division step, namely
 <m>Q_1(x) = n_0(x)\,Q_2(x) + r_0(x)</m>
 we have that the remainder
 <md>
@@ -2189,19 +2179,19 @@ we have that the remainder
           =A_1(x)\,Q_1(x)+B_1(x)\,Q_2(x)
 </mrow>
 </md>
-with <m>A_1(x) =-n_1(x)</m> and <m>B_1(x) = 1+n_0(x)\,n_1(x)</m>. 
+with <m>A_1(x) =-n_1(x)</m> and <m>B_1(x) = 1+n_0(x)\,n_1(x)</m>.
 </li>
 <li>
 From the third long division step (assuming that <m>r_1(x)</m> was not zero),
 namely <m>r_0(x)=n_2(x)\,r_1(x)+r_2(x)</m>, we have that the remainder
 <md>
 <mrow>
-r_2(x)&amp;=r_0(x)-n_2(x)\,r_1(x) 
+r_2(x)&amp;=r_0(x)-n_2(x)\,r_1(x)
 </mrow><mrow>
 &amp;=\big[Q_1(x)-n_0(x)\,Q_2(x)\big]
              -n_2(x)\big[A_1(x)\,Q_1(x)+B_1(x)\,Q_2(x)\big]
 </mrow><mrow>
-      &amp;=A_2(x)\,Q_1(x)+B_2(x)\,Q_2(x) 
+      &amp;=A_2(x)\,Q_1(x)+B_2(x)\,Q_2(x)
 </mrow>
 </md>
 with <m>A_2(x)= 1-n_2(x)\,A_1(x)</m> and <m>B_2(x) = -n_0(x)-n_2(x)\,B_1(x)</m>.
@@ -2209,7 +2199,7 @@ with <m>A_2(x)= 1-n_2(x)\,A_1(x)</m> and <m>B_2(x) = -n_0(x)-n_2(x)\,B_1(x)</m>.
 <li>
 And so on. Continuing in this way, we conclude that the final nonzero remainder
 <m>r_\ell(x)=A_\ell(x)\,Q_1(x)+B_\ell(x)\,Q_2(x)</m> for some polynomials <m>A_\ell</m>
-and <m>B_\ell</m>. 
+and <m>B_\ell</m>.
 </li>
 </ul>
 Now the last nonzero remainder <m>r_\ell(x)</m> has to be a nonzero constant <m>C</m> because
@@ -2222,58 +2212,58 @@ if <m>r_\ell(x)</m> were a polynomial of degree at least one, then
 </li>
 <ul>
 <li>
-<m>r_\ell(x)</m> would be a factor of <m>r_{\ell-1}(x)</m> because 
+<m>r_\ell(x)</m> would be a factor of <m>r_{\ell-1}(x)</m> because
           <m>r_{\ell-1}(x)=n_{\ell+1}(x)\,r_\ell(x)</m> and
 </li>
 <li>
-<m>r_\ell(x)</m> would be a factor of <m>r_{\ell-2}(x)</m> because 
+<m>r_\ell(x)</m> would be a factor of <m>r_{\ell-2}(x)</m> because
           <m>r_{\ell-2}(x)=n_\ell(x)\,r_{\ell-1}(x)+r_\ell(x)</m> and
 </li>
 <li>
- <m>r_\ell(x)</m> would be a factor of <m>r_{\ell-3}(x)</m> because 
+ <m>r_\ell(x)</m> would be a factor of <m>r_{\ell-3}(x)</m> because
           <m>r_{\ell-3}(x)=n_{\ell-1}(x)\,r_{\ell-2}(x)+r_{\ell-1}(x)</m> and
 </li>
 <li>
  <m>\cdots</m> and <m>\cdots</m>
 </li>
 <li>
- <m>r_\ell(x)</m> would be a factor of <m>r_1(x)</m> because 
+ <m>r_\ell(x)</m> would be a factor of <m>r_1(x)</m> because
           <m>r_1(x)=n_3(x)\,r_2(x)+r_3(x)</m> and
 </li>
 <li>
- <m>r_\ell(x)</m> would be a factor of <m>r_0(x)</m> because 
+ <m>r_\ell(x)</m> would be a factor of <m>r_0(x)</m> because
           <m>r_0(x)=n_2(x)\,r_1(x)+r_2(x)</m> and
 </li>
 <li>
- <m>r_\ell(x)</m> would be a factor of <m>Q_2(x)</m> because 
+ <m>r_\ell(x)</m> would be a factor of <m>Q_2(x)</m> because
           <m>Q_2(x)=n_1(x)\,r_0(x)+r_1(x)</m> and
 </li>
 <li>
- <m>r_\ell(x)</m> would be a factor of <m>Q_1(x)</m> because 
+ <m>r_\ell(x)</m> would be a factor of <m>Q_1(x)</m> because
           <m>Q_1(x)=n_0(x)\,Q_2(x)+r_0(x)</m>
 </li>
 </ul>
 <li>
 so that <m>r_\ell(x)</m> would be a common factor for <m>Q_1(x)</m> and <m>Q_2(x)</m>,
-in contradiction to the hypothesis that no two of <m>P(x)</m>, <m>Q_1(x)</m> and  
-<m>Q_2(x)</m>  have a common linear or quadratic factor. 
+in contradiction to the hypothesis that no two of <m>P(x)</m>, <m>Q_1(x)</m> and
+<m>Q_2(x)</m>  have a common linear or quadratic factor.
 </li>
 </ul>
-We now have that 
+We now have that
          <m>A_\ell(x)\,Q_1(x)+B_\ell(x)\,Q_2(x)=r_\ell(x)=C</m>.
 Multiplying by <m>\frac{P(x)}{C}</m> gives
 <md>
 <mrow>
 \tilde P_2(x)\,Q_1(x)+\tilde P_1(x)\,Q_2(x)=P(x)\quad\text{or}\quad
-\frac{\tilde P_1(x)}{Q_1(x)} +\frac{\tilde P_2(x)}{Q_2(x)} 
+\frac{\tilde P_1(x)}{Q_1(x)} +\frac{\tilde P_2(x)}{Q_2(x)}
                                       =\frac{P(x)}{Q_1(x)\,Q_2(x)}
 </mrow>
 </md>
-with <m>\tilde P_2(x)=\frac{P(x)\,A_\ell(x)}{C}</m> and 
+with <m>\tilde P_2(x)=\frac{P(x)\,A_\ell(x)}{C}</m> and
      <m>\tilde P_1(x)=\frac{P(x)\,B_\ell(x)}{C}</m>.
 We're not quite done, because there is still the danger that
 <m>\deg(\tilde P_1)\ge \deg(Q_1)</m>  or <m>\deg(\tilde P_2)\ge \deg(Q_2)</m>.
-To deal with that possibility, we long divide <m>\frac{\tilde P_1(x)}{Q_1(x)}</m> 
+To deal with that possibility, we long divide <m>\frac{\tilde P_1(x)}{Q_1(x)}</m>
 and call the remainder <m>P_1(x)</m>.
 <md>
 <mrow>
@@ -2285,7 +2275,7 @@ Therefore we have that
 <md>
 <mrow>
 \frac{P(x)}{Q_1(x)\,Q_2(x)}
-&amp;=\frac{P_1(x)}{Q_1(x)} +N(x) +\frac{\tilde P_2(x)}{Q_2(x)} 
+&amp;=\frac{P_1(x)}{Q_1(x)} +N(x) +\frac{\tilde P_2(x)}{Q_2(x)}
 </mrow><mrow>
 &amp;=\frac{P_1(x)}{Q_1(x)} +\frac{\tilde P_2(x)+N(x)Q_2(x)}{Q_2(x)}
 </mrow>
@@ -2295,18 +2285,18 @@ Denoting <m>P_2(x)=\tilde P_2(x)+N(x)Q_2(x)</m> gives
 \frac{P}{Q_1\,Q_2}
 =\frac{P_1}{Q_1} +\frac{P_2}{Q_2}
 </m>
-and since <m>\deg(P_1)\lt\deg(Q_1)</m>, the only thing left to prove is that <m>\deg(P_2)\lt\deg(Q_2)</m>. 
+and since <m>\deg(P_1)\lt\deg(Q_1)</m>, the only thing left to prove is that <m>\deg(P_2)\lt\deg(Q_2)</m>.
 
 We assume that <m>\deg(P_2)\ge\deg(Q_2)</m> and look for a contradiction.
-We have 
+We have
 <md>
 <mrow>
-&amp;\deg(P_2Q_1)\ge\deg(Q_1Q_2)\gt\deg(P_1Q_2) 
+&amp;\deg(P_2Q_1)\ge\deg(Q_1Q_2)\gt\deg(P_1Q_2)
 </mrow><mrow>
 &amp;\implies \deg(P)=\deg(P_1Q_2+P_2Q_1)=\deg(P_2Q_1)\ge\deg(Q_1Q_2)
 </mrow>
 </md>
-which contradicts the hypothesis that <m>\deg(P)\lt\deg(Q_1Q_2)</m> and the proof is 
+which contradicts the hypothesis that <m>\deg(P)\lt\deg(Q_1Q_2)</m> and the proof is
 complete.
 </p>
 </proof>
@@ -2316,10 +2306,10 @@ and <m>\frac{P(x)}{{(x^2+bx+c)}^m}</m>.
 </p>
 <lemma xml:id="lemPFpower">
 <statement><p>
-Let <m>m\ge 2</m> be an integer, and let <m>Q(x)</m> be either <m>x-a</m> or <m>x^2+bx+c</m>, with <m>a</m>, <m>b</m> and <m>c</m> being real numbers. 
+Let <m>m\ge 2</m> be an integer, and let <m>Q(x)</m> be either <m>x-a</m> or <m>x^2+bx+c</m>, with <m>a</m>, <m>b</m> and <m>c</m> being real numbers.
 Let <m>P(x)</m> be a polynomial with real coefficients, which does not contain <m>Q(x)</m> as a factor, and
 with <m>\deg(P)\lt\deg(Q^m)=m\deg(Q)</m>. Then, for each <m>1\le i\le m</m>, there is a
-polynomial <m>P_i</m> with <m>\deg(P_i)\lt\deg(Q)</m> or <m>P_i=0</m>, such that 
+polynomial <m>P_i</m> with <m>\deg(P_i)\lt\deg(Q)</m> or <m>P_i=0</m>, such that
 <md>
 <mrow>
 \frac{P(x)}{Q(x)^m}
@@ -2328,7 +2318,7 @@ polynomial <m>P_i</m> with <m>\deg(P_i)\lt\deg(Q)</m> or <m>P_i=0</m>, such that
 </mrow>
 </md>
 In particular, if <m>Q(x) =x-a</m>, then each <m>P_i(x)</m> is just a constant <m>A_i</m>,
-and if  <m>Q(x) =x^2+bx+c</m>, then each <m>P_i(x)</m> is a polynomial 
+and if  <m>Q(x) =x^2+bx+c</m>, then each <m>P_i(x)</m> is a polynomial
 <m>B_i x+ C_i</m> of degree at most one.
 </p></statement>
 </lemma>
@@ -2339,15 +2329,15 @@ and if  <m>Q(x) =x^2+bx+c</m>, then each <m>P_i(x)</m> is a polynomial
 <mrow>
 \frac{P(x)}{Q(x)^m}
 &amp;=\frac{P(x)}{Q(x)}\,\frac{1}{Q(x)^{m-1}}
-=\left\{n_1(x) + \frac{r_1(x)}{Q(x)}\right\}\frac{1}{Q(x)^{m-1}} 
+=\left\{n_1(x) + \frac{r_1(x)}{Q(x)}\right\}\frac{1}{Q(x)^{m-1}}
 </mrow><mrow>
 &amp;= \frac{r_1(x)}{Q(x)^m}+\frac{n_1(x)}{Q(x)}\,\frac{1}{Q(x)^{m-2}}
 </mrow><mrow>
 &amp;= \frac{r_1(x)}{Q(x)^m}
- +\left\{n_2(x) + \frac{r_2(x)}{Q(x)}\right\}\frac{1}{Q(x)^{m-2}} 
+ +\left\{n_2(x) + \frac{r_2(x)}{Q(x)}\right\}\frac{1}{Q(x)^{m-2}}
 </mrow><mrow>
-&amp;= \frac{r_1(x)}{Q(x)^m} + 
-  \frac{r_2(x)}{Q(x)^{m-1}}+\frac{n_2(x)}{Q(x)}\,\frac{1}{Q(x)^{m-3}} 
+&amp;= \frac{r_1(x)}{Q(x)^m} +
+  \frac{r_2(x)}{Q(x)^{m-1}}+\frac{n_2(x)}{Q(x)}\,\frac{1}{Q(x)^{m-3}}
 </mrow><mrow>
 &amp;\ \ \vdots
 </mrow><mrow>
@@ -2362,18 +2352,18 @@ and if  <m>Q(x) =x^2+bx+c</m>, then each <m>P_i(x)</m> is a polynomial
 </mrow><mrow>
 &amp;=   \frac{r_1(x)}{Q(x)^m} + \frac{r_2(x)}{Q(x)^{m-1}} +\cdots+
       \frac{r_{m-2}(x)}{Q(x)^3}+\frac{r_{m-1}(x)}{Q(x)^2}
-       +\frac{n_{m-1}(x)}{Q(x)} 
+       +\frac{n_{m-1}(x)}{Q(x)}
 </mrow>
 </md>
 By the rules of long division every <m>\deg(r_i)\lt\deg(Q)</m>.
-It is also true that the final numerator, <m>n_{m-1}</m>, has 
-<m>\deg(n_{m-1})\lt\deg(Q)</m> <mdash/> that is, we kept dividing by <m>Q</m> until the degree of the quotient was less than the degree of <m>Q</m>. To see this, note that 
+It is also true that the final numerator, <m>n_{m-1}</m>, has
+<m>\deg(n_{m-1})\lt\deg(Q)</m> <mdash/> that is, we kept dividing by <m>Q</m> until the degree of the quotient was less than the degree of <m>Q</m>. To see this, note that
 <m>\deg(P)\lt m\deg(Q)</m> and
 <md>
 <mrow>
-\deg(n_1) &amp;= \deg(P)-\deg(Q) 
+\deg(n_1) &amp;= \deg(P)-\deg(Q)
 </mrow><mrow>
-\deg(n_2) &amp;= \deg(n_1)-\deg(Q)= \deg(P)-2\deg(Q) 
+\deg(n_2) &amp;= \deg(n_1)-\deg(Q)= \deg(P)-2\deg(Q)
 </mrow><mrow>
 &amp;\ \ \vdots
 </mrow><mrow>
@@ -2382,16 +2372,16 @@ It is also true that the final numerator, <m>n_{m-1}</m>, has
               &amp;=\deg(Q)
 </mrow>
 </md>
-So, if <m>\deg(Q)=1</m>, then <m>r_1, r_2, \ldots, r_{m-1}, n_{m-1}</m> are all 
+So, if <m>\deg(Q)=1</m>, then <m>r_1, r_2, \ldots, r_{m-1}, n_{m-1}</m> are all
 real numbers, and if <m>\deg(Q)=2</m>, then
 <m>r_1, r_2, \ldots, r_{m-1}, n_{m-1}</m> all have degree at most one.
 </p>
 </proof>
 <p>
 We are now in a position to get Equation<nbsp/><xref ref="eq_PFdecompd"/>.
-We use <xref ref="eq_INTfactD"/> to factor<fn>This is assuming that there is at least one 
+We use <xref ref="eq_INTfactD"/> to factor<fn>This is assuming that there is at least one
 linear factor. If not, we factor
-<m>D(x) = (x^2+b_1x + c_1)^{n_1} Q_2(x)</m> instead.</fn> 
+<m>D(x) = (x^2+b_1x + c_1)^{n_1} Q_2(x)</m> instead.</fn>
 <m>D(x)= (x-a_1)^{m_1} Q_2(x)</m>
 and use Lemma <xref ref="lemPFtwoFactors"/> to get
 <md>
@@ -2401,7 +2391,7 @@ and use Lemma <xref ref="lemPFtwoFactors"/> to get
    + \frac{P_2(x)}{Q_2(x)}
 </mrow>
 </md>
-where <m>\deg(P_1)\lt m_1</m>, and <m>\deg(P_2)\lt\deg(Q_2)</m>. Then we use 
+where <m>\deg(P_1)\lt m_1</m>, and <m>\deg(P_2)\lt\deg(Q_2)</m>. Then we use
 Lemma Lemma <xref ref="lemPFpower"/> to get
 <md>
 <mrow>
@@ -2412,8 +2402,8 @@ Lemma Lemma <xref ref="lemPFpower"/> to get
    + \frac{P_2(x)}{Q_2(x)}
 </mrow>
 </md>
-We continue working on <m>\frac{P_2(x)}{Q_2(x)}</m> in this way, 
-pulling off of the denominator one <m>(x-a_i)^{m_i}</m> or one 
+We continue working on <m>\frac{P_2(x)}{Q_2(x)}</m> in this way,
+pulling off of the denominator one <m>(x-a_i)^{m_i}</m> or one
 <m>(x^2+b_ix + c_i)^{n_i}</m> at a time,
 until we exhaust all of the factors in the denominator <m>D(x)</m>.
 </p>
