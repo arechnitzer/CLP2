@@ -468,16 +468,21 @@ See solution.
 \begin{solution}
 The terms of this series are sometimes negative and sometimes positive. But, they are not strictly alternating, so we can't use the alternating series test. Instead, we use a direct comparison test to show the series converges absolutely.
 
+%\begin{align*}
+%0&\leq \sin^2 n \le 1\\
+%0&\leq \cos^2 n \le 1\\
+%\text{So,}\qquad -1&\leq \sin^2 n - \cos^2 n \le 1\\
+%-\frac12=\left(-1+\frac12\right)&\leq \left(\sin^2 n - \cos^2 n+\frac12\right) \le \left(1+\frac12\right)=\frac32\\
+%-\frac{1}{2}\cdot \frac{ 1}{2^n}&\leq \frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n} \le \frac{3}{2}\cdot\frac{1}{2^n}\\
+%0&\leq \left|\frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}\right| \le \frac{3}{2^{n+1}}
+%\end{align*}
 \begin{align*}
-0&\leq \sin^2 n \le 1\\
-0&\leq \cos^2 n \le 1\\
-\text{So,}\qquad -1&\leq \sin^2 n - \cos^2 n \le 1\\
--\frac12=\left(-1+\frac12\right)&\leq \left(\sin^2 n - \cos^2 n+\frac12\right) \le \left(1+\frac12\right)=\frac32\\
--\frac{1}{2}\cdot \frac{ 1}{2^n}&\leq \frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n} \le \frac{3}{2}\cdot\frac{1}{2^n}\\
-0&\leq \left|\frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}\right| \le \frac{3}{2^{n+1}}
+\left|\frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}\right| 
+\le\frac{1 + 1 +\tfrac12}{2^n}
+=\frac{5}{2^{n+1}}
 \end{align*}
 
-The series $\displaystyle\sum_{n=1}^\infty \frac{3}{2^{n+1}}$ converges, because it's a geometric series with $r=\frac{1}{2}$. By the direct comparison test,
+The series $\displaystyle\sum_{n=1}^\infty \frac{5}{2^{n+1}}$ converges, because it's a geometric series with $r=\frac{1}{2}$. By the direct comparison test,
 $\displaystyle\sum_{n=1}^\infty \left|\frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}\right| $ converges as well. Then $\displaystyle\sum_{n=1}^\infty \frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}$ converges absolutely, so it converges.
 
 \end{solution}
