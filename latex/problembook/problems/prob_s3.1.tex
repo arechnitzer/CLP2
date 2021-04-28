@@ -174,7 +174,7 @@ This gives us the idea to modify an answer from Question~\ref{prob_s3.1:alternat
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 \begin{Mquestion}
-The limits of the sequences below can be evaluated using the squeeze theorem. For each sequence, choose an upper bounding sequence and lower bounding sequence that will work with the squeeze theorem. You do not have to evaluate the limits.
+The limits of the sequences below can be evaluated using the squeeze theorem. For each sequence, choose an upper bounding sequence and lower bounding sequence that will work with the squeeze theorem.
 \begin{enumerate}[(a)]
 \item $a_n = \dfrac{\sin n}{n}$
 \item $b_n = \dfrac{n^2}{e^n(7+\sin n - 5\cos n)}$
@@ -515,7 +515,7 @@ b_n &= \dfrac{\sqrt[4]{n}+1}{\sqrt{9n+3}}\left(\dfrac{\frac{1}{\sqrt n}}{\frac{1
 
 \begin{Mquestion}
 Determine the limit of the sequence
-$c_n = \dfrac{\sin n}{n}$.
+$c_n = \dfrac{\cos(n+n^2)}{n}$.
 \end{Mquestion}
 \begin{hint}
 Use the squeeze theorem.
@@ -527,7 +527,7 @@ Use the squeeze theorem.
 First, let's start with a  tempting fallacy.
 \begin{quote}\color{red}
 The denominator grows without bound, so
-$\lim\limits_{n \to \infty}\dfrac{\sin n}{n}=0$.
+$\lim\limits_{n \to \infty}\dfrac{\cos(n+n^2)}{n}=0$.
 \end{quote}
 
 It's certainly true that \emph{if the limit of the numerator is a real number}, and the denominator grows without bound, then the limit of the sequence is zero. However, in our case, the limit of the numerator does not exist. To apply the limit arithmetic rules from the CLP-2 text (Theorem~\eref{CLP101}{thm:SRlimarith}), our limits must actually exist.
@@ -535,15 +535,16 @@ It's certainly true that \emph{if the limit of the numerator is a real number}, 
 A better reasoning looks something like this:
 \begin{quote}\color{red}
 The denominator grows without bound, and the numerator never gets very large, so
-$\lim\limits_{n \to \infty}\dfrac{\sin n}{n}=0$.
+$\lim\limits_{n \to \infty}\dfrac{\cos(n+n^2)}{n}=0$.
 \end{quote}
 
 To quantify this reasoning more precisely, we use the squeeze theorem, Theorem~\eref{CLP101}{thm:SRsqueeze} in the CLP-2 text. There are two parts to the squeeze theorem: finding two bounding functions, and making sure these functions have the same limit.
 \begin{itemize}
-\item Since $-1\leq \sin n \leq 1$ for all $n$, we choose functions $a_n = \frac{-1}{n}$ and $b_n = \frac{1}{n}$.  Then $a_n \leq c_n \leq b_n$ for all $n$.
+\item Since $-1\leq \cos(n+n^2)\leq 1$ for all $n$, we choose functions $a_n = \frac{-1}{n}$ and $b_n = \frac{1}{n}$.  Then $a_n \leq c_n \leq b_n$ for all $n$.
 \item Both $\lim\limits_{n \to \infty}a_n=0$ and  $\lim\limits_{n \to \infty}b_n=0$.
 \end{itemize}
-So, by the squeeze theorem, $\lim\limits_{n \to \infty}\dfrac{\sin n}{n}=0$.
+So, by the squeeze theorem, 
+$\lim\limits_{n \to \infty}\dfrac{\cos(n+n^2)}{n}=0$.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 
@@ -563,7 +564,7 @@ The denominator of this sequence grows without bound. The numerator is unpredict
 
 To control for these variations, we'll use the squeeze theorem.
 \begin{itemize}
-\item Since $-1 \leq \sin n \leq n$ for all $n$, let $b_n = \frac{n^{-1}}{n^2} = \frac{1}{n^3}$ and
+\item Since $-1 \leq \sin n \leq 1$ for all $n$, let $b_n = \frac{n^{-1}}{n^2} = \frac{1}{n^3}$ and
 $c_n = \frac{n}{n^2}=\frac{1}{n}$. Then $b_n \leq a_n \leq c_n$.
 \item Both $\lim\limits_{n \to \infty}b_n=0$ and $\lim\limits_{n \to \infty}c_n=0$.
 \end{itemize}

@@ -206,20 +206,55 @@ First, we'll develop some intuition. For very large $n$
 = \left|\frac{\cos(n)}{n^{3/2}}\right|
 \le \frac{1}{n^{3/2}}
 \end{align*}
-since $\left|\cos(n)\right| \leq 1$ for all $n$. By the $p$--test, the series
+since $\left|\cos(n)\right| \leq 1$ for all $n$. By the $p$-test, 
+which is in Example~\eref{CLP101}{eg:SRpTest} in the CLP-2 text, the series
 $\displaystyle \sum_{n=5}^\infty \frac{1}{n^p}$ converges for all $p>1$. So we would
 expect the given series to converge absolutely.
 
-Now, to confirm that our intuition is correct, we'll first try setting
-$a_n=\left| \frac{\sqrt{n}\cos(n)}{n^2-1}\right|$
+Now, to confirm that our intuition is correct, we'll first try the limit comparison theorem, which is Theorem~\eref{CLP101}{thm:SRlimitComparison} 
+in the CLP-2 text, with $a_n=\left| \frac{\sqrt{n}\cos(n)}{n^2-1}\right|$
 and $b_n = \frac{1}{n^{3/2}}$.
 \begin{align*}
 \lim_{n \to \infty}\frac{a_n}{b_n}&=\lim_{n \to \infty} \frac{\left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right| }{\frac{1}{n^{3/2}}} = \lim_{n \to \infty}\frac{\sqrt{n}\cdot\sqrt{n}^3|\cos n|}{n^2-1}\\
-&=\lim_{n \to \infty}\frac{n^2|\cos n|}{n^2-1} = \lim_{n \to \infty}\left(\frac{n^2}{n^2-1}\right)|\cos n|\\
+&=\lim_{n \to \infty}\frac{n^2|\cos n|}{n^2-1} = \lim_{n \to \infty}\left(\frac{1}{1-1/n^2}\right)|\cos n|\\
 & = \lim_{n \to \infty}1\cdot|\cos n|
 \end{align*}
-Unfortunately, this limit doesn't exist, so we can't use the limit comparison theorem. We'll need a slightly different tactic.
+Unfortunately, this limit doesn't exist, so this attempt to use the limit comparison theorem has failed. Fortunately, having seen that the $\cos n$ caused the failure, it is not hard to adjust our strategy to get a successful proof of absolute convergence. First, in step 1 below, we use the comparison test to eliminate the $\cos n$ and then, in step 2 below, we apply the limit comparison 
+test.
+\begin{description}
+\item[Step 1:] Since $|\cos n|\le 1$, we have
+\begin{equation*}
+\left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right|
+\le \frac{\sqrt{n}}{n^2-1}
+\end{equation*} 
+for all $n> 1$. So, by part (a) of the comparison test, which is
+Theorem~\eref{CLP101}{thm:SRcomparisonTest} in the CLP-2 text, if
+the series $\displaystyle \sum_{n=5}^\infty \frac{\sqrt{n}}{n^2-1}$ converges, 
+then we will have that the series 
+$\displaystyle \sum_{n=5}^\infty \left|\frac{\sqrt{n}\cos(n)}{n^2-1}\right|$ also converges, and hence that the series
+$\displaystyle \sum_{n=5}^\infty \frac{\sqrt{n}\cos(n)}{n^2-1}$ converges absolutely.
 
+\item[Step 2:]
+Now, to prove that the series 
+$\displaystyle \sum_{n=5}^\infty \frac{\sqrt{n}}{n^2-1}$ converges,  
+we apply the limit comparison test with $a_n=\frac{\sqrt{n}}{n^2-1}$ 
+and $b_n = \frac{1}{n^{3/2}}$ (for $n\ge 5$). Since 
+\begin{align*}
+\lim_{n \to \infty}\frac{a_n}{b_n}
+&=\lim_{n \to \infty} \frac{\frac{\sqrt{n}}{n^2-1}}{\frac{1}{n^{3/2}}} 
+= \lim_{n \to \infty}\frac{\sqrt{n}\cdot\sqrt{n}^3}{n^2-1}\\
+&=\lim_{n \to \infty}\frac{n^2}{n^2-1} 
+= \lim_{n \to \infty}\frac{1}{1-1/n^2}\\
+& = 1
+\end{align*}
+and since $\displaystyle \sum_{n=5}^\infty \frac{1}{n^{3/2}}$ converges by the 
+$p$-test, the limit comparison test tells us that the series 
+$\displaystyle\sum_{n=5}^\infty \frac{\sqrt{n}}{n^2-1}$ converges. So, 
+by step 1, $\displaystyle\sum_{n=5}^\infty \frac{\sqrt{n}\cos(n)}{n^2-1}$ 
+converges absolutely.
+\end{description}
+
+\begin{comment}
 \begin{description}
 \item[Solution 1:] Let's try the limit comparison test with a different $p$--series. The question is, which one. Let's start by leaving $p$ as a variable, then see what happens.
 
@@ -257,6 +292,7 @@ where the final inequality holds for all $n \ge 2$.
 
 Since $\sum\limits_{n=1}^\infty \frac{2}{n^{3/2}}$ converges by the $p$-test, our series  converges as well by the direct comparison test.
 \end{description}
+\end{comment}
 \end{solution}
 
 
@@ -432,16 +468,21 @@ See solution.
 \begin{solution}
 The terms of this series are sometimes negative and sometimes positive. But, they are not strictly alternating, so we can't use the alternating series test. Instead, we use a direct comparison test to show the series converges absolutely.
 
+%\begin{align*}
+%0&\leq \sin^2 n \le 1\\
+%0&\leq \cos^2 n \le 1\\
+%\text{So,}\qquad -1&\leq \sin^2 n - \cos^2 n \le 1\\
+%-\frac12=\left(-1+\frac12\right)&\leq \left(\sin^2 n - \cos^2 n+\frac12\right) \le \left(1+\frac12\right)=\frac32\\
+%-\frac{1}{2}\cdot \frac{ 1}{2^n}&\leq \frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n} \le \frac{3}{2}\cdot\frac{1}{2^n}\\
+%0&\leq \left|\frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}\right| \le \frac{3}{2^{n+1}}
+%\end{align*}
 \begin{align*}
-0&\leq \sin^2 n \le 1\\
-0&\leq \cos^2 n \le 1\\
-\text{So,}\qquad -1&\leq \sin^2 n - \cos^2 n \le 1\\
--\frac12=\left(-1+\frac12\right)&\leq \left(\sin^2 n - \cos^2 n+\frac12\right) \le \left(1+\frac12\right)=\frac32\\
--\frac{1}{2}\cdot \frac{ 1}{2^n}&\leq \frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n} \le \frac{3}{2}\cdot\frac{1}{2^n}\\
-0&\leq \left|\frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}\right| \le \frac{3}{2^{n+1}}
+\left|\frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}\right| 
+\le\frac{1 + 1 +\tfrac12}{2^n}
+=\frac{5}{2^{n+1}}
 \end{align*}
 
-The series $\displaystyle\sum_{n=1}^\infty \frac{3}{2^{n+1}}$ converges, because it's a geometric series with $r=\frac{1}{2}$. By the direct comparison test,
+The series $\displaystyle\sum_{n=1}^\infty \frac{5}{2^{n+1}}$ converges, because it's a geometric series with $r=\frac{1}{2}$. By the direct comparison test,
 $\displaystyle\sum_{n=1}^\infty \left|\frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}\right| $ converges as well. Then $\displaystyle\sum_{n=1}^\infty \frac{\sin^2 n - \cos^2 n+\tfrac12}{2^n}$ converges absolutely, so it converges.
 
 \end{solution}
@@ -594,7 +635,7 @@ $0.000025$.
 The error in our approximation using through term $N$ is at most $\frac{1}{(2(N+1))!}$. We want $\frac{1}{(2(N+1))!}<\frac{1}{1000}$. By checking small values of $N$, we see that $8!=40320>1000$, so if $N=3$, then $\frac{1}{2(N+1)!}=\frac{1}{40320}<\frac{1}{1000}$. So, for our approximation, it suffices to consider the first four terms of our series.
 
 \begin{align*}
-\cos(2)&\approx \sum_{N=0}^3 \frac{(-1)^n}{(2n)!} = \frac{1}{0!}-\frac{1}{2!}+\frac{1}{4!}-\frac{1}{6!}\\
+\cos(1)&\approx \sum_{N=0}^3 \frac{(-1)^n}{(2n)!} = \frac{1}{0!}-\frac{1}{2!}+\frac{1}{4!}-\frac{1}{6!}\\
 &=1-\frac12+\frac{1}{24}-\frac{1}{720}\\
 &=\frac{720-360+30-1}{720}=\frac{379}{720}
 \end{align*}

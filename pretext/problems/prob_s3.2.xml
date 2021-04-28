@@ -1780,10 +1780,10 @@ s_N&amp;=\sum_{n=3}^N\left(\frac{\sin^2 n}{2^n}+\frac{\cos^2(n+1)}{2^{n+1}} \rig
 
 <exercise purpose="RQS">
 <statement><p>
-Suppose a series <m>\displaystyle\sum_{n=1}^\infty a_n</m> has sequence of partial sums <m>\{S_N\}</m>, and the series <m>\displaystyle\sum_{N=1}^\infty S_N</m> has sequence of partial sums <m>\{\mathscr S_M \}=\left\{ \displaystyle\sum_{N=1}^M S_N\right\}</m>.
+Suppose a series <m>\displaystyle\sum_{n=1}^\infty a_n</m> has sequence of partial sums <m>\{S_N\}</m>, and the series <m>\displaystyle\sum_{N=1}^\infty S_N</m> has sequence of partial sums <m>\{\mathbb{S}_M \}=\left\{ \displaystyle\sum_{N=1}^M S_N\right\}</m>.
 </p>
 
-<p>If <m>\mathscr S_M = \dfrac{M+1}{M}</m>, what is <m>a_n</m>?
+<p>If <m>\mathbb{S}_M = \dfrac{M+1}{M}</m>, what is <m>a_n</m>?
 </p></statement>
 <hint><p>
 Review Question<nbsp/><xref ref="prob_s3_2_partsums" text="local"/> for using the sequence of partial sums.
@@ -1796,13 +1796,13 @@ Review Question<nbsp/><xref ref="prob_s3_2_partsums" text="local"/> for using th
 \end{cases}</m>
 </p></answer>
 <solution><p>
-Since <m>\{\mathscr S_M\}</m> is the sequence of partial sums of <m>\displaystyle\sum_{N=1}^\infty S_N</m>, we can find <m>\{S_N\}</m> from <m>\{\mathscr S_M\}</m> as in Question<nbsp/><xref ref="prob_s3_2_partsums" text="local"/>:
+Since <m>\{\mathbb{S}_M\}</m> is the sequence of partial sums of <m>\displaystyle\sum_{N=1}^\infty S_N</m>, we can find <m>\{S_N\}</m> from <m>\{\mathbb{S}_M\}</m> as in Question<nbsp/><xref ref="prob_s3_2_partsums" text="local"/>:
 <md>
 <mrow>
-S_N&amp;=\mathscr S_{N}-\mathscr S_{N-1}=\frac{N+1}{N} - \frac{N}{N-1}=-\frac{1}{N(N-1)}
+S_N&amp;=\mathbb{S}_{N}-\mathbb{S}_{N-1}=\frac{N+1}{N} - \frac{N}{N-1}=-\frac{1}{N(N-1)}
 &amp;\text{if }N \geq 2,
 </mrow><mrow>
-S_1&amp;=\mathscr S_1 = 2
+S_1&amp;=\mathbb{S}_1 = 2
 </mrow>
 <intertext>Similarly, we find <m>\{a_n\}</m> from <m>\{S_N\}</m>. Do be careful: <m>S_N</m> only follows the formula we found above when <m>N \geq 2</m>. In the next line, we use an expression containing <m>S_{n-1}</m>; in order for the subscript to be at least two (so the formula fits), we need <m>n \geq 3</m>.</intertext>
 <mrow>

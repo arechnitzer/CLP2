@@ -537,14 +537,19 @@ lower bound:
 +e^{\nicefrac{(n-1)}{n}}\right).
 \end{align*}
 
-\item We now apply the squeeze theorem to the above inequalities. In particular, the
-limits of the lower and upper bounds are
+\item We now apply the squeeze theorem to the above inequalities. 
+In particular, the limits of the lower and upper bounds are
+$\lim_{n\rightarrow\infty}\frac{1}{n}\frac{e-1}{e^{\nicefrac{1}{n}}-1}$ and
+$\lim_{n\rightarrow\infty}\frac{1}{n}e^{\nicefrac{1}{n}}\frac{e-1}{e^{\nicefrac{1}{n}}-1}$, respectively. As we did near the end of 
+Example \ref{eg:INTexpareaB}, we make these limits look more familiar 
+by renaming $\nicefrac{1}{n}$ to $X$. As $n$ tends to infinity, 
+$X$ tends to $0$, so the limits of the lower and upper bounds are
 \begin{align*}
 \lim_{n\rightarrow\infty}\frac{1}{n}\frac{e-1}{e^{\nicefrac{1}{n}}-1}
 &=(e-1)\lim_{X=\nicefrac{1}{n}\rightarrow 0}\frac{X}{e^X-1}
 =e-1
 \end{align*}
-(by l'H\^opital's rule) and
+(by l'H\^opital's rule) and 
 \begin{align*}
 \lim_{n\rightarrow\infty}\frac{1}{n}e^{\nicefrac{1}{n}}\frac{e-1}{e^{\nicefrac{1}{n}}-1}
 &=(e-1)\lim_{X=\nicefrac{1}{n}\rightarrow 0}\cdot \frac{Xe^X}{e^X-1}\\
@@ -1180,7 +1185,7 @@ into upper and lower bounds without much extra work.
 
 More precisely, we approximate $f(x)$ on each subinterval $x_{i-1}\le x\le x_i$
 \begin{itemize}
-\item by its smallest value on the subinterval, namely $f(x_{i-i})$, when
+\item by its smallest value on the subinterval, namely $f(x_{i-1})$, when
 we compute the left Riemann sum approximation and
 
 \item by its largest value on the subinterval, namely $f(x_i)$, when we
@@ -1647,7 +1652,7 @@ also know
 that
 \begin{align*}
   f({\underline x}_j)[x_j-x_{j-1}] \leq
-f(x_j^*)[x_{j-1}-x_j] \leq f({\overline x}_j)[x_j-x_{j-1}].
+f(x_j^*)[x_j-x_{j-1}] \leq f({\overline x}_j)[x_j-x_{j-1}].
 \end{align*}
 \item So both the true area, $A_j$, and our approximation of that area
 $f(x_j^*)[x_j - x_{j-1}]$  have to lie between $f({\overline
@@ -3146,7 +3151,7 @@ $x=-1$ and $x=1$ is infinite.
 The above examples have illustrated how we can use the fundamental
 theorem of calculus to convert knowledge of derivatives into
 knowledge of integrals.
-We are now in a position to easily built a table of integrals. Here is
+We are now in a position to easily build a table of integrals. Here is
 a short table of the most important derivatives that we know.
 
 \begin{center}
@@ -3908,9 +3913,13 @@ function ``one over'' evaluated at $u=\cos x$.
 &= \log|\sec x| +C.
 \end{align*}
 \end{itemize}
-
-
 \end{eg}
+
+In all of the above substitution examples we expressed the new integration 
+variable, $u$, as a function, $u(x)$, of the old integration variable $x$. 
+It is also possible to express the old integration variable, $x$, as a 
+function, $x(u)$, of the new integration variable $u$. We shall see examples 
+of this in \S\ref{sec trigsub}. 
 
 % \begin{comment}
 \section{Area Between Curves}\label{sec area}
@@ -5463,7 +5472,7 @@ doesn't involve any trickery. But it does require the use of complex
 numbers and so is beyond the scope of this course.
 The secret is to use that $\sin x =\frac{e^{ix}-e^{-ix}}{2i}$
 and $\cos x =\frac{e^{ix}+e^{-ix}}{2}$, where $i$ is the square root of
-$-1$ of the complex number system.
+$-1$ of the complex number system. See Example \ref{eg complex calc A}.
 
 \end{itemize}
 
@@ -7205,7 +7214,7 @@ have to multiply it by $3x$. So we write,
 In the above expression, the denominator is on the left, the numerator is on the right
 and $3x$ is written above the highest order term of the numerator. Always put lower
 powers of $x$ to the right of higher powers of $x$ --- this mirrors how you do long
-division with numbers; lower powers of ten sit to the right of lower powers of ten.
+division with numbers; lower powers of ten sit to the right of higher powers of ten.
 
 \item Now we subtract $3x$ times the denominator, $x^2-3x+2$, which is $3x^3-9x^2+6x$,
 from the numerator.
@@ -8637,7 +8646,7 @@ D(x)=K(x-a_1)^{m_1}\cdots(x-a_j)^{m_j}
 (x^2+b_1x+c_1)^{n_1}\cdots(x^2+b_kx+c_k)^{n_k}
 \tag{E1}
 \end{equation*}
-(with $b_\ell^2-4 ac_\ell<0$ for all $1\le\ell\le k$ so that no 
+(with $b_\ell^2-4 c_\ell<0$ for all $1\le\ell\le k$ so that no 
 quadratic factor can be written as a product of linear factors with real coefficients) then there are real numbers $A_{i,j}$, $B_{i,j}$, $C_{i,j}$
 such that 
 \begin{align*}

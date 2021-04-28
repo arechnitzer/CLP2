@@ -1,0 +1,1117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018-2020 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<appendix  xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="ap_complex">
+  <title>Complex Numbers and Exponentials</title>
+
+
+
+<section xml:id="sec_complex_defn">
+  <title>Definition and Basic Operations</title>
+<p>
+We'll start with the definition of a complex number and its addition and multiplication rules. You may find the multiplication rule quite mysterious. Don't worry. We'll soon gets lots of practice using it and seeing how useful it is.
+</p>
+<definition xml:id="def_complex">
+<p>
+<ol label="(a)">
+<li>
+The complex plane is simply the <m>xy</m>-plane equipped with an addition operation and a multiplication operation. A complex number is nothing more than a point in that <m>xy</m>-plane.
+ It is conventional to use the notation <m>x+iy</m><fn>In electrical engineering it is coonventional to use <m>x+jy</m> instead of <m>x+iy</m>.</fn>
+to stand for the complex number <m>(x,y)</m>. In other words, it is conventional
+to write <m>x</m> in place of <m>(x,0)</m> and <m>i</m> in place of <m>(0,1)</m>.
+</li><li>
+The first component, <m>x</m>, of the complex number <m>x+iy</m>
+is called its real part and the second component, <m>y</m>, is called its 
+imaginary part, even though there is nothing imaginary<fn>Don't 
+attempt to attribute any special significance to the word <q>complex</q> in 
+<q>complex number</q>, or to the word <q>real</q> in <q>real number</q> and 
+<q>real part</q>, or to the word <q>imaginary</q> in <q>imaginary part</q>. 
+All are <em>just names</em>.
+The name <q>imaginary</q> was introduced by Ren&#xE9; Descartes in 1637. 
+Ren&#xE9; Descartes (1596<ndash/>1650) was a French scientist and philosopher, who 
+lived in the Dutch Republic for roughly twenty years after serving in the 
+(mercenary) Dutch States Army. Originally, <q>imaginary</q> was a derogatory term and imaginary numbers were thought to be useless. But they turned out to be incredibly useful!</fn>
+ about it.
+</li><li>
+The sum of the complex numbers <m>\, z_1=x_1+i y_1 </m> and
+<m>\, z_2=x_2 +iy_2 \, </m> is defined by
+<me>
+z_1+z_2 = (x_1+x_2)+i(y_1+y_2) 
+</me>
+That is, you just separately add the real parts and the imaginary parts.
+</li><li>
+The product of the complex numbers <m>\, z_1=x_1+i y_1 </m> and
+<m>\, z_2=x_2 +iy_2 \, </m> is defined by
+<me>
+z_1z_2 = x_1x_2-y_1y_2+i(x_1y_2+x_2y_1)
+</me>
+Do not memorise this multiplication rule. We'll see a simple,  effective memory aid for it shortly. 
+The heart of that memory aid is the observation that the complex number <m>i</m> has the special property that
+<me>
+i^2 = (0+1i)(0+1i) = (0\times 0-1\times 1)+i(0\times 1+1\times 0) = -1
+</me>
+</li>
+</ol>
+</p>
+</definition>
+<p>
+Addition and multiplication of complex numbers obey the familiar addition rules
+<md>
+<mrow>
+z_1+z_2&amp;=z_2+z_1
+</mrow><mrow>
+z_1+(z_2+z_3)&amp;=(z_1+z_2)+z_3  
+</mrow><mrow>
+0+z_1&amp;=z_1   
+</mrow>
+</md>
+and multiplication rules
+<md>
+<mrow>
+z_1z_2&amp;=z_2z_1 
+</mrow><mrow>
+z_1(z_2z_3)&amp;=(z_1z_2)z_3 
+</mrow><mrow>
+1z_1&amp;=z_1
+</mrow>
+</md>
+and distributive laws
+<md>
+<mrow>
+z_1(z_2+z_3)&amp;=z_1z_2+z_1z_3 
+</mrow><mrow> 
+(z_1+z_2)z_3&amp; = z_1z_3+z_2z_3 
+</mrow>
+</md>
+To remember how to multiply complex numbers, you just have to supplement
+the familiar rules of the real number system with <m>i^2=-1</m>. The previous 
+sentence is the memory aid referred to in Definition<nbsp/><xref ref="def_complex"/>(d). 
+</p>
+
+<example xml:id="eg_add_multiply">
+<p>
+If <m>z=1+2i</m> and <m>w=3+4i</m>, then
+<md alignment="alignat">
+<mrow>
+z+w&amp;=(1+2i)+(3+4i)&amp;&amp;=4+6i 
+</mrow><mrow>
+zw&amp;=(1+2i)(3+4i)&amp;&amp;=3+4i+6i+8i^2=3+4i+6i-8
+</mrow><mrow>
+  &amp;=-5+10i
+</mrow>
+</md>
+</p>
+</example>
+
+<definition xml:id="def_add_mult_inverse">
+<ol label="(a)">
+<li>
+The negative of any complex number <m>z= x+iy</m> is defined by 
+<me>
+-z=-x+(-y)i
+</me>
+and obviously obeys <m>z+(-z)=0</m>.
+</li><li>
+The reciprocal<fn>The reciprocal <m>z^{-1}</m> is also called the multiplicative inverse of <m>z</m>.</fn>, <m>z^{-1}</m> or <m>\frac{1}{z}</m>, of any complex 
+number <m>z= x+iy</m>, other than <m>0</m>, is defined by 
+<me>
+\frac{1}{z}z =1 
+</me> 
+We shall see below that it is given by the formula
+ <me>
+\frac{1}{z}=\frac{x}{x^2+y^2}+\frac{-y}{x^2+y^2}i
+</me>
+</li>
+</ol>
+</definition>
+
+<example xml:id="eg_mult_inverse">
+<p>
+It is possible to derive the formula for <m>\frac{1}{z}</m> by observing that
+<me>
+(a+ib)(x+iy)=[ax-by] + i[ay+bx]
+</me> 
+equals <m>1 = 1+i0</m> if and only if
+<md>
+<mrow>
+ax-by&amp;=1 
+</mrow><mrow>
+ay+bx&amp;=0
+</mrow>
+</md>
+and solving these equations for <m>a</m> and <m>b</m>. We will see a much shorter derivation in 
+Remark<nbsp/><xref ref="rem_inverse"/> below.  For now, we'll content ourselves with just verifying that 
+<m>\frac{x}{x^2+y^2}+\frac{-y}{x^2+y^2}i</m> is the inverse of <m>x+iy</m> by multiplying out
+<md>
+<mrow>
+&amp;\left(\frac{x}{x^2+y^2}-\frac{y}{x^2+y^2}i\right)(x+iy)
+</mrow><mrow>
+&amp;\hskip0.5in=\frac{x^2}{x^2+y^2}-\frac{xy}{x^2+y^2}i
++\frac{xy}{x^2+y^2}i-\frac{y^2}{x^2+y^2}i^2 
+</mrow><mrow>
+&amp;\hskip0.5in=\frac{x^2-i^2y^2}{x^2+y^2}
+=\frac{x^2+y^2}{x^2+y^2}=1
+</mrow>
+</md>
+
+</p>
+</example>
+
+<definition xml:id="def_conjugate">
+<ol label="(a)">
+<li>
+The complex conjugate of <m>\, z=x+iy\, </m> is denoted <m>\bar z</m> and is
+defined to be 
+<me>
+\bar z=\overline{x+iy}=x-i y
+</me> 
+That is, to take the complex conjugate, one
+replaces every <m>i</m> by <m>-i</m> and vice versa. 
+</li><li>
+The distance from <m>z=x+iy</m> (recall that this is the point <m>(x,y)</m> in the 
+<m>xy</m>-plane) to <m>0</m> is  denoted <m>\, |z|\, </m> and is called the
+absolute value, or modulus,  of <m>\, z\, </m>.  It is given by
+<me>
+|z| = \sqrt{x^2+y^2}
+</me>
+Note that 
+<me>
+z\bar z=(x+iy)(x-iy)=x^2-ixy+ixy+y^2=x^2+y^2
+</me>
+is always a nonnegative real number and that
+<me>
+|z| = \sqrt{z\,\bar z}
+</me>
+</li>
+</ol>
+</definition>
+
+<remark xml:id="rem_inverse">
+<p>
+Let <m>z=x+iy</m> with <m>x</m> and <m>y</m> real. Since <m>|z|^2=z\,\bar z</m>, we have
+<me>
+\frac{1}{z} =\frac{1}{z}\frac{\bar z}{\bar z} = \frac{\bar z}{|z|^2} =\frac{x-iy}{x^2+y^2}
+=\frac{x}{x^2+y^2}+\frac{-y}{x^2+y^2}i
+</me>
+which is the formula for <m>\frac{1}{z}</m> given in 
+Definition<nbsp/><xref ref="def_add_mult_inverse"/>(b).
+</p>
+</remark>
+<example xml:id="eg_division">
+<p>
+It is easy to divide a complex number by a real number. For example
+<me>
+\frac{11+2i}{25} = \frac{11}{25}+\frac{2}{25}i
+</me>
+In general, the complex conjugate provides us with a trick for rewriting any ratio of complex numbers
+as a ratio with a real denominator. For example, suppose that we want to
+find <m>\frac{1+2i}{3+4i}</m>. The trick is to multiply by <m>1=\frac{3-4i}{3-4i}</m>.
+The number <m>3-4i</m> is the complex conjugate of the denominator
+<m>3+4i</m>. Since <m>(3+4i)(3-4i)=9-12i+12i-16i^2=9+16=25</m>
+<me>
+\frac{1+2i}{3+4i}=\frac{1+2i}{3+4i}\ \frac{3-4i}{3-4i}
+=\frac{(1+2i)(3-4i)}{25}
+=\frac{11+2i}{25}
+= \frac{11}{25}+\frac{2}{25}i
+</me>
+</p>
+</example>
+
+<definition xml:id="def_Re_Im">
+<p>
+The notations<fn>The symbols <m>\Re</m> and <m>\Im</m> are the letters <m>R</m> and <m>I</m>
+in the Fraktur font, which was created in the early 1500's and became common in the German-speaking world. A standard alternative notation is <m>\text{Re}(z)</m> and <m>\text{Im}(z)</m>.</fn>  <m>\Re z</m> and <m>\Im z</m> stand for the real and imaginary parts of the 
+complex number <m>z</m>, respectively. If <m>z=x+ iy</m> (with <m>x</m> and <m>y</m> real) they
+are defined by 
+<me>
+\Re z=x\qquad \Im z=y
+</me>
+Note that both <m>\Re z</m> and <m>\Im z</m> are real numbers.
+Just subbing in  <m>\bar z=x-iy</m>, you can verify that
+<me>
+\Re z=\frac{1}{2}(z+\bar z)\qquad \Im z=\frac{1}{2i}(z-\bar z)
+</me>
+</p>
+</definition>
+
+<lemma xml:id="lem_mod_prod">
+<p>
+If <m>z_1=x_1+iy_1</m> and <m>z_2=x_2+iy_2</m>, then
+<me>
+|z_1z_2| = |z_1|\,|z_2|
+</me>
+</p>
+</lemma>
+
+<proof>
+<p>
+Since <m>z_1z_2=(x_1+iy_1)(x_2+iy_2)=(x_1x_2-y_1y_2)+i(x_1y_2+x_2y_1)</m>,
+<md>
+<mrow>
+|z_1z_2| &amp;=\sqrt{(x_1x_2-y_1y_2)^2+(x_1y_2+x_2y_1)^2} 
+</mrow><mrow>
+ &amp;=\sqrt{x_1^2x_2^2-{\color{blue}{2x_1x_2y_1y_2}}+y_1^2y_2^2
++x_1^2y_2^2+{\color{blue}{2x_1y_2x_2y_1}}+x_2^2y_1^2} 
+</mrow><mrow>
+ &amp;=\sqrt{x_1^2x_2^2+y_1^2y_2^2+x_1^2y_2^2+x_2^2y_1^2} 
+=\sqrt{(x_1^2+y_1^2)(x_2^2+y_2^2)} 
+</mrow><mrow>
+ &amp;=|z_1|\,|z_2| 
+</mrow>
+</md>
+</p>
+</proof>
+
+</section>
+
+<section xml:id="sec_complex_exp">
+  <title>The Complex Exponential</title>
+
+<subsection xml:id="ssec_complex_exp_def">
+  <title>Definition and Basic Properties</title>
+<p>
+There are two equivalent standard definitions of the exponential, <m>e^z</m>,
+of the complex number <m>z=x+iy</m>. For the more intuitive definition, one simply 
+replaces the real number <m>x</m> in the Taylor series expansion<fn>See 
+Theorem<nbsp/><xref ref="thm_SRimportantTaylorSeries"/>.</fn>
+<m>e^x=\sum_{n=0}^\infty \frac{x^n}{n!}</m> with the complex number <m>z</m>, giving
+<me>
+e^z=\sum_{n=0}^\infty \frac{z^n}{n!}
+\tag{EZ}
+</me> 
+We instead highlight the more computationally useful definition. 
+</p>
+
+<definition xml:id="def_complex_exp">
+<p>
+For any complex number <m>z=x+iy</m>, with <m>x</m> and <m>y</m> real, the exponential 
+<m>\, e^z\, </m>, is defined by
+<me>
+e^{x+iy}\ =\ e^x\cos y+i e^x\sin y
+</me>
+In particular<fn>The equation <m>e^{iy}\ =\ \cos y+i \sin y</m> is known as Euler's formula. Leonhard Euler (1707<ndash/>1783) was a  Swiss mathematician and physicist who spent most of his adult life in Saint Petersberg and Berlin. He gave the name <m>\pi</m> to the ratio of a circle's circumference to its diameter. He also developed the constant <m>e</m>. His collected works fill 92 volumes.</fn>, <m>e^{iy}\ =\ \cos y+i \sin y</m>.
+</p>
+</definition>
+
+<p>
+We will not fully prove that the intuitive definition (EZ) and the computational
+Definition<nbsp/><xref ref="def_complex_exp"/> are equivalent. But we will do so in the special case that <m>z=iy</m>, with <m>y</m> real. Under (EZ),
+<me>
+e^{iy} = 1 +iy +\frac{(iy)^2}{2!}+\frac{(iy)^3}{3!}+\frac{(iy)^4}{4!}
++\frac{(iy)^5}{5!}+\frac{(iy)^6}{6!}+\cdots
+</me>
+The even terms in this expansion are
+<me>
+1  +\frac{(iy)^2}{2!}+\frac{(iy)^4}{4!}+\frac{(iy)^6}{6!}+\cdots
+=1  -\frac{y^2}{2!}+\frac{y^4}{4!}-\frac{y^6}{6!}+\cdots
+=\cos y
+</me>
+and the odd terms in this expansion are
+<me>
+ iy +\frac{(iy)^3}{3!}+\frac{(iy)^5}{5!}+\cdots
+=i\Big(y-\frac{y^3}{3!}+\frac{y^5}{5!}+\cdots\Big)
+=i\sin y
+</me>
+Adding the even and odd terms together gives us that, under (EZ),  <m>e^{iy}</m> is indeed equal to  <m>\cos y + i\sin y</m>.<fn>It is obvious that, in the special case that <m>z=x</m> with <m>x</m> real, the definitions (EZ) and <xref ref="def_complex_exp"/> are equivalent. So to complete the proof of equivalence in the general case <m>z=x+iy</m>, it suffices to prove that <m>e^{x+iy}=e^x e^{iy}</m> under both (EZ) and Definition<nbsp/><xref ref="def_complex_exp"/>. For Definition<nbsp/><xref ref="def_complex_exp"/>, this follows from Lemma<nbsp/><xref ref="lem_exp_ppties"/>, below.</fn>
+ As a consequence, we have
+<me>
+e^{i\pi}=-1
+</me>
+which gives an amazing linking between calculus (<m>e</m>), geometry (<m>\pi</m>),
+algebra (<m>i</m>) and the basic number <m>-1</m>.
+</p>
+<p>
+In the next lemma we verify that the complex exponential obeys a couple of familiar computational properties.
+</p>
+
+<lemma xml:id="lem_exp_ppties">
+<p>
+<ol label="(a)">
+<li>
+For any complex numbers <m>z_1</m> and <m>z_2</m>,
+<me>
+e^{z_1+z_2} = e^{z_1}e^{z_2}
+</me>
+</li><li>
+For any complex number <m>c</m>,
+<me>
+\diff{}{t}e^{ct} = c e^{ct}
+</me>
+</li>
+</ol>
+</p>
+</lemma>
+
+<proof>
+<p>
+<ol label="(a)">
+<li>
+For any two complex numbers <m>z_1=x_1+iy_1</m> and <m>z_2=x_2+iy_2</m>,
+with <m>x_1</m>, <m>y_1</m>, <m>x_2</m>, <m>y_2</m> real,
+<md>
+<mrow>
+&amp;e^{z_1}e^{z_2}
+= e^{x_1}(\cos y_1+i \sin y_1)e^{x_2}(\cos y_2+i \sin y_2) 
+</mrow><mrow>
+&amp;= e^{x_1+x_2}(\cos y_1+i \sin y_1)(\cos y_2+i \sin y_2) 
+</mrow><mrow>
+&amp;= e^{x_1+x_2}\left\{(\cos y_1\cos y_2\!-\!\sin y_1\sin y_2)
+              +i (\cos y_1\sin y_2\!+\!\cos y_2\sin y_1)\right\} 
+</mrow><mrow>
+&amp;= e^{x_1+x_2}\left\{\cos(y_1+y_2)+i\sin(y_1+y_2)\right\}
+</mrow>
+</md>
+by the trig identities of Appendix<nbsp/><xref ref="sec_trig_add"/>.
+This says exactly that
+<me>
+e^{z_1}e^{z_2}= e^{(x_1+x_2)+i(y_1+y_2)} = e^{z_1+z_2}
+</me>
+and that the familiar multiplication formula also applies to complex exponentials.
+
+</li><li>
+For any real number <m>t</m> and any complex number <m>c=\alpha+i\beta</m>, 
+with <m>\alpha</m>, <m>\beta</m> real,
+<me>
+e^{ct}=e^{\alpha t+i\beta t}=e^{\alpha t}[\cos( \beta t)+i\sin(\beta t)]
+</me>
+so that the derivative with respect to <m>t</m> 
+<md>
+<mrow>
+\diff{}{t} e^{ct}
+&amp;=\alpha e^{\alpha t}[\cos( \beta t)+i\sin(\beta t)]
+   +e^{\alpha t}[-\beta\sin( \beta t)+i\beta \cos(\beta t)] 
+</mrow><mrow>
+&amp;=(\alpha+i\beta) e^{\alpha t}[\cos( \beta t)+i\sin(\beta t)] 
+</mrow><mrow>
+&amp;=ce^{ct}
+</mrow>
+</md>
+is also the familiar one.
+</li>
+</ol>
+</p>
+</proof>
+</subsection>
+
+<subsection xml:id="ssec_complex_sin_cos">
+  <title>Relationship with <m>\sin</m> and <m>\cos</m></title>
+
+<fact xml:id="eqn_euler">
+<statement><p>
+When <m>\theta</m> is a real number
+<md>
+<mrow>
+e^{i \theta} &amp;= \cos \theta+i \sin \theta 
+</mrow><mrow>
+e^{-i \theta} &amp;= \cos \theta-i \sin \theta=\overline{e^{i\theta}}
+</mrow>
+</md>
+are complex numbers of modulus one.
+</p>
+</statement>
+</fact>
+
+<p>
+Solving for <m>\cos\theta</m> and <m>\sin\theta</m> (by adding and subtracting the two equations) gives
+</p>
+
+<fact xml:id="eqn_exp_sin_cos">
+<statement><p>
+<md alignment="alignat">
+<mrow>
+\cos\theta&amp;=\frac{1}{2}(e^{i\theta}+e^{-i\theta})&amp;&amp;=\Re e^{i\theta} 
+</mrow><mrow>
+\sin\theta&amp;=\frac{1}{2i}(e^{i\theta}-e^{-i\theta})&amp;&amp;=\Im e^{i\theta}
+</mrow>
+</md>
+</p>
+</statement>
+</fact>
+
+
+<example xml:id="eg_complex_trig_id">
+<p>
+These formulae make it easy derive trig identities. For example,
+<md>
+<mrow>
+\cos\theta\cos\phi &amp;= \frac{1}{4}\big(e^{i\theta}+e^{-i\theta}\big)
+                                 \big(e^{i\phi}+e^{-i\phi}\big) 
+</mrow><mrow>
+ &amp;= \frac{1}{4}\big(e^{i(\theta+\phi)}+e^{i(\theta-\phi)}
+                    +e^{i(-\theta+\phi)}+e^{-i(\theta+\phi)}\big) 
+</mrow><mrow>
+&amp;= \frac{1}{4}\big(e^{i(\theta+\phi)}+e^{-i(\theta+\phi)}
+           +e^{i(\theta-\phi)} +e^{i(-\theta+\phi)}\big) 
+</mrow><mrow>
+&amp;= \frac{1}{2}\big(\cos(\theta+\phi)+\cos(\theta-\phi)\big)
+</mrow>
+</md>
+and, using <m>(a+b)^3=a^3+3a^2b+3ab^2+b^3</m>,
+<md>
+<mrow>
+\sin^3\theta&amp;=-\frac{1}{8i}\big(e^{i\theta}-e^{-i\theta}\big)^3\cr
+&amp;=-\frac{1}{8i}\big(e^{i3\theta}-3e^{i\theta}
+                +3e^{-i\theta}-e^{-i3\theta}\big) 
+</mrow><mrow>
+&amp;=\frac{3}{4}\frac{1}{2i}\big(e^{i\theta}-e^{-i\theta}\big)
+-\frac{1}{4}\frac{1}{2i}\big(e^{i3\theta}-e^{-i3\theta}\big) 
+</mrow><mrow>
+&amp;=\frac{3}{4}\sin\theta-\frac{1}{4}\sin(3\theta)
+</mrow>
+</md>
+and
+<md>
+<mrow>
+\cos(2\theta)&amp;=\Re\big(e^{2\theta i}\big)=\Re \big(e^{i\theta}\big)^2 
+</mrow><mrow>
+&amp;=\Re \big(\cos \theta+i\sin\theta\big)^2 
+</mrow><mrow>
+&amp;=\Re \big(\cos^2 \theta+2i\sin\theta\cos\theta-\sin^2\theta\big) 
+</mrow><mrow>
+&amp;=\cos^2\theta-\sin^2\theta
+</mrow>
+</md>
+</p>
+</example>
+</subsection>
+
+<subsection xml:id="ssec_complex_polar">
+  <title>Polar Coordinates</title>
+
+<p>
+Let <m>z=x+iy</m> be any complex number. Writing <m>x</m> and <m>y</m> in polar coordinates
+in the usual way, i.e. <m>x=r\cos(\theta)</m>, <m>y=r\sin(\theta)</m>, gives
+<md>
+<mrow>
+x+iy=r\cos\theta+ir\sin\theta=re^{i\theta}\qquad
+</mrow>
+</md>
+See the figure on the left below. In particular
+<md alignment="alignat">
+<mrow>
+1  &amp;=\ \ \ \  e^{i0}      &amp;&amp;= e^{2\pi i}         &amp;&amp;= e^{2k\pi i}             
+          &amp;&amp;\quad\text{for }k=0,\pm 1,\pm2,\cdots 
+</mrow><mrow>
+-1 &amp;=\ \ \  e^{i\pi}    &amp;&amp;= e^{3\pi i}         &amp;&amp;= e^{(1+2k)\pi i}         
+          &amp;&amp;\quad\text{for }k=0,\pm 1,\pm2,\cdots 
+</mrow><mrow>
+i  &amp;=\   e^{i\pi/2}  &amp;&amp;= e^{{5\over 2}\pi i} &amp;&amp;= e^{({1\over 2}+2k)\pi i}
+          &amp;&amp;\quad\text{for }k=0,\pm 1,\pm2,\cdots 
+</mrow><mrow>
+-i &amp;=  e^{-i\pi/2} &amp;&amp;=e^{{3\over 2}\pi i}  &amp;&amp;= e^{(-{1\over 2}+2k)\pi i}
+          &amp;&amp;\quad\text{for }k=0,\pm 1,\pm2,\cdots 
+</mrow>
+</md>
+See the figure on the right below.
+</p>
+
+<sidebyside widths="35% 36%" valign="middle">
+<image source="text/figs/polar"/>
+<image source="text/figs/polar2"/>
+</sidebyside>
+
+<p>
+The polar coordinate <m>\theta=\arctan\frac{y}{x}</m> associated with the
+complex number <m>z=x+iy</m>, i.e. the point <m>(x,y)</m> in the <m>xy</m>-plane,
+is also called the argument of <m>z</m>.
+</p>
+
+<p>
+The polar coordinate representation makes it easy to find square roots,
+third roots and so on. Fix any positive integer <m>n</m>. The <m>n^{\rm th}</m> roots
+of unity are, by definition, all solutions <m>z</m> of
+<me>
+z^n\ =\ 1
+</me>
+Writing <m>z=re^{i\theta}</m>
+<me>
+r^ne^{n\theta i}\ =\ 1e^{0i}
+</me>
+The polar coordinates <m>(r,\theta)</m> and <m>(r',\theta')</m> represent the same point
+in the <m>xy</m>-plane if and only if <m>r=r'</m> and <m>\theta=\theta'+2k\pi</m> for some
+integer <m>k</m>. So <m>z^n=1</m> if and only if <m>r^n=1</m>, i.e. <m>r=1</m>, and 
+<m>n\theta =2 k\pi</m> for some integer <m>k</m>. The <m>n^{\rm th}</m> roots of unity are 
+all the complex numbers <m>e^{2\pi i{k\over n}}</m> with <m>k</m> integer. There are 
+precisely <m>n</m> distinct <m>n^{\rm th}</m> roots of unity because 
+<m>e^{2\pi i{k\over n}}=e^{2\pi i{k'\over n}}</m> if and only if 
+<m>2\pi {k\over n}-2\pi {k'\over n}=2\pi {k-k'\over n}</m> is
+an integer multiple of <m>2\pi</m>. That is, if and only if <m>k-k'</m> is an integer
+multiple of <m>n</m>. The <m>\, n\, </m> distinct <m>n^{\rm th}</m> roots of unity are
+<me>
+1\ ,\ e^{2\pi i{1\over n}}\ ,\ e^{2\pi i{2\over n}}
+\ ,\  e^{2\pi i{3\over n}}\ ,\ \cdots\ ,\ e^{2\pi i{n-1\over n}}
+</me>
+For example, the <m>6^{\rm th}</m> roots of unity are depicted below.
+</p>
+
+<sidebyside width="40%">
+   <image source="text/figs/polar3"/>
+</sidebyside>
+</subsection>
+
+<subsection xml:id="ssec_complex_calculus">
+  <title>Exploiting Complex Exponentials in Calculus Computations</title>
+
+<p>
+You have learned how to evaluate integrals involving trigonometric functions
+by using integration by parts, various trigonometric identities and various
+substitutions. It is often much easier to just use (<xref ref="eqn_euler"/>) and
+(<xref ref="eqn_exp_sin_cos"/>). Part of the utility of complex numbers comes from 
+how well they interact with calculus through the exponential function.
+Here are two examples.
+</p>
+
+<example xml:id="eg_complex_calc_A">
+<p>
+<md>
+<mrow>
+\int e^x\cos x\ \dee{x}&amp;=\frac{1}{2} \int e^x\big[e^{ix}+e^{-ix}\big]\ \dee{x}
+=\frac{1}{2}  \int \big[e^{(1+i)x}+e^{(1-i)x}\big]\ \dee{x} 
+</mrow><mrow>
+&amp;=\frac{1}{2}  \left[\frac{1}{1+i}e^{(1+i)x}+\frac{1}{1-i}e^{(1-i)x}\right]+C
+</mrow>
+</md>
+This form of the indefinite integral looks a little weird because of
+the <m>i</m>'s.  While it looks complex because of the <m>i</m>'s, it is actually purely real (and correct), because <m>\frac{1}{1-i}e^{(1-i)x}</m> is the complex conjugate of 
+<m>\frac{1}{1+i}e^{(1+i)x}</m>. We can convert the indefinite integral into
+a more familiar form just by subbing back in <m>e^{\pm ix}=\cos x\pm i\sin x</m>,
+<m>\frac{1}{1+i}=\frac{1-i}{(1+i)(1-i)}=\frac{1-i}{2}</m> and
+<m>\frac{1}{1-i}=\overline{\frac{1}{1+i}}=\frac{1+i}{2}</m>. 
+<md>
+<mrow>
+\int e^x\cos x\ \dee{x}
+&amp;=\frac{1}{2}  e^x\left[\frac{1}{1+i}e^{ix}+\frac{1}{1-i}e^{-ix}\right]+C
+</mrow><mrow>
+&amp;=\frac{1}{2}  e^x\left[\frac{1-i}{2}(\cos x+i\sin x)
+   +\frac{1+i}{2}(\cos x-i\sin x)\right]+C 
+</mrow><mrow>
+&amp;=\frac{1}{2}  e^x\cos x+\frac{1}{2} e^x\sin x+C
+</mrow>
+</md>
+You can quickly verify this by differentiating (or by comparing with 
+Example<nbsp/><xref ref="eg_PRTSexsinx"/>).
+</p>
+</example>
+
+<example xml:id="eg_complex_calc_B">
+<p>
+Evaluating the integral <m>\int\cos^nx\ \dee{x}</m> using the methods of Section<nbsp/><xref ref="sec_trigint"/> can be a real pain. It is much easier if we convert
+to complex exponentials. 
+Using <m>(a+b)^4=a^4+4a^3b+6a^2b^2+4ab^3+b^4</m>,
+<md>
+<mrow>
+\int \cos^4 x\ \dee{x}&amp;=\frac{1}{2^4} \int\big[e^{ix}+e^{-ix}\big]^4\ \dee{x}
+</mrow><mrow>
+&amp;=\frac{1}{2^4} \int \big[e^{4ix}+4e^{2ix}+6+4e^{-2ix}+e^{-4ix}\big]\ \dee{x} 
+</mrow><mrow>
+&amp;=\frac{1}{2^4} \left[\frac{1}{4i}e^{4ix}+\frac{4}{2i}e^{2ix}+6x
++\frac{4}{-2i}e^{-2ix}+\frac{1}{-4i}e^{-4ix}\right]+C
+</mrow><mrow>
+&amp;=\frac{1}{2^4} \left[\frac{1}{2}\frac{1}{2i}(e^{4ix}-e^{-4ix})
+              +\frac{4}{2i}(e^{2ix}-e^{-2ix})+6x\right]+C
+</mrow><mrow>
+&amp;=\frac{1}{2^4} \left[\frac{1}{2}\sin 4x+4\sin 2x+6x\right]+C 
+</mrow><mrow>
+&amp;=\frac{1}{32} \sin 4x+\frac{1}{4}\sin 2x+\frac{3}{8}x+C
+</mrow>
+</md>
+</p>
+</example>
+
+<!-- 
+<p>
+Complex numbers can also be used to simplify partial fraction computations.
+Here is an example.
+</p>
+
+<example xml:id="eg_complex_calc_C">
+<p>
+In this example, we shall find <m>\int \frac{x+2}{x^2+2x+5}\ \dee{x}</m>.
+Using complex numbers, any polynomial can be written as a product of linear
+factors. This allows us to eliminate quadratic denominators from the partial
+fractions procedure. This example illustrates how.
+<ul>
+<li>
+We first have to factor the denominator <m>x^2+2x+5</m>. We can use the
+high school formula for the solutions of the quadratic equation
+<m>x^2+2x+5=0</m>:
+<me>
+\frac{-2\pm\sqrt{2^2-4\times 5}}{2}=\frac{-2\pm\sqrt{4-20}}{2}
+=-1\pm\sqrt{-4}=-1\pm 2i
+</me>
+Or we can complete the square
+<md>
+<mrow>
+x^2+2x+5&amp;=(x+1)^2+4=(x+1)^2-(2i)^2=[(x+1)-2i][(x+1)+2i] 
+</mrow><mrow>
+&amp;=[x+1-2i][x+1+2i]
+</mrow>
+</md>
+</li><li>
+Next we write the integrand in the form
+<me>
+\frac{x+2}{x^2+2x+5}
+=\frac{x+2}{(x+1-2i)(x+1+2i)}
+=\frac{a}{x+1-2i}+\frac{b}{x+1+2i}
+</me>
+with the constants <m>a</m> and <m>b</m> chosen so that
+<md>
+<mrow>
+\frac{a}{x+1-2i}+\frac{b}{x+1+2i}
+&amp;=\frac{a(x+1+2i)+b(x+1-2i)}{(x+1-2i)(x+1+2i)}
+</mrow><mrow>
+&amp;=\frac{x+2}{(x+1-2i)(x+1+2i)}
+</mrow>
+</md>
+i.e. so that 
+<me>
+a(x+1+2i)+b(x+1-2i)=x+2
+</me>
+This has to be true for all <m>x</m>. We can solve easily for <m>a</m> if we choose
+<m>x+1=2i</m> (so that the coefficient of <m>b</m> is zero) and we can solve easily 
+for <m>b</m> if we choose <m>x+1=-2i</m> (so that the coefficient of <m>a</m> is zero):
+<md>
+<mrow>
+x+1&amp;=2i &amp; &amp;\Rightarrow &amp;
+          a(2i+2i)+b(2i-2i)&amp;=2i+1 
+</mrow><mrow> 
+        &amp;&amp; &amp;\Rightarrow &amp;
+          4i\,a&amp;=1+2i 
+</mrow><mrow>
+        &amp;&amp; &amp;\Rightarrow &amp;
+           a&amp;=\frac{1+2i}{4i}=\frac{1}{2}-\frac{1}{4}i 
+</mrow><mrow>
+x+1&amp;=-2i &amp; &amp;\Rightarrow &amp;
+          a(-2i+2i)+b(-2i-2i)&amp;=-2i+1  
+</mrow><mrow>
+        &amp;&amp; &amp;\Rightarrow &amp;
+          -4i\,b&amp;=1-2i 
+</mrow><mrow> 
+        &amp;&amp; &amp;\Rightarrow &amp;
+          b&amp;=-\frac{1-2i}{4i}=\frac{1}{2}+\frac{1}{4}i
+</mrow>
+</md>
+since <m>\frac{1}{i}=-i</m>.
+As a check, we observe that, with <m>a=\frac{1}{2}-\frac{1}{4}i</m> and  
+<m>b=\frac{1}{2}+\frac{1}{4}i</m>,
+<md>
+<mrow>
+&amp;a(x+1+2i)+b(x+1-2i)
+= \left(\frac{1}{2}-\frac{1}{4}i\right)(x+1+2i)+
+   \left(\frac{1}{2}+\frac{1}{4}i\right)(x+1-2i) 
+</mrow><mrow>
+&amp;\hskip1in=(x+1) \left(\frac{1}{2}-\frac{1}{4}i+\frac{1}{2}+\frac{1}{4}i\right)+
+    2i\left(\frac{1}{2}-\frac{1}{4}i-\frac{1}{2}-\frac{1}{4}i\right) 
+</mrow><mrow>
+&amp;\hskip1in=x+1+2i\left(-\frac{1}{2}i\right)=x+2
+</mrow>
+</md>
+as desired.
+</li><li>
+ The integral is now easy,
+<md>
+<mrow>
+\int \frac{x+2}{x^2+2x+5}\ \dee{x}
+&amp;=\int\left[\frac{a}{x+1-2i}+\frac{b}{x+1+2i}\right]\ \dee{x} 
+</mrow><mrow>
+&amp;=a\log(x+1-2i)+b\log(x+1+2i)+C 
+</mrow><mrow>
+&amp;=\left(\frac{1}{2}-\frac{1}{4}i\right)\log(x+1-2i)
+           +\left(\frac{1}{2}+\frac{1}{4}i\right)\log(x+1+2i)+C
+</mrow>
+</md>
+though the answer looks a little wierd because of the complex numbers.
+</li><li>
+One can eliminate the complex numbers by using the fact that, 
+for <m>X</m> and <m>Y</m> real numbers,
+<me>
+\log(X\pm iY)=\log\sqrt{X^2+Y^2}\pm i\tan^{-1}\frac{Y}{X}
+\tag{L}</me>
+To derive (L), write <m>\log(X\pm iY)=U\pm iV</m>, with <m>U</m> and <m>V</m> real. 
+Then <m>U</m> and <m>V</m> are to be determined by <m>e^{U\pm iV}=X\pm iY</m> or
+<m>e^U\big(\cos V\pm i\sin V)=X\pm iY</m> or 
+<me>
+e^U\cos V=X\qquad e^U\sin V=Y
+</me>
+Dividing the last two equations gives <m>\tan V=\frac{Y}{X}</m> and adding
+the squares of the last two equations together gives <m>e^{2U}=X^2+Y^2</m>.
+</li><li>
+Applying (L) with <m>X=x+1</m> and <m>Y=2</m> gives
+<md>
+<mrow>
+&amp;\left(\frac{1}{2}-\frac{1}{4}i\right)\log(x+1-2i)
++\left(\frac{1}{2}+\frac{1}{4}i\right)\log(x+1+2i) 
+</mrow><mrow>
+&amp;\hskip1in=\left(\frac{1}{2}-\frac{1}{4}i\right)
+              \left(\log\sqrt{x^2+2x+5}-i\tan^{-1}\frac{2}{x+1}\right) 
+</mrow><mrow>
+&amp;\hskip1.5in+\left(\frac{1}{2}+\frac{1}{4}i\right)
+              \left(\log\sqrt{x^2+2x+5}+i\tan^{-1}\frac{2}{x+1}\right) 
+</mrow><mrow>
+&amp;\hskip1in=\log\sqrt{x^2+2x+5}-\frac{1}{2} \tan^{-1}\frac{2}{x+1}
+</mrow>
+</md>
+</li>
+</ul>
+
+</p>
+</example>
+-->
+
+</subsection>
+
+<subsection xml:id="ssec_complex_de">
+  <title>Exploiting Complex Exponentials in Differential Equation Computations</title>
+
+<p>
+Complex exponentials are also widely used to simplify the process
+of guessing solutions to ordinary differential equations.
+We'll start with (possibly a review of) some basic definitions and facts about
+differential equations.
+</p>
+
+<definition xml:id="def_apODE">
+<statement><p>
+<ol label="a">
+<li>
+A <term>differential equation</term> is an equation for an
+unknown function that contains the derivatives of that unknown function.
+For example <m>y''(t)+y(t)=0</m> is a differential equation for the unknown
+function <m>y(t)</m>.
+</li>
+<li><p>
+In the differential calculus text CLP-1, we treated only derivatives of functions of one variable. Such derivatives are called ordinary derivatives. A differential equation is called an <term>ordinary differential equation</term> (often shortened to <q>ODE</q>) if only ordinary derivatives
+appear. That is, if the unknown function has only a single independent
+variable. 
+</p>
+<p>
+In CLP-3 we will treat derivatives of functions of more than one variable.
+For example, let <m>f(x,y)</m> be a function of two variables. If you treat <m>y</m> as a constant and take the derivative of the resulting function of the single variable <m>x</m>, the result is called the partial derivative of <m>f</m> with respect to <m>x</m>. A differential equation is called a <term>partial differential equation</term> (often shortened to <q>PDE</q>) if partial derivatives
+appear. That is, if the unknown function has more than one independent
+variable. For example <m>y''(t)+y(t)=0</m> is an ODE while
+<m>\frac{\partial^2 u}{\partial\, t^2}(x,t)=c^2
+\frac{\partial^2 u}{\partial\, x^2}(x,t)</m> is a PDE.
+</p>
+</li>
+<li>
+The <term>order</term> of a differential equation is the order of the
+highest derivative that appears. For example <m>y''(t)+y(t)=0</m>
+is a second order ODE.
+</li>
+<li><p>
+An ordinary differential equation that is of the form
+<men xml:id="eqn_ODEordern">
+a_0(t) y^{(n)}(t) + a_1(t) y^{(n-1)}(t)+\cdots +a_n(t)y(t)
+=F(t)
+</men>
+with given coefficient functions <m>a_0(t)</m>, <m>\cdots</m>, <m>a_n(t)</m> and <m>F(t)</m>
+is said to be <term>linear</term>. Otherwise, the ODE is said to be <term>nonlinear</term>.
+For example, <m>y'(t)^2+y(t)=0</m>, <m>y'(t)y''(t)+y(t)=0</m> and <m>y'(t)=e^{y(t)}</m>
+are all nonlinear.
+</p></li>
+<li>
+The ODE <xref ref="eqn_ODEordern"/> is said to have <term>constant coefficients</term> if
+the coefficients  <m>a_0(t)</m>, <m>a_1(t)</m>, <m>\cdots</m>, <m>a_n(t)</m> are all constants. Otherwise,
+it is said to have <term>variable coefficients</term>. For example,
+the ODE <m>y''(t)+7y(t)=\sin t</m> is constant coefficient, while
+<m>y''(t)+ty(t)=\sin t</m> is variable coefficient.
+</li>
+<li>
+The ODE <xref ref="eqn_ODEordern"/> is said to be <term>homogeneous</term> if <m>F(t)</m>
+is identically zero. Otherwise, it is said to be <term>inhomogeneous</term> or
+<term>nonhomogeneous</term>. For example, the ODE <m>y''(t)+7y(t)=0</m> is homogeneous,
+while  <m>y''(t)+7y(t)=\sin t</m> is inhomogeneous. A homogeneous ODE always
+has the trivial solution <m>y(t)=0</m>.
+</li>
+<li>
+An <term>initial value problem</term>  is a problem in which one is to find
+an unknown function <m>y(t)</m> that satisfies both a given ODE and given
+initial conditions, like <m>y(t_0)=1</m>, <m>y'(t_0)=0</m>. Note that all of the 
+conditions involve the function <m>y(t)</m> (or its derivatives) evaluated at 
+a single time <m>t=t_0</m>.
+</li>
+<li>
+A <term>boundary value problem</term>  is a problem in which one is to find
+an unknown function <m>y(t)</m> that satisfies both a given ODE and given
+boundary conditions, like <m>y(t_0)=0</m>, <m>y(t_1)=0</m>.  Note that the conditions 
+involve the function <m>y(t)</m> (or its derivatives) evaluated at two different 
+times. 
+
+</li>
+</ol>
+</p></statement>
+</definition>
+
+
+<p>The following theorem gives the form of solutions to the linear<fn>There are a some special classes of nonlinear ODE's, like the separable differential equations of &#xA7;<xref ref="sec_sep_de"/>, that are relatively easy to solve. But generally, nonlinear ODE's are much harder to solve than linear ODE's.</fn> ODE <xref ref="eqn_ODEordern"/>.
+</p>
+
+<theorem xml:id="thm_odeMain">
+<statement><p>
+Assume that the coefficients <m>a_0(t)</m>, <m>a_1(t)</m>, <m>\cdots</m>, <m>a_{n-1}(t)</m>,
+<m>a_n(t)</m> and <m>F(t)</m> are continuous functions and that
+<m>a_0(t)</m> is not zero.
+<ol label="a">
+<li><p>
+The general solution to the linear ODE <xref ref="eqn_ODEordern"/> is of the form
+<men xml:id="eqn_ODEgensln">
+y(t)=y_p(t)+ C_1y_1(t)+C_2y_2(t)+\cdots+C_n y_n(t)
+</men>
+where
+<ul>
+<li> <m>n</m> is the order of <xref ref="eqn_ODEordern"/>
+</li>
+<li> <m>y_p(t)</m> is <alert>any</alert> solution to <xref ref="eqn_ODEordern"/>
+</li>
+<li> <m>C_1</m>, <m>C_2</m>, <m>\cdots</m>, <m>C_n</m> are arbitrary constants
+</li>
+<li> <m>y_1</m>, <m>y_2</m>, <m>\cdots</m>, <m>y_n</m> are <m>n</m> independent solutions
+to the homogenous equation
+<me>
+a_0(t) y^{(n)}(t) + a_1(t) y^{(n-1)}(t)+\cdots+a_{n-1}(t) y'(t) +a_n(t)y(t)=0
+</me>
+associated to <xref ref="eqn_ODEordern"/>.
+<q>Independent</q> just means that no <m>y_i</m> can be written as a linear combination
+of the other <m>y_j</m>'s. For example, <m>y_1(t)</m> cannot be expressed in the form
+<m>b_2y_2(t)+\cdots+b_ny_n(t)</m>.
+</li>
+</ul>
+In <xref ref="eqn_ODEgensln"/>, <m>y_p</m> is called the <q>particular solution</q> and
+<m>C_1y_1(t)+C_2y_2(t)+\cdots+C_n y_n(t)</m> is called the
+<q>complementary solution</q>.
+</p></li>
+<li>
+Given any constants <m>b_0</m>, <m>\cdots</m>, <m>b_{n-1}</m> there is exactly
+one function <m>y(t)</m> that obeys the ODE <xref ref="eqn_ODEordern"/> and the initial
+conditions
+<me>
+y(0)=b_0\qquad y'(0)=b_1\qquad \cdots\qquad y^{(n-1)}(0)=b_{n-1}
+</me>
+</li>
+</ol>
+</p></statement>
+</theorem>
+
+<p> In the following example we'll derive one widely used linear constant coefficient ODE.
+</p>
+
+<example xml:id="eg_RLC"><title>RLC circuit</title>
+<p>
+As an example of how ODE's arise, we consider the RLC circuit, which is
+the electrical circuit consisting of a resistor of
+resistance <m>R</m>, a coil (or solenoid) of inductance <m>L</m>, a capacitor
+of capacitance <m>C</m> and a voltage source arranged in series, as shown below.
+Here <m>R</m>, <m>L</m> and <m>C</m> are all nonnegative constants.
+</p>
+
+<sidebyside width="50%">
+<image source="text/figs/RLC"/>
+</sidebyside>
+
+<p>
+ We're going to think of the voltage <m>x(t)</m> as an input signal,
+and the voltage <m>y(t)</m> as an output signal.
+The goal is to determine the output signal produced by a given input signal.
+If <m>i(t)</m> is the current flowing at time <m>t</m> in the loop as shown and
+<m>q(t)</m> is the charge on the capacitor, then the voltages across <m>R</m>, <m>L</m>
+and <m>C</m>, respectively, at time <m>t</m> are
+<m>Ri(t)</m>, <m>L\diff{i}{t}(t)</m> and <m>y(t)=\frac{q(t)}{C}</m>. By the Kirchhoff's
+law<fn>Gustav Robert Kirchhoff (1824<ndash/>1887) was a German physicist. There are several sets of Kirchhoff's laws that are named after him <mdash/> Kirchhoff's circuit laws, that we are using in this example, Krichhoff's spectroscopy laws and Kirchhoff's law of thermochemistry. Kirchhoff and his collaborator Robert Bunsen, of Bunsen burner fame, invented the spectroscope.</fn>
+that says that the voltage between any two points has to be independent
+of the path used to travel between the two points, these three voltages
+must add up to <m>x(t)</m> so that
+<men xml:id="eqn_RLCrlc">
+Ri(t) + L\diff{i}{t}(t) + \frac{q(t)}{C} = x(t)
+</men>
+Assuming that <m>R,\ L,\ C</m> and <m>x(t)</m> are known, this is still one
+differential equation in two unknowns, the current <m>i(t)</m> and the charge <m>q(t)</m>. Fortunately,
+there is a relationship between the two. Because the current entering the capacitor is the rate of change of the charge on the capacitor
+<men xml:id="eqn_RLCiq">
+i(t)=\diff{q}{t}(t) = Cy'(t)
+</men>
+This just says that the capacitor cannot create or destroy charge on
+its own; all charging of the capacitor must come from the current.
+Substituting <xref ref="eqn_RLCiq"/> into <xref ref="eqn_RLCrlc"/> gives
+<me>
+ LCy''(t) + RCy'(t) + y(t) = x(t)
+</me>
+which is a second order linear constant coefficient ODE. 
+As a concrete example, we'll take  an ac voltage source and choose the
+origin of time so that <m>x(0)=0</m>, <m>x(t)=E_0\sin(\omega t)</m>. Then the differential equation becomes
+<men xml:id="eqn_ODERy">
+LCy''(t)+RCy'(t)+y(t)=E_0\sin(\omega t)
+</men>
+</p>
+</example>
+
+<p> 
+Finally, here are two examples in which we use complex exponentials to solve an ODE.
+</p>
+
+<example xml:id="eg_complex_ode_A">
+<p>
+By Theorem<nbsp/><xref ref="thm_odeMain"/>(a), the general solution to the ordinary differential equation
+<me>
+y''(t)+4y'(t)+5y(t)=0
+\tag{ODE}
+</me>
+is of the form <m>C_1 u_1(t)+C_2 u_2(t)</m> with <m>u_1(t)</m> and <m>u_2(t)</m> being
+two (independent) solutions to (ODE) and with <m>C_1</m> and <m>C_2</m>
+being arbitrary constants. The easiest way to find
+<m>u_1(t)</m> and <m>u_2(t)</m> is to guess them. And the easiest way to guess them
+is to try<fn>The reason that <m>y(t)=e^{rt}</m> is a good guess
+is that, with this guess, all of <m>y(t)</m>, <m>y'(t)</m> and <m>y''(t)</m> are constants
+times <m>e^{rt}</m>. So the left hand side of the differential equation is
+also a constant, that depends on <m>r</m>, times <m>e^{rt}</m>. So we just have to
+choose <m>r</m> so that the constant is zero.</fn> 
+<m>y(t)=e^{rt}</m>, with <m>r</m> being a constant to be determined.
+Substituting <m>y(t)=e^{rt}</m> into (ODE) gives
+<md>
+<mrow>
+r^2 e^{rt} +4re^{rt}+5e^{rt}=0
+\iff\big(r^2 +4r+5\big)e^{rt}=0
+\iff r^2 +4r+5=0
+</mrow>
+</md>
+This quadratic equation for <m>r</m> can be solved either by using the high
+school formula  or by completing the square.
+<md>
+<mrow>
+r^2 +4r+5=0
+&amp;\iff (r+2)^2+1=0
+</mrow><mrow>
+&amp;\iff (r+2)^2=-1
+\iff r+2=\pm i 
+</mrow><mrow>
+&amp;\iff r=-2\pm i
+</mrow>
+</md>
+So the general solution to (ODE) is
+<md>
+<mrow>
+y(t)=C_1e^{(-2+i)t} + C_2e^{(-2-i)t}
+</mrow>
+</md>
+This is one way to write the general solution, but there are many others.
+In particular there are quite a few people in the world who are (foolishly)
+afraid<fn>Embracing the complexity leads to simplicity.</fn> of complex exponentials. We can hide them by using 
+(<xref ref="eqn_euler"/>) and (<xref ref="eqn_exp_sin_cos"/>).
+<md>
+<mrow>
+y(t)&amp;=C_1e^{(-2+i)t} + C_2e^{(-2-i)t}
+     =C_1e^{-2t}e^{it} + C_2 e^{-2t}e^{-it} 
+</mrow><mrow>
+     &amp;=C_1e^{-2t}\big(\cos t+i\sin t \big) 
+       +C_2 e^{-2t}\big(\cos t-i\sin t \big) 
+</mrow><mrow>
+     &amp;=(C_1+C_2) e^{-2t} \cos t 
+       +(iC_1-iC_2) e^{-2t}\sin t 
+</mrow><mrow>
+     &amp;=D_1 e^{-2t} \cos t 
+       +D_2 e^{-2t}\sin t 
+</mrow>
+</md>
+with <m>D_1=C_1+C_2</m> and <m>D_2=iC_1-iC_2</m> being two other arbitrary constants.
+Don't make the mistake of thinking that <m>D_2</m> must be complex because 
+<m>i</m> appears in the formula <m>D_2=iC_1-iC_2</m> relating <m>D_2</m> and <m>C_1,C_2</m>. 
+No one said that <m>C_1</m> and <m>C_2</m> are real numbers. In fact, 
+in typical applications, the arbitrary constants are determined by 
+initial conditions and often <m>D_1</m> and <m>D_2</m> turn out to be real and 
+<m>C_1</m> and <m>C_2</m> turn out to be complex. 
+For example, the initial conditions  <m>y(0)=0</m>, <m>y'(0)=2</m> force
+<md>
+<mrow>
+0&amp;=y(0) = C_1 + C_2
+\cr
+2&amp;=y'(0) = (-2+i)C_1 + (-2-i)C_2
+</mrow>
+</md>
+The first equation gives <m>C_2=-C_1</m> and then the second equation gives
+<md>
+<mrow>
+(-2+i)C_1 - (-2-i)C_1 = 2
+&amp;\iff 2iC_1=2
+\iff iC_1=1
+</mrow><mrow>
+&amp;\iff C_1=-i,\ C_2=i
+</mrow>
+</md>
+and
+<md>
+<mrow>
+D_1=C_1+C_2=0\qquad
+D_2=iC_1-iC_2=2
+</mrow>
+</md>
+</p>
+</example>
+
+<example xml:id="eg_complex_ode_B">
+<p>
+We shall now guess one solution (i.e. a particular solution)
+to the differential equation
+<me>
+y''(t)+2y'(t)+3y(t)=\cos t
+\tag{ODE1}</me>
+Equations like this arise, for example, in the  study of the RLC circuit.
+We shall simplify the computation by exploiting that <m>\cos t=\Re e^{it}</m>.
+First, we shall guess a function <m>Y(t)</m> obeying 
+<me>
+Y''+2Y'+3Y=e^{i t}
+\tag{ODE2}</me>
+Then, taking complex conjugates gives
+<me>
+\bar Y''+2\bar Y'+3\bar Y=e^{-i t}
+</me>
+which we shall call (<m>\overline{\text{ODE2}}</m>).
+Then, adding <m>\frac{1}{2}</m>(ODE2) and <m>\frac{1}{2}</m>(<m>\overline{\text{ODE2}}</m>) together will
+give 
+<me>
+(\Re Y)''+2(\Re Y)'+3(\Re Y)=\Re e^{i t}=\cos t
+</me>
+which shows that <m>\Re Y(t)</m> is a solution to (ODE1).
+Let's try <m>Y(t)=Ae^{i t}</m>, with <m>A</m> a constant to be determined. This is a solution of (ODE2) if and only if
+<md>
+<mrow>
+&amp; &amp; \frac{\mathrm{d^2}}{\mathrm{d}t^2}\big(Ae^{it}\big)
+    +2\diff{}{t}\big(Ae^{it}\big)
+    +3Ae^{it}&amp;=e^{it} 
+</mrow><mrow>
+&amp;\iff&amp; (i^2+2i+3)Ae^{it}&amp;=e^{it} 
+</mrow><mrow>
+&amp;\iff&amp; A&amp;=\frac{1}{2+2i} 
+</mrow>
+</md>
+So <m>\frac{e^{it}}{2+2i}</m> is a solution to (ODE2) and <m>\Re \frac{e^{it}}{2+2i}</m> 
+is a solution to (ODE1). To simplify this, write <m>2+2i</m> in polar coordinates.
+From the sketch below we have <m>2+2i=2\sqrt{2}e^{i{\pi\over 4}}</m>.
+</p>
+<sidebyside width="40%">
+   <image source="text/figs/polar4"/>
+</sidebyside>
+
+<p>
+So
+<md>
+<mrow>
+\frac{e^{it}}{2+2i}&amp;=\frac{e^{it}}{2\sqrt{2}e^{i{\pi\over 4}}}
+=\frac{1}{2\sqrt{2}}e^{i(t-{\pi\over 4})} 
+</mrow><mrow>
+\implies \Re\frac{e^{it}}{2+2i}
+&amp;=\frac{1}{2\sqrt{2}}\Re e^{i(t-{\pi\over 4})}
+=\frac{1}{2\sqrt{2}}\cos\left(t-\frac{\pi}{4}\right)
+</mrow>
+</md>
+</p>
+</example>
+</subsection>
+
+</section>
+
+
+
+
+
+</appendix>

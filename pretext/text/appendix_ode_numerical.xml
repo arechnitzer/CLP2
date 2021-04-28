@@ -1,0 +1,1904 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018-2020 Joel Feldman, Andrew Rechnitzer and Elyse Yeager -->
+<!-- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License-->
+<!-- https://creativecommons.org/licenses/by-nc-sa/4.0 -->
+
+<appendix  xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="app_ODE_numerical">
+  <title>Numerical Solution of ODE's</title>
+
+<introduction>
+<p>
+In Section<nbsp/><xref ref="sec_sep_de"/> we solved a number of inital value problems of the form
+<md>
+<mrow>
+y'(t)&amp;=f\big(t,y(t)\big) 
+</mrow><mrow>
+y(t_0)&amp;=y_0
+</mrow>
+</md>
+Here <m>f(t,y)</m> is a given function, <m>t_0</m> is a given initial time and
+<m>y_0</m> is a given initial value for <m>y</m>. The unknown in the problem is the
+function <m>y(t)</m>.  There are a number of other techniques for analytically solving some problems of this type. However it is often simply not possible to find an explicit solution. 
+This appendix introduces some simple algorithms for generating approximate  numerical solutions to such problems.
+
+</p>
+</introduction>
+
+<section xml:id="ap_derivation">
+  <title>Simple ODE Solvers <mdash/> Derivation</title>
+<introduction>
+<p>
+The first order of business is to derive three simple algorithms for
+generating approximate numerical solutions to the initial value problem
+<md>
+<mrow>
+y'(t)&amp;=f\big(t,y(t)\big) 
+</mrow><mrow>
+y(t_0)&amp;=y_0
+</mrow>
+</md>
+The first is called Euler's method because it was developed by (surprise!) Euler<fn>Leonhard Euler (1707<ndash/>1783) was a  Swiss mathematician and physicist who spent most of his adult life in Saint Petersberg and Berlin. He gave the name <m>\pi</m> to the ratio of a circle's circumference to its diameter. He also developed the constant <m>e</m>.</fn>.
+</p>
+</introduction>
+<subsection xml:id="ap_euler">
+  <title>Euler's Method</title>
+<p>
+Our goal is to approximate (numerically) the unknown function 
+<md>
+<mrow>
+y(t) &amp;= y(t_0) + \int_{t_0}^t y'(\tau)\,\dee{\tau} 
+</mrow><mrow>
+     &amp;= y(t_0) + \int_{t_0}^t f\big(\tau,y(\tau)\big)\,\dee{\tau}
+</mrow>
+</md>
+for <m>t\ge t_0</m>.  We are told explicitly the value of <m>y(t_0)</m>, namely <m>y_0</m>.
+So we know <m>f\big(\tau,y(\tau)\big)\big|_{\tau=t_0}=f\big(t_0,y_0\big)</m>.
+But we do not know the integrand <m>f\big(\tau,y(\tau)\big)</m> for <m>\tau>t_0</m>.
+On the other hand, if <m>\tau</m> is close <m>t_0</m>, then <m>f\big(\tau,y(\tau)\big)</m> will remain close<fn>This will be the case as long as <m>f(t,y)</m> is continuous.</fn> 
+to <m>f\big(t_0,y_0\big)</m>. So pick a small number <m>h</m> and define 
+<md>
+<mrow>
+t_1&amp;=t_0+h
+</mrow><mrow> 
+y_1&amp;=y(t_0) + \int_{t_0}^{t_1} f(t_0,y_0)\,\dee{\tau}
+   =y_0+f\big(t_0,y_0\big)(t_1-t_0) 
+</mrow><mrow>
+  &amp;=y_0+f\big(t_0,y_0\big)h
+</mrow>
+</md>
+By the above argument 
+<me>
+y(t_1)\approx y_1 
+</me>
+
+</p>
+<sidebyside width="75%">
+<image source="text/figs/eulerIntro"/>
+</sidebyside>
+
+<p>
+Now we start over from the new point <m>(t_1,y_1)</m>. We now know an approximate value for <m>y</m> at time <m>t_1</m>.
+If <m>y(t_1)</m> were exactly <m>y_1</m>, then the instantaneous rate of change of 
+<m>y</m> at time <m>t_1</m>, namely <m>y'(t_1)=f\big(t_1,y(t_1)\big)</m>, would be exactly 
+<m>f(t_1,y_1)</m> and  <m>f\big(t,y(t)\big)</m> would remain close to <m>f(t_1,y_1)</m>
+for <m>t</m> close to <m>t_1</m>. Defining
+<md>
+<mrow>
+t_2&amp;=t_1+h=t_0+2h
+</mrow><mrow>
+y_2&amp;=y_1 + \int_{t_1}^{t_2} f(t_1,y_1)\,\dee{t}
+   =y_1+f\big(t_1,y_1\big)(t_2-t_1) 
+</mrow><mrow>
+  &amp;=y_1+f\big(t_1,y_1\big)h
+</mrow>
+</md>
+we have 
+<me>
+y(t_2)\approx y_2 
+</me>
+</p>
+
+<p>
+We just repeat this argument ad infinitum. Define, for <m>n=0,1,2,3,\cdots</m>
+<me>
+t_n=t_0+nh
+</me>
+Suppose that, for some value of <m>n</m>, we have already computed an approximate
+value <m>y_n</m> for <m>y(t_n)</m>. Then the rate of change of <m>y(t)</m>
+for <m>t</m> close to <m>t_n</m> is 
+<m>f\big(t,y(t)\big)\approx f\big(t_n,y(t_n)\big)\approx f\big(t_n,y_n\big)</m>
+and
+</p>
+<fact xml:id="Eul"><title>Euler's Method</title>
+<statement><p>
+<me>
+y(t_{n+1})\approx y_{n+1}=y_n+f\big(t_n,y_n\big)h
+</me>
+</p>
+</statement>
+</fact>
+<p>
+This algorithm is called <em>Euler's Method</em>. The parameter <m>h</m> is called
+the <em>step size</em>. 
+</p>
+
+<p>
+Here is a table applying a few steps of Euler's method
+to the initial value problem 
+<md>
+<mrow>
+y'&amp;=-2t+y 
+</mrow><mrow>
+y(0) &amp; = 3
+</mrow>
+</md>
+with step size <m>h=0.1</m>. For this initial value problem
+<md>
+<mrow>
+f(t,y)&amp;=-2t+y 
+</mrow><mrow>
+t_0&amp;=0 
+</mrow><mrow>
+y_0&amp;=3
+</mrow>
+</md>
+Of course this initial value problem has been chosen for illustrative purposes
+only. The exact solution is<fn>Even if you haven't learned how to solve initial value problems like this one, you can check that <m>y(t)=2+2t+e^t</m> obeys both <m>y'(t)=-2t+y(t)</m> and <m>y(0)=3</m>.</fn> <m>y(t)=2+2t+e^t</m>.
+</p>
+
+<sidebyside>
+  <tabular halign="center" bottom="minor" left="major" right="major"  top="major">
+     <col right="major"/>  <col right="minor"/>  <col  right="major"/> <col  right="minor"/> <col />
+    <row bottom="major">
+      <cell> <m>n</m> </cell>
+      <cell> <m>t_n</m> </cell>
+      <cell> <m>y_n</m> </cell>
+      <cell> <m>f(t_n,y_n)=-2t_n+y_n</m> </cell>
+      <cell> <m>y_{n+1}=y_n+f(t_n,y_n)*h</m> </cell>
+    </row> <row>
+      <cell> 0 </cell>
+      <cell> 0.0 </cell>
+      <cell> 3.000 </cell>
+      <cell> <m>-2*0.0+3.000=3.000</m> </cell>
+      <cell> <m>3.000+3.000*0.1=3.300</m> </cell>
+    </row> <row>
+      <cell> 1 </cell>
+      <cell>  0.1 </cell>
+      <cell> 3.300 </cell>
+      <cell> <m>-2*0.1+3.300=3.100</m> </cell>
+      <cell> <m>3.300+3.100*0.1=3.610</m> </cell>
+    </row><row>
+      <cell> 2 </cell>
+      <cell> 0.2 </cell>
+      <cell> 3.610 </cell>
+      <cell> <m>-2*0.2+3.610=3.210</m> </cell>
+      <cell> <m>3.610+3.210*0.1=3.931</m> </cell>
+    </row><row>
+      <cell> 3 </cell>
+      <cell> 0.3 </cell>
+      <cell> 3.931 </cell>
+      <cell> <m>-2*0.3+3.931=3.331</m> </cell>
+      <cell> <m>3.931+3.331*0.1=4.264</m> </cell>
+    </row><row>
+      <cell> 4 </cell>
+      <cell> 0.4 </cell>
+      <cell> 4.264 </cell>
+      <cell> <m>-2*0.4+4.264=3.464</m></cell>
+      <cell> <m>4.264+3.464*0.1=4.611</m> </cell>
+    </row><row bottom="major">
+      <cell> 5 </cell>
+      <cell> 0.5 </cell>
+      <cell> 4.611 </cell>
+      <cell> </cell>
+      <cell> </cell>
+    </row>
+  </tabular>
+</sidebyside>
+<p>
+The exact solution at <m>t=0.5</m> is <m>4.6487</m>, to four decimal places. 
+We expect that Euler's method will become more accurate as
+the step size becomes smaller. But, of course, the
+amount of effort goes up as well. If we recompute using <m>h=0.01</m>, we get
+(after much more work) <m>4.6446</m>.
+</p>
+</subsection>
+
+<subsection xml:id="ap_imp_euler">
+  <title>The Improved Euler's Method</title>
+<p>
+Euler's method is one algorithm which generates approximate solutions to
+the initial value problem
+<md>
+<mrow>
+y'(t)&amp;=f\big(t,y(t)\big) 
+</mrow><mrow>
+y(t_0)&amp;=y_0
+</mrow>
+</md>
+In applications, <m>f(t,y)</m> is a given function and <m>t_0</m> and <m>y_0</m> are given
+numbers. The function <m>y(t)</m> is unknown. Denote by <m>\varphi(t)</m> the exact
+solution<fn>Under reasonable hypotheses on <m>f</m>, there is exactly one such solution. The interested reader should search engine their way to the Picard-Lindel&#xF6;f theorem.</fn> for this initial value problem. In other words <m>\varphi(t)</m> is
+the function that obeys
+<md>
+<mrow>
+\varphi'(t)&amp;=f\big(t,\varphi(t)\big) 
+</mrow><mrow>
+\varphi(t_0)&amp;=y_0
+</mrow>
+</md>
+exactly.
+</p>
+
+<p>
+Fix a step size <m>h</m> and define <m>t_n=t_0+nh</m>. By turning the problem into one 
+of approximating integrals, we now derive another algorithm
+that generates approximate values for <m>\varphi</m> at the sequence of equally
+spaced time values <m>t_0,\ t_1,\ t_2,\ \cdots</m>. We shall denote the approximate
+values <m>y_n</m> with
+<me>
+y_n\approx\varphi(t_n)
+</me>
+By the fundamental theorem of calculus and the differential equation, the 
+exact solution obeys
+<md>
+<mrow>
+\varphi(t_{n+1})&amp;=\varphi(t_n)+\int_{t_n}^{t_{n+1}}\varphi'(t)\ \dee{t} 
+</mrow><mrow>
+&amp;=\varphi(t_n)+\int_{t_n}^{t_{n+1}}f\big(t,\varphi(t)\big)\ \dee{t}
+</mrow>
+</md>
+Fix any <m>n</m> and suppose that we have already found <m>y_0,\ y_1,\ \cdots,\ y_n</m>.
+Our algorithm for computing <m>y_{n+1}</m> will be of the form
+<me>
+y_{n+1}=y_n+\text{ approximate value of }
+\int_{t_n}^{t_{n+1}}f\big(t,\varphi(t)\big)\ \dee{t}
+</me>
+</p>
+
+<p>
+In Euler's method, we approximated <m>f\big(t,\varphi(t)\big)</m> for <m>t_n\le t\le t_{n+1}</m> by
+the constant <m>f\big(t_n,y_n\big)</m>. Thus
+<md>
+<mrow>
+\amp\text{Euler's approximate value for }
+\int_{t_n}^{t_{n+1}}f\big(t,\varphi(t)\big)\ \dee{t}\text{ is }
+</mrow><mrow>
+\amp\hskip0.6in \int_{t_n}^{t_{n+1}}f\big(t_n,y_n\big)\ \dee{t}
+=f\big(t_n,y_n\big)h
+</mrow>
+</md>
+So Euler approximates the area of the complicated region
+<m>\ 0\le y\le  f\big(t,\varphi(t)\big)</m>, <m>t_n\le t\le t_{n+1}\ </m>
+(represented by the shaded region under the parabola in the left half
+of the figure below) by the area of the rectangle 
+<m>\ 0\le y\le  f\big(t_n,y_n\big)</m>, <m>t_n\le t\le t_{n+1}\ </m>
+(the shaded rectangle in the right half of the figure below).
+</p>
+
+<sidebyside width="90%">
+<image source="text/figs/euler"/>
+</sidebyside>
+
+<p>
+Our second algorithm, the improved Euler's method, gets a better approximation 
+by using the trapezoidal rule. That is, we approximate the integral
+by the area of the trapezoid on the right below, rather than the rectangle
+on the right above.
+</p>
+
+<sidebyside width="95%">
+<image source="text/figs/impeuler"/>
+</sidebyside>
+
+<p>
+The exact area of this trapezoid is the length <m>h</m> of the base multiplied by the average
+of the heights of the two sides, which is 
+<m>\frac{1}{2}\big[f\big(t_n,\varphi(t_n)\big)+f\big(t_{n+1},\varphi(t_{n+1})\big)\big]</m>. Of course we do not know <m>\varphi(t_n)</m> or <m>\varphi(t_{n+1})</m> exactly.
+</p>
+
+<p>
+Recall that we have already found <m>y_0,\cdots,y_n</m> and are in the process of finding <m>y_{n+1}</m>. So we already have an  approximation for <m>\varphi(t_n)</m>, namely <m>y_n</m>. But we still need to approximate <m>\varphi(t_{n+1})</m>. We can do so by using one step of the original Euler method! That is
+<me>
+\varphi(t_{n+1})\approx \varphi(t_n)+\varphi'(t_n)h
+\approx y_n+f(t_n,y_n)h
+</me>
+So our approximation  of
+<m>\frac{1}{2}\big[f\big(t_n,\varphi(t_n)\big)+f\big(t_{n+1},\varphi(t_{n+1})\big)\big]</m> is 
+<me>
+\frac{1}{2}\Big[f\big(t_n,y_n\big)+f\Big(t_{n+1},y_n+f(t_n,y_n)h\Big)\Big]
+</me>
+and
+<md>
+<mrow>
+&amp;\text{Improved Euler's approximate value for }
+\int_{t_n}^{t_{n+1}}f\big(t,\varphi(t)\big)\ \dee{t} \text{ is }
+</mrow><mrow>
+&amp;\hskip0.7in
+\frac{1}{2}\Big[f\big(t_n,y_n\big)+f\Big(t_{n+1},y_n+f(t_n,y_n)h\Big)\Big]h
+</mrow>
+</md>
+Putting everything together<fn>Notice that we have made a first approximation for <m>\varphi(t_{n+1})</m> by using Euler's method. Then improved Euler uses the first approximation to build a better approximation for <m>\varphi(t_{n+1})</m>. Building an approximation on top of another approximation
+does not always work, but it works very well here.</fn>, the  improved Euler's method algorithm is
+</p>
+<fact xml:id="ImpEul"><title>Improved Euler</title>
+<statement><p>
+<me>
+y(t_{n+1})\approx y_{n+1}=y_n+
+\frac{1}{2}\Big[f\big(t_n,y_n\big)+f\Big(t_{n+1},y_n+f(t_n,y_n)h\Big)\Big]h
+</me>
+</p>
+</statement>
+</fact>
+
+<p>
+Here are the first two steps of the improved Euler's method applied to
+<md>
+<mrow>
+y'&amp;=-2t+y\qquad
+y(0)  = 3\cr
+</mrow>
+</md>
+with <m>h=0.1</m>. In each step we compute <m>f(t_n,y_n)</m>, followed by
+<m>y_n+f(t_n,y_n)h</m>,  which we denote <m>\tilde y_{n+1}</m>,
+followed by <m>f(t_{n+1},\tilde y_{n+1})</m>, followed by
+<m>y_{n+1}=y_n+
+\frac{1}{2}\big[f\big(t_n,y_n\big)+f\big(t_{n+1},\tilde y_{n+1}\big)\big]h</m>.
+<md alignment="alignat">
+<mrow>
+t_0&amp;=0 &amp; y_0&amp;=3 &amp; &amp;\implies &amp; f(t_0,y_0)&amp;=-2*0+3 =3 
+</mrow><mrow>
+ &amp; &amp; &amp;  &amp; &amp;\implies &amp; \tilde y_1&amp;=3+3*0.1 =3.3 
+</mrow><mrow>
+ &amp; &amp; &amp;  &amp; &amp;\implies &amp; f(t_1,\tilde y_1)&amp;=-2*0.1+3.3 =3.1 
+</mrow><mrow>
+ &amp; &amp;  &amp; &amp; &amp;\implies &amp; y_1&amp;=3+\frac{1}{2}[3+3.1]*0.1 =3.305 \cr
+t_1&amp;=0.1\quad &amp; y_1&amp;=3.305 &amp; &amp;\implies &amp; f(t_1,y_1)&amp;=-2*0.1+3.305 =3.105 
+</mrow><mrow>
+ &amp; &amp; &amp;  &amp; &amp;\implies &amp; \tilde y_2&amp;=3.305+3.105*0.1 =3.6155 
+</mrow><mrow>
+ &amp; &amp; &amp;  &amp; &amp;\implies &amp; f(t_2,\tilde y_2)&amp;=-2*0.2+3.6155  =3.2155 
+</mrow><mrow>
+ &amp; &amp;&amp; &amp; &amp;\implies &amp; y_2&amp;=3.305+\frac{1}{2}[3.105+3.2155]*0.1 
+</mrow><mrow>
+ &amp; &amp;&amp; &amp; &amp;\implies &amp; &amp;=3.621025 
+</mrow>
+</md>
+Here is a table which gives the first five steps.
+</p>
+
+<sidebyside>
+  <tabular halign="center" bottom="minor" left="major" right="major"  top="major">
+     <col right="major"/>  <col right="minor"/>  <col  right="major"/> <col  right="minor"/> <col  right="minor"/> <col  right="minor"/> <col />
+    <row bottom="major">
+      <cell> <m>n</m> </cell>
+      <cell> <m>t_n</m> </cell>
+      <cell> <m>y_n</m> </cell>
+      <cell> <m>f(t_n,y_n)</m> </cell>
+      <cell> <m>\tilde y_{n+1}</m> </cell>
+      <cell> <m>f(t_{n+1},\tilde y_{n+1})</m> </cell>
+      <cell> <m>y_{n+1}</m> </cell>
+    </row> <row>
+      <cell> 0 </cell>
+      <cell> 0.0 </cell>
+      <cell> 3.000 </cell>
+      <cell> 3.000 </cell>
+      <cell> 3.300 </cell>
+      <cell> 3.100 </cell>
+      <cell> 3.305 </cell>
+    </row> <row>
+      <cell>  1 </cell>
+      <cell> 0.1 </cell>
+      <cell> 3.305 </cell>
+      <cell> 3.105 </cell>
+      <cell> 3.616 </cell>
+      <cell> 3.216 </cell>
+      <cell> 3.621 </cell>
+    </row><row>
+      <cell> 2 </cell>
+      <cell> 0.2 </cell>
+      <cell> 3.621 </cell>
+      <cell> 3.221 </cell>
+      <cell> 3.943 </cell>
+      <cell> 3.343 </cell>
+      <cell> 3.949 </cell>
+    </row><row>
+      <cell> 3 </cell>
+      <cell> 0.3 </cell>
+      <cell> 3.949 </cell>
+      <cell> 3.349 </cell>
+      <cell> 4.284 </cell>
+      <cell> 3.484 </cell>
+      <cell> 4.291 </cell>
+    </row><row>
+      <cell> 4 </cell>
+      <cell> 0.4 </cell>
+      <cell> 4.291 </cell>
+      <cell> 3.491 </cell>
+      <cell> 4.640 </cell>
+      <cell> 3.640 </cell>
+      <cell> 4.647 </cell>
+    </row><row bottom="major">
+      <cell> 5 </cell>
+      <cell> 0.5 </cell>
+      <cell> 4.647 </cell>
+      <cell>       </cell>
+      <cell>      </cell>
+      <cell>      </cell>
+      <cell> </cell>
+    </row>
+  </tabular>
+</sidebyside>
+<p>
+As we saw at the end of Section<nbsp/><xref ref="ap_euler"/>, the exact <m>y(0.5)</m> is
+4.6487, to four decimal places, and Euler's method gave 4.611.
+</p>
+</subsection>
+
+<subsection xml:id="ap_runge_kutta">
+  <title>The Runge-Kutta Method</title>
+<p>
+The Runge-Kutta<fn>Carl David Tolm&#xE9; Runge (1856<ndash/>1927) and
+Martin Wilhelm Kutta (1867<ndash/>1944) were German mathematicians.</fn> algorithm is similar to the Euler and improved Euler methods
+in that it also uses, in the notation of the last subsection,
+<me>
+y_{n+1}=y_n+{\rm\ approximate\ value\ for \ }
+\int_{t_n}^{t_{n+1}}f\big(t,\varphi(t)\big)\ dt
+</me>
+But rather than approximating <m>\int_{t_n}^{t_{n+1}}f\big(t,\varphi(t)\big)\ dt</m>
+by the area of a rectangle, as does Euler, or by the area of a trapezoid,
+as does improved Euler, it approximates by the area under a parabola.
+That is, it uses Simpson's rule. According to Simpson's rule (which is 
+derived in Section<nbsp/><xref ref="sec_Simpson"/>)
+<md>
+<mrow>
+&amp;\int_{t_n}^{t_n+h}f\big(t,\varphi(t)\big)\ dt
+</mrow><mrow>
+&amp;\hskip0.5in\approx \tfrac{h}{6}\Big[f\big(t_n,\varphi(t_n)\big)
++4f\big(t_n+\tfrac{h}{2},\varphi(t_n+\tfrac{h}{2})\big)
++f\big(t_n+h,\varphi(t_n+h)\big)\Big]
+</mrow>
+</md>
+Analogously to what happened in our development of the improved Euler method,
+we don't know <m>\varphi(t_n)</m>, <m>\varphi(t_n+\tfrac{h}{2})</m> or
+<m>\varphi(t_n+h)</m>. So we have to approximate them as well.
+The Runge-Kutta algorithm, incorporating all these approximations, 
+is<fn>It is well beyond our scope to derive this algorithm, though the derivation is similar in flavour to that of the improved Euler method. You can find more in, for example, Wikipedia.</fn>
+</p>
+
+<fact xml:id="RK"><title>Runge-Kutta</title>
+<statement><p>
+<md>
+<mrow>
+k_{1,n}&amp;=f(t_n,y_n) 
+</mrow><mrow>
+k_{2,n}&amp;=f(t_n+\tfrac{1}{2}h,y_n+\tfrac{h}{2}k_{1,n}) 
+</mrow><mrow>
+k_{3,n}&amp;=f(t_n+\tfrac{1}{2}h,y_n+\tfrac{h}{2}k_{2,n}) 
+</mrow><mrow>
+k_{4,n}&amp;=f(t_n+h,y_n+hk_{3,n}) 
+</mrow><mrow>
+y_{n+1}&amp;=y_n+\tfrac{h}{6}\left[k_{1,n}+2k_{2,n}+2k_{3,n}+k_{4,n}\right]
+</mrow>
+</md>
+</p>
+</statement>
+</fact>
+
+<p>
+That is, Runge-Kutta uses 
+<ul>
+<li> 
+     <m>k_{1,n}</m> to approximate <m>f\big(t_n,\varphi(t_n)\big)=\varphi'(t_n)</m>,
+</li><li>
+both <m>k_{2,n}</m> and <m>k_{3,n}</m> to approximate            
+           <m>f\big(t_n+\tfrac{h}{2},\varphi(t_n+\tfrac{h}{2})\big)
+               =\varphi'(t_n+\tfrac{h}{2})</m>, and
+</li><li>
+     <m>k_{4,n}</m> to approximate <m>f\big(t_n+h,\varphi(t_n+h)\big)</m>.
+</li>
+</ul>
+Here are the first two steps of the Runge-Kutta algorithm applied to
+<md>
+<mrow>
+y'&amp;=-2t+y\qquad
+y(0)  = 3
+</mrow>
+</md>
+with <m>h=0.1</m>.
+<md alignment="alignat">
+<mrow>
+t_0&amp;=0 &amp; y_0&amp;=3  
+</mrow><mrow>
+ &amp; \implies &amp; k_{1,0}&amp;=f(0,3)=-2*0+3 =3  
+</mrow><mrow>
+&amp; \implies &amp; &amp;y_0+\tfrac{h}{2}k_{1,0}=3+0.05*3=3.15 
+</mrow><mrow>\
+ &amp; \implies &amp; k_{2,0}&amp;=f(0.05,3.15)=-2*0.05+3.15 =3.05 
+</mrow><mrow>
+&amp; \implies &amp; &amp;y_0+\tfrac{h}{2}k_{2,0}=3+0.05*3.05=3.1525 
+</mrow><mrow>
+ &amp; \implies &amp; k_{3,0}&amp;=f(0.05,3.1525)=-2*0.05+3.1525 =3.0525  
+</mrow><mrow>
+&amp; \implies &amp; &amp;y_0+hk_{3,0}=3+0.1*3.0525=3.30525 
+</mrow><mrow>
+ &amp; \implies &amp; k_{4,0}&amp;=f(0.1,3.30525)=-2*0.1+3.30525 =3.10525  
+</mrow><mrow>
+&amp; \implies &amp; y_1&amp;=3+\tfrac{0.1}{6}[3+2*3.05+2*3.0525+3.10525]=3.3051708 
+</mrow><mrow>
+t_1&amp;=0.1 &amp; y_1&amp;=3.3051708  
+</mrow><mrow>
+ &amp; \implies &amp; k_{1,1}&amp;=f(0.1,3.3051708)=-2*0.1+3.3051708 =3.1051708  
+</mrow><mrow>
+&amp; \implies &amp; &amp;y_1+\tfrac{h}{2}k_{1,1}=3.3051708+0.05*3.1051708=3.4604293 
+</mrow><mrow>
+ &amp; \implies &amp; k_{2,1}&amp;=f(0.15,3.4604293)=-2*0.15+3.4604293 =3.1604293 
+</mrow><mrow>
+&amp; \implies &amp; &amp;y_1+\tfrac{h}{2}k_{2,1}=3.3051708+0.05*3.1604293=3.4631923 
+</mrow><mrow>
+ &amp; \implies &amp; k_{3,1}&amp;=f(0.15,3.4631923)=-2*0.15+3.4631923 =3.1631923 
+</mrow><mrow>
+&amp; \implies &amp; &amp;y_1+hk_{3,1}=3.3051708+0.1*3.4631923=3.62149 
+</mrow><mrow>
+ &amp; \implies &amp; k_{4,1}&amp;=f(0.2,3.62149)=-2*0.2+3.62149 =3.22149 
+</mrow><mrow>
+&amp; \implies &amp; y_2&amp;=3.3051708+\tfrac{0.1}{6}[3.1051708+2*3.1604293+ 
+</mrow><mrow>
+&amp;  &amp; &amp;\hskip1.0in+2*3.1631923+3.22149]=3.6214025 
+</mrow><mrow>
+t_2&amp;=0.2 &amp; y_2&amp;=3.6214025 
+</mrow>
+</md>
+Now, while this might look intimidating written out in full like this,
+one should keep in mind that it is quite easy to write a program to do this. Here is a table giving the first five steps. The data
+is only given to three decimal places even though the computation has been
+done to many more. 
+</p>
+<sidebyside>
+  <tabular halign="center" bottom="minor" left="major" right="major"  top="major">
+     <col right="major"/>  <col right="minor"/>  <col  right="major"/> <col  right="minor"/> <col  right="minor"/> <col  right="minor"/> <col  right="minor"/> <col  right="minor"/> <col  right="minor"/> <col  right="minor"/> <col />
+    <row bottom="major">
+      <cell> <m>n</m> </cell>
+      <cell> <m>t_n</m> </cell>
+      <cell> <m>y_n</m> </cell>
+      <cell> <m>k_{1,n}</m> </cell>
+      <cell> <m>y_{n,1}</m></cell>
+      <cell> <m>k_{2,n}</m> </cell>
+      <cell> <m>y_{n,2}</m> </cell>
+      <cell> <m>k_{3,n}</m> </cell>
+      <cell> <m>y_{n,3}</m> </cell>
+      <cell> <m>k_{4,n}</m> </cell>
+      <cell> <m>y_{n+1}</m> </cell>
+    </row> <row>
+      <cell> 0 </cell>
+      <cell> 0.0 </cell>
+      <cell> 3.000 </cell>
+      <cell> 3.000 </cell>
+      <cell> 3.150 </cell>
+      <cell> 3.050 </cell>
+      <cell> 3.153 </cell>
+      <cell> 3.053 </cell>
+      <cell> 3.305 </cell>
+      <cell> 3.105 </cell>
+      <cell> 3.305 </cell>
+    </row> <row>
+      <cell>  1 </cell>
+      <cell> 0.1 </cell>
+      <cell> 3.305 </cell>
+      <cell> 3.105 </cell>
+      <cell> 3.460 </cell>
+      <cell> 3.160 </cell>
+      <cell> 3.463 </cell>
+      <cell> 3.163 </cell>
+      <cell> 3.621 </cell>
+      <cell> 3.221 </cell>
+      <cell> 3.621 </cell>
+    </row><row>
+      <cell> 2 </cell>
+      <cell> 0.2 </cell>
+      <cell> 3.621 </cell>
+      <cell> 3.221 </cell>
+      <cell> 3.782 </cell>
+      <cell> 3.282 </cell>
+      <cell> 3.786 </cell>
+      <cell> 3.286 </cell>
+      <cell> 3.950 </cell>
+      <cell> 3.350 </cell>
+      <cell> 3.949 </cell>
+    </row><row>
+      <cell> 3 </cell>
+      <cell> 0.3 </cell>
+      <cell> 3.950 </cell>
+      <cell> 3.350 </cell>
+      <cell> 4.117 </cell>
+      <cell> 3.417 </cell>
+      <cell> 4.121 </cell>
+      <cell> 3.421 </cell>
+      <cell> 4.292 </cell>
+      <cell> 3.492 </cell>
+      <cell> 4.291  </cell>
+    </row><row>
+      <cell> 4 </cell>
+      <cell> 0.4 </cell>
+      <cell> 4.292 </cell>
+      <cell> 3.492 </cell>
+      <cell> 4.466 </cell>
+      <cell> 3.566 </cell>
+      <cell> 4.470 </cell>
+      <cell> 3.570 </cell>
+      <cell> 4.649 </cell>
+      <cell> 3.649 </cell>
+      <cell> 4.648 </cell>
+    </row><row bottom="major">
+      <cell> 5 </cell>
+      <cell> 0.5 </cell>
+      <cell> 4.6487206 </cell>
+      <cell>  </cell>
+      <cell> </cell>
+      <cell>  </cell>
+      <cell>  </cell>
+      <cell>  </cell>
+      <cell>  </cell>
+      <cell>  </cell>
+      <cell> </cell>
+    </row>
+  </tabular>
+</sidebyside>
+<p>
+As we saw at the end of Section<nbsp/><xref ref="ap_imp_euler"/>, the exact <m>y(0.5)</m> is
+4.6487213, to seven decimal places, Euler's method gave 4.611, and improved Euler gave 4.647.
+</p>
+<p>
+So far we have, hopefully, motivated the Euler, improved Euler and Runge-Kutta
+algorithms. We have not attempted to see how efficient and how accurate
+the algorithms are. A first look at those questions is provided in the
+next section.
+</p>
+</subsection>
+</section>
+
+<section xml:id="ap_error_behaviour">
+  <title>Simple ODE Solvers <mdash/>  Error Behaviour</title>
+<introduction>
+<p>
+We now provide an introduction to the error behaviour of 
+Euler's Method, the improved Euler's method and the Runge-Kutta algorithm for
+generating approximate solutions to the initial value problem
+<md>
+<mrow>
+y'(t)&amp;=f\big(t,y(t)\big) 
+</mrow><mrow>
+y(t_0)&amp;=y_0
+</mrow>
+</md>
+Here <m>f(t,y)</m> is a given known function, <m>t_0</m> is a given initial time and
+<m>y_0</m> is a given initial value for <m>y</m>. The unknown in the problem is the
+function <m>y(t)</m>.
+</p>
+
+<p>
+
+Two obvious considerations in deciding whether or not  a given algorithm is of
+any practical value are 
+<ol label="(a)">
+<li>
+the amount of computational effort required
+to execute the algorithm and 
+</li><li>
+the accuracy that this computational effort
+yields. 
+</li>
+</ol>
+For algorithms like our simple ODE solvers, the bulk of the
+computational effort usually goes into evaluating the function<fn>Typically, evaluating a complicated function will take a great many arithmetic operations, while the actual ODE solver method (as per,
+for example, (<xref ref="RK"/>)) takes only an additional handful of operations. So the great bulk of computational time goes into evaulating <m>f</m> and we want to do it as few times as possible.</fn> <m>f(t,y)</m>.
+Euler's method uses one evaluation of <m>f(t,y)</m> for each step; the improved 
+Euler's method uses two evaluations of <m>f</m> per step; the Runge-Kutta algorithm
+uses four evaluations of <m>f</m> per step.  So Runge-Kutta costs four times
+as much work per step as does Euler. But this fact is extremely deceptive
+because, as we shall see, you typically get the same accuracy with a few
+steps of Runge-Kutta as you do with hundreds of steps of Euler.
+</p>
+
+<p>
+To get a first impression of the error behaviour of these methods, we
+apply them to a problem that we know the answer to. The solution to the
+first order constant coefficient linear initial value problem 
+<md>
+<mrow>
+y'(t)&amp;=y-2t \\
+y(0)&amp;=3
+</mrow>
+</md>
+is 
+<me>
+y(t)=2+2t+e^t
+</me>
+In particular, the exact value of <m>y(1)</m>, to ten decimal places, is
+<m>4+e=6.7182818285</m>. The following table lists the error in the approximate value 
+for this number generated by our three methods applied with three different 
+step sizes. It also lists the number of
+evaluations of <m>f</m> required to compute the approximation. 
+</p>
+
+<sidebyside>
+  <tabular halign="center" bottom="minor" left="major" right="major"  top="major">
+     <col right="major"/>  <col right="minor"/>  <col  right="major"/> <col  right="minor"/> <col  right="major"/> <col  right="minor"/> <col />
+    <row>
+      <cell> </cell>
+      <cell colspan="2"> Euler  </cell>
+      <cell colspan="2"> Improved Euler </cell>
+      <cell colspan="2"> Runge Kutta </cell>
+    </row>
+    <row bottom="major">
+      <cell> steps </cell>
+      <cell> error </cell>
+      <cell> &#x23;evals </cell>
+      <cell> error </cell>
+      <cell> &#x23;evals </cell>
+      <cell> error </cell>
+      <cell> &#x23;evals </cell>
+    </row> <row>
+      <cell> <m>5</m> </cell>
+      <cell> <m>2.3\times 10^{-1}</m> </cell>
+      <cell> <m>5</m> </cell>
+      <cell> <m>1.6\times 10^{-2}</m> </cell>
+      <cell> <m>10</m> </cell>
+      <cell> <m>3.1\times 10^{-5}</m> </cell>
+      <cell> <m>20</m> </cell>
+    </row> <row>
+      <cell>  <m>50</m> </cell>
+      <cell> <m>2.7\times 10^{-2}</m> </cell>
+      <cell> <m>50</m> </cell>
+      <cell> <m>1.8\times 10^{-4}</m> </cell>
+      <cell> <m>100</m> </cell>
+      <cell> <m>3.6\times 10^{-9}</m> </cell>
+      <cell> <m>200</m> </cell>
+    </row><row bottom="major">
+      <cell> <m>500</m> </cell>
+      <cell> <m>2.7\times 10^{-3}</m> </cell>
+      <cell> <m>500</m> </cell>
+      <cell> <m>1.8\times 10^{-6}</m> </cell>
+      <cell> <m>1000</m> </cell>
+      <cell> <m>3.6\times 10^{-13}</m></cell>
+      <cell> <m>2000</m> </cell>
+    </row>
+  </tabular>
+</sidebyside>
+
+<p>
+Observe
+<ul>
+<li>
+Using 20 evaluations of <m>f</m> worth of Runge-Kutta gives
+an error 90 times smaller than 500 evaluations of <m>f</m> worth
+of Euler.
+</li><li>
+ With Euler's method, decreasing the step size by a factor
+of ten appears to reduce the error by about a factor of ten.
+</li><li>
+With improved Euler, decreasing the step size by a factor
+of ten appears to reduce the error by about a factor of one hundred.
+</li><li>
+ With Runge-Kutta, decreasing the step size by a factor
+of ten appears to reduce the error by about a factor of about <m>10^4</m>.
+</li>
+</ul>
+Use <m>A_E(h)</m>, <m>A_{IE}(h)</m> and <m>A_{RK}(h)</m> to denote the approximate
+value of <m>y(1)</m> given by Euler, improved Euler and Runge-Kutta, respectively,
+with step size <m>h</m>. It looks like
+</p>
+<fact xml:id="eqn_error_behaviour">
+<statement><p>
+<md>
+<mrow>
+A_E(h) &amp;\approx y(1)+K_Eh
+</mrow><mrow>
+A_{IE}(h) &amp;\approx y(1)+ K_{IE}h^2 
+</mrow><mrow>
+A_{RK}(h)&amp;\approx y(1)+ K_{RK}h^4
+</mrow>
+</md>
+with some constants <m>K_E,\ K_{IE}</m> and <m>K_{RK}</m>.
+</p>
+</statement>
+</fact>
+
+<p>
+To test these conjectures further, we apply our three methods with
+about ten different step sizes of the form <m>\frac{1}{n}=\frac{1}{2^m}</m> 
+with <m>m</m> integer. 
+Below are three graphs, one for each method. Each contains a plot
+of <m>Y=\log_2 e_n</m>, the (base 2) logarithm  of the error for step size <m>\frac{1}{n}</m>, against the logarithm (of base 2) of <m>n</m>. 
+The logarithm of base 2 is used because <m>\log_2n=\log_2 2^m=m</m> <mdash/> nice and simple. 
+</p>
+
+<p>
+Here is why it is a good reason to plot <m>Y=\log_2 e_n</m> against <m>x=\log_2 n</m>. 
+ If, for some algorithm, there are (unknown) constants <m>K</m> and <m>k</m> such that
+<me>
+\text{approx value of }y(1)\text{ with step size } h= y(1)+K h^k
+</me>
+then the error with step size <m>\frac{1}{n}</m> is <m>e_n=K\frac{1}{n^k}</m>
+and obeys
+<me>
+\log_2 e_n =\log_2 K -k \log_2 n
+\tag{E1}
+</me> 
+The graph of <m>Y=\log_2 e_n</m>  against <m>x=\log_2 n</m> is the straight line
+<m>Y=-kx+\log_2K</m> of slope <m>-k</m> and <m>y</m> intercept <m>\log_2K</m>.
+</p>
+
+<remark xml:id="rmk_findk">
+<p>
+This procedure can still be used even if we do not know the exact value
+of <m>y(1)</m>. Suppose, more generally, that we have some algorithm that generates
+approximate values for some (unknown) exact value <m>A</m>. Call <m>A_h</m> the 
+approximate value with step size <m>h</m>. Suppose that
+<me>
+A_h=A+Kh^k
+</me>
+with <m>K</m> and <m>k</m> constant (but also unknown). Then plotting
+<me>
+y=\log(A_h-A_{h/2})=\log\left(Kh^k-K\left(\tfrac{h}{2}\right)^k\right)
+=\log\left(K-\tfrac{K}{2^k}\right)+k\log h
+</me>
+against <m>x=\log h</m> gives the straight line <m>y=mx+b</m> with slope <m>m=k</m> and <m>y</m> intercept <m>b=\log\left(K-\tfrac{K}{2^k}\right)</m>. So we can
+<ul>
+<li>
+read off <m>k</m> from the slope of the line and then
+</li><li>
+compute <m>K=e^b\left(1-\frac{1}{2^k}\right)^{-1}</m> from the <m>y</m> intercept <m>b</m>
+and then
+</li><li>
+compute<fn>This is the type of strategy used by the Richardson extrapolation of Section<nbsp/><xref ref="ap_Richardson"/>.</fn> <m>A=A_h-Kh^k</m>.
+</li>
+</ul>
+</p>
+</remark>
+
+<p>
+Here are the three graphs <mdash/> one each for the Euler method, the improved 
+Euler method and the Runge-Kutta method.
+</p>
+<sidebyside width="67%">
+<image source="text/figs/euler_error"/>
+</sidebyside>
+
+<sidebyside widths="48% 48%">
+<image source="text/figs/imp_euler_error"/>
+<image source="text/figs/runge_kutta_error"/>
+</sidebyside>
+
+<p>
+Each graph contains about a dozen  data points, <m>(x, Y)=(\log_2n, \log_2e_n)</m>,
+and also contains a straight line, chosen by linear regression, to best fit the data. The method of linear regression for finding the straight line which best fits a given set of data points is 
+covered in Example 2.9.11 of the CLP-3 text.
+The three straight lines have slopes <m>-0.998</m> for Euler,
+<m>-1.997</m> for improved Euler and <m>-3.997</m> for Runge Kutta. Reviewing (E1),
+it sure looks like  <m>k=1</m> for Euler, <m>k=2</m> for 
+improved Euler and <m>k=4</m> for Runge-Kutta (at least if <m>k</m> is integer).
+</p>
+
+<p>
+So far we have only looked at the error in the approximate value of <m>y(t_f)</m>
+as a function of the step size <m>h</m> with <m>t_f</m> held fixed. The graph below 
+illustrates how the error behaves as a function of <m>t</m>, with <m>h</m> held fixed. 
+That is, we hold the step size fixed and look at the error as a function of the distance, <m>t</m>, from the initial point. 
+</p>
+<sidebyside width="90%">
+<image source="text/figs/t_error"/>
+</sidebyside>
+<p>
+From the graph, it appears that the error grows exponentially with <m>t</m>. But it is not so easy to visually distinguish exponential curves from other upward curving curves. On the other hand, it is pretty easy to visually distinguish straight lines from other curves, and taking a logarithm converts 
+the exponential curve <m>y=e^{kx}</m> into  the straight line <m>Y=\log y = k\,x</m>.
+Here is a graph of the logarithm, <m>\log e(t)</m>, of the error at time <m>t</m>, <m>e(t)</m>, against <m>t</m>. We have added a straight line as an aide to your eye.
+</p>
+<sidebyside width="90%">
+<image source="text/figs/t_log_error"/>
+</sidebyside>
+<p>
+It looks like the <m>\log</m> of the error grows very quickly initially, but then settles into a straight line. Hence it really does look like, at least in this example,
+except at the very beginning, the error <m>e(t)</m> grows exponentially with <m>t</m>. 
+</p>
+<p>
+The above numerical experiments have given a little intuition about the error behaviour of the Euler, improved Euler and Runge-Kutta methods. It's time to try and understand what is going on more rigorously.
+</p>
+</introduction>
+
+<subsection xml:id="ap_local_trunc_Euler">
+  <title>Local Truncation Error for Euler's Method</title>
+<p>
+We now try to develop some understanding as to why we got the above experimental
+results. We start with the error generated by a single step of Euler's
+method.
+</p>
+<definition xml:id="def_locTrunc"><title>Local  truncation error</title>
+<statement><p>
+The (signed) error generated by a single step of Euler's method, under the assumptions 
+that we start the step with the exact solution and that there is no roundoff 
+error, is called the <em>local truncation error</em> for Euler's method.
+That is, if <m>\phi(t)</m> obeys <m>\phi'(t) = f\big(t,\phi(t)\big)</m> and
+<m>\phi(t_n)=y_n</m>, and if <m>y_{n+1}=y_n+ hf(t_n,y_n)</m>,
+then the local truncation error for Euler's method is
+<me>
+\phi\big(t_{n+1}\big) -y_{n+1}
+</me>
+That is, it is difference between the exact value, <m>\phi\big(t_{n+1}\big)</m>,
+and the approximate value generated by a single Euler method step, <m>y_{n+1}</m>, 
+ignoring any numerical issues caused by storing numbers in a computer.
+</p></statement>
+</definition> 
+<p>
+Denote by <m>\phi(t)</m> the exact solution to the initial value problem
+<me>
+y'(t)=f(t,y)\qquad y(t_n)=y_n
+</me>
+That is, <m>\phi(t)</m> obeys 
+<me>
+\phi'(t) = f\big(t,\phi(t)\big)\qquad
+\phi(t_n)=y_n
+</me>
+for all <m>t</m>. Now execute one more step of Euler's method with step size h:
+<me>
+y_{n+1}=y_n+hf\big(t_n,y_n\big) 
+</me>
+Because we are assuming that <m>y_n=\phi(t_n)</m>
+<me>
+y_{n+1}= \phi(t_n)+  hf\big(t_n,\phi(t_n)\big)
+</me>
+Because <m>\phi(t)</m> is the exact solution, 
+<m>\ \phi'(t_n) = f\big(t_n,\phi(t_n)\big)= f(t_n,y_n)\ </m> and 
+<me>
+y_{n+1}= \phi(t_n)+  h\phi'(t_n)
+</me>
+The local truncation error in <m>y_{n+1}</m> is, by definition,  <m>\phi(t_{n+1})-y_{n+1}</m>. 
+</p>
+
+<p>
+Taylor expanding (see (3.4.10) in the CLP-1 text) <m>\phi(t_{n+1})=\phi(t_n+h)</m>  about <m>t_n</m>
+<me>
+\phi(t_n+h)=\phi(t_n)+\phi'(t_n)h+\tfrac{1}{2} \phi''(t_n)h^2
+                      +\tfrac{1}{3!}\phi'''(t_n)h^3+\cdots
+</me>
+so that
+<md>
+<mrow>
+&amp;\phi(t_{n+1})-y_{n+1}
+</mrow><mrow> 
+&amp;= \big[\phi(t_n)+\phi'(t_n)h+\tfrac{1}{2} \phi''(t_n)h^2
+                     +\tfrac{1}{3!}\phi'''(t_n)h^3+\cdots\big]
+-\big[\phi(t_n)+  h\phi'(t_n)\big]
+</mrow><mrow>
+&amp;= \tfrac{1}{2} \phi''(t_n)h^2+\tfrac{1}{3!}\phi'''(t_n)h^3+\cdots
+\tag{E2}</mrow>
+</md>
+Notice that the constant and <m>h^1</m> terms have cancelled out. So the first term that appears is proportional to <m>h^2</m>. Since <m>h</m> is typically a very small number, the <m>h^3</m>, <m>h^4</m>, <m>\cdots</m> terms will usually be much smaller than the <m>h^2</m> term.
+</p>
+
+<p>
+We conclude that the local truncation error for Euler's method is <m>h^2</m>
+times some unknown constant (we usually don't know the value of 
+<m>\frac{1}{2} \phi''(t_n)</m> because we don't usually know the solution 
+<m>\phi(t)</m> of the differential equation)
+plus smaller terms that are proportional to <m>h^r</m> with <m>r\ge 3</m>. 
+This conclusion is typically written
+</p>
+<fact xml:id="eqn_local_trunc_error_Euler">
+<statement><p>
+<me>
+\text{Local truncation error for Euler's method }= Kh^2+O(h^3)
+</me>
+</p>
+</statement>
+</fact>
+<p>
+The symbol <m>O(h^3)</m> is used to designate any function that, for small <m>h</m>,
+is bounded by a constant times <m>h^3</m>. So, if <m>h</m> is very small, <m>O(h^3)</m> will be a lot smaller than <m>h^2</m>.
+</p>
+
+<p>
+To get from an initial time <m>t=t_0</m> to a final time <m>t=t_f</m> using steps of size <m>h</m> requires <m>(t_f-t_0)/h</m> steps. If each step were to introduce an error<fn>For simplicity, we are assuming that <m>K</m> takes the same value in every step. If, instead, there is a different <m>K</m> in each of the <m>n=(t_f-t_0)/h</m> steps, the final error would be <m>K_1h^2\!+\!K_2h^2\!+\!\cdots\!+\!K_nh^2\!+\!n O(h^3)= \bar K nh^2\!+\!n O(h^3)= \bar K(t_f-t_0)\, h\!+\!O(h^2)</m>, where <m>\bar K</m> is the average of <m>K_1</m>, <m>K_2</m>, <m>\cdots</m>, <m>K_n</m>.</fn> <m>Kh^2+O(h^3)</m>, then the final error in
+the approximate value of <m>y(t_f)</m> would be 
+<me>
+\frac{t_f-t_0}{h}\ \Big[Kh^2+O(h^3)\Big]
+           = K(t_f-t_0)\, h+O(h^2)
+</me>
+This very rough estimate is consistent with the experimental data for 
+the dependence of error on step size with <m>t_f</m> held fixed, shown on the 
+first graph after Remark<nbsp/><xref ref="rmk_findk"/>. 
+But it is not consistent with the experimental time dependence data above,
+which shows the error growing exponentially, rather than linearly, in <m>t_f-t_0</m>.
+</p>
+
+<p>
+We can get some rough understanding of this exponential growth as follows.
+The general solution to <m>y'=y-2t</m> is <m>y=2+2t+c_0e^t</m>. The arbitrary constant,
+<m>c_0</m>, is to be determined by initial conditions. When <m>y(0)=3</m>, <m>c_0=1</m>.
+At the end of step 1, we have computed an approximation <m>y_1</m> to <m>y(h)</m>.
+This <m>y_1</m> is not exactly <m>y(h)=2+2h+e^h</m>. Instead, it is a number that differs
+from <m>2+2h+e^h</m> by <m>O(h^2)</m>. We choose to write the number <m>y_1=2+2h+e^h+O(h^2)</m> 
+as <m>2+2h+(1+\epsilon)e^h</m> with <m>\epsilon=e^{-h} O(h^2)</m> of order of magnitude <m>h^2</m>. 
+That is, we choose to write 
+<me>
+y_1=2+2t+c_0e^t\Big|_{t=h}\qquad\text{with }c_0=1+\epsilon
+</me>
+If we were to make no further errors we would end up with the solution to
+<me>
+y'=y-2t,\qquad y(h)= 2+2h+(1+\epsilon)e^h
+</me>
+which is<fn>Note that this <m>y(t)</m> obeys both the differential equation
+<m>y'=y-2t</m> and the initial condition <m>y(h)= 2+2h+(1+\epsilon)e^h</m>.</fn>
+<md>
+<mrow>
+y(t) &amp;= 2+2t+(1+\epsilon)e^t
+=2+2t+ e^t +\epsilon e^t \\
+&amp;=\phi(t) +\epsilon e^t
+</mrow>
+</md>
+So, once as error has been introduced, the natural time evolution of the
+solutions to this differential equation cause the error to grow exponentially.
+Other differential equations with other time evolution characteristics
+will exhibit different <m>t_f</m> dependence of errors<fn>For example, if the solution is polynomial, then we might expect (by a similar argument) that the error also grows polynomially in <m>t_f</m></fn>. In the next section, we show that, for many differential equations, errors grow at
+worst exponentially with <m>t_f</m>. 
+</p>
+ </subsection>
+
+<subsection xml:id="ap_global_trunc_Euler">
+  <title>Global Truncation Error for Euler's Method</title>
+<p>
+Suppose once again that we are applying Euler's method with step size <m>h</m> to
+ the initial value problem 
+<md>
+<mrow>
+y'(t)&amp;=f(t,y) 
+</mrow><mrow>
+y(0)&amp;=y_0
+</mrow>
+</md>
+Denote by <m>\phi(t)</m> the exact solution to the initial value problem and
+by <m>y_n</m> the approximation to <m>\phi(t_n),\ t_n=t_0+nh</m>, given by <m>n</m> steps
+of Euler's method (applied without roundoff error). 
+</p>
+<definition xml:id="def_globalTrunc"><title>Global  truncation error</title>
+<statement><p>
+The (signed) error in <m>y_n</m> is 
+<m>\ 
+\phi(t_n)-y_n
+\ </m> 
+and is called the <em>global truncation error</em> at time <m>t_n</m>. 
+</p></statement>
+</definition> 
+
+<p>
+The word <q>truncation</q> is supposed to signify that this error is due solely to
+Euler's method and does not include any effects of roundoff error that might be introduced by our not writing down an infinite number of decimal digits for each number that we compute along the way.
+We now derive a bound on the global truncation error. 
+</p>
+
+<p>
+Define 
+<me>
+\varepsilon_n=\phi(t_n)-y_n
+</me>
+The first half of the derivation is to find a bound on <m>\varepsilon_{n+1}</m>
+in terms of <m>\varepsilon_n</m>. 
+<md>
+<mrow>
+\varepsilon_{n+1}&amp;=\phi(t_{n+1})-y_{n+1} 
+</mrow><mrow>
+&amp;=\phi(t_{n+1})-y_n-hf(t_n,y_n) 
+</mrow><mrow>
+&amp;=[{\color{red}{\phi(t_n)}}-y_n]+h[{\color{blue}{f\big(t_n,\phi(t_n)\big)}}-f(t_n,y_n)]
+</mrow><mrow>
+&amp;\hskip1.5in  +[\phi(t_{n+1})-{\color{red}{\phi(t_n)}}-h{\color{blue}{f\big(t_n,\phi(t_n)\big)}}]
+\tag{E3}
+</mrow>
+</md>
+where we have massaged the expression into three manageable pieces.
+<ul>
+<li>
+The first <m>[\cdots]</m> is exactly <m>\varepsilon_n</m>. 
+</li><li>
+The third <m>[\cdots]</m> is exactly
+the local truncation error. Assuming that <m>|\phi''(t)|\le A</m> for all <m>t</m>
+of interest<fn>We are assuming that the derivative <m>\phi'(t)</m> doesn't change too rapidly. This will be the case if <m>f(t,y)</m> is a reasonably smooth function.</fn>, we can bound the third  <m>[\cdots]</m> by
+<me>
+\big|\phi(t_{n+1})-\phi(t_n)-hf\big(t_n,\phi(t_n)\big)\big|\le \half Ah^2
+</me>
+This bound follows quickly from the Taylor expansion with remainder ((3.4.32) in the CLP-1 text),
+<md>
+<mrow>
+\phi(t_{n+1})&amp;=\phi(t_n)+\phi'(t_n)h+\half \phi''(\tilde t)h^2 
+</mrow><mrow>
+&amp;=\phi(t_n)+h\, f\big(t_n,\phi(t_n)\big)+\half \phi''(\tilde t)h^2
+</mrow>
+</md>
+for some <m>t_n\lt \tilde t\lt t_{n+1}</m>. 
+</li><li>
+Finally, by the mean value theorem,
+the magnitude of the second <m>[\cdots]</m> is <m>h</m> times
+<md>
+<mrow>
+|f\big(t_n,\phi(t_n)\big)-f(t_n,y_n)|
+&amp;= F_{t_n}\big(\phi(t_n)\big)- F_{t_n}(y_n)
+  \quad \text{where}\quad F_{t_n}(y) = f\big(t_n,y\big)
+</mrow><mrow>
+&amp;=\big|F'_{t_n}(\tilde y)\big| \,|\phi(t_n)-y_n|
+</mrow><mrow>
+&amp;\hskip1.35in\text{for some }\tilde y\text{ between }y_n\text{ and }\phi(t_n) 
+</mrow><mrow>
+&amp;=\big|F'_{t_n}(\tilde y)\big|\,|\varepsilon_n|
+</mrow><mrow>
+&amp;\le B|\varepsilon_n|
+</mrow>
+</md> 
+assuming that <m>\big|F'_t(y)\big|
+\le B</m> for all <m>t</m> and <m>y</m> of interest<fn>Again, this will be the case if <m>f(t,y)</m> is a reasonably smooth function.</fn>.
+</li>
+</ul>
+Substituting into (E3) gives
+<me>
+|\varepsilon_{n+1}|
+\le |\varepsilon_n| + Bh|\varepsilon_n| +\half Ah^2
+= (1+Bh)|\varepsilon_n| +\half Ah^2
+\tag{E4-n}
+</me>
+Hence the (bound on the) magnitude of the total error, <m>|\varepsilon_{n+1}|</m>, consists of two parts. 
+One part is the magnitude of the local truncation error, which is no more 
+than <m>\half Ah^2</m> and which is present even if we start the step with no 
+error at all, i.e. with <m>\varepsilon_n=0</m>.
+The other part is due to the combined error from all previous steps. This is the <m>\varepsilon_n</m> term.
+At the beginning of step number <m>n+1</m>, the combined error has magnitude
+<m>|\varepsilon_n|</m>. During the step, this error gets magnified by no more 
+than a factor of <m>1+Bh</m>.
+</p>
+
+<p>
+
+The second half of the derivation is to repeatedly apply (E4-n) with
+<m>n=0,1,2,\cdots</m>. By definition <m>\phi(t_0)=y_0</m> so that <m>\varepsilon_0=0</m>, so
+<md alignment="alignat">
+<mrow>
+&amp;(\text{E4-0})\implies|\varepsilon_1|&amp;&amp;\le (1+Bh)|\varepsilon_0| +\tfrac{A}{2}h^2
+                        =\tfrac{A}{2} h^2 
+</mrow><mrow>
+&amp;(\text{E4-1})\implies|\varepsilon_2|&amp;&amp;\le (1+Bh)|\varepsilon_1| +\tfrac{A}{2} h^2
+                               =(1+Bh)\tfrac{A}{2}h^2+\tfrac{A}{2}h^2
+</mrow><mrow>
+&amp;(\text{E4-2})\implies|\varepsilon_3|&amp;&amp;\le (1+Bh)|\varepsilon_2| +\tfrac{A}{2}h^2
+              =(1+Bh)^2\tfrac{A}{2}h^2+(1+Bh)\tfrac{A}{2}h^2+\tfrac{A}{2}h^2
+</mrow>
+</md>
+Continuing in this way 
+<me>
+|\varepsilon_n|\le 
+       (1+Bh)^{n-1}\tfrac{A}{2}h^2+\cdots+(1+Bh)\tfrac{A}{2}h^2+\tfrac{A}{2}h^2
+=\sum_{m=0}^{n-1} (1+Bh)^m \tfrac{A}{2}h^2
+</me>
+This is the beginning of a geometric series, and we can sum it up by using 
+<m>\ \sum\limits_{m=0}^{n-1} ar^m=\frac{r^n-1}{r-1}a\ </m> 
+(which is Theorem<nbsp/><xref ref="thm_INTspecialSums"/>(a))
+with <m>\ a=\tfrac{A}{2}h^2\ </m> and <m>\ r=1+Bh\ </m> gives 
+<me>
+|\varepsilon_n|\le \frac{(1+Bh)^n-1}{(1+Bh)-1}\frac{A}{2}h^2
+=\frac{A}{2B}\big[(1+Bh)^n-1\big]h
+</me>
+We are interested in how this behaves as <m>t_n-t_0</m> increases and/or <m>h</m> decreases. Now
+<m>n=\frac{t_n-t_0}{h}</m> so that <m>(1+Bh)^n=(1+Bh)^{(t_n-t_0)/h}</m>. When <m>h</m> is small,
+the behaviour of <m>(1+Bh)^{(t_n-t_0)/h}</m> is not so obvious. So we'll use a little trickery to make it easier to understand. 
+Setting <m>x=Bh</m> in 
+<me>
+x\ge 0\implies 1+x\le 1+x+\frac{1}{2}x^2+\frac{1}{3!}x^3+\cdots = e^x
+</me>
+(the exponential series <m>e^x= 1+x+\frac{1}{2}x^2+\frac{1}{3!}x^3+\cdots</m>
+was derived in Example<nbsp/><xref ref="eg_expSeries"/>.
+gives<fn>When <m>x=Bh</m> is large, it is not wise to bound the linear <m>1+x</m> by the much larger exponential <m>e^x</m>. However when <m>x</m> is small, <m>1+x</m> and <m>e^x</m> are almost the same.</fn> <m>1+Bh\le e^{Bh}</m>. Hence <m>(1+Bh)^n\le e^{Bhn}=e^{B(t_n-t_0)}</m>, 
+since <m>t_n=t_0+nh</m>, and we arrive at the conclusion
+</p>
+<fact xml:id="glbl_trunc_error_Euler">
+<statement><p>
+<me>
+|\varepsilon_n|\le \frac{A}{2B}\left[e^{B(t_n-t_0)}-1\right]h
+</me>
+</p>
+</statement>
+</fact>
+
+<p>
+This is of the form <m>K(t_f)h^k</m> with <m>k=1</m> and the coefficient <m>K(t_f)</m> 
+growing exponentially with <m>t_f-t_0</m>. If we keep <m>h</m> fixed and increase <m>t_n</m> we see exponential growth, but if we fix <m>t_n</m> and decrease <m>h</m> we see the error decrease linearly. 
+This is just what our experimental data suggested.
+</p>
+
+</subsection>
+</section>
+
+<section xml:id="ap_variable">
+  <title>Variable Step Size Methods</title>
+<introduction>
+<p>
+We now introduce a family of procedures that decide by themselves what step 
+size to use. In all of these procedures the user specifies an acceptable error
+rate and the procedure attempts to adjust the step size so that each step
+introduces error at no more than that rate. That way the procedure uses a small step size when it is hard to get an accurate approximation, and a large step 
+size when it is easy to get a good approximation.  
+</p>
+
+<p>
+Suppose that we wish to generate an approximation to the initial value problem
+<me>
+y'=f(t,y),\qquad
+y(t_0)=y_0
+</me>
+for some range of <m>t</m>'s and we want the error introduced per
+unit increase<fn>We know that the error will get larger the
+further we go in <m>t</m>. So it makes sense to try to limit the error per 
+unit increase in <m>t</m>.</fn> of <m>t</m> to be no more than about some small fixed 
+number <m>\varepsilon</m>. This means that if <m>y_n\approx y(t_0+nh)</m> and
+<m>y_{n+1}\approx y(t+(n+1)h)</m>, then we want the local truncation error in the step from <m>y_n</m> to <m>y_{n+1}</m> to be no more than about <m>\varepsilon h</m>. Suppose further that
+we have already produced the approximate solution as far as <m>t_n</m>. 
+The rough strategy is as follows.
+We do the step from <m>t_n</m> to <m>t_n+h</m> twice using two different 
+algorithms, giving two different approximations to <m>y(t_{n+1})</m>, 
+that we call <m>A_{1,n+1}</m> and <m>A_{2,n+1}</m>. The two algorithms are chosen so that 
+<ol label="(1)">
+<li>
+we can use <m>A_{1,n+1}-A_{2,n+1}</m> to compute an approximate local truncation 
+error and
+</li><li>
+for efficiency, the two algorithms use almost the same evaluations 
+of <m>f</m>. Remember that evaluating the function <m>f</m> is typically the most time-consuming 
+part of our computation.
+</li>
+</ol>
+In the event that the local truncation error, divided by <m>h</m>,
+(i.e. the error per unit increase of <m>t</m>) is
+smaller than <m>\varepsilon</m>, we set <m>t_{n+1}=t_n+h</m>, accept <m>A_{2,n+1}</m> 
+as the approximate value<fn>Better still, accept <m>A_{2,n+1}</m> minus the computed approximate error in <m>A_{2,n+1}</m> as the approximate value for <m>y(t_{n+1})</m>.</fn> for <m>y(t_{n+1})</m>,
+and move on to the next step. Otherwise we pick, using what we have learned
+from <m>A_{1,n+1}-A_{2,n+1}</m>, a new trial step size <m>h</m> and start over again 
+at <m>t_n</m>.
+</p>
+
+<p>
+Now for the details.
+We start with a very simple procedure. We will later soup it up to get a much more efficient procedure.
+</p>
+</introduction>
+<subsection xml:id="ssec_prelim_E_E2">
+  <title>Euler and Euler-2step (preliminary version)</title>
+<p>
+Denote by <m>\phi(t)</m> the exact solution to <m>y'=f(t,y)</m> that satisfies the
+initial condition <m>\phi(t_n)=y_n</m>. 
+If we apply one step of Euler with step size <m>h</m>, giving
+<me>
+A_{1,n+1}=y_n+hf(t_n,y_n)
+</me>
+we know, from (<xref ref="eqn_local_trunc_error_Euler"/>), that 
+<me>
+A_{1,n+1}=\phi(t_n+h)+Kh^2+O(h^3)
+</me>
+The problem, of course, is that we don't know what the error is, even
+approximately, because we don't know what the constant <m>K</m> is. 
+But we can estimate <m>K</m> simply by redoing the step from <m>t_n</m>  to <m>t_n+h</m>
+using a judiciously chosen second algorithm. There are a number of 
+different second algorithms that will work. We call the simple algorithm 
+that we use in this subsection Euler-2step<fn>This name is begging for a dance related footnote
+and we invite the reader to supply their own.</fn>. One step of Euler-2step with 
+step size <m>h</m> just consists of doing two steps of Euler with step size <m>h/2</m>:
+<me>
+A_{2,n+1} = y_n+\tfrac{h}{2}f(t_n,y_n)
+            +\tfrac{h}{2}f\big(t_n+\tfrac{h}{2},y_n+\tfrac{h}{2}f(t_n,y_n)\big)
+</me>
+Here, the first half-step took us from <m>y_n</m> to 
+<m>y_{\rm mid}=y_n+\frac{h}{2}f(t_n,y_n)</m> and the second half-step took
+us from <m>y_{\rm mid}</m> to 
+<m>y_{\rm mid}+\frac{h}{2}f\big(t_n+\frac{h}{2},y_{\rm mid}\big)</m>.
+The local truncation error
+introduced in the first half-step is <m>K(h/2)^2+O(h^3)</m>. That for
+the second half-step is <m>K(h/2)^2+O(h^3)</m> with the same<fn>Because 
+the two half-steps start at values of <m>t</m> only <m>h/2</m> apart, and we are 
+thinking of <m>h</m> as being very small, it should not be surprising that 
+we can use the same value of <m>K</m> in both. In case you don't believe us, we have included a derivation of the local truncation error for Euler-2step 
+later in this appendix.</fn> <m>K</m>, though with a different <m>O(h^3)</m>.
+All together
+<md>
+<mrow>
+A_{2,n+1}&amp;=\phi(t_n+h)+\big[ K\big(\tfrac{h}{2}\big)^2+O(h^3)\big]
+                   + \big[K\big(\tfrac{h}{2}\big)^2+O(h^3)\big] 
+</mrow><mrow>
+&amp;=\phi(t_n+h)+\half Kh^2+O(h^3)
+</mrow>
+</md>
+The difference is<fn>Recall that every time the symbol <m>O(h^3)</m> is 
+used it can stand for a different function that is bounded by some 
+constant times <m>h^3</m> for small <m>h</m>. Thus <m>O(h^3)-O(h^3)</m> need not be zero, 
+but is <m>O(h^3)</m>. What is important here is that if <m>K</m> is not zero and if <m>h</m> is very small, then <m>O(h^3)</m> is much smaller than <m>\half Kh^2</m>.</fn>
+<md>
+<mrow>
+A_{1,n+1}-A_{2,n+1}&amp;=\big[\phi(t_n+h)+Kh^2+O(h^3)\big]
+             -\big[\phi(t_n+h)-\half Kh^2-O(h^3)\big] 
+</mrow><mrow>
+&amp;=\half Kh^2+O(h^3)
+</mrow>
+</md>
+So if we do one step of both Euler and Euler-2step, we can estimate
+<me>
+\half Kh^2=A_{1,n+1}-A_{2,n+1}+O(h^3)
+</me>
+We now know that in the step just completed Euler-2step introduced an error 
+of about  <m>\half Kh^2\approx A_{1,n+1}-A_{2,n+1}</m>. 
+That is, the current error rate is about
+<m>r=\frac{|A_{1,n+1}-A_{2,n+1}|}{h}\approx\half |K| h</m> per unit increase of <m>t</m>.
+<ul>
+<li>
+If this <m>r=\frac{|A_{1,n+1}-A_{2,n+1}|}{h}>\varepsilon</m>, we reject<fn>The measured error rate, <m>r</m>,  is bigger than the desired error rate <m>\varepsilon</m>. That means that it is harder to get the accuracy we want than we thought. So we have to take smaller steps.</fn> <m>A_{2,n+1}</m> 
+and repeat the current step with a new trial step size chosen so that 
+<m>\half |K|(\text{new }h)\lt\varepsilon</m>, i.e. <m>\frac{r}{h}(\text{new }h)\lt\varepsilon</m>. 
+To give ourselves a small safety margin, we could use<fn>We don't want to make the new <m>h</m> too close to <m>\frac{\varepsilon}{r}{h}</m> since we are only estimating things and we might end up with an error rate bigger that <m>\varepsilon</m>. On the other hand, we don't want to make the new <m>h</m> too small because that means too much work <mdash/> so we choose it to be just a little smaller than <m>\frac{\varepsilon}{r}{h}</m> <m>\ldots</m> say <m>0.9\frac{\varepsilon}{r}{h}</m> .</fn> 
+<me>
+\text{new }h=0.9\,\frac{\varepsilon}{r}\,h
+</me>
+</li><li>
+If <m>r=\frac{|A_{1,n+1}-A_{2,n+1}|}{h}\lt\varepsilon</m> we can accept<fn>The measured error rate, <m>r</m>,  is smaller than the desired error rate <m>\varepsilon</m>. That means that it is easier to get the accuracy we want than we thought. So we can make the next step larger.</fn>  <m>A_{2,n+1}</m> 
+as an approximate  value for <m>y(t_{n+1})</m>, with <m>t_{n+1}=t_n+h</m>, and 
+move on to the next step, starting with the new trial step size<fn>Note that in this case <m>\frac{\varepsilon}{r}>1</m>. So the new <m>h</m> can be bigger than the last <m>h</m>.</fn> 
+<me>
+\text{new } h=0.9\,\frac{\varepsilon}{r}\,h
+</me>
+</li>
+</ul>
+That is our preliminary version of the Euler/Euler-2step variable step size method. We call it the preliminary version, because we will shortly tweak it 
+to get a much more efficient procedure.
+</p>
+
+<example xml:id="prelim_E_E2">
+<p>
+As a concrete example, suppose that our problem is 
+<me>
+y(0)=e^{-2},\ y'=8(1-2t)y,\ \varepsilon=0.1
+</me>
+and that we have gotten as far as
+<me>
+t_n=0.33,\ y_n=0.75,\ \ \text{trial }h=0.094
+</me>
+Then, using <m>E=|A_{1,n+1}-A_{2,n+1}|</m> to denote the magnitude of the 
+estimated local truncation error in <m>A_{2,n+1}</m> and <m>r</m> the corresponding 
+error rate
+<md>
+<mrow>
+f(t_n,y_n)&amp;=8(1-2\times 0.33) 0.75=2.04 
+</mrow><mrow>
+A_{1,n+1}&amp;=y_n+hf(t_n,y_n)=0.75+0.094\times 2.04=0.942 
+</mrow><mrow>
+y_{\rm mid}&amp;=y_n+\tfrac{h}{2}f(t_n,y_n)
+                   =0.75+\tfrac{0.094}{2}\times 2.04=0.846 
+</mrow><mrow>
+f\big(t_n+\tfrac{h}{2},y_{\rm mid}\big)
+&amp;=8\Big[1-2\big(0.33+\tfrac{0.094}{2}\big)\Big]0.846=1.66 
+</mrow><mrow>
+A_{2,n+1}&amp;=y_{\rm mid}+\tfrac{h}{2}f(t_n+\tfrac{h}{2},y_{\rm mid})
+          =0.846+\tfrac{0.094}{2}1.66=0.924
+</mrow><mrow>
+E&amp;=|A_{1,n+1}-A_{2,n+1}|=|0.942-0.924|=0.018</mrow><mrow>
+r&amp;=\frac{|E|}{h}=\frac{0.018}{0.094}=0.19
+</mrow>
+</md>
+Since <m>r=0.19>\varepsilon=0.1\,</m>, the current step size  
+is unacceptable and we have to recompute with the new step size
+<me>
+\text{new } h=0.9\frac{\varepsilon}{r}(\text{old }h)
+            =0.9\ \frac{0.1}{0.19}\ 0.094
+            =0.045
+</me>
+to give
+<md>
+<mrow>
+f(t_n,y_n)&amp;=8(1-2\times0.33)0.75=2.04 
+</mrow><mrow>
+A_{1,n+1}&amp;=y_n+hf(t_n,y_n)=0.75+0.045\times 2.04=0.842 
+</mrow><mrow>
+y_{\rm mid}&amp;=y_n+\tfrac{h}{2}f(t_n,y_n)
+                 =0.75+\tfrac{0.045}{2}\times 2.04=0.796 
+</mrow><mrow>
+f\big(t_n+\tfrac{h}{2},y_{\rm mid}\big)
+&amp;=8\Big[1-2\big(0.33+\tfrac{0.045}{2}\big)\Big]0.796=1.88 
+</mrow><mrow>
+A_{2,n+1}&amp;=y_{\text{mid}}
+               +\tfrac{h}{2}f(t_n +\tfrac{h}{2},y_{\rm mid})
+          =0.796+\tfrac{0.045}{2}1.88
+          =0.838 
+</mrow><mrow>
+E&amp;=A_{1.n+1}-A_{2.n+1}=0.842-0.838=0.004 
+</mrow><mrow>
+r&amp;=\frac{|E|}{h}=\frac{0.004}{0.045}=0.09
+</mrow>
+</md>
+This time <m>\,r=0.09\lt \varepsilon=0.1\,</m>, is acceptable
+so we set <m>t_{n+1}=0.33+0.045=0.375</m> and 
+<me>
+y_{n+1}=A_{2,n+1}=0.838
+</me>
+The initial trial step size from <m>t_{n+1}</m> to <m>t_{n+2}</m> is
+<me>
+\text{new }h = 0.9\frac{\varepsilon}{r}(\text{old }h)
+  =0.9\,\frac{0.1}{0.09}\,.045=.045
+</me>
+By a fluke, it has turned out that the new <m>h</m> is the same as the old <m>h</m> (to three decimal places). If <m>r</m> had been significantly smaller than <m>\varepsilon</m>, then the new <m>h</m> would have been signficantly bigger than the old <m>h</m> - indicating that it is (relatively) easy to estimate things in this region, making a larger step size sufficient.
+</p>
+</example>
+
+<p>
+As we said above, we will shortly upgrade the above variable step size method,
+that we are calling the preliminary version of the Euler/Euler-2step method,  
+to get a much more efficient procedure. Before we do so, let's pause 
+to investigate a little how well our preliminary procedure does at 
+controlling the rate of error production.
+</p>
+ 
+<p>
+We have been referring, loosely, to <m>\varepsilon</m> as the desired rate for introduction
+of error, by our variable step size method, as <m>t</m> advances. 
+If the rate of increase of error were exactly <m>\varepsilon</m>, then at final time
+<m>t_f</m> the accumulated error would be exactly <m>\varepsilon(t_f-t_0)</m>. But our 
+algorithm actually chooses the step size <m>h</m> for each step so that the 
+estimated local truncation error in <m>A_{2,n+1}</m> for that step is about 
+<m>\varepsilon h</m>. We have seen that, once some local truncation error has been 
+introduced, its contribution to the global truncation error can 
+grow exponentially with <m>t_f</m>.
+</p>
+
+<p>
+Here are the results of a numerical experiment that illustrate this effect. 
+In this experiment, the above preliminary Euler/Euler-2step method is applied to the initial value problem
+<m>\ 
+y'=t-2y,\ 
+y(0)=3
+\ </m>
+for <m>\varepsilon=\frac{1}{16},\frac{1}{32},\cdots</m> (ten different values)
+and for <m>t_f=0.2,\ 0.4,\ \cdots,\ 3.8</m>.
+Here  is a plot of the resulting
+<m>\frac{\text{actual error at }t=t_f}{\varepsilon t_f}</m> against <m>t_f</m>.
+</p>
+<sidebyside width="90%">
+<image source="text/figs/vble_error"/>
+</sidebyside>
+<p>
+If the rate of introduction of error were exactly <m>\varepsilon</m>, we would have
+<m>\frac{\text{actual error at }t=t_f}{\varepsilon t_f}=1</m>.
+There is a small square on the graph for each different pair <m>\varepsilon,t_f</m>. So for
+each value of <m>t_f</m> there are ten (possibly overlapping) squares on the line <m>x=t_f</m>. This numerical
+experiment suggests that <m>\frac{\text{actual error at }t=t_f}{\varepsilon t_f}</m>
+is relatively independent of <m>\varepsilon</m> and starts, when <m>t_f</m> is small, 
+at about one, as we want, but grows (perhaps exponentially) with <m>t_f</m>.
+</p>
+</subsection>
+
+
+<subsection xml:id="ssec_final_E_E2">
+  <title>Euler and Euler-2step (final version)</title>
+<p>
+We are now ready  to use a sneaky bit of arithemtic to supercharge our Euler/Euler-2step method.
+As in our development of the preliminary version of the method,
+denote by <m>\phi(t)</m> the exact solution to <m>y'=f(t,y)</m> that satisfies the
+initial condition <m>\phi(t_n)=y_n</m>. We have seen, at the beginning of 
+&#xA7;<xref ref="ssec_prelim_E_E2"/>, that
+applying one step of Euler with step size <m>h</m>, gives
+<md>
+<mrow>
+A_{1,n+1}&amp;=y_n+hf(t_n,y_n) \notag
+</mrow><mrow>
+         &amp;=\phi(t_n+h)+Kh^2+O(h^3)
+\tag{E5}
+</mrow>
+</md>
+and applying one step of Euler-2step with step size <m>h</m> (i.e. applying two 
+steps of Euler with step size <m>h/2</m>) gives
+<md>
+<mrow>
+A_{2,n+1} &amp;= y_n+\tfrac{h}{2}f(t_n,y_n)
+ +\tfrac{h}{2}f\big(t_n+\tfrac{h}{2}\,,\,y_n+\tfrac{h}{2}f(t_n,y_n)\big)\notag
+</mrow><mrow>
+          &amp;=\phi(t_n+h)+\tfrac{1}{2} Kh^2+O(h^3)
+\tag{E6}
+</mrow>
+</md>
+because the local truncation error introduced in the first half-step was <m>K(h/2)^2+O(h^3)</m> and that introduced in the second half-step was <m>K(h/2)^2+O(h^3)</m>. Now here is the sneaky bit. Equations (E5) and (E6) are very similar and we can eliminate all <m>Kh^2</m>'s by subtracting (E5) from <m>2</m> times (E6). This gives
+<me>
+2\text{(E6)} - \text{(E5):}\qquad
+2A_{2,n+1}-A_{1,n+1} = \phi(t_n+h) +O(h^3)
+</me>
+(no more <m>h^2</m> term!) or
+<me>
+\phi(t_n+h)= 2A_{2,n+1}-A_{1,n+1}+O(h^3)
+\tag{E7}</me> 
+which tells us that choosing
+<me>
+y_{n+1}=2A_{2,n+1}-A_{1,n+1}
+\tag{E8}</me>
+would give a local truncation error of order <m>h^3</m>, rather than 
+the order <m>h^2</m> of the preliminary Euler/Euler-2step method.
+To convert the preliminary version to the final version, we just replace <m>y_{n+1}=A_{2,n+1}</m> by
+<m>y_{n+1} = 2A_{2,n+1}-A_{1,n+1}</m>:
+</p>
+<fact xml:id="full_E_E2"><title>Euler/Euler-2step Method</title>
+<statement><p>
+Given <m>\varepsilon>0</m>, <m>t_n</m>, <m>y_n</m> and the current step size <m>h</m>
+<ul>
+<li>
+compute
+<md>
+<mrow>
+A_{1,n+1}&amp;=y_n+hf(t_n,y_n) 
+</mrow><mrow>
+A_{2,n+1} &amp;= y_n+\tfrac{h}{2}f(t_n,y_n)
+    +\tfrac{h}{2}f\big(t_n+\tfrac{h}{2}\,,\,y_n+\tfrac{h}{2}f(t_n,y_n)\big)
+</mrow><mrow>
+r&amp;=\frac{|A_{1,n+1}-A_{2,n+1}|}{h}
+</mrow>
+</md>
+</li><li>
+If <m>r>\varepsilon</m>, repeat the first bullet but with the new step size
+<me>
+(\text{new }h)=0.9\,\frac{\varepsilon}{r}\,(\text{old }h)
+</me>
+</li><li>
+If <m>r\lt\varepsilon</m> set
+<md>
+<mrow>
+t_{n+1}&amp;=t_n+h 
+</mrow><mrow>
+y_{n+1}&amp;=2A_{2,n+1}-A_{1,n+1}\quad\text{and the new trial step size} 
+</mrow><mrow>
+(\text{new } h)&amp;=0.9\,\frac{\varepsilon}{r}\,(\text{old }h)
+</mrow>
+</md>
+and move on to the next step. Note that since <m>r\lt\varepsilon</m>, <m>\frac{r}{\varepsilon}h\gt h</m> which indicates that the new <m>h</m> can be larger than the old <m>h</m>. We include the <m>0.9</m> to be
+careful not to make the error of the next step too big.
+</li>
+</ul>
+</p>
+</statement>
+</fact>
+
+<p>
+Let's think a bit about how our final Euler/Euler-2step method should perform.
+<ul>
+<li>
+The step size here, as in the preliminary version, is chosen so that
+the local truncation error in <m>A_{2,n+1}</m> per unit increase of <m>t</m>,
+namely <m>r=\frac{|A_{1,n+1}-A_{2,n+1}|}{h}\approx\frac{Kh^2/2}{h}=\frac{K}{2}h</m>, 
+is approximately <m>\varepsilon</m>. So <m>h</m> is roughly proportional to <m>\varepsilon</m>. 
+</li><li>
+On the other hand, (E7) shows that, in the full method, local truncation 
+error is being added to <m>y_{n+1}</m> at a rate of <m>\frac{O(h^3)}{h}=O(h^2)</m> 
+per unit increase in <m>t</m>. 
+</li><li>
+So one would expect that local truncation increases the error at a rate proportional to <m>\varepsilon^2</m> per unit increase in <m>t</m>. 
+</li><li>
+If the rate of increase of error were exactly a constant time <m>\varepsilon^2</m>, 
+then the error accumulated between the initial time <m>t=0</m> and the final 
+time <m>t=t_f</m> would be exactly a constant times <m>\varepsilon^2\,t_f</m>. 
+</li><li>
+However we have seen that, once some local truncation error has been introduced, its contribution to the global error can grow exponentially with <m>t_f</m>. So we would expect that, under the full Euler/Euler-2step method, 
+<m>\frac{{\rm actual\ error\ at\ }t=t_f}{\varepsilon^2 t_f}</m> to be more or less independent of <m>\varepsilon</m>, but still growing exponentially in <m>t_f</m>.
+</li>
+</ul>
+Here are the results of a numerical experiment that illustrate this. 
+In this experiment, the above final Euler/Euler-2step method, 
+(<xref ref="full_E_E2"/>), is applied to the initial value problem
+<m>\ 
+y'=t-2y,\ 
+y(0)=3
+\ </m>
+for <m>\varepsilon=\frac{1}{16},\frac{1}{32},\cdots</m> (ten different values)
+and for <m>t_f=0.2,\ 0.4,\ \cdots,\ 3.8</m>. In the following plot, there is a small 
+square for the resulting <m>\frac{\text{actual error at }t=t_f}{\varepsilon^2 t_f}</m> 
+for each different pair <m>\varepsilon,t_f</m>.
+</p>
+<sidebyside width="90%">
+<image source="text/figs/vble4_error"/>
+</sidebyside>
+<p>
+It does indeed look like <m>\frac{{\rm actual\ error\ at\ }t=t_f}{\varepsilon^2 t_f}</m>
+is relatively independent of <m>\varepsilon</m> but grows (perhaps exponentially) with <m>t_f</m>.
+Note that <m>\frac{{\rm actual\ error\ at\ }t=t_f}{\varepsilon^2 t_f}</m> contains a factor of <m>\varepsilon^2</m> in the denominator. The actual error rate 
+<m>\frac{{\rm actual\ error\ at\ }t=t_f}{t_f}</m> is much smaller than is suggested by the graph.
+</p>
+</subsection>
+
+<subsection xml:id="ssec_Fehlberg">
+  <title>Fehlberg's Method</title>
+<p>
+Of course, in practice more efficient and more accurate methods<fn>There are a very large number of such methods. We will only look briefly at a couple of the simpler ones. The interested reader can find more by search engining for such keywords as <q>Runge-Kutta methods</q> and <q>adaptive step size</q>.</fn> than Euler and Euler-2step are used. Fehlberg's method<fn>E. Fehlberg, 
+NASA Technical Report R315 (1969) and NASA Technical Report R287 (1968).</fn> 
+uses improved Euler and a second more accurate method. Each step involves 
+three calculations of <m>f</m>:
+<md>
+<mrow>
+f_{1,n}&amp;=f(t_n,y_n) 
+</mrow><mrow>
+f_{2,n}&amp;=f(t_n+h,y_n+hf_{1,n}) 
+</mrow><mrow>
+f_{3,n}&amp;=f\left(t_n+\tfrac{h}{2},y_n+\tfrac{h}{4}[f_{1,n}+f_{2,n}]\right)
+</mrow>
+</md>
+Once these three evaluations have been made, the method generates two
+approximations for <m>y(t_n+h)</m>:
+<md>
+<mrow>
+A_{1,n+1}&amp;=y_n+\tfrac{h}{2}\left[f_{1,n}+f_{2,n}\right] 
+</mrow><mrow>
+A_{2,n+1}&amp;=y_n+\tfrac{h}{6}\left[f_{1,n}+f_{2,n}+4f_{3,n}\right]
+</mrow>
+</md>
+Denote by <m>\phi(t)</m> the exact solution to <m>y'=f(t,y)</m> that satisfies 
+the initial condition <m>\phi(t_n)=y_n</m>.  Now <m>A_{1,n+1}</m> is just the <m>y_{n+1}</m>
+produced by the improved Euler's method. The local truncation error for the
+improved Euler's method is of order <m>h^3</m>, one power of <m>h</m> smaller than that
+for Euler's method. So
+<me>
+A_{1,n+1} = \phi(t_n+h) + Kh^3+O(h^4) 
+</me>
+and it turns out<fn>The interested reader can find Fehlberg's original paper online (at NASA!) and follow the derivation. It requires careful Taylor expansions and then clever algebra to cancel the bigger error terms.</fn>  that
+<me>
+A_{2,n+1} = \phi(t_n+h) + O(h^4) 
+</me>
+So the  error in <m>A_{1,n+1}</m> is
+<md>
+<mrow>
+E&amp;=\big|Kh^3+O(h^4)\big|
+  =\big|A_{1,n+1}-\phi(t_n+h)\big|+O(h^4) 
+</mrow><mrow>
+  &amp;=\big|A_{1,n+1}-A_{2,n+1}\big|+O(h^4)
+</mrow>
+</md>
+and our estimate for rate at which error is being introduced into <m>A_{1,n+1}</m> is
+<me>
+r=\frac{|A_{1,n+1}-A_{2,n+1}|}{h}\approx |K|h^2
+</me>
+per unit increase of <m>t</m>.
+<ul>
+<li>
+If <m>r>\varepsilon</m> we redo this step with a new trial step size chosen so that 
+<m>|K|(\text{new }h)^2\lt\varepsilon</m>, i.e. <m>\frac{r}{h^2}(\text{new }h)^2\lt\varepsilon</m>. 
+With our traditional safety factor, we take
+<me>
+\text{new }h=0.9\sqrt{\frac{\varepsilon}{r}}\,h\qquad
+\text{(the new }h\text{ is smaller)}
+</me>
+</li><li>
+If <m>r\le \varepsilon</m> we set <m>t_{n+1}=t_n+h</m> and <m>y_{n+1}=A_{2,n+1}</m> (since 
+<m>A_{2,n+1}</m> should be considerably more accurate than <m>A_{1,n+1}</m>) 
+and move on to the next step with trial step size 
+<me>
+\text{new }h=0.9\sqrt{\frac{\varepsilon}{r}}\,h\qquad
+\text{(the new }h\text{ is usually bigger)}
+</me>
+</li>
+</ul>
+</p>
+</subsection>
+
+<subsection xml:id="ssec_Kutta_Merson">
+  <title>The Kutta-Merson Process</title>
+<p>
+The Kutta-Merson process<fn>
+R.H. Merson, ``An operational method for the study of integration processes'' , Proc. Symp. Data Processing , Weapons Res. Establ. Salisbury , Salisbury (1957) pp. 110<ndash/>125.
+</fn> uses two variations of 
+the Runge-Kutta method. Each step involves five calculations<fn>Like the other methods described above, the coefficients <m>1/3</m>, <m>1/6</m>, <m>1/8</m> etc.
+are chosen so as to cancel larger error terms. While determining the
+correct choice of coefficients is not conceptually difficult, it does take some
+work and is beyond the scope of this appendix. The interested reader should
+search-engine their way to a discussion of adaptive Runge-Kutta methods.</fn>  of <m>f</m>:
+<md>
+<mrow>
+k_{1,n}&amp;=f(t_n,y_n) 
+</mrow><mrow>
+k_{2,n}&amp;=f\big(t_n+\tfrac{1}{3}h,y_n+\tfrac{1}{3}hk_{1,n}\big)
+</mrow><mrow>
+k_{3,n}&amp;=
+  f\big(t_n+\tfrac{1}{3}h,y_n+\tfrac{1}{6}hk_{1,n}+\tfrac{1}{6}hk_{2,n}\big) 
+</mrow><mrow>
+k_{4,n}&amp;=
+   f\big(t_n+\tfrac{1}{2}h,y_n+\tfrac{1}{8}hk_{1,n}+\tfrac{3}{8}hk_{3,n}\big) 
+</mrow><mrow>
+k_{5,n}&amp;=
+   f\big(t_n+h,y_n+\tfrac{1}{2}hk_{1,n}-\tfrac{3}{2}hk_{3,n}+2hk_{4,n}\big)
+</mrow>
+</md>
+Once these five evaluations have been made, the process generates two
+approximations for <m>y(t_n+h)</m>:
+<md>
+<mrow>
+A_{1,n+1}&amp;=y_n+h\left[\tfrac{1}{2}k_{1,n}-\tfrac{3}{2}k_{3,n}+2k_{4,n}\right] 
+</mrow><mrow>
+A_{2,n+1}&amp;=y_n+h\left[\tfrac{1}{6}k_{1,n}+\tfrac{2}{3}k_{4,n}
+                   +\tfrac{1}{6}k_{5,n}\right]
+</mrow>
+</md>
+The (signed) error in <m>A_{1,n+1}</m> is <m>\frac{1}{120}h^5K+O(h^6)</m> while that in
+<m>A_{2,n+1}</m> is <m>\frac{1}{720}h^5K+O(h^6)</m> with the same constant <m>K</m>. 
+So <m>A_{1,n+1}-A_{2,n+1} = \frac{5}{720}Kh^5+O(h^6)</m> and the unknown
+constant <m>K</m> can be determined, to within an error <m>O(h)</m>, by
+<me>
+K=\frac{720}{5\,h^5}(A_{1,n+1}-A_{2,n+1})
+</me>
+and the approximate (signed) error in <m>A_{2,n+1}</m> and its corresponding rate 
+per unit increase of <m>t</m> are
+<md>
+<mrow>
+E&amp;=\frac{1}{720}K h^5=\frac{1}{5}(A_{1,n+1}-A_{2,n+1}) 
+</mrow><mrow>
+r=\frac{|E|}{h}&amp;=\frac{1}{720}|K| h^4=\frac{1}{5\,h}\big|A_{1,n+1}-A_{2,n+1}\big|
+</mrow>
+</md>
+<ul>
+<li>
+If <m>r>\varepsilon</m> we redo this step with a new trial step size chosen so that
+<m>\frac{1}{720}|K|(\text{new h})^4\lt\varepsilon</m>, 
+i.e. <m>\frac{r}{h^4}(\text{new }h)^4\lt\varepsilon</m>. 
+With our traditional safety factor, we take
+<me>
+\text{new }h=0.9\left(\frac{\varepsilon}{r}\right)^{1/4}\,h
+</me>
+</li><li>
+If <m>r\le \varepsilon</m> we set <m>t_{n+1}=t_n+h</m> and <m>y_{n+1}=A_{2,n+1}-E</m> (since <m>E</m> is
+our estimate of the signed error in <m>A_{2,n+1}</m>) and move on to the next step with trial step size 
+<me>
+\text{new }h=0.9\left(\frac{\varepsilon}{r}\right)^{1/4}\,h
+</me>
+</li>
+</ul>
+</p>
+</subsection>
+
+<subsection xml:id="ssec_E_E2_local_trunc">
+  <title>The Local Truncation Error for Euler-2step</title>
+<p>
+In our description of Euler/Euler-2step above we simply stated the local truncation error without an explanation. In this section, we show how it may be derived. We note that very similar calculations underpin the other methods we have described. 
+</p>
+<p>
+In this section, we will be using partial derivatives and, in particular, the chain rule for functions of two variables. That material is covered in Chapter 2 of the CLP-3 text. If you are not yet comfortable with it, you can either take our word for those bits, or you can delay reading this section until you have learned a little multivariable calculus.
+</p>
+<p>
+Recall that, by definition, the local truncation error for an algorithm
+is the (signed) error generated by a single step of the algorithm, under the 
+assumptions that we start the step with the exact solution and that there
+is no roundoff error<fn>We should note that in serious big
+numerical computations, one really does have to take rounding errors into account because they can cause serious problems. The interested reader should search-engine their way to the story of Edward Lorenz's numerical simulations and the beginnings of chaos theory. Unfortunately we simply do not have space in this text to discuss all aspects of mathematics.</fn>.
+Denote by <m>\phi(t)</m> the exact solution to 
+<md>
+<mrow>
+y'(t)&amp;=f(t,y) 
+</mrow><mrow>
+y(t_n)&amp;=y_n
+</mrow>
+</md>
+In other words, <m>\phi(t)</m> obeys 
+<md>
+<mrow>
+\phi'(t) &amp;= f\big(t,\phi(t)\big)\qquad\text{ for all }t 
+</mrow><mrow>
+\phi(t_n)&amp;=y_n
+</mrow>
+</md>
+In particular <m>\phi'(t_n)=f\big(t_n,\phi(t_n)\big)=f(t_n,y_n)</m> and,
+carefully using the chain rule, which is (2.4.2) in the CLP-3 text, 
+<md>
+<mrow>
+\phi''(t_n)&amp;=\diff{}{t}f\big(t,\phi(t)\big)\Big|_{t=t_n}
+ =\Big[f_t\big(t,\phi(t)\big)+f_y\big(t,\phi(t)\big)\phi'(t)\Big]_{t=t_n} 
+</mrow><mrow>
+&amp;=f_t(t_n,y_n)+f_y(t_n,y_n)\,f(t_n,y_n)
+\tag{E9}</mrow>
+</md>
+Remember that <m>f_t</m> is the partial derivative of <m>f</m> with respect to <m>t</m>, 
+and that <m>f_y</m> is the partial derivative of <m>f</m> with respect to <m>y</m>. We'll need (E9) below.
+</p>
+
+<p>
+By definition, the local truncation error for Euler is
+<me>
+E_1(h)=\phi(t_n+h)-y_n-hf\big(t_n,y_n\big) 
+</me>
+while that for Euler-2step is
+<me>
+E_2(h)=\phi(t_n+h)-y_n-\tfrac{h}{2}f(t_n,y_n)
+-\tfrac{h}{2}f\big(t_n+\tfrac{h}{2},y_n+\tfrac{h}{2}f(t_n,y_n)\big)
+</me>
+To understand how <m>E_1(h)</m> and <m>E_2(h)</m> behave for small <m>h</m> we can use Taylor expansions ((3.4.10) in the CLP-1 text) to write them as power series in <m>h</m>.  To be precise, we use 
+<me>
+g(h)=g(0)+g'(0)\,h+\half g''(0)\,h^2+O(h^3)
+</me>
+to expand both <m>E_1(h)</m> and <m>E_2(h)</m> in powers of <m>h</m> to order <m>h^2</m>.
+Note that, in the expression for <m>E_1(h)</m>,  <m>t_n</m> and <m>y_n</m> are constants <mdash/>
+they do not vary with <m>h</m>. So computing derivatives of <m>E_1(h)</m> with respect to <m>h</m> is actually quite simple.
+<md alignment="alignat">
+<mrow>
+E_1(h)&amp;=\phi(t_n+h)-y_n-hf\big(t_n,y_n\big)\qquad &amp;
+             E_1(0)&amp;=\phi(t_n)-y_n=0 
+</mrow><mrow>
+E'_1(h)&amp;=\phi'(t_n+h)-f\big(t_n,y_n\big) &amp;
+         E'_1(0)&amp;=\phi'(t_n)-f\big(t_n,y_n\big)=0 
+</mrow><mrow>
+E''_1(h)&amp;=\phi''(t_n+h) &amp;
+         E''_1(0)&amp;=\phi''(t_n) 
+</mrow>
+</md>
+By Taylor, the local truncation error for Euler obeys
+</p>
+<fact xml:id="Euler_1step">
+<statement><p>
+<me>
+E_1(h)=\half\phi''(t_n)h^2+O(h^3)=Kh^2+O(h^3)\qquad\text{with }
+                      K=\half\phi''(t_n)
+</me>
+</p>
+</statement>
+</fact>
+<p>
+Computing arguments of <m>E_2(h)</m> with respect to <m>h</m> is a little harder, since <m>h</m> now appears in the arguments of the function <m>f</m>. As a consequence, we have to include some partial derivatives.
+<md>
+<mrow>
+E_2(h)&amp;=\phi(t_n+h)-y_n-\frac{h}{2}f(t_n,y_n)
+     -\frac{h}{2}f\Big(t_n+\frac{h}{2},y_n+\frac{h}{2}f(t_n,y_n)\Big) 
+</mrow><mrow>
+E'_2(h)&amp;=\phi'(t_n+h)-\frac{1}{2}f(t_n,y_n)
+-\frac{1}{2}f\Big(t_n+\frac{h}{2},y_n+\frac{h}{2}f(t_n,y_n)\Big) 
+</mrow><mrow>
+&amp;\hskip2.5in-\frac{h}{2}
+         \underbrace{\diff{}{h} f\Big(t_n+\frac{h}{2},y_n+\frac{h}{2}f(t_n,y_n)\Big)}_{\text{leave this expression as is for now}} 
+</mrow><mrow>
+E''_2(h)&amp;=\phi''(t_n+h)
+-2\times\frac{1}{2}
+\underbrace{\diff{}{h}f\Big(t_n+\frac{h}{2},y_n+\frac{h}{2}f(t_n,y_n)\Big)}_{\text{leave this one too}} 
+</mrow><mrow>
+&amp;\hskip2.5in-\frac{h}{2}
+\underbrace{\frac{\mathrm{d^2}}{\mathrm{d}h^2}f\Big(t_n+\frac{h}{2},y_n+\frac{h}{2}f(t_n,y_n)\Big)}_{\text{and leave this one too}} 
+</mrow>
+</md>
+Since we only need <m>E_2(h)</m> and its derivatives at <m>h=0</m>, we don't have to compute the <m>\frac{\mathrm{d^2 f}}{\mathrm{d}h^2}</m> term (thankfully) and we also do not need to compute the <m>\diff{f}{h}</m> term in <m>E_2'</m>. We do, however, need <m>\diff{f}{h}\Big|_{h=0}</m> for <m>E_2''(0)</m>.
+<md>
+<mrow>
+E_2(0)&amp;=\phi(t_n)-y_n=0 
+</mrow><mrow>
+E'_2(0)&amp;=\phi'(t_n)-\frac{1}{2}f(t_n,y_n)-\frac{1}{2}f(t_n,y_n)=0 
+</mrow><mrow>
+E''_2(0)&amp;=\phi''(t_n)-\diff{}{h}
+f\Big(t_n+\frac{h}{2},y_n+\frac{h}{2}f(t_n,y_n)\Big)\Big|_{h=0} 
+</mrow><mrow>
+&amp;=\phi''(t_n)-
+\frac{1}{2} f_t\Big(t_n+\frac{h}{2},y_n+\frac{h}{2}f(t_n,y_n)\Big)\Big|_{h=0} 
+</mrow><mrow>
+&amp;\hskip1.5in -\frac{1}{2} f(t_n,y_n)\, f_y\Big(t_n+\frac{h}{2},y_n+\frac{h}{2}f(t_n,y_n)\Big)\Big|_{h=0} 
+</mrow><mrow>
+&amp;=\phi''(t_n)- \frac{1}{2}f_t(t_n,y_n)-\frac{1}{2}f_y(t_n,y_n)\, f(t_n,y_n) 
+</mrow><mrow>
+&amp;=\half\phi''(t_n)\qquad\text{by (E9)}
+</mrow>
+</md>
+By Taylor, the local truncation error for Euler-2step obeys
+</p>
+
+<fact xml:id="Euler_2step">
+<statement><p>
+<me>
+E_2(h)=\frac{1}{4}\phi''(t_n)\,h^2+O(h^3)
+=\half Kh^2+O(h^3)\qquad{\rm with\ }K=\half\phi''(t_n)
+</me>
+</p>
+</statement>
+</fact>
+<p>
+Observe that the <m>K</m> in (<xref ref="Euler_2step"/>) is identical to the <m>K</m> in 
+(<xref ref="Euler_1step"/>). This is exactly what we needed in our analysis of 
+Sections <xref ref="ssec_prelim_E_E2"/> and <xref ref="ssec_final_E_E2"/>.
+</p>
+</subsection>
+
+</section>
+
+
+
+</appendix>

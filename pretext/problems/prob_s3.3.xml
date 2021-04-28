@@ -36,7 +36,34 @@ That is, which series have terms whose limit is not zero?
 </li>
 <li> <m>\displaystyle\lim_{n \to \infty}\frac{n^2}{n+1}=\infty</m>, which is not zero, so the divergence test tells us this series diverges.
 </li>
-<li> <m>\displaystyle\lim_{n \to \infty}\sin n</m> does not exist, so in particular it is not zero. Therefore, the divergence test tells us this series diverges.
+<li> <p> We'll show below that  <m>\displaystyle\lim_{n \to \infty}\sin n</m> does not exist. In particular, it is not zero. Therefore, the divergence test tells us this series diverges.
+</p>
+<p>
+Now we'll show that <m>\displaystyle\lim_{n \to \infty}\sin n</m> does not exist.
+Suppose that it does exist and takes the value <m>S</m>. We will now see that this assumption leads to a contradiction.  
+Add together the two trig identities (see Appendix <xref ref="sec_trig_add"/>) 
+<md>
+<mrow>
+\sin(n+1)  &amp;=  \sin(n)\cos(1)+\cos(n)\sin(1) 
+</mrow><mrow>
+\sin(n-1)  &amp;=  \sin(n)\cos(1)-\cos(n)\sin(1) 
+</mrow>
+</md>
+This gives 
+<me>
+\sin(n+1) +\sin (n-1) = 2\sin(n)\cos(1)
+</me>
+Taking the limit <m>n\rightarrow\infty</m> gives <m>2S=2S\cos(1)</m>. Since <m>\cos(1)\ne 1</m>,
+this forces <m>S=0</m>. Now the first trig identity above gives
+<me>
+\cos(n)  =  \frac{\sin(n+1)-\sin(n)\cos(1)}{\sin(1)}
+</me>
+Taking the limit as <m>n\rightarrow\infty</m> of that gives
+<me>
+\lim_{n\to\infty}\cos(n)  =  \frac{S-S\cos(1)}{\sin(1)}=0
+</me>
+But that provides the contradiction. Because <m>\sin^2(n)+\cos^2(n)=1</m>, we can't have both <m>\sin(n)</m> and <m>\cos(n)</m> converging to zero. So <m>\displaystyle\lim_{n \to \infty}\sin n</m> does not exist.
+</p>
 </li>
 <li> For all whole numbers <m>n</m>, <m>\sin(\pi n)=0</m>, so <m>\displaystyle\lim_{n \to \infty}\sin(\pi n)=0</m> and the divergence test is inconclusive.
 </li>
@@ -904,7 +931,7 @@ Notice that the series is geometric, but it doesn't start at <m>n=0</m>.
 </p></hint>
 
 <answer><p>
-The series converges to <m>-\dfrac{1}{50}</m>.
+The series converges to <m>-\dfrac{1}{150}</m>.
 </p></answer>
 
 <solution><p>

@@ -228,7 +228,7 @@ a_n = \frac{(-1)^n}{n} = \left\{-1,\ \frac12,\ -\frac13,\ \frac14,\ -\frac15,\ \
 
 <exercise purpose="RQS">
 <statement><p>
-The limits of the sequences below can be evaluated using the squeeze theorem. For each sequence, choose an upper bounding sequence and lower bounding sequence that will work with the squeeze theorem. You do not have to evaluate the limits.
+The limits of the sequences below can be evaluated using the squeeze theorem. For each sequence, choose an upper bounding sequence and lower bounding sequence that will work with the squeeze theorem.
 <ol label="a">
 <li> <m>a_n = \dfrac{\sin n}{n}</m>
 </li>
@@ -679,7 +679,7 @@ b_n &amp;= \dfrac{\sqrt[4]{n}+1}{\sqrt{9n+3}}\left(\dfrac{\frac{1}{\sqrt n}}{\fr
 <exercise purpose="RQS">
 <statement><p>
 Determine the limit of the sequence
-<m>c_n = \dfrac{\sin n}{n}</m>.
+<m>c_n = \dfrac{\cos(n+n^2)}{n}</m>.
 </p></statement>
 <hint><p>
 Use the squeeze theorem.
@@ -692,7 +692,7 @@ First, let's start with a  tempting fallacy.
 <blockquote>
 <p><textred>
 The denominator grows without bound, so
-<m>\lim\limits_{n \to \infty}\dfrac{\sin n}{n}=0</m>.</textred>
+<m>\lim\limits_{n \to \infty}\dfrac{\cos(n+n^2)}{n}=0</m>.</textred>
 </p></blockquote>
 </p>
 
@@ -703,18 +703,18 @@ The denominator grows without bound, so
 <blockquote>
 <p><textred>
 The denominator grows without bound, and the numerator never gets very large, so
-<m>\lim\limits_{n \to \infty}\dfrac{\sin n}{n}=0</m>.</textred>
+<m>\lim\limits_{n \to \infty}\dfrac{\cos(n+n^2)}{n}=0</m>.</textred>
 </p></blockquote>
 </p>
 
 <p>To quantify this reasoning more precisely, we use the squeeze theorem, Theorem<nbsp/><xref ref="thm_SRsqueeze"/>. There are two parts to the squeeze theorem: finding two bounding functions, and making sure these functions have the same limit.
 <ul>
-<li> Since <m>-1\leq \sin n \leq 1</m> for all <m>n</m>, we choose functions <m>a_n = \frac{-1}{n}</m> and <m>b_n = \frac{1}{n}</m>.  Then <m>a_n \leq c_n \leq b_n</m> for all <m>n</m>.
+<li> Since <m>-1\leq \cos(n+n^2) \leq 1</m> for all <m>n</m>, we choose functions <m>a_n = \frac{-1}{n}</m> and <m>b_n = \frac{1}{n}</m>.  Then <m>a_n \leq c_n \leq b_n</m> for all <m>n</m>.
 </li>
 <li> Both <m>\lim\limits_{n \to \infty}a_n=0</m> and  <m>\lim\limits_{n \to \infty}b_n=0</m>.
 </li>
 </ul>
-So, by the squeeze theorem, <m>\lim\limits_{n \to \infty}\dfrac{\sin n}{n}=0</m>.
+So, by the squeeze theorem, <m>\lim\limits_{n \to \infty}\dfrac{\cos(n+n^2)}{n}=0</m>.
 </p></solution>
 </exercise>
 
@@ -735,7 +735,7 @@ The denominator of this sequence grows without bound. The numerator is unpredict
 
 <p>To control for these variations, we'll use the squeeze theorem.
 <ul>
-<li> Since <m>-1 \leq \sin n \leq n</m> for all <m>n</m>, let <m>b_n = \frac{n^{-1}}{n^2} = \frac{1}{n^3}</m> and
+<li> Since <m>-1 \leq \sin n \leq 1</m> for all <m>n</m>, let <m>b_n = \frac{n^{-1}}{n^2} = \frac{1}{n^3}</m> and
 <m>c_n = \frac{n}{n^2}=\frac{1}{n}</m>. Then <m>b_n \leq a_n \leq c_n</m>.
 </li>
 <li> Both <m>\lim\limits_{n \to \infty}b_n=0</m> and <m>\lim\limits_{n \to \infty}c_n=0</m>.

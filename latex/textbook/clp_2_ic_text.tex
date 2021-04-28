@@ -9,6 +9,11 @@
 
 \graphicspath{{./figures/misc/}}
 
+\usepackage{xr}
+   \externaldocument[CLP1-]{clp_1_dc_text}
+   \externaldocument[CLP3-]{clp_3_mc_text}
+   \newcommand{\eref}[2]{\ref*{#1-#2}}
+
 \begin{document}
 %% Cover image, not numbered
 \setcounter{page}{0}\includepdf[noautoscale=false]{clp2-cover.pdf}
@@ -68,4 +73,7 @@ License. You can view a copy of the license at \\
 \input{clp_highschool_brief}
 \input{clp_cart_coords}
 \input{clp_roots}
+\input{clp_complex}
+\input{clp_Richardson_Romberg}
+\input{clp_ODE_numerical}
 \end{document}

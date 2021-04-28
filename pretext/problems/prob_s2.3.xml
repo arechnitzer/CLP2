@@ -269,16 +269,16 @@ Imagine cutting out the shape and setting it on top of a pencil, so that the pen
 
 <exercise xml:id="prob_s2_3tank1">
 <statement><p>
-Tank <m>A</m> is spherical, of radius 1 metre, and filled completely with water. The bottom of tank <m>A</m> is three metres above the ground, where Tank <m>B</m> sits. Tank <m>B</m> is tall and rectangular, with base dimensions 1 metre by <m>\frac{1}{2}</m> metres, and empty. Calculate the work done by gravity to drain all the water from Tank <m>A</m> to Tank <m>B</m> by modelling the situation as a point mass, of the same mass as the water, being moved from the height of the centre of mass of <m>A</m> to the height of the centre of mass of <m>B</m>.
+Tank <m>A</m> is spherical, of radius 1 metre, and filled completely with water. The bottom of tank <m>A</m> is three metres above the ground, where Tank <m>B</m> sits. Tank <m>B</m> is tall and rectangular, with base dimensions 2 metres by 1 metre, and empty. Calculate the work done by gravity to drain all the water from Tank <m>A</m> to Tank <m>B</m> by modelling the situation as a point mass, of the same mass as the water, being moved from the height of the centre of mass of <m>A</m> to the height of the centre of mass of <m>B</m>.
 </p>
 
 <sidebyside width="50%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \begin{scope}[yshift=-2cm, xshift=-.25cm]\color{red}
 \draw (-2,0) rectangle (2,4);
-\draw (2,0)--(2.5,.25)--(2.5,4.25)--(-1.5,4.25)--(-2,4) (2,4)--(2.5,4.25) (-1.5,4)--(-1.5,4.25);
-\draw (0,-.5) node{2 m};
-\draw (2.25,-.25) node[rotate=30]{0.5 m};
+\draw (2,0)--(3.0,0.5)--(3.0,4.5)--(-1.0,4.5)--(-2,4) (2,4)--(3.0,4.5) (-1.0,4)--(-1.0,4.5);
+\draw (0,-.4) node{2 m};
+\draw (2.75,-.1) node[rotate=30]{1 m};
 \draw (-2.75,2) node{$B$};
 \end{scope}
 \begin{scope}[yshift=5cm]\color{blue}
@@ -298,7 +298,7 @@ You may use <m>1000</m> kg/m<m>^3</m> for the density of water, and <m>g=9.8</m>
 You can find the heights of the centres of mass using symmetry.
 </p></hint>
 <answer><p>
-<m>\displaystyle\frac{78400\pi}{9}(6-\pi)\approx 78,225 \text{J}</m>
+<m>\displaystyle\frac{39200\pi}{9}(12-\pi)\approx 121,212~\text{J}</m>
 </p></answer>
 <solution><p>
 <ul>
@@ -309,17 +309,17 @@ The volume of water in Tank A is <m>\frac{4}{3}\pi(1)^3 = \frac{4}{3}\pi</m> cub
 </li>
 <li> By symmetry, the centre of mass of the water when it fills Tank <m>A</m> is exactly in the centre of the sphere, at height <m>\bar y_1=4</m> metres above the ground (one metre above the bottom of Tank <m>A</m>, which is three metres above the ground).
 </li>
-<li> When the water is entirely in Tank <m>B</m>, its height is <m>\frac{4}{3}\pi</m> metres. (The base of Tank <m>B</m> has area 1 m<m>^2</m>, and the volume of water is <m>\frac{4}{3}\pi</m> m<m>^3</m>.) By symmetry, the centre of mass is exactly halfway up, at height <m>\bar y_2=\frac{2}{3}\pi</m> metres.
+<li> When the water is entirely in Tank <m>B</m>, its height is <m>\frac{2}{3}\pi</m> metres. (The base of Tank <m>B</m> has area 2 m<m>^2</m>, and the volume of water is <m>\frac{4}{3}\pi</m> m<m>^3</m>.) By symmetry, the centre of mass is exactly halfway up, at height <m>\bar y_2=\frac{1}{3}\pi</m> metres.
 </li>
-<li> So, the point mass in our model is moved from <m>\bar y_1=4</m> to <m>\bar y_2=\frac{2}{3}\pi</m>, a distance of <m>4-\frac{2}{3}\pi</m> metres, by gravity.
+<li> So, the point mass in our model is moved from <m>\bar y_1=4</m> to <m>\bar y_2=\frac{1}{3}\pi</m>, a distance of <m>4-\frac{1}{3}\pi</m> metres, by gravity.
 </li>
 <li> The work involved is:
 <md>
 <mrow>
-\left(\frac{4000}{3}\pi \text{kg}\right)\times\left(4-\frac{2}{3}\pi \text{m}\right)\times\left(9.8 \frac{\text{m}}{\text{sec}^2}\right) 
-\amp= \frac{78400\pi}{9}(6-\pi)
+\left(\frac{4000}{3}\pi \text{kg}\right)\times\left(4-\frac{1}{3}\pi \text{m}\right)\times\left(9.8 \frac{\text{m}}{\text{sec}^2}\right) 
+\amp= \frac{39200\pi}{9}(12-\pi)
 </mrow><mrow>
-\amp\approx 78,225 \text{J}
+\amp\approx 121,212 \text{J}
 </mrow>
 </md>
 </li>

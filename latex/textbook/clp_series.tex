@@ -14,7 +14,7 @@ e^x &= 1 + x  + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots + \frac{x^n}{n!}
 \end{align*}
 where $E_n(x)$ is the error introduced when you approximate $e^x$ by
 its Taylor polynomial of degree $n$. You may have even seen a formula for $E_n(x)$. We are now going to ask what happens as $n$
-goes to infinity? Does the error go zero, giving an exact formula for $e^x$? We shall later see that it does and
+goes to infinity? Does the error go to zero, giving an exact formula for $e^x$? We shall later see that it does and
 that
 \begin{align*}
 e^x &=1 + x  + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots = \sum_{n=0}^\infty\frac{x^n}{n!}
@@ -61,7 +61,7 @@ In the discussion above we used the term ``sequence'' without giving
 it a precise mathematical meaning. Let us rectify this now.
 \begin{defn}\label{def:SRsequence}
 A sequence is a list of infinitely\footnote{For the more pedantic reader,
-here we mean a list of countably infinitely many numbers. The interested (pedantic or otherwise) reader should look up countable and uncountable sets.}
+here we mean a countably infinite list of numbers. The interested (pedantic or otherwise) reader should look up countable and uncountable sets.}
 many numbers with a specified order.
 It is denoted
 \begin{equation*}
@@ -498,7 +498,7 @@ ratio between successive terms.
 Geometric series have the extremely useful property that there is a very simple formula for their partial sums. Denote the partial sum by
 \begin{align*}
 S_N &= \sum_{n=0}^Nar^n = a + ar + ar^2 + \cdots + ar^N.
-\intertext{The secret to evaluating this sum is to see what happens when we multiply it $r$:}
+\intertext{The secret to evaluating this sum is to see what happens when we multiply it by $r$:}
 rS_N &= r\big(a + ar + ar^2 + \cdots + ar^N\big) \\
      & = ar + ar^2 + ar^3 + \cdots + ar^{N+1}
 \end{align*}
@@ -622,7 +622,7 @@ show up when you start to look at the Maclaurin polynomial of functions like $(1
 it illustrates the basic idea of telescoping very nicely, and the
 idea of ``creative telescoping'' turns out to be extremely useful in the
 study of series --- though it is well beyond the scope of this course.}
-that has been rigged to illustrate a phenomenon call
+that has been rigged to illustrate a phenomenon called
 ``telescoping''. Notice that the $n^{\rm th}$ term can be rewritten as
 \begin{align*}
 \frac{1}{n(n+1)}= \frac{1}{n}-\frac{1}{n+1}
@@ -2052,8 +2052,8 @@ Let's do a somewhat artificial example that forces us to combine a few of the te
   \item Let us start with the ratio test --- so we compute
  \begin{align*}
   \left|\frac{a_{n+1}}{a_n}\right|
-  &= \left|\frac{(-3)^{n+1} \sqrt{n+2} (2n+5) X^{n+1} }{(-3)^n \sqrt{n+1} (2n+3) X^n} \right|\\
-  &= |-3| \cdot \frac{\sqrt{n+2}}{\sqrt{n+1}} \cdot \frac{2n+5}{2n+3} \cdot |X|
+  &= \left|\frac{(-3)^{n+1} \sqrt{n+2} (2n+3) X^{n+1} }{(-3)^n \sqrt{n+1} (2n+5) X^n} \right|\\
+  &= |-3| \cdot \frac{\sqrt{n+2}}{\sqrt{n+1}} \cdot \frac{2n+3}{2n+5} \cdot |X|
   \intertext{So in the limit as $n \to \infty$ we are left with}
   \lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|
   &= 3 |X|
@@ -4926,8 +4926,7 @@ that $q^2 =-1$, or
   q &= \sqrt{-1}
 \end{align*}
 We know that no such \emph{real} number $q$ exists. But for the moment
-let us see what happens if we just assume\footnote{We do not wish to give a primer on imaginary and complex numbers here. The interested reader can find
-many many resources with their favourite search engine.} that
+let us see what happens if we just assume\footnote{We do not wish to give a primer on imaginary and complex numbers here. The interested reader can start by looking at Appendix~\ref{ap:complex}.} that
 we can find $q$ so that $q^2=-1$. Then we will have that
 \begin{align*}
   q^3 &= -q & q^4 &= 1 & q^5 &= q & \cdots

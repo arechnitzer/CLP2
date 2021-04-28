@@ -28,7 +28,33 @@ That is, which series have terms whose limit is not zero?
 \begin{enumerate}[(A)]
 \item $\displaystyle\lim_{n \to \infty}\frac{1}{n}=0$, so the divergence test is inconclusive. It's true that this series diverges, but we can't show it using the divergence test.
 \item $\displaystyle\lim_{n \to \infty}\frac{n^2}{n+1}=\infty$, which is not zero, so the divergence test tells us this series diverges.
-\item $\displaystyle\lim_{n \to \infty}\sin n$ does not exist, so in particular it is not zero. Therefore, the divergence test tells us this series diverges.
+\item 
+We'll show below that $\displaystyle\lim_{n \to \infty}\sin n$ does not exist
+at all. In particular, it is not zero. Therefore, the divergence test tells us this series diverges.
+
+Now we'll show that $\displaystyle\lim_{n \to \infty}\sin n$ does not exist.
+Suppose that it does exist and takes the value $S$. We will now see that this assumption leads to a contradiction. Add together the two 
+trig identities (see Appendix \eref{CLP101}{sec trig add} in the CLP-2 text) 
+\begin{align*}
+\sin(n+1)  &=  \sin(n)\cos(1)+\cos(n)\sin(1) \\
+\sin(n-1)  &=  \sin(n)\cos(1)-\cos(n)\sin(1) 
+\end{align*}
+This gives 
+\begin{equation*}
+\sin(n+1) +\sin (n-1) = 2\sin(n)\cos(1)
+\end{equation*}
+Taking the limit $n\rightarrow\infty$ gives $2S=2S\cos(1)$. Since $\cos(1)\ne 1$,
+this forces $S=0$. Now the first trig identity above gives
+\begin{equation*}
+\cos(n)  =  \frac{\sin(n+1)-\sin(n)\cos(1)}{\sin(1)}
+\end{equation*}
+Taking the limit as $n\rightarrow\infty$ of that gives
+\begin{equation*}
+\lim_{n\to\infty}\cos(n)  =  \frac{S-S\cos(1)}{\sin(1)}=0
+\end{equation*}
+But that provides the contradiction. Because $\sin^2(n)+\cos^2(n)=1$, we can't have both $\sin(n)$ and $\cos(n)$ converging to zero. So 
+$\displaystyle\lim_{n \to \infty}\sin n$ does not exist.
+
 \item For all whole numbers $n$, $\sin(\pi n)=0$, so $\displaystyle\lim_{n \to \infty}\sin(\pi n)=0$ and the divergence test is inconclusive.
 \end{enumerate}
 \end{solution}
@@ -710,7 +736,7 @@ Notice that the series is geometric, but it doesn't start at $n=0$.
 \end{hint}
 
 \begin{answer}
-The series converges to $-\dfrac{1}{50}$.
+The series converges to $-\dfrac{1}{150}$.
 \end{answer}
 
 \begin{solution}

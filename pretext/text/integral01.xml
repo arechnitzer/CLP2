@@ -537,7 +537,7 @@ to establish  the result.
 </li>
 <li>
 <p>
-	We now apply the squeeze theorem to the above inequalities. In particular, the  limits of the lower and upper bounds are
+	We now apply the squeeze theorem to the above inequalities. In particular, the  limits of the lower and upper bounds are <m>\lim_{n\rightarrow\infty}\frac{1}{n}\frac{e-1}{e^{\frac{1}{n}}-1}</m> and <m>\lim_{n\rightarrow\infty}\frac{1}{n}e^{\frac{1}{n}}\frac{e-1}{e^{\frac{1}{n}}-1}</m>, respectively. As we did near the end of Example <xref ref="eg_INTexpareaB"/>, we make these limits look more familiar by renaming <m>\frac{1}{n}</m> to <m>X</m>. As <m>n</m> tends to infinity, <m>X</m> tends to <m>0</m>, so the limits of the lower and upper bounds are
 	<md>
 	<mrow>
 	\lim_{n\rightarrow\infty}\frac{1}{n}\frac{e-1}{e^{\frac{1}{n}}-1}
@@ -1108,7 +1108,7 @@ Let's say we are again interested in the integral <m>\int_0^1 e^x\dee{x}</m>. We
 More precisely, we approximate <m>f(x)</m> on each subinterval <m>x_{i-1}\le x\le x_i</m>
 <ul>
 <li>
-	by its smallest value on the subinterval, namely <m>f(x_{i-i})</m>, when  we compute the left Riemann sum approximation and
+	by its smallest value on the subinterval, namely <m>f(x_{i-1})</m>, when  we compute the left Riemann sum approximation and
 </li>
 <li>
 	by its largest value on the subinterval, namely <m>f(x_i)</m>, when we  compute the right Riemann sum approximation.
@@ -1477,7 +1477,7 @@ We have approximated this area by <m>f(x_j^*)[x_j-x_{j-1}]</m> (see figure left)
 	Now since <m>f({\underline x}_j) \leq f(x_j^*) \leq f({\overline x}_j)</m>, we  also know  that
 	<md>
 	<mrow>
-	  f({\underline x}_j)[x_j-x_{j-1}] \leq  f(x_j^*)[x_{j-1}-x_j] \leq f({\overline x}_j)[x_j-x_{j-1}].
+	  f({\underline x}_j)[x_j-x_{j-1}] \leq  f(x_j^*)[x_j-x_{j-1}] \leq f({\overline x}_j)[x_j-x_{j-1}].
 	</mrow>
 	</md>
 </li>
