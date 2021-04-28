@@ -1171,33 +1171,33 @@ In this example, we are going to see three different series that all have <m>\li
 Let's do a somewhat artificial example that forces us to combine a few of the techniques we have seen.
 </p>
 
-<example xml:id="eg_ratioC"><title><m>\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n</m></title>
+<example xml:id="eg_ratioC"><title><m>\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}x^n</m></title>
 <p>
-Again, the convergence of this series will depend on <m>X</m>.
+Again, the convergence of this series will depend on <m></m>.
 <ul>
 <li>
 	Let us start with the ratio test <mdash/> so we compute
 	<md>
 	<mrow>
 	  \left|\frac{a_{n+1}}{a_n}\right|
-	  &amp;= \left|\frac{(-3)^{n+1} \sqrt{n+2} (2n+3) X^{n+1} }{(-3)^n \sqrt{n+1} (2n+5) X^n} \right|
+	  &amp;= \left|\frac{(-3)^{n+1} \sqrt{n+2} (2n+3) x^{n+1} }{(-3)^n \sqrt{n+1} (2n+5) x^n} \right|
 	</mrow><mrow>
-	  &amp;= |-3| \cdot \frac{\sqrt{n+2}}{\sqrt{n+1}} \cdot \frac{2n+3}{2n+5} \cdot |X|
+	  &amp;= |-3| \cdot \frac{\sqrt{n+2}}{\sqrt{n+1}} \cdot \frac{2n+3}{2n+5} \cdot |x|
 	  </mrow>
 	<intertext>So in the limit as <m>n \to \infty</m> we are left with</intertext><mrow>
 	  \lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|
-	  &amp;= 3 |X|
+	  &amp;= 3 |x|
 	</mrow>
 	</md>
 </li>
 <li>
-	The ratio test then tells us that if <m>3|X| \gt 1</m> the series diverges, while when <m>3|X| \lt 1</m> the series converges.
+	The ratio test then tells us that if <m>3|x| \gt 1</m> the series diverges, while when <m>3|x| \lt 1</m> the series converges.
 </li>
 <li>
-	This leaves us with the cases <m>X=+\frac{1}{3}</m> and <m>-\frac{1}{3}</m>.
+	This leaves us with the cases <m>x=+\frac{1}{3}</m> and <m>-\frac{1}{3}</m>.
 </li>
 <li>
-	Setting <m>X=\frac{1}{3}</m> gives the series
+	Setting <m>x=\frac{1}{3}</m> gives the series
 	<md>
 	<mrow>
 	\sum_{n=1}^\infty \frac{ (-1)^n \sqrt{n+1}}{2n+3}
@@ -1222,7 +1222,7 @@ Again, the convergence of this series will depend on <m>X</m>.
 	So when <m>x \geq 1</m> this is negative and so <m>f(x)</m> is a decreasing function. Thus we can apply the alternating series  test to show that the series converges when <m>x=\frac{1}{3}</m>.
 </li>
 <li>
-	When <m>X = -\frac{1}{3}</m> the series becomes
+	When <m>x = -\frac{1}{3}</m> the series becomes
 	<md>
 	<mrow>
 	\sum_{n=1}^\infty \frac{\sqrt{n+1}}{2n+3}.
@@ -1244,7 +1244,7 @@ Again, the convergence of this series will depend on <m>X</m>.
 	So since this ratio has a finite limit and the series <m>\sum n^{-1/2}</m> diverges, we know that our series also diverges.
 </li>
 </ul>
-So in summary the series converges when <m>-\frac{1}{3}  \lt  X \leq \frac{1}{3}</m> and diverges otherwise.
+So in summary the series converges when <m>-\frac{1}{3}  \lt  x \leq \frac{1}{3}</m> and diverges otherwise.
 </p>
 </example>
 </subsection>

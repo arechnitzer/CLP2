@@ -2047,22 +2047,22 @@ that this series converges. But it also has
 \end{eg}
 
 Let's do a somewhat artificial example that forces us to combine a few of the techniques we have seen.
-\begin{eg}[$\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n$]
+\begin{eg}[$\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}x^n$]
    \label{eg:ratioC}
- Again, the convergence of this series will depend on $X$.
+ Again, the convergence of this series will depend on $x$.
  \begin{itemize}
   \item Let us start with the ratio test --- so we compute
  \begin{align*}
   \left|\frac{a_{n+1}}{a_n}\right|
-  &= \left|\frac{(-3)^{n+1} \sqrt{n+2} (2n+3) X^{n+1} }{(-3)^n \sqrt{n+1} (2n+5) X^n} \right|\\
-  &= |-3| \cdot \frac{\sqrt{n+2}}{\sqrt{n+1}} \cdot \frac{2n+3}{2n+5} \cdot |X|
+  &= \left|\frac{(-3)^{n+1} \sqrt{n+2} (2n+3) x^{n+1} }{(-3)^n \sqrt{n+1} (2n+5) x^n} \right|\\
+  &= |-3| \cdot \frac{\sqrt{n+2}}{\sqrt{n+1}} \cdot \frac{2n+3}{2n+5} \cdot |x|
   \intertext{So in the limit as $n \to \infty$ we are left with}
   \lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|
-  &= 3 |X|
+  &= 3 |x|
 \end{align*}
-\item The ratio test then tells us that if $3|X|>1$ the series diverges, while when $3|X|<1$ the series converges.
-\item This leaves us with the cases $X=+\frac{1}{3}$ and $-\frac{1}{3}$.
-\item Setting $X=\frac{1}{3}$ gives the series
+\item The ratio test then tells us that if $3|x|>1$ the series diverges, while when $3|x|<1$ the series converges.
+\item This leaves us with the cases $x=+\frac{1}{3}$ and $-\frac{1}{3}$.
+\item Setting $x=\frac{1}{3}$ gives the series
 \begin{align*}
 \sum_{n=1}^\infty \frac{ (-1)^n \sqrt{n+1}}{2n+3}
 \end{align*}
@@ -2080,7 +2080,7 @@ is a decreasing function. To prove that, it suffices to show its derivative is n
 So when $x \geq 1$ this is negative and so $f(x)$ is a decreasing function. Thus we can apply the alternating series
 test to show that the series converges when $x=\frac{1}{3}$.
 
-\item When $X = -\frac{1}{3}$ the series becomes
+\item When $x = -\frac{1}{3}$ the series becomes
 \begin{align*}
 \sum_{n=1}^\infty \frac{\sqrt{n+1}}{2n+3}.
 \end{align*}
@@ -2097,7 +2097,7 @@ by comparison with $\sum n^{-1/2}$. To formalise this, we can use the limit comp
 \end{align*}
 So since this ratio has a finite limit and the series $\sum n^{-1/2}$ diverges, we know that our series also diverges.
 \end{itemize}
-So in summary the series converges when $-\frac{1}{3} < X \leq \frac{1}{3}$ and diverges otherwise.
+So in summary the series converges when $-\frac{1}{3} < x \leq \frac{1}{3}$ and diverges otherwise.
 \end{eg}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
