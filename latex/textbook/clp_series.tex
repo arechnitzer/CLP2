@@ -784,12 +784,20 @@ virtually impossible, to determine the sum exactly. Often you try to evaluate
 the sum approximately by truncating it, i.e. having the index run only
 up to some finite $N$, rather than infinity. But there is no point in doing
 so if the series diverges\footnote{
-	The authors should be a little more careful making such a blanket statement. The field of asymptotic analysis often makes use of the first few terms of divergent series to generate approximate solutions to problems; this, along with numerical computations, is one of the most important techniques in applied mathematics. Indeed, there is a whole wonderful book devoted to playing with divergent series called, unsurprisingly, ``Divergent Series'' by G.H.~Hardy. This is not to be confused with the ``Divergent'' series by V.~Roth set in a post-apocalyptic dystopian Chicago. That latter series diverges quite dramatically from mathematical topics, while the former does not have a film adaptation (yet).
+	The authors should be a little more careful making such a blanket statement. While it is true that it is not wise to approximate a divergent series by taking $N$ terms with $N$ large, there are cases when one can get a 
+very good approximation by taking $N$ terms with $N$ small! For example, if the $n^{\rm th}$ derivative of a function $f(x)$ grows very quickly with $n$, the Taylor polynomials of degree one or two still provide very good approximations 
+to $f(x$) when $x$ is very small, while the Taylor polynomials of degree $N$, with $N$ large, give bad approximations.  One of the triumphs of quantum electrodynamics, namely the computation of the anomalous magnetic moment of the electron (which, according to Wikipedia, is the most accurately verified prediction in the history of physics), depends on this. 
+The field of asymptotic analysis often makes use of the first few terms of divergent series to generate approximate solutions to problems; this, along with numerical computations, is one of the most important techniques in applied mathematics. Indeed, there is a whole wonderful book  (which, unfortunately, is too advanced for most calculus II students) devoted to playing with divergent series called, unsurprisingly, ``Divergent Series'' by G.H.~Hardy. This is not to be confused with the ``Divergent'' series by V.~Roth set in a post-apocalyptic dystopian Chicago. That latter series diverges quite dramatically from mathematical topics, while the former does not (yet) have a film adaptation.
 }. So you like to at least know if the series converges
 or diverges. Furthermore you would also like to know what error is introduced
 when you approximate $\sum_{n=1}^\infty a_n$ by the ``truncated series''
 $\sum_{n=1}^Na_n$. That's called the truncation error. There are a number
 of ``convergence tests'' to help you with this.
+\begin{comment}
+Note from Joel to Joel:  By an argument of Dyson (F.J. Dyson, Divergence of perturbation theory in quantum electrodynamics,Phys. Rev.,85, 631-632 (1952))
+perturbation expansions in QED cannot be anaytic at $e=0$ because if $e^2<0$ 
+the vacuum will be unstable.
+\end{comment}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Divergence Test}
@@ -2067,17 +2075,19 @@ Let's do a somewhat artificial example that forces us to combine a few of the te
 \sum_{n=1}^\infty \frac{ (-1)^n \sqrt{n+1}}{2n+3}
 \end{align*}
 The fact that the terms alternate here suggests that we use the alternating series test. That will show that this
-series converges provided
+series converges provided $\frac{\sqrt{n+1}}{2n+3}$ decreases as $n$ increases.
+So we define the function
 \begin{align*}
-  f(x) &= \frac{\sqrt{x+1}}{2x+3}
+  f(t) &= \frac{\sqrt{t+1}}{2t+3}
 \end{align*}
-is a decreasing function. To prove that, it suffices to show its derivative is negative when $x\geq 1$:
+(which is constructed by repacing the $n$ in $\frac{\sqrt{n+1}}{2n+3}$ with $t$)
+and verify that $f(t)$ is a decreasing function of $t$. To prove that, it suffices to show its derivative is negative when $t\geq 1$:
 \begin{align*}
-  f'(x) &= \frac{(2x+3)\cdot \frac{1}{2} \cdot(x+1)^{-1/2} - 2\sqrt{x+1} }{(2x+3)^2}\\
-  &=\frac{(2x+3) - 4(x+1)  }{2 \sqrt{x+1} (2x+3)^2}\\
-  &= \frac{-2x-1}{2 \sqrt{x+1} (2x+3)^2}
+  f'(t) &= \frac{(2t+3)\cdot \frac{1}{2} \cdot(t+1)^{-1/2} - 2\sqrt{t+1} }{(2t+3)^2}\\
+  &=\frac{(2t+3) - 4(t+1)  }{2 \sqrt{t+1} (2t+3)^2}\\
+  &= \frac{-2t-1}{2 \sqrt{t+1} (2t+3)^2}
 \end{align*}
-So when $x \geq 1$ this is negative and so $f(x)$ is a decreasing function. Thus we can apply the alternating series
+When $t \geq 1$ this is negative and so $f(t)$ is a decreasing function. Thus we can apply the alternating series
 test to show that the series converges when $x=\frac{1}{3}$.
 
 \item When $x = -\frac{1}{3}$ the series becomes
@@ -2552,19 +2562,19 @@ divergence test.
 
 \end{proof}
 
-\begin{eg}[$\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n$]
+\begin{eg}[$\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}x^n$]
 \label{eg:rootA}
  We have already used the ratio test, in Example \ref{eg:ratioC},
-to show that this series converges when $|X|<\frac{1}{3}$ and diverges
-when $|X|>\frac{1}{3}$. We'll now use the root test to draw the
+to show that this series converges when $|x|<\frac{1}{3}$ and diverges
+when $|x|>\frac{1}{3}$. We'll now use the root test to draw the
 same conclusions.
  \begin{itemize}
-  \item  Write $a_n=  \frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n$.
+  \item  Write $a_n=  \frac{ (-3)^n \sqrt{n+1}}{2n+3}x^n$.
   \item We compute
  \begin{align*}
   \root{n}\of{|a_n|}
-  &= \root{n}\of{ \bigg|\frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n\bigg|}\\
-  &= 3 |X|\big(n+1\big)^{\nicefrac{1}{2n}}  \big(2n+3)^{-\nicefrac{1}{n}}
+  &= \root{n}\of{ \bigg|\frac{ (-3)^n \sqrt{n+1}}{2n+3}x^n\bigg|}\\
+  &= 3 |x|\big(n+1\big)^{\nicefrac{1}{2n}}  \big(2n+3)^{-\nicefrac{1}{n}}
 \end{align*}
 \item We'll now show that the limit of $\big(n+1\big)^{\nicefrac{1}{2n}}$
 as $n\to\infty$ is exactly $1$. To do, so we first compute the limit
@@ -2573,8 +2583,8 @@ of the logarithm.
 \lim_{n\to\infty}\log \big(n+1\big)^{\nicefrac{1}{2n}}
 &=\lim_{n\to\infty}\frac{\log \big(n+1\big)}{2n}
 \qquad&\text{now apply Theorem \ref{thm:SRxlimtoanlim}} \\
-&=\lim_{x\to\infty}\frac{\log \big(x+1\big)}{2x} \\
-&=\lim_{x\to\infty}\frac{\frac{1}{x+1}}{2}
+&=\lim_{t\to\infty}\frac{\log \big(t+1\big)}{2t} \\
+&=\lim_{t\to\infty}\frac{\frac{1}{t+1}}{2}
 \qquad&\text{by l'H\^opital} \\
 &=0
 \end{align*}
@@ -2589,11 +2599,11 @@ $\lim_{n\to\infty}\big(2n+3)^{-\nicefrac{1}{n}} = e^0=1$.
 \item So
 \begin{align*}
 \lim_{n\to\infty}\root{n}\of{|a_n|}
-= 3 |X|
+= 3 |x|
 \end{align*}
 \end{itemize}
-and the root test also tells us that if $3|X|>1$ the series diverges,
-while when $3|X|<1$ the series converges.
+and the root test also tells us that if $3|x|>1$ the series diverges,
+while when $3|x|<1$ the series converges.
 \end{eg}
 We have done the last example once, in Example \ref{eg:ratioC},
 using the ratio test and once, in Example \ref{eg:rootA},
@@ -5030,7 +5040,7 @@ the numerator. By Example \ref{eg:sincosSeries},
 \begin{equation*}
 \sin x = x-\frac{1}{3!}x^3+\frac{1}{5!}x^5 - \cdots
 \end{equation*}
-Consequently\footnote{We are hiding some mathematics behind this ``consequently''. What we are really using
+Consequently\footnote{We are hiding some mathematics behind this ``consequently''. What we are really using is
 our knowledge of Taylor polynomials to write
 \begin{align*}
   f(x) = \sin(x) &= x-\frac{1}{3!}x^3+\frac{1}{5!}x^5 + E_5(x)

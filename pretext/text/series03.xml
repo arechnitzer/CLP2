@@ -268,7 +268,7 @@ Now that we have the integral test, it is straightforward to determine  for whic
 		<m>
 		\zeta(p) = \sum_{n=1}^\infty \frac{1}{n^p}
            = \prod_{\text{P prime}} \left(1 - {\rm P}^{-p} \right)^{-1}
-	   </m>
+	   </m>.
 	   Riemann showed the connections between the zeros of this function (over  complex numbers <m>p</m>) and the distribution of prime numbers. Arguably the  most famous unsolved problem in mathematics, the Riemann  hypothesis, concerns the locations of zeros of this function.
    </fn>
 <md>
@@ -1173,7 +1173,7 @@ Let's do a somewhat artificial example that forces us to combine a few of the te
 
 <example xml:id="eg_ratioC"><title><m>\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}x^n</m></title>
 <p>
-Again, the convergence of this series will depend on <m></m>.
+Again, the convergence of this series will depend on <m>x</m>.
 <ul>
 <li>
 	Let us start with the ratio test <mdash/> so we compute
@@ -1203,23 +1203,25 @@ Again, the convergence of this series will depend on <m></m>.
 	\sum_{n=1}^\infty \frac{ (-1)^n \sqrt{n+1}}{2n+3}
 	</mrow>
 	</md>
-	The fact that the terms alternate here suggests that we use the alternating series test. That will show that this  series converges provided
+The fact that the terms alternate here suggests that we use the alternating series test. 
+That will show that this series converges provided <m>\frac{\sqrt{n+1}}{2n+3}</m> decreases as <m>n</m> increases. So we define the function
 	<md>
 	<mrow>
-	  f(x) &amp;= \frac{\sqrt{x+1}}{2x+3}
+	  f(t) &amp;= \frac{\sqrt{t+1}}{2t+3}
 	</mrow>
 	</md>
-	is a decreasing function. To prove that, it suffices to show its derivative is negative when <m>x\geq 1</m>:
+(which is constructed by repacing the <m>n</m> in <m>\frac{\sqrt{n+1}}{2n+3}</m> with <m>t</m>)
+and verify that <m>f(t)</m> is a decreasing function of <m>t</m>. To prove that, it suffices to show its derivative is negative when <m>t\geq 1</m>:
 	<md>
 	<mrow>
-	  f'(x) &amp;= \frac{(2x+3)\cdot \frac{1}{2} \cdot(x+1)^{-1/2} - 2\sqrt{x+1} }{(2x+3)^2}
+	  f'(t) &amp;= \frac{(2t+3)\cdot \frac{1}{2} \cdot(t+1)^{-1/2} - 2\sqrt{t+1} }{(2t+3)^2}
 	</mrow><mrow>
-	  &amp;=\frac{(2x+3) - 4(x+1)  }{2 \sqrt{x+1} (2x+3)^2}
+	  &amp;=\frac{(2t+3) - 4(t+1)  }{2 \sqrt{t+1} (2t+3)^2}
 	</mrow><mrow>
-	  &amp;= \frac{-2x-1}{2 \sqrt{x+1} (2x+3)^2}
+	  &amp;= \frac{-2t-1}{2 \sqrt{t+1} (2t+3)^2}
 	</mrow>
 	</md>
-	So when <m>x \geq 1</m> this is negative and so <m>f(x)</m> is a decreasing function. Thus we can apply the alternating series  test to show that the series converges when <m>x=\frac{1}{3}</m>.
+When <m>t \geq 1</m> this is negative and so <m>f(t)</m> is a decreasing function. Thus we can apply the alternating series  test to show that the series converges when <m>x=\frac{1}{3}</m>.
 </li>
 <li>
 	When <m>x = -\frac{1}{3}</m> the series becomes
@@ -1774,21 +1776,21 @@ Beware that the root test provides absolutely no conclusion about the convergenc
 
 </proof>
 
-<example xml:id="eg_rootA"><title><m>\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n</m></title>
+<example xml:id="eg_rootA"><title><m>\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}x^n</m></title>
 <p>
-We have already used the ratio test, in Example <xref ref="eg_ratioC"/>, to show that this series converges when <m>|X| \lt \frac{1}{3}</m> and diverges  when <m>|X| \gt \frac{1}{3}</m>. We'll now use the root test to draw the  same conclusions.
+We have already used the ratio test, in Example <xref ref="eg_ratioC"/>, to show that this series converges when <m>|x| \lt \frac{1}{3}</m> and diverges  when <m>|x| \gt \frac{1}{3}</m>. We'll now use the root test to draw the  same conclusions.
 <ul>
 <li>
-	Write <m>a_n=  \frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n</m>.
+	Write <m>a_n=  \frac{ (-3)^n \sqrt{n+1}}{2n+3}x^n</m>.
 </li>
 <li>
 	We compute
 	 <md>
 	<mrow>
 	  \root{n}\of{|a_n|}
-	  &amp;= \root{n}\of{ \bigg|\frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n\bigg|}
+	  &amp;= \root{n}\of{ \bigg|\frac{ (-3)^n \sqrt{n+1}}{2n+3}x^n\bigg|}
 	</mrow><mrow>
-	  &amp;= 3 |X|\big(n+1\big)^{\frac{1}{2n}}  \big(2n+3)^{-\frac{1}{n}}
+	  &amp;= 3 |x|\big(n+1\big)^{\frac{1}{2n}}  \big(2n+3)^{-\frac{1}{n}}
 	</mrow>
 	</md>
 </li>
@@ -1800,9 +1802,9 @@ We have already used the ratio test, in Example <xref ref="eg_ratioC"/>, to show
 	&amp;=\lim_{n\to\infty}\frac{\log \big(n+1\big)}{2n}
 	\qquad&amp;\text{now apply Theorem }<xref ref="thm_SRxlimtoanlim"/>
 	</mrow><mrow>
-	&amp;=\lim_{x\to\infty}\frac{\log \big(x+1\big)}{2x}
+	&amp;=\lim_{t\to\infty}\frac{\log \big(t+1\big)}{2t}
 	</mrow><mrow>
-	&amp;=\lim_{x\to\infty}\frac{\frac{1}{x+1}}{2} \qquad&amp;\text{by l'Hôpital}
+	&amp;=\lim_{t\to\infty}\frac{\frac{1}{t+1}}{2} \qquad&amp;\text{by l'Hôpital}
 	</mrow><mrow>
 	&amp;=0
 	</mrow>
@@ -1822,12 +1824,12 @@ We have already used the ratio test, in Example <xref ref="eg_ratioC"/>, to show
 	<md>
 	<mrow>
 	\lim_{n\to\infty}\root{n}\of{|a_n|}
-	= 3 |X|
+	= 3 |x|
 	</mrow>
 	</md>
 </li>
 </ul>
-and the root test also tells us that if <m>3|X| \gt 1</m> the series diverges,  while when <m>3|X| \lt 1</m> the series converges.
+and the root test also tells us that if <m>3|x| \gt 1</m> the series diverges,  while when <m>3|x| \lt 1</m> the series converges.
 </p>
 </example>
 
