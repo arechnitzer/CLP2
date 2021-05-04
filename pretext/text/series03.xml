@@ -8,7 +8,12 @@
 
 <p>
 It is very common to encounter series for which it is difficult, or even virtually impossible, to determine the sum exactly. Often you try to evaluate the sum approximately by truncating it, i.e. having the index run only up to some finite <m>N</m>, rather than infinity. But there is no point in doing so if the series diverges<fn>
-	The authors should be a little more careful making such a blanket statement. The field of asymptotic analysis often makes use of the first few terms of divergent series to generate approximate solutions to problems; this, along with numerical computations, is one of the most important techniques in applied mathematics. Indeed, there is a whole wonderful book devoted to playing with divergent series called, unsurprisingly, <q>Divergent Series</q> by G.H.<nbsp/>Hardy. This is not to be confused with the <q>Divergent</q> series by V.<nbsp/>Roth set in a post-apocalyptic dystopian Chicago. That latter series diverges quite dramatically from mathematical topics, while the former does not have a film adaptation (yet).
+	The authors should be a little more careful making such a blanket statement. While it is true that it is not wise to approximate a divergent series by taking <m>N</m> terms with <m>N</m> large, there are cases when one can get a very good approximation by taking <m>N</m> terms with <m>N</m> small! For example, if the <m>n^{\rm th}</m> derivative of a function <m>f(x)</m> grows very quickly with 
+<m>n</m>, the Taylor polynomials of degree one or two still provide very good approximations 
+to <m>f(x)</m> when <m>x</m> is very small, while the Taylor polynomials of degree <m>N</m>, with 
+<m>N</m> large, give bad approximations.  One of the triumphs of quantum electrodynamics, namely the computation of the anomalous magnetic moment of the electron (which, according to Wikipedia, is the most accurately verified prediction in the history of physics), depends on this. 
+The field of asymptotic analysis often makes use of the first few terms of divergent series to generate approximate solutions to problems; this, along with numerical computations, is one of the most important techniques in applied mathematics. Indeed, there is a whole wonderful book  (which, unfortunately, is too advanced for most calculus II students) devoted to playing with divergent series called, unsurprisingly, <q>Divergent Series</q> by G.H.~Hardy. This is not to be confused with the 
+<q>Divergent</q> series by V.~Roth set in a post-apocalyptic dystopian Chicago. That latter series diverges quite dramatically from mathematical topics, while the former does not (yet) have a film adaptation.
 </fn>. So you like to at least know if the series converges or diverges. Furthermore you would also like to know what error is introduced when you approximate <m>\sum_{n=1}^\infty a_n</m> by the <q>truncated series</q> <m>\sum_{n=1}^Na_n</m>. That's called the truncation error. There are a number  of <q>convergence tests</q> to help you with this.
 </p>
 </introduction>
@@ -1210,7 +1215,7 @@ That will show that this series converges provided <m>\frac{\sqrt{n+1}}{2n+3}</m
 	  f(t) &amp;= \frac{\sqrt{t+1}}{2t+3}
 	</mrow>
 	</md>
-(which is constructed by repacing the <m>n</m> in <m>\frac{\sqrt{n+1}}{2n+3}</m> with <m>t</m>)
+(which is constructed by replacing the <m>n</m> in <m>\frac{\sqrt{n+1}}{2n+3}</m> with <m>t</m>)
 and verify that <m>f(t)</m> is a decreasing function of <m>t</m>. To prove that, it suffices to show its derivative is negative when <m>t\geq 1</m>:
 	<md>
 	<mrow>
