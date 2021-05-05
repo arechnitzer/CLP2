@@ -784,10 +784,9 @@ virtually impossible, to determine the sum exactly. Often you try to evaluate
 the sum approximately by truncating it, i.e. having the index run only
 up to some finite $N$, rather than infinity. But there is no point in doing
 so if the series diverges\footnote{
-	The authors should be a little more careful making such a blanket statement. While it is true that it is not wise to approximate a divergent series by taking $N$ terms with $N$ large, there are cases when one can get a 
-very good approximation by taking $N$ terms with $N$ small! For example, if the $n^{\rm th}$ derivative of a function $f(x)$ grows very quickly with $n$, the Taylor polynomials of degree one or two still provide very good approximations 
-to $f(x)$ when $x$ is very small, while the Taylor polynomials of degree $N$, with $N$ large, give bad approximations.  One of the triumphs of quantum electrodynamics, namely the computation of the anomalous magnetic moment of the electron (which, according to Wikipedia, is the most accurately verified prediction in the history of physics), depends on this. 
-The field of asymptotic analysis often makes use of the first few terms of divergent series to generate approximate solutions to problems; this, along with numerical computations, is one of the most important techniques in applied mathematics. Indeed, there is a whole wonderful book  (which, unfortunately, is too advanced for most calculus II students) devoted to playing with divergent series called, unsurprisingly, ``Divergent Series'' by G.H.~Hardy. This is not to be confused with the ``Divergent'' series by V.~Roth set in a post-apocalyptic dystopian Chicago. That latter series diverges quite dramatically from mathematical topics, while the former does not (yet) have a film adaptation.
+The authors should be a little more careful making such a blanket statement. While it is true that it is not wise to approximate a divergent series by taking \(N\) terms with \(N\) large, there are cases when one can get a very good approximation by taking \(N\) terms with \(N\) small! For example, the Taylor remainder theorem shows us that when the \(n^{\rm th}\) derivative of a function \(f(x)\) grows very quickly with \(n\), Taylor polynomials of degree \(N\), with \(N\) large, can give bad approximations of \(f(x)\), while the Taylor polynomials of degree one or two can still provide very good approximations of \(f(x)\) when \(x\) is very small. As an example of this, one of the triumphs of quantum electrodynamics, namely the computation of the anomalous magnetic moment of the electron, depends on precisely this. A number of important quantities were predicted using the first few terms of divergent power series. When those quantities were measured experimentally, the predictions turned out to be incredibly accurate.
+}\footnote{
+The field of asymptotic analysis often makes use of the first few terms of divergent series to generate approximate solutions to problems; this, along with numerical computations, is one of the most important techniques in applied mathematics. Indeed, there is a whole wonderful book  (which, unfortunately, is too advanced for most Calculus~2 students) devoted to playing with divergent series called, unsurprisingly, ``Divergent Series'' by G.H.~Hardy. This is not to be confused with the ``Divergent'' series by V.~Roth set in a post-apocalyptic dystopian Chicago. That latter series diverges quite dramatically from mathematical topics, while the former does not have a film adaptation (yet).
 }. So you like to at least know if the series converges
 or diverges. Furthermore you would also like to know what error is introduced
 when you approximate $\sum_{n=1}^\infty a_n$ by the ``truncated series''
@@ -795,7 +794,7 @@ $\sum_{n=1}^Na_n$. That's called the truncation error. There are a number
 of ``convergence tests'' to help you with this.
 \begin{comment}
 Note from Joel to Joel:  By an argument of Dyson (F.J. Dyson, Divergence of perturbation theory in quantum electrodynamics,Phys. Rev.,85, 631-632 (1952))
-perturbation expansions in QED cannot be anaytic at $e=0$ because if $e^2<0$ 
+perturbation expansions in QED cannot be anaytic at $e=0$ because if $e^2<0$
 the vacuum will be unstable.
 \end{comment}
 
