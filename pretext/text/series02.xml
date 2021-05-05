@@ -158,15 +158,13 @@ is called the geometric series with first term <m>a</m> and ratio <m>r</m>.
 Notice that we have chosen to start the summation index at <m>n=0</m>.  That's fine. The first
 	<fn>
 		It is actually quite common in computer  science to think of <m>0</m> as the first integer. In that context, the set of natural numbers is defined to contain <m>0</m>:
-		<me>
+		<m>
 			\mathbb{N} = \left\{0,1,2,\cdots \right\}
-		</me>
+		</m>
 	while the notation
-	<md>
-	<mrow>
-	  \mathbb{Z}^+ &amp;= \left\{1,2,3,\cdots \right\}
-	</mrow>
-	</md>
+	<m>
+	  \mathbb{Z}^+ = \left\{1,2,3,\cdots \right\}
+	</m>
 	is used to denote the (strictly) positive integers. Remember that in  this text, as is more standard in mathematics, we  define the set of natural numbers to be the set of (strictly)  positive integers.</fn>
 term is the <m>n=0</m> term, which is <m>ar^0=a</m>. The  second term is the <m>n=1</m> term, which is <m>ar^1=ar</m>. And so on.  We could have also written the series <m>\sum_{n=1}^\infty ar^{n-1}</m>. That's exactly the same series <mdash/> the first term is  <m>ar^{n-1}\big|_{n=1}=ar^{1-1}=a</m>, the second term is <m>ar^{n-1}\big|_{n=2}=ar^{2-1}=ar</m>, and so on
 	<fn>

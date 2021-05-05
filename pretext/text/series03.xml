@@ -7,7 +7,12 @@
 <introduction>
 
 <p>
-It is very common to encounter series for which it is difficult, or even virtually impossible, to determine the sum exactly. Often you try to evaluate the sum approximately by truncating it, i.e. having the index run only up to some finite <m>N</m>, rather than infinity. But there is no point in doing so if the series diverges. So you like to at least know if the series converges or diverges. Furthermore you would also like to know what error is introduced when you approximate <m>\sum_{n=1}^\infty a_n</m> by the <q>truncated series</q> <m>\sum_{n=1}^Na_n</m>. That's called the truncation error. There are a number  of <q>convergence tests</q> to help you with this.
+It is very common to encounter series for which it is difficult, or even virtually impossible, to determine the sum exactly. Often you try to evaluate the sum approximately by truncating it, i.e. having the index run only up to some finite <m>N</m>, rather than infinity. But there is no point in doing so if the series diverges<fn>
+	The authors should be a little more careful making such a blanket statement. While it is true that it is not wise to approximate a divergent series by taking <m>N</m> terms with <m>N</m> large, there are cases when one can get a very good approximation by taking <m>N</m> terms with <m>N</m> small! For example, the Taylor remainder theorem shows us that when the <m>n^{\rm th}</m> derivative of a function <m>f(x)</m> grows very quickly with <m>n</m>, Taylor polynomials of degree <m>N</m>, with <m>N</m> large, can give bad approximations of <m>f(x)</m>, while the Taylor polynomials of degree one or two can still provide very good approximations of <m>f(x)</m> when <m>x</m> is very small. As an example of this, one of the triumphs of quantum electrodynamics, namely the computation of the anomalous magnetic moment of the electron, depends on precisely this. A number of important quantities were predicted using the first few terms of divergent power series. When those quantities were measured experimentally, the predictions turned out to be incredibly accurate.
+</fn><fn>
+The field of asymptotic analysis often makes use of the first few terms of divergent series to generate approximate solutions to problems; this, along with numerical computations, is one of the most important techniques in applied mathematics. Indeed, there is a whole wonderful book  (which, unfortunately, is too advanced for most Calculus<nbsp/>2 students) devoted to playing with divergent series called, unsurprisingly, <q>Divergent Series</q> by G.H.<nbsp/>Hardy. This is not to be confused with the <q>Divergent</q> series by V.<nbsp/>Roth set in a post-apocalyptic dystopian Chicago. That latter series diverges quite dramatically from mathematical topics, while the former does not have a film adaptation (yet).
+</fn>.
+So you like to at least know if the series converges or diverges. Furthermore you would also like to know what error is introduced when you approximate <m>\sum_{n=1}^\infty a_n</m> by the <q>truncated series</q> <m>\sum_{n=1}^Na_n</m>. That's called the truncation error. There are a number  of <q>convergence tests</q> to help you with this.
 </p>
 </introduction>
 
@@ -263,10 +268,10 @@ and, if the integral is infinite, the sum <m>\sum_{n=I}^\infty a_n</m> is infini
 Now that we have the integral test, it is straightforward to determine  for which values of <m>p</m> the series
 	<fn>
 		This series, viewed  as a function of <m>p</m>, is called the Riemann zeta function, <m>\zeta(p)</m>,  or the Euler-Riemann zeta function. It is extremely important because  of its connections to prime numbers (among many other things). Indeed  Euler proved that
-		<me>
+		<m>
 		\zeta(p) = \sum_{n=1}^\infty \frac{1}{n^p}
            = \prod_{\text{P prime}} \left(1 - {\rm P}^{-p} \right)^{-1}
-	   </me>
+	   </m>.
 	   Riemann showed the connections between the zeros of this function (over  complex numbers <m>p</m>) and the distribution of prime numbers. Arguably the  most famous unsolved problem in mathematics, the Riemann  hypothesis, concerns the locations of zeros of this function.
    </fn>
 <md>
@@ -428,22 +433,18 @@ We could determine whether or not the series <m>\sum_{n=1}^\infty\frac{1}{n^2+2n
 	<fn>
 		Go back and quickly scan Theorem<nbsp/><xref ref="thm_SRintegralTest"/>; to apply it we need to show that <m>\frac{1} {n^2+2n+3}</m> is  positive and decreasing (it is), and then  we need to integrate <m>\int \frac{1}{x^2+2x+3}\dee{x}</m>. To do that  we reread the notes on partial fractions, then rewrite <m>x^2+2x+3
 		= (x+1)^2+2</m> and so
-		<md>
-		<mrow>
+		<m>
 		  \int_1^\infty \frac{1}{x^2+2x+3}\dee{x}
-		  &amp;= \int_1^\infty \frac{1}{(x+1)^2+2}\dee{x} \cdots
-		</mrow>
-		</md>
+		  = \int_1^\infty \frac{1}{(x+1)^2+2}\dee{x} \cdots
+		</m>
 		and then arctangent appears,  etc etc. Urgh. Okay <mdash/> let's go  back to the text now and see how to avoid this.
 	</fn>.
 Whether or not any series converges is determined by the behaviour of the summand
 	<fn>
 		To understand this consider any series  <m>\sum_{n=1}^\infty a_n</m>. We can always cut such a series into  two parts <mdash/> pick some huge number like <m>10^6</m>. Then
-		<md>
-		<mrow>
-		\sum_{n=1}^\infty a_n &amp;= \sum_{n=1}^{10^6} a_n + \sum_{n=10^6+1}^\infty a_n
-		</mrow>
-		</md>
+		<m>
+		\sum_{n=1}^\infty a_n = \sum_{n=1}^{10^6} a_n + \sum_{n=10^6+1}^\infty a_n
+	</m>.
 		The first sum, though it could be humongous, is finite. So the left hand side, <m>\sum_{n=1}^\infty a_n</m>, is a well-defined finite number if and only if <m>\sum_{n=10^6+1}^\infty a_n</m>, is a well-defined  finite number. The convergence or divergence of the series is  determined by the second sum, which  only contains <m>a_n</m> for <q>large</q> <m>n</m>.
 	</fn>
 for very large <m>n</m>. So the first step in tackling such a problem is to develop some intuition about the behaviour of <m>a_n</m> when <m>n</m> is very large.
@@ -785,7 +786,7 @@ for that series.
 				-(\overbrace{A_{N+4}-A_{N+5}}^{\ge 0})-\cdots
         </mrow><mrow>
 	\amp\hskip1in -\overbrace{(A_{\ell'-1}-A_{\ell'})}^{\ge 0}
-	</mrow><mrow>	
+	</mrow><mrow>
          \amp\le A_{N+1}
 	</mrow><mrow>
 	(-1)^NS_{N,\ell'+1}&amp;=\overbrace{(-1)^N S_{N,\ell'}}^{\le A_{N+1}}
@@ -1173,58 +1174,60 @@ In this example, we are going to see three different series that all have <m>\li
 Let's do a somewhat artificial example that forces us to combine a few of the techniques we have seen.
 </p>
 
-<example xml:id="eg_ratioC"><title><m>\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n</m></title>
+<example xml:id="eg_ratioC"><title><m>\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}x^n</m></title>
 <p>
-Again, the convergence of this series will depend on <m>X</m>.
+Again, the convergence of this series will depend on <m>x</m>.
 <ul>
 <li>
 	Let us start with the ratio test <mdash/> so we compute
 	<md>
 	<mrow>
 	  \left|\frac{a_{n+1}}{a_n}\right|
-	  &amp;= \left|\frac{(-3)^{n+1} \sqrt{n+2} (2n+3) X^{n+1} }{(-3)^n \sqrt{n+1} (2n+5) X^n} \right|
+	  &amp;= \left|\frac{(-3)^{n+1} \sqrt{n+2} (2n+3) x^{n+1} }{(-3)^n \sqrt{n+1} (2n+5) x^n} \right|
 	</mrow><mrow>
-	  &amp;= |-3| \cdot \frac{\sqrt{n+2}}{\sqrt{n+1}} \cdot \frac{2n+3}{2n+5} \cdot |X|
+	  &amp;= |-3| \cdot \frac{\sqrt{n+2}}{\sqrt{n+1}} \cdot \frac{2n+3}{2n+5} \cdot |x|
 	  </mrow>
 	<intertext>So in the limit as <m>n \to \infty</m> we are left with</intertext><mrow>
 	  \lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|
-	  &amp;= 3 |X|
+	  &amp;= 3 |x|
 	</mrow>
 	</md>
 </li>
 <li>
-	The ratio test then tells us that if <m>3|X| \gt 1</m> the series diverges, while when <m>3|X| \lt 1</m> the series converges.
+	The ratio test then tells us that if <m>3|x| \gt 1</m> the series diverges, while when <m>3|x| \lt 1</m> the series converges.
 </li>
 <li>
-	This leaves us with the cases <m>X=+\frac{1}{3}</m> and <m>-\frac{1}{3}</m>.
+	This leaves us with the cases <m>x=+\frac{1}{3}</m> and <m>-\frac{1}{3}</m>.
 </li>
 <li>
-	Setting <m>X=\frac{1}{3}</m> gives the series
+	Setting <m>x=\frac{1}{3}</m> gives the series
 	<md>
 	<mrow>
 	\sum_{n=1}^\infty \frac{ (-1)^n \sqrt{n+1}}{2n+3}
 	</mrow>
 	</md>
-	The fact that the terms alternate here suggests that we use the alternating series test. That will show that this  series converges provided
+The fact that the terms alternate here suggests that we use the alternating series test.
+That will show that this series converges provided <m>\frac{\sqrt{n+1}}{2n+3}</m> decreases as <m>n</m> increases. So we define the function
 	<md>
 	<mrow>
-	  f(x) &amp;= \frac{\sqrt{x+1}}{2x+3}
+	  f(t) &amp;= \frac{\sqrt{t+1}}{2t+3}
 	</mrow>
 	</md>
-	is a decreasing function. To prove that, it suffices to show its derivative is negative when <m>x\geq 1</m>:
+(which is constructed by replacing the <m>n</m> in <m>\frac{\sqrt{n+1}}{2n+3}</m> with <m>t</m>)
+and verify that <m>f(t)</m> is a decreasing function of <m>t</m>. To prove that, it suffices to show its derivative is negative when <m>t\geq 1</m>:
 	<md>
 	<mrow>
-	  f'(x) &amp;= \frac{(2x+3)\cdot \frac{1}{2} \cdot(x+1)^{-1/2} - 2\sqrt{x+1} }{(2x+3)^2}
+	  f'(t) &amp;= \frac{(2t+3)\cdot \frac{1}{2} \cdot(t+1)^{-1/2} - 2\sqrt{t+1} }{(2t+3)^2}
 	</mrow><mrow>
-	  &amp;=\frac{(2x+3) - 4(x+1)  }{2 \sqrt{x+1} (2x+3)^2}
+	  &amp;=\frac{(2t+3) - 4(t+1)  }{2 \sqrt{t+1} (2t+3)^2}
 	</mrow><mrow>
-	  &amp;= \frac{-2x-1}{2 \sqrt{x+1} (2x+3)^2}
+	  &amp;= \frac{-2t-1}{2 \sqrt{t+1} (2t+3)^2}
 	</mrow>
 	</md>
-	So when <m>x \geq 1</m> this is negative and so <m>f(x)</m> is a decreasing function. Thus we can apply the alternating series  test to show that the series converges when <m>x=\frac{1}{3}</m>.
+When <m>t \geq 1</m> this is negative and so <m>f(t)</m> is a decreasing function. Thus we can apply the alternating series  test to show that the series converges when <m>x=\frac{1}{3}</m>.
 </li>
 <li>
-	When <m>X = -\frac{1}{3}</m> the series becomes
+	When <m>x = -\frac{1}{3}</m> the series becomes
 	<md>
 	<mrow>
 	\sum_{n=1}^\infty \frac{\sqrt{n+1}}{2n+3}.
@@ -1246,7 +1249,7 @@ Again, the convergence of this series will depend on <m>X</m>.
 	So since this ratio has a finite limit and the series <m>\sum n^{-1/2}</m> diverges, we know that our series also diverges.
 </li>
 </ul>
-So in summary the series converges when <m>-\frac{1}{3}  \lt  X \leq \frac{1}{3}</m> and diverges otherwise.
+So in summary the series converges when <m>-\frac{1}{3}  \lt  x \leq \frac{1}{3}</m> and diverges otherwise.
 </p>
 </example>
 </subsection>
@@ -1776,21 +1779,21 @@ Beware that the root test provides absolutely no conclusion about the convergenc
 
 </proof>
 
-<example xml:id="eg_rootA"><title><m>\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n</m></title>
+<example xml:id="eg_rootA"><title><m>\sum_{n=1}^\infty \frac{ (-3)^n \sqrt{n+1}}{2n+3}x^n</m></title>
 <p>
-We have already used the ratio test, in Example <xref ref="eg_ratioC"/>, to show that this series converges when <m>|X| \lt \frac{1}{3}</m> and diverges  when <m>|X| \gt \frac{1}{3}</m>. We'll now use the root test to draw the  same conclusions.
+We have already used the ratio test, in Example <xref ref="eg_ratioC"/>, to show that this series converges when <m>|x| \lt \frac{1}{3}</m> and diverges  when <m>|x| \gt \frac{1}{3}</m>. We'll now use the root test to draw the  same conclusions.
 <ul>
 <li>
-	Write <m>a_n=  \frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n</m>.
+	Write <m>a_n=  \frac{ (-3)^n \sqrt{n+1}}{2n+3}x^n</m>.
 </li>
 <li>
 	We compute
 	 <md>
 	<mrow>
 	  \root{n}\of{|a_n|}
-	  &amp;= \root{n}\of{ \bigg|\frac{ (-3)^n \sqrt{n+1}}{2n+3}X^n\bigg|}
+	  &amp;= \root{n}\of{ \bigg|\frac{ (-3)^n \sqrt{n+1}}{2n+3}x^n\bigg|}
 	</mrow><mrow>
-	  &amp;= 3 |X|\big(n+1\big)^{\frac{1}{2n}}  \big(2n+3)^{-\frac{1}{n}}
+	  &amp;= 3 |x|\big(n+1\big)^{\frac{1}{2n}}  \big(2n+3)^{-\frac{1}{n}}
 	</mrow>
 	</md>
 </li>
@@ -1802,9 +1805,9 @@ We have already used the ratio test, in Example <xref ref="eg_ratioC"/>, to show
 	&amp;=\lim_{n\to\infty}\frac{\log \big(n+1\big)}{2n}
 	\qquad&amp;\text{now apply Theorem }<xref ref="thm_SRxlimtoanlim"/>
 	</mrow><mrow>
-	&amp;=\lim_{x\to\infty}\frac{\log \big(x+1\big)}{2x}
+	&amp;=\lim_{t\to\infty}\frac{\log \big(t+1\big)}{2t}
 	</mrow><mrow>
-	&amp;=\lim_{x\to\infty}\frac{\frac{1}{x+1}}{2} \qquad&amp;\text{by l'Hôpital}
+	&amp;=\lim_{t\to\infty}\frac{\frac{1}{t+1}}{2} \qquad&amp;\text{by l'Hôpital}
 	</mrow><mrow>
 	&amp;=0
 	</mrow>
@@ -1824,12 +1827,12 @@ We have already used the ratio test, in Example <xref ref="eg_ratioC"/>, to show
 	<md>
 	<mrow>
 	\lim_{n\to\infty}\root{n}\of{|a_n|}
-	= 3 |X|
+	= 3 |x|
 	</mrow>
 	</md>
 </li>
 </ul>
-and the root test also tells us that if <m>3|X| \gt 1</m> the series diverges,  while when <m>3|X| \lt 1</m> the series converges.
+and the root test also tells us that if <m>3|x| \gt 1</m> the series diverges,  while when <m>3|x| \lt 1</m> the series converges.
 </p>
 </example>
 

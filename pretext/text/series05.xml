@@ -433,9 +433,11 @@ Suppose that the power series <m>\sum\limits_{n=0}^\infty A_n (x-c)^n</m>  has r
 To reiterate <mdash/> while the radius convergence, <m>R</m> with <m>0 \lt R \lt \infty</m>, tells  us that the series converges for <m>|x-c| \lt R</m> and diverges for <m>|x-c| \gt R</m>,  it does not (by itself) tell us whether or not the series converges when  <m>|x-c|=R</m>, i.e. when <m>x=c\pm R</m>. The following example shows that all four possibilities can occur.
 </p>
 
-<example xml:id="eg_SRintervalofconvergence"><title>The series <m>\sum_{n=0}^\infty \frac{x^n}{n^p}</m></title>
+<example xml:id="eg_SRintervalofconvergence"><title>The series <m>\sum_{n=1}^\infty \frac{x^n}{n^p}</m></title>
 <p>
-Let <m>p</m> be any real number and consider the series  <m>\sum_{n=0}^\infty \frac{x^n}{n^p}</m>. This series has <m>A_n= \frac{1}{n^p}</m>. Since
+Let <m>p</m> be any real number<fn>
+We avoid problems with <m>0^p</m> by starting the series from <m>n=1</m>.
+</fn> and consider the series  <m>\sum_{n=1}^\infty \frac{x^n}{n^p}</m>. This series has <m>A_n= \frac{1}{n^p}</m>. Since
 <me>
 \lim_{n\rightarrow\infty}\Big|\frac{A_{n+1}}{A_n}\Big|
 =\lim_{n\rightarrow\infty}\frac{n^p}{{(n+1)}^p}
@@ -445,25 +447,25 @@ Let <m>p</m> be any real number and consider the series  <m>\sum_{n=0}^\infty \f
 the series has radius of convergence <m>1</m>. So it certainly converges for <m>|x| \lt 1</m> and diverges for <m>|x| \gt 1</m>. That just leaves <m>x=\pm 1</m>.
 <ul>
 <li>
-	When <m>x=1</m>, the series reduces to <m>\sum_{n=0}^\infty \frac{1}{n^p}</m>. We know, from Example <xref ref="eg_SRpTest"/>, that this series converges if and only if <m>p \gt 1</m>.
+	When <m>x=1</m>, the series reduces to <m>\sum_{n=1}^\infty \frac{1}{n^p}</m>. We know, from Example <xref ref="eg_SRpTest"/>, that this series converges if and only if <m>p \gt 1</m>.
 </li>
 <li>
-	When <m>x=-1</m>, the series reduces to <m>\sum_{n=0}^\infty \frac{(-1)^n}{n^p}</m>. By the alternating series test, Theorem <xref ref="thm_SRalternating"/>, this series converges whenever <m>p \gt 0</m> (so that <m>\frac{1}{n^p}</m> tends to zero as <m>n</m> tends to infinity). When <m>p\le 0</m> (so that <m>\frac{1}{n^p}</m> does <em>not</em> tend to zero as <m>n</m> tends to infinity), it diverges by  the divergence test, Theorem <xref ref="thm_SRdivergenceTest"/>.
+	When <m>x=-1</m>, the series reduces to <m>\sum_{n=1}^\infty \frac{(-1)^n}{n^p}</m>. By the alternating series test, Theorem <xref ref="thm_SRalternating"/>, this series converges whenever <m>p \gt 0</m> (so that <m>\frac{1}{n^p}</m> tends to zero as <m>n</m> tends to infinity). When <m>p\le 0</m> (so that <m>\frac{1}{n^p}</m> does <em>not</em> tend to zero as <m>n</m> tends to infinity), it diverges by  the divergence test, Theorem <xref ref="thm_SRdivergenceTest"/>.
 </li>
 </ul>
 So
 <ul>
 <li>
-	The power series <m>\sum_{n=0}^\infty x^n</m> (i.e. <m>p=0</m>) has interval of convergence <m>-1 \lt x \lt 1</m>.
+	The power series <m>\sum_{n=1}^\infty x^n</m> (i.e. <m>p=0</m>) has interval of convergence <m>-1 \lt x \lt 1</m>.
 </li>
 <li>
-	The power series <m>\sum_{n=0}^\infty \frac{x^n}{n}</m> (i.e. <m>p=1</m>) has interval of convergence <m>-1\le x \lt 1</m>.
+	The power series <m>\sum_{n=1}^\infty \frac{x^n}{n}</m> (i.e. <m>p=1</m>) has interval of convergence <m>-1\le x \lt 1</m>.
 </li>
 <li>
-	The power series <m>\sum_{n=0}^\infty \frac{(-1)^n}{n}x^n</m> (i.e. <m>p=1</m>) has interval of convergence <m>-1 \lt  x\le 1</m>.
+	The power series <m>\sum_{n=1}^\infty \frac{(-1)^n}{n}x^n</m> (i.e. <m>p=1</m>) has interval of convergence <m>-1 \lt  x\le 1</m>.
 </li>
 <li>
-	The power series <m>\sum_{n=0}^\infty \frac{x^n}{n^2}</m> (i.e. <m>p=2</m>) has interval of convergence <m>-1\le x\le 1</m>.
+	The power series <m>\sum_{n=1}^\infty \frac{x^n}{n^2}</m> (i.e. <m>p=2</m>) has interval of convergence <m>-1\le x\le 1</m>.
 </li>
 </ul>
 </p>
