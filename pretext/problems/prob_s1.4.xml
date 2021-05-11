@@ -672,7 +672,7 @@ If we let <m>\textcolor{red}{u=\sqrt{\log x}}</m>, then <m>\textcolor{blue}{\dee
 
 <exercise><title><fromexam>2016A</fromexam></title>
 <statement><p>
-Calculate <m>\displaystyle\int_{-2}^2 xe^{x^2}\,dx</m>.
+Calculate <m>\displaystyle\int_{-2}^2 xe^{x^2}\,\dee{x}</m>.
 </p></statement>
 
 <hint><p>
@@ -686,17 +686,27 @@ and a really short, still-more-sneaky method.
 
 <solution><p>
 <ul>
-<li>The slightly sneaky method:
+<li><alert>The straightforward method:</alert>
+We use the substitution <m>\textcolor{red}{u=x^2}</m>, for which <m>\textcolor{blue}{\dee{u}=2x\,\dee{x}}</m>, and note that
+<m>u=4</m> for both <m>x=2</m> and <m>x=-2</m>:
+<me>
+\int_{-2}^2 xe^{x^2}\,\dee{x}
+=\int_{-2}^2 \frac{1}{2}e^{\textcolor{red}{x^2}}\,\textcolor{blue}{2x\dee{x}} 
+= \int_4^4 \frac{1}{2}e^{\textcolor{red}{u}}\,\textcolor{blue}{\dee{u}}
+=0
+</me>
+</li>
+<li><alert>The slightly sneaky method:</alert>
 We note that <m>\displaystyle\diff{}{x} \left\{e^{x^2} \right\}= 2x\, e^{x^2}</m>, so that <m>\dfrac{1}{2} e^{x^2}</m>
 is a antiderivative for the integrand <m>x e^{x^2}</m>. So
 <md>
 <mrow>
-\int_{-2}^2 xe^{x^2}\,dx = \bigg[\frac{1}{2}e^{x^2}\bigg]_{-2}^2
+\int_{-2}^2 xe^{x^2}\,\dee{x} = \bigg[\frac{1}{2}e^{x^2}\bigg]_{-2}^2
 =\frac{1}{2}e^4-\frac{1}{2}e^4=0
 </mrow>
 </md>
 </li>
-<li>The really sneaky method:
+<li><alert>The really sneaky method</alert>:
 The integrand <m>f(x) = x e^{x^2}</m> is an odd function (meaning that <m>f(-x)=-f(x)</m>).
 So by Theorem <xref ref="thm_INTevenodd"/> every integral
 of the form <m>\int_{-a}^a x e^{x^2}\,\dee{x}</m> is zero.
@@ -1080,13 +1090,16 @@ Using the definition of a definite integral with right Riemann sums:
 \color{red}
 \draw[thick, fill=red, fill opacity=0.5] (0,0) rectangle (2,5);
 \draw[decorate, decoration={brace, amplitude=10pt}] (2,-.2)--(0,-.2) node[midway, below, yshift=-10pt]{$\frac{b-a}{n}$};
-\draw[decorate, decoration={brace, amplitude=10pt}] (-.2,0)--(-.2,5) node[midway, left, xshift=-10pt]{$2f(x_i^*)$};
+\draw[decorate, decoration={brace, amplitude=10pt}] (-.2,0)--(-.2,5) node[midway, left, xshift=-10pt]{$2f(2x_i^*)$};
 \color{blue}
 \draw[thick, fill=blue, fill opacity=0.5] (6,0) rectangle (10,2.5);
 \draw[decorate, decoration={brace, amplitude=10pt}] (10,-.2)--(6,-.2) node[midway, below, yshift=-10pt]{$2\frac{b-a}{n}$};
 \draw[decorate, decoration={brace, amplitude=10pt}] (5.8,0)--(5.8,2.5) node[midway, left, xshift=-10pt]{$f(x_i^*)$};
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
+In the integral on the left, the variable is red <m>\textcolor{red}{x}</m> and
+in the integral on the right, the variable is blue <m>\textcolor{blue}{x}</m>.
+Red <m>\textcolor{red}{x}</m> and blue <m>\textcolor{blue}{x}</m> are not the same. In fact <m>2\textcolor{red}{x_i^*}=\textcolor{blue}{x_i^*}</m>.
 (Not every substitution corresponds to such a simple picture.)
 </p></solution>
 </exercise></exercisegroup>
