@@ -7,6 +7,7 @@ permalink: /CLP2-changelog/
 ---
 
 # CLP-2 Integral Calculus textbook
+* 2021 May 12 - Added a figure to Example 3.2.4.
 * 2021 May 4:
     * Fixed a bug that affected about a dozen footnotes.
     * A few typo corrections.

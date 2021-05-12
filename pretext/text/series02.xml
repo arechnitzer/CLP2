@@ -251,6 +251,32 @@ To understand this divergence, consider the following 4 cases:
 </ul>
 In each case the sequence of partial sums does not converge and so the series does not converge.
 </p>
+
+<p>
+Here are some sketches of the graphs of <m>\frac{1}{1-r}</m> and <m>S_N</m>,
+<m>0\le N\le 5</m>, for <m>a=1</m> and <m>-1\le r\lt 1</m>.
+</p>
+
+<sidebyside width="100%">
+<image source="text/figs/geomT"/>
+</sidebyside>
+
+<p>
+In these sketches we see that 
+<ul>
+<li>
+when <m>0\lt r \lt 1</m>, and also when <m>-1\lt r\lt 0</m> with <m>N</m> odd, we have 
+<m>S_N=\frac{1-r^{N+1}}{1-r}\lt \frac{1}{1-r}</m>. On the other hand, when 
+<m>-1\lt r\lt 0</m> with <m>N</m> even, we have <m>S_N=\frac{1-r^{N+1}}{1-r}\gt \frac{1}{1-r}</m>.
+</li><li>
+When <m>0\lt |r|\lt 1</m>, <m>S_N=\frac{1-r^{N+1}}{1-r}</m> gets closer and closer to 
+<m>\frac{1}{1-r}</m> as <m>N</m> increases.
+</li><li>
+When <m>r=-1</m>, <m>S_N</m> just alternates between <m>0</m>, when <m>N</m> is odd, and <m>1</m>,
+when <m>N</m> is even.
+</li>
+</ul>
+</p>
 </example>
 <p>
 We should summarise the results in the previous example in a lemma.
