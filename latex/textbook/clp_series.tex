@@ -4204,7 +4204,7 @@ the approximation might go to zero. If that is the case then the
 of the function. Let's see how this might work.
 
 
-Fix a real number $a$ and suppose that all derivatives of the function $f(x)$ exist. Then, for any natural number $n$,
+Fix a real number $a$ and suppose that all derivatives of the function $f(x)$ exist. Then, we saw in (\eref{CLP1}{eq:taylorErrorN}) of the CLP-1 text that, for any natural number $n$,
 \begin{impeqn}\label{eq:TaylorPolyPlusError}
 \begin{align*}
 f(x) &=T_n(x) +E_n(x)
@@ -4212,7 +4212,8 @@ f(x) &=T_n(x) +E_n(x)
 \end{impeqn}
 \noindent where $T_n(x)$ is the Taylor polynomial of degree $n$
 for the function $f(x)$ expanded about $a$, and  $E_n(x)=f(x)-T_n(x)$
-is the error in our approximation. The Taylor polynomial\footnote{Did you
+is the error in the approximation $f(x) \approx T_n(x)$. 
+The Taylor polynomial\footnote{Did you
 take a quick look at your notes?} is given by the formula
 %
 \resetimpsubeqn %use this to reset the impsubeqn counter.
@@ -4221,7 +4222,7 @@ take a quick look at your notes?} is given by the formula
 T_n(x)&=f(a)+f'(a)\,(x-a)+\cdots+\tfrac{1}{n!}f^{(n)}(a)\, (x-a)^n
 \end{align*}
 \end{impsubeqn}
-\noindent while the error satisfies
+\noindent while the error satisfies\footnote{This is probably the most commonly used formula for the error. But there is another fairly commonly used formula.  It, and some less commonly used formulae, are given in the next (optional) subsection ``More about the Taylor Remainder''.}
 \begin{impsubeqn}\label{eq:TaylorPolyPlusError_b}
 \begin{align*}
 E_n(x)=\tfrac{1}{(n+1)!}f^{(n+1)}(c)\, (x-a)^{n+1}
@@ -4233,7 +4234,6 @@ Instead we use the bounds on $c$ to find bounds on $f^{(n+1)}(c)$ and
 so bound the error\footnote{The discussion here is only supposed to
 jog your memory. If it is feeling insufficiently jogged, then
 please look at your notes from last term.}.
-
 
 In order for our Taylor polynomial to be an exact representation of
 the function $f(x)$ we need the error $E_n(x)$ to be zero.
@@ -4254,19 +4254,26 @@ formalise this in a definition.
 The Taylor series for the function $f(x)$ expanded around $a$
 is the power series
 \begin{align*}
+\sum_{n=0}^\infty \tfrac{1}{n!}f^{(n)}(a)\, (x-a)^n
+\end{align*}
+When $a=0$ it is also called the Maclaurin series of $f(x)$. If 
+$\lim_{n\rightarrow\infty}E_n(x)=0$, then
+\begin{align*}
 f(x)=\sum_{n=0}^\infty \tfrac{1}{n!}f^{(n)}(a)\, (x-a)^n
 \end{align*}
-provided the series converges. When $a=0$ it is also called the Maclaurin series of $f(x)$.
 \end{defn}
 \noindent
-This definition hides the discussion of whether or not $E_n(x) \to 0$
-as $n\rightarrow\infty$ within the caveat ``provided the series converges''.
-Demonstrating that for a given function can be difficult, but for many
-of the standard functions you are used to dealing with, it turns out to be
-pretty easy. Let's compute a few Taylor series and see how we do it.
+Demonstrating that, for a given function, $\lim_{n\rightarrow\infty}E_n(x)=0$
+can be difficult.
+%This definition hides the discussion of whether or not $E_n(x) \to 0$
+%as $n\rightarrow\infty$ within the caveat ``provided the series converges''.
+%Demonstrating that for a given function can be difficult, 
+but for many of the standard functions you are used to dealing with, 
+it turns out to be pretty easy. Let's compute a few Taylor series and see 
+how we do it.
+
 
 \begin{eg}[Exponential Series]\label{eg:expSeries}
-
 Find the Maclaurin series for $f(x)=e^x$.
 
 \soln Just as was the case for computing Taylor polynomials, we need
@@ -4625,6 +4632,446 @@ initial value problems which is beyond the scope of the course.
 }
 \end{eg}
 
+\subsection*{Optional --- More about the Taylor Remainder}
+In this section, we fix a real number $a$ and a natural number $n$,
+suppose that all derivatives of the function $f(x)$ exist, and we study the
+error
+\begin{align*}
+E_n(a,x) &= f(x) - T_n(a,x) \\
+\text{where } 
+T_n(a,x)  &=f(a)+f'(a)\,(x-a)+\cdots+\tfrac{1}{n!}f^{(n)}(a)\, (x-a)^n
+\end{align*}
+made when we approximate $f(x)$ by the Taylor polynomial $T_n(a,x)$ of degree $n$ for the function $f(x)$, expanded about $a$. We have already seen,
+in \eqref{eq:TaylorPolyPlusError_b}, one formula, probably the most commonly used formula, for $E_n(a,x)$. In the next theorem, we repeat that formula
+and give a second, commonly used, formula. After an example, we give a second theorem
+that contains some less commonly used formulae.
+
+\begin{theorem}[Commonly used formulae for the Taylor remainder]
+           \label{thm:TaylorRemainderA}
+The Taylor remainder $E_n(a,x)$ is given by
+\begin{enumerate}[(a)]
+\item  (integral form) 
+  \begin{equation*} 
+    E_n(a,x)=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}
+  \end{equation*}
+\item (Lagrange form) 
+  \begin{equation*}
+    E_n(a,x)=\frac{1}{(n+1)!}\,f^{(n+1)}(c)\, (x-a)^{n+1}
+  \end{equation*}
+for some $c$ strictly between $a$ and $x$.
+\end{enumerate}
+\end{theorem}\noindent
+Notice that the integral form of the error is explicit - we could, in principle, compute it exactly. (Of course if we could do that, we probably wouldn't need to use a Taylor 
+expansion to approximate $f$.) This contrasts with the Lagrange form which is an `existential' statement - it tells us that `$c$' exists, but not how to compute it.
+\begin{proof}
+\begin{enumerate}[(a)]
+\item 
+We will give two proofs. The first is shorter and simpler, but uses some trickery. The second is longer, but is more straightforward. It uses a technique 
+called mathematical induction.
+
+\emph{Proof 1:}\ \ \ 
+We are going to use a little trickery to get a simple proof.
+We simply view $x$ as being fixed and study the dependence of $E_n(a,x)$
+on $a$. To emphasise that that is what we are doing, we define
+\begin{equation*}
+S(t) = f(x) - f(t) -f'(t)\,(x-t)-\tfrac{1}{2}f''(t)\,(x-t)^2
+                      -\cdots-\tfrac{1}{n!}f^{(n)}(t)\, (x-t)^n
+\tag{$*$}\end{equation*}
+and observe that $E_n(a,x) = S(a)$.
+
+By the fundamental theorem of calculus (Theorem~\ref{thm:INTfundthmofcalc}), 
+the function $S(t)$ is determined by its derivative, $S'(t)$, and its value at a single 
+point. Finding a value of $S(t)$ for one value of $t$ is easy. Substitute $t=x$ 
+into ($*$) to yield $S(x)=0$. To find $S'(t)$, apply $\diff{}{t}$ to both sides of ($*$).  
+Recalling that $x$ is just a constant parameter,
+\begin{align*}
+S'(t)&= 0 - \textcolor{blue}{f'(t)} 
+         - \big[\textcolor{red}{f''(t)(x-t)}-\textcolor{blue}{f'(t)}\big]
+         -\big[\tfrac{1}{2}f^{(3)}(t)(x-t)^2-\textcolor{red}{f''(t)(x-t)}\big]
+\\
+&\hskip1in  -\cdots-\big[\tfrac{1}{n!}  f^{(n+1)}(t)\,(x-t)^n
+               -\tfrac{1}{(n-1)!}f^{(n)}(t)\,(x-t)^{n-1} \big]
+\\
+&=-\tfrac{1}{n!}  f^{(n+1)}(t)\,(x-t)^n
+\end{align*}
+So, by the fundamental theorem of calculus, $S(x)=S(a)+\int_a^x S'(t)\,\dee{t}$ and
+\begin{align*}
+E_n(a,x) &= -\big[S(x)-S(a)\big] = - \int_a^x S'(t)\,\dee{t}
+\\
+&=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}
+\end{align*}
+
+\emph{Proof 2:}\ \ \ 
+The proof that we have just given was short, but also very tricky --- almost noone could create that proof without big hints. Here is another 
+much less tricky, but also commonly used, proof.
+\begin{itemize}
+\item
+First consider the case $n=0$. When $n=0$,
+\begin{equation*}
+E_0(a,x) = f(x) - T_0(a,x) = f(x) -f(a)
+\end{equation*}
+The fundamental theorem of calculus gives
+\begin{equation*}
+f(x)-f(a) = \int_a^x f'(t)\,\dee{t}
+\end{equation*}
+so that
+\begin{equation*}
+E_0(a,x) = \int_a^x f'(t)\,\dee{t}
+\end{equation*}
+That is exactly the $n=0$ case of part (a).
+
+\item
+Next fix any integer $n\ge 0$ and suppose that we already know  that 
+\begin{equation*}
+ E_n(a,x)=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}
+\end{equation*}
+Apply integration by parts (Theorem~\ref{thm:PRTSintbyparts}) to this integral with
+\begin{equation*}
+u(t)=f^{(n+1)}(t)\qquad
+\dee{v}= \frac{1}{n!}(x-t)^n\,\dee{t},\quad 
+v(t)=- \frac{1}{(n+1)!}(x-t)^{n+1}
+\end{equation*}
+Since $v(x)=0$, integration by parts gives
+\begin{align*}
+E_n(a,x)&=u(x)v(x)-u(a)v(a)-\int_a^x v(t) u'(t)\,\dee{t} \\
+   &=\frac{1}{(n+1)!}f^{(n+1)}(a)\, (x-a)^{n+1}
+    +\int_a^x \frac{1}{(n+1)!}f^{(n+2)}(t)\, (x-t)^{n+1}\,\dee{t}
+\tag{$**$}\end{align*}
+Now, we defined
+\begin{align*}
+E_n(a,x) = f(x) - f(a) -f'(a)\,(x-a)-\tfrac{1}{2}f''(a)\,(x-a)^2
+                      -\cdots-\tfrac{1}{n!}f^{(n)}(a)\, (x-a)^n
+\end{align*}
+so
+\begin{equation*}
+E_{n+1}(a,x) = E_n(a,x)-\tfrac{1}{(n+1)!}f^{(n+1)}(a)\, (x-a)^{n+1}
+\end{equation*}
+This formula expresses $E_{n+1}(a,x)$ in terms of $E_n(a,x)$. That's called a
+reduction formula.
+Combining the reduction formula with ($**$) gives
+\begin{equation*}
+E_{n+1}(a,x)=\int_a^x \frac{1}{(n+1)!}f^{(n+2)}(t)\, (x-t)^{n+1}\,\dee{t}
+\end{equation*}
+\item 
+Let's pause to summarise what we have learned in the last two bullets.
+Use the notation $P(n)$ to stand for the statement 
+``$E_n(a,x)=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}$''.
+To prove part (a) of the theorem, we need to prove that the statement $P(n)$
+is true for all integers $n\ge 0$.
+In the first bullet, we showed that the statement $P(0)$ is true.
+In the second bullet, we showed that if, for some integer $n\ge 0$,
+the statement $P(n)$ is true, then the statement $P(n+1)$ is also true. 
+Consequently,
+\begin{itemize}
+\item $P(0)$ is true by the first bullet and then
+\item $P(1)$ is true by the second bullet with $n=0$ and then
+\item $P(2)$ is true by the second bullet with $n=1$ and then
+\item $P(3)$ is true by the second bullet with $n=2$ 
+\item and so on, for ever and ever.
+\end{itemize}
+That tells us that $P(n)$ is true for all integers $n\ge 0$, which is 
+exactly part (a) of the theorem. This proof technique is called mathematical
+induction\footnote{While the use of the ideas of induction goes back over 2000 years,
+the first recorded rigorous use of induction appeared in the work of Levi ben Gershon (1288--1344, better known as Gersonides). The first explicit formulation of mathematical induction was given by the French mathematician Blaise Pascal in 1665.}.  
+\end{itemize}
+
+
+\item
+We have already seen one proof in the optional Section \eref{CLP1}{subsec:GMVT} of the CLP-1 text. We will see two more proofs here.
+
+\emph{Proof 1:}\ \ \  We apply the generalised mean value theorem, which 
+is Theorem~\eref{CLP1}{thm:GMVT} in the CLP-1 text. It says that
+\begin{equation*}
+\frac{F(b)-F(a)}{G(b)-G(a)} = \frac{F'(c)}{G'(c)}
+\tag{GMVT}\end{equation*}
+for some $c$ strictly\footnote{In Theorem~\eref{CLP1}{thm:GMVT} in the CLP-1 text, we assumed, for simplicity, that $a < b$. To get (GVMT) when $b < a$ simply exchange $a$ and $b$ in Theorem~\eref{CLP1}{thm:GMVT}.} between $a$ and $b$. We apply (GVMT) with
+$b=x$, $F(t)=S(t)$ and $G(t)=(x-t)^{n+1}$. This gives
+\begin{align*}
+E_n(a,x)
+&= -\big[S(x)-S(a)\big] =-\frac{S'(c)}{G'(c)}\big[G(x)-G(a)\big] \\
+&=-\frac{ -\frac{1}{n!}  f^{(n+1)}(c)\,(x-c)^n}{-(n+1)(x-c)^n}\ 
+         \big[0-(x-a)^{n+1}\big]\\
+&=\frac{1}{(n+1)!}f^{(n+1)}(c)(x-a)^{n+1}
+\end{align*}
+Don't forget, when computing $G'(c)$, that $G$ is a function of $t$ with
+$x$ just a fixed parameter.
+
+
+\emph{Proof 2:}\ \ \ We apply Theorem \ref{thm:AVwtmvt} (the mean value theorem for weighted integrals). If $a<x$,  we use the weight function 
+$w(t) = \frac{1}{n!} (x-t)^n$, which is strictly positive for all $a<t<x$.
+By part (a) this gives
+\begin{align*}
+E_n(a,x) &=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t} \\
+    &= f^{(n+1)}(c) \int_a^x \frac{1}{n!} (x-t)^n\,\dee{t} \qquad
+          \text{for some } a< c< x\\
+    &= f^{(n+1)}(c) \left[-\frac{1}{n!}\frac{(x-t)^{n+1}}{n+1}\right]_a^x \\
+    &= \frac{1}{(n+1)!}f^{(n+1)}(c)\, (x-a)^{n+1}
+\end{align*}
+ If $x < a$,  we instead use the weight function 
+$w(t) = \frac{1}{n!} (t-x)^n$, which is strictly positive for all $x<t<a$.
+This gives
+\begin{align*}
+E_n(a,x) &=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t} 
+      =-(-1)^n\int^a_x \frac{1}{n!}f^{(n+1)}(t)\, (t-x)^n\,\dee{t}  \\
+    &=(-1)^{n+1} f^{(n+1)}(c) \int_x^a \frac{1}{n!} (t-x)^n\,\dee{t} \qquad
+          \text{for some } x< c< a \\
+    &= (-1)^{n+1} f^{(n+1)}(c) 
+             \left[\frac{1}{n!}\frac{(t-x)^{n+1}}{n+1}\right]_x^a \\
+    &= \frac{1}{(n+1)!}f^{(n+1)}(c)\, (-1)^{n+1} (a-x)^{n+1}  \\
+    &= \frac{1}{(n+1)!}f^{(n+1)}(c)\, (x-a)^{n+1} 
+\end{align*}
+\end{enumerate}
+\end{proof}
+Theorem \ref{thm:TaylorRemainderA} has provided us with two formulae for
+the Taylor remainder $E_n(a,x)$. The formula of part (b),
+$E_n(a,x)=\frac{1}{(n+1)!}\,f^{(n+1)}(c)\, (x-a)^{n+1}$, is probably the 
+easiest to use, and the most commonly used, formula for $E_n(a,x)$.
+The formula of part (a), 
+$E_n(a,x)=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}$, while a 
+bit harder to apply, gives a bit better bound than that of part (b) 
+(in the proof of Theorem \ref{thm:TaylorRemainderA} we showed that part (b) 
+follows from part (a)). Here is an example in which we use both parts. 
+
+\begin{eg}\label{eg:integralRemainder}
+In Theorem \ref{thm:SRimportantTaylorSeries} we stated that
+\begin{equation*}
+\log(1+x) = \sum_{n=0}^\infty (-1)^n\frac{x^{n+1}}{n+1}
+     = x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots
+    \qquad\text{for all $-1<x\le 1$} 
+\tag{S1}\end{equation*}
+But, so far, we have not justified this statement. We do so now, using (both parts of) Theorem \ref{thm:TaylorRemainderA}. We start by setting 
+$f(x)=\log(1+x)$ and finding the Taylor polynomials $T_n(0,x)$, and the corresponding errors $E_n(0,x)$, for $f(x)$.
+\begin{align*}
+  f(x) &= \log(1+x) & f(0) &= \log 1 = 0 \\
+  f'(x) &= \frac{1}{1+x} & f'(0) &= 1 \\
+  f''(x) &= \frac{-1}{(1+x)^2} & f''(0) &= -1 \\
+  f'''(x) &= \frac{2}{(1+x)^3} & f'''(1) &= 2 \\
+  f^{(4)}(x) &= \frac{-2\times 3}{(1+x)^4} & f^{(4)}(0) &= -3! \\
+  f^{(5)}(x) &= \frac{2\times 3\times 4}{(1+x)^5} & f^{(5)}(0) &= 4! \\
+             &\ \ \ \vdots  &  &\ \ \ \vdots \\
+  f^{(n)}(x)&=\frac{(-1)^{n+1}(n-1)!}{(1+x)^n} & f^{(n)}(0) &= (-1)^{n+1}(n-1)!
+\end{align*}
+So the Taylor polynomial of degree $n$ for the function $f(x)=\log(1+x)$,
+expanded about $a=0$, is
+\begin{align*}
+T_n(0,x) &=f(0)+f'(0)\,x+\cdots+\tfrac{1}{n!}f^{(n)}(0)\, x^n \\
+ &= x - \frac{1}{2}x^2 + \frac{1}{3}x^3 - \frac{1}{4}x^4 + \frac{1}{5}x^5 
+           +\cdots + \frac{(-1)^{n+1}}{n}x^n
+\end{align*}
+Theorem \ref{thm:TaylorRemainderA} gives us two formulae for the 
+error $E_n(0,x) = f(x) - T_n(0,x)$ made when we approximate $f(x)$ 
+by $T_n(0,x)$. Part (a) of the theorem gives
+\begin{equation*}
+E_n(0,x) = \int_0^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}
+         = (-1)^n \int_0^x \frac{(x-t)^n}{(1+t)^{n+1}}\,\dee{t}
+\tag{Ea}\end{equation*}
+and part (b) gives
+\begin{equation*}
+E_n(0,x)=\frac{1}{(n+1)!}\,f^{(n+1)}(c)\, x^{n+1}  
+        = (-1)^n\,\frac{1}{n+1}\,\frac{x^{n+1}}{(1+c)^{n+1}}
+\tag{Eb}\end{equation*}
+for some (unknown) $c$ between $0$ and $x$. The statement (S1), that we wish to prove, is equivalent to the statement
+\begin{equation*}
+\lim_{n\rightarrow\infty} E_n(0,x)=0 \qquad\text{for all $-1<x\le 1$} 
+\tag{S2}\end{equation*}
+and we will now show that (S2) is true.
+\begin{description}
+\item[The case $x=0$:] 
+This case is trivial, since, when $x=0$, $E_n(0,x)=0$ for all $n$. 
+\item[The case $0< x\le 1$:] 
+This case is relatively easy to deal with using (Eb). When $0< x\le 1$,
+the $c$ of (Eb) must be positive, so that
+\begin{align*}
+\left|E_n(0,x)\right| = \frac{1}{n+1}\frac{x^{n+1}}{(1+c)^{n+1}}
+\le \frac{1}{n+1}\frac{1^{n+1}}{(1+0)^{n+1}} =\frac{1}{n+1}
+\end{align*}
+converges to zero as $n\rightarrow\infty$.
+
+
+\item[The case $-1<x<0$:] When $-1<x<0$ is close to $-1$, (Eb) is not 
+sufficient to show that (S2) is true. To see this, let's consider the 
+example $x=-0.8$. All we know about the $c$ of (Eb) is that it has to be
+between $0$ and $-0.8$. For example, (Eb) certainly allows $c$ to be $-0.6$ 
+and then
+\begin{align*}
+\left|(-1)^n\frac{1}{n+1}\frac{x^{n+1}}{(1+c)^{n+1}}
+       \right|_{\genfrac{}{}{0pt}{}{x=-0.8}{c=-0.6}}
+=\frac{1}{n+1}\frac{0.8^{n+1}}{(1-0.6)^{n+1}}
+=\frac{1}{n+1}2^{n+1}
+\end{align*}   
+goes to $+\infty$ as $n\rightarrow\infty$. 
+
+Note that, while this does tell us
+that (Eb) is not sufficient to prove (S2), when $x$ is close to $-1$, it does not also tell us that $\lim\limits_{n\rightarrow\infty}|E_n(0,-0.8)|=+\infty$ (which would imply that (S2) is false)  --- $c$ could equally well be $-0.2$ 
+and then 
+\begin{align*}
+\left|(-1)^n\frac{1}{n+1}\frac{x^{n+1}}{(1+c)^{n+1}}
+       \right|_{\genfrac{}{}{0pt}{}{x=-0.8}{c=-0.2}}
+=\frac{1}{n+1}\frac{0.8^{n+1}}{(1-0.2)^{n+1}}
+=\frac{1}{n+1}
+\end{align*}   
+goes to $0$ as $n\rightarrow\infty$.
+
+We'll now use (Ea) (which has the advantage of not containing any unknown free parameter $c$)
+to verify (S2) when $-1<x<0$. Rewrite the right hand side of (Ea)
+\begin{align*}
+ (-1)^n \int_0^x \frac{(x-t)^n}{(1+t)^{n+1}}\,\dee{t}
+& =-\int_x^0 \frac{(t-x)^n}{(1+t)^{n+1}}\,\dee{t} \\
+&=-\int_0^{-x}\frac{s^n}{(1+x+s)^{n+1}}\,\dee{s}
+\quad s=t-x,\ \dee{s}=\dee{t} 
+\end{align*}
+The exact evaluation of this integral is very messy and not very illuminating. Instead,
+we bound it.
+Note that, for $1+x>0$,
+\begin{align*}
+\diff{}{s}\left(\frac{s}{1+x+s}\right) 
+&= \diff{}{s}\left(\frac{1+x+s-(1+x)}{1+x+s} \right)
+= \diff{}{s}\left(1- \frac{1+x}{1+x+s}\right) \\
+&=\frac{1+x}{(1+x+s)^2}
+>0
+\end{align*}
+so that $\frac{s}{1+x+s}$ increases as $s$ increases. Consequently, the biggest value that $\frac{s}{1+x+s}$ takes on the domain of integration 
+$0\le s\le -x=|x|$ is
+\begin{equation*}
+\frac{s}{1+x+s}\bigg|_{s=-x} = -x = |x|
+\end{equation*}
+and the integrand
+\begin{equation*}
+0\le \frac{s^n}{[1+x+s]^{n+1}} 
+  =\left(\frac{s}{1+x+s}\right)^n\frac{1}{1+x+s}
+  \le \frac{|x|^n}{1+x+s}
+\end{equation*}
+Consequently,
+\begin{align*}
+\left|E_n(0,x)\right| 
+&= \left|(-1)^n \int_0^x \frac{(x-t)^n}{(1+t)^{n+1}}\,\dee{t}\right|
+=\int_0^{-x}\frac{s^n}{[1+x+s]^{n+1}}\,\dee{s} \\
+&\le |x|^n \int_0^{-x}\frac{1}{1+x+s}\,\dee{s}
+=|x|^n\Big[\log(1+x+s)\Big]_{s=0}^{s=-x} \\
+&= |x|^n [-\log(1+x)]
+\end{align*}
+converges to zero as $n\rightarrow\infty$ fore each fixed $-1<x<0$.
+\end{description}
+So we have verified (S2), as desired.
+
+\end{eg}
+
+As we said above, Theorem \ref{thm:TaylorRemainderA} gave the two most
+commonly used formulae for the Taylor remainder. Here are some less commonly used, but occasionally useful, formulae.
+
+\begin{theorem}[More formulae for the Taylor remainder]
+           \label{thm:TaylorRemainderB}
+\begin{enumerate}[(a)]
+\item
+If $G(t)$ is differentiable\footnote{Note that the function $G$ need not be related to $f$. It just has to be differentiable with a nonzero derivative.} and $G'(c)$ is nonzero for all $c$ strictly 
+between $a$ and $x$, then the Taylor remainder
+\begin{equation*}
+E_n(a,x)=\frac{1}{n!} f^{(n+1)}(c)\,\frac{G(x)-G(a)}{G'(c)}\, (x-c)^n
+\end{equation*} 
+for some $c$ strictly between $a$ and $x$.
+
+\item  (Cauchy form) 
+\begin{equation*}
+E_n(a,x)=\frac{1}{n!}f^{(n+1)}(c)\, (x-c)^n(x-a)
+\end{equation*} 
+for some $c$ strictly between $a$ and $x$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+As in the proof of Theorem~\ref{thm:TaylorRemainderA}, we define
+\begin{equation*}
+S(t) = f(x) - f(t) -f'(t)\,(x-t)-\tfrac{1}{2}f''(t)\,(x-t)^2
+                      -\cdots-\tfrac{1}{n!}f^{(n)}(t)\, (x-t)^n
+\end{equation*}
+and observe that $E_n(a,x) = S(a)$ and $S(x)=0$ and
+$S'(t)= -\tfrac{1}{n!}  f^{(n+1)}(t)\,(x-t)^n$.
+\begin{enumerate}[(a)]
+\item
+Recall that the generalised mean-value theorem, which 
+is Theorem~\eref{CLP1}{thm:GMVT} in the CLP-1 text, says that
+\begin{equation*}
+\frac{F(b)-F(a)}{G(b)-G(a)} = \frac{F'(c)}{G'(c)}
+\tag{GMVT}\end{equation*}
+for some $c$ strictly between $a$ and $b$. We apply this theorem with
+$b=x$ and $F(t)=S(t)$. This gives
+\begin{align*}
+E_n(a,x)
+&= -\big[S(x)-S(a)\big] =-\frac{S'(c)}{G'(c)}\big[G(x)-G(a)\big] \\
+&=-\frac{ -\frac{1}{n!}  f^{(n+1)}(c)\,(x-c)^n}{G'(c)}\ \big[G(x)-G(a)\big]\\
+&=\frac{1}{n!} f^{(n+1)}(c)\,\frac{G(x)-G(a)}{G'(c)}\, (x-c)^n
+\end{align*}
+
+\item
+Apply part (a) with $G(x)=x$. This gives
+\begin{align*}
+E_n(a,x)
+&=\frac{1}{n!} f^{(n+1)}(c)\,\frac{x-a}{1}\, (x-c)^n \\
+&=\frac{1}{n!} f^{(n+1)}(c)\, (x-c)^n(x-a)
+\end{align*}
+for some $c$ strictly between $a$ and $b$. 
+\end{enumerate}
+\end{proof}
+
+\begin{eg}[Example \ref{eg:integralRemainder}, continued] \label{eg:cauchyRemainder}
+In Example~\ref{eg:integralRemainder} we verified that
+\begin{equation*}
+\log(1+x) = \sum_{n=0}^\infty (-1)^n\frac{x^{n+1}}{n+1}
+     = x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots 
+\tag{S1}\end{equation*}
+for all $-1<x\le 1$. There we used the Lagrange form,
+\begin{equation*}
+E_n(a,x)=\frac{1}{(n+1)!}\,f^{(n+1)}(c)\, (x-a)^{n+1}
+\end{equation*} 
+for the Taylor remainder to verify (S1) when $0\le x\le 1$, but we also saw that it is not possible to use the Lagrange form to verify (S1) when $x$ is close to 
+$-1$. We instead used the integral form 
+\begin{equation*}
+E_n(a,x) = \int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}
+\end{equation*}
+We will now use the Cauchy form (part (b) of Theorem~\ref{thm:TaylorRemainderB})
+\begin{equation*}
+E_n(a,x)=\frac{1}{n!}f^{(n+1)}(c)\, (x-c)^n(x-a)
+\end{equation*}
+to verify
+\begin{equation*}
+\lim_{n\rightarrow\infty} E_n(0,x)=0
+\tag{S2}\end{equation*}
+when $-1<x<0$.
+We have already noted that (S2) is equivalent to (S1).
+
+Write $f(x)=\log(1+x)$. We saw in Example~\ref{eg:integralRemainder} that
+\begin{equation*}
+f^{(n+1)}(x) = \frac{(-1)^n n!}{(1+x)^{n+1}}
+\end{equation*} 
+So, in this example, the Cauchy form is
+\begin{equation*}
+E_n(0,x)=(-1)^n\frac{(x-c)^nx}{(1+c)^{n+1}}
+\end{equation*}
+for some $x<c<0$. When $-1<x<c<0$, 
+\begin{itemize}
+\item
+$c$ and $x$ are negative and $1+x$, $1+c$ and $c-x$ are (strictly) positive so that
+\begin{align*}
+c(1+x)<0
+&\implies c < -cx
+\implies c-x < -x-xc=|x|(1+c)
+\\
+&\implies \left|\frac{x-c}{1+c}\right|
+=\frac{c-x}{1+c}<|x|
+\end{align*}
+ so that $\left|\frac{x-c}{1+c}\right|^n < |x|^n$ 
+  and
+\item
+  the distance from $-1$ to $c$, namely $c-(-1)=1+c$ is greater than the distance from
+  $-1$ to $x$, namely $x-(-1)=1+x$, so that $\frac{1}{1+c}<\frac{1}{1+x}$.
+\end{itemize}
+So, for $-1<x<c<0$,
+\begin{align*}
+|E_n(0,x)|=\left|\frac{x-c}{1+c}\right|^n\frac{|x|}{1+c}
+          <\frac{|x|^{n+1}}{1+c}
+          <\frac{|x|^{n+1}}{1+x}
+\end{align*}
+goes to zero as $n\rightarrow\infty$.
+\end{eg}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Computing with Taylor Series}
@@ -5207,7 +5654,7 @@ we do not know exactly what the error $E_n(x)$ is. But that is usually not a pro
 
 In the present context\footnote{It is worth pointing out that
 our Taylor series must be expanded about the point to
-which we are limiting --- i.e. a to work out a limit as
+which we are limiting --- i.e. a. To work out a limit as
 $x\to a$ we need Taylor series expanded about $a$ and not
 some other point.} we are interested in taking the limit as
 $x \to a$.  So we are only interested in $x$-values that are
