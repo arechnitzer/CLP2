@@ -7,6 +7,9 @@ permalink: /CLP2-changelog/
 ---
 
 # CLP-2 Integral Calculus textbook
+* 2021 August 21 - Corrected a table in section 1.11.4.
+* 2021 July 21 - Added an optional subsection to the end of section 3.6.1. 
+* 2021 July 21 - Extended the subsection of Section 2.2 entitled Return to the Mean Value Theorem. 
 * 2021 May 12 - Added a figure to Example 3.2.4.
 * 2021 May 4:
     * Fixed a bug that affected about a dozen footnotes.
