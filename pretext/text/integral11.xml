@@ -973,11 +973,11 @@ To be a little more precise, we would like to understand how the errors of the t
 <cell>n </cell><cell> error </cell><cell> #  evals </cell><cell> error </cell><cell> #  evals
                 </cell><cell> error </cell><cell> # evals </cell>
 </row><row>
-<cell>10 </cell><cell> <m>4.1\times 10^{-1}</m> </cell><cell> 10 </cell><cell> <m>8.2\times 10^{-1}</m> </cell><cell> 11 </cell><cell><m>5.5\times 10^{-3}</m> </cell><cell> 11 </cell>
+<cell>10 </cell><cell> <m>8.2\times 10^{-3}</m> </cell><cell> 10 </cell><cell> <m>1.6\times 10^{-2}</m> </cell><cell> 11 </cell><cell><m>1.1\times 10^{-4}</m> </cell><cell> 11 </cell>
 </row><row>
-<cell>100 </cell><cell> <m>4.1\times 10^{-3}</m> </cell><cell> 100 </cell><cell> <m>8.2\times 10^{-3}</m> </cell><cell> 101 </cell><cell><m>5.4\times 10^{-7}</m> </cell><cell> 101 </cell>
+<cell>100 </cell><cell> <m>8.2\times 10^{-5}</m> </cell><cell> 100 </cell><cell> <m>1.6\times 10^{-4}</m> </cell><cell> 101 </cell><cell><m>1.1\times 10^{-8}</m> </cell><cell> 101 </cell>
 </row><row>
-<cell>1000 </cell><cell> <m>4.1\times 10^{-5}</m> </cell><cell> 1000 </cell><cell> <m>8.2\times 10^{-5}</m> </cell><cell> 1001 </cell><cell><m>5.5\times 10^{-11}</m> </cell><cell> 1001 </cell>
+<cell>1000 </cell><cell> <m>8.2\times 10^{-7}</m> </cell><cell> 1000 </cell><cell> <m>1.6\times 10^{-6}</m> </cell><cell> 1001 </cell><cell><m>1.1\times 10^{-12}</m> </cell><cell> 1001 </cell>
 </row>
 </tabular>
 </sidebyside>
@@ -987,7 +987,7 @@ To be a little more precise, we would like to understand how the errors of the t
 Observe that
 <ul>
 <li>
-   Using 101 evaluations of <m>f</m> worth of Simpson's rule gives an error 80 times smaller than 1000 evaluations of <m>f</m> worth of the midpoint rule.
+   Using 101 evaluations of <m>f</m> worth of Simpson's rule gives an error 75 times smaller than 1000 evaluations of <m>f</m> worth of the midpoint rule.
 </li>
 <li>
    The trapezoidal rule error with <m>n</m> steps is about twice the midpoint rule  error with <m>n</m> steps.

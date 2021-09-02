@@ -18,15 +18,17 @@ application of integration is  computing averages and other statistical quantiti
 Let us start with the definition
 	<fn>
 		We are being a little loose here with the distinction between mean and average. To be  much more pedantic <mdash/> the average is the arithmetic mean. Other interesting <q>means</q> are  the geometric and harmonic means:
-		<m>
-		\text{arithmetic mean} = \frac{1}{n}\left( y_1 + y_2 + \cdots + y_n \right)
-		</m>.
-		<m>
-		\text{geometric mean} = \left( y_1 \cdot y_2 \cdots y_n \right)^{\frac{1}{n}}
-		</m>.
-		<m>
-		\text{harmonic mean} = \left[\frac{1}{n}\left(  \frac{1}{y_1} + \frac{1}{y_2} + \cdots \frac{1}{y_n}  \right)\right]^{-1}
-		</m>.
+		<md>
+		<mrow>
+		\text{arithmetic mean} &amp;= \frac{1}{n}\left( y_1 + y_2 + \cdots + y_n \right)
+		</mrow>
+		<mrow>
+		\text{geometric mean} &amp;= \left( y_1 \cdot y_2 \cdots y_n \right)^{\frac{1}{n}}
+		</mrow>
+		<mrow>
+		\text{harmonic mean} &amp;= \left[\frac{1}{n}\left(  \frac{1}{y_1} + \frac{1}{y_2} + \cdots \frac{1}{y_n}  \right)\right]^{-1}
+		</mrow>
+		</md>
 		All of these quantities, along with the median and mode, are ways to measure the typical  value of a set of numbers. They all have advantages and disadvantages <mdash/> another  interesting topic beyond the scope of this course, but plenty of fodder for the  interested reader and their favourite search engine. But let us put pedantry (and  beyond-the-scope-of-the-course-reading) aside and just use the terms average and mean  interchangeably for our purposes here.
 	</fn>
 of the average of a finite set of numbers.
@@ -264,10 +266,10 @@ This is clearly not a good indication of the typical voltage.
 What we actually want here is a measure of how far the voltage is from zero. Now we could  do this by taking the average of <m>|V(t)|</m>, but this is a little harder to work with.  Instead we take the average of the square
 	<fn>
 		For a finite  set of numbers one can compute the <q>quadratic mean</q> which is another way to generalise  the notion of the average:
-		<m>
+		<me>
 		\text{quadratic mean}
 		= \sqrt{\frac{1}{n}\left(y_1^2 + y_2^2 + \cdots + y_n^2 \right) }
-		</m>
+		</me>
 	</fn>
 of the voltage (so it is always positive) and then take the square root at the end. That is
 <md>
@@ -433,12 +435,12 @@ We finish this example off with two side remarks.
 <title>Optional <mdash/> Return to the mean value theorem</title>
 
 <p>
-One last application of Definition<nbsp/><xref ref="def_AVaverage"/>. The following theorem can be  thought of as an analogue of the mean-value theorem (which was covered in your  differential calculus class) but for integrals. The theorem says that a  continuous function has to take its average value exactly somewhere. For example, if you  went for a drive along the <m>x</m>-axis and you were at <m>x(a)</m> at time <m>a</m> and at <m>x(b)</m> at  time <m>b</m>, then your velocity <m>x'(t)</m> had to be exactly your average velocity <m>\frac{x(b)-x(a)}{b-a}</m> at some time <m>t</m> between <m>a</m> and <m>b</m>. In particular, if your average velocity was greater than the speed limit, you were definitely speeding at some point during the trip. This is, of course, no great surprise.
+Here is another application of the Definition<nbsp/><xref ref="def_AVaverage"/> of the average value of a function on an interval. The following theorem can be  thought of as an analogue of the mean value theorem (which was covered in your  differential calculus class) but for integrals. The theorem says that a  continuous function <m>f(x)</m> must be exactly equal to its average value for some <m>x</m>. For example, if you  went for a drive along the <m>x</m>-axis and you were at <m>x(a)</m> at time <m>a</m> and at <m>x(b)</m> at  time <m>b</m>, then your velocity <m>x'(t)</m> had to be exactly your average velocity <m>\frac{x(b)-x(a)}{b-a}</m> at some time <m>t</m> between <m>a</m> and <m>b</m>. In particular, if your average velocity was greater than the speed limit, you were definitely speeding at some point during the trip. This is, of course, no great surprise<fn>There are many unsurprising things that are true, but there are also many unsurprising things that surprisingly turn out to be false. Mathematicians like to prove things - surprising or not.</fn>.
 </p>
 
 <theorem xml:id="thm_AVmvt"><title>Mean Value Theorem for Integrals</title>
 <statement><p>
-Let <m>f(x)</m> be a continuous function on the interval <m>a\le x\le b</m>. Then there is some <m>c</m> obeying <m>a\le c \le b</m> such that
+Let <m>f(x)</m> be a continuous function on the interval <m>a\le x\le b</m>. Then there is some <m>c</m> obeying <m>a\lt c \lt b</m> such that
 <md>
 <mrow>
 \frac{1}{b-a}\int_a^b f(x)\dee{x}=f(c) \qquad\text{or}\qquad \int_a^b f(x)\dee{x} = f(c)\,(b-a)
@@ -446,19 +448,187 @@ Let <m>f(x)</m> be a continuous function on the interval <m>a\le x\le b</m>. The
 </md>
 </p></statement>
 </theorem>
-
+<proof>
 <p>
-Here is why the theorem is true. Let <m>M</m> and <m>m</m> be the largest and smallest values, respectively, that <m>f(x)</m> takes for <m>x</m> between <m>a</m> and <m>b</m>. Then <m>m\le f(x)\le M</m> for all <m>a\le x\le b</m>, so that
-	<fn>
-		The symbol  <m>\iff</m> is read <q>if and only if</q>. This is used in mathematics to  express the logical equivalence of two statements. To be more precise,  the statement <m>P \iff Q</m> tells us that <m>P</m> is true whenever <m>Q</m> is true  and <m>Q</m> is true whenever <m>P</m> is true.
-	</fn>
+We will apply the mean value theorem (Theorem 2.13.4 in the CLP-1 text) to the function
+<me>
+F(x) = \int_a^x f(t)\,\dee{t}
+</me>
+By the part 1 of the fundamental theorem of calculus 
+(Theorem<nbsp/><xref ref="thm_INTfundthmofcalc"/>),
+<m>F'(x)=f(x)</m>, so the mean value theorem says that there is a <m>a\lt c\lt b</m> with
 <md>
 <mrow>
-m(b-a)\le\int_a^b f(x)\dee{x}\le M(b-a)\qquad\iff\qquad m\le \frac{1}{b-a}\int_a^b f(x)\dee{x} \le M
+f(c) &amp;= F'(c) = \frac{F(b)-F(a)}{b-a}
+=\frac{1}{b-a}\left\{\int_a^b f(t)\,\dee{t}-\int_a^a f(t)\,\dee{t}\right\}
+</mrow><mrow>
+&amp;=\frac{1}{b-a}\int_a^b f(x)\,\dee{x}
 </mrow>
 </md>
-As <m>x</m> runs from <m>a</m> to <m>b</m>  the continuous function <m>f(x)</m> takes all values  between <m>m</m> and <m>M</m> including, in particular, <m>\frac{1}{b-a}\int_a^b f(x)</m>.
 </p>
+</proof>
+
+<p>
+In the next section, we will encounter an application in which we want to take the average value of a function <m>f(x)</m>, but in doing so we want some values of <m>x</m> to count more than other values 
+of <m>x</m>. That is, we want to weight some <m>x</m>'s more than other <m>x</m>'s. To do so, we choose a <q>weight function</q> <m>w(x)\ge 0</m> with <m>w(x)</m> larger for more important <m>x</m>'s.  Then we define the weighted average of <m>f</m> as follows.
+</p>
+<definition xml:id="def_Wtaverage">
+<p>
+Let <m>f(x)</m> and <m>w(x)</m> be integrable functions defined on the interval
+<m>a\le x\le b</m> with <m>w(x)\ge 0</m> for all <m>a\le x\le b</m> and with <m>\int_a^b w(x)\,\dee{x}>0</m>.  The average value of <m>f</m> on that interval, weighted by <m>w</m>, is
+<me>
+\frac{\int_a^b f(x)\,w(x)\,\dee{x}}{\int_a^b w(x)\,\dee{x}}
+</me>
+We typically refer to this simply as the weighted average of <m>f</m>.
+</p>
+</definition>
+<p>
+Here are a few remarks concerning this definition.
+<ul>
+<li>
+The definition has been rigged so that, if <m>f(x)=1</m> for all <m>x</m>, then the 
+weighted average of <m>f</m> is <m>1</m>, no matter what weight function <m>w(x)</m> is used.
+</li><li>
+If the weight function <m>w(x)=C</m> for some constant <m>C>0</m> then the weighted average
+<me>
+\frac{\int_a^b f(x)\,w(x)\,\dee{x}}{\int_a^b w(x)\,\dee{x}}
+=\frac{\int_a^b f(x)\,C\,\dee{x}}{\int_a^b C\,\dee{x}}
+=\frac{\int_a^b f(x)\,\dee{x}}{b-a}
+</me>
+is just the usual average.
+</li><li>
+For any function <m>w(x)\ge 0</m> and any <m>a\lt b</m>, we have <m>\int_a^b w(x)\, \dee{x}\ge 0</m>.
+But for the definition of weighted average to make sense, we need to be able to divide
+by <m>\int_a^b w(x)\, \dee{x}</m>. So we need <m>\int_a^b w(x)\, \dee{x}\ne 0</m>. 
+</li>
+</ul>
+</p>
+
+<p>
+The next theorem says that a continuous function <m>f(x)</m> must be equal to its weighted average 
+at some point <m>x</m>.
+</p>
+<theorem xml:id="thm_AVwtmvt"><title>Mean Value Theorem for Weighted Integrals</title>
+<statement><p>
+Let <m>f(x)</m> and <m>w(x)</m> be continuous functions on the interval <m>a\le x\le b</m>.
+Assume that <m>w(x)\gt 0</m> for all <m>a\lt x\lt b</m>. Then there is some <m>c</m> 
+obeying <m>a\lt c \lt b</m> such that
+<md>
+<mrow>
+\frac{\int_a^b f(x)\,w(x)\,\dee{x}}{\int_a^b w(x)\,\dee{x}}=f(c) \qquad\text{or}\qquad
+\int_a^b f(x)\,w(x)\,\dee{x} = f(c)\int_a^b w(x)\,\dee{x}
+</mrow>
+</md>
+</p></statement>
+</theorem>
+<proof>
+<p>
+We will apply the generalised mean value theorem (Theorem 3.4.38 in the CLP-1 text) to
+<me>
+F(x) = \int_a^x f(t)\,w(t)\dee{t}\qquad
+G(x) = \int_a^x w(t)\dee{t}
+</me>
+By the part 1 of the fundamental theorem of calculus (Theorem<nbsp/><xref ref="thm_INTfundthmofcalc"/>),
+<m>F'(x)=f(x)w(x)</m> and <m>G'(x)=w(x)</m>, so the generalised mean value theorem says that there is a <m>a\lt c\lt b</m> with
+<md>
+<mrow>
+f(c) &amp;= \frac{F'(c)}{G'(c)} = \frac{F(b)-F(a)}{G(b)-G(a)}
+=\frac{\int_a^b f(t)\,w(t)\dee{t}-\int_a^a f(t)w(t)\,\dee{t}}
+  {\int_a^b w(t)\dee{t}-\int_a^a w(t)\dee{t}}
+</mrow><mrow>
+&amp;=\frac{\int_a^b f(t)\,w(t)\,\dee{t}}{\int_a^b w(t)\,\dee{t}}
+</mrow>
+</md>
+</p>
+</proof>
+
+<example xml:id="eg_weightedAverage">
+<p>
+In this example, we will take a number of weighted averages of the simple function 
+<m>f(x)=x</m> over the simple interval <m>a=1\le x\le 2=b</m>. As <m>x</m> increases from <m>1</m> to 
+<m>2</m>, the function <m>f(x)</m> increases linearly from <m>1</m> to <m>2</m>. 
+So it is no shock that the ordinary average of <m>f</m> is exactly its middle value:
+<me>
+\frac{1}{b-a}\int_a^b f(t)\,\dee{t}
+=\frac{1}{2-1}\int_1^2 t\,\dee{t}
+=\frac{3}{2}
+</me>  
+Pick any natural number <m>N\ge 1</m> and consider the weight function <m>w_N(x)=x^N</m>. Note that
+<m>w_N(x)</m> increases as <m>x</m> increases. So <m>w_N(x)</m> weights bigger <m>x</m>'s more than it 
+weights smaller <m>x</m>'s.  In particular <m>w_N</m> weights the point <m>x=2</m> by a factor of 
+<m>2^N</m> (which is greater than <m>1</m> and grows to infinity as <m>N</m> grows to infinity) more than it weights the point <m>x=1</m>. The weighted average of <m>f</m> is
+<md>
+<mrow>
+\frac{\int_a^b f(t)\,w_N(t)\,\dee{t}}{\int_a^b w_N(t)\,\dee{t}}
+&amp;=\frac{\int_1^2 t^{N+1}\,\dee{t}}{\int_1^2 t^N\,\dee{t}}
+=\frac{\frac{2^{N+2}-1}{N+2}}{\frac{2^{N+1}-1}{N+1}}
+=\frac{N+1}{N+2}\ \frac{2^{N+2}-1}{2^{N+1}-1} 
+</mrow><mrow>
+&amp;=\begin{cases}
+   \frac{2\times 7}{3\times 3}  = 1.555  &amp;\text{if }N=1 \\
+   \frac{3\times 15}{4\times 7} = 1.607  &amp;\text{if }N=2 \\
+   \frac{4\times 31}{5\times 15}= 1.653  &amp;\text{if }N=3 \\
+   \frac{5\times 63}{6\times 31}= 1.694  &amp;\text{if }N=4 
+   \\ 1.889  &amp;\text{if }N=16    
+   \\ 1.992  &amp;\text{if }N=256  
+   \end{cases}
+</mrow>
+</md>
+As we would expect, the <m>w_N</m>-weighted average is between <m>1.5</m> (which is the ordinary, unweighted, average) and <m>2</m> (which is the biggest value of <m>f</m> in the interval) and 
+grows as <m>N</m> grows. The limit as <m>N\rightarrow\infty</m> of the <m>w_N</m>-weighted average is
+<md>
+<mrow>
+\lim_{N\rightarrow\infty}\frac{N+1}{N+2}\ \frac{2^{N+2}-1}{2^{N+1}-1} 
+&amp;=\lim_{N\rightarrow\infty}\frac{N+2-1}{N+2}\ \frac{2^{N+2}-2+1}{2^{N+1}-1} 
+</mrow><mrow>
+&amp;=\lim_{N\rightarrow\infty}\left[1-\frac{1}{N+2}\right]\ 
+                           \left[2+\frac{1}{2^{N+1}-1}\right] 
+</mrow><mrow>
+&amp;=2
+</mrow>
+</md>
+</p>
+</example>
+
+<example xml:id="eg_needPositive">
+<p>
+Here is an example which shows what can go wrong with Theorem<nbsp/><xref ref="thm_AVwtmvt"/>
+if we allow the weight function <m>w(x)</m> to change sign. Let <m>a=-0.99</m> and
+<m>b=1</m>. Let
+<md>
+<mrow>
+w(x)&amp;=\begin{cases}
+                   1&amp;\text{if }x\ge 0 \\
+                  -1&amp;\text{if }x\lt 0 
+          \end{cases} 
+</mrow><mrow>
+f(x)&amp;=\begin{cases}
+                 x&amp;\text{if }x\ge 0 \\
+                 0&amp;\text{if }x\lt 0 
+          \end{cases} 
+</mrow>
+</md>
+Then
+<md>
+<mrow>
+\int_a^b f(x)\,w(x)\,\dee{x} &amp;= \int_0^1 x\,\dee{x} =\frac{1}{2} 
+</mrow><mrow>
+\int_a^b w(x)\,\dee{x} &amp;= \int_0^1 \dee{x} -\int_{-0.99}^0\dee{x}
+                        = 1 - 0.99
+                        = 0.01
+</mrow>
+</md>
+As <m>c</m> runs from <m>a</m> to <m>b</m>, <m>f(c)\int_a^b w(x)\,\dee{x}=0.01 f(c)</m> runs from 
+<m>0</m> to <m>0.01</m> and, in particular, never takes a value anywhere near 
+<m>\int_a^b f(x)\,w(x)\,\dee{x}=\frac{1}{2}</m>. There is no <m>c</m> value which works.
+</p>
+</example>
+
+
+
+
+
+
 </subsection>
 
 

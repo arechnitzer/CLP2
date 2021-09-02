@@ -10,8 +10,7 @@
 <title>Extending Taylor Polynomials</title>
 
 <p>
-Recall
-	<fn>Please review your notes from last term if this material is feeling a little unfamiliar.</fn>
+Recall<fn>Please review your notes from last term if this material is feeling a little unfamiliar.</fn>
 that Taylor polynomials provide a  hierarchy of approximations to a given function <m>f(x)</m> near a given point <m>a</m>.  Typically, the quality of these approximations improves as we move  up the hierarchy.
 <ul>
 <li> The crudest approximation is the constant approximation <m>f(x)\approx f(a)</m>. </li>
@@ -25,8 +24,10 @@ that Taylor polynomials provide a  hierarchy of approximations to a given functi
 	In general, the Taylor polynomial of degree <m>n</m>, for the  function <m>f(x)</m>, about the expansion point <m>a</m>, is the  polynomial, <m>T_n(x)</m>,  determined by the requirements that <m>f^{(k)}(a) = T_n^{(k)}(a)</m> for all <m>0\le k \le n</m>. That is, <m>f</m> and <m>T_n</m> have the same derivatives at <m>a</m>, up to order <m>n</m>. Explicitly,
 	<md>
 	<mrow>
-	f(x) \approx T_n(x) &amp;= f(a) + f'(a)\,(x-a) +\frac{1}{2} f''(a)\,(x-a)^2
-	+\cdots+\frac{1}{n!} f^{(n)}(a)\,(x-a)^n
+	f(x) &amp;\approx T_n(x) 
+        </mrow><mrow>
+        &amp;= f(a) + f'(a)\,(x-a) +\frac{1}{2} f''(a)\,(x-a)^2
+	                      +\cdots+\frac{1}{n!} f^{(n)}(a)\,(x-a)^n
 	</mrow><mrow>
 	&amp;=\sum_{k=0}^n\frac{1}{k!} f^{(k)}(a)\,(x-a)^k
 	</mrow>
@@ -37,7 +38,7 @@ These are, of course, approximations <mdash/> often very good approximations nea
 </p>
 
 <p>
-Fix a real number <m>a</m> and suppose that all derivatives of the function <m>f(x)</m> exist. Then, for any natural number <m>n</m>,
+Fix a real number <m>a</m> and suppose that all derivatives of the function <m>f(x)</m> exist. Then, we saw in (3.4.33) of the CLP-1 text that, for any natural number <m>n</m>,
 </p>
 
 <fact xml:id="eq_TaylorPolyPlusError">
@@ -51,8 +52,7 @@ f(x) &amp;=T_n(x) +E_n(x)
 </fact>
 
 <p>
-where <m>T_n(x)</m> is the Taylor polynomial of degree <m>n</m>  for the function <m>f(x)</m> expanded about <m>a</m>, and  <m>E_n(x)=f(x)-T_n(x)</m>  is the error in our approximation. The Taylor polynomial
-	<fn> Did you  take a quick look at your notes?</fn>
+where <m>T_n(x)</m> is the Taylor polynomial of degree <m>n</m>  for the function <m>f(x)</m> expanded about <m>a</m>, and  <m>E_n(x)=f(x)-T_n(x)</m>  is the error in the approximation <m>f(x) \approx T_n(x)</m>. The Taylor polynomial<fn> Did you  take a quick look at your notes?</fn>
 is given by the formula
 </p>
 
@@ -65,7 +65,7 @@ T_n(x)&amp;=f(a)+f'(a)\,(x-a)+\cdots+\tfrac{1}{n!}f^{(n)}(a)\, (x-a)^n
 </md>
 </p></statement>
 </fact>
-<p>while the error satisfies</p>
+<p>while the error satisfies<fn>This is probably the most commonly used formula for the error. But there is another fairly commonly used formula.  It, and some less commonly used formulae, are given in the next (optional) subsection <q>More about the Taylor Remainder</q>.</fn></p>
 <fact xml:id="eq_TaylorPolyPlusError_b">
 <statement><p>
 <md>
@@ -78,8 +78,7 @@ for some <m>c</m> strictly between <m>a</m> and <m>x</m>.
 </fact>
 
 <p>
-Note that we typically  do not know the value of <m>c</m> in the formula for the error.  Instead we use the bounds on <m>c</m> to find bounds on <m>f^{(n+1)}(c)</m> and  so bound the error
-	<fn>
+Note that we typically  do not know the value of <m>c</m> in the formula for the error.  Instead we use the bounds on <m>c</m> to find bounds on <m>f^{(n+1)}(c)</m> and  so bound the error<fn>
 		The discussion here is only supposed to  jog your memory. If it is feeling insufficiently jogged, then  please look at your notes from last term.
 	</fn>.
 </p>
@@ -104,15 +103,22 @@ which is a power series representation of the function. Let us  formalise this i
 The Taylor series for the function <m>f(x)</m> expanded around <m>a</m>  is the power series
 <md>
 <mrow>
+\sum_{n=0}^\infty \tfrac{1}{n!}f^{(n)}(a)\, (x-a)^n
+</mrow>
+</md>
+When <m>a=0</m> it is also called the Maclaurin series of <m>f(x)</m>.
+If  <m>\lim_{n\rightarrow\infty}E_n(x)=0</m>, then
+<md>
+<mrow>
 f(x)=\sum_{n=0}^\infty \tfrac{1}{n!}f^{(n)}(a)\, (x-a)^n
 </mrow>
 </md>
-provided the series converges. When <m>a=0</m> it is also called the Maclaurin series of <m>f(x)</m>.
 </p></statement>
 </definition>
 
 <p>
-This definition hides the discussion of whether or not <m>E_n(x) \to 0</m>  as <m>n\rightarrow\infty</m> within the caveat <q>provided the series converges</q>.  Demonstrating that for a given function can be difficult, but for many  of the standard functions you are used to dealing with, it turns out to be pretty easy. Let's compute a few Taylor series and see how we do it.
+Demonstrating that, for a given function, <m>\lim_{n\rightarrow\infty}E_n(x)=0</m> can be difficult,
+but for many  of the standard functions you are used to dealing with, it turns out to be pretty easy. Let's compute a few Taylor series and see how we do it.
 </p>
 
 <example xml:id="eg_expSeries"><title>Exponential Series</title>
@@ -165,15 +171,19 @@ The trigonometric functions <m>\sin x</m> and <m>\cos x</m> also have widely use
 <mrow>
 f(x)&amp;=\sin x &amp;
 f'(x)&amp;=\cos x &amp;
-f''(x)&amp;=-\sin x &amp;
-f^{(3)}(x)&amp;=-\cos x &amp;
+f''(x)&amp;=\!-\sin x &amp;
+f^{(3)}(x)&amp;=\!-\cos x 
+</mrow><mrow>
+&amp; &amp;
 f^{(4)}(x)&amp;=\sin x &amp; \cdots
 </mrow>
 <mrow>
 g(x)&amp;=\cos x &amp;
-g'(x)&amp;=-\sin x &amp;
-g''(x)&amp;=-\cos x &amp;
-g^{(3)}(x)&amp;=\sin x &amp;
+g'(x)&amp;=\!-\sin x &amp;
+g''(x)&amp;=\!-\cos x &amp;
+g^{(3)}(x)&amp;=\sin x 
+</mrow><mrow>
+&amp; &amp;
 g^{(4)}(x)&amp;=\cos x &amp; \cdots
 </mrow>
 </md>
@@ -187,15 +197,19 @@ f(x)&amp;=\sin x &amp;
 f(0)&amp;=0 &amp;
 f'(0)&amp;=1 &amp;
 f''(0)&amp;=0 &amp;
-f^{(3)}(0)&amp;=-1 &amp;
+f^{(3)}(0)&amp;=\!-1 
+</mrow><mrow>
+&amp; &amp;
 f^{(4)}(0)&amp;=0 &amp; \cdots
 </mrow>
 <mrow>
 g(x)&amp;=\cos x &amp;
 g(0)&amp;=1 &amp;
 g'(0)&amp;=0 &amp;
-g''(0)&amp;=-1 &amp;
-g^{(3)}(0)&amp;=0 &amp;
+g''(0)&amp;=\!-1 &amp;
+g^{(3)}(0)&amp;=0 
+</mrow><mrow>
+&amp; &amp;
 g^{(4)}(0)&amp;=1 &amp; \cdots
 </mrow>
 </md>
@@ -247,8 +261,7 @@ for sine and cosine respectively. Hence as <m>n \to \infty</m> these ratios go t
 </example>
 
 <p>
-We have developed power series representations for a number of important  functions
-	<fn>
+We have developed power series representations for a number of important  functions<fn>
 		The reader might ask whether or not we will give  the series for other trigonometric functions or their inverses. While  the tangent function has a perfectly well defined series, its  coefficients are not as simple as those of the series we have  seen <mdash/> they form a sequence of numbers known (perhaps unsurprisingly)  as the <q>tangent numbers</q>. They, and the related Bernoulli numbers,  have many interesting properties, links to which the interested reader  can find with their favourite search engine. The Maclaurin series for  inverse sine is
 		<m>
 			\arcsin(x) = \sum_{n=0}^\infty \frac{4^{-n}}{2n+1}\frac{(2n)!}{(n!)^2} x^{2n+1}
@@ -298,14 +311,13 @@ Notice that the series for sine and cosine sum to something that looks very simi
   &amp;= 1 + x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \frac{1}{4!}x^4 + \frac{1}{5!}x^5 + \cdots
 </mrow>
 </md>
-So both series have coefficients with the same absolute value  (namely <m>\frac{1}{n!}</m>), but there are differences in  sign
-	<fn>
+So both series have coefficients with the same absolute value  (namely <m>\frac{1}{n!}</m>), but there are differences in  sign<fn>
 		Warning: antique sign<ndash/>sine pun. No doubt the reader first saw it many years syne.
 	</fn>.
 This is not a coincidence and we direct the interested reader to the optional Section <xref ref="sec_Euler"/> where will show how these series are linked through <m>\sqrt{-1}</m>.
 </p>
 
-<example xml:id="eg_expSeriesB"><title>Optional <mdash/> Why  <m>\sum_{n=0}^\infty \frac{1}{n!}x^n</m> is <m>e^x</m>.</title>
+<example xml:id="eg_expSeriesB"><title>Optional <mdash/> Why  <m>\sum_{n=0}^\infty \frac{1}{n!}x^n</m> is <m>e^x</m></title>
 <p>
 We have already seen, in Example <xref ref="eg_expSeries"/>, that
 <me>
@@ -381,18 +393,16 @@ e^x=\lim_{n\rightarrow\infty}\Big[1 +x + \frac{1}{2} x^2
 </example>
 
 <p>
-There is another way to prove that the series <m>\sum_{n=0}^\infty \frac{x^n}{n!}</m> converges to the function <m>e^x</m>.  Rather than looking at how the error term <m>E_n(x)</m> behaves as <m>n \to \infty</m>, we can show that the series  satisfies the same simple differential equation
-	<fn>
+There is another way to prove that the series <m>\sum_{n=0}^\infty \frac{x^n}{n!}</m> converges to the function <m>e^x</m>.  Rather than looking at how the error term <m>E_n(x)</m> behaves as <m>n \to \infty</m>, we can show that the series  satisfies the same simple differential equation<fn>
 		Recall, you studied that differential equation in the  section on separable differential equations (Theorem<nbsp/><xref ref="thm_linearODE"/> in Section<nbsp/><xref ref="sec_sep_de"/>) as well as  wayyyy back in the section on exponential growth and decay in differential calculus.
 	</fn>
 and the same initial condition as the function.
 </p>
 
 <example xml:id="eg_expSeriesC">
-<title>Optional <mdash/> Another approach to showing that  <m>\sum_{n=0}^\infty  \frac{1}{n!}x^n</m> is <m>e^x</m>.</title>
+<title>Optional <mdash/> Another approach to showing that  <m>\sum_{n=0}^\infty  \frac{1}{n!}x^n</m> is <m>e^x</m></title>
 <p>
-We already know from Example <xref ref="eg_PWRb"/>, that the series <m>\sum_{n=0}^\infty \frac{1}{n!}x^n</m> converges to some function <m>f(x)</m> for all values of <m>x</m> . All that remains to do is to show that <m>f(x)</m>  is really <m>e^x</m>. We will  do this by showing that <m>f(x)</m> and <m>e^x</m> satisfy the same differential  equation with the same initial conditions
-	<fn>
+We already know from Example <xref ref="eg_PWRb"/>, that the series <m>\sum_{n=0}^\infty \frac{1}{n!}x^n</m> converges to some function <m>f(x)</m> for all values of <m>x</m> . All that remains to do is to show that <m>f(x)</m>  is really <m>e^x</m>. We will  do this by showing that <m>f(x)</m> and <m>e^x</m> satisfy the same differential  equation with the same initial conditions<fn>
 		Recall that when we solve of a separable differential equation  our general solution will have an arbitrary constant  in it. That constant cannot be determined from the differential  equation alone and we need some extra data to find it.  This extra information is often information about the system  at its beginning (for example when position or time is zero) <mdash/>  hence <q>initial conditions</q>. Of course  the reader is already familiar with this because it  was covered back in Section<nbsp/><xref ref="sec_sep_de"/>.
 	</fn>.
 We know that <m>y=e^x</m> satisfies
@@ -445,9 +455,9 @@ Hence <m>f(x)</m> solves the same initial value problem and we must have  <m>f(x
 We can show that the error terms in Maclaurin polynomials for  sine and cosine go to zero as <m>n \to \infty</m> using  very much the same approach as in Example<nbsp/><xref ref="eg_expSeriesB"/>.
 </p>
 <example xml:id="eg_sincosSeriesB"><title>
-Optional <mdash/> Why  <m>\sum_{n=0}^\infty\frac{(-1)^n}{(2n+1)!}x^{2n+1}=\sin x</m>
+Optional <mdash/> Why  <m>\sum\limits_{n=0}^\infty\frac{(-1)^n}{(2n+1)!}x^{2n+1}=\sin x</m>
 and
-<m>\sum_{n=0}^\infty\frac{(-1)^n}{(2n)!}x^{2n}=\cos x</m>
+<m>\sum\limits_{n=0}^\infty\frac{(-1)^n}{(2n)!}x^{2n}=\cos x</m>
 </title>
 <p>
 Let <m>f(x)</m> be either <m>\sin x</m> or <m>\cos x</m>. We know that every  derivative of <m>f(x)</m> will be one of <m>\pm \sin(x)</m> or <m>\pm \cos(x)</m>.  Consequently, when we compute the error term using  equation<nbsp/><xref ref="eq_TaylorPolyPlusError_b"/> we always have <m>\big|f^{(n+1)}(c)\big|\le 1</m> and hence
@@ -469,6 +479,595 @@ as required.
 </example>
 </subsection>
 
+<subsubsection><title>Optional <mdash/> More about the Taylor Remainder</title>
+<p>
+In this section, we fix a real number <m>a</m> and a natural number <m>n</m>,
+suppose that all derivatives of the function <m>f(x)</m> exist, and we study the
+error
+<md>
+<mrow>
+E_n(a,x) &amp;= f(x) - T_n(a,x) 
+</mrow>
+<mrow>
+\text{where } 
+T_n(a,x)  &amp;=f(a)+f'(a)\,(x-a)+\cdots+\tfrac{1}{n!}f^{(n)}(a)\, (x-a)^n
+</mrow>
+</md>
+made when we approximate <m>f(x)</m> by the Taylor polynomial <m>T_n(a,x)</m> of degree <m>n</m> for the function <m>f(x)</m>, expanded about <m>a</m>.
+We have already seen,
+in (<xref ref="eq_TaylorPolyPlusError_b"/>), one formula, probably the most commonly used formula, for <m>E_n(a,x)</m>. In the next theorem, we repeat that formula and give a second, commonly used, formula.
+After an example, we give a second theorem that contains some less commonly used formulae.
+</p>
+<theorem xml:id="thm_TaylorRemainderA"><title>Commonly used formulae for the Taylor remainder</title>
+<statement><p>
+The Taylor remainder <m>E_n(a,x)</m> is given by
+<ol label="a">
+<li>
+ (integral form) 
+ <me> 
+    E_n(a,x)=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}
+ </me>
+</li><li>
+(Lagrange form) 
+  <me>
+    E_n(a,x)=\frac{1}{(n+1)!}\,f^{(n+1)}(c)\, (x-a)^{n+1}
+  </me>
+for some <m>c</m> strictly between <m>a</m> and <m>x</m>.
+</li>
+</ol>
+</p></statement>
+</theorem>
+<p>
+Notice that the integral form of the error is explicit - we could, in principle, compute it exactly. (Of course if we could do that, we probably wouldn't need to use a Taylor 
+expansion to approximate <m>f</m>.) This contrasts with the Lagrange form which is an <sq>existential</sq> statement - it tells us that <sq><m>c</m></sq> exists, but not how to compute it.
+</p>
+<proof>
+<p>
+
+
+
+<ol label="a">
+<li>
+<p>
+We will give two proofs. The first is shorter and simpler, but uses some trickery. The second is longer, but is more straightforward. It uses a technique called mathematical induction.
+</p>
+
+<p><em>Proof 1:</em>&#x20;&#x20;&#x20;
+We are going to use a little trickery to get a simple proof.
+We simply view <m>x</m> as being fixed and study the dependence of <m>E_n(a,x)</m>
+on <m>a</m>. To emphasise that that is what we are doing, we define
+<md>
+<mrow>
+S(t) &amp;= f(x) - f(t) -f'(t)\,(x-t)-\tfrac{1}{2}f''(t)\,(x-t)^2
+</mrow><mrow>
+     &amp;\hskip2in -\cdots-\tfrac{1}{n!}f^{(n)}(t)\, (x-t)^n
+\tag{$*$}
+</mrow>
+</md>
+and observe that <m>E_n(a,x) = S(a)</m>.
+</p>
+
+<p>
+So, by the fundamental theorem of calculus (Theorem<nbsp/><xref ref="thm_INTfundthmofcalc"/>), the function <m>S(t)</m> is determined by its derivative, <m>S'(t)</m>, and its value at a single point. Finding a value of <m>S(t)</m> for 
+one value of <m>t</m> is easy. Substitute <m>t=x</m> into <m>(*)</m> to yield <m>S(x)=0</m>. 
+To find <m>S'(t)</m>, apply <m>\diff{}{t}</m> to both sides of <m>(*)</m>.  Recalling that
+<m>x</m> is just a constant parameter,
+<md>
+<mrow>
+S'(t)&amp;= 0 - {\color{blue}{f'(t)}} 
+         - \big[{\color{red}{f''(t)(x\!-\!t)}}-{\color{blue}{f'(t)}}\big]
+</mrow><mrow>
+&amp;\hskip0.5in
+         -\big[\tfrac{1}{2}f^{(3)}(t)(x\!-\!t)^2-{\color{red}{f''(t)(x\!-\!t)}}\big]
+</mrow><mrow>
+&amp;\hskip0.5in  -\cdots-\big[\tfrac{1}{n!}  f^{(n+1)}(t)\,(x-t)^n
+               -\tfrac{1}{(n-1)!}f^{(n)}(t)\,(x-t)^{n-1} \big]
+</mrow><mrow>
+&amp;=-\tfrac{1}{n!}  f^{(n+1)}(t)\,(x-t)^n
+</mrow>
+</md>
+So, by the fundamental theorem of calculus, <m>S(x)=S(a)+\int_a^x S'(t)\,\dee{t}</m> and
+<md>
+<mrow>
+E_n(a,x) &amp;= -\big[S(x)-S(a)\big] = - \int_a^x S'(t)\,\dee{t}
+</mrow><mrow>
+&amp;=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}
+</mrow>
+</md>
+</p>
+
+<p><em>Proof 2:</em>&#x20;&#x20;&#x20;
+The proof that we have just given was short, but also very tricky --- almost noone could create that proof without big hints. Here is another much less tricky, but also commonly used, proof.
+<ul>
+<li>
+First consider the case <m>n=0</m>. When <m>n=0</m>,
+<me>
+E_0(a,x) = f(x) - T_0(a,x) = f(x) -f(a)
+</me>
+The fundamental theorem of calculus gives
+<me>
+f(x)-f(a) = \int_a^x f'(t)\,\dee{t}
+</me>
+so that
+<me>
+E_0(a,x) = \int_a^x f'(t)\,\dee{t}
+</me>
+That is exactly the <m>n=0</m> case of part (a).
+</li><li>
+Next fix any integer <m>n\ge 0</m> and suppose that we already know  that 
+<me>
+ E_n(a,x)=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}
+</me>
+Apply integration by parts (Theorem<nbsp/><xref ref="thm_PRTSintbyparts"/>) to this integral with
+<md>
+<mrow>
+u(t)&amp;=f^{(n+1)}(t)
+</mrow><mrow>
+\dee{v}&amp;= \frac{1}{n!}(x-t)^n\,\dee{t},\qquad 
+v(t)=- \frac{1}{(n+1)!}(x-t)^{n+1}
+</mrow>
+</md>
+Since <m>v(x)=0</m>, integration by parts gives
+<md>
+<mrow>
+&amp;E_n(a,x)=u(x)v(x)-u(a)v(a)-\int_a^x v(t) u'(t)\,\dee{t} 
+</mrow><mrow>
+   &amp;\quad=\frac{1}{(n+1)!}f^{(n+1)}(a)\, (x-a)^{n+1}
+</mrow><mrow>
+   &amp;\hskip0.5in
+    +\int_a^x \frac{1}{(n+1)!}f^{(n+2)}(t)\, (x-t)^{n+1}\,\dee{t}
+\tag{$**$}
+</mrow>
+</md>
+Now, we defined
+<md>
+<mrow>
+E_n(a,x) &amp;= f(x) - f(a) -f'(a)\,(x-a)-\tfrac{1}{2}f''(a)\,(x-a)^2
+</mrow><mrow>
+&amp;\hskip1in
+                      -\cdots-\tfrac{1}{n!}f^{(n)}(a)\, (x-a)^n
+</mrow>
+</md>
+so
+<me>
+E_{n+1}(a,x) = E_n(a,x)-\tfrac{1}{(n+1)!}f^{(n+1)}(a)\, (x-a)^{n+1}
+</me>
+This formula expresses <m>E_{n+1}(a,x)</m> in terms of <m>E_n(a,x)</m>. That's called a
+reduction formula.
+Combining the reduction formula with (<m>**</m>) gives
+<me>
+E_{n+1}(a,x)=\int_a^x \frac{1}{(n+1)!}f^{(n+2)}(t)\, (x-t)^{n+1}\,\dee{t}
+</me>
+</li><li>
+<p>
+Let's pause to summarise what we have learned in the last two bullets.
+Use the notation <m>P(n)</m> to stand for the statement 
+<q><m>E_n(a,x)=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}</m></q>.
+To prove part (a) of the theorem, we need to prove that the statement <m>P(n)</m>
+is true for all integers <m>n\ge 0</m>.
+In the first bullet, we showed that the statement <m>P(0)</m> is true.
+In the second bullet, we showed that if, for some integer <m>n\ge 0</m>,
+the statement <m>P(n)</m> is true, then the statement <m>P(n+1)</m> is also true. 
+Consequently,
+<ul>
+<li>
+<m>P(0)</m> is true by the first bullet and then
+</li><li> <m>P(1)</m> is true by the second bullet with <m>n=0</m> and then
+</li><li> <m>P(2)</m> is true by the second bullet with <m>n=1</m> and then
+</li><li> <m>P(3)</m> is true by the second bullet with <m>n=2</m> 
+</li><li> and so on, for ever and ever.
+</li>
+</ul>
+That tells us that <m>P(n)</m> is true for all integers <m>n\ge 0</m>, which is 
+exactly part (a) of the theorem. This proof technique is called mathematical
+induction<fn>While the use of the ideas of induction goes back over 2000 years,
+the first recorded rigorous use of induction appeared in the work of Levi ben Gershon (1288<ndash/>1344, better known as Gersonides). The first explicit formulation of mathematical induction was given by the French mathematician Blaise Pascal in 1665.</fn>.  
+</p>
+</li>
+</ul>
+</p>
+
+
+
+
+</li><li>
+<p>
+We have already seen one proof in the optional Section 3.4.9 of the CLP-1 text. We will see two more proofs here.
+</p>
+<p>
+<em>Proof 1:</em>&#x20;&#x20;&#x20; We apply the generalised mean value theorem, which 
+is Theorem 3.4.38 in the CLP-1 text. It says that
+<me>
+\frac{F(b)-F(a)}{G(b)-G(a)} = \frac{F'(c)}{G'(c)}
+\tag{GMVT}</me>
+for some <m>c</m> strictly between<fn>In Theorem 3.4.38 in the CLP-1 text, we assumed, for simplicity, that <m>a\lt b</m>. To get (GVMT) when <m>b\lt a</m> simply exchange <m>a</m> and <m>b</m> 
+in Theorem 3.4.38. </fn> <m>a</m> and <m>b</m>. We apply (GMVT) with
+<m>b=x</m>, <m>F(t)=S(t)</m> and <m>G(t)=(x-t)^{n+1}</m>. This gives
+<md>
+<mrow>
+E_n(a,x)
+&amp;= -\big[S(x)-S(a)\big] =-\frac{S'(c)}{G'(c)}\big[G(x)-G(a)\big] 
+</mrow><mrow>
+&amp;=-\frac{ -\frac{1}{n!}  f^{(n+1)}(c)\,(x-c)^n}{-(n+1)(x-c)^n}\ \big[0-(x-a)^{n+1}\big]
+</mrow><mrow>
+&amp;=\frac{1}{(n+1)!}f^{(n+1)}(c)(x-a)^{n+1}
+</mrow>
+</md>
+Don't forget, when computing <m>G'(c)</m>, that <m>G</m> is a function of <m>t</m> 
+with <m>x</m> just a fixed parameter.
+</p> 
+
+<p>
+<em>Proof 2:</em>&#x20;&#x20;&#x20; We apply Theorem <xref ref="thm_AVwtmvt"/> (the mean value theorem for weighted integrals). If <m>a\lt x</m>,  we use the weight function <m>w(t) = \frac{1}{n!} (x-t)^n</m>, which is strictly positive for all <m>a\lt t\lt x</m>.
+By part (a) this gives
+<md>
+<mrow>
+E_n(a,x) &amp;=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t} 
+</mrow><mrow>
+    &amp;= f^{(n+1)}(c) \int_a^x \frac{1}{n!} (x-t)^n\,\dee{t} \qquad
+          \text{for some } a\lt c\lt x
+</mrow><mrow>
+    &amp;= f^{(n+1)}(c) \left[-\frac{1}{n!}\frac{(x-t)^{n+1}}{n+1}\right]_a^x
+</mrow><mrow> 
+    &amp;= \frac{1}{(n+1)!}f^{(n+1)}(c)\,(x-a)^{n+1} 
+</mrow>
+</md>
+ If <m>x\lt a</m>,  we instead use the weight function  <m>w(t) = \frac{1}{n!} (t-x)^n</m>, which is strictly positive for all <m>x\lt t\lt a</m>. This gives
+<md>
+<mrow>
+E_n(a,x) &amp;=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t} 
+</mrow><mrow>
+      &amp;=-(-1)^n\int^a_x \frac{1}{n!}f^{(n+1)}(t)\, (t-x)^n\,\dee{t}  
+</mrow><mrow>
+    &amp;=(-1)^{n+1} f^{(n+1)}(c) \int_x^a \frac{1}{n!} (t-x)^n\,\dee{t} \qquad
+          \text{for some } x\lt c\lt a 
+</mrow><mrow>
+    &amp;= (-1)^{n+1} f^{(n+1)}(c) 
+             \left[\frac{1}{n!}\frac{(t-x)^{n+1}}{n+1}\right]_x^a 
+</mrow><mrow>
+    &amp;= \frac{1}{(n+1)!}f^{(n+1)}(c)\, (-1)^{n+1} (a-x)^{n+1} 
+</mrow><mrow>
+    &amp;= \frac{1}{(n+1)!}f^{(n+1)}(c)\,(x-a)^{n+1} 
+</mrow>
+</md>
+</p>
+</li>
+</ol>
+</p>
+</proof>
+<p>
+Theorem <nbsp/><xref ref="thm_TaylorRemainderA"/> has provided us with two formulae for
+the Taylor remainder <m>E_n(a,x)</m>. The formula of part (b),
+<m>E_n(a,x)=\frac{1}{(n+1)!}\,f^{(n+1)}(c)\, (x-a)^{n+1}</m>, is probably the 
+easiest to use, and the most commonly used, formula for <m>E_n(a,x)</m>.
+The formula of part (a), <m>E_n(a,x)=\int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}</m>, while a 
+bit harder to apply, gives a bit better bound than that of part (b) (in the proof of 
+Theorem<nbsp/><xref ref="thm_TaylorRemainderA"/> we showed that part (b) 
+follows from part (a)). Here is an example in which we use both parts. 
+</p>
+
+<example xml:id="eg_integralRemainder">
+<p>
+In Theorem<nbsp/><xref ref="thm_SRimportantTaylorSeries"/> we stated that
+<me>
+\log(1+x) = \sum_{n=0}^\infty (-1)^n\frac{x^{n+1}}{n+1}
+     = x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots 
+\tag{S1}</me>
+for all <m>-1\lt x\le 1</m>.
+But, so far, we have not justified this statement. We do so now, using (both parts of) 
+Theorem<nbsp/><xref ref="thm_TaylorRemainderA"/>. We start by setting 
+<m>f(x)=\log(1+x)</m> and finding the Taylor polynomials <m>T_n(0,x)</m>, and the corresponding errors <m>E_n(0,x)</m>, for <m>f(x)</m>.
+<md>
+<mrow>
+  f(x) &amp;= \log(1+x) &amp; f(0) &amp;= \log 1 = 0 
+</mrow><mrow>
+  f'(x) &amp;= \frac{1}{1+x} &amp; f'(0) &amp;= 1 
+</mrow><mrow>
+  f''(x) &amp;= \frac{-1}{(1+x)^2} &amp; f''(0) &amp;= -1 
+\</mrow><mrow>
+  f'''(x) &amp;= \frac{2}{(1+x)^3} &amp; f'''(1) &amp;= 2 
+</mrow><mrow>
+  f^{(4)}(x) &amp;= \frac{-2\times 3}{(1+x)^4} &amp; f^{(4)}(0) &amp;= -3! 
+\</mrow><mrow>
+  f^{(5)}(x) &amp;= \frac{2\times 3\times 4}{(1+x)^5} &amp; f^{(5)}(0) &amp;= 4! 
+\</mrow><mrow>
+             &amp;\ \ \ \vdots &amp;  &amp;\ \ \ \vdots 
+</mrow><mrow>
+  f^{(n)}(x)&amp;=\frac{(-1)^{n+1}(n-1)!}{(1+x)^n} &amp; f^{(n)}(0) &amp;= (-1)^{n+1}(n-1)!
+</mrow>
+</md>
+So the Taylor polynomial of degree <m>n</m> for the function <m>f(x)=\log(1+x)</m>,
+expanded about <m>a=0</m>, is
+<md>
+<mrow>
+T_n(0,x) &amp;=f(0)+f'(0)\,x+\cdots+\tfrac{1}{n!}f^{(n)}(0)\, x^n 
+</mrow><mrow>
+ &amp;= x - \frac{1}{2}x^2 + \frac{1}{3}x^3 - \frac{1}{4}x^4 + \frac{1}{5}x^5 
+           +\cdots + \frac{(-1)^{n+1}}{n}x^n
+</mrow>
+</md>
+Theorem<nbsp/><xref ref="thm_TaylorRemainderA"/> gives us two formulae for the 
+error <m>E_n(0,x) = f(x) - T_n(0,x)</m> made when we approximate <m>f(x)</m> 
+by <m>T_n(0,x)</m>. Part (a) of the theorem gives
+<me>
+E_n(0,x) = \int_0^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}
+         = (-1)^n \int_0^x \frac{(x-t)^n}{(1+t)^{n+1}}\,\dee{t}
+\tag{Ea}</me>
+and part (b) gives
+<me>
+E_n(0,x)=\frac{1}{(n+1)!}\,f^{(n+1)}(c)\, x^{n+1}  
+        = (-1)^n\,\frac{1}{n+1}\,\frac{x^{n+1}}{(1+c)^{n+1}}
+\tag{Eb}</me>
+for some (unknown) <m>c</m> between <m>0</m> and <m>x</m>. The statement (S1), that we wish to prove, is equivalent to the statement
+<me>
+\lim_{n\rightarrow\infty} E_n(0,x)=0 \qquad\text{for all }-1\lt x\le 1 
+\tag{S2}</me>
+and we will now show that (S2) is true.
+<dl>
+<li>
+<title>The case <m>x=0</m>:</title>
+<p>
+This case is trivial, since, when <m>x=0</m>, <m>E_n(0,x)=0</m> for all <m>n</m>.
+</p>
+</li><li>
+<title>The case <m>0\lt x\le 1</m>:</title>
+<p>
+This case is relatively easy to deal with using (Eb). In this case <m>0\lt x\le 1</m>,
+so that the <m>c</m> of (Eb) must be positive and
+<md>
+<mrow>
+\left|E_n(0,x)\right| 
+&amp;= \frac{1}{n+1}\frac{x^{n+1}}{(1+c)^{n+1}}
+</mrow><mrow>
+&amp;\le \frac{1}{n+1}\frac{1^{n+1}}{(1+0)^{n+1}}
+</mrow><mrow> 
+&amp;=\frac{1}{n+1}
+</mrow>
+</md>
+converges to zero as <m>n\rightarrow\infty</m>.
+</p>
+</li>
+<li>
+<title>The case <m>-1\lt x\lt 0</m>:</title>
+<p>
+When <m>-1\lt x\lt 0</m> is close to <m>-1</m>, (Eb) is not 
+sufficient to show that (S2) is true. To see this, let's consider the 
+example <m>x=-0.8</m>. All we know about the <m>c</m> of (Eb) is that it has to be
+between <m>0</m> and <m>-0.8</m>. For example, (Eb) certainly allows <m>c</m> to be <m>-0.6</m> 
+and then
+<md>
+<mrow>
+&amp;\left|(-1)^n\frac{1}{n+1}\frac{x^{n+1}}{(1+c)^{n+1}}
+       \right|_{\genfrac{}{}{0pt}{}{x=-0.8}{c=-0.6}}
+</mrow><mrow>
+&amp;\hskip0.25in=\frac{1}{n+1}\frac{0.8^{n+1}}{(1-0.6)^{n+1}}
+</mrow><mrow>
+&amp;\hskip0.25in=\frac{1}{n+1}2^{n+1}
+</mrow>
+</md>   
+goes to <m>+\infty</m> as <m>n\rightarrow\infty</m>.
+</p> 
+
+<p>
+Note that, while this does tell us that (Eb) is not sufficient to prove (S2), when <m>x</m> is close to <m>-1</m>, it does not also tell us that <m>\lim\limits_{n\rightarrow\infty}|E_n(0,-0.8)|=+\infty</m> (which would imply that (S2) is false)  <mdash/> <m>c</m> could equally well be <m>-0.2</m> 
+and then 
+<md>
+<mrow>
+&amp;\left|(-1)^n\frac{1}{n+1}\frac{x^{n+1}}{(1+c)^{n+1}}
+       \right|_{\genfrac{}{}{0pt}{}{x=-0.8}{c=-0.2}}
+</mrow><mrow>
+&amp;\hskip0.25in=\frac{1}{n+1}\frac{0.8^{n+1}}{(1-0.2)^{n+1}}
+</mrow><mrow>
+&amp;\hskip0.25in=\frac{1}{n+1}
+</mrow>
+</md>   
+goes to <m>0</m> as <m>n\rightarrow\infty</m>.
+</p>
+
+<p>
+We'll now use (Ea) (which has the advantage of not containing any unknown free parameter <m>c</m>)
+to verify (S2) when <m>-1\lt x\lt 0</m>. Rewrite the right hand side of (Ea)
+<md>
+<mrow>
+&amp; (-1)^n \int_0^x \frac{(x-t)^n}{(1+t)^{n+1}}\,\dee{t}
+=-\int_x^0 \frac{(t-x)^n}{(1+t)^{n+1}}\,\dee{t} 
+</mrow><mrow>
+&amp;=-\int_0^{-x}\frac{s^n}{(1+x+s)^{n+1}}\,\dee{s}
+\  s=t-x,\,\dee{s}=\dee{t} 
+</mrow>
+</md>
+The exact evaluation of this integral is very messy and not very illuminating. Instead, we bound it.
+Note that, for <m>1+x\gt 0</m>,
+<md>
+<mrow>
+\diff{}{s}\left(\frac{s}{1+x+s}\right) 
+&amp;= \diff{}{s}\left(\frac{1+x+s-(1+x)}{1+x+s} \right)
+</mrow><mrow>
+&amp;= \diff{}{s}\left(1- \frac{1+x}{1+x+s}\right) 
+</mrow><mrow>
+&amp;=\frac{1+x}{(1+x+s)^2}
+\gt 0
+</mrow>
+</md>
+so that <m>\frac{s}{1+x+s}</m> increases as <m>s</m> increases. Consequently, the biggest value that 
+<m>\frac{s}{1+x+s}</m> takes on the domain of integration  <m>0\le s\le -x=|x|</m> is
+<me>
+\frac{s}{1+x+s}\bigg|_{s=-x} = -x = |x|
+</me>
+and the integrand
+<md>
+<mrow>
+0\le \frac{s^n}{[1+x+s]^{n+1}} 
+  &amp;=\left(\frac{s}{1+x+s}\right)^n\frac{1}{1+x+s}
+  </mrow><mrow>
+  &amp;\le \frac{|x|^n}{1+x+s}
+</mrow>
+</md>
+Consequently,
+<md>
+<mrow>
+\left|E_n(0,x)\right| 
+&amp;= \left|(-1)^n \int_0^x \frac{(x-t)^n}{(1+t)^{n+1}}\,\dee{t}\right|
+</mrow><mrow>
+&amp;=\int_0^{-x}\frac{s^n}{[1+x+s]^{n+1}}\,\dee{s} 
+</mrow><mrow>
+&amp;\le |x|^n \int_0^{-x}\frac{1}{1+x+s}\,\dee{s}
+</mrow><mrow>
+&amp;=|x|^n\Big[\log(1+x+s)\Big]_{s=0}^{s=-x} 
+</mrow><mrow>
+&amp;= |x|^n [-\log(1+x)]
+</mrow>
+</md>
+converges to zero as <m>n\rightarrow\infty</m> for each fixed <m>-1\lt x\lt 0</m>.
+</p>
+</li>
+</dl>
+So we have verified (S2), as desired.
+</p>
+
+</example>
+
+<p>
+As we said above, Theorem<nbsp/><xref ref="thm_TaylorRemainderA"/> gave the two most
+commonly used formulae for the Taylor remainder. Here are some less commonly used, but occasionally useful, formulae.
+</p>
+
+<theorem xml:id="thm_TaylorRemainderB"><title>More formulae for the Taylor remainder</title>
+<statement><p>
+<ol label="a">
+<li>
+If <m>G(t)</m> is differentiable<fn>Note that the function <m>G</m> need not be related to <m>f</m>. It just has to be differentiable with a nonzero derivative.</fn> and <m>G'(c)</m> is nonzero for all <m>c</m> strictly 
+between <m>a</m> and <m>x</m>, then the Taylor remainder
+<me>
+E_n(a,x)=\frac{1}{n!} f^{(n+1)}(c)\,\frac{G(x)-G(a)}{G'(c)}\, (x-c)^n
+</me> 
+for some <m>c</m> strictly between <m>a</m> and <m>x</m>.
+</li><li>
+ (Cauchy form) 
+ <me> 
+    E_n(a,x)=\frac{1}{n!}f^{(n+1)}(c)\, (x-c)^n(x-a)
+ </me>
+for some <m>c</m> strictly between <m>a</m> and <m>x</m>.
+</li>
+</ol>
+</p></statement>
+</theorem>
+<proof>
+<p>
+As in the proof of Theorem<nbsp/><xref ref="thm_TaylorRemainderA"/>, we define
+<me>
+S(t) = f(x) - f(t) -f'(t)\,(x\!-\!t)-\tfrac{1}{2}f''(t)\,(x\!-\!t)^2
+                      -\cdots-\tfrac{1}{n!}f^{(n)}(t)\, (x\!-\!t)^n
+</me>
+and observe that <m>E_n(a,x) = S(a)</m> and <m>S(x)=0</m> and
+<m>S'(t)= -\tfrac{1}{n!}  f^{(n+1)}(t)\,(x-t)^n</m>.
+<ol label="a">
+<li>
+Recall that the generalised mean-value theorem, which 
+is Theorem 3.4.38 in the CLP-1 text, says that
+<me>
+\frac{F(b)-F(a)}{G(b)-G(a)} = \frac{F'(c)}{G'(c)}
+\tag{GMVT}</me>
+for some <m>c</m> strictly between <m>a</m> and <m>b</m>. We apply this theorem with
+<m>b=x</m> and <m>F(t)=S(t)</m>. This gives
+<md>
+<mrow>
+E_n(a,x)
+&amp;= -\big[S(x)-S(a)\big] =-\frac{S'(c)}{G'(c)}\big[G(x)-G(a)\big]
+</mrow><mrow>
+&amp;=-\frac{ -\frac{1}{n!}  f^{(n+1)}(c)\,(x-c)^n}{G'(c)}\ \big[G(x)-G(a)\big]
+</mrow><mrow>
+&amp;=\frac{1}{n!} f^{(n+1)}(c)\,\frac{G(x)-G(a)}{G'(c)}\, (x-c)^n
+</mrow>
+</md>
+</li><li>
+Apply part (a) with <m>G(x)=x</m>. This gives
+<md>
+<mrow>
+E_n(a,x)
+&amp;=\frac{1}{n!} f^{(n+1)}(c)\,\frac{x-a}{1}\, (x-c)^n 
+</mrow><mrow>
+&amp;=\frac{1}{n!} f^{(n+1)}(c)\, (x-c)^n(x-a)
+</mrow>
+</md>
+for some <m>c</m> strictly between <m>a</m> and <m>b</m>. 
+</li>
+</ol>
+</p>
+</proof>
+
+<example xml:id="eg_cauchyRemainder"><title>Example<nbsp/><xref ref="eg_integralRemainder"/>, continued</title>
+<p>
+In Example<nbsp/><xref ref="eg_integralRemainder"/> we verified that
+<me>
+\log(1+x) = \sum_{n=0}^\infty (-1)^n\frac{x^{n+1}}{n+1}
+     = x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots
+\tag{S1}</me>
+for all <m>-1\lt x\le 1</m>.
+There we used the Lagrange form,
+<me>
+E_n(a,x)=\frac{1}{(n+1)!}\,f^{(n+1)}(c)\, (x-a)^{n+1}
+</me> 
+for the Taylor remainder to verify (S1) when <m>0\le x\le 1</m>, but we also saw that it is not possible to use the Lagrange form to verify (S1) when <m>x</m> is close to <m>-1</m>. We instead used the integral form 
+<me>
+E_n(a,x) = \int_a^x \frac{1}{n!}f^{(n+1)}(t)\, (x-t)^n\,\dee{t}
+</me>
+We will now use the Cauchy form (part (b) of Theorem<nbsp/><xref ref="thm_TaylorRemainderB"/>)
+<me>
+E_n(a,x)=\frac{1}{n!}f^{(n+1)}(c)\, (x-c)^n(x-a)
+</me>
+to verify
+<me>
+\lim_{n\rightarrow\infty} E_n(0,x)=0
+\tag{S2}</me>
+when <m>-1\lt x\lt 0</m>.
+We have already noted that (S2) is equivalent to (S1).
+</p>
+
+<p>
+Write <m>f(x)=\log(1+x)</m>. We saw in Example<nbsp/><xref ref="eg_integralRemainder"/> that
+<me>
+f^{(n+1)}(x) = \frac{(-1)^n n!}{(1+x)^{n+1}}
+</me> 
+So, in this example, the Cauchy form is
+<me>
+E_n(0,x)=(-1)^n\frac{(x-c)^nx}{(1+c)^{n+1}}
+</me>
+for some <m>x\lt c\lt 0</m>. When <m>-1\lt x\lt c \lt 0</m>, 
+<ul>
+<li>
+<m>c</m> and <m>x</m> are negative and <m>1+x</m>, <m>1+c</m> and <m>c-x</m> are (strictly) positive so that
+<md>
+<mrow>
+c(1+x)\lt 0
+&amp;\implies c \lt -cx
+\implies c-x \lt -x-xc=|x|(1+c)
+</mrow><mrow>
+&amp;\implies \left|\frac{x-c}{1+c}\right|
+=\frac{c-x}{1+c}\lt |x|
+</mrow>
+</md>
+ so that <m>\left|\frac{x-c}{1+c}\right|^n \lt |x|^n</m> 
+  and
+</li><li>
+  the distance from <m>-1</m> to <m>c</m>, namely <m>c-(-1)=1+c</m> is greater than the distance from
+  <m>-1</m> to <m>x</m>, namely <m>x-(-1)=1+x</m>, so that <m>\frac{1}{1+c}\lt\frac{1}{1+x}</m>.
+</li>
+</ul>
+So, for <m>-1\lt x\lt c\lt 0</m>,
+<md>
+<mrow>
+|E_n(0,x)|=\left|\frac{x-c}{1+c}\right|^n\frac{|x|}{1+c}
+          \lt \frac{|x|^{n+1}}{1+c}
+          \lt \frac{|x|^{n+1}}{1+x}
+</mrow>
+</md>
+goes to zero as <m>n\rightarrow\infty</m>.
+</p>
+</example>
+</subsubsection>
+
+
 <subsection>
 <title>Computing with Taylor Series</title>
 
@@ -478,8 +1077,7 @@ Taylor series have a great many applications. (Hence their place in this  course
 
 <example xml:id="eg_pi"><title>Computing the number <m>\pi</m></title>
 <p>
-There are numerous methods for computing <m>\pi</m> to any desired degree of accuracy
-	<fn>
+There are numerous methods for computing <m>\pi</m> to any desired degree of accuracy<fn>
 		The computation of <m>\pi</m> has a very, very long  history and your favourite search engine will turn  up many sites that explore the topic. For a more comprehensive  history one can turn to books such as <q>A history of  Pi</q> by Petr Beckmann and <q>The joy of <m>\pi</m></q> by David Blatner.
 	</fn>.
 Many  of them use the Maclaurin expansion
@@ -558,8 +1156,7 @@ We can then apply Theorem<nbsp/><xref ref="thm_SRpsops"/> to integrate term-by-t
   &amp;=\frac{2}{\sqrt{\pi}}\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{(2n+1)n!}
 </mrow>
 </md>
-For example, for the bell curve, the probability of being within one  standard deviation of the mean
-	<fn>
+For example, for the bell curve, the probability of being within one  standard deviation of the mean<fn>
 		If you don't know what this means (forgive the pun) don't worry, because it is not part of the course.  Standard deviation a way of quantifying variation within a population.
 	</fn>,
 is
@@ -646,8 +1243,7 @@ Let <m>f(x) = \sin(2x^3)</m>. Find <m>f^{(15)}(0)</m>, the fifteenth derivative 
 </p>
 
 <p><alert>Solution:</alert>
-This is a bit of a trick question. We could of course use the product and chain rules to directly apply fifteen derivatives and then set <m>x=0</m>, but that would be extremely tedious
-	<fn>
+This is a bit of a trick question. We could of course use the product and chain rules to directly apply fifteen derivatives and then set <m>x=0</m>, but that would be extremely tedious<fn>
 		We could get a computer algebra system to do it for  us without much difficulty <mdash/> but we wouldn't learn much in the process. The point of this example is to illustrate  that one can do more than just represent a function with Taylor series. More on this in the next section.
 	</fn>.
 There is a much more efficient approach that exploits two pieces of knowledge that we have.
@@ -700,8 +1296,7 @@ for some (unknown) <m>c</m> between <m>0</m> and <m>x</m>. This can be used to a
 <me>
 e=1+1+\tfrac{1}{2!}+\cdots+\tfrac{1}{n!}+\tfrac{1}{(n+1)!}e^c
 </me>
-for some <m>c</m> between <m>0</m> and <m>1</m>. Even though we don't know <m>c</m> exactly, we can bound that term quite readily. We do  know that <m>e^c</m> in an increasing function
-	<fn>Check the derivative!</fn>
+for some <m>c</m> between <m>0</m> and <m>1</m>. Even though we don't know <m>c</m> exactly, we can bound that term quite readily. We do  know that <m>e^c</m> in an increasing function<fn>Check the derivative!</fn>
 of <m>c</m>, and so <m>1=e^0 \leq e^c \leq e^1=e</m>.  Thus we know that
 <md>
 <mrow>
@@ -722,8 +1317,7 @@ But all is not lost. Let's look a little more closely at the right-hand inequali
   e &amp; \leq 4.
 </mrow>
 </md>
-Now this is a pretty crude bound
-	<fn>
+Now this is a pretty crude bound<fn>
 		The authors hope that by now we all <q>know</q> that <m>e</m> is between 2 and 3,  but maybe we don't know how to prove it.
 	</fn>
 but it isn't hard to improve. Try this again with <m>n=1</m>:
@@ -762,7 +1356,7 @@ Since <m>10! = 3628800</m>, the upper bound on the error is <m>\frac{3}{3628800}
   &amp;+\hskip10pt\tfrac{1}{4!}\hskip10pt &amp;
   &amp;+\hskip10pt\tfrac{1}{5!}\hskip10pt &amp;
   &amp;+\hskip15pt\tfrac{1}{6!}\hskip15pt &amp;
-  &amp;+\hskip15pt\tfrac{1}{7!}\hskip15pt
+  &amp;+\hskip15pt\tfrac{1}{7!}\hskip15pt 
   \\
   &amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;+\hskip15pt\tfrac{1}{8!}\hskip15pt &amp;
   &amp;+\hskip15pt\tfrac{1}{9!}
@@ -831,8 +1425,7 @@ Now the coefficients of <m>x^0</m> and <m>x^1</m> agree, but the coefficient of 
   q &amp;= \sqrt{-1}
 </mrow>
 </md>
-We know that no such <em>real</em> number <m>q</m> exists. But for the moment  let us see what happens if we just assume
-	<fn>
+We know that no such <em>real</em> number <m>q</m> exists. But for the moment  let us see what happens if we just assume<fn>
 		We do not wish to give a primer on imaginary and complex numbers here. The interested reader can start by looking at Appendix<nbsp/><xref ref="ap_complex"/>.
 	</fn>
 that  we can find <m>q</m> so that <m>q^2=-1</m>. Then we will have that
@@ -861,8 +1454,7 @@ If we now write this with the more usual notation <m>q=\sqrt{-1}=i</m> we  arriv
 </fact>
 
 <p>
-Euler's proof of this formula (in 1740) was based on Maclaurin expansions (much like our explanation above). Euler's  formula
-	<fn>
+Euler's proof of this formula (in 1740) was based on Maclaurin expansions (much like our explanation above). Euler's  formula<fn>
 		It is worth mentioning here that history of this topic is perhaps a little rough on Roger Cotes (1682<ndash/>1716) who was one of the strongest mathematicians of his time and a collaborator of Newton. Cotes published a paper on logarithms in 1714 in which he states
 		<m>
 		ix = \log( \cos x + i \sin x).
@@ -942,9 +1534,8 @@ The first thing to notice about this limit is that, as <m>x</m> tends to zero, b
 <me>
 \sin x = x-\frac{1}{3!}x^3+\frac{1}{5!}x^5 - \cdots
 </me>
-Consequently
-	<fn>
-		We are hiding some mathematics behind this <q>consequently</q>. What we are really using is our knowledge of Taylor polynomials to write
+Consequently<fn>
+		We are hiding some mathematics behind this <q>consequently</q>. What we are really using  our knowledge of Taylor polynomials to write
 		<m>
 		f(x) = \sin(x) = x-\frac{1}{3!}x^3+\frac{1}{5!}x^5 + E_5(x)
 		</m>
@@ -976,12 +1567,10 @@ We won't justify that statement here, but it will be justified in the following 
 </example>
 
 <p>
-The limit in the previous example can also be evaluated relatively easily using l'Hôpital's rule
-	<fn>
+The limit in the previous example can also be evaluated relatively easily using l'Hôpital's rule<fn>
 		Many of you  learned about l'Hôptial's rule in school and all of you should have seen it last term in your differential calculus  course.
 	</fn>.
-While the following limit can also, in principal, be evaluated using l'Hôpital's rule, it is much more  efficient to use Taylor series
-	<fn>
+While the following limit can also, in principal, be evaluated using l'Hôpital's rule, it is much more  efficient to use Taylor series<fn>
 		It takes 3 applications of l'Hôpital's rule and some careful cleaning up of  the intermediate expressions. Oof!
 	</fn>.
 </p>
@@ -1052,8 +1641,7 @@ so we may now legitimately evaluate the limit of the ratio by simply dividing th
 <title>Optional <mdash/> The Big O Notation</title>
 
 <p>
-In Example <xref ref="eg_TaylorlimitA"/> we used, without justification
-	<fn>
+In Example <xref ref="eg_TaylorlimitA"/> we used, without justification<fn>
 		Though there were a few comments in a footnote.
 	</fn>,
 that, as <m>x</m> tends to zero, not only does every term in
@@ -1082,9 +1670,8 @@ is the error introduced when we approximate <m>f(x)</m> by the polynomial <m>T_n
 </p>
 
 <p>
-In the present context
-	<fn>
-		It is worth pointing out that  our Taylor series must be expanded about the point to  which we are limiting <mdash/> i.e. a to work out a limit as  <m>x\to a</m> we need Taylor series expanded about <m>a</m> and not  some other point.</fn>
+In the present context<fn>
+		It is worth pointing out that  our Taylor series must be expanded about the point to  which we are limiting <mdash/> i.e. a. To work out a limit as  <m>x\to a</m> we need Taylor series expanded about <m>a</m> and not  some other point.</fn>
 we are interested in taking the limit as  <m>x \to a</m>.  So we are only interested in <m>x</m>-values that are  very close to <m>a</m>, and because <m>c</m> lies between <m>x</m> and <m>a</m>,  <m>c</m> is also very close to <m>a</m>. Now, as long as  <m>f^{(n+1)}(x)</m> is continuous at <m>a</m>, as <m>x \to a</m>,  <m>f^{(n+1)}(c)</m> must approach <m>f^{(n+1)}(a)</m> which is  some finite value. This, in turn,  means that there must be  constants <m>M,D \gt 0</m> such that <m>\big|f^{(n+1)}(c)\big|\le M</m>  for all <m>c</m>'s within a distance <m>D</m> of <m>a</m>. If so, there is  another constant <m>C</m> (namely <m>\tfrac{M}{(n+1)!}</m>) such that
 <me>
 \big|E_n(x)\big|\le C |x-a|^{n+1}\qquad\hbox{whenever }|x-a|\le D
@@ -1094,8 +1681,7 @@ There is some notation for this behaviour.
 
 <definition xml:id="def_bigoh"><title>Big O</title>
 <statement><p>
-Let <m>a</m> and <m>m</m> be real numbers. We say that the function  <q><m>g(x)</m> is of order <m>|x-a|^m</m> near <m>a</m></q> and we write  <m>g(x)=O\big(|x-a|^m\big)</m> if there exist constants
-	<fn>
+Let <m>a</m> and <m>m</m> be real numbers. We say that the function  <q><m>g(x)</m> is of order <m>|x-a|^m</m> near <m>a</m></q> and we write  <m>g(x)=O\big(|x-a|^m\big)</m> if there exist constants<fn>
 		To be precise, <m>C</m> and <m>D</m> do not depend on <m>x</m>, though they may, and usually do, depend on <m>m</m>.
 	</fn>
 <m>C,D \gt 0</m> such that
@@ -1238,22 +1824,20 @@ We can see a pattern for <m>f^{(n)}(x)</m> forming here <mdash/> <m>f^{(n)}(x)</
 	The denominator is <m>(1+x)^n</m>.
 </li>
 <li>
-	The numerator
-		<fn>
-			remember that <m>n! = 1\times 2\times 3\times \cdots\times n</m>, and that we use the  convention <m>0!=1</m>.
+	The numerator<fn>
+			Remember that <m>n! = 1\times 2\times 3\times \cdots\times n</m>, and that we use the  convention <m>0!=1</m>.
 		</fn>
 	is the product <m>2\times 3\times 4\times \cdots \times (n-1) = (n-1)!</m>.
 </li>
 </ul>
-Thus
-	<fn>
-		It is not too hard to make this rigorous using the principle  of mathematical induction. The interested  reader should do a little search-engine-ing. Induction is a very standard technique for proving statements of the  form <q>For every natural number <m>n</m>,<ellipsis/></q>. For example,
+Thus<fn>
+		It is not too hard to make this rigorous using the principle  of mathematical induction. The interested  reader should do a little search-engine-ing. Induction is a very standard technique for proving statements of the  form <q>For every natural number <m>n</m>,<ellipsis/></q>. For example
 		<m>
-		\text{For every natural number $n$, } \sum_{k=1}^n k = \frac{n(n+1)}{2}
-		</m>, or
+		\text{For every natural number $n$, } \sum_{k=1}^n k = \frac{n(n+1)}{2}</m>,
+or
 		<m>
-		\text{For every natural number $n$, } \ddiff{n}{}{x} \left\{ \log(1+x)\right\} = (-1)^{n-1} \frac{(n-1)!}{(1+x)^n}.
-		</m>
+		\text{For every natural number $n$, } \ddiff{n}{}{x} \left\{ \log(1+x)\right\} = (-1)^{n-1} \frac{(n-1)!}{(1+x)^n}
+		</m>.
 		It was also used by Polya (1887<ndash/>1985) to give a very convincing (but subtly (and deliberately) flawed)  proof that all horses have the same colour.
 	</fn>,
 for any natural number <m>n</m>,
@@ -1272,8 +1856,7 @@ with
 <me>
 E_n(x)=\tfrac{1}{(n+1)!}f^{(n+1)}(c)\, (x-a)^{n+1} = \tfrac{1}{n+1} \cdot \tfrac{(-1)^n}{(1+c)^{n+1}} \cdot x^{n+1}
 </me>
-If we choose, for example <m>D=\half</m>, then
-	<fn>
+If we choose, for example <m>D=\half</m>, then<fn>
 		Since <m>|c|\leq \half</m>,  <m>-\half \leq c \leq \half</m>. If we now add 1 to every term we get <m>\half \leq 1+c \leq \frac{3}{2}</m> and so <m>|1+c| \geq  \half</m>. You can also do this with the triangle inequality which tells us that for any <m>x,y</m> we know that <m>|x+y| \leq  |x|+|y|</m>. Actually, you want the reverse triangle inequality (which is a simple corollary of the triangle inequality)  which says that for any <m>x,y</m> we have <m>|x+y| \geq \big||x|-|y| \big|</m>.
 	</fn>
 for any <m>x</m> obeying <m>|x|\le D=\half</m>, we have  <m>|c|\le\half </m> and <m>|1+c|\ge\half</m> so that
@@ -1420,8 +2003,7 @@ Here we have used that if <m>F(x)=O(|x|^2)</m> then <m>\frac{a}{x} F(x) = O(x)</
 
 <example xml:id="bigohlimitB"><title>A difficult limit</title>
 <p>
-In this example, we'll evaluate
-	<fn>
+In this example, we'll evaluate<fn>
 		Use of l'Hôpital's rule here could be characterised as a <q>courageous  decision</q>. The interested reader should search-engine their way to Sir Humphrey Appleby and <q>Yes Minister</q> to better  understand this reference (and the workings of government in the Westminster system). Discretion being the better  part of valour, we'll stop and think a little before limiting (ha) our choices.
 	</fn>
 the harder limit
@@ -1539,8 +2121,7 @@ We also saw, in equation<nbsp/><xref ref="eq_bigohlog"/> with <m>n=1</m>, that
 <me>
 \log(1+X) = X +O(X^2)
 </me>
-Substituting
-	<fn>
+Substituting<fn>
 		In our derivation of <m>\log(1+X) = X +O(X^2)</m> in Example <xref ref="eg_bigohlog"/>, we required only that <m>|X|\le\frac{1}{2}</m>. So we are free to substitute <m>X= -\frac{1}{3!}x^2+O(x^4)</m> for any <m>x</m> that is small enough that <m>\big|-\frac{1}{3!}x^2+O(x^4)\big| \lt \frac{1}{2}</m>.
 	</fn>
 <m>X= -\frac{1}{3!}x^2+O(x^4)</m>, and using that <m>X^2=O(x^4)</m> (by Remark <xref ref="rem_bigohppties"/>(b,c)), we have that the numerator

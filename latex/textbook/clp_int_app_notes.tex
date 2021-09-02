@@ -707,38 +707,177 @@ we would expend the same power.
 \end{eg}
 
 \subsection*{Optional --- Return to the Mean Value Theorem}
-One last application of Definition~\ref{def:AVaverage}. The following theorem can be
-thought of as an analogue of the mean-value theorem (which was covered in your
-differential calculus class) but for integrals. The theorem says that a
-continuous function has to take its average value exactly somewhere. For example, if you
+Here is another application of the Definition~\ref{def:AVaverage} of the average value of a function on an interval. The following theorem can be
+thought of as an analogue of the mean value theorem (which was covered in your
+differential calculus class) but for integrals. The theorem says that a continuous function 
+$f(x)$ must be exactly equal to its average value for some $x$. For example, if you
 went for a drive along the $x$--axis and you were at $x(a)$ at time $a$ and at $x(b)$ at
 time $b$, then your velocity $x'(t)$ had to be exactly your average velocity
 $\frac{x(b)-x(a)}{b-a}$ at some time $t$ between $a$ and $b$. In particular,
 if your average velocity was greater than the speed limit, you were definitely
-speeding at some point during the trip. This is, of course, no great surprise.
+speeding at some point during the trip. This is, of course, no great 
+surprise\footnote{There are many unsurprising things that are true, but there are also many
+unsurprising things that surprisingly turn out to be false. Mathematicians like to
+prove things - surprising or not.}.
 
 \begin{theorem}[Mean Value Theorem for Integrals]\label{thm:AVmvt}
 Let $f(x)$ be a continuous function on the interval $a\le x\le b$.
-Then there is some $c$ obeying $a\le c \le b$ such that
+Then there is some $c$ obeying $a < c < b$ such that
 \begin{align*}
-\frac{1}{b-a}\int_a^b f(x)\dee{x}=f(c) \qquad\text{or}\qquad
+\frac{1}{b-a}\int_a^b f(x)\,\dee{x}=f(c) \qquad\text{or}\qquad
 \int_a^b f(x)\dee{x} = f(c)\,(b-a)
 \end{align*}
 \end{theorem}
-Here is why the theorem is true. Let $M$ and $m$ be the largest and
-smallest values, respectively, that $f(x)$ takes for $x$ between $a$ and $b$.
-Then $m\le f(x)\le M$ for all $a\le x\le b$, so that\footnote{The symbol
-$\iff$ is read ``if and only if''. This is used in mathematics to
-express the logical equivalence of two statements. To be more precise,
-the statement $P \iff Q$ tells us that $P$ is true whenever $Q$ is true
-and $Q$ is true whenever $P$ is true.}
+
+\begin{proof}
+We will apply the mean value theorem (Theorem~\eref{CLP1}{thm:DIFFmvt} in the CLP-1 text) to
+the function
+\begin{equation*}
+F(x) = \int_a^x f(t)\,\dee{t}
+\end{equation*}
+By the part 1 of the fundamental theorem of calculus 
+(Theorem~\ref{thm:INTfundthmofcalc}),
+$F'(x)=f(x)$, so the mean value theorem says that there is a $a<c<b$ with
 \begin{align*}
-m(b-a)\le\int_a^b f(x)\dee{x}\le M(b-a)\qquad\iff\qquad
-m\le \frac{1}{b-a}\int_a^b f(x)\dee{x} \le M
+f(c) &= F'(c) = \frac{F(b)-F(a)}{b-a}
+=\frac{1}{b-a}\left\{\int_a^b f(t)\,\dee{t}-\int_a^a f(t)\,\dee{t}\right\}
+\\
+&=\frac{1}{b-a}\int_a^b f(x)\,\dee{x}
 \end{align*}
-As $x$ runs from $a$ to $b$  the continuous function $f(x)$ takes all values
-between $m$ and $M$ including, in particular, $\frac{1}{b-a}\int_a^b f(x)$.
-% \end{comment}
+\end{proof}
+
+In the next section, we will encounter an application in which we want to take the average value of a function $f(x)$, but in doing so we want some values 
+of $x$ to count more than other values of $x$. That is, we want to weight 
+some $x$'s more than other $x$'s. To do so, we choose a ``weight function'' 
+$w(x)\ge 0$ with $w(x)$ larger for more important $x$'s.  Then we define the weighted average of $f$ as follows.
+\begin{defn}\label{def:Wtaverage}
+Let $f(x)$ and $w(x)$ be integrable functions defined on the interval
+$a\le x\le b$ with $w(x)\ge 0$ for all $a\le x\le b$ and with $\int_a^b w(x)\, \dee{x}>0$.  The average value of $f$ on that interval, weighted by $w$, is
+\begin{align*}
+\frac{\int_a^b f(x)\,w(x)\,\dee{x}}{\int_a^b w(x)\,\dee{x}}
+\end{align*}
+We typically refer to this simply as the weighted average of $f$.
+\end{defn}\noindent
+Here are a few remarks concerning this definition.
+\begin{itemize}
+\item
+The definition has been rigged so that, if $f(x)=1$ for all $x$, then the 
+weighted average of $f$ is $1$, no matter what weight function $w(x)$ is used.
+\item
+If the weight function $w(x)=C$ for some constant $C>0$ then the weighted average
+\begin{equation*}
+\frac{\int_a^b f(x)\,w(x)\,\dee{x}}{\int_a^b w(x)\,\dee{x}}
+=\frac{\int_a^b f(x)\,C\,\dee{x}}{\int_a^b C\,\dee{x}}
+=\frac{\int_a^b f(x)\,\dee{x}}{b-a}
+\end{equation*}
+is just the usual average.
+\item
+For any function $w(x)\ge 0$ and any $a<b$, we have $\int_a^b w(x)\, \dee{x}\ge 0$.
+But for the definition of weighted average to make sense, we need to be able to divide
+by $\int_a^b w(x)\, \dee{x}$. So we need $\int_a^b w(x)\, \dee{x}\ne 0$. 
+
+\end{itemize}
+
+The next theorem says that a continuous function $f(x)$ must be equal to
+its weighted average at some point $x$.
+\begin{theorem}[Mean Value Theorem for Weighted Integrals]\label{thm:AVwtmvt}
+Let $f(x)$ and $w(x)$ be continuous functions on the interval $a\le x\le b$.
+Assume that $w(x)>0$ for all $a<x<b$. Then there is some $c$ 
+obeying $a < c < b$ such that
+\begin{align*}
+\frac{\int_a^b f(x)\,w(x)\,\dee{x}}{\int_a^b w(x)\,\dee{x}}=f(c) \qquad\text{or}\qquad
+\int_a^b f(x)\,w(x)\,\dee{x} = f(c)\int_a^b w(x)\,\dee{x}
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+We will apply the generalised mean value theorem (Theorem~\eref{CLP1}{thm:GMVT} in the CLP-1 text) to
+\begin{equation*}
+F(x) = \int_a^x f(t)\,w(t)\dee{t}\qquad
+G(x) = \int_a^x w(t)\dee{t}
+\end{equation*}
+By the part 1 of the fundamental theorem of calculus 
+(Theorem~\ref{thm:INTfundthmofcalc}),
+$F'(x)=f(x)w(x)$ and $G'(x)=w(x)$, so the generalised mean value theorem 
+says that there is a $a<c<b$ with
+\begin{align*}
+f(c) &= \frac{F'(c)}{G'(c)} = \frac{F(b)-F(a)}{G(b)-G(a)}
+=\frac{\int_a^b f(t)\,w(t)\dee{t}-\int_a^a f(t)w(t)\,\dee{t}}
+  {\int_a^b w(t)\dee{t}-\int_a^a w(t)\dee{t}}
+\\
+&=\frac{\int_a^b f(t)\,w(t)\,\dee{t}}{\int_a^b w(t)\,\dee{t}}
+\end{align*}
+\end{proof}
+
+\begin{eg}\label{eg:weightedAverage}
+In this example, we will take a number of weighted averages of the simple function 
+$f(x)=x$ over the simple interval $a=1\le x\le 2=b$. As $x$ increases from $1$ to $2$,
+the function $f(x)$ increases linearly from $1$ to $2$. So it is no shock that the 
+ordinary average of $f$ is exactly its middle value:
+\begin{equation*}
+\frac{1}{b-a}\int_a^b f(t)\,\dee{t}
+=\frac{1}{2-1}\int_1^2 t\,\dee{t}
+=\frac{3}{2}
+\end{equation*}  
+Pick any natural number $N\ge 1$ and consider the weight function $w_N(x)=x^N$. Note that
+$w_N(x)$ increases as $x$ increases. So $w_N(x)$ weights bigger $x$'s more than it weights 
+smaller $x$'s. In particular $w_N$ weights the point $x=2$ by a factor of $2^N$
+(which is greater than $1$ and grows to infinity as $N$ grows to infinity) more than it weights the point $x=1$. The weighted average of $f$ is
+\begin{align*}
+\frac{\int_a^b f(t)\,w_N(t)\,\dee{t}}{\int_a^b w_N(t)\,\dee{t}}
+&=\frac{\int_1^2 t^{N+1}\,\dee{t}}{\int_1^2 t^N\,\dee{t}}
+=\frac{\frac{2^{N+2}-1}{N+2}}{\frac{2^{N+1}-1}{N+1}}
+=\frac{N+1}{N+2}\ \frac{2^{N+2}-1}{2^{N+1}-1} \\
+&=\begin{cases}
+   \frac{2\times 7}{3\times 3}  = 1.555  &\text{if }N=1 \\[0.05in]
+   \frac{3\times 15}{4\times 7} = 1.607  &\text{if }N=2 \\[0.05in]
+   \frac{4\times 31}{5\times 15}= 1.653  &\text{if }N=3 \\[0.05in]
+   \frac{5\times 63}{6\times 31}= 1.694  &\text{if }N=4 
+%   \\ 1.802  &\text{if }N=8  
+   \\ 1.889  &\text{if }N=16  
+%   \\ 1.941  &\text{if }N=32  
+%   \\ 1.970  &\text{if }N=64  
+%   \\ 1.985  &\text{if }N=128  
+   \\ 1.992  &\text{if }N=256  
+   \end{cases}
+\end{align*}
+As we would expect, the $w_N$-weighted average is between $1.5$ (which is the ordinary, unweighted, average) and $2$ (which is the biggest value of $f$ in the interval) and 
+grows as $N$ grows. The limit as $N\rightarrow\infty$ of the $w_N$-weighted average is
+\begin{align*}
+\lim_{N\rightarrow\infty}\frac{N+1}{N+2}\ \frac{2^{N+2}-1}{2^{N+1}-1} 
+&=\lim_{N\rightarrow\infty}\frac{N+2-1}{N+2}\ \frac{2^{N+2}-2+1}{2^{N+1}-1} \\
+&=\lim_{N\rightarrow\infty}\left[1-\frac{1}{N+2}\right]\ 
+                           \left[2+\frac{1}{2^{N+1}-1}\right] \\
+&=2
+\end{align*} 
+
+\end{eg}
+
+\begin{eg}\label{eg:needPositive}
+Here is an example which shows what can go wrong with Theorem~\ref{thm:AVwtmvt}
+if we allow the weight function $w(x)$ to change sign. Let $a=-0.99$ and
+$b=1$. Let
+\begin{align*}
+w(x)&=\begin{cases}1&\text{if $x\ge 0$}\\
+                  -1&\text{if $x<0$} \end{cases} 
+\\
+f(x)&=\begin{cases}x&\text{if $x\ge 0$}\\
+                  0&\text{if $x<0$} \end{cases} 
+\end{align*} 
+Then
+\begin{align*}
+\int_a^b f(x)\,w(x)\,\dee{x} &= \int_0^1 x\,\dee{x} =\frac{1}{2} 
+\\ 
+\int_a^b w(x)\,\dee{x} &= \int_0^1 \dee{x} -\int_{-0.99}^0\dee{x}
+                        = 1 - 0.99
+                        = 0.01
+\end{align*}
+As $c$ runs from $a$ to $b$, $f(c)\int_a^b w(x)\,\dee{x}=0.01 f(c)$ runs from 
+$0$ to $0.01$ and, in particular, never takes a value anywhere near 
+$\int_a^b f(x)\,w(x)\,\dee{x}=\frac{1}{2}$. There is no $c$ value which works.
+\end{eg}
+
+
 
 \section{Centre of Mass and Torque}\label{sec com}
 \subsection{Centre of Mass}
@@ -2383,29 +2522,6 @@ of the environment,  so that
   P'(t) =b_0\left(1-\frac{P(t)}{K}\right)P(t)
 \end{align*}
 
-\intremark{
-There are a number of commonly used variations of this model. In one, the
-carrying capacity varies with time, perhaps due to seasonal effects. Then
-\[
-  P'(t) =b_0\left(1-\tfrac{P(t)}{K(t)}\right)P(t)
-\]
-with $K(t)$ being something like $2-\cos t$. In another, population is lost
-due to predation so that
-\[
-  P'(t) =b_0\left(1-\tfrac{P(t)}{K}\right)P(t)-\cP\big(P(t)\big)
-\]
-If the size of the predator population is roughly constant, say because
-the $P$ population is only a small part of its diet, then for $P$ small
-the rate at which $P$'s are lost to predation is proportional to the rate
-at which $P$'s encounter predators, which in turn is proportional to $P(t)$.
-When $P$ is large the rate at which $P$'s are lost to predation becomes
-a constant because the predators don't want to eat any more $P$'s. A
-predation function which has this behaviour is
-\[
-  \cP(P)=\tfrac{\alpha P}{1+\gamma P}
-\]
-}
-
 This is a separable differential equation and we can solve it explicitly.
 We shall do so shortly. See Example \ref{eg:SDElogisticA}, below.
 But, before doing that, we'll see what we can learn about the behaviour
@@ -3028,29 +3144,6 @@ $K\big(\nicefrac{h}{2}\big)^k$ to the ``new improved''
 approximation (\ref{eq:RichardApprox}\textrm{b}).
 \end{eg}
 
-\intremark{
-\begin{eg}\label{eg:RichardA}
-Applying the trapezoidal rule to $\int_0^\pi \sin x\ \dee{x}$ with step sizes
-$\tfrac{\pi}{8}$ and $\tfrac{\pi}{16}$ gives, with $h=\tfrac{\pi}{8}$,
-\begin{equation*}
-A(h)=1.9742316\qquad
-A\big(\tfrac{h}{2}\big)=1.9935703
-\end{equation*}
-So (\ref{eq:RichardApprox}\textrm{b}) gives us the ``new improved''
-approximation
-\begin{equation*}
-\frac{2^2\times 1.99357034 -1.97423160}{2^2-1}=2.0000166
-\end{equation*}
-and (\ref{eq:RichardApprox}\textrm{a}) tells us that
-\begin{equation*}
-K=\frac{1.99357034 -1.97423160}{[1-2^{-2}](\nicefrac{\pi}{8})^2}
- = \frac{0.258}{(\nicefrac{\pi}{8})^2}
-\end{equation*}
-so that, approximately, the error in $A(h)$ is $K(\nicefrac{\pi}{8})^2=0.2578$
-and the error in $A\big(\nicefrac{h}{2}\big)$ is
-$K(\nicefrac{\pi}{16})^2=\nicefrac{0.2578}{4}=0.0064$.
-\end{eg}
-}
 \begin{eg}[Example \ref{eg:SimpsonErr} revisited]\label{eg:SimpsonErrB}
 Suppose again that  we wish to use Simpson's rule to evaluate
 $\int_0^1 e^{-x^2}\,\dee{x}$ to within an accuracy of $10^{-6}$, but that we
@@ -3094,68 +3187,12 @@ in $A\big(\tfrac{1}{10}\big)$ is indeed just under $10^{-6}$.
 \end{eg}
 
 
-\intremark{
-\begin{eg}\label{eg:TrapErr}
-Suppose that  we are tasked with finding $\pi=\int_0^1\frac{4}{1+x^2}\dee{x}$,
-approximately, with some prescribed accuracy. Let's say with an error
-about $10^{-5}$.A commonly used strategy is to
-\begin{itemize}
-\item first apply the trapezoidal rule twice with some relatively
-small number of steps and
-\item then use (\ref{eq:RichardApprox}a), with $k=2$, to determine $K$ and
-\item then use the condition $|K| h^k\le 10^{-5}$ to determine, approximately,
-the number of steps required
-\item and finally apply the trapezoidal rule with the number of steps
-just determined.
-\end{itemize}
-Let's implement this strategy. First we apply the trapezoidal rule with
-step sizes $\tfrac{1}{4}$ and $\tfrac{1}{8}$. Writing $\tfrac{1}{4}=h'$,
-we get
-\begin{equation*}
-A(h')=3.1311   % 3.131176470588235
-               % single precision is about 6 to 9 decimal digits
-               % double precision is about 16 decimal digits
-               %                 under the  IEEE 754 standard
-               % perl defaults to double precision
-\qquad
-A(h'/2)=3.1390 % 3.138988494491089
-\end{equation*}
-so that (\ref{eq:RichardApprox}\textrm{a}) with $k=2$ and $h$
-replaced by $h'$ gives
-\begin{equation*}
-K=\frac{3.1390 - 3.1311}{[1-2^{-2}](1/4)^2}
-%=\frac{0.0105}{(1/4)^2}
-=0.1685
-\end{equation*}
-We want to use a step size $h$ obeying
-\[
-|K|h^2\le 10^{-5}
-\iff 0.1685 h^2\le 10^{-5}
-\iff h \le\sqrt{\frac{1}{0.1685\times 10^5}} =\frac{1}{129.8}
-\]
-like, for example, $h=\tfrac{1}{130}$. Applying trapezoidal rule with
-$h=\tfrac{1}{130}$ gives
-\begin{equation*}
-A\big(\tfrac{1}{130}\big) = 3.1415828
-\end{equation*}
-The exact answer, to seven decimal places, is $3.1415927$ so the error
-in $A\big(\tfrac{1}{130}\big)$ is indeed barely under $10^{-5}$.
-\end{eg}
-
-}
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Romberg Integration\footnote{Romberg Integration
 was introduced by the German Werner Romberg (1909--2003) in
 1955.}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\intremark{
-Romberg's Method underlies the numerical integration abilities of the
-HP34C (1979-1983), HP15C (1982-1989), HP33s (2003-2007), HP35s (2007-present)
-and the INTEG routine of the HP41C (1979-1990) Advantage Pac.
-}
+
 The formulae (\ref{eq:RichardApprox}\textrm{a,b}) for $K$ and $A$ are,
 of course, only approximate since
 they are based on \eqref{eq:ErrorOrderSimple}, which is an approximation

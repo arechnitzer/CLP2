@@ -2251,10 +2251,11 @@ Now we apply parts (a) and (b) of Theorem \ref{thm:Intarith}, and then
 \end{eg}
 
 \subsection{More Properties of Integration: Even and Odd Functions}
+\label{sec:evenodd}
 Recall\footnote{We haven't done this in this course, but you should have seen
 it in your differential calculus course or perhaps even earlier.} the following
 definition
-\begin{defn}
+\begin{defn}\label{def:INTevenodd}
   Let $f(x)$ be a function. Then,
  \begin{itemize}
   \item we say that $f(x)$ is even when $f(x)=f(-x)$ for all $x$, and
@@ -9798,12 +9799,12 @@ evaluations of $f$ required to compute the approximation.
           n & error & \#  evals & error & \#  evals
                 & error & \# evals \\
           \hline
-          10 & $4.1\times 10^{-1}$ & 10 & $8.2\times 10^{-1}$ & 11 &
-                  $5.5\times 10^{-3}$ & 11 \\
-          100 & $4.1\times 10^{-3}$ & 100 & $8.2\times 10^{-3}$ & 101 &
-                  $5.4\times 10^{-7}$ & 101 \\
-          1000 & $4.1\times 10^{-5}$ & 1000 & $8.2\times 10^{-5}$ & 1001 &
-                  $5.5\times 10^{-11}$ & 1001 \\
+          10 & $8.2\times 10^{-3}$ & 10 & $1.6\times 10^{-2}$ & 11 &
+                  $1.1\times 10^{-4}$ & 11 \\
+          100 & $8.2\times 10^{-5}$ & 100 & $1.6\times 10^{-4}$ & 101 &
+                  $1.1\times 10^{-8}$ & 101 \\
+          1000 & $8.2\times 10^{-7}$ & 1000 & $1.6\times 10^{-6}$ & 1001 &
+                  $1.1\times 10^{-12}$ & 1001 \\
           \hline
      \end{tabular}
 \end{center}
@@ -9814,7 +9815,7 @@ evaluations of $f$ required to compute the approximation.
 \begin{itemize}
 \item
    Using 101 evaluations of $f$ worth of Simpson's rule gives
-   an error 80 times smaller than 1000 evaluations of $f$ worth
+   an error 75 times smaller than 1000 evaluations of $f$ worth
    of the midpoint rule.
 \item
    The trapezoidal rule error with $n$ steps is about twice
