@@ -418,7 +418,8 @@ Since there is no remainder,
     <mrow>
     &amp;2x^4+12x^3-x^2-52x+15
     </mrow><mrow>
-    &amp;= (x+3)(x+5)\left(x-(2+\sqrt2)\right)\left(x-(2-\sqrt2)\right)
+    &amp;= (x+3)(x+5)\left(x-\Big(1+\frac{\sqrt2}{2}\Big)\right)
+                     \left(x-\Big(1-\frac{\sqrt2}{2}\Big)\right)
     </mrow>
     </md>
 </p></answer>
@@ -511,15 +512,15 @@ So, <m>2x^4+12x^3-x^2-52x+15= (x+3)(x+5)(2x^2-4x+1)</m>.
 </p>
 
 <p> We should check whether <m>2x^2-4x+1</m> is reducible or not. There's not an obvious way to factor it, but we can  use the quadratic equation. This gives us roots
- <m>\dfrac{4\pm\sqrt{16-8}}{2}=2\pm\sqrt2</m>. So, we have two more linear factors.
+ <m>\dfrac{4\pm\sqrt{16-8}}{4}=1\pm\frac{\sqrt2}{2}</m>. So, we have two more linear factors.
 </p>
 
 <p>Specifically:  
 <md>
 <mrow>
-2x^4+12x^3-x^2-52x+15&amp;= (x+3)(x+5)\left(x-(2+\sqrt2)\right)
+2x^4+12x^3-x^2-52x+15&amp;= (x+3)(x+5)\left(x-\Big(1+\frac{\sqrt2}{2}\Big)\right)      
 </mrow><mrow>
-&amp;\hskip1.6in\left(x-(2-\sqrt2)\right)
+&amp;\hskip1.6in\left(x-\Big(1-\frac{\sqrt2}{2}\Big)\right)
 </mrow>
 </md>
 </p>
