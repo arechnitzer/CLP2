@@ -394,16 +394,37 @@ Evaluate $\displaystyle\int \tan^3x\sec^2x~\dee{x}$.
 Compare to Question~\ref{1.8_oddtanonesec}.
 \end{hint}
 \begin{answer}
-$\dfrac{1}{4}\sec^4 x - \dfrac{1}{2}\sec^2 x +C$
+$\dfrac{1}{4}\sec^4 x - \dfrac{1}{2}\sec^2 x +C$ or
+$\dfrac{1}{4}\tan^4 x +C$
 \end{answer}
 \begin{solution}
-As in Question~\ref{1.8_oddtanonesec}, we have an odd power of tangent and at least one secant. So, we can use the substitution $u=\sec x$, $\dee{u}=\sec x \tan x~\dee{x}$, and $\tan^2 x = \sec^2 x -1=u^2-1$.
+We'll give two solutions.
+\begin{description}
+\item[Solution 1:]
+As in Question~\ref{1.8_oddtanonesec}, we have an odd power of tangent and at least one secant. So, as in strategy (2) of Section~\eref{CLP101}{sec:tansec} in the CLP-2 text, we can use the substitution $u=\sec x$, $\dee{u}=\sec x \tan x~\dee{x}$, and $\tan^2 x = \sec^2 x -1=u^2-1$.
 \begin{align*}
 \int \tan^3x\sec^2x~\dee{x}&=\int \tan^2 x \sec x \cdot \sec x \tan x~\dee{x}\\
 &=\int(u^2-1)u~\dee{u} = \int \left(u^3-u\right)~\dee{u}\\
 &=\frac{1}{4}u^4 - \frac{1}{2}u^2+C\\
 &=\frac{1}{4}\sec^4 x - \frac{1}{2}\sec^2 x +C
 \end{align*}
+
+\item[Solution 2:]
+We have an even, strictly positve, power of $\sec x$. So, as in strategy (3) of Section~\eref{CLP101}{sec:tansec} in the CLP-2 text, we can use the substitution $u=\tan x$, $\dee{u}=\sec^2 x~\dee{x}$.
+\begin{align*}
+\int \tan^3x\sec^2x~\dee{x}&=\int \tan^3 x \cdot \sec^2 x ~\dee{x}\\
+&=\int u^3~\dee{u} \\
+&=\frac{1}{4}u^4 + C\\
+&=\frac{1}{4}\tan^4x +C
+\end{align*}
+\end{description}
+It looks like we have two different answers. But, because $\tan^2x = \sec^2 x-1$,
+ \begin{equation*}
+ \frac{1}{4}\tan^4 = \frac{1}{4} {(\sec^2x -1)}^2
+                   = \frac{1}{4} \sec^4 x - \frac{1}{2}\sec^2 x + \frac{1}{4}
+ \end{equation*}
+ and the two answers are really the same, except that the arbitrary constant $C$ of Solution~1 is 
+ $\frac{1}{4}$ plus the arbitrary constant $C$ of Solution~2.  
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 
