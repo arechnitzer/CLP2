@@ -1516,29 +1516,39 @@ plot[domain=1:-1, samples=100]({-4*sqrt(1-\x*\x/4)},\x)--cycle;
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside></statement>
 <hint><p>
-Make use of symmetry, and integrate with respect to <m>y</m> (rather than <m>x</m>). The limits of integration should be reference angles.
+Make use of symmetry, and integrate with respect to <m>y</m> (rather than <m>x</m>). 
 </p></hint>
 <answer><p>
 <m>\dfrac{8\pi}{3}+4\sqrt{3}</m>
 </p></answer>
 <solution><p>
 The half of the ellipse to the right of the <m>y</m>-axis is given by the equation
+<me>
+x=f(y)=4\sqrt{1-\left(\frac{y}{2}\right)^2}
+</me>
+The area we want is twice the area between the right-hand side of the curve and the <m>y</m>-axis, from <m>y=-1</m> to <m>y=1</m>. In other words,
+<me>
+\mbox{Area}=2\int_{-1}^1 4\sqrt{1-\left(\frac{y}{2}\right)^2}\dee{y}
+           =8\int_{-1}^1 \sqrt{1-\left(\frac{y}{2}\right)^2}\dee{y}
+</me>
+Since the integrand <m>\sqrt{1-\left(\frac{y}{2}\right)^2}</m> is an even function of <m>y</m>,
+<me>
+\int_{-1}^1 \sqrt{1-\left(\frac{y}{2}\right)^2}~\dee{y}
+=2\int_0^1 \sqrt{1-\left(\frac{y}{2}\right)^2}~\dee{y}
+</me>
+So
+<me>
+\mbox{Area}=16\int_{0}^1 \sqrt{1-\left(\frac{y}{2}\right)^2}~\dee{y}
+</me>
+We use the substitution <m>\frac{y}{2} = \sin \theta</m>, 
+<m>\frac{1}{2}\dee{y}=\cos\theta\dee{\theta}</m>. When <m>y=0</m>, <m>\sin\theta=0</m> so that <m>\theta=0</m>, and when <m>y=1</m>, <m>\sin\theta=\frac{1}{2}</m> so that 
+<m>\theta= \frac{\pi}{6}</m>. Hence
 <md>
 <mrow>
-x=f(y)&amp;=4\sqrt{1-\left(\frac{y}{2}\right)^2}
-</mrow>
-<intertext>The area we want is twice the area between the right-hand side of the curve and the <m>y</m>-axis, from <m>y=-1</m> to <m>y=1</m>. In other words,</intertext><mrow>
-\mbox{Area}&amp;=2\int_{-1}^1 4\sqrt{1-\left(\frac{y}{2}\right)^2}\dee{y}
-</mrow>
-<intertext>Making use of symmetry,</intertext><mrow>
-&amp;=16\int_{0}^1 \sqrt{1-\left(\frac{y}{2}\right)^2}\dee{y}
-</mrow>
-<intertext>We use the substitution <m>\frac{y}{2} = \sin \theta</m>, <m>\frac{1}{2}\dee{y}=\cos\theta\dee{\theta}</m>. Notice <m>\sin \frac{\pi}{6} = \frac{1}{2}</m> and <m>\sin 0 =0</m>.
-</intertext><mrow>
-&amp;=16\int_{0}^{\pi/6} \sqrt{1-\left(\sin\theta\right)^2} \cdot 2\cos\theta\dee{\theta}
-</mrow><mrow>&amp;=32\int_{0}^{\pi/6} \sqrt{\cos^2\theta} \cos\theta\dee{\theta}
-</mrow><mrow>&amp;=32\int_{0}^{\pi/6}\cos^2\theta\dee{\theta}
-</mrow><mrow>&amp;=16\int_{0}^{\pi/6}\left(1+\cos(2\theta)\right)\dee{\theta}
+\mbox{Area}&amp;=16\int_{0}^{\pi/6} \sqrt{1-\left(\sin\theta\right)^2} \cdot 2\cos\theta\ \dee{\theta}
+</mrow><mrow>&amp;=32\int_{0}^{\pi/6} \sqrt{\cos^2\theta} \cos\theta\ \dee{\theta}
+</mrow><mrow>&amp;=32\int_{0}^{\pi/6}\cos^2\theta\ \dee{\theta}
+</mrow><mrow>&amp;=16\int_{0}^{\pi/6}\big(1+\cos(2\theta)\big)\ \dee{\theta}
 </mrow><mrow>&amp;=16\left[\theta +\frac{1}{2}\sin(2\theta)\right]_{0}^{\pi/6}\\
 &amp;=16\left(\frac{\pi}{6}+\frac{1}{2}\cdot \frac{\sqrt{3}}{2}
 \right)

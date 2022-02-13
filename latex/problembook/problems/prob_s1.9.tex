@@ -1100,7 +1100,7 @@ plot[domain=1:-1, samples=100]({-4*sqrt(1-\x*\x/4)},\x)--cycle;
 \end{center}
 \end{Mquestion}
 \begin{hint}
-Make use of symmetry, and integrate with respect to $y$ (rather than $x$). The limits of integration should be reference angles.
+Make use of symmetry, and integrate with respect to $y$ (rather than $x$). 
 \end{hint}
 \begin{answer}
 $\dfrac{8\pi}{3}+4\sqrt{3}$
@@ -1111,13 +1111,21 @@ The half of the ellipse to the right of the $y$-axis is given by the equation
 x=f(y)&=4\sqrt{1-\left(\frac{y}{2}\right)^2}
 \intertext{The area we want is twice the area between the right-hand side of the curve and the $y$-axis, from $y=-1$ to $y=1$. In other words,}
 \mbox{Area}&=2\int_{-1}^1 4\sqrt{1-\left(\frac{y}{2}\right)^2}~\dee{y}
-\intertext{Making use of symmetry,}
-&=16\int_{0}^1 \sqrt{1-\left(\frac{y}{2}\right)^2}~\dee{y}
-\intertext{We use the substitution $\frac{y}{2} = \sin \theta$, $\frac{1}{2}\dee{y}=\cos\theta~\dee{\theta}$. Notice $\sin \frac{\pi}{6} = \frac{1}{2}$ and $\sin 0 =0$.}
-&=16\int_{0}^{\pi/6} \sqrt{1-\left(\sin\theta\right)^2}\ \ 2\cos\theta~\dee{\theta}
+            =8\int_{-1}^1 \sqrt{1-\left(\frac{y}{2}\right)^2}~\dee{y}
+\end{align*}
+Since the integrand $\sqrt{1-\left(\frac{y}{2}\right)^2}$ is an even function of $y$,
+\begin{equation*}
+\int_{-1}^1 \sqrt{1-\left(\frac{y}{2}\right)^2}~\dee{y}
+=2\int_0^1 \sqrt{1-\left(\frac{y}{2}\right)^2}~\dee{y}
+\implies \mbox{Area}=16\int_{0}^1 \sqrt{1-\left(\frac{y}{2}\right)^2}~\dee{y}
+\end{equation*}
+We use the substitution $\frac{y}{2} = \sin \theta$, $\frac{1}{2}\dee{y}=\cos\theta~\dee{\theta}$. When $y=0$, $\sin\theta=0$ so that $\theta=0$, and when $y=1$, $\sin\theta=\frac{1}{2}$ so that 
+$\theta= \frac{\pi}{6}$. Hence
+\begin{align*}
+\mbox{Area}&=16\int_{0}^{\pi/6} \sqrt{1-\left(\sin\theta\right)^2}\ \ 2\cos\theta~\dee{\theta}
 \\&=32\int_{0}^{\pi/6} \sqrt{\cos^2\theta}~\cos\theta~\dee{\theta}
 \\&=32\int_{0}^{\pi/6}\cos^2\theta~\dee{\theta}
-\\&=16\int_{0}^{\pi/6}\left(1+\cos(2\theta)\right)~\dee{\theta}
+\\&=16\int_{0}^{\pi/6}\big(1+\cos(2\theta)\big)~\dee{\theta}
 \\&=16\left[\theta +\frac{1}{2}\sin(2\theta)\right]_{0}^{\pi/6}\\
 &=16\left(\frac{\pi}{6}+\frac{1}{2}\cdot \frac{\sqrt{3}}{2}
 \right)\\
