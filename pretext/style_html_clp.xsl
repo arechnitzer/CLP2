@@ -53,6 +53,8 @@ Exercises &#8212; Stage 3
     </font>
 </xsl:template>
 
-<xsl:template match="shortrule">\(\rule{2cm}{1pt}{0pt}\)</xsl:template>
+<xsl:template match="shortrule">
+  <span class="process-math">\(\Rule{2cm}{1pt}{0pt}\)</span>
+</xsl:template>
 
 </xsl:stylesheet>
