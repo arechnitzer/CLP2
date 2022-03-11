@@ -457,10 +457,15 @@ Evaluate <m>\displaystyle\int \tan^3x\sec^2x \dee{x}</m>.
 Compare to Question<nbsp/><xref ref="p1_8_oddtanonesec" text="local"/>.
 </p></hint>
 <answer><p>
-<m>\dfrac{1}{4}\sec^4 x - \dfrac{1}{2}\sec^2 x +C</m>
+<m>\dfrac{1}{4}\sec^4 x - \dfrac{1}{2}\sec^2 x +C</m> or
+<m>\dfrac{1}{4}\tan^4 x +C</m>
 </p></answer>
 <solution><p>
-As in Question<nbsp/><xref ref="p1_8_oddtanonesec" text="local"/>, we have an odd power of tangent and at least one secant. So, we can use the substitution <m>u=\sec x</m>, <m>\dee{u}=\sec x \tan x \dee{x}</m>, and <m>\tan^2 x = \sec^2 x -1=u^2-1</m>.
+We'll give two solutions.
+<ul>
+<li>Solution 1:
+As in Question<nbsp/><xref ref="p1_8_oddtanonesec" text="local"/>, we have an odd power of tangent and at least one secant. So, as in strategy (2) of  Section<nbsp/><xref ref="sec_tansec"/>, we can use the substitution <m>u=\sec x</m>, <m>\dee{u}=\sec x \tan x \dee{x}</m>, and 
+<m>\tan^2 x = \sec^2 x -1=u^2-1</m>.
 <md>
 <mrow>
 \int \tan^3x\sec^2x \dee{x}&amp;=\int \tan^2 x \sec x \cdot \sec x \tan x \dee{x}
@@ -472,6 +477,31 @@ As in Question<nbsp/><xref ref="p1_8_oddtanonesec" text="local"/>, we have an od
 &amp;=\frac{1}{4}\sec^4 x - \frac{1}{2}\sec^2 x +C
 </mrow>
 </md>
+</li>
+<li> Solution 2:
+We have an even, strictly positve, power of <m>\sec x</m>. So, as in strategy (3) of  
+Section<nbsp/><xref ref="sec_tansec"/>, we can use the substitution <m>u=\tan x</m>, 
+<m>\dee{u}=\sec^2 x~\dee{x}</m>.
+<md>
+<mrow>
+\int \tan^3x\sec^2x~\dee{x}\amp=\int \tan^3 x \cdot \sec^2 x ~\dee{x}
+</mrow><mrow>
+\amp=\int u^3~\dee{u} 
+</mrow><mrow>
+\amp=\frac{1}{4}u^4 + C
+</mrow><mrow>
+\amp=\frac{1}{4}\tan^4x +C
+</mrow>
+</md>
+</li>
+</ul>
+It looks like we have two different answers. But, because <m>\tan^2x = \sec^2 x-1</m>,
+ <me>
+ \frac{1}{4}\tan^4 = \frac{1}{4} {(\sec^2x -1)}^2
+                   = \frac{1}{4} \sec^4 x - \frac{1}{2}\sec^2 x + \frac{1}{4}
+ </me>
+ and the two answers are really the same, except that the arbitrary constant <m>C</m> of 
+ Solution<nbsp/>1 is <m>\frac{1}{4}</m> plus the arbitrary constant <m>C</m> of Solution<nbsp/>2.  
 </p></solution>
 </exercise>
 

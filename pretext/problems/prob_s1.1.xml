@@ -773,7 +773,7 @@ Evaluate the following sums. You might want to use the formulas from Theorem<nbs
 <ol label="a">
 <li> <m>50\cdot 51=2550</m>
 </li>
-<li> <m>\left[\frac{1}{2}(95)(96)\right]^2-\left[\frac{1}{2}(4)(5)\right]^2</m>
+<li> <m>\left[\frac{1}{2}(95)(96)\right]^2-\left[\frac{1}{2}(4)(5)\right]^2=20,793,500</m>
 </li>
 <li> <m>-1</m>
 </li>
@@ -801,7 +801,7 @@ Evaluate the following sums. You might want to use the formulas from Theorem<nbs
 </mrow>
 </md>
 </li>
-<li> If we expand <m>(i-5)^3 = i^3-15i^2+75i-225</m>, we can break the sum into four parts, and evaluate each separately. However, it is much simpler to change the index and make the term <m>(i-5)^3</m> into <m>i^3</m>.
+<li> If we expand <m>(i-5)^3 = i^3-15i^2+75i-125</m>, we can break the sum into four parts, and evaluate each separately. However, it is much simpler to change the index and make the term <m>(i-5)^3</m> into <m>i^3</m>.
 <md>
 <mrow>\displaystyle\sum_{i=10}^{100} \left(i-5\right)^3&amp;=
 5^3+6^3+7^3+\cdots +95^3
@@ -814,7 +814,9 @@ Evaluate the following sums. You might want to use the formulas from Theorem<nbs
 </mrow><mrow>
 &amp;=\displaystyle\sum_{i=1}^{95} i^3 - \displaystyle\sum_{i=1}^4 i^3
 </mrow><mrow>
-&amp;=\left[\frac{1}{2}(95)(96)\right]^2-\left[\frac{1}{2}(4)(5)\right]^2\,.
+&amp;=\left[\frac{1}{2}(95)(96)\right]^2-\left[\frac{1}{2}(4)(5)\right]^2
+</mrow><mrow>
+&amp;=20,793,500\,.
 </mrow>
 </md>
 </li>
@@ -2249,7 +2251,7 @@ There is a key detail in the statement of Question<nbsp/><xref ref="p1_1cartime"
 <exercise xml:id="p1_1airtime">
 <statement><p>
 An airplane's speed at one-hour intervals is given in the table below.
-Approximate the distance travelled by the airplane from noon to 4pm three ways using a midpoint Riemann sum.
+Approximate the distance travelled by the airplane from noon to 4pm using a midpoint Riemann sum.
 </p>
 <sidebyside>
 <tabular left="minor" right="minor" top="minor" bottom="minor">
@@ -2268,7 +2270,7 @@ You need to know the speed of the plane at the midpoints of your intervals, so (
 3200 km
 </p></answer>
 <solution><p>
-First, note that the distance travelled by the plane is equal to the area under the curve of its speed.
+First, note that the distance travelled by the plane is equal to the area under the graph of its speed.
 </p>
 
 <p>We need to know the speed of the plane at the midpoints of our intervals. So (for example) noon to 1pm <em>is not</em> one of your intervals--we don't know the speed at 12:30. (A common idea is to average the two end values, 700 and 800. This is a fine approximation, but it is not a Riemann sum.) So, we use the two intervals 12:00 to 2:00, and 2:00 to 4:00. Then our intervals have length 2 hours, and at the midpoints of the intervals the speed of the plane is 700 kph and 900 kph, respectively. So, our midpoint Riemann sum gives us:

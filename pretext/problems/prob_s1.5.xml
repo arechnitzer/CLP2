@@ -436,7 +436,7 @@ If the bottom function is the <m>x</m>-axis, this is a familiar question.
 </sidebyside><p>
 The area between the curve <m>y= \frac{1}{(2x-4)^2}</m>
 and the <m>x</m>-axis, with <m>x</m> running from <m>a=0</m> to
-<m>b=1</m>, is exactly the definite integral of <m>\frac{1}{(2x+4)^2}</m> with limits <m>0</m> and <m>1</m>.
+<m>b=1</m>, is exactly the definite integral of <m>\frac{1}{(2x-4)^2}</m> with limits <m>0</m> and <m>1</m>.
 </p>
 
 <p><md>
@@ -522,7 +522,7 @@ Guess the intersection points by trying small integers.
 </p></answer>
 
 <solution><p>
-By inspection, the two curves cross at <m>(0,1)</m> and <m>(1,2)</m>.
+The following sketch contains the graphs of <m>y=2^x</m> and <m>y=\sqrt{x}+1</m>.
 </p>
 
 <sidebyside width="66%">
@@ -534,7 +534,12 @@ By inspection, the two curves cross at <m>(0,1)</m> and <m>(1,2)</m>.
 \draw (-1,1) node[left]{$y=2^x$};
 \YExcoord{2}{1}
 \end{tikzpicture}]]></latex-image></image>
-</sidebyside><p>
+</sidebyside>
+<p>
+From the sketch, it looks like the two curves cross when <m>x=0</m> and when <m>x=1</m> and nowhere<fn>To verify analytically that the curves have no other crossings, write <m>f(x)=\sqrt{x}+1-2^x</m> and compute <m>f'(x)= \frac{1}{2\sqrt{x}}-(\log 2)2^x</m>. Notice that <m>f'(x)</m> decreases as <m>x</m> increases and so can take the value <m>0</m> for at most a single value of <m>x</m>. Then, by the mean value theorem (or Rolle's theorem, which is Theorem 2.13.1 in the CLP-1 text), <m>f(x)</m> can take the value <m>0</m> for at most two distinct values of <m>x</m>.</fn> else. Indeed, when <m>x=0</m> we have <m>2^x=\sqrt{x}+1=1</m> and when <m>x=1</m> we have <m>2^x=\sqrt{x}+1=2</m>.
+</p>
+
+<p>
 To antidifferentiate <m>2^x</m>, we write <m>2^x={(e^{\log 2})}^x=e^{x\log 2}</m>.
 <md>
 <mrow>

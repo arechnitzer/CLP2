@@ -644,7 +644,7 @@ Evaluate the following sums. You might want to use the formulas from Theorem~\er
 \begin{answer}
 \begin{enumerate}[(a)]
 \item $50\cdot 51=2550$
-\item $\left[\frac{1}{2}(95)(96)\right]^2-\left[\frac{1}{2}(4)(5)\right]^2$
+\item $\left[\frac{1}{2}(95)(96)\right]^2-\left[\frac{1}{2}(4)(5)\right]^2=20,793,500$
 \item $-1$
 \item $-10$
 \end{enumerate}
@@ -660,7 +660,7 @@ Evaluate the following sums. You might want to use the formulas from Theorem~\er
 &=2\sum_{i=1}^{50} i\\
 &= 2\left(\frac{50\cdot 51}{2}\right)=50\cdot 51=2550
 \end{align*}
-\item If we expand $(i-5)^3 = i^3-15i^2+75i-225$, we can break the sum into four parts, and evaluate each separately. However, it is much simpler to change the index and make the term $(i-5)^3$ into $i^3$.
+\item If we expand $(i-5)^3 = i^3-15i^2+75i-125$, we can break the sum into four parts, and evaluate each separately. However, it is much simpler to change the index and make the term $(i-5)^3$ into $i^3$.
 \begin{align*}\displaystyle\sum_{i=10}^{100} \left(i-5\right)^3&=
 5^3+6^3+7^3+\cdots +95^3
 \intertext{We have a formula to evaluate the sum of cubes if they start at $1$, so we turn our expression into the difference of two sums starting at 1:}
@@ -668,7 +668,8 @@ Evaluate the following sums. You might want to use the formulas from Theorem~\er
 \left[1^3+2^3+3^3+4^3+5^3+6^3+7^3+\cdots +95^3\right]-
 \left[1^3+2^3+3^3+4^3\right]\\
 &=\displaystyle\sum_{i=1}^{95} i^3 - \displaystyle\sum_{i=1}^4 i^3\\
-&=\left[\frac{1}{2}(95)(96)\right]^2-\left[\frac{1}{2}(4)(5)\right]^2\,.
+&=\left[\frac{1}{2}(95)(96)\right]^2-\left[\frac{1}{2}(4)(5)\right]^2\\
+&=20,793,500\,.
 \end{align*}
 \item Notice every two terms cancel with each other, since the sum is $(-1)+(+1)$, etc.
 Then the terms $n=1$ through $n=10$ cancel, and we're left only with the final term, $(-1)^{11}=-1$.
@@ -1877,7 +1878,7 @@ We ask this question in order to point out an important detail. If we did not ha
 
 \begin{question}\label{1.1airtime}
 An airplane's speed at one-hour intervals is given in the table below.
-Approximate the distance travelled by the airplane from noon to 4pm three ways using a midpoint Riemann sum.
+Approximate the distance travelled by the airplane from noon to 4pm using a midpoint Riemann sum.
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
    \begin{tabular}{!{\vrule width 1pt}c!{\vrule width 1pt}c|c|c|c|c!{\vrule width 1pt}}
@@ -1898,7 +1899,7 @@ You need to know the speed of the plane at the midpoints of your intervals, so (
 3200 km
 \end{answer}
 \begin{solution}
-First, note that the distance travelled by the plane is equal to the area under the curve of its speed.
+First, note that the distance travelled by the plane is equal to the area under the graph of its speed.
 
 We need to know the speed of the plane at the midpoints of our intervals. So (for example) noon to 1pm \emph{is not} one of your intervals--we don't know the speed at 12:30. (A common idea is to average the two end values, 700 and 800. This is a fine approximation, but it is not a Riemann sum.) So, we use the two intervals 12:00 to 2:00, and 2:00 to 4:00. Then our intervals have length 2 hours, and at the midpoints of the intervals the speed of the plane is 700 kph and 900 kph, respectively. So, our midpoint Riemann sum gives us:
 \[700(2)+900(2) = 3200\]
