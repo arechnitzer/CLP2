@@ -1378,7 +1378,7 @@ Since <m>k</m> is positive, <m>\frac{k}{\sqrt{1+x^2}} \gt 0</m> for every <m>x</
 the <m>x</m>-coordinate of the centroid is
 <md>
 <mrow>
-\bar x &amp;=\frac{1}{A}\int_0^2 x(T(x)-B(x))\,\dee{x}= \frac{1}{A}\int_0^1x\frac{k}{\sqrt{1+x^2}}\,\dee{x}
+\bar x &amp;=\frac{1}{A}\int_0^1 x(T(x)-B(x))\,\dee{x}= \frac{1}{A}\int_0^1x\frac{k}{\sqrt{1+x^2}}\,\dee{x}
 </mrow>
 <intertext>Although we have a quadratic function underneath a square root, we find an easier method than a trig substitution: the substitution <m>u=1+x^2,\dee{u}=2x\,\dee{x}</m>. This changes the limits of integration to <m>1+0^2=1</m> and <m>1+1^2=2</m>, respectively.
 </intertext><mrow>
@@ -2567,7 +2567,7 @@ Use similar triangles to show that the shape of the lower (also upper) half of t
 about 0.833 N
 </p></answer>
 <solution><p>
-To use the result of Question<nbsp/><xref ref="prob_s2_3_cone" text="local"/>, we need to now the dimensions of the cone that was truncated to make the hourglass. The bottom (or top) half of our hourglass has base radius 5 cm,  height 9 cm, and top radius 0.5 cm. Imagine extending it to a full cone. Let <m>t</m> be the distance from the top of the half hourglass to the tip of the full cone.
+To use the result of Question<nbsp/><xref ref="prob_s2_3_cone" text="local"/>, we need to know the dimensions of the cone that was truncated to make the hourglass. The bottom (or top) half of our hourglass has base radius 5 cm,  height 9 cm, and top radius 0.5 cm. Imagine extending it to a full cone. Let <m>t</m> be the distance from the top of the half hourglass to the tip of the full cone.
 </p><sidebyside width="40%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
 \draw[ultra thick, red] (0,0)--(2.5,0) node[midway, below]{5};
