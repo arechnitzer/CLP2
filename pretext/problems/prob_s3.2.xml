@@ -1582,47 +1582,91 @@ This is a telescoping series.
 <m>-\dfrac12</m>
 </p></answer>
 <solution><p>
-This is a telescoping series. Let's investigate it in the usual way. We leave the fractions in the middle of the table unsimplified, to make the pattern of cancellation clearer, since terms with the same denominator cancel.
+This is a telescoping series. Let's investigate it in the usual way. To make the pattern of cancellation clearer, we express  <m>\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1}=
+\frac{1}{n}+\frac{1}{n}-\frac{1}{n+1}-\frac{1}{n-1}</m>,
+and leave the fractions in the middle of the table unsimplified. Then every fraction has numerator one and two terms with the same denominator and opposite sign cancel.
 </p>
 
 <p><me>
-\begin{array}{c||ccc||c}
-\mathbf{n}&amp;\mathbf{\dfrac2n}&amp;\mathbf{-\dfrac{1}{n+1}}&amp;\mathbf{-\dfrac{1}{n-1}}&amp;\mathbf{s_n}\\
+\begin{array}{c||cccc||c}
+\mathbf{n}&amp;\mathbf{\dfrac{1}{n}}&amp;\mathbf{\dfrac{1}{n}}&amp;\mathbf{-\dfrac{1}{n+1}}&amp;\mathbf{-\dfrac{1}{n-1}}&amp;\mathbf{s_n}\\
 \hline
-2&amp;\dfrac{2}{2}&amp;\textcolor{red}{-\dfrac{1}{3}}&amp;-\dfrac{1}{1}
-&amp;\textcolor{red}{-\dfrac{1}{3}}
-\\
-3&amp;\textcolor{red}{\dfrac{2}{3}}&amp;\textcolor{blue}{-\dfrac{1}{4}}
-&amp;-\dfrac{1}{2}&amp;\textcolor{red}{\dfrac13}\textcolor{blue}{-\dfrac14}-\dfrac12
-\\
-4&amp;\textcolor{blue}{\dfrac{2}{4}}&amp;\textcolor{orange}{-\dfrac{1}{5}}
-&amp;\textcolor{red}{-\dfrac{1}{3}}&amp;\textcolor{blue}{\dfrac14}\textcolor{orange}{-\dfrac15}-\dfrac12
-\\
-5&amp;\textcolor{orange}{\dfrac{2}{5}}&amp;\textcolor{purple}{-\dfrac{1}{6}} &amp;\textcolor{blue}{-\dfrac{1}{4}}&amp;
-\textcolor{orange}{\dfrac15}\textcolor{purple}{-\dfrac16}-\dfrac12\\
-6&amp;\textcolor{purple}{\dfrac{2}{6}}&amp;\textcolor{green}{-\dfrac{1}{7}}&amp;\textcolor{orange}{-\dfrac{1}{5}}&amp;
-\textcolor{purple}{\dfrac16}\textcolor{green}{-\dfrac17}-\dfrac12
-\\
-7&amp;\textcolor{green}{\dfrac{2}{7}} &amp;\textcolor{brown}{-\dfrac{1}{8}}&amp;\textcolor{purple}{-\dfrac{1}{6}} &amp;
-\textcolor{green}{\dfrac17}\textcolor{brown}{-\dfrac18}-\dfrac12
-\\
-8&amp;\textcolor{brown}{\dfrac{2}{8}} &amp;-\dfrac{1}{9} &amp;\textcolor{green}{-\dfrac{1}{7}} &amp;
-\textcolor{brown}{\dfrac{1}{8}}-\dfrac{1}{9}-\dfrac12\\
-\vdots&amp;&amp;&amp;
+2&amp;\dfrac{1}{2}&amp;{\color{green}{\dfrac{1}{2}}}&amp;{\color{red}{-\dfrac{1}{3}}}&amp;-\dfrac{1}{1}&amp;
+               \dfrac{1}{2}+{\color{green}{\dfrac{1}{2}}} {\color{red}{-\dfrac{1}{3}}}-\dfrac{1}{1}\\
+3&amp;{\color{red}{\dfrac{1}{3}}}&amp;{\color{blue}{\dfrac{1}{3}}}&amp;{\color{orange}{-\dfrac{1}{4}}}&amp;{\color{green}{-\dfrac{1}{2}}}&amp;
+               \dfrac{1}{2}+{\color{blue}{\dfrac{1}{3}}}{\color{orange}{-\dfrac{1}{4}}}-\dfrac{1}{1}\\
+4&amp;{\color{orange}{\dfrac{1}{4}}}&amp;{\color{green}{\dfrac{1}{4}}}&amp;{\color{red}{-\dfrac{1}{5}}}&amp;{\color{blue}{-\dfrac{1}{3}}}&amp;
+               \dfrac{1}{2}+{\color{green}{\dfrac{1}{4}}} {\color{red}{-\dfrac{1}{5}}}-\dfrac{1}{1}\\
+5&amp;{\color{red}{\dfrac{1}{5}}}&amp;{\color{blue}{\dfrac{1}{5}}}&amp;{\color{orange}{-\dfrac{1}{6}}}&amp;{\color{green}{-\dfrac{1}{4}}}&amp;
+               \dfrac{1}{2}+{\color{blue}{\dfrac{1}{5}}}{\color{orange}{-\dfrac{1}{6}}}-\dfrac{1}{1}\\
+6&amp;{\color{orange}{\dfrac{1}{6}}}&amp;{\color{green}{\dfrac{1}{6}}}&amp;{\color{red}{-\dfrac{1}{7}}}&amp;{\color{blue}{-\dfrac{1}{5}}}&amp;               \dfrac{1}{2}+{\color{green}{\dfrac{1}{6}}}{\color{red}{-\dfrac{1}{7}}}-\dfrac{1}{1}\\
+7&amp;{\color{red}{\dfrac{1}{7}}}&amp;{\color{blue}{\dfrac{1}{7}}}&amp;{\color{orange}{-\dfrac{1}{8}}}&amp;{\color{green}{-\dfrac{1}{6}}}&amp;
+               \dfrac{1}{2}+{\color{blue}{\dfrac{1}{7}}} {\color{orange}{-\dfrac{1}{8}}}-\dfrac{1}{1}\\
+8&amp;{\color{orange}{\dfrac{1}{8}}}&amp;\dfrac{1}{8}&amp;-\dfrac{1}{9}&amp;{\color{blue}{-\dfrac{1}{7}}}&amp;
+               \dfrac{1}{2}+\dfrac{1}{8}-\dfrac{1}{9}-\dfrac{1}{1}\\[10pt]
+\vdots&amp;&amp;&amp;&amp;
 \end{array}</me>
 </p>
 
-<p>In general, there are three terms with the same denominator, and these cancel out to zero, but it takes a while to gather all three. So, some are left over in the partial sum.
+<p>Concentrate on any row <m>n</m>, except the very first row and the very last row. 
+The first <m>\frac{1}{n}</m> in that row cancels the <m>-\frac{1}{n}</m> in the middle of the row above it, and the second <m>\frac{1}{n}</m> in that row cancels the <m>-\frac{1}{n}</m> at the end of the row below it.
+As far as the first (<m>n=2</m>) row is concerned, the first <m>\frac{1}{2}</m> and the last <m>-\frac{1}{1}</m> never get cancelled out because there is no row above the first one.
+And as far as the very last row is concerned, the two middle terms never get cancelled out because there is no row after the last one.
+So the partial sum is
+<me>
+s_N=\sum_{n=2}^N \left(\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1} \right)
+=\overbrace{\frac{1}{2}-\frac{1}{1}}^{\text{from the first row}}
+ +\overbrace{\frac{1}{N}-\frac{1}{N+1}}^{\text{from the last row}}
+</me>
 </p>
 
-<p><md>
+
+<p>
+There is another purely algebraic way to find the same <m>s_N</m>, motivated by the above discussion.
+<md>
 <mrow>
-s_N=\sum_{n=2}^N \left(\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1} \right)&amp;=
-\frac{1}{N}-\frac{1}{N+1}-\frac{1}{2}
+s_N&amp;=\sum_{n=2}^N \left(\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1} \right) \\
+&amp;=\sum_{n=2}^N \left(\frac{1}{n}-\frac{1}{n+1}\right) +\sum_{n=2}^N\left(\frac{1}{n}-\frac{1}{n-1} \right) 
 </mrow>
-<intertext>Therefore,</intertext><mrow>
-\sum_{n=2}^\infty \left(\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1} \right)&amp;=\lim_{N \to \infty}s_N
-</mrow><mrow>&amp;=\lim_{N \to \infty} \left[\frac{1}{N}-\frac{1}{N+1}-\frac{1}{2}\right]\\
+</md>
+The first half
+<md>
+<mrow>
+\sum_{n=2}^N \left(\frac{1}{n}-\frac{1}{n+1}\right)
+&amp;=\left(\frac{1}{2}{\color{red}{-\frac{1}{3}}}\right) + \left({\color{red}{\frac{1}{3}}} {\color{blue}{-\frac{1}{4}}}\right) + \left({\color{blue}{\frac{1}{4}}}{\color{red}{-\frac{1}{5}}}\right) + \cdots 
+ </mrow><mrow> 
+          &amp;\hskip1in+\left({\color{red}{\frac{1}{N}}}-\frac{1}{N+1}\right) 
+</mrow><mrow>
+&amp;=\left[\frac{1}{2}-\frac{1}{N+1}\right]
+</mrow>
+</md>
+and the second half
+<md>
+<mrow>
+\sum_{n=2}^N\left(\frac{1}{n}-\frac{1}{n-1} \right)
+&amp;=\left({\color{red}{\frac{1}{2}}}-\frac{1}{1} \right) + \left({\color{blue}{\frac{1}{3}}}{\color{red}{-\frac{1}{2}}} \right) + \left({\color{red}{\frac{1}{4}}}{\color{blue}{-\frac{1}{3}}}\right) +\cdots </mrow><mrow> 
+          &amp;\hskip1in + \left(\frac{1}{N}-{\color{red}{\frac{1}{N-1}}} \right) 
+</mrow><mrow>
+&amp;=\left\{-\frac{1}{1}+\frac{1}{N}\right\}
+</mrow>
+</md>
+So 
+<md>
+<mrow>
+s_N&amp;=\left[\frac{1}{2}-\frac{1}{N+1}\right]+\left\{-\frac{1}{1}+\frac{1}{N}\right\} 
+</mrow><mrow>
+   &amp;=-\frac{1}{2}+\frac{1}{N}-\frac{1}{N+1}
+</mrow>
+</md>
+and the limit
+<md>
+<mrow>
+\sum_{n=2}^\infty \left(\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1} \right)
+&amp;=\lim_{N \to \infty}s_N
+</mrow><mrow>
+&amp;=\lim_{N \to \infty} \left[-\frac{1}{2}         
+                               +\frac{1}{N}-\frac{1}{N+1}\right]
+</mrow><mrow>
 &amp;=-\frac{1}{2}
 </mrow>
 </md>
