@@ -696,7 +696,9 @@ As noted above, when <m>n</m> is odd and <m>m</m> is even, one can use similar s
 
 <example xml:id="eg_TRGINTopta"><title><m>\int \sec x\dee{x}</m> <mdash/> by trickery</title>
 <p>
-<alert>Solution:</alert> There is a very sneaky trick to compute this integral.
+<alert>Solution:</alert> There is a very sneaky trick to compute this integral<fn>The integral of secant played an important role in constructing accurate Mercator projection maps of the earth. See <url href="https://en.wikipedia.org/wiki/Integral_of_the_secant_function">
+               https://en.wikipedia.org/wiki/Integral_of_the_secant_function</url>
+and <url href="https://arxiv.org/pdf/2204.11187.pdf"> https://arxiv.org/pdf/2204.11187.pdf</url>. The method for evaluating the integral that is being presented in this example was invented by the Scottish mathematician James Gregory in 1668. There are also a number of other methods. See the previous two references.</fn>.
 <ul>
 <li>
 	The standard trick for this integral is to multiply the integrand by <m>1=\frac{\sec x+\tan x}{\sec x+\tan x}</m>
