@@ -6976,7 +6976,7 @@ x+\frac{1}{x+1} +\frac{1}{x-1}
 The technique that we will use is based on two observations:
 \begin{enumerate}[(1)]
 \item
-The denominators on the left-hand side of are the factors of the denominator
+The denominators on the left-hand side are the factors of the denominator
 $x^2-1=(x-1)(x+1)$ on the right-hand side.
 \item Use $P(x)$ to denote the polynomial on the left hand side, and then use $N(x)$ and
 $D(x)$ to denote the numerator and denominator of the right hand side. That is
@@ -9761,7 +9761,7 @@ the algorithms are in general. That's our next task.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Three Simple Numerical Integrators -- Error Behaviour}\label{ssec num int err}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Now we are armed with our three (relatively simple) method for numerical integration we
+Now we are armed with our three (relatively simple) methods for numerical integration we
 should give thought to how practical they might be in the real world\footnote{Indeed,
 even beyond the ``real world'' of many applications in first year calculus texts, some of
 the methods we have described are used by actual people (such as ship builders, engineers
@@ -10429,7 +10429,7 @@ $t\leq x \leq 1$ with $t>0$:
 \item We then take the limit as $t \to 0^+$ to obtain
 \begin{align*}
   \int_0^1 \frac{1}{x}\dee{x}
-&= \lim_{t=0^+}\int_t^1 \frac{1}{x}\dee{x} = \lim_{t=0^+} -\log|t|
+&= \lim_{t\to 0^+}\int_t^1 \frac{1}{x}\dee{x} = \lim_{t\to 0^+} -\log|t|
 = +\infty
 \end{align*}
 Thus this integral diverges to $+\infty$.

@@ -1063,7 +1063,7 @@ We can use integration by parts twice to find the antiderivative of <m>e^{-x}\si
 </mrow><mrow>&amp;=
 \lim_{b \to \infty}\left(\frac{1}{2}-\frac{1}{2e^b}(\cos b+\sin b) \right)
 </mrow>
-<intertext>To find the limit, we use the Squeeze Theorem (see the CLP-1 text). Since <m>|\sin b|,|\cos b| \leq 1</m> for any <m>b</m>, we can use the fact that <m>-2 \le \cos b + \sin x \le 2</m> for any <m>b</m>.
+<intertext>To find the limit, we use the Squeeze Theorem (see the CLP-1 text). Since <m>|\sin b|,|\cos b| \leq 1</m> for any <m>b</m>, we can use the fact that <m>-2 \le \cos b + \sin b \le 2</m> for any <m>b</m>.
 </intertext>
 <mrow>
 &amp;\qquad\frac{-2}{2e^b} \leq \frac{1}{2e^b}(\cos b + \sin b)  \leq \frac{2}{2e^b}
