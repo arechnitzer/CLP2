@@ -274,10 +274,10 @@ In standard form <m>4x^2+9y^2=36</m> is <m>\frac{x^2}{9}+\frac{y^2}{4}=1</m>. So
 =\frac{1}{A}\int_0^3 x\,2\sqrt{1-\frac{x^2}{9}}\,\dee{x}
 =\frac{4}{3\pi}\int_0^3 x\sqrt{1-\frac{x^2}{9}}\,\dee{x}
 </me>
-Sub in <m>u=1-\frac{x^2}{9}</m>, <m>du=-\frac{2}{9}x\,\dee{x}</m>.
+Sub in <m>u=1-\frac{x^2}{9}</m>, <m>\dee{u}=-\frac{2}{9}x\,\dee{x}</m>.
 <me>
 \bar x
-=-\frac{9}{2}\frac{4}{3\pi}\int_1^0 \sqrt{u}\,du
+=-\frac{9}{2}\frac{4}{3\pi}\int_1^0 \sqrt{u}\,\dee{u}
 =-\frac{9}{2}\frac{4}{3\pi}\Big[\frac{u^{3/2}}{3/2}\Big]_1^0
 =-\frac{9}{2}\frac{4}{3\pi}\Big[-\frac{2}{3}\Big]
 =\frac{4}{\pi}
@@ -300,9 +300,9 @@ By symmetry, <m>\bar x=\bar y</m>. The area of the quarter disk is <m>A=\frac{1}
 <me>
 \bar x = \frac{1}{A}\int_0^r x\sqrt{r^2-x^2}\,\dee{x}
 </me>
-To evaluate the integral, sub in <m>u=r^2-x^2</m>, <m>du=-2x\,\dee{x}</m>.
+To evaluate the integral, sub in <m>u=r^2-x^2</m>, <m>\dee{u}=-2x\,\dee{x}</m>.
 <me>
-\int_0^r x\sqrt{r^2-x^2}\,\dee{x} = \int_{r^2}^0 \sqrt{u}\,\frac{du}{-2}
+\int_0^r x\sqrt{r^2-x^2}\,\dee{x} = \int_{r^2}^0 \sqrt{u}\,\frac{\dee{u}}{-2}
 = -\frac{1}{2}\Big[\frac{u^{3/2}}{3/2}\Big]^0_{r^2}
 = \frac{r^3}{3}
 \tag{$*$}

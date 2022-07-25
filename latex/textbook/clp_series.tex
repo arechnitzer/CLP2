@@ -1006,12 +1006,12 @@ and continuous for all $x\ge N_0$ and which obeys
 Then
 \begin{equation*}
 \sum_{n=1}^\infty a_n\text{ converges }\iff
-\int_{N_0}^\infty f(x)\ dx\text{ converges}
+\int_{N_0}^\infty f(x)\ \dee{x}\text{ converges}
 \end{equation*}
 Furthermore, when the series converges, the truncation error
 \begin{equation*}
 \bigg|\sum_{n=1}^\infty a_n-\sum_{n=1}^N a_n\bigg|\le
-  \int_N^\infty f(x)\ dx\qquad\text{for all $N\ge N_0$}
+  \int_N^\infty f(x)\ \dee{x}\qquad\text{for all $N\ge N_0$}
 \end{equation*}
 \end{theorem}
 
@@ -1049,7 +1049,7 @@ This shaded area is smaller than the area under the curve $y=f(x)$ for
 $I-1\le x<\infty$. So
 \begin{equation*}
 \sum_{n=I}^\infty a_n
-\le \int_{I-1}^\infty f(x)\ dx
+\le \int_{I-1}^\infty f(x)\ \dee{x}
 \end{equation*}
 and, if the integral is finite, the sum $\sum_{n=I}^\infty a_n$ is
 finite too.
@@ -1058,7 +1058,7 @@ the special case of this inequality with $I=N+1$:
 \begin{align*}
 \sum_{n=1}^\infty a_n - \sum_{n=1}^N a_n
 =\sum_{n=N+1}^\infty a_n
-\le \int_N^\infty f(x)\ dx
+\le \int_N^\infty f(x)\ \dee{x}
 \end{align*}
 
 
@@ -1081,7 +1081,7 @@ This time the shaded area is larger than the area under the curve
 $y=f(x)$ for $I\le x<\infty$. So
 \begin{equation*}
 \sum_{n=I}^\infty a_n
-\ge \int_I^\infty f(x)\ dx
+\ge \int_I^\infty f(x)\ \dee{x}
 \end{equation*}
 and, if the integral is infinite, the sum $\sum_{n=I}^\infty a_n$ is infinite
 too.
@@ -1132,10 +1132,10 @@ for all $x\ge N_0=1$.
 \item
 So the integral test tells us that the series
 $\sum_{n=1}^\infty\frac{1}{n^p}$ converges if and only if the integral
-$\int_1^\infty\frac{dx}{x^p}$ converges.
+$\int_1^\infty\frac{\dee{x}}{x^p}$ converges.
 \item
 We have already seen, in Example \ref{eg:IMPp1}, that
-the integral $\int_1^\infty\frac{dx}{x^p}$ converges if and only if $p>1$.
+the integral $\int_1^\infty\frac{\dee{x}}{x^p}$ converges if and only if $p>1$.
 \end{itemize}
 So we conclude that $\sum_{n=1}^\infty\frac{1}{n^p}$ converges if
 and only if $p>1$. This is sometimes called the $p$--test.
@@ -1160,8 +1160,8 @@ If we approximate $\sum_{n=1}^\infty\frac{1}{n^{1.000001}}$ by the
 truncated series $\sum_{n=1}^N\frac{1}{n^{1.000001}}$, we make an error of
 at most
 \begin{align*}
-\int_N^\infty \frac{dx}{x^{1.000001}}
-= \lim_{R\rightarrow\infty} \int_N^R \frac{dx}{x^{1.000001}}
+\int_N^\infty \frac{\dee{x}}{x^{1.000001}}
+= \lim_{R\rightarrow\infty} \int_N^R \frac{\dee{x}}{x^{1.000001}}
 = \lim_{R\rightarrow\infty}- \frac{1}{0.000001}
           \Big[\frac{1}{R^{0.000001}}-\frac{1}{N^{0.000001}}\Big]
 =\frac{10^6}{N^{0.000001}}
@@ -1211,17 +1211,17 @@ increases and $f(x)$ decreases.
 \item
 So the integral test tells us that the series
 $\sum\limits_{n=2}^\infty\frac{1}{n(\log n)^p}$ converges if and only if
-the integral $\int_2^\infty\frac{dx}{x (\log x)^p}$ converges.
+the integral $\int_2^\infty\frac{\dee{x}}{x (\log x)^p}$ converges.
 \item
 To test
 the convergence of the integral, we make the substitution $u=\log x$,
-$du=\frac{dx}{x}$.
+$\dee{u}=\frac{\dee{x}}{x}$.
 \begin{align*}
-\int_2^R \frac{dx}{x (\log x)^p}
-=\int_{\log 2}^{\log R}\frac{du}{u^p}
+\int_2^R \frac{\dee{x}}{x (\log x)^p}
+=\int_{\log 2}^{\log R}\frac{\dee{u}}{u^p}
 \end{align*}
- We already know that the integral $\int_1^\infty\frac{du}{u^p}$,
-and hence the integral $\int_2^R \frac{dx}{x (\log x)^p}$, converges if and
+ We already know that the integral $\int_1^\infty\frac{\dee{u}}{u^p}$,
+and hence the integral $\int_2^R \frac{\dee{x}}{x (\log x)^p}$, converges if and
 only if $p>1$.
 \end{itemize}
 So we conclude that
@@ -3807,7 +3807,7 @@ f(x)+g(x)   &= \sum_{n=0}^\infty [A_n+B_n]\, (x-c)^n \\
 f'(x)     &= \sum_{n=0}^\infty A_n\, n\,(x-c)^{n-1}
            = \sum_{n=1}^\infty A_n\, n\,(x-c)^{n-1} \\
 \int_c^x f(t)\ dt &= \sum_{n=0}^\infty A_n \frac{(x-c)^{n+1}}{n+1} \\
-\int  f(x)\ dx &= \bigg[\sum_{n=0}^\infty A_n \frac{(x-c)^{n+1}}{n+1}\bigg]+C
+\int  f(x)\ \dee{x} &= \bigg[\sum_{n=0}^\infty A_n \frac{(x-c)^{n+1}}{n+1}\bigg]+C
 \quad\text{with $C$ an arbitrary constant}
 \end{align*}
 for all $x$ obeying $|x-c|<R$.

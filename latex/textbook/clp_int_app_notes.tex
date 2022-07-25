@@ -1138,10 +1138,10 @@ $T(x)=2\sqrt{1-\frac{x^2}{9}}$ and $B(x)=0$,
 =\frac{1}{A}\int_0^3 x\,2\sqrt{1-\frac{x^2}{9}}\,\dee{x}
 =\frac{4}{3\pi}\int_0^3 x\sqrt{1-\frac{x^2}{9}}\,\dee{x}
 \end{equation*}
-Sub in $u=1-\frac{x^2}{9}$, $du=-\frac{2}{9}x\,\dee{x}$.
+Sub in $u=1-\frac{x^2}{9}$, $\dee{u}=-\frac{2}{9}x\,\dee{x}$.
 \begin{equation*}
 \bar x
-=-\frac{9}{2}\frac{4}{3\pi}\int_1^0 \sqrt{u}\,du
+=-\frac{9}{2}\frac{4}{3\pi}\int_1^0 \sqrt{u}\,\dee{u}
 =-\frac{9}{2}\frac{4}{3\pi}\Big[\frac{u^{3/2}}{3/2}\Big]_1^0
 =-\frac{9}{2}\frac{4}{3\pi}\Big[-\frac{2}{3}\Big]
 =\frac{4}{
@@ -1166,9 +1166,9 @@ $T(x)=\sqrt{r^2-x^2}$ and $B(x)=0$,
 \begin{equation*}
 \bar x = \frac{1}{A}\int_0^r x\sqrt{r^2-x^2}\,\dee{x}
 \end{equation*}
-To evaluate the integral, sub in $u=r^2-x^2$, $du=-2x\,\dee{x}$.
+To evaluate the integral, sub in $u=r^2-x^2$, $\dee{u}=-2x\,\dee{x}$.
 \begin{equation}\label{eq:TRQcentroidB}
-\int_0^r x\sqrt{r^2-x^2}\,\dee{x} = \int_{r^2}^0 \sqrt{u}\,\frac{du}{-2}
+\int_0^r x\sqrt{r^2-x^2}\,\dee{x} = \int_{r^2}^0 \sqrt{u}\,\frac{\dee{u}}{-2}
 = -\frac{1}{2}\Big[\frac{u^{3/2}}{3/2}\Big]^0_{r^2}
 = \frac{r^3}{3}
 \end{equation}
