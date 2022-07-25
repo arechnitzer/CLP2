@@ -442,16 +442,16 @@ Martin Wilhelm Kutta (1867<ndash/>1944) were German mathematicians.</fn> algorit
 in that it also uses, in the notation of the last subsection,
 <me>
 y_{n+1}=y_n+{\rm\ approximate\ value\ for \ }
-\int_{t_n}^{t_{n+1}}f\big(t,\varphi(t)\big)\ dt
+\int_{t_n}^{t_{n+1}}f\big(t,\varphi(t)\big)\ \dee{t}
 </me>
-But rather than approximating <m>\int_{t_n}^{t_{n+1}}f\big(t,\varphi(t)\big)\ dt</m>
+But rather than approximating <m>\int_{t_n}^{t_{n+1}}f\big(t,\varphi(t)\big)\ \dee{t}</m>
 by the area of a rectangle, as does Euler, or by the area of a trapezoid,
 as does improved Euler, it approximates by the area under a parabola.
 That is, it uses Simpson's rule. According to Simpson's rule (which is 
 derived in Section<nbsp/><xref ref="sec_Simpson"/>)
 <md>
 <mrow>
-&amp;\int_{t_n}^{t_n+h}f\big(t,\varphi(t)\big)\ dt
+&amp;\int_{t_n}^{t_n+h}f\big(t,\varphi(t)\big)\ \dee{t}
 </mrow><mrow>
 &amp;\hskip0.5in\approx \tfrac{h}{6}\Big[f\big(t_n,\varphi(t_n)\big)
 +4f\big(t_n+\tfrac{h}{2},\varphi(t_n+\tfrac{h}{2})\big)

@@ -416,7 +416,7 @@ Then the area represented by <m>\textcolor{blue}{F(x+h)}-\textcolor{red}{F(x)}</
 
 <exercise xml:id="p1_1_intpic1" purpose="RQS">
 <statement><p>
-Let <m>F(x) = \displaystyle\int_0^x f(t)dt</m>, where <m>f(t)</m> is shown in the graph below, and <m>0 \leq x \leq 4</m>.
+Let <m>F(x) = \displaystyle\int_0^x f(t)\dee{t}</m>, where <m>f(t)</m> is shown in the graph below, and <m>0 \leq x \leq 4</m>.
 <ol label="a">
 <li> Is <m>F(0)</m> positive, negative, or zero?
 </li>
@@ -449,7 +449,7 @@ As <m>x</m> moves along, <m>F(x)</m> adds bits of signed area. If it's adding po
 
 <exercise>
 <statement><p>
-Let <m>G(x) = \displaystyle\int_x^0 f(t)dt</m>, where <m>f(t)</m> is shown in the graph below, and <m>0 \leq x \leq 4</m>.
+Let <m>G(x) = \displaystyle\int_x^0 f(t)\dee{t}</m>, where <m>f(t)</m> is shown in the graph below, and <m>0 \leq x \leq 4</m>.
 <ol label="a">
 <li> Is <m>G(0)</m> positive, negative, or zero?
 </li>
@@ -559,7 +559,7 @@ So, <m>F'(x)=x</m>.
 
 <exercise>
 <statement><p>
-Give a continuous function <m>f(x)</m> so that <m>F(x) = \displaystyle\int_0^x f(t)dt</m> is a constant.
+Give a continuous function <m>f(x)</m> so that <m>F(x) = \displaystyle\int_0^x f(t)\dee{t}</m> is a constant.
 </p></statement>
 <hint><p>
 There is only one!
@@ -2047,7 +2047,7 @@ If <m>F(x)</m> is even, then <m>f(x)</m> is odd (by the result of Question<nbsp/
 <p>Interestingly, the antiderivative of an odd function is always even. The proof is a little beyond what we might ask you, but is given below for completeness. The proof goes like this: First, we'll show that if <m>g(x)</m> is odd, then there is <em>some</em> antiderivative of <m>g(x)</m> that is even. Then, we'll show that <em>every</em> antiderivative of <m>g(x)</m> is even.
 </p>
 
-<p>So, suppose <m>g(x)</m> is odd and define <m>G(x)=\displaystyle\int_0^x g(t)dt</m>.
+<p>So, suppose <m>g(x)</m> is odd and define <m>G(x)=\displaystyle\int_0^x g(t)\dee{t}</m>.
 By the Fundamental Theorem of Calculus Part 1, <m>G'(x)=g(x)</m>, so <m>G(x)</m> is an antiderivative of <m>g(x)</m>. Since <m>g(x)</m> is odd, for any <m>x\ge 0</m>, the net signed area under the curve along <m>[0,x]</m> is the <em>negative</em> of the net signed area under the curve along <m>[-x,0]</m>. So,
 <md>
 <mrow>
