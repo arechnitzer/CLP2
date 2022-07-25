@@ -1450,7 +1450,7 @@ with $\De x=\frac{1}{n}$, $x_j=\frac{j}{n}$ and $f(x)=\frac{1}{1+x}$.
 The right hand side is the definition (using the right Riemann sum)
 of
 \begin{align*}
-\int_0^1 f(x)\,dx=\int_0^1 \frac{1}{1+x}\,\dee{x}
+\int_0^1 f(x)\,\dee{x}=\int_0^1 \frac{1}{1+x}\,\dee{x}
 =\log|1+x|\Big|_0^1
 =\log 2
 \end{align*}
@@ -1600,7 +1600,7 @@ f'(x) & = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
            x^3\diff{}{x}\int_{0}^{x^3+1} e^{t^3} \dee{t} \\
 & = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
            x^3\ \big[3x^2\big]
-           \Bigg[\frac{d\hfill}{dy}\int_{0}^{y} e^{t^3} \dee{t}\Bigg]_{y=x^3+1} \\
+           \Bigg[\frac{d\hfill}{\dee{y}}\int_{0}^{y} e^{t^3} \dee{t}\Bigg]_{y=x^3+1} \\
 & = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
            x^3\ \big[3x^2\big]
            \Big[e^{y^3}\Big]_{y=x^3+1} \\

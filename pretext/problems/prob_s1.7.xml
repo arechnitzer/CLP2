@@ -248,7 +248,7 @@ so that <m>\dee{u}=\frac{\dee{x}}{x}</m> and <m>v = -\frac{x^{-6}}{6}</m>.
 <md>
 <mrow>
 \int \frac{\log x}{x^7}\,\dee{x}
-   &amp;=\underbrace{ -\log x\ \frac{x^{-6}}{6}}_{uv} + \int \underbrace{\frac{x^{-6}}{6}}_{-v}\ \underbrace{\frac{\dee{x}}{x}}_{du}
+   &amp;=\underbrace{ -\log x\ \frac{x^{-6}}{6}}_{uv} + \int \underbrace{\frac{x^{-6}}{6}}_{-v}\ \underbrace{\frac{\dee{x}}{x}}_{\dee{u}}
     = - \frac{\log x}{6 x^6} +\frac{1}{6} \int x^{-7} \dee{x}
 </mrow><mrow>
    &amp;= - \frac{\log x}{6 x^6} - \frac{1}{36 x^6} + C
@@ -649,7 +649,7 @@ You can use a similar trick as the book did when antidifferentiating other inver
 <solution><p>
 In Example<nbsp/><xref ref="eg_invtan"/>, we saw that integration by parts was useful when the integrand has a derivative that works nicely when multiplied by <m>x</m>. We use the same idea here.
 Let <m>u = \arccos y</m> and <m>\dee{v} = \dee{y}</m>,
-so that <m>v=y</m> and <m>du = -\frac{\dee{y}}{\sqrt{1-y^2}}</m>.
+so that <m>v=y</m> and <m>\dee{u} = -\frac{\dee{y}}{\sqrt{1-y^2}}</m>.
 <md>
 <mrow>
 \int\arccos  y\,\dee{y}
@@ -685,7 +685,7 @@ Evaluate <m>\displaystyle\int 4y\arctan(2y) \,\dee{y}</m>.
 
 <solution><p>
 We integrate by parts, using <m>u = \arctan(2y)</m>, <m>\dee{v} = 4y \,\dee{y}</m>,
-so that <m>v=2y^2</m> and <m>du = \frac{2\, \dee{y}}{1+(2y)^2}</m>:
+so that <m>v=2y^2</m> and <m>\dee{u} = \frac{2\, \dee{y}}{1+(2y)^2}</m>:
 <md>
 <mrow>
 \int 4y\arctan(2y) \,\dee{y}

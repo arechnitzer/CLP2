@@ -94,16 +94,16 @@ The integrand is the product of sines and cosines. See how this was handled with
 \int_0^{\pi/2}\sin^4x\cos^5x\dee{x}&amp;=
 \int_{0}^{\pi/2}\sin^4x(\cos^2x)^2\cos x\dee{x}
 </mrow><mrow>
-&amp;=\int_{0}^{\pi/2}\sin^4x(1-\sin^2x)^2\underbrace{\cos x\dee{x}}_{du}
+&amp;=\int_{0}^{\pi/2}\sin^4x(1-\sin^2x)^2\underbrace{\cos x\dee{x}}_{\dee{u}}
 </mrow><mrow>
 &amp;=
-\int_{\sin(0)}^{\sin(\pi/2)}u^4(1-u^2)^2du
+\int_{\sin(0)}^{\sin(\pi/2)}u^4(1-u^2)^2\dee{u}
 </mrow><mrow>
 &amp;=
-\int_{0}^{1}u^4(1-2u^2+u^4)du
+\int_{0}^{1}u^4(1-2u^2+u^4)\dee{u}
 </mrow><mrow>
 &amp;=
-\int_{0}^{1}(u^4-2u^6+u^8)du
+\int_{0}^{1}(u^4-2u^6+u^8)\dee{u}
 </mrow><mrow>
 &amp;=\left[
 \frac{1}{5}u^5-\frac{2}{7}u^7+\frac{1}{9}u^9

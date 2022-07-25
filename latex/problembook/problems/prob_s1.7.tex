@@ -204,7 +204,7 @@ We perform integration by parts with $u=\log x$ and $\dee{v}=x^{-7}\,\dee{x}$,
 so that $\dee{u}=\frac{\dee{x}}{x}$ and $v = -\frac{x^{-6}}{6}$.
 \begin{align*}
 \int \frac{\log x}{x^7}\,\dee{x}
-   &=\underbrace{ -\log x\ \frac{x^{-6}}{6}}_{uv} + \int \underbrace{\frac{x^{-6}}{6}}_{-v}\ \underbrace{\frac{\dee{x}}{x}}_{du}
+   &=\underbrace{ -\log x\ \frac{x^{-6}}{6}}_{uv} + \int \underbrace{\frac{x^{-6}}{6}}_{-v}\ \underbrace{\frac{\dee{x}}{x}}_{\dee{u}}
     = - \frac{\log x}{6 x^6} +\frac{1}{6} \int x^{-7} \ \dee{x} \\
    &= - \frac{\log x}{6 x^6} - \frac{1}{36 x^6} + C
 \end{align*}
@@ -507,7 +507,7 @@ $y \arccos y - \sqrt{1-y^2} + C$
 \begin{solution}
 In Example~\eref{CLP101}{eg:invtan} of the CLP-2 text, we saw that integration by parts was useful when the integrand has a derivative that works nicely when multiplied by $x$. We use the same idea here.
 Let $u = \arccos y$ and $\dee{v} = \dee{y}$,
-so that $v=y$ and $du = -\frac{\dee{y}}{\sqrt{1-y^2}}$.
+so that $v=y$ and $\dee{u} = -\frac{\dee{y}}{\sqrt{1-y^2}}$.
 \begin{align*}
 \int\arccos  y\,\dee{y}
 &= \underbrace{y \arccos y}_{uv} +\int \underbrace{\frac{y}{\sqrt{1-y^2}}\dee{y}}_{-v\dee{u}}
@@ -543,7 +543,7 @@ $2y^2\arctan(2y) - y + \frac12\arctan(2y) + C$
 
 \begin{solution}
 We integrate by parts, using $u = \arctan(2y)$, $\dee{v} = 4y \,\dee{y}$,
-so that $v=2y^2$ and $du = \frac{2\, \dee{y}}{1+(2y)^2}$:
+so that $v=2y^2$ and $\dee{u}= \frac{2\, \dee{y}}{1+(2y)^2}$:
 \begin{align*}
 \int 4y\arctan(2y) \,\dee{y}
    = \underbrace{2y^2\arctan(2y)}_{uv} - \int\underbrace{ \frac{4y^2}{(2y)^2+1} \,\dee{y}}_{v\dee{u}}

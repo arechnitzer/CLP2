@@ -482,7 +482,7 @@ Now we restore $y$ to $x^2$.
 %%%%%%%%%%%%%%%%%%%
 
 \begin{Mquestion}[2016A]
-Calculate $\displaystyle \int \frac{12x+4}{(x-3)(x^2+1)}\,dx$.
+Calculate $\displaystyle \int \frac{12x+4}{(x-3)(x^2+1)}\,\dee{x}$.
 \end{Mquestion}
 
 \begin{hint}
@@ -518,7 +518,7 @@ Substituting $A=4$ in $(*)$ gives
 \end{align*}
 So we have found that $A=4$, $B=-4$, and $C=0$. Therefore
 \begin{align*}
-  \int \frac{12x+4}{(x-3)(x^2+1)} \,dx &= \int \bigg( \frac{4}{x-3} - \frac{4x}{x^2+1} \bigg) \,dx \\
+  \int \frac{12x+4}{(x-3)(x^2+1)} \,\dee{x} &= \int \bigg( \frac{4}{x-3} - \frac{4x}{x^2+1} \bigg) \,\dee{x} \\
    &=  4 \log |x-3| - 2 \log (x^2 + 1) + C
 \end{align*}
 The second integral was found just by guessing an antiderivative.
@@ -580,7 +580,7 @@ Alternatively, one could use the substitution $u=x^2+4$, $\dee{u}=2x\,\dee{x}$.)
 For the final integral, we substitute: $x = 2y$,
 $\dee{x} = 2\dee{y}$, and see that:
 \begin{align*}
-  \int \frac{4}{x^2+4}\,\dee{x}  = 2 \int \frac{1}{y^2 + 1}\,dy = 2 \arctan y + D = 2\arctan (x/2) + D
+  \int \frac{4}{x^2+4}\,\dee{x}  = 2 \int \frac{1}{y^2 + 1}\,\dee{y} = 2 \arctan y + D = 2\arctan (x/2) + D
 \end{align*}
 for any constant $D$. All together we have:
 \begin{align*}

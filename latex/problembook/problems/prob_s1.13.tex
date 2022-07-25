@@ -74,13 +74,13 @@ The integrand is a product of powers of sine and cosine. Since cosine has an odd
 \begin{align*}
 \int_0^{\pi/2}\sin^4x\cos^5x\dee{x}&=
 \int_{0}^{\pi/2}\sin^4x(\cos^2x)^2\cos x\dee{x}\\
-&=\int_{0}^{\pi/2}\sin^4x(1-\sin^2x)^2\underbrace{\cos x\dee{x}}_{du}\\
+&=\int_{0}^{\pi/2}\sin^4x(1-\sin^2x)^2\underbrace{\cos x\dee{x}}_{\dee{u}}\\
 &=
-\int_{\sin(0)}^{\sin(\pi/2)}u^4(1-u^2)^2du\\
+\int_{\sin(0)}^{\sin(\pi/2)}u^4(1-u^2)^2\dee{u}\\
 &=
-\int_{0}^{1}u^4(1-2u^2+u^4)du\\
+\int_{0}^{1}u^4(1-2u^2+u^4)\dee{u}\\
 &=
-\int_{0}^{1}(u^4-2u^6+u^8)du\\
+\int_{0}^{1}(u^4-2u^6+u^8)\dee{u}\\
 &=\left[
 \frac{1}{5}u^5-\frac{2}{7}u^7+\frac{1}{9}u^9
 \right]_{u=0}^{u=1}\\
