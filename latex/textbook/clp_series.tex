@@ -3806,7 +3806,7 @@ f(x)+g(x)   &= \sum_{n=0}^\infty [A_n+B_n]\, (x-c)^n \\
                          \quad\text{where $k=n+N$}\\
 f'(x)     &= \sum_{n=0}^\infty A_n\, n\,(x-c)^{n-1}
            = \sum_{n=1}^\infty A_n\, n\,(x-c)^{n-1} \\
-\int_c^x f(t)\ dt &= \sum_{n=0}^\infty A_n \frac{(x-c)^{n+1}}{n+1} \\
+\int_c^x f(t)\ \dee{t} &= \sum_{n=0}^\infty A_n \frac{(x-c)^{n+1}}{n+1} \\
 \int  f(x)\ \dee{x} &= \bigg[\sum_{n=0}^\infty A_n \frac{(x-c)^{n+1}}{n+1}\bigg]+C
 \quad\text{with $C$ an arbitrary constant}
 \end{align*}
@@ -4041,9 +4041,9 @@ Find a power series representation for $\log (1+x)$.
 Recall that $\diff{}{x}\log (1+x) = \frac{1}{1+x}$ so that
 $\log(1+t)$ is an antiderivative of $\frac{1}{1+t}$ and
 \begin{align*}
-\log(1+x)\ &=\ \int_0^x \frac{dt}{1+t}
-             \ =\  \int_0^x\Big[\sum_{n=0}^\infty (-t)^n\Big]\ dt \\
-             &=\  \sum_{n=0}^\infty \int_0^x (-t)^n\ dt
+\log(1+x)\ &=\ \int_0^x \frac{\dee{t}}{1+t}
+             \ =\  \int_0^x\Big[\sum_{n=0}^\infty (-t)^n\Big]\ \dee{t} \\
+             &=\  \sum_{n=0}^\infty \int_0^x (-t)^n\ \dee{t}
              \qquad\text{by Theorem \ref{thm:SRpsops}}\\
              &=\ \sum_{n=0}^\infty (-1)^n\frac{x^{n+1}}{n+1} \\
              &=\ x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots
@@ -4086,9 +4086,9 @@ Find a power series representation for $\arctan x$.
 Recall that $\diff{}{x}\arctan x = \frac{1}{1+x^2}$ so that
 $\arctan t$ is an antiderivative of $\frac{1}{1+t^2}$ and
 \begin{align*}
-\arctan x\ &=\ \int_0^x \frac{dt}{1+t^2}
-             \ =\  \int_0^x\Big[\sum_{n=0}^\infty {(-t^2)}^n\Big]\ dt
-             \ =\  \sum_{n=0}^\infty \int_0^x (-1)^n t^{2n}\ dt \\
+\arctan x\ &=\ \int_0^x \frac{\dee{t}}{1+t^2}
+             \ =\  \int_0^x\Big[\sum_{n=0}^\infty {(-t^2)}^n\Big]\ \dee{t}
+             \ =\  \sum_{n=0}^\infty \int_0^x (-1)^n t^{2n}\ \dee{t} \\
              &=\ \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1} \\
              &=x -\frac{x^3}{3} +\frac{x^5}{5}-\cdots
 \end{align*}
@@ -5146,7 +5146,7 @@ to so far. The following is a good example of this.
 \begin{eg}[Error function]\label{eg:erf}
 The \emph{error function}
 \begin{equation*}
-\erf(x) =\frac{2}{\sqrt{\pi}}\int_0^x e^{-t^2}\ dt
+\erf(x) =\frac{2}{\sqrt{\pi}}\int_0^x e^{-t^2}\ \dee{t}
 \end{equation*}
 is used in computing ``bell curve'' probabilities. The indefinite integral
 of the integrand $e^{-t^2}$ cannot be expressed in terms of standard
@@ -5162,7 +5162,7 @@ We can then apply Theorem~\ref{thm:SRpsops} to integrate term-by-term:
 \begin{align*}
 \erf(x)
   &=\frac{2}{\sqrt{\pi}}\int_0^x
-           \left[\sum_{n=0}^\infty \frac{{(-t^2)}^n}{n!}\right]\ dt
+           \left[\sum_{n=0}^\infty \frac{{(-t^2)}^n}{n!}\right]\ \dee{t}
      \\
   &=\frac{2}{\sqrt{\pi}}\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{(2n+1)n!}
 \end{align*}
