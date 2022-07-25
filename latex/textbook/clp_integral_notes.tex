@@ -3621,8 +3621,8 @@ redo the previous example by this approach.
 % \item substituting $\dee{u}$ for $u'(x)\dee{x}$
 % \end{itemize}
 % The substitution $\dee{u}=u'(x)\dee{x}$ is easily remembered by \emph{pretending} that
-% $\tfrac{\dee{u}}{dx}$ is an ordinary fraction. Then cross--multiplying
-% $\tfrac{\dee{u}}{dx}=u'(x)$ gives $\dee{u}=u'(x)\dee{x}$.
+% $\tfrac{\dee{u}}{\dee{x}}$ is an ordinary fraction. Then cross--multiplying
+% $\tfrac{\dee{u}}{\dee{x}}=u'(x)$ gives $\dee{u}=u'(x)\dee{x}$.
 %
 % \medskip
 \begin{eg}[\emph{Example \ref{eg:substitution2} revisited}]
@@ -4548,8 +4548,8 @@ $x^2+y^2+z^2=r^2$. Since $z=0$ and $y>0$, $y=\sqrt{r^2-x^2}$.
 \item thickness\footnote{Yet again what we really do is pick a natural
 number $n$, slice the octant of the sphere into $n$ pancakes each of thickness
 $\De x=\frac{r}{n}$ and then take the limit $n\rightarrow\infty$.
-In the integral $\De x$ is replaced by $dx$. Knowing that this is what
-is going to happen, we again just skip a few steps.} $dx$ and
+In the integral $\De x$ is replaced by $\dee{x}$. Knowing that this is what
+is going to happen, we again just skip a few steps.} $\dee{x}$ and
 \item
 radius $\sqrt{r^2-x^2}$
 \item cross--sectional area $\frac{1}{4}\pi \big(\sqrt{r^2-x^2}\,\big)^2$
@@ -5053,7 +5053,7 @@ Let $u(x)$ and $v(x)$ be continuously differentiable. Then
 \begin{align*}
 \int u(x)\,v'(x)\dee{x} = u(x)\,v(x)-\int v(x)\,u'(x)\dee{x}
 \end{align*}
-If we write $dv$ for $v'(x)\dee{x}$ and $\dee{u}$ for $u'(x)\dee{x}$ (as the substitution rule
+If we write $\dee{v}$ for $v'(x)\dee{x}$ and $\dee{u}$ for $u'(x)\dee{x}$ (as the substitution rule
 suggests), then the formula becomes
 \begin{align*}
 \int u\dee{v}= u\,v-\int v\dee{u}
@@ -5570,7 +5570,7 @@ This method can be used whenever $n$ is an odd integer.
 \end{itemize}
 Here is an example.
 \begin{eg}[$\int \sin^2 x\cos^3 x\dee{x}$]\label{eg:TRGINTa}
-Start by factoring off one power of $\cos x$ to combine with $dx$
+Start by factoring off one power of $\cos x$ to combine with $\dee{x}$
 to get $\cos x\dee{x}=\dee{u}$.
 \begin{align*}
 \int \sin^2 x\cos^3 x\dee{x}
@@ -5621,7 +5621,7 @@ Now by \eqref{eq:TRGINTtrigidentityG} a second time
 Now it's easy to integrate
 \begin{alignat*}{3}
 \int \cos^4 x\dee{x}
-&= \frac{3}{8}\int dx+\frac{1}{2}\int\cos(2x)\dee{x}+\frac{1}{8}\int\cos(4x)\dee{x}
+&= \frac{3}{8}\int \dee{x}+\frac{1}{2}\int\cos(2x)\dee{x}+\frac{1}{8}\int\cos(4x)\dee{x}
 \\[0.1in]
 &= \frac{3}{8}x+\frac{1}{4}\sin(2x)+\frac{1}{32}\sin(4x) + C
 \end{alignat*}
@@ -5671,7 +5671,7 @@ graphs have the same area.
  &= \frac{1}{2}\bigg[\int_0^\pi \sin^2 x\dee{x}
                          +\int_0^\pi \cos^2 x\dee{x}\bigg] \\[0.1in]
 &=\frac{1}{2}\int_0^\pi \big[\sin^2 x+ \cos^2 x\big]\dee{x}\\[0.1in]
-&= \frac{1}{2}\int_0^\pi dx \\[0.1in]
+&= \frac{1}{2}\int_0^\pi \dee{x} \\[0.1in]
 &=\frac{\pi}{2}
 \end{align*}
 \end{itemize}
@@ -5781,7 +5781,7 @@ x$ in terms of $\sec x$ using $\tan^2x = \sec^2 x-1=u^2-1$.
 \soln
 \begin{itemize}
  \item Start by factoring off one copy of $\sec x\tan x$ and combine it
-with $dx$ to form $\sec x\tan x\dee{x}$, which will be $\dee{u}$.
+with $\dee{x}$ to form $\sec x\tan x\dee{x}$, which will be $\dee{u}$.
 \item Now substitute $u=\sec x$,
 $\dee{u}=\sec x\tan x\dee{x}$ and $\tan^2x = \sec^2 x-1=u^2-1$.
 \item This gives
@@ -5807,7 +5807,7 @@ any remaining even powers of $\sec x$ as powers of $\tan x$ using $\sec^2x =
 \begin{eg}[$\int \sec^4 x\dee{x}$]\label{eg:TRGINTe}
 \soln
 \begin{itemize}
- \item Factor off one copy of $\sec^2 x$ and combine it with $dx$
+ \item Factor off one copy of $\sec^2 x$ and combine it with $\dee{x}$
 to form $\sec^2 x\dee{x}$, which will be $\dee{u}$.
 \item Then substitute $u=\tan x$, $\dee{u}=\sec^2 x\dee{x}$ and rewrite any remaining even
 powers of $\sec x$ as powers of $\tan x=u$ using $\sec^2x = 1+\tan^2 x=1+u^2$.
@@ -5826,7 +5826,7 @@ powers of $\sec x$ as powers of $\tan x=u$ using $\sec^2x = 1+\tan^2 x=1+u^2$.
 \begin{eg}[$\int  \tan^3 x\sec^4x \dee{x}$ --- redux]\label{eg:TRGINTfredux}
 \soln Let us revisit this example using this slightly different approach.
 \begin{itemize}
- \item Factor off one copy of $\sec^2 x$ and combine it with $dx$
+ \item Factor off one copy of $\sec^2 x$ and combine it with $\dee{x}$
 to form $\sec^2 x\dee{x}$, which will be $\dee{u}$.
 \item Then substitute $u=\tan x$, $\dee{u}=\sec^2 x\dee{x}$ and rewrite any remaining even
 powers of $\sec x$ as powers of $\tan x=u$ using $\sec^2x = 1+\tan^2 x=1+u^2$.
@@ -6176,7 +6176,7 @@ note that
 \begin{align*}
 \int \sec x\dee{x}
 &=\int \frac{1}{\cos x}\dee{x}
-=\int \frac{1+x^2}{1-x^2}\ \frac{2}{1+x^2}dx
+=\int \frac{1+x^2}{1-x^2}\ \frac{2}{1+x^2}\dee{x}
 =\int \frac{2}{1-x^2}\dee{x}
 =\int \Big[\frac{1}{1+x}+\frac{1}{1-x}\Big]\dee{y}\\
 &=\log|1+x|-\log|1-x|+C
@@ -6205,7 +6205,7 @@ parts.
 $v=\tan x$ and
 \begin{align*}
 \int \sec^3 x\dee{x}
-&=\int \underbrace{\sec x}_{u}\ \underbrace{\sec^2 x\dee{x}}_{dv} \\
+&=\int \underbrace{\sec x}_{u}\ \underbrace{\sec^2 x\dee{x}}_{\dee{v}} \\
 &=\underbrace{\sec x}_{u}\ \underbrace{\tan x}_{v}
          -\int \underbrace{\tan x}_{v}\ \underbrace{\sec x\tan x\dee{x}}_{\dee{u}}
 \end{align*}
@@ -7638,7 +7638,7 @@ $\frac{ay+b}{y^2+1}$. In this case
 \begin{align*}
 \frac{x+2}{(x+1)^2+4}=\frac{1}{4}\frac{x+2}{(\frac{x+1}{2})^2+1}
 \end{align*}
-so we make the change of variables $y=\frac{x+1}{2},\dee{y}=\frac{dx}{2},\
+so we make the change of variables $y=\frac{x+1}{2},\dee{y}=\frac{\dee{x}}{2},\
 x=2y-1,\dee{x}=2\,\dee{y}$
 \begin{align*}
 \int \frac{x+2}{(x+1)^2+4}\dee{x}
@@ -10311,8 +10311,8 @@ integrand is called an improper integral.
 \end{defn}
 Two examples are
 \begin{align*}
-\int_0^\infty\frac{dx}{1+x^2}&& \text{and}&&
-\int_0^1\frac{dx}{x}
+\int_0^\infty\frac{\dee{x}}{1+x^2}&& \text{and}&&
+\int_0^1\frac{\dee{x}}{x}
 \end{align*}
 The first has an infinite domain of integration and the integrand of the
 second tends to $\infty$ as $x$ approaches the left end of the domain of
@@ -10327,7 +10327,7 @@ Consider the integral
 \end{align*}
 If we ``do'' this integral completely naively then we get
 \begin{align*}
-  \int_{-1}^1\frac{1}{x^2}\ dx
+  \int_{-1}^1\frac{1}{x^2}\ \dee{x}
   &= \frac{x^{-1}}{-1}\bigg|_{-1}^1\\
   &= \frac{1}{-1}-\frac{-1}{-1}\\
   &=-2
