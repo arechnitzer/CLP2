@@ -119,7 +119,7 @@ That is, the centre of mass is $3.5$ metres from the left end.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 \begin{question}
-For each picture below, determine whether the centroid is to the left of, to the right of, or along the line  $x=a$, or whether there is not enough information to tell. The shading of a region indicates density: darker shading corresponds to a denser area.
+For each picture below, determine whether the centre of mass is to the left of, to the right of, or along the line  $x=a$, or whether there is not enough information to tell. The shading of a region indicates density: darker shading corresponds to a denser area.
 
 \begin{center}
 \begin{tikzpicture}
@@ -182,9 +182,9 @@ Imagine cutting out the shape and setting it on top of a pencil, so that the pen
 (d) along the line $x=a$ \qquad (e) to the right
 \end{answer}
 \begin{solution}
-(a) If we were to set this figure on a pencil lined up along the vertical line $x=a$, it seems pretty clear that it would fall to the left. So, the centre of mass is to the left of the line $x=a$. The same is true in (b): the added density on the left makes it only more lopsided. However, in (c), the right point is denser than the left, which could counterbalance the left. Without knowing more about the dimensions and the density, we can't say where the centre of gravity is in relation to the line $x=a$.
+(a) If we were to set this figure on a pencil lined up along the vertical line $x=a$, it seems pretty clear that it would fall to the left. So, the centre of mass is to the left of the line $x=a$. The same is true in (b): the added density on the left makes it only more lopsided. However, in (c), the right side is denser than the left, which could counterbalance the left. Without knowing more about the dimensions and the density, we can't say where the centre of mass is in relation to the line $x=a$.
 
-(d) Consider a section of the figure along the interval $[b,c]$, and its ``mirror" section on the other side of the line $x=a$. These two sections will have the same area, at the same distance from $x=a$. Since we only care about the $x$-coordinate of the centre of gravity, it doesn't matter that the two halves are at different $y$-coordinates. The centroid falls along the line $x=a$.
+(d) Consider a section of the figure, consisting of all points $(x,y)$ in the figure with $b\le x\le c$, and its ``mirror" section on the other side of the line $x=a$. These two sections, which are drawn in red in the sketches below, will have the same area, at the same distance from $x=a$. Since we only care about the $x$-coordinate of the centre of mass, it doesn't matter that the two halves are at different $y$-coordinates. The centre of mass falls along the line $x=a$.
 \begin{center}
 \begin{tikzpicture}
 \draw[thick, fill, fill opacity=0.2, yshift=.5cm] (0,-1)--(0,-2) -|(1,-1.1)--(3,-.1)--(3,-1)--(4,-1)--(4,0)--(3,0)--(1,-1)--cycle;
@@ -241,7 +241,7 @@ Imagine cutting out the shape and setting it on top of a pencil, so that the pen
 
 
 \begin{question}\label{prob_s2.3tank1}
-Tank $A$ is spherical, of radius 1 metre, and filled completely with water. The bottom of tank $A$ is three metres above the ground, where Tank $B$ sits. Tank $B$ is tall and rectangular, with base dimensions 2 metres by 1 metre, and empty. Calculate the work done by gravity to drain all the water from Tank $A$ to Tank $B$ by modelling the situation as a point mass, of the same mass as the water, being moved from the height of the centre of mass of $A$ to the height of the centre of mass of $B$.
+Tank $A$ is spherical, of radius 1 metre, and filled completely with water. The bottom of tank $A$ is three metres above the ground, where Tank $B$ sits. Tank $B$ is tall and rectangular, with base dimensions 2 metres by 1 metre, and empty. Calculate the work done by gravity to drain all the water from Tank $A$ to Tank $B$ by modelling the situation as a point mass, of the same mass as the water, being moved from the height of the centre of mass of $A$ to the height of the centre of mass of the water after it has been moved to $B$.
 
 \begin{center}
 \begin{tikzpicture}
@@ -1193,7 +1193,7 @@ If we make vertical slices, we don't have to turn our region into two parts, so 
 Using Equation~\eref{CLP101}{eq:TRQcentroid} in the CLP-2 text,
 the $x$--coordinate of the centroid is% the weighted average of $x$ or
 \begin{align*}
-\bar x &=\frac{1}{A}\int_0^2 x(T(x)-B(x))\,\dee{x}= \frac{1}{A}\int_0^1x\frac{k}{\sqrt{1+x^2}}\,\dee{x}
+\bar x &=\frac{1}{A}\int_0^1 x(T(x)-B(x))\,\dee{x}= \frac{1}{A}\int_0^1x\frac{k}{\sqrt{1+x^2}}\,\dee{x}
 \intertext{Although we have a quadratic function underneath a square root, we find an easier method than a trig substitution: the substitution $u=1+x^2,\ \dee{u}=2x\,\dee{x}$. This changes the limits of integration to $1+0^2=1$ and $1+1^2=2$, respectively.}
 &= \frac{1}{A}\int_1^2\frac{k}{\sqrt{u}}\,\frac{\dee{u}}{2}
 =\frac{k}{2A}\left[\frac{\sqrt{u}}{1/2}\right]_1^2
@@ -2178,7 +2178,7 @@ To calculate the centre of mass of the upturned sand using the result of Questio
 about 0.833 N
 \end{answer}
 \begin{solution}
-To use the result of Question~\ref{prob_s2.3:cone}, we need to now the dimensions of the cone that was truncated to make the hourglass. The bottom (or top) half of our hourglass has base radius 5 cm,  height 9 cm, and top radius 0.5 cm. Imagine extending it to a full cone. Let $t$ be the distance from the top of the half hourglass to the tip of the full cone.
+To use the result of Question~\ref{prob_s2.3:cone}, we need to know the dimensions of the cone that was truncated to make the hourglass. The bottom (or top) half of our hourglass has base radius 5 cm,  height 9 cm, and top radius 0.5 cm. Imagine extending it to a full cone. Let $t$ be the distance from the top of the half hourglass to the tip of the full cone.
 \begin{center}
 \begin{tikzpicture}
 %\draw (-2.5,0)--(2.5,0)--(0,5)--cycle;

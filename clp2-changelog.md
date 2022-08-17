@@ -7,6 +7,15 @@ permalink: /CLP2-changelog/
 ---
 
 # CLP-2 Integral Calculus textbook
+* 2022 August 7 - Typo correction in Definition 1.11.4.
+* 2022 May 28 - A few typo corrections.
+* 2022 April 28 - Added a historical footnote to Example 1.8.19.
+* 2022 April 15 - Typo correction in Example 2.1.6.
+* 2022 April 1 - Typo correction in Example 3.3.4.
+* 2022 March 2 - Typo correction in footnote 10 in Example 2.1.4.
+* 2022 January 26 - Typo correction in Example 1.6.1.
+* 2022 January 22 - Typo correction in the proof of part 1 of Theorem 1.3.1.
+* 2021 October 21 - Typo correction in Example 1.10.3.
 * 2021 August 21 - Corrected a table in section 1.11.4.
 * 2021 July 21 - Added an optional subsection to the end of section 3.6.1. 
 * 2021 July 21 - Extended the subsection of Section 2.2 entitled Return to the Mean Value Theorem. 
@@ -70,6 +79,25 @@ permalink: /CLP2-changelog/
 ---
 
 # CLP-2 Integral Calculus problem book
+* 2022 May 28 - Typo correction in S-22 of Section 1.12.
+* 2022 April 18 - Expanded S-28 in Section 3.2.
+* 2022 April 14 - Wording clarification in Q[20] of Section 1.6.
+* 2022 April 13 - Typo correction in Q[7] of Section 3.2.
+* 2022 March 23 - Tweaked Q[5], Q[6] and S-5 of Section 2.3.
+* 2022 March 17 - Typo correction in S-30 of Section 2.3.
+* 2022 March 17 - Typo corrections in S-17 of Section 2.3 and S-11 of Section 2.4.
+* 2022 March 15 - Typo correction in S-1 of Section 1.8.
+* 2022 March 13 - Typo correction in S-29 of Section 3.1.
+* 2022 March 2 - Expanded S-9 in Section 1.5.
+* 2022 February 13 - Expanded S-24 in Section 1.9.
+* 2022 February 9 - Typo correction in S-7 of Section 1.5.
+* 2022 February 8 - Expanded S-15 in Section 1.8.
+* 2022 February 6 - Typo correction in Q[49(a)] of Section 1.3.
+* 2022 January 16 - Typo correction in S-10(b) of Section 1.1.
+* 2022 January 13 - Typo correction in Q[36] of Section 1.1.
+* 2021 November 8 - Typo correction in Q[29] of Section 3.1.
+* 2021 October 30 - Typo correction in Q[8] of Section 1.9.
+* 2021 September 24 - Corrected A-5(d) and S-5(d) of Section 1.10.
 * 2021 April 27 - Simplified S-12 in Section 3.4.
 * 2021 April 25 - Simplified S-6 in Section 3.4.
 * 2021 April 19 - Typo correction in A-23 and S-23 of Section 3.5.
@@ -124,6 +152,7 @@ permalink: /CLP2-changelog/
 ---
 
 # CLP-2 Integral Calculus combined text
+* May 28, 2022 - Typo correction in S-29 of Section 2.1.
 * February 2, 2021 - Footnote tag correction in Example 1.8.19.
 * November 13, 2020: Removed "in the CLP-2 text" a bunch of times.
 * 2020 January - April: Misc clean up of pretext code as per changes listed above for text and problem books.

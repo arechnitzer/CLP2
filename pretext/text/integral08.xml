@@ -131,7 +131,7 @@ Here is an example.
 
 <example xml:id="eg_TRGINTa"><title><m>\int \sin^2 x\cos^3 x\dee{x}</m></title>
 <p>
-Start by factoring off one power of <m>\cos x</m> to combine with <m>dx</m> to get <m>\cos x\dee{x}=\dee{u}</m>.
+Start by factoring off one power of <m>\cos x</m> to combine with <m>\dee{x}</m> to get <m>\cos x\dee{x}=\dee{u}</m>.
 <md>
 <mrow>
 \int \sin^2 x\cos^3 x\dee{x}
@@ -197,7 +197,7 @@ Now it's easy to integrate
 <md>
 <mrow>
 \int \cos^4 x\dee{x}
-&amp;= \frac{3}{8}\int dx+\frac{1}{2}\int\cos(2x)\dee{x}+\frac{1}{8}\int\cos(4x)\dee{x}
+&amp;= \frac{3}{8}\int \dee{x}+\frac{1}{2}\int\cos(2x)\dee{x}+\frac{1}{8}\int\cos(4x)\dee{x}
 </mrow>
 <mrow>
 &amp;= \frac{3}{8}x+\frac{1}{4}\sin(2x)+\frac{1}{32}\sin(4x) + C
@@ -261,7 +261,7 @@ Of course we can compute the definite integral <m>\int_0^\pi \cos^2 x\dee{x}</m>
 	</mrow><mrow>
 	&amp;=\frac{1}{2}\int_0^\pi \big[\sin^2 x+ \cos^2 x\big]\dee{x}
 	</mrow><mrow>
-	&amp;= \frac{1}{2}\int_0^\pi dx
+	&amp;= \frac{1}{2}\int_0^\pi \dee{x}
 	</mrow><mrow>
 	&amp;=\frac{\pi}{2}
 	</mrow>
@@ -391,7 +391,7 @@ Here we collect a factor of <m>\tan x \sec x</m> and then substitute <m>u = \sec
 <alert>Solution:</alert>
 <ul>
 <li>
-	Start by factoring off one copy of <m>\sec x\tan x</m> and combine it with <m>dx</m> to form <m>\sec x\tan x\dee{x}</m>, which will be <m>\dee{u}</m>.
+	Start by factoring off one copy of <m>\sec x\tan x</m> and combine it with <m>\dee{x}</m> to form <m>\sec x\tan x\dee{x}</m>, which will be <m>\dee{u}</m>.
 </li>
 <li>
 	Now substitute <m>u=\sec x</m>,  <m>\dee{u}=\sec x\tan x\dee{x}</m> and <m>\tan^2x = \sec^2 x-1=u^2-1</m>.
@@ -429,7 +429,7 @@ In the previous case we substituted <m>u = \sec x</m>, while in this case we sub
 <alert>Solution:</alert>
 <ul>
 <li>
-	Factor off one copy of <m>\sec^2 x</m> and combine it with <m>dx</m> to form <m>\sec^2 x\dee{x}</m>, which will be <m>\dee{u}</m>.
+	Factor off one copy of <m>\sec^2 x</m> and combine it with <m>\dee{x}</m> to form <m>\sec^2 x\dee{x}</m>, which will be <m>\dee{u}</m>.
 </li>
 <li>
 	Then substitute <m>u=\tan x</m>, <m>\dee{u}=\sec^2 x\dee{x}</m> and rewrite any remaining even  powers of <m>\sec x</m> as powers of <m>\tan x=u</m> using <m>\sec^2x = 1+\tan^2 x=1+u^2</m>.
@@ -458,7 +458,7 @@ In the previous case we substituted <m>u = \sec x</m>, while in this case we sub
 <alert>Solution:</alert> Let us revisit this example using this slightly different approach.
 <ul>
 <li>
-	Factor off one copy of <m>\sec^2 x</m> and combine it with <m>dx</m> to form <m>\sec^2 x\dee{x}</m>, which will be <m>\dee{u}</m>.
+	Factor off one copy of <m>\sec^2 x</m> and combine it with <m>\dee{x}</m> to form <m>\sec^2 x\dee{x}</m>, which will be <m>\dee{u}</m>.
 </li>
 <li>
 	Then substitute <m>u=\tan x</m>, <m>\dee{u}=\sec^2 x\dee{x}</m> and rewrite any remaining even  powers of <m>\sec x</m> as powers of <m>\tan x=u</m> using <m>\sec^2x = 1+\tan^2 x=1+u^2</m>.
@@ -696,7 +696,9 @@ As noted above, when <m>n</m> is odd and <m>m</m> is even, one can use similar s
 
 <example xml:id="eg_TRGINTopta"><title><m>\int \sec x\dee{x}</m> <mdash/> by trickery</title>
 <p>
-<alert>Solution:</alert> There is a very sneaky trick to compute this integral.
+<alert>Solution:</alert> There is a very sneaky trick to compute this integral<fn>The integral of secant played an important role in constructing accurate Mercator projection maps of the earth. See <url href="https://en.wikipedia.org/wiki/Integral_of_the_secant_function">
+               https://en.wikipedia.org/wiki/Integral_of_the_secant_function</url>
+and <url href="https://arxiv.org/pdf/2204.11187.pdf"> https://arxiv.org/pdf/2204.11187.pdf</url>. The method for evaluating the integral that is being presented in this example was invented by the Scottish mathematician James Gregory in 1668. There are also a number of other methods. See the previous two references.</fn>.
 <ul>
 <li>
 	The standard trick for this integral is to multiply the integrand by <m>1=\frac{\sec x+\tan x}{\sec x+\tan x}</m>
@@ -956,7 +958,7 @@ of <m>\sin x</m> and <m>\cos x</m>.
 	<md>
 	<mrow>
 	\int \sec^3 x\dee{x}
-	&amp;=\int \underbrace{\sec x}_{u}\ \underbrace{\sec^2 x\dee{x}}_{dv}
+	&amp;=\int \underbrace{\sec x}_{u}\ \underbrace{\sec^2 x\dee{x}}_{\dee{v}}
 	</mrow><mrow>
 	&amp;=\underbrace{\sec x}_{u}\ \underbrace{\tan x}_{v}
 			 -\int \underbrace{\tan x}_{v}\ \underbrace{\sec x\tan x\dee{x}}_{\dee{u}}

@@ -343,7 +343,7 @@ Then the area represented by $\textcolor{blue}{F(x+h)}-\textcolor{red}{F(x)}$ is
 \end{solution}
 %%%%%%%%%%%%%%%%%%
 \begin{Mquestion}\label{1.1_intpic1}
-Let $F(x) = \displaystyle\int_0^x f(t)dt$, where $f(t)$ is shown in the graph below, and $0 \leq x \leq 4$.
+Let $F(x) = \displaystyle\int_0^x f(t)\dee{t}$, where $f(t)$ is shown in the graph below, and $0 \leq x \leq 4$.
 \begin{enumerate}[(a)]
 \item Is $F(0)$ positive, negative, or zero?
 \item Where is $F(x)$ increasing and where is it decreasing?
@@ -370,7 +370,7 @@ As $x$ moves along, $F(x)$ adds bits of signed area. If it's adding positive are
 
 %%%%%%%%%%%%%%%%%%
 \begin{question}
-Let $G(x) = \displaystyle\int_x^0 f(t)dt$, where $f(t)$ is shown in the graph below, and $0 \leq x \leq 4$.
+Let $G(x) = \displaystyle\int_x^0 f(t)\dee{t}$, where $f(t)$ is shown in the graph below, and $0 \leq x \leq 4$.
 \begin{enumerate}[(a)]
 \item Is $G(0)$ positive, negative, or zero?
 \item Where is $G(x)$ increasing and where is it decreasing?
@@ -456,7 +456,7 @@ So, $F'(x)=x$.
 
 %%%%%%%%%%%%%%%%%%%
 \begin{question}
-Give a continuous function $f(x)$ so that $F(x) = \displaystyle\int_0^x f(t)dt$ is a constant.
+Give a continuous function $f(x)$ so that $F(x) = \displaystyle\int_0^x f(t)\dee{t}$ is a constant.
 \end{question}
 \begin{hint}
 There is only one!
@@ -1450,7 +1450,7 @@ with $\De x=\frac{1}{n}$, $x_j=\frac{j}{n}$ and $f(x)=\frac{1}{1+x}$.
 The right hand side is the definition (using the right Riemann sum)
 of
 \begin{align*}
-\int_0^1 f(x)\,dx=\int_0^1 \frac{1}{1+x}\,\dee{x}
+\int_0^1 f(x)\,\dee{x}=\int_0^1 \frac{1}{1+x}\,\dee{x}
 =\log|1+x|\Big|_0^1
 =\log 2
 \end{align*}
@@ -1600,7 +1600,7 @@ f'(x) & = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
            x^3\diff{}{x}\int_{0}^{x^3+1} e^{t^3} \dee{t} \\
 & = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
            x^3\ \big[3x^2\big]
-           \Bigg[\frac{d\hfill}{dy}\int_{0}^{y} e^{t^3} \dee{t}\Bigg]_{y=x^3+1} \\
+           \Bigg[\frac{d\hfill}{\dee{y}}\int_{0}^{y} e^{t^3} \dee{t}\Bigg]_{y=x^3+1} \\
 & = 3x^2 \int_{0}^{x^3+1} e^{t^3} \dee{t} +
            x^3\ \big[3x^2\big]
            \Big[e^{y^3}\Big]_{y=x^3+1} \\
@@ -1717,7 +1717,7 @@ Therefore, if $f(x) \neq 0$ for some $x$, then $F(x)$ is not even. It could be o
 
 Interestingly, the antiderivative of an odd function is always even. The proof is a little beyond what we might ask you, but is given below for completeness. The proof goes like this: First, we'll show that if $g(x)$ is odd, then there is \emph{some} antiderivative of $g(x)$ that is even. Then, we'll show that \emph{every} antiderivative of $g(x)$ is even.
 
-So, suppose $g(x)$ is odd and define $G(x)=\displaystyle\int_0^x g(t)dt$.
+So, suppose $g(x)$ is odd and define $G(x)=\displaystyle\int_0^x g(t)\dee{t}$.
 By the Fundamental Theorem of Calculus Part 1, $G'(x)=g(x)$, so $G(x)$ is an antiderivative of $g(x)$. Since $g(x)$ is odd, for any $x\ge 0$, the net signed area under the curve along $[0,x]$ is the \emph{negative} of the net signed area under the curve along $[-x,0]$. So,
 \begin{alignat*}{2}
 \int_0^x g(t)\ \dee{}t &= - \int_{-x}^0 g(t)\ \dee{t}&\quad\mbox{(See Example~\eref{CLP101}{eg:areaunderoddfunction} in the CLP-2 text)}\\

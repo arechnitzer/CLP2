@@ -1320,9 +1320,9 @@ The final sentence in part (b) is just a re-statement of the error bounds we're 
 (a)  $T_4=8.03515$, $S_4\approx 8.03509$
 
 \noindent
-(b) $\displaystyle\Big|\int_a^b f(x)\ dx -T_n\Big|
+(b) $\displaystyle\Big|\int_a^b f(x)\ \dee{x} -T_n\Big|
                 \le \frac{2}{1000}\frac{8^3}{12(4)^2} \le0.00533$,\quad
-$\displaystyle\Big|\int_a^b f(x)\ dx -S_n\Big|
+$\displaystyle\Big|\int_a^b f(x)\ \dee{x} -S_n\Big|
                  \le   \frac{4}{1000}\frac{8^5}{180(4)^4}\le0.00284$
 
 \end{answer}
@@ -1349,7 +1349,7 @@ The information $\big|s^{(k)}(x)\big|\le \dfrac{k}{1000}$, with $k=2$, tells us 
 
 Then the absolute error associated with our trapezoid rule approximation is at most
 \begin{alignat*}{3}
-\bigg|\int_a^b f(x)\ dx -T_n\bigg|&\le \frac{K_2(b-a)^3}{12n^2}
+\bigg|\int_a^b f(x)\ \dee{x} -T_n\bigg|&\le \frac{K_2(b-a)^3}{12n^2}
 &&\le \frac{2}{1000}\cdot\frac{8^3}{12(4)^2}
 &\le 0.00533
 \end{alignat*}
@@ -1359,7 +1359,7 @@ For $k=4$, we see $|s^{(4)}(x)|\leq \frac{4}{1000}$ for all $x$ in the interval 
 Then the absolute error associated with our Simpson's rule approximation is at most
 
 \begin{alignat*}{3}
-\bigg|\int_a^b f(x)\ dx -S_n\bigg|&\le \frac{K_4(b-a)^5}{180n^4}
+\bigg|\int_a^b f(x)\ \dee{x} -S_n\bigg|&\le \frac{K_4(b-a)^5}{180n^4}
 &&\le \frac{4}{1000}\cdot\frac{8^5}{180(4)^4}
 &\le0.00284
 \end{alignat*}

@@ -654,7 +654,7 @@ Now we restore <m>y</m> to <m>x^2</m>.
 
 <exercise purpose="RQS"><title><fromexam>2016A</fromexam></title>
 <statement><p>
-Calculate <m>\displaystyle \int \frac{12x+4}{(x-3)(x^2+1)}\,dx</m>.
+Calculate <m>\displaystyle \int \frac{12x+4}{(x-3)(x^2+1)}\,\dee{x}</m>.
 </p></statement>
 
 <hint><p>
@@ -700,7 +700,7 @@ Substituting <m>A=4</m> in <m>(*)</m> gives
 So we have found that <m>A=4</m>, <m>B=-4</m>, and <m>C=0</m>. Therefore
 <md>
 <mrow>
-  \int \frac{12x+4}{(x-3)(x^2+1)} \,dx &amp;= \int \bigg( \frac{4}{x-3} - \frac{4x}{x^2+1} \bigg) \,dx
+  \int \frac{12x+4}{(x-3)(x^2+1)} \,\dee{x} &amp;= \int \bigg( \frac{4}{x-3} - \frac{4x}{x^2+1} \bigg) \,\dee{x}
 </mrow><mrow>
    &amp;=  4 \log |x-3| - 2 \log (x^2 + 1) + C
 </mrow>
@@ -780,7 +780,7 @@ For the final integral, we substitute: <m>x = 2y</m>,
 <m>\dee{x} = 2\dee{y}</m>, and see that:
 <md>
 <mrow>
-  \int \frac{4}{x^2+4}\,\dee{x}  = 2 \int \frac{1}{y^2 + 1}\,dy = 2 \arctan y + D = 2\arctan (x/2) + D
+  \int \frac{4}{x^2+4}\,\dee{x}  = 2 \int \frac{1}{y^2 + 1}\,\dee{y} = 2 \arctan y + D = 2\arctan (x/2) + D
 </mrow>
 </md>
 for any constant <m>D</m>. All together we have:

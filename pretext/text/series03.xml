@@ -75,7 +75,7 @@ The divergence test is a <q>one way test</q>. It tells us that if <m>\lim_{n\rig
 </warning>
 
 <p>
-Now while convergence or divergence of series like  <m>\sum_{n=1}^\infty \frac{1}{n}</m> can be determined using some  clever tricks <mdash/> see the optional §<xref ref="sec_HarminicBasel"/> <mdash/>,  it would be much better of have methods that are more systematic and  rely less on being sneaky. Over the next subsections we will discuss  several methods for testing series for convergence.
+Now while convergence or divergence of series like  <m>\sum_{n=1}^\infty \frac{1}{n}</m> can be determined using some  clever tricks <mdash/> see the optional §<xref ref="sec_HarminicBasel"/> <mdash/>,  it would be much better to have methods that are more systematic and  rely less on being sneaky. Over the next subsections we will discuss  several methods for testing series for convergence.
 </p>
 
 <p>
@@ -155,15 +155,15 @@ and hence
 This last improper integral is easy to evaluate:
 <md>
 <mrow>
-  \int_2^\infty \frac{1}{x^2}\dee{x} &amp;= \lim_{R\to\infty} \left[ - \frac{1}{x} \right]_2^R
+  \int_1^\infty \frac{1}{x^2}\dee{x} &amp;= \lim_{R\to\infty} \left[ - \frac{1}{x} \right]_1^R
 </mrow><mrow>
-  &amp;= \lim_{R\to\infty} \left( \frac{1}{2} - \frac{1}{R} \right) = \frac{1}{2}
+  &amp;= \lim_{R\to\infty} \left( \frac{1}{1} - \frac{1}{R} \right) = 1
 </mrow>
 </md>
 Thus we know that
 <md>
 <mrow>
-  \sum_{n=1}^\infty \frac{1}{n^2} = 1+ \sum_{n=2}^\infty \frac{1}{n^2} \leq \frac{3}{2}.
+  \sum_{n=1}^\infty \frac{1}{n^2} = 1+ \sum_{n=2}^\infty \frac{1}{n^2} \leq 2.
 </mrow>
 </md>
 and so the series must converge.
@@ -190,11 +190,11 @@ Let <m>N_0</m> be any natural number. If <m>f(x)</m> is a function which is defi
 <p>
 Then
 <me>
-\sum_{n=1}^\infty a_n\text{ converges }\iff \int_{N_0}^\infty f(x)\ dx\text{ converges}
+\sum_{n=1}^\infty a_n\text{ converges }\iff \int_{N_0}^\infty f(x)\ \dee{x}\text{ converges}
 </me>
 Furthermore, when the series converges, the truncation error
 <me>
-\bigg|\sum_{n=1}^\infty a_n-\sum_{n=1}^N a_n\bigg|\le \int_N^\infty f(x)\ dx\qquad\text{for all $N\ge N_0$}
+\bigg|\sum_{n=1}^\infty a_n-\sum_{n=1}^N a_n\bigg|\le \int_N^\infty f(x)\ \dee{x}\qquad\text{for all $N\ge N_0$}
 </me>
 </p></statement>
 </theorem>
@@ -231,12 +231,12 @@ Look at the figure above. The shaded area in the figure is  <m>\sum_{n=I}^\infty
 </ul>
 This shaded area is smaller than the area under the curve <m>y=f(x)</m> for  <m>I-1\le x \lt \infty</m>. So
 <me>
-\sum_{n=I}^\infty a_n \le \int_{I-1}^\infty f(x)\ dx
+\sum_{n=I}^\infty a_n \le \int_{I-1}^\infty f(x)\ \dee{x}
 </me>
 and, if the integral is finite, the sum <m>\sum_{n=I}^\infty a_n</m> is  finite too. Furthermore, the desired bound on the truncation error is just  the special case of this inequality with <m>I=N+1</m>:
 <md>
 <mrow>
-\sum_{n=1}^\infty a_n - \sum_{n=1}^N a_n =\sum_{n=N+1}^\infty a_n \le \int_N^\infty f(x)\ dx
+\sum_{n=1}^\infty a_n - \sum_{n=1}^N a_n =\sum_{n=N+1}^\infty a_n \le \int_N^\infty f(x)\ \dee{x}
 </mrow>
 </md>
 </p>
@@ -257,7 +257,7 @@ For the <q>divergence case</q> look at the figure above.  The (new) shaded area 
 </ul>
 This time the shaded area is larger than the area under the curve  <m>y=f(x)</m> for <m>I\le x \lt \infty</m>. So
 <me>
-\sum_{n=I}^\infty a_n \ge \int_I^\infty f(x)\ dx
+\sum_{n=I}^\infty a_n \ge \int_I^\infty f(x)\ \dee{x}
 </me>
 and, if the integral is infinite, the sum <m>\sum_{n=I}^\infty a_n</m> is infinite too.
 </p>
@@ -300,10 +300,10 @@ Let <m>p \gt 0</m>. We'll now use the integral test to determine whether or not 
 </p>
 </li>
 <li>
-	So the integral test tells us that the series   <m>\sum_{n=1}^\infty\frac{1}{n^p}</m> converges if and only if the integral <m>\int_1^\infty\frac{dx}{x^p}</m> converges.
+	So the integral test tells us that the series   <m>\sum_{n=1}^\infty\frac{1}{n^p}</m> converges if and only if the integral <m>\int_1^\infty\frac{\dee{x}}{x^p}</m> converges.
 </li>
 <li>
-	We have already seen, in Example <xref ref="eg_IMPp1"/>, that  the integral <m>\int_1^\infty\frac{dx}{x^p}</m> converges if and only if <m>p \gt 1</m>.
+	We have already seen, in Example <xref ref="eg_IMPp1"/>, that  the integral <m>\int_1^\infty\frac{\dee{x}}{x^p}</m> converges if and only if <m>p \gt 1</m>.
 </li>
 </ul>
 So we conclude that <m>\sum_{n=1}^\infty\frac{1}{n^p}</m> converges if and only if <m>p \gt 1</m>. This is sometimes called the <m>p</m>-test.
@@ -315,8 +315,8 @@ So we conclude that <m>\sum_{n=1}^\infty\frac{1}{n^p}</m> converges if and only 
 	On the other hand, the series <m>\sum_{n=1}^\infty\frac{1}{n^{1.000001}}</m> has <m>p = 1.000001 \gt 1</m> and so converges. This time as we add more and more  terms of this series together, the terms we add, namely  <m>\frac{1}{n^{1.000001}}</m>, tend to zero (just) fast enough that  the full sum is finite. Mind you, for this example, the convergence takes place very slowly <mdash/> you have to take a huge number of terms to get a decent approximation to the full sum. If we approximate <m>\sum_{n=1}^\infty\frac{1}{n^{1.000001}}</m> by the truncated series <m>\sum_{n=1}^N\frac{1}{n^{1.000001}}</m>, we make an error of at most
 <md>
 <mrow>
-\int_N^\infty \frac{dx}{x^{1.000001}}
-&amp; = \lim_{R\rightarrow\infty} \int_N^R \frac{dx}{x^{1.000001}}
+\int_N^\infty \frac{\dee{x}}{x^{1.000001}}
+&amp; = \lim_{R\rightarrow\infty} \int_N^R \frac{\dee{x}}{x^{1.000001}}
 </mrow>
 <mrow>
 &amp; = \lim_{R\rightarrow\infty}- \frac{1}{0.000001}
@@ -367,17 +367,17 @@ Let <m>p \gt 0</m>. We'll now use the integral test to determine whether or not 
 </p>
 </li>
 <li>
-	So the integral test tells us that the series   <m>\sum\limits_{n=2}^\infty\frac{1}{n(\log n)^p}</m> converges if and only if  the integral <m>\int_2^\infty\frac{dx}{x (\log x)^p}</m> converges.
+	So the integral test tells us that the series   <m>\sum\limits_{n=2}^\infty\frac{1}{n(\log n)^p}</m> converges if and only if  the integral <m>\int_2^\infty\frac{\dee{x}}{x (\log x)^p}</m> converges.
 </li>
 <li>
-	To test the convergence of the integral, we make the substitution <m>u=\log x</m>, <m>du=\frac{dx}{x}</m>.
+	To test the convergence of the integral, we make the substitution <m>u=\log x</m>, <m>\dee{u}=\frac{\dee{x}}{x}</m>.
 	<md>
 	<mrow>
-	\int_2^R \frac{dx}{x (\log x)^p}
-	=\int_{\log 2}^{\log R}\frac{du}{u^p}
+	\int_2^R \frac{\dee{x}}{x (\log x)^p}
+	=\int_{\log 2}^{\log R}\frac{\dee{u}}{u^p}
 	</mrow>
 	</md>
-	We already know that the integral the integral <m>\int_1^\infty\frac{du}{u^p}</m>, and hence the integral <m>\int_2^R \frac{dx}{x (\log x)^p}</m>, converges if and  only if <m>p \gt 1</m>.
+	We already know that the integral <m>\int_1^\infty\frac{\dee{u}}{u^p}</m>, and hence the integral <m>\int_2^R \frac{\dee{x}}{x (\log x)^p}</m>, converges if and  only if <m>p \gt 1</m>.
 </li>
 </ul>
 So we conclude that  <m>\sum\limits_{n=2}^\infty\frac{1}{n(\log n)^p}</m>  converges if and only if <m>p \gt 1</m>.

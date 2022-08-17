@@ -360,7 +360,8 @@ So the total work required is
 \int_0^{10}\Big[13-\frac{y}{2}\Big]g\ \dee{y}
 =g\left[13 y-\frac{y^2}{4}\right]_0^{10}
 =\big[130-25\big]g
-=105 g\ \mathrm{J}
+=105 g
+=1029\ \mathrm{J}
 \end{equation*}
 
 \end{eg}
@@ -652,8 +653,8 @@ P(t)=I(t)V(t)
 \end{equation*}
 The average power used over the time interval $a\le t\le b$ is
 \begin{align*}
-P_\ave &= \frac{1}{b-a}\int_a^b P(t)\ dt
-        = \frac{V_0^2}{R(b-a)}\int_a^b \sin^2(\omega t-\delta)\ dt
+P_\ave &= \frac{1}{b-a}\int_a^b P(t)\ \dee{t}
+        = \frac{V_0^2}{R(b-a)}\int_a^b \sin^2(\omega t-\delta)\ \dee{t}
 \end{align*}
 Notice that this is almost exactly the form we had in the previous example when computing
 the root mean square voltage.
@@ -666,8 +667,8 @@ Again we simplify the integrand using the identity
 \end{equation*}
 So
 \begin{align*}
-P_\ave &= \frac{1}{b-a}\int_a^b P(t)\ dt
-  = \frac{V_0^2}{2R(b-a)}\int_a^b \big[1-\cos(2\omega t-2\delta)\big]\ dt \\[0.1in]
+P_\ave &= \frac{1}{b-a}\int_a^b P(t)\ \dee{t}
+  = \frac{V_0^2}{2R(b-a)}\int_a^b \big[1-\cos(2\omega t-2\delta)\big]\ \dee{t} \\[0.1in]
 &=\frac{V_0^2}{2R(b-a)}\bigg[t-\frac{\sin(2\omega t-2\delta)}{2\omega}\bigg]_a^b \\[0.1in]
 &=\frac{V_0^2}{2R(b-a)}\bigg[b-a-\frac{\sin(2\omega b-2\delta)}{2\omega}
   +\frac{\sin(2\omega a-2\delta)}{2\omega}\bigg]\\[0.1in]
@@ -1137,10 +1138,10 @@ $T(x)=2\sqrt{1-\frac{x^2}{9}}$ and $B(x)=0$,
 =\frac{1}{A}\int_0^3 x\,2\sqrt{1-\frac{x^2}{9}}\,\dee{x}
 =\frac{4}{3\pi}\int_0^3 x\sqrt{1-\frac{x^2}{9}}\,\dee{x}
 \end{equation*}
-Sub in $u=1-\frac{x^2}{9}$, $du=-\frac{2}{9}x\,\dee{x}$.
+Sub in $u=1-\frac{x^2}{9}$, $\dee{u}=-\frac{2}{9}x\,\dee{x}$.
 \begin{equation*}
 \bar x
-=-\frac{9}{2}\frac{4}{3\pi}\int_1^0 \sqrt{u}\,du
+=-\frac{9}{2}\frac{4}{3\pi}\int_1^0 \sqrt{u}\,\dee{u}
 =-\frac{9}{2}\frac{4}{3\pi}\Big[\frac{u^{3/2}}{3/2}\Big]_1^0
 =-\frac{9}{2}\frac{4}{3\pi}\Big[-\frac{2}{3}\Big]
 =\frac{4}{
@@ -1165,9 +1166,9 @@ $T(x)=\sqrt{r^2-x^2}$ and $B(x)=0$,
 \begin{equation*}
 \bar x = \frac{1}{A}\int_0^r x\sqrt{r^2-x^2}\,\dee{x}
 \end{equation*}
-To evaluate the integral, sub in $u=r^2-x^2$, $du=-2x\,\dee{x}$.
+To evaluate the integral, sub in $u=r^2-x^2$, $\dee{u}=-2x\,\dee{x}$.
 \begin{equation}\label{eq:TRQcentroidB}
-\int_0^r x\sqrt{r^2-x^2}\,\dee{x} = \int_{r^2}^0 \sqrt{u}\,\frac{du}{-2}
+\int_0^r x\sqrt{r^2-x^2}\,\dee{x} = \int_{r^2}^0 \sqrt{u}\,\frac{\dee{u}}{-2}
 = -\frac{1}{2}\Big[\frac{u^{3/2}}{3/2}\Big]^0_{r^2}
 = \frac{r^3}{3}
 \end{equation}
@@ -1901,7 +1902,7 @@ By Theorem \ref{thm:linearODE}, with $b=0$, $a=k$, $y$ replaced
 by $m$ and $x$ replaced by $t$,
 \begin{equation*}
 \diff{m}{t}=km
-%\implies \frac{dm}{m}=k\,dt
+%\implies \frac{dm}{m}=k\,\dee{t}
 %\implies \log m=kt+c\implies m=de^{kt}\hbox{ where }d=e^c
 \implies m(t) = m(0) e^{kt}
 \end{equation*}
@@ -1914,8 +1915,8 @@ tells that the derivative of the function $y(t)=m(t)v(t)$ is
 $gm(0)e^{kt}$. So $y(t)$ is just an antiderivative of $gm(0)e^{kt}$.
 \begin{equation*}
 \diff{y}{t}=gm(t)=gm(0)e^{kt}
-%\implies \dee{y}=gm(0)e^{kt}\,dt
-\implies y(t)=\int gm(0)e^{kt}\,dt = gm(0)\frac{e^{kt}}{k}+C
+%\implies \dee{y}=gm(0)e^{kt}\,\dee{t}
+\implies y(t)=\int gm(0)e^{kt}\,\dee{t} = gm(0)\frac{e^{kt}}{k}+C
 \end{equation*}
 Now that we know $y(t)=m(t)v(t)=m(0)e^{kt}v(t)$, we can get $v(t)$ just by
 dividing out the $m(0)e^{kt}$.
@@ -2651,8 +2652,8 @@ zero, $0.02=a(100-5)$, so that $a= \frac{2}{9500}$.
 We now know $a$ and $K$ and can solve the (separable) differential equation
 \begin{align*}
 \frac{\dee{y}}{dt}=ay(K-y)&\implies
-\frac{\dee{y}}{y(K-y)}=a\,dt\implies
-\int\frac{1}{K}\Big[\frac{1}{y}-\frac{1}{y-K}\Big]\dee{y}=\int a\,dt\\
+\frac{\dee{y}}{y(K-y)}=a\,\dee{t}\implies
+\int\frac{1}{K}\Big[\frac{1}{y}-\frac{1}{y-K}\Big]\dee{y}=\int a\,\dee{t}\\
 &\implies \frac{1}{K}[\log |y|-\log|y-K|]=at+C \\
 &\implies  \log\frac{|y|}{|y-K|}=aKt+CK\implies
 \Big|\frac{y}{y-K}\Big|=De^{aKt}
@@ -2718,8 +2719,8 @@ is $2-2t$, because water is entering at a rate $2$ and solution is
 leaking out at a rate $2t$. Thus
 \begin{equation*}
 \diff{V}{t}=2-2t
-\implies dV=(2-2t)\,dt
-\implies V=\int (2-2t)\,dt
+\implies \dee{V}=(2-2t)\,\dee{t}
+\implies V=\int (2-2t)\,\dee{t}
 =2t-t^2+C
 \end{equation*}
 at least until $V(t)$ reaches either the capacity of the tank or zero.
@@ -2727,13 +2728,13 @@ When $t=0$, $V=3$ so $C=3$ and $V(t)=3+2t-t^2$. Observe that
 $V(t)$ is at a maximum when $\diff{V}{t}=2-2t=0$, or $t=1$.
 
 \medskip
-\noindent (b) In the very short time interval from time $t$ to time $t+dt$,
- $2t\,dt$ litres of brine leaves the tank. That is, the fraction
-$\frac{2t\,dt}{V(t)}$ of the total salt in the tank,
-namely $Q(t)\frac{2t\,dt}{V(t)}$ kilograms, leaves. Thus salt is leaving the
+\noindent (b) In the very short time interval from time $t$ to time $t+\dee{t}$,
+ $2t\,\dee{t}$ litres of brine leaves the tank. That is, the fraction
+$\frac{2t\,\dee{t}}{V(t)}$ of the total salt in the tank,
+namely $Q(t)\frac{2t\,\dee{t}}{V(t)}$ kilograms, leaves. Thus salt is leaving the
 tank at the rate
 \begin{equation*}
-\frac{Q(t)\frac{2t\,dt}{V(t)}}{dt}
+\frac{Q(t)\frac{2t\,\dee{t}}{V(t)}}{\dee{t}}
 =\frac{2tQ(t)}{V(t)}
 =\frac{2tQ(t)}{3+2t-t^2} \text{ kilograms per minute}
 \end{equation*}
@@ -2741,8 +2742,8 @@ so
 \begin{align*}
 \diff{Q}{t}=-\frac{2tQ(t)}{3+2t-t^2}
 &\implies
-\frac{dQ}{Q}=-\frac{2t}{3+2t-t^2}dt=-\frac{2t}{(3-t)(1+t)}dt
-=\Big[\frac{3/2}{t-3}+\frac{1/2}{t+1}\Big]dt\\
+\frac{dQ}{Q}=-\frac{2t}{3+2t-t^2}\dee{t}=-\frac{2t}{(3-t)(1+t)}\dee{t}
+=\Big[\frac{3/2}{t-3}+\frac{1/2}{t+1}\Big]\dee{t}\\
 &\implies
 \log Q=\frac{3}{2}\log|t-3|+\frac{1}{2}\log|t+1|+C
 \end{align*}
@@ -2782,16 +2783,16 @@ kg/li?
 
 \soln
 Denote by $Q(t)$ the amount of salt in the tank at time $t$.
-In a very short time interval $dt$, the incoming solution adds $20\, dt$
+In a very short time interval $\dee{t}$, the incoming solution adds $20\, \dee{t}$
 liters of a solution carrying $0.1$ kg/li. So the incoming solution adds
-$0.1\times 20\, dt=2\, dt$ kg of salt. In the same time interval
-$20\, dt$ liters is drained from the tank. The concentration of the
-drained brine is $\frac{Q(t)}{1500}$. So $\frac{Q(t)}{1500} 20\, dt$ kg were
+$0.1\times 20\, \dee{t}=2\, \dee{t}$ kg of salt. In the same time interval
+$20\, \dee{t}$ liters is drained from the tank. The concentration of the
+drained brine is $\frac{Q(t)}{1500}$. So $\frac{Q(t)}{1500} 20\, \dee{t}$ kg were
 removed. All together, the change in the salt content of the tank during
 the short time interval is
 \begin{equation*}
-dQ=2\, dt-\frac{Q(t)}{1500} 20\, dt
-=\Big(2-\frac{Q(t)}{75}\Big) dt
+dQ=2\, \dee{t}-\frac{Q(t)}{1500} 20\, \dee{t}
+=\Big(2-\frac{Q(t)}{75}\Big) \dee{t}
 \end{equation*}
 The rate of change of salt content per unit time is
 \begin{equation*}

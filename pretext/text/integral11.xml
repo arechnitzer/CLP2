@@ -297,8 +297,8 @@ Of course, it would be very helpful  to quantify what we mean by <q>good</q> in 
 Suppose that <m>\alpha</m> is an approximation to <m>A</m>. This approximation has
 <ul>
 <li> absolute error <m>|A-\alpha|</m> and </li>
-<li> relative error <m>\frac{|A-\alpha|}{A}</m> and </li>
-<li> percentage error <m>100\frac{|A-\alpha|}{A}</m> </li>
+<li> relative error <m>\frac{|A-\alpha|}{|A|}</m> and </li>
+<li> percentage error <m>100\frac{|A-\alpha|}{|A|}</m> </li>
 </ul>
 </p></statement>
 </definition>
@@ -936,7 +936,7 @@ This completes our derivation of the midpoint, trapezoidal and  Simpson's rules 
 <title>Three Simple Numerical Integrators <mdash/> Error Behaviour</title>
 
 <p>
-Now we are armed with our three (relatively simple) method for numerical integration we  should give thought to how practical they might be in the real world
+Now we are armed with our three (relatively simple) methods for numerical integration we  should give thought to how practical they might be in the real world
 	<fn>
 		Indeed,  even beyond the <q>real world</q> of many applications in first year calculus texts, some of  the methods we have described are used by actual people (such as ship builders, engineers  and surveyors) to estimate areas and volumes of actual objects!
 	</fn>.

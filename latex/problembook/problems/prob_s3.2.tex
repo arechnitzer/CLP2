@@ -312,7 +312,7 @@ Suppose the square outlined in red in the picture below has area one.
 \end{tikzpicture}
 \end{center}
 \begin{enumerate}[(a)]
-\item Express the combined area of the black square as a series, assuming the pattern continues forever.
+\item Express the combined area of the black squares as a series, assuming the pattern continues forever.
 \item Evaluate the series using the picture (\emph{not} the formula from your book).
 \end{enumerate}
 \end{Mquestion}
@@ -1311,34 +1311,70 @@ This is a telescoping series.
 $-\dfrac12$
 \end{answer}
 \begin{solution}
-This is a telescoping series. Let's investigate it in the usual way. We leave the fractions in the middle of the table unsimplified, to make the pattern of cancellation clearer, since terms with the same denominator cancel.
+This is a telescoping series. Let's investigate it in the usual way.
+To make the pattern of cancellation clearer, we express 
+$\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1}=
+\frac{1}{n}+\frac{1}{n}-\frac{1}{n+1}-\frac{1}{n-1}$,
+and leave the fractions in the middle of the table unsimplified. Then every fraction has numerator one and two terms with the same denominator and opposite sign cancel.
 
-\[\begin{array}{c||ccc||c}
-\mathbf{n}&\mathbf{\dfrac2n}&\mathbf{-\dfrac{1}{n+1}}&\mathbf{-\dfrac{1}{n-1}}&\mathbf{s_n}\\[7pt]
+\[\begin{array}{c||cccc||c}
+\mathbf{n}&\mathbf{\dfrac{1}{n}}&\mathbf{\dfrac{1}{n}}&\mathbf{-\dfrac{1}{n+1}}&\mathbf{-\dfrac{1}{n-1}}&\mathbf{s_n}\\[7pt]
 \hline
-2&\dfrac{2}{2}&\color{red}-\dfrac{1}{3}&-\dfrac{1}{1}&\textcolor{red}{-\dfrac{1}{3}}\\[10pt]
-3&\color{red}\dfrac{2}{3}&\color{blue}-\dfrac{1}{4}&-\dfrac{1}{2}&\textcolor{red}{\dfrac13}\textcolor{blue}{-\dfrac14}-\dfrac12\\[10pt]
-4&\color{blue}\dfrac{2}{4}&\color{orange}-\dfrac{1}{5}&\color{red}-\dfrac{1}{3}&\textcolor{blue}{\dfrac14}\textcolor{orange}{-\dfrac15}-\dfrac12\\[10pt]
-5&\color{orange}\dfrac{2}{5}&\color{purple}-\dfrac{1}{6}&\color{blue}-\dfrac{1}{4}&
-\textcolor{orange}{\dfrac15}\textcolor{purple}{-\dfrac16}-\dfrac12\\[10pt]
-6&\color{purple}\dfrac{2}{6}&\color{green}-\dfrac{1}{7}&\color{orange}-\dfrac{1}{5}&
-\textcolor{purple}{\dfrac16}\textcolor{green}{-\dfrac17}-\dfrac12
-\\[10pt]
-7&\color{green}\dfrac{2}{7}&\textcolor{brown}{-\dfrac{1}{8}}&\color{purple}-\dfrac{1}{6}&
-\textcolor{green}{\dfrac17}\textcolor{brown}{-\dfrac18}-\dfrac12
-\\[10pt]
-8&\textcolor{brown}{\dfrac{2}{8}}&-\dfrac{1}{9}&\color{green}-\dfrac{1}{7}&
-\textcolor{brown}{\dfrac{1}{8}}-\dfrac{1}{9}-\dfrac12\\[10pt]
-\vdots&&&
+2&\dfrac{1}{2}&{\color{green}{\dfrac{1}{2}}}&{\color{red}{-\dfrac{1}{3}}}&-\dfrac{1}{1}&
+               \dfrac{1}{2}+{\color{green}{\dfrac{1}{2}}} {\color{red}{-\dfrac{1}{3}}}-\dfrac{1}{1}\\[10pt]
+3&{\color{red}{\dfrac{1}{3}}}&{\color{blue}{\dfrac{1}{3}}}&{\color{orange}{-\dfrac{1}{4}}}&{\color{green}{-\dfrac{1}{2}}}&
+               \dfrac{1}{2}+{\color{blue}{\dfrac{1}{3}}}{\color{orange}{-\dfrac{1}{4}}}-\dfrac{1}{1}\\[10pt]
+4&{\color{orange}{\dfrac{1}{4}}}&{\color{green}{\dfrac{1}{4}}}&{\color{red}{-\dfrac{1}{5}}}&{\color{blue}{-\dfrac{1}{3}}}&
+               \dfrac{1}{2}+{\color{green}{\dfrac{1}{4}}} {\color{red}{-\dfrac{1}{5}}}-\dfrac{1}{1}\\[10pt]
+5&{\color{red}{\dfrac{1}{5}}}&{\color{blue}{\dfrac{1}{5}}}&{\color{orange}{-\dfrac{1}{6}}}&{\color{green}{-\dfrac{1}{4}}}&
+               \dfrac{1}{2}+{\color{blue}{\dfrac{1}{5}}}{\color{orange}{-\dfrac{1}{6}}}-\dfrac{1}{1}\\[10pt]
+6&{\color{orange}{\dfrac{1}{6}}}&{\color{green}{\dfrac{1}{6}}}&{\color{red}{-\dfrac{1}{7}}}&{\color{blue}{-\dfrac{1}{5}}}&
+               \dfrac{1}{2}+{\color{green}{\dfrac{1}{6}}}{\color{red}{-\dfrac{1}{7}}}-\dfrac{1}{1}\\[10pt]
+7&{\color{red}{\dfrac{1}{7}}}&{\color{blue}{\dfrac{1}{7}}}&{\color{orange}{-\dfrac{1}{8}}}&{\color{green}{-\dfrac{1}{6}}}&
+               \dfrac{1}{2}+{\color{blue}{\dfrac{1}{7}}} {\color{orange}{-\dfrac{1}{8}}}-\dfrac{1}{1}\\[10pt]
+8&{\color{orange}{\dfrac{1}{8}}}&\dfrac{1}{8}&-\dfrac{1}{9}&{\color{blue}{-\dfrac{1}{7}}}&
+               \dfrac{1}{2}+\dfrac{1}{8}-\dfrac{1}{9}-\dfrac{1}{1}\\[10pt]
+\vdots&&&&
 \end{array}\]
 
-In general, there are three terms with the same denominator, and these cancel out to zero, but it takes a while to gather all three. So, some are left over in the partial sum.
 
+Concentrate on any row $n$, except the very first row and the very last row. 
+The first $\frac{1}{n}$ in that row cancels the $-\frac{1}{n}$ in the middle of the row above it, and the second $\frac{1}{n}$ in that row cancels the $-\frac{1}{n}$ at the end of the row below it.
+As far as the first ($n=2$) row is concerned, the first $\frac{1}{2}$ and the last $-\frac{1}{1}$ never get cancelled out because there is no row above the first one.
+And as far as the very last row is concerned, the two middle terms never get cancelled out because there is no row after the last one.
+So the partial sum is
 \begin{align*}
-s_N=\sum_{n=2}^N \left(\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1} \right)&=
-\frac{1}{N}-\frac{1}{N+1}-\frac{1}{2}
-\intertext{Therefore,}
-\sum_{n=2}^\infty \left(\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1} \right)&=\lim_{N \to \infty}s_N\\&=\lim_{N \to \infty} \left[\frac{1}{N}-\frac{1}{N+1}-\frac{1}{2}\right]\\
+s_N&=\sum_{n=2}^N \left(\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1} \right)
+=\overbrace{\frac{1}{2}-\frac{1}{1}}^{\text{from the first row}}
+ +\overbrace{\frac{1}{N}-\frac{1}{N+1}}^{\text{from the last row}}
+\end{align*}
+
+There is another purely algebraic way to find the same $s_N$, motivated by the above discussion.
+\begin{align*}
+s_N&=\sum_{n=2}^N \left(\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1} \right) \\
+&=\sum_{n=2}^N \left(\frac{1}{n}-\frac{1}{n+1}\right) +\sum_{n=2}^N\left(\frac{1}{n}-\frac{1}{n-1} \right) 
+\end{align*}
+The first half
+\begin{align*}
+\sum_{n=2}^N \left(\frac{1}{n}-\frac{1}{n+1}\right)
+&=\left(\frac{1}{2}{\color{red}{-\frac{1}{3}}}\right) + \left({\color{red}{\frac{1}{3}}} {\color{blue}{-\frac{1}{4}}}\right) + \left({\color{blue}{\frac{1}{4}}}{\color{red}{-\frac{1}{5}}}\right) + \cdots +\left({\color{red}{\frac{1}{N}}}-\frac{1}{N+1}\right) \\
+&=\left[\frac{1}{2}-\frac{1}{N+1}\right]
+\end{align*}
+and the second half
+\begin{align*}
+\sum_{n=2}^N\left(\frac{1}{n}-\frac{1}{n-1} \right)
+&=\left({\color{red}{\frac{1}{2}}}-\frac{1}{1} \right) + \left({\color{blue}{\frac{1}{3}}}{\color{red}{-\frac{1}{2}}} \right) + \left({\color{red}{\frac{1}{4}}}{\color{blue}{-\frac{1}{3}}}\right) +\cdots + \left(\frac{1}{N}-{\color{red}{\frac{1}{N-1}}} \right) \\
+&=\left\{-\frac{1}{1}+\frac{1}{N}\right\}
+\end{align*}
+So 
+\begin{align*}
+s_N&=\left[\frac{1}{2}-\frac{1}{N+1}\right]+\left\{-\frac{1}{1}+\frac{1}{N}\right\} \\
+   &=-\frac{1}{2}+\frac{1}{N}-\frac{1}{N+1}
+\end{align*}
+and the limit
+\begin{align*}
+\sum_{n=2}^\infty \left(\frac{2}{n}-\frac{1}{n+1}-\frac{1}{n-1} \right)&=\lim_{N \to \infty}s_N\\&=\lim_{N \to \infty} \left[-\frac{1}{2}         
+                               +\frac{1}{N}-\frac{1}{N+1}\right]\\
 &=-\frac{1}{2}
 \end{align*}
 

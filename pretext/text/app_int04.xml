@@ -229,7 +229,7 @@ Now that we know <m>m(t)</m> (except for the value of the constant <m>m(0)</m>),
 <me>
 \diff{y}{t}=gm(t)=gm(0)e^{kt}
 \qquad
-\implies y(t)=\int gm(0)e^{kt}\,dt = gm(0)\frac{e^{kt}}{k}+C
+\implies y(t)=\int gm(0)e^{kt}\,\dee{t} = gm(0)\frac{e^{kt}}{k}+C
 </me>
 Now that we know <m>y(t)=m(t)v(t)=m(0)e^{kt}v(t)</m>, we can get <m>v(t)</m> just by dividing out the <m>m(0)e^{kt}</m>.
 <md>
@@ -999,10 +999,10 @@ We now know <m>a</m> and <m>K</m> and can solve the (separable) differential equ
 <md>
 <mrow>
 \frac{\dee{y}}{dt}=ay(K-y)&amp;\implies
-\frac{\dee{y}}{y(K-y)}=a\,dt
+\frac{\dee{y}}{y(K-y)}=a\,\dee{t}
 </mrow><mrow>
 \amp\implies
-\int\frac{1}{K}\Big[\frac{1}{y}-\frac{1}{y-K}\Big]\dee{y}=\int a\,dt
+\int\frac{1}{K}\Big[\frac{1}{y}-\frac{1}{y-K}\Big]\dee{y}=\int a\,\dee{t}
 </mrow><mrow>
 &amp;\implies \frac{1}{K}[\log |y|-\log|y-K|]=at+C
 </mrow><mrow>
@@ -1070,16 +1070,16 @@ At time <m>t=0</m>, where <m>t</m> is measured in minutes, a tank with a 5-litre
 <alert>Solution<fn>No pun intended (sorry).</fn>:</alert> (a) The rate of change of the volume in the tank, at time <m>t</m>,  is <m>2-2t</m>, because water is entering at a rate <m>2</m> and solution is  leaking out at a rate <m>2t</m>. Thus
 <me>
 \diff{V}{t}=2-2t
-\implies dV=(2-2t)\,dt
-\implies V=\int (2-2t)\,dt
+\implies \dee{V}=(2-2t)\,\dee{t}
+\implies V=\int (2-2t)\,\dee{t}
 =2t-t^2+C
 </me>
 at least until <m>V(t)</m> reaches either the capacity of the tank or zero.  When <m>t=0</m>, <m>V=3</m> so <m>C=3</m> and <m>V(t)=3+2t-t^2</m>. Observe that  <m>V(t)</m> is at a maximum when <m>\diff{V}{t}=2-2t=0</m>, or <m>t=1</m>.
 </p>
 
-<p> (b) In the very short time interval from time <m>t</m> to time <m>t+dt</m>, <m>2t\,dt</m> litres of brine leaves the tank. That is, the fraction  <m>\frac{2t\,dt}{V(t)}</m> of the total salt in the tank, namely <m>Q(t)\frac{2t\,dt}{V(t)}</m> kilograms, leaves. Thus salt is leaving the  tank at the rate
+<p> (b) In the very short time interval from time <m>t</m> to time <m>t+\dee{t}</m>, <m>2t\,\dee{t}</m> litres of brine leaves the tank. That is, the fraction  <m>\frac{2t\,\dee{t}}{V(t)}</m> of the total salt in the tank, namely <m>Q(t)\frac{2t\,\dee{t}}{V(t)}</m> kilograms, leaves. Thus salt is leaving the  tank at the rate
 <me>
-\frac{Q(t)\frac{2t\,dt}{V(t)}}{dt}
+\frac{Q(t)\frac{2t\,\dee{t}}{V(t)}}{\dee{t}}
 =\frac{2tQ(t)}{V(t)}
 =\frac{2tQ(t)}{3+2t-t^2} \text{ kilograms per minute}
 </me>
@@ -1088,10 +1088,10 @@ so
 <mrow>
 \diff{Q}{t}=-\frac{2tQ(t)}{3+2t-t^2}
 &amp;\implies
-\frac{dQ}{Q}=-\frac{2t}{3+2t-t^2}dt=-\frac{2t}{(3-t)(1+t)}dt
+\frac{dQ}{Q}=-\frac{2t}{3+2t-t^2}\dee{t}=-\frac{2t}{(3-t)(1+t)}\dee{t}
 </mrow>
 <mrow>
-&amp; \qquad\qquad\qquad =\Big[\frac{3/2}{t-3}+\frac{1/2}{t+1}\Big]dt
+&amp; \qquad\qquad\qquad =\Big[\frac{3/2}{t-3}+\frac{1/2}{t+1}\Big]\dee{t}
 </mrow><mrow>
 &amp;\implies
 \log Q=\frac{3}{2}\log|t-3|+\frac{1}{2}\log|t+1|+C
@@ -1133,9 +1133,9 @@ A tank contains 1500 liters of brine with a concentration of <m>0.3</m> kg of  s
 </p>
 
 <p><alert>Solution:</alert>
-Denote by <m>Q(t)</m> the amount of salt in the tank at time <m>t</m>. In a very short time interval <m>dt</m>, the incoming solution adds <m>20\, dt</m> liters of a solution carrying <m>0.1</m> kg/li. So the incoming solution adds <m>0.1\times 20\, dt=2\, dt</m> kg of salt. In the same time interval <m>20\, dt</m> liters is drained from the tank. The concentration of the drained brine is <m>\frac{Q(t)}{1500}</m>. So <m>\frac{Q(t)}{1500} 20\, dt</m> kg were  removed. All together, the change in the salt content of the tank during  the short time interval is
+Denote by <m>Q(t)</m> the amount of salt in the tank at time <m>t</m>. In a very short time interval <m>\dee{t}</m>, the incoming solution adds <m>20\, \dee{t}</m> liters of a solution carrying <m>0.1</m> kg/li. So the incoming solution adds <m>0.1\times 20\, \dee{t}=2\, \dee{t}</m> kg of salt. In the same time interval <m>20\, \dee{t}</m> liters is drained from the tank. The concentration of the drained brine is <m>\frac{Q(t)}{1500}</m>. So <m>\frac{Q(t)}{1500} 20\, \dee{t}</m> kg were  removed. All together, the change in the salt content of the tank during  the short time interval is
 <me>
-dQ=2\, dt-\frac{Q(t)}{1500} 20\, dt =\Big(2-\frac{Q(t)}{75}\Big) dt
+dQ=2\, \dee{t}-\frac{Q(t)}{1500} 20\, \dee{t} =\Big(2-\frac{Q(t)}{75}\Big) \dee{t}
 </me>
 The rate of change of salt content per unit time is
 <me>

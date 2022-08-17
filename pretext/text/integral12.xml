@@ -20,7 +20,7 @@ To this point we have only considered nicely behaved integrals <m>\int_a^b f(x)\
 Not all integrals we need to study are quite so nice.
 </p>
 
-<definition>
+<definition  xml:id="def_improp_int">
 <statement><p>
 An integral having either an infinite limit of integration or an unbounded integrand is called an improper integral.
 </p></statement>
@@ -30,7 +30,7 @@ An integral having either an infinite limit of integration or an unbounded integ
 Two examples are
 <md>
 <mrow>
-\int_0^\infty\frac{dx}{1+x^2}&amp;&amp; \text{and}&amp;&amp; \int_0^1\frac{dx}{x}
+\int_0^\infty\frac{\dee{x}}{1+x^2}&amp;&amp; \text{and}&amp;&amp; \int_0^1\frac{\dee{x}}{x}
 </mrow>
 </md>
 The first has an infinite domain of integration and the integrand of the second tends to <m>\infty</m> as <m>x</m> approaches the left end of the domain of integration. We'll start with an example that illustrates the traps that you can fall into if you treat such integrals sloppily. Then we'll see how to treat them carefully.
@@ -47,7 +47,7 @@ Consider the integral
 If we <q>do</q> this integral completely naively then we get
 <md>
 <mrow>
-  \int_{-1}^1\frac{1}{x^2}\ dx &amp;= \frac{x^{-1}}{-1}\bigg|_{-1}^1
+  \int_{-1}^1\frac{1}{x^2}\ \dee{x} &amp;= \frac{x^{-1}}{-1}\bigg|_{-1}^1
 </mrow><mrow>
   &amp;= \frac{1}{-1}-\frac{-1}{-1}
 </mrow><mrow>
@@ -180,7 +180,7 @@ Our approach is similar <mdash/> we sneak up on the problem.  We compute the int
 	<md>
 	<mrow>
 	  \int_0^1 \frac{1}{x}\dee{x}
-	&amp;= \lim_{t=0^+}\int_t^1 \frac{1}{x}\dee{x} = \lim_{t=0^+} -\log|t|
+	&amp;= \lim_{t\to 0^+}\int_t^1 \frac{1}{x}\dee{x} = \lim_{t\to 0^+} -\log|t|
 	= +\infty
 	</mrow>
 	</md>

@@ -583,7 +583,7 @@ f'(x)     &amp;= \sum_{n=0}^\infty A_n\, n\,(x-c)^{n-1}
 </mrow><mrow>
 \int_c^x f(t)\dee{t} &amp;= \sum_{n=0}^\infty A_n \frac{(x-c)^{n+1}}{n+1}
 </mrow><mrow>
-\int  f(x)\ dx &amp;= \bigg[\sum_{n=0}^\infty A_n \frac{(x-c)^{n+1}}{n+1}\bigg]+C
+\int  f(x)\ \dee{x} &amp;= \bigg[\sum_{n=0}^\infty A_n \frac{(x-c)^{n+1}}{n+1}\bigg]+C
 \quad\text{with $C$ an arbitrary constant}
 </mrow>
 </md>
@@ -838,7 +838,7 @@ Find a power series representation for <m>\log (1+x)</m>.
 Recall that <m>\diff{}{x}\log (1+x) = \frac{1}{1+x}</m> so that <m>\log(1+t)</m> is an antiderivative of <m>\frac{1}{1+t}</m> and
 <md>
 <mrow>
-\log(1+x)\ &amp;=\ \int_0^x \frac{dt}{1+t}
+\log(1+x)\ &amp;=\ \int_0^x \frac{\dee{t}}{1+t}
              \ =\  \int_0^x\Big[\sum_{n=0}^\infty (-t)^n\Big]\dee{t}
 </mrow><mrow>
              &amp;=\  \sum_{n=0}^\infty \int_0^x (-t)^n\dee{t}
@@ -869,7 +869,7 @@ Find a power series representation for <m>\arctan x</m>.
 Recall that <m>\diff{}{x}\arctan x = \frac{1}{1+x^2}</m> so that <m>\arctan t</m> is an antiderivative of <m>\frac{1}{1+t^2}</m> and
 <md>
 <mrow>
-\arctan x\ &amp;=\ \int_0^x \frac{dt}{1+t^2}
+\arctan x\ &amp;=\ \int_0^x \frac{\dee{t}}{1+t^2}
              \ =\  \int_0^x\Big[\sum_{n=0}^\infty {(-t^2)}^n\Big]\dee{t}
              \ =\  \sum_{n=0}^\infty \int_0^x (-1)^n t^{2n}\dee{t}
 </mrow><mrow>
