@@ -1407,6 +1407,21 @@ We have an integrand with $x$ multiplied by something integrable. So, if we use 
 &=\frac{2}{5}\sqrt{x-1}^5 +\frac{2}{3}\sqrt{x-1}^3+C
 \end{align*}
 \end{description}
+We have just seen two solutions. There are other solutions too. For example, one could use the substitution $u=\sqrt{x-1}$. Or, as another example, one could write
+\begin{equation*}
+x\sqrt{x-1} = (x-1)\sqrt{x-1} +\sqrt{x-1} = (x-1)^{3/2} + (x-1)^{1/2}
+\end{equation*}
+and just guess a function whose derivative is $(x-1)^{3/2}$ and a function whose derivative is 
+$(x-1)^{1/2}$. 
+\begin{comment}
+Using the substitution $u=\sqrt{x-1}$, $x=u^2+1$, $\dee{x}=2u\,\dee{u}$
+\begin{align*}
+\int x\sqrt{x-1}~\dee{x}&= \int(u^2+1)\,u\,2u\,\dee{u} \\
+                        &= 2\int (u^4+u^2)\,\dee{u} \\
+                        &=\tfrac{2}{5} u^5 +\tfrac{2}{3}u^3 + C \\
+     &=\frac{2}{5}\sqrt{x-1}^5 +\frac{2}{3}\sqrt{x-1}^3+C
+\end{align*} 
+\end{comment}
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 
@@ -1497,7 +1512,7 @@ $\displaystyle\int_0^{\pi/4} \sec^4x\tan^5x\,\dee{x}$.
 \end{question}
 
 \begin{hint}
-Try a $u$-substitution, as in Section~\eref{CLP101}{sec:tansec} of the CLP-2 text%1.8.2.
+Try a substitution, as in Section~\eref{CLP101}{sec:tansec} of the CLP-2 text.%1.8.2.
 \end{hint}
 
 \begin{answer}
