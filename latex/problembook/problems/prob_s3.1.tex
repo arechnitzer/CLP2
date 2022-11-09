@@ -188,7 +188,8 @@ $(-n)^{-n} = \dfrac{(-1)^n}{n^n}$
 Some possible answers:
 \begin{enumerate}[(a)]
 \item $\dfrac{-1}{n}\le \dfrac{\sin n}{n}\le \dfrac{1}{n}$
-\item $\dfrac{n^2}{13e^n} \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}$
+\item $\dfrac{n^2}{13e^n} \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}$ or
+      $0\le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}$
 \item $ \dfrac{-1}{n^n} \le (-n)^{-n} \le \dfrac{1}{n^n}$
 \end{enumerate}
 \end{answer}
@@ -204,7 +205,8 @@ Note $\lim\limits_{n \to \infty}\dfrac{-1}{n} = \lim\limits_{n \to \infty}\dfrac
 \end{align*}
 This gives us the idea to try the bounds
 \[\dfrac{n^2}{13e^n} \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}\]
-We check that $\lim\limits_{n \to \infty}\dfrac{n^2}{13e^n}  = \lim\limits_{n \to \infty}\dfrac{n^2}{e^n} $ (they're both 0--you can verify using l'H\^{o}pital's rule), so these are indeed reasonable bounds to choose to use with the squeeze theorem.
+We check that $\lim\limits_{n \to \infty}\dfrac{n^2}{13e^n}  = \lim\limits_{n \to \infty}\dfrac{n^2}{e^n} $ (they're both 0--you can verify using l'H\^{o}pital's rule), so these are indeed reasonable bounds to choose to use with the squeeze theorem. Alternatively, since $0\le \frac{n^2}{13e^n}$, we can also use 
+\[ 0 \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}\]
 \item Since $(-n)^{-n} = \dfrac{1}{(-n)^n} = \dfrac{(-1)^n}{n^n}$, we see
 \[ \dfrac{-1}{n^n} \le (-n)^{-n} \le \dfrac{1}{n^n}\]
 Since both $\lim\limits_{n \to \infty}\dfrac{-1}{n^n} $  and $\lim\limits_{n \to \infty}\dfrac{1}{n^n} $  are 0, these are reasonable bounds to use with the squeeze theorem.

@@ -246,7 +246,8 @@ Some possible answers:
 <ol label="a">
 <li> <m>\dfrac{-1}{n}\le \dfrac{\sin n}{n}\le \dfrac{1}{n}</m>
 </li>
-<li> <m>\dfrac{n^2}{13e^n} \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}</m>
+<li> <m>\dfrac{n^2}{13e^n} \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}</m> or
+     <m>0\le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}</m>
 </li>
 <li> <m> \dfrac{-1}{n^n} \le (-n)^{-n} \le \dfrac{1}{n^n}</m>
 </li>
@@ -272,7 +273,10 @@ This gives us the idea to try the bounds
 <me>
 \dfrac{n^2}{13e^n} \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}
 </me>
-We check that <m>\lim\limits_{n \to \infty}\dfrac{n^2}{13e^n}  = \lim\limits_{n \to \infty}\dfrac{n^2}{e^n} </m> (they're both 0 <mdash/> you can verify using l'Hôpital's rule), so these are indeed reasonable bounds to choose to use with the squeeze theorem.
+We check that <m>\lim\limits_{n \to \infty}\dfrac{n^2}{13e^n}  = \lim\limits_{n \to \infty}\dfrac{n^2}{e^n} </m> (they're both 0 <mdash/> you can verify using l'Hôpital's rule), so these are indeed reasonable bounds to choose to use with the squeeze theorem. Alternatively, since <m>0\le \frac{n^2}{13e^n}</m>, we can also use
+<me> 
+0 \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}
+</me>
 </li>
 <li> Since <m>(-n)^{-n} = \dfrac{1}{(-n)^n} = \dfrac{(-1)^n}{n^n}</m>, we see
 <me>
