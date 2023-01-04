@@ -1010,7 +1010,7 @@ Then
 \end{equation*}
 Furthermore, when the series converges, the truncation error
 \begin{equation*}
-\bigg|\sum_{n=1}^\infty a_n-\sum_{n=1}^N a_n\bigg|\le
+0\le \sum_{n=1}^\infty a_n-\sum_{n=1}^N a_n\le
   \int_N^\infty f(x)\ \dee{x}\qquad\text{for all $N\ge N_0$}
 \end{equation*}
 \end{theorem}
@@ -1048,7 +1048,7 @@ and width $1$, and hence area $a_{I+1}$, and so on
 This shaded area is smaller than the area under the curve $y=f(x)$ for
 $I-1\le x<\infty$. So
 \begin{equation*}
-\sum_{n=I}^\infty a_n
+0\le \sum_{n=I}^\infty a_n
 \le \int_{I-1}^\infty f(x)\ \dee{x}
 \end{equation*}
 and, if the integral is finite, the sum $\sum_{n=I}^\infty a_n$ is
@@ -1056,7 +1056,7 @@ finite too.
 Furthermore, the desired bound on the truncation error is just
 the special case of this inequality with $I=N+1$:
 \begin{align*}
-\sum_{n=1}^\infty a_n - \sum_{n=1}^N a_n
+0\le \sum_{n=1}^\infty a_n - \sum_{n=1}^N a_n
 =\sum_{n=N+1}^\infty a_n
 \le \int_N^\infty f(x)\ \dee{x}
 \end{align*}
