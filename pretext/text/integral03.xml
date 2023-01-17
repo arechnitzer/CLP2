@@ -385,11 +385,10 @@ There are two parts to the lemma and we prove each in turn.
 	Since the derivative of <m>H(x)</m> is zero, <m>H(x)</m> must be a constant
 	function
 	<fn>
-		This follows from the Mean Value Theorem. Say <m>H(x)</m> were not constant,  then there would be two numbers <m>a \lt b</m> so that <m>H(a)\neq H(b)</m>. Then the MVT tells us that  there is a number <m>c</m> between <m>a</m> and <m>b</m> so that
-		<m>
-		H'(c) = \frac{H(b)-H(a)}{b-a}.
-		</m>
-		Since both numerator and denominator are nonzero, we know the derivative at <m>c</m> is  nonzero. But this would contradict the assumption that derivative of <m>H</m> is zero. Hence  we cannot have <m>a \lt b</m> with <m>H(a)\neq H(b)</m> and so <m>H(x)</m> must be constant.
+	    This follows from the Mean Value Theorem. Indeed, fix any number <m>x_0</m>. Then, 
+	    for each <m>x\ne x_0</m>, the MVT gives us a number <m>c</m> between <m>x_0</m> and <m>x</m> with
+            <m>H(x)-H(x_0)= H'(c)\,(x-x_0) = 0 </m>, since the derivative of <m>H</m> is zero everywhere. 
+            Thus <m>H(x)=H(x_0)</m> for all <m>x</m> and <m>H(x)</m> is a constant function.
 	</fn>.
 	Thus <m>H(x)=G(x)-F(x)=C</m> for  some constant <m>C</m> and the result follows.
 </li>

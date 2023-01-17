@@ -2811,16 +2811,13 @@ $G(x) = F(x)+C$ for some constant $C$. To do this let $H(x) = G(x)-F(x)$. Then
 = f(x) - f(x) = 0
 \end{align*}
 Since the derivative of $H(x)$ is zero, $H(x)$ must be a constant
-function\footnote{This follows from the Mean Value Theorem. Say $H(x)$ were not constant,
-then there would be two numbers $a<b$ so that $H(a)\neq H(b)$. Then the MVT tells us that
-there is a number $c$ between $a$ and $b$ so that
+function\footnote{This follows from the Mean Value Theorem.
+Indeed, fix any number $x_0$. Then, for each $x\ne x_0$, the MVT gives us a number $c$ between $x_0$ and $x$ with
 \begin{align*}
-  H'(c) &= \frac{H(b)-H(a)}{b-a}.
+H(x)-H(x_0)&= H'(c)\,(x-x_0) = 0
 \end{align*}
-Since both numerator and denominator are non-zero, we know the derivative at $c$ is
-nonzero. But this would contradict the assumption that derivative of $H$ is zero. Hence
-we cannot have $a<b$ with $H(a)\neq H(b)$ and so $H(x)$ must be constant.
-}. Thus $H(x)=G(x)-F(x)=C$ for
+since the derivative of $H$ is zero everywhere. Thus $H(x)=H(x_0)$ for all $x$
+and $H(x)$ is a constant function.}. Thus $H(x)=G(x)-F(x)=C$ for
 some constant $C$ and the result follows.
 \end{itemize}
 

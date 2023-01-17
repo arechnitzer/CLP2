@@ -91,7 +91,7 @@ white,%
     }
     \newenvironment{#2}[1][]{%
     \@ifnotempty{#4}{\refstepcounter{#4}\setcounter{bc}{\value{#4}}}%
-    \begin{boite}[#1]{\textbf{#3\@ifnotempty{#4}{\thebc}}\@ifnotempty{##1}{
+    \begin{boite}[#1]{\textbf{#3 \@ifnotempty{#4}{\thebc}}\@ifnotempty{##1}{
     (##1)}\textbf{.}}
     }%
     {%
