@@ -1877,7 +1877,7 @@ and just guess a function whose derivative is <m>(x-1)^{3/2}</m> and a function 
 
 <exercise>
 <statement><p> Evaluate
-<m>\displaystyle\int \frac{\sqrt{x^2-2}}{x^2}\dee{x}</m>.
+<m>\displaystyle\int \frac{\sqrt{x^2-2}}{x^2}\dee{x}</m>  for <m>x\ge\sqrt{2}</m>.
 </p>
 
 <p>You may use that  <m>\int \sec x\dee{x} = \log|\sec x+\tan x| +C</m>.
@@ -1894,47 +1894,48 @@ Note the quadratic function under the square root: you can solve this with trigo
 
 <solution>
 
-<p><me>
+<p>
+We are to integrate
+<me>
 \int \frac{\sqrt{x^2-2}}{x^2}\dee{x}</me>
 </p>
 
-<p>We notice that there is a quadratic function under the square root. If that equation were a perfect square, we could get rid of the square root: so we'll mould it into a perfect square using a trig substitution.
+<p>We notice that there is a quadratic function under the square root. If that function were a perfect square, we could get rid of the square root: so we'll mould it into a perfect square using a trig substitution.
 </p>
 
-<p>Our candidates will use one of the following identities:
+<p>Our candidates are the following identities:
 <me>
-1-\sin^2\theta=\cos^2\theta \hspace{1cm} \tan^2\theta+1=\sec^2\theta \hspace{1cm} \sec^2\theta-1=\tan^2\theta</me>
-</p>
-
-<p>We'll be substituting <m>x=</m>(something), so we notice that <m>x^2-2</m> has the general form of
+1-\sin^2\theta=\cos^2\theta \hspace{1cm} \tan^2\theta+1=\sec^2\theta \hspace{1cm} \sec^2\theta-1=\tan^2\theta
+</me>
+We'll be substituting <m>x=</m>(something), so we notice that <m>x^2-2</m> has the general form of
 (function)<m>-</m>(constant), as does <m>\sec^2\theta-1</m>. In order to get the constant right, we multiply through by two:
 <me>
-2\sec^2\theta-2=2\tan^2\theta</me>
-</p>
-
-<p>or:
+2\sec^2\theta-2=2\tan^2\theta
+</me>
+or:
 <me>
-(\sqrt{2}\sec \theta)^2-2=2\tan^2\theta</me>
-</p>
-
-<p>so we decide to use the substitution
-<me>
-x=\sqrt{2}\sec\theta\hspace{1cm}\dee{x}=\sqrt{2}\sec\theta\tan\theta \dee{\theta}</me>
-</p>
-
-<p>Now that we've chosen the substitution, we evaluate the integral.
-</p>
-
-<p><md>
+(\sqrt{2}\sec \theta)^2-2=2\tan^2\theta
+</me>
+So we decide to use the substitution
+<md>
 <mrow>
-\int\frac{\sqrt{x^2-2}}{x^2}\dee{x}&amp;=\int\frac{\sqrt{2\sec^2\theta-2}}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta \dee{\theta}
+x&amp;=\sqrt{2}\sec\theta\qquad 0\le \theta \lt \pi/2\quad \text{(Recall that }x\ge\sqrt{2}\text{.)} 
 </mrow><mrow>
-&amp;=\int
-\frac{\sqrt{2\tan^2\theta}}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta
-\dee{\theta}
+\dee{x}&amp;=\sqrt{2}\sec\theta\tan\theta\, \dee{\theta} 
 </mrow><mrow>
+\sqrt{x^2-2}&amp;=\sqrt{2\sec^2\theta-2}
+            =\sqrt{2\tan^2\theta}
+            =\sqrt{2}\,|\tan\theta| 
+</mrow><mrow>
+            &amp;=\sqrt{2}\,\tan\theta\quad\text{since }0\le \theta \lt \pi/2
+</mrow>
+</md>
+Now that we've chosen the substitution, we evaluate the integral.
+<md>
+<mrow>
+\int\frac{\sqrt{x^2-2}}{x^2}\dee{x}
 &amp;=\int
-\frac{\sqrt{2}\tan\theta}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta
+\frac{\sqrt{2}\tan\theta}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta\,
 \dee{\theta}
 </mrow><mrow>
 &amp;=\int
@@ -1949,7 +1950,7 @@ x=\sqrt{2}\sec\theta\hspace{1cm}\dee{x}=\sqrt{2}\sec\theta\tan\theta \dee{\theta
 &amp;=\log|\sec\theta + \tan\theta|-\sin\theta +C
 </mrow>
 </md>
-Now we need everything back in terms of <m>x</m>. We need a triangle. Since <m>x=\sqrt{2}\sec\theta</m>, that means if we label an angle <m>\theta</m>, its secant (hypotenuse over adjacent side) is <m>\dfrac{x}{\sqrt{2}}</m>. By Pythagoras, the opposite side is <m>\sqrt{x^2-2}</m>.
+Now we need everything back in terms of <m>x</m>. We need a triangle. Since <m>x=\sqrt{2}\sec\theta</m>, that means that if we label an angle <m>\theta</m>, its secant (hypotenuse over adjacent side) is <m>\dfrac{x}{\sqrt{2}}</m>. By Pythagoras, the opposite side is <m>\sqrt{x^2-2}</m>.
 </p>
 <sidebyside width="33%">
 <image><latex-image><![CDATA[
@@ -1958,9 +1959,7 @@ Now we need everything back in terms of <m>x</m>. We need a triangle. Since <m>x
 </sidebyside>
 <p>
 So <m>\tan \theta = \frac{\mbox{opp}}{\mbox{adj}}=\dfrac{\sqrt{x^2-2}}{\sqrt{2}}</m>, and <m>\sin\theta = \frac{\mbox{opp}}{\mbox{hyp}}=\dfrac{\sqrt{x^2-2}}{x}</m>. Then the value of the integral is:
-</p>
-
-<p><md>
+<md>
 <mrow>
 \amp\log|\sec\theta + \tan\theta|-\sin\theta +C
 ={ \log \left|
@@ -1974,9 +1973,8 @@ So <m>\tan \theta = \frac{\mbox{opp}}{\mbox{adj}}=\dfrac{\sqrt{x^2-2}}{\sqrt{2}}
 \right|-\frac{\sqrt{x^2-2}}{x}+C
 </mrow>
 </md>
-</p>
-
-<p>Note the simplification in the last step is due to our convention that <m>C</m> is an arbitrary constant. So, <m>C-\log\sqrt{2}</m> can be re-written as simply <m>C</m>.
+Note that the simplification in the last step is possible because <m>C</m> is an arbitrary constant. So, 
+<m>C-\log\sqrt{2}</m> is just another arbitrary constant and can be renamed to <m>C</m>.
 </p></solution>
 </exercise>
 

@@ -1432,9 +1432,9 @@ Using the substitution $u=\sqrt{x-1}$, $x=u^2+1$, $\dee{x}=2u\,\dee{u}$
 
 
 \begin{question} Evaluate
-$\displaystyle\int \frac{\sqrt{x^2-2}}{x^2}\dee{x}$.
+$\displaystyle\int \frac{\sqrt{x^2-2}}{x^2}\dee{x}$ for $x\ge\sqrt{2}$.
 
-You may use that  $\int \sec x\dee{x} = \log|\sec x+\tan x| +C$.
+You may use that  $\int \sec x\,\dee{x} = \log|\sec x+\tan x| +C$.
 \end{question}
 
 \begin{hint}
@@ -1447,48 +1447,45 @@ $\log \left| x+{\sqrt{x^2-2}}
 \end{answer}
 
 \begin{solution}
-
+We are to integrate
 \[\int \frac{\sqrt{x^2-2}}{x^2}\dee{x}\]
+We notice that there is a quadratic function under the square root. If that function were a perfect square, we could get rid of the square root: so we'll mould it into a perfect square using a trig substitution.
 
-We notice that there is a quadratic function under the square root. If that equation were a perfect square, we could get rid of the square root: so we'll mould it into a perfect square using a trig substitution.
-
-Our candidates will use one of the following identities:
+Our candidates are the following identities:
 \[1-\sin^2\theta=\cos^2\theta \hspace{1cm} \tan^2\theta+1=\sec^2\theta \hspace{1cm} \sec^2\theta-1=\tan^2\theta\]
-
 We'll be substituting $x=$(something), so we notice that $x^2-2$ has the general form of
 (function)$-$(constant), as does $\sec^2\theta-1$. In order to get the constant right, we multiply through by two:
 \[2\sec^2\theta-2=2\tan^2\theta\]
 or:
 \[(\sqrt{2}\sec \theta)^2-2=2\tan^2\theta\]
-so we decide to use the substitution
-\[x=\sqrt{2}\sec\theta\hspace{1cm}\dee{x}=\sqrt{2}\sec\theta\tan\theta \dee{\theta}\]
-
-Now that we've chosen the substitution, we evaluate the integral.
-
+So we decide to use the substitution
 \begin{align*}
-\int\frac{\sqrt{x^2-2}}{x^2}\dee{x}&=\int\frac{\sqrt{2\sec^2\theta-2}}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta \dee{\theta}\\
+x&=\sqrt{2}\sec\theta\qquad 0\le \theta < \pi/2\quad \text{(Recall that $x\ge\sqrt{2}$.)} \\
+\dee{x}&=\sqrt{2}\sec\theta\tan\theta\, \dee{\theta} \\
+\sqrt{x^2-2}&=\sqrt{2\sec^2\theta-2}
+            =\sqrt{2\tan^2\theta}
+            =\sqrt{2}\,|\tan\theta| \\
+            &=\sqrt{2}\,\tan\theta\quad\text{since }0\le \theta < \pi/2
+\end{align*}
+Now that we've chosen the substitution, we evaluate the integral.
+\begin{align*}
+\int\frac{\sqrt{x^2-2}}{x^2}\dee{x}
 &=\int
-\frac{\sqrt{2\tan^2\theta}}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta
+\frac{\sqrt{2}\tan\theta}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta\,
 \dee{\theta}\\
 &=\int
-\frac{\sqrt{2}\tan\theta}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta
-\dee{\theta}\\
-&=\int
-\frac{\tan^2\theta}{\sec\theta}
+\frac{\tan^2\theta}{\sec\theta}\,
 \dee{\theta}\\
 &=
 \int \frac{\sec^2\theta-1}{\sec\theta}\dee{\theta}\\
 &=\int \big(\sec\theta-\cos\theta\big)\, \dee{\theta}\\
 &=\log|\sec\theta + \tan\theta|-\sin\theta +C
 \end{align*}
-Now we need everything back in terms of $x$. We need a triangle. Since $x=\sqrt{2}\sec\theta$, that means if we label an angle $\theta$, its secant (hypotenuse over adjacent side) is $\dfrac{x}{\sqrt{2}}$. By Pythagoras, the opposite side is $\sqrt{x^2-2}$.
-
+Now we need everything back in terms of $x$. We need a triangle. Since $x=\sqrt{2}\sec\theta$, that means that if we label an angle $\theta$, its secant (hypotenuse over adjacent side) is $\dfrac{x}{\sqrt{2}}$. By Pythagoras, the opposite side is $\sqrt{x^2-2}$.
 \begin{center}
 \trigtri{\theta}{\sqrt2}{\sqrt{x^2-2}}{x}
 \end{center}
-
 So $\tan \theta = \frac{\mbox{opp}}{\mbox{adj}}=\dfrac{\sqrt{x^2-2}}{\sqrt{2}}$, and $\sin\theta = \frac{\mbox{opp}}{\mbox{hyp}}=\dfrac{\sqrt{x^2-2}}{x}$. Then the value of the integral is:
-
 \begin{align*}
 \log|\sec\theta + \tan\theta|-\sin\theta +C
 &={ \log \left|
@@ -1499,8 +1496,7 @@ So $\tan \theta = \frac{\mbox{opp}}{\mbox{adj}}=\dfrac{\sqrt{x^2-2}}{\sqrt{2}}$,
 &= \log \left| x+{\sqrt{x^2-2}}
 \right|-\frac{\sqrt{x^2-2}}{x}+C
 \end{align*}
-
-Note the simplification in the last step is due to our convention that $C$ is an arbitrary constant. So, $C-\log\sqrt{2}$ can be re-written as simply $C$.
+Note that the simplification in the last step is possible because $C$ is an arbitrary constant. So, $C-\log\sqrt{2}$ is just another arbitrary constant and can be renamed to $C$.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
