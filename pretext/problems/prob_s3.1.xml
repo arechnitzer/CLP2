@@ -294,9 +294,9 @@ Since both <m>\lim\limits_{n \to \infty}\dfrac{-1}{n^n} </m>  and <m>\lim\limits
 <statement><p>
 Below is a list of sequences, and a list of functions.
 <ol label="a">
-<li> Match each sequence <m>a_n</m> to any and all functions <m>f(x)</m> such that <m>f(n)=a_n</m> for all whole numbers <m>n</m>.
+<li> Match each sequence <m>\big\{a_n\big\}_{n=1}^\infty</m> to any and all functions <m>f(x)</m> such that <m>f(n)=a_n</m> for all positive whole numbers <m>n</m>.
 </li>
-<li> Match each sequence <m>a_n</m> to any and all functions <m>f(x)</m> such that <m>\displaystyle\lim_{n \to \infty}a_n = \lim_{x \to \infty}f(x)</m>.
+<li> Match each sequence <m>\big\{a_n\big\}_{n=1}^\infty</m> to any and all functions <m>f(x)</m> such that <m>\displaystyle\lim_{n \to \infty}a_n = \lim_{x \to \infty}f(x)</m>.
 </li>
 </ol>
 <md>
@@ -326,7 +326,7 @@ What might cause your answers in (a) and (b) to differ? Carefully read Theorem<n
 <ol label="a">
 <li>
 <ul>
-<li> Note <m>a_n=b_n</m>, since (in the absence of evidence to the contrary) we assume <m>n</m> begins at one, hence <m>n=|n|</m>. Then <m>a_n=b_n=1+\dfrac{1}{n}=\dfrac{n+1}{n}</m>. So, whenever <m>n</m> is a whole number, <m>a_n</m> and <m>b_n</m> are the same as <m>h(n)</m> and <m>i(n)</m>. (Be careful here: <m>h(x) \neq i(x)</m> when <m>x</m> is not a whole number.)
+<li> Note <m>a_n=b_n</m> since <m>n=|n|</m> for all <m>n\ge 1</m>. Then <m>a_n=b_n=1+\dfrac{1}{n}=\dfrac{n+1}{n}</m>. So, whenever <m>n</m> is a whole number, <m>a_n</m> and <m>b_n</m> are the same as <m>h(n)</m> and <m>i(n)</m>. (Be careful here: <m>h(x) \neq i(x)</m> when <m>x</m> is not a whole number.)
 </li>
 <li> <m>c_n=e^{-n}=\dfrac{1}{e^n}=j(n)</m>
 </li>
@@ -374,8 +374,10 @@ within 0.1 of an odd integer multiple of <m>\pi</m>, and find the corresponding 
 </li>
 <li> Give three different whole numbers <m>n</m> such that <m>a_n</m> is close to <m>0</m>. Justify your answers.
 </li>
+<li> Give three different whole numbers <m>n</m> such that <m>a_n</m> is close to <m>1</m>. Justify your answers.
+</li>
 </ol>
-Remark: this demonstrates intuitively, though not rigorously, why <m>\lim\limits_{n \to \infty}\cos n</m> is undefined. We consistently find terms in the series that are close to <m>-1</m>, and also consistently find terms in the series that are close to 1. Contrast this to a series like <m>\big\{\cos(2\pi n)\big\}</m>, whose terms are always 1, and whose limit therefore is 1. It is possible to turn the ideas of this question into a rigorous proof that <m>\lim\limits_{n \to \infty}\cos n</m> is undefined. See the solution.
+Remark: this demonstrates intuitively, though not rigorously, why <m>\lim\limits_{n \to \infty}\cos n</m> is undefined. We consistently find terms in the series that are close to <m>-1</m>, and also consistently find terms in the series that are close to 0. Contrast this to a series like <m>\big\{\cos(2\pi n)\big\}</m>, whose terms are always 1, and whose limit therefore is 1. It is possible to turn the ideas of this question into a rigorous proof that <m>\lim\limits_{n \to \infty}\cos n</m> is undefined. See the solution.
 </p></statement>
 <hint><p>
 You can use the fact that <m>\pi</m> is somewhat close to <m>\dfrac{22}{7}</m>, or you can use trial and error.
@@ -386,9 +388,18 @@ You can use the fact that <m>\pi</m> is somewhat close to <m>\dfrac{22}{7}</m>, 
 
 <p>(b) Some possible answers: <m>a_{11}\approx 0.0044</m>, <m>a_{33}\approx -0.0133</m>, and <m>a_{55}\approx 0.0221</m>.
 </p>
+
 <p>
 The integers 11, 33, and 55 were found by approximating <m>\pi</m> by <m>\dfrac{22}{7}</m> and finding when an odd multiple of <m>\dfrac{11}{7}</m> (which is the corresponding approximation of <m>\pi/2</m>) is an integer.
-</p></answer>
+</p>
+
+<p>(c) Some possible answers: <m>a_{44}\approx 0.9998</m>, <m>a_{132}\approx 0.9986</m>, and <m>a_{220}\approx 0.09961</m>.
+</p>
+
+<p>
+See the solution for how we found them.
+</p>
+</answer>
 <solution><p>
 (a) We want to find odd multiples of <m>\pi</m> that are close to integers.
 <ul>
@@ -419,7 +430,7 @@ Alternately, we could have just listed odd multiple of <m>\pi</m> until we found
 <me>
 \begin{array}{c|c}
 \hline
-\mathbf{2k+1}&amp;\mathbf{(2k+1)\pi}\\
+\mathbf{2k+1}&amp;\mathbf{(2k+1)}\pmb{\pi}\\
 \hline
 1&amp;3.14\\
 3&amp;9.42\\
@@ -458,7 +469,7 @@ Alternately, we could have just listed odd multiple of <m>\pi</m> until we found
 Solution 1:
 <md>
 <mrow>
-\dfrac{2k+1}{2}\pi&amp;\approx \frac{(2k+1)\times 22}{2\times 7}=11\frac{2k+1}{7}
+\dfrac{2k+1}{2}\pi&amp;\approx \frac{(2k+1)\times 22}{2\times 7}=11\times\frac{2k+1}{7}
 </mrow>
 </md>
 So, we expect our values to be close to integers when
@@ -508,7 +519,7 @@ We could have listed the first several values of <m>a_n</m>, and looked for some
 
 <p><me>
 \begin{array}{c|c}
-\mathbf{2k+1}&amp;\mathbf{\frac{2k+1}{2}\pi}\\
+\mathbf{2k+1}&amp;\mathbf{\frac{2k+1}{2}}\pmb{\pi}\\
 \hline
 1&amp;1.57\\
 3&amp;4.71\\
@@ -536,6 +547,30 @@ We could have listed the first several values of <m>a_n</m>, and looked for some
 </p>
 </li>
 </ul>
+</p>
+
+<p>
+(c)
+One can use the same strategies as we did for parts (a) and (b). But since we already know some <m>n</m>'s with <m>\cos(n)</m> close to <m>-1</m>, it's easier to use the trig identity
+<me>
+\cos(2m) = 2\cos^2(m) -1
+</me>
+This identity shows that if <m>\cos(m)</m> is close to <m>-1</m>, then <m>\cos(2m)</m> is close to <m>+1</m>. So let's try <m>n=2m = 2\times 22=44</m>, <m>2\times 66=132</m> and <m>2\times 110=220</m>.
+</p>
+
+<p><me>
+\begin{array}{c|c}
+\mathbf{n}\amp \mathbf{a_n}\\
+\hline
+44\amp 0.9998\\
+132\amp 0.9986\\
+220\amp 0.9961
+\end{array}
+</me>
+</p>
+
+<p>They do the trick.
+</p>
 <p>
 Remark: it is possible to turn the ideas of this question into a rigorous proof that <m>\lim\limits_{n \to \infty}\cos n</m> is undefined.
 <ul>
@@ -547,6 +582,9 @@ Remark: it is possible to turn the ideas of this question into a rigorous proof 
 </li>
 </ul>
 </p>
+
+<p>
+Remark: This question also hints at a property of the set of all numbers <m>\cos(n)</m>, with <m>n</m> running over the integers. Mathematicians say that this set is <q>dense in the interval <m>[-1,1]</m></q>. This means that if you pick any number <m>-1\le r\le 1</m>, there is an integer <m>n</m> such that <m>\cos(n)</m>, while not necessarily being exactly <m>r</m>, is as close to <m>r</m> as you like. If you feed <q><m>\cos(n)</m> dense</q> into your favourite search engine, you can find out more.  
 </p></solution>
 </exercise>
 </exercisegroup>
