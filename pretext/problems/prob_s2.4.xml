@@ -45,7 +45,7 @@ You don't need to solve the differential equation from scratch, only verify whet
  (c) no
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> If <m>y=5(e^x-3x^2-6x-6)</m>, then <m>\diff{y}{x} = 5(e^x-6x-6)</m>. Let's see whether this is equal to <m>y+15x^2</m>:
 <md>
 <mrow>
@@ -96,7 +96,7 @@ Following Definition<nbsp/><xref ref="def_SDEsepdiffeq"/>, a separable different
 </p>
 
 <p>Show that each of the following equations can be written in this form, identifying <m>f(x)</m> and <m>g(y)</m>.
-<ol label="a">
+<ol marker="a">
 <li> <m>3y\diff{y}{x}=x\sin y</m>
 </li>
 <li> <m>\diff{y}{x} = e^{x+y}</m>
@@ -111,7 +111,7 @@ Following Definition<nbsp/><xref ref="def_SDEsepdiffeq"/>, a separable different
 For (d), note the equation given is quadratic in the variable <m>\diff{y}{x}</m>.
 </p></hint>
 <answer><p>
-<ol label="a">
+<ol marker="a">
 <li> One possible answer: <m>f(x)=x</m>, <m>g(y)=\dfrac{\sin y}{3y}</m>.
 </li>
 <li> One possible answer:  <m>f(x) = e^x</m>, <m>g(y) = e^y</m>.
@@ -123,7 +123,7 @@ For (d), note the equation given is quadratic in the variable <m>\diff{y}{x}</m>
 </ol>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> <m>3y\diff{y}{x}=x\sin y</m> can be written as <m>\diff{y}{x} = x\left(\frac{\sin y}{3y}\right)</m>, which fits the form of a separable equation with <m>f(x)=x</m>, <m>g(y) = \frac{\sin y}{3y}</m>.
 </li>
 <li> <m>\diff{y}{x} = e^{x+y} = e^xe^y</m>
@@ -257,7 +257,7 @@ Our equation should hold for all <m>x</m> in our domain, and for the derivative 
 <exercise>
 <statement><p>
 Suppose a function <m>y=f(x)</m> satisfies <m>|y| = Cx</m>, for some constant <m>C \gt 0</m>.
-<ol label="a">
+<ol marker="a">
 <li> What is the largest possible domain of <m>f(x)</m>, given the information at hand?
 </li>
 <li>
@@ -284,7 +284,7 @@ If a function is differentiable at a point, it is also continuous at that point.
 (b) No such function exists. If <m>|f(x)|=Cx</m> and <m>f(x)</m> switches from <m>f(x)=Cx</m> to <m>f(x)=-Cx</m> at some point, then that point is a jump discontinuity. Where <m>f(x)</m> contains a discontinuity, <m>\diff{y}{x}</m> does not exist.
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> Since <m>|y| \geq 0</m> no matter what <m>y</m> is, we see <m>Cx \ge 0</m> for all <m>x</m> in the domain of <m>f(x)</m>. Since <m>C</m> is positive, that means the domain of <m>f(x)</m> only includes nonnegative numbers. So, the largest possible domain of <m>f(x)</m> is <m>[0,\infty)</m>.
 </li>
 <li>
@@ -406,7 +406,7 @@ If <m>p(t)</m> is the proportion of times speakers use the new form, measured be
 <exercise purpose="RQS" xml:id="prob_s2_4_field">
 <statement><p>
 Consider the differential equation <m>y'=\frac{y}{2}-1</m>.
-<ol label="a">
+<ol marker="a">
 <li> When <m>y=0</m>, what is <m>y'</m>?
 </li>
 <li> When <m>y=2</m>, what is <m>y'</m>?
@@ -473,7 +473,7 @@ The red marks show the slope <m>y(x)</m> would have at a point <em>if</em> it cr
 Another possible answer is the constant function <m>y=2</m>.
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> When <m>y=0</m>, <m>y'=\frac{0}{2}-1=-1</m>.
 </li>
 <li> When <m>y=2</m>, <m>y'=\frac{2}{2}-1=0</m>.
@@ -579,7 +579,7 @@ Remark: from Theorem<nbsp/><xref ref="thm_linearODE"/>, we see the solutions to 
 <exercise>
 <statement><p>
 Consider the differential equation <m>y'=y-\frac{x}{2}</m>.
-<ol label="a">
+<ol marker="a">
 <li> If <m>y(1)=0</m>, what is <m>y'(1)</m>?
 </li>
 <li> If <m>y(1)=2</m>, what is <m>y'(1)</m>?
@@ -684,7 +684,7 @@ To draw the sketch similar to Question<nbsp/><xref ref="prob_s2_4_field" text="l
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> If <m>y(1)=0</m>, then <m>y'(1)=0-\frac{1}{2}=-\frac{1}{2}</m>.
 </li>
 <li> If <m>y(1)=2</m>, then <m>y'(1)=2-\frac{1}{2}=\frac{3}{2}</m>.
@@ -1669,7 +1669,7 @@ water resistance is given by
 </md>
 where <m>k</m> is a positive constant. After 10 seconds, the boat's velocity
 is 20 ft/sec.
-<ol label="a">
+<ol marker="a">
 <li>
 What is the value of <m>k</m>?
 </li>
@@ -1754,7 +1754,7 @@ v(t)&amp;=\frac{40}{40kt+1}=\frac{40}{t/10+1}
 in the analysis of certain chemical reactions.)
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 Solve the initial value problem. That is, find <m>x</m> as a
 function of <m>t</m>.
@@ -1861,7 +1861,7 @@ satisfies the differential equation
 and the initial condition <m>P(0)=2</m>.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 Solve this equation for <m>P(t)</m>.
 </li>
@@ -1953,7 +1953,7 @@ of 400 m/min. The velocity is decreasing at a rate proportional to the
 square of the velocity. After 1 minute the velocity is 200 m/min.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 Give a differential equation for the velocity <m>v=v(t)</m> where
 <m>t</m> is time.
@@ -1989,7 +1989,7 @@ data given in the question.
 </answer>
 
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> The rate of change of speed at time <m>t</m> is <m>-kv(t)^2</m> for
 some constant of proportionality <m>k</m> (to be determined--but we assume it is positive, since the speed is decreasing). So <m>v(t)</m> obeys
 the differential equation <m>\diff{v}{t}=-kv^2</m> .
@@ -2056,7 +2056,7 @@ account in dollars after <m>t</m> years satisfies the differential equation
 </md>
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 Solve this differential equation for <m>B</m> as a function of
 <m>t</m>.
@@ -2141,7 +2141,7 @@ constant <m>a</m> reflects the annual interest rate, <m>m</m> is the annual
 rate of withdrawal, and <m>B_0</m> is the initial balance in the account.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 Solve the initial value problem with <m>a = 0.02</m> and <m>B(0) = B_0 = \$30,000</m>.
 Note that your answer depends on the constant <m>m</m>.
@@ -2529,7 +2529,7 @@ Consider the equation
 f(x)=3+\int_0^x\big(f(t)-1\big)\big(f(t)-2\big)\dee{t}
 </mrow>
 </md>
-<ol label="a">
+<ol marker="a">
 <li>
  What is <m>f(0)</m>?
 </li>
@@ -2720,7 +2720,7 @@ Suppose <m>f(t)</m> is a continuous, differentiable function and the root mean s
 You may assume <m>x \gt a</m>.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li> Guess a function <m>f(t)</m> for which the average of <m>f(t)</m> is the same as the root mean square of <m>f(t)</m> on any interval.
 </li>
 <li> Differentiate both sides of the given equation.
@@ -2747,7 +2747,7 @@ For (a), think of a very simple function.
 
 <p>For (d), you'll want to let <m>Y(x)=\int_a^x f(t)\,\dee{t}</m>, and use the quadratic equation. </p></hint>
 <answer><p>
-<ol label="a">
+<ol marker="a">
 <li> One possible answer: <m>f(t)=0</m>
 </li>
 <li> <m>\displaystyle \frac{1}{\sqrt{x-a}}\left[f(x) - \frac{1}{2(x-a)}\int_a^x f(t)\,\dee{t}\right]
@@ -2762,7 +2762,7 @@ For (a), think of a very simple function.
 </ol>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> If we let <m>f(t)=0</m> for all <m>t</m>, then its average over any interval is 0, as is its root mean square.
 </li>
 <li>

@@ -177,7 +177,7 @@ The above arguments are formalised in the following theorem.
 <theorem xml:id="thm_SRintegralTest"><title>The Integral Test</title>
 <statement><p>
 Let <m>N_0</m> be any natural number. If <m>f(x)</m> is a function which is defined  and continuous for all <m>x\ge N_0</m> and which obeys
-<ol label="i">
+<ol marker="i">
 <li> <m>f(x)\ge 0</m> for all <m>x\ge N_0</m> and </li>
 <li> <m>f(x)</m> decreases as <m>x</m> increases and </li>
 <li> <m>f(n)=a_n</m> for all  <m>n\ge N_0</m>. </li>
@@ -293,7 +293,7 @@ Let <m>p \gt 0</m>. We'll now use the integral test to determine whether or not 
 <li>
 <p>
 	This function also obeys the other two conditions of  Theorem <xref ref="thm_SRintegralTest"/>:
-	<ol label="i">
+	<ol marker="i">
 	<li> <m>f(x) \gt 0</m> for all <m>x\ge N_0=1</m> and </li>
 	<li> <m>f(x)</m> decreases as <m>x</m> increases because <m>f'(x)=-p\frac{1}{x^{p+1}} \lt 0</m> for all <m>x\ge N_0=1</m>. </li>
 	</ol>
@@ -356,7 +356,7 @@ Let <m>p \gt 0</m>. We'll now use the integral test to determine whether or not 
 <li>
 <p>
 	Now let's check the other two conditions of  Theorem <xref ref="thm_SRintegralTest"/>:
-	<ol label="i">
+	<ol marker="i">
 	<li>
 		Both <m>x</m> and <m>\log x</m> are positive for all <m>x \gt 1</m>, so <m>f(x) \gt 0</m> for all <m>x\ge N_0=2</m>.
 	</li>
@@ -395,7 +395,7 @@ Our next convergence test is the comparison test. It is much like  the compariso
 <theorem xml:id="thm_SRcomparisonTest"><title>The Comparison Test</title>
 <statement><p>
 Let <m>N_0</m> be a natural number and let <m>K \gt 0</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 	If <m>|a_n|\le K c_n</m> for all <m>n\ge N_0</m> and  <m>\sum\limits_{n=0}^\infty c_n</m> converges, then <m>\sum\limits_{n=0}^\infty a_n</m> converges.
 </li>
@@ -410,7 +410,7 @@ Let <m>N_0</m> be a natural number and let <m>K \gt 0</m>.
 <proof><title><q>Proof</q></title>
 <p>
 We will not prove this theorem here. We'll just observe that it is very  reasonable. That's why there are quotation marks around <q>Proof</q>. For an actual proof see the optional section <xref ref="sec_CompProof"/>.
-<ol label="a">
+<ol marker="a">
 <li>
 	If <m>\sum\limits_{n=0}^\infty c_n</m> converges to a finite number and if the terms in <m>\sum\limits_{n=0}^\infty a_n</m> are smaller than the terms in <m>\sum\limits_{n=0}^\infty c_n</m>, then it is no surprise that <m>\sum\limits_{n=0}^\infty a_n</m> converges too.
 </li>
@@ -558,7 +558,7 @@ Let <m>\sum_{n=1}^\infty a_n</m> and <m>\sum_{n=1}^\infty b_n</m> be two series 
 \lim_{n\rightarrow\infty}\frac{a_n}{b_n}=L
 </me>
 exists.
-<ol label="a">
+<ol marker="a">
 <li> If <m>\sum_{n=1}^\infty b_n</m>  converges, then <m>\sum_{n=1}^\infty a_n</m> converges too. </li>
 <li> If <m>L\ne 0</m> and <m>\sum_{n=1}^\infty b_n</m>  diverges, then <m>\sum_{n=1}^\infty a_n</m> diverges too. </li>
 </ol>
@@ -721,7 +721,7 @@ Here is a convergence test for alternating series that exploits this structure, 
 <theorem xml:id="thm_SRalternating"><title>Alternating Series Test</title>
 <statement><p>
 Let <m>\big\{A_n\big\}_{n=1}^\infty</m> be a sequence of real numbers that obeys
-<ol label="i">
+<ol marker="i">
 <li>
 	<m>A_n\ge 0</m> for all <m>n\ge 1</m> and
 </li>
@@ -809,7 +809,7 @@ lies between <m>(-1)^NA_{N+1}</m> and <m>0</m>.
 <example xml:id="eg_SRaltharmonic"><title>Convergence of the alternating harmonic series</title>
 <p>
 We have already seen, in Example <xref ref="eg_SRpTest"/>, that the harmonic series <m>\sum_{n=1}^\infty\frac{1}{n}</m> diverges. On the other hand, the  series <m>\sum_{n=1}^\infty(-1)^{n-1}\frac{1}{n}</m> converges by the alternating series test with <m>A_n=\frac{1}{n}</m>. Note that
-<ol label="i">
+<ol marker="i">
 <li>
 	<m>A_n=\frac{1}{n}\ge 0</m> for all <m>n\ge 1</m>, so that <m>\sum_{n=1}^\infty(-1)^{n-1}\frac{1}{n}</m> really is an alternating series,  and
 </li>
@@ -840,7 +840,7 @@ You may already know that  <m> e^x=\sum_{n=0}^\infty\frac{x^n}{n!} </m>. In any 
 </mrow>
 </md>
 is an alternating series and satisfies all of the conditions of the alternating series test, Theorem<nbsp/><xref ref="thm_SRalternating"/>a:
-<ol label="i">
+<ol marker="i">
 <li>
 	The terms in the series alternate in sign.
 </li>
@@ -983,7 +983,7 @@ In general the ratio of successive terms of a series,  <m>\frac{a_{n+1}}{a_n}</m
 <theorem xml:id="thm_SRratio"><title>Ratio Test</title>
 <statement><p>
 Let <m>N</m> be any positive integer and assume that <m>a_n\ne 0</m> for all <m>n\ge N</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 	If <m>\lim\limits_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big| = L \lt 1</m>, then <m>\sum\limits_{n=1}^\infty a_n</m> converges.
 </li>
@@ -1350,7 +1350,7 @@ derive, uses a series!
 <ul>
 <li>
 <p>
-Let's start by just putting book <hash/>1 on the table. It's the red book
+Let's start by just putting book #1 on the table. It's the red book
 labelled <q><m>B_1</m></q> in the figure below.
 </p>
 <sidebyside width="75%">
@@ -1359,7 +1359,7 @@ labelled <q><m>B_1</m></q> in the figure below.
 
 <p>
 Use a horizontal <m>x</m>-axis with <m>x=0</m> corresponding to the right hand
-edge of the table. Imagine that we have placed book <hash/>1 so that its
+edge of the table. Imagine that we have placed book #1 so that its
 right hand edge overhangs the end of the table by a distance <m>x_1</m>.
 <ul>
 <li>
@@ -1379,7 +1379,7 @@ book, which is at <m>x=x_1</m>, and the left hand end of the book, which is at
 </me>
 </li>
 </ul>
-Thus book <hash/>1 does not topple off of the table provided
+Thus book #1 does not topple off of the table provided
 <me>
 x_1\le\frac{L}{2}
 </me>
@@ -1387,8 +1387,8 @@ x_1\le\frac{L}{2}
 </li>
 <li>
 <p>
-Now let's put books <hash/>1 and <hash/>2 on the table, with the right hand edge of
-book <hash/>1 at <m>x=x_1</m> and the right hand edge of book <hash/>2 at <m>x=x_2</m>, as in the figure below.
+Now let's put books #1 and #2 on the table, with the right hand edge of
+book #1 at <m>x=x_1</m> and the right hand edge of book #2 at <m>x=x_2</m>, as in the figure below.
 </p>
 
 <sidebyside width="75%">
@@ -1399,8 +1399,8 @@ book <hash/>1 at <m>x=x_1</m> and the right hand edge of book <hash/>2 at <m>x=x
 <p>
 <ul>
 <li>
-In order for book <hash/>2 to not topple off of book <hash/>1, we need the
-centre of mass of book <hash/>2 to lie above book <hash/>1. That is, we need
+In order for book #2 to not topple off of book #1, we need the
+centre of mass of book #2 to lie above book #1. That is, we need
 the <m>x</m>-coordinate of the centre mass of <m>B_2</m>, which is
 <m>\bar X(B_2)=x_2-\frac{L}{2}</m>, to obey
 <me>
@@ -1413,7 +1413,7 @@ x_2\le x_1+\frac{L}{2}
 </li>
 <li>
 <p>
-Assuming that book <hash/>2 does not topple off of book <hash/>1, we still
+Assuming that book #2 does not topple off of book #1, we still
 need to arrange that the pair of books does not topple off of the table.
 Think of the pair of books as the combined red object in the figure
 </p>
@@ -1475,8 +1475,8 @@ x_1 + \Big(x_1+\frac{L}{2}\Big) = L
 </li>
 <li>
 <p>
-Before considering the general <q><m>n</m>-book tower</q>, let's now put  books <hash/>1, <hash/>2 and <hash/>3
-on the table, with the right hand edge of book <hash/>1 at <m>x=x_1</m>, the right hand edge of book <hash/>2 at  <m>x=x_2</m>, and the right  hand edge of book <hash/>3 at <m>x=x_3</m>, as in the figure below.
+Before considering the general <q><m>n</m>-book tower</q>, let's now put  books #1, #2 and #3
+on the table, with the right hand edge of book #1 at <m>x=x_1</m>, the right hand edge of book #2 at  <m>x=x_2</m>, and the right  hand edge of book #3 at <m>x=x_3</m>, as in the figure below.
 </p>
 
 <sidebyside width="75%">
@@ -1486,8 +1486,8 @@ on the table, with the right hand edge of book <hash/>1 at <m>x=x_1</m>, the rig
 <p>
 <ul>
 <li>
-In order for book <hash/>3 to not topple off of book <hash/>2, we need the
-centre of mass of book <hash/>3 to lie above book <hash/>2. That is, we need
+In order for book #3 to not topple off of book #2, we need the
+centre of mass of book #3 to lie above book #2. That is, we need
 the <m>x</m>-coordinate of the centre mass of <m>B_3</m>, which is
 <m>\bar X(B_3)=x_3-\frac{L}{2}</m>, to obey
 <me>
@@ -1500,9 +1500,9 @@ x_3\le x_2+\frac{L}{2}
 </li>
 <li>
 <p>
-Assuming that book <hash/>3 does not topple off of book <hash/>2, we still
-need to arrange that the pair of books, book <hash/>2 plus book <hash/>3 (the
-red object in the figure below), does not topple off of book <hash/>1.
+Assuming that book #3 does not topple off of book #2, we still
+need to arrange that the pair of books, book #2 plus book #3 (the
+red object in the figure below), does not topple off of book #1.
 </p>
 
 <sidebyside width="75%">
@@ -1510,7 +1510,7 @@ red object in the figure below), does not topple off of book <hash/>1.
 </sidebyside>
 
 <p>
-In order for this combined red object to not topple off of book <hash/>1,
+In order for this combined red object to not topple off of book #1,
 we need the <m>x</m>-coordinate of its centre mass, which we denote
 <m>\bar X(B_2\cup B_3)</m>, to obey
 <me>
@@ -1528,7 +1528,7 @@ As <m>B_2</m> and <m>B_3</m> have the same weight,
 &amp;= \frac{1}{2}(x_2+x_3) -\frac{L}{2}
 </mrow>
 </md>
-and the combined red object does not topple off of book <hash/>1 if
+and the combined red object does not topple off of book #1 if
 <me>
 \frac{1}{2}(x_2+x_3) -\frac{L}{2} \le x_1
 \iff
@@ -1538,10 +1538,10 @@ x_2+x_3\le 2x_1+L
 </li>
 <li>
 <p>
-Assuming that book <hash/>3 does not topple off of book <hash/>2, and also
-that the combined book <hash/>2 plus book <hash/>3 does not topple off of book <hash/>1,
-we still need to arrange that the whole tower of books, book <hash/>1 plus
-book <hash/>2 plus book <hash/>3 (the red object in the figure below), does not
+Assuming that book #3 does not topple off of book #2, and also
+that the combined book #2 plus book #3 does not topple off of book #1,
+we still need to arrange that the whole tower of books, book #1 plus
+book #2 plus book #3 (the red object in the figure below), does not
 topple off of the table.
 </p>
 
@@ -1625,7 +1625,7 @@ and finally
 We are finally ready for the general <q><m>n</m>-book tower</q>.
 Stack <m>n</m> books on the table,
 with book <m>B_1</m> on the bottom and book <m>B_n</m> at the top, and
-with the right hand edge of book <hash/><m>j</m> at <m>x=x_j</m>. The same
+with the right hand edge of book #<m>j</m> at <m>x=x_j</m>. The same
 centre of mass considerations as above show that the tower survives
 if
 <md>
@@ -1751,7 +1751,7 @@ Assume that
 L = \lim_{n\to\infty}\root{n}\of{\big|a_n\big|}
 </me>
 exists or is <m>+\infty</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 	If <m>L \lt 1</m>, then <m>\sum\limits_{n=1}^\infty a_n</m> converges.
 </li>
@@ -2055,7 +2055,7 @@ We start with the comparison test, and then move on to the  alternating series t
 <theorem><title>The Comparison Test (stated again)</title>
 <statement><p>
 Let <m>N_0</m> be a natural number and let <m>K \gt 0</m>.
-<ol label="a">
+<ol marker="a">
 <li> If <m>|a_n|\le K c_n</m> for all <m>n\ge N_0</m> and
 <m>\sum\limits_{n=0}^\infty c_n</m> converges, then
 <m>\sum\limits_{n=0}^\infty a_n</m> converges.
@@ -2093,7 +2093,7 @@ By hypothesis, <m>\sum_{n=N_0+1}^N d_n</m>, and hence <m>S_N</m>, grows without 
 <theorem><title>Alternating Series Test (stated again)</title>
 <statement><p>
 Let <m>\big\{a_n\big\}_{n=1}^\infty</m> be a sequence of real numbers that obeys
-<ol label="i">
+<ol marker="i">
 <li>
 	<m>a_n\ge 0</m> for all <m>n\ge 1</m> and
 </li>

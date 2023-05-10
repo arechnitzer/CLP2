@@ -88,7 +88,7 @@ If there were a total of 17 cookies before Student 11 came, and 20 cookies after
 <statement><p>
 Suppose the sequence of partial sums of the series <m>\displaystyle\sum_{n=1}^\infty a_n</m>
 is <m>\{S_N\} = \left\{\dfrac{N}{N+1}\right\}</m>.
-<ol label="a">
+<ol marker="a">
 <li> What is <m>\{a_n\}</m>?
 </li>
 <li> What is <m>\lim\limits_{n \to \infty} a_n </m>?
@@ -109,7 +109,7 @@ How is (a) related to Question<nbsp/><xref ref="prob_s3_2_cookies" text="local"/
 (c) 1
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> We find <m>\{a_n\}</m> from <m>\{S_N\}</m> using the same logic as Question<nbsp/><xref ref="prob_s3_2_cookies" text="local"/>. <m>S_N</m> is the sum of the first <m>N</m> terms of <m>\{a_n\}</m>, and <m>S_{N-1}</m> is the sum of all the same terms <em>except</em> <m>a_N</m>. So, <m>a_N = S_N-S_{N-1}</m> when <m>N \geq 2</m>. Written another way:
 <md>
 <mrow>
@@ -247,7 +247,7 @@ Suppose the triangle outlined in red in the picture below has area one.
 \draw[line width=5pt, red] (o0)--(o1)--(o2)--cycle;
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
-<ol label="a">
+<ol marker="a">
 <li> Express the combined area of the black triangles as a series, assuming the pattern continues forever.
 </li>
 <li> Evaluate the series using the picture (<em>not</em> the formula from your book).
@@ -376,7 +376,7 @@ Suppose the square outlined in red in the picture below has area one.
 \draw[line width=5pt,  red] (0,0) rectangle (9,9);
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
-<ol label="a">
+<ol marker="a">
 <li> Express the combined area of the black squares as a series, assuming the pattern continues forever.
 </li>
 <li> Evaluate the series using the picture (<em>not</em> the formula from your book).
@@ -768,7 +768,7 @@ with <m>a=\dfrac{1}{5^{50}},</m> <m>r=\dfrac15</m>, and <m>N=50</m>.</intertext>
 
 <exercise>
 <statement><p>
-<ol label="a">
+<ol marker="a">
 <li> Starting on day <m>d=1</m>, every day you give your friend <dollar/><m>\frac{1}{d+1}</m>, and they give <dollar/><m>\frac{1}{d}</m> back to you.  After a long time, how much money have you gained by this arrangement?
 </li>
 <li> Evaluate <m>\displaystyle\sum_{d=1}^\infty \left(\frac{1}{d}-\frac{1}{(d+1)}\right)</m>.
@@ -1119,7 +1119,7 @@ the value of the series is</intertext>
 <statement><p>
 The <m>n^{\rm th}</m> partial sum of a series  <m>\displaystyle \sum_{n=1}^{\infty}a_n </m> is known to
 have the formula <m>\displaystyle s_n = \frac{1+3n}{5+4n}</m>.
-<ol label="a">
+<ol marker="a">
 <li>(a) Find an expression for <m>a_n</m>, valid for <m>n\ge2</m>.
 </li>
 <li>(b) Show that the series <m>\displaystyle \sum_{n=1}^{\infty}a_n </m> converges and find its value.

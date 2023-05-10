@@ -90,7 +90,7 @@ Let <m>\{a_n\}_{n=1}^{\infty}</m>, <m>\{b_n\}_{n=1}^{\infty}</m>,  and <m>\{c_n\
 </p>
 
 <p>Evaluate the limits of the following sequences.
-<ol label="a">
+<ol marker="a">
 <li> <m>\dfrac{a_n-b_n}{c_n}</m>
 </li>
 <li> <m>\dfrac{c_n}{n}</m>
@@ -229,7 +229,7 @@ a_n = \frac{(-1)^n}{n} = \left\{-1,\ \frac12,\ -\frac13,\ \frac14,\ -\frac15,\ \
 <exercise purpose="RQS">
 <statement><p>
 The limits of the sequences below can be evaluated using the squeeze theorem. For each sequence, choose an upper bounding sequence and lower bounding sequence that will work with the squeeze theorem.
-<ol label="a">
+<ol marker="a">
 <li> <m>a_n = \dfrac{\sin n}{n}</m>
 </li>
 <li> <m>b_n = \dfrac{n^2}{e^n(7+\sin n - 5\cos n)}</m>
@@ -243,7 +243,7 @@ The limits of the sequences below can be evaluated using the squeeze theorem. Fo
 </p></hint>
 <answer><p>
 Some possible answers:
-<ol label="a">
+<ol marker="a">
 <li> <m>\dfrac{-1}{n}\le \dfrac{\sin n}{n}\le \dfrac{1}{n}</m>
 </li>
 <li> <m>\dfrac{n^2}{13e^n} \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}</m>
@@ -253,7 +253,7 @@ Some possible answers:
 </ol>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 Since <m>-1 \leq \sin n \leq 1</m> for all <m>n</m>, one potential set of upper and lower bound is
 <me>
@@ -289,7 +289,7 @@ Since both <m>\lim\limits_{n \to \infty}\dfrac{-1}{n^n} </m>  and <m>\lim\limits
 <exercise purpose="RQS">
 <statement><p>
 Below is a list of sequences, and a list of functions.
-<ol label="a">
+<ol marker="a">
 <li> Match each sequence <m>a_n</m> to any and all functions <m>f(x)</m> such that <m>f(n)=a_n</m> for all whole numbers <m>n</m>.
 </li>
 <li> Match each sequence <m>a_n</m> to any and all functions <m>f(x)</m> such that <m>\displaystyle\lim_{n \to \infty}a_n = \lim_{x \to \infty}f(x)</m>.
@@ -319,7 +319,7 @@ What might cause your answers in (a) and (b) to differ? Carefully read Theorem<n
 (b) <m>\lim\limits_{n \to \infty} a_n=\lim\limits_{n \to \infty} b_n  = \lim\limits_{x \to \infty} h(x)=1</m>,  <m>\lim\limits_{n \to \infty} c_n=\lim\limits_{n \to \infty} e_n=\lim\limits_{x \to \infty} g(x) = \lim\limits_{x \to \infty} j(x) =0</m>, <m>\lim\limits_{n \to \infty} d_n</m>,  <m>\lim\limits_{x\rightarrow\infty} f(x)</m>  and <m>\lim\limits_{x\rightarrow\infty} i(x)</m> do not exist.
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <ul>
 <li> Note <m>a_n=b_n</m>, since (in the absence of evidence to the contrary) we assume <m>n</m> begins at one, hence <m>n=|n|</m>. Then <m>a_n=b_n=1+\dfrac{1}{n}=\dfrac{n+1}{n}</m>. So, whenever <m>n</m> is a whole number, <m>a_n</m> and <m>b_n</m> are the same as <m>h(n)</m> and <m>i(n)</m>. (Be careful here: <m>h(x) \neq i(x)</m> when <m>x</m> is not a whole number.)
@@ -364,7 +364,7 @@ According to Theorem<nbsp/><xref ref="thm_SRxlimtoanlim"/>, if any of the functi
 <exercise>
 <statement><p>
 Let <m>\{a_n\}_{n=1}^\infty</m> be a sequence defined by <m>a_n = \cos n</m>.
-<ol label="a">
+<ol marker="a">
 <li> Give three different whole numbers <m>n</m> that are
 within 0.1 of an odd integer multiple of <m>\pi</m>, and find the corresponding values of <m>a_n</m>.
 </li>
@@ -553,7 +553,7 @@ Remark: it is possible to turn the ideas of this question into a rigorous proof 
 <exercise purpose="RQS">
 <statement><p>
 Determine the limits of the following sequences.
-<ol label="a">
+<ol marker="a">
 <li> <m>a_n = \dfrac{3n^2-2n+5}{4n+3}</m>
 </li>
 <li> <m>b_n = \dfrac{3n^2-2n+5}{4n^2+3}</m>
@@ -572,7 +572,7 @@ You can compare the leading terms, or factor a high power of <m>n</m> from the n
 When determining the end behaviour of rational functions, recall from last semester that we can either cancel out the highest power of <m>n</m> from the numerator and denominator, or skip this step and compare the highest powers of the numerator and denominator.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li><p>
 Since the numerator has a higher degree than the denominator, this sequence will diverge to positive or negative infinity; since its terms are positive for large <m>n</m>, its limit is (positive) infinity. (You can imagine that the numerator is growing much, much faster than the denominator, leading the terms to have a very, very large absolute value.)
 </p>
@@ -1228,7 +1228,7 @@ Let <m>\{A_n\}_{n=3}^\infty</m> be the area of a regular polygon with <m>n</m> s
 \end{scope}
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
-<ol label="a">
+<ol marker="a">
 <li> By dividing the polygon into <m>n</m> triangles, give a formula for <m>A_n</m>.
 </li>
 <li> What is <m>\lim\limits_{n \to \infty} A_n</m>?
@@ -1316,7 +1316,7 @@ f_n(x) = \begin{cases}
 <p>Since we can plug in different values of <m>x</m>, we can think of <m>f_n(x)</m> as a function of sequences: a different <m>x</m> gives you a different sequence. On the other hand, if we imagine fixing <m>n</m>, then <m>f_n(x)</m> is just a function, where <m>f_n(x)</m> gives the <m>n</m>th term in the sequence corresponding to <m>x</m>.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li> Sketch the curve <m>y=f_2(x)</m>.
 </li>
 <li> Sketch the curve <m>y=f_3(x)</m>.
@@ -1335,7 +1335,7 @@ f_n(x) = \begin{cases}
 Every term of <m>A_n</m> is the same, and <m>g(x)</m> is a constant function.
 </p></hint>
 <answer><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <sidebyside width="66%">
 <image><latex-image><![CDATA[\begin{tikzpicture}
@@ -1373,7 +1373,7 @@ Every term of <m>A_n</m> is the same, and <m>g(x)</m> is a constant function.
 </ol>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 <m>f_2(x) = \begin{cases}
@@ -1528,7 +1528,7 @@ g(x)&amp;=\left(1+\frac{3}{x}+\frac{5}{x^2}\right)^x
 <statement><p>
 A sequence <m>\big\{a_n\big\}_{n=1}^\infty</m> of real numbers satisfies the
 recursion relation <m>a_{n+1} = \dfrac{a_n+8}{3}</m> for <m>n\ge 1</m>.
-<ol label="a">
+<ol marker="a">
 <li> Suppose <m>a_1=4</m>. What is <m>\lim\limits_{n \to \infty}a_n</m>?
 </li>
 <li> Find <m>x</m> if  <m>x=\dfrac{x+8}{3}</m>.
@@ -1552,7 +1552,7 @@ where <m>L</m> is the solution to equation above.
 </p></answer>
 
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> When <m>a_1=4</m>, we see <m>a_2=\dfrac{4+8}{3}=4</m>, and so on. That is, <m>a_n=4</m> for every <m>n</m>. So, <m>\lim\limits_{n \to \infty} a_n=4</m>.
 </li>
 <li> Cross-multiplying, we see <m>3x=x+8</m>, hence <m>x=4</m>.
@@ -1582,7 +1582,7 @@ So, the distance between our sequence terms and the number 4 is decreasing by a 
 	</p></blockquote>
 </p>
 
-<p>	<ol label="a">
+<p>	<ol marker="a">
 <li> Suppose the sequence <m>\{w_1,w_2,w_3,\ldots\}</m> is a list of all words in a language, where <m>w_n</m> is the word that is the <m>n</m>th most frequently used. Let <m>f_n</m> be the frequency of word <m>w_n</m>. Is <m>\{f_1,f_2,f_3,\ldots\}</m> an increasing sequence or a decreasing sequence?
 </li>
 <li> Give a general formula for <m>f_n</m>, treating <m>f_1</m> as a constant.
@@ -1612,7 +1612,7 @@ So, the distance between our sequence terms and the number 4 is decreasing by a 
 	(e) <q>be</q>:  11,019,308; <q>and</q>:  7,346,205
 </p></answer>
 <solution><p>
-	<ol label="a">
+	<ol marker="a">
 <li> Since <m>w_1</m> has the highest frequency, <m>w_2</m> has the next-highest frequency, and so on, we know <m>f_1</m> is larger than the other members of its sequence, <m>f_2</m> is the next largest, etc. So, <m>\{f_n\}</m> is a decreasing sequence.
 </li>
 <li> The most-used word in a language is <m>w_1</m>, while the <m>n</m>-th most used word in a language is <m>w_n</m>. So, we re-state the law as:

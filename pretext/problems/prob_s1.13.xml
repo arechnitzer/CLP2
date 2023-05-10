@@ -503,7 +503,7 @@ This gives
 <exercise><title><fromexam>1997A</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^4\frac{x}{\sqrt{9+x^2}}\,\dee{x}</m>
 </li>
@@ -584,7 +584,7 @@ So, integrate by parts with <m>u(x)=\log x</m> and <m>\dee{v}=x^3\,\dee{x}</m>, 
 <exercise><title><fromexam>1997D</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^{\pi/2} x\sin x\,\dee{x} </m>
 </li>
@@ -645,7 +645,7 @@ The power of cosine is odd, so we can reserve one cosine for <m>\dee{u}</m> and 
 <exercise><title><fromexam>1998A</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^2 xe^x\,\dee{x}</m>
 </li>
@@ -764,7 +764,7 @@ So,
 <exercise><title><fromexam>2000D</fromexam></title>
 <statement><p>
 Calculate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^3\sqrt{9-x^2}\,\dee{x}</m>
 </li>
@@ -979,7 +979,7 @@ Now we can evaluate our integral.
 <exercise><title><fromexam>2001A</fromexam></title>
 <statement><p>
 Evaluate the following integrals. <em>Show your work.</em>
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^{\pi\over 4}\sin^2(2x)\cos^3(2x)\ \dee{x}</m>
 </li>
@@ -1115,7 +1115,7 @@ integrate by parts with <m>u=\arctan x</m> and <m>\dee{v}=x\,\dee{x}</m> so that
 <exercise><title><fromexam>M121 2000A</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^{\pi/4}\sin^5(2x)\,\cos(2x)\ \dee{x}</m>
 </li>
@@ -1215,7 +1215,7 @@ as desired. Thus,
 <exercise><title><fromexam>2001D</fromexam></title>
 <statement><p>
 Calculate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^\infty e^{-x} \sin(2x)\,\dee{x}</m>
 </li>
@@ -1398,7 +1398,7 @@ since
 <exercise><title><fromexam>2002A</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int x\,\log x\ \dee{x}</m>
 </li>
@@ -1498,7 +1498,7 @@ Setting <m>x=1</m> gives <m>\textcolor{red}{b=-\frac{1}{2}}</m>.  So,
 <exercise><title><fromexam>2013A</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^1\arctan  x\ \dee{x}</m>.
 </li>
@@ -1554,7 +1554,7 @@ In the last step, you can guess the antiderivative, or use the substitutions <m>
 
 <exercise><title><fromexam>2014A</fromexam></title>
 <statement><p>
-<ol label="a">
+<ol marker="a">
 <li>
 Evaluate <m>{\displaystyle \int\frac{x^2}{(x^3 + 1)^{101}}\,\dee{x}}</m>.
 </li>
@@ -1641,7 +1641,7 @@ First, we note that the integral is improper, because <m>\sin\pi=0</m>. So, we'l
 <exercise><title><fromexam>M105 2015A</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int \frac{e^x}{(e^x+1)(e^x-3)}\, \dee{x}</m>
 </li>
@@ -1755,7 +1755,7 @@ and hence <m>\theta=\frac{\pi}{6}</m>. So
 Evaluate these integrals.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 <m>\displaystyle\int\frac{\sin^3x}{\cos^3x} \ \dee{x}</m>
 </li>
@@ -2437,7 +2437,7 @@ What is the derivative of the function in the denominator? How could that be use
 Evaluate these integrals.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 <m>\displaystyle\int\sin(\log x) \ \dee{x}</m>
 </li>
@@ -2532,7 +2532,7 @@ and the definite integral
 Evaluate (with justification).
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 <m>\displaystyle\int_0^3(x+1)\sqrt{9-x^2} \ \dee{x}</m>
 </li>
@@ -2897,7 +2897,7 @@ x^4+1&amp;=(x^2+bx+c)(x^2+ex+1/c)
 &amp;=x^4 + \underbrace{\vphantom{\bigg(}(b+e)}_{(1)}x^3+\underbrace{\left(\frac{1}{c}+be+c\right)}_{(3)}x^2+\underbrace{\left(\frac{b}{c}+ec\right)}_{(2)}x+1
 </mrow>
 </md>
-<ol label="1">
+<ol marker="1">
 <li> The coefficient of <m>x^3</m> tells us <m>e=-b</m>.
 </li>
 <li> Then the coefficient of <m>x</m> tells us <m>0=\frac{b}{c}+ec = \frac{b}{c}-bc</m>. So, <m>c = \frac{1}{c}</m>, hence <m>c=\pm 1</m>.

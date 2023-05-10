@@ -330,7 +330,7 @@ The volume of water in Tank A is <m>\frac{4}{3}\pi(1)^3 = \frac{4}{3}\pi</m> cub
 <exercise>
 <statement><p>
 Let <m>S</m> be the region bounded above by <m>y=\frac{1}{x}</m> and and below by the <m>x</m>-axis, <m>1 \le x \le 3</m>. Let <m>R</m> be a rod with density <m>\rho(x)=\frac{1}{x}</m> at position <m>x</m>, <m>1 \le x \le 3</m>.
-<ol label="a">
+<ol marker="a">
 <li> What is the area of a thin slice of <m>S</m> at position <m>x</m> with width <m>\dee{x}</m>?
 </li>
 <li> What is the mass of a small piece of <m>R</m> at position <m>x</m> with length <m>\dee{x}</m>?
@@ -356,7 +356,7 @@ Think about whether your answers should have repetition.
 (e), (f) <m>\dfrac{2}{\log 3}</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> A thin slice of <m>S</m> at position <m>x</m> has height <m>\frac{1}{x}</m>, so if its width is <m>\dee{x}</m>, its area is <m>\frac{1}{x}\,\dee{x}</m>.
 </li>
 <li> A small piece of <m>R</m> at position <m>x</m> has density <m>\frac{1}{x}</m>, so if its length is <m>\dee{x}</m>, its mass is <m>\frac{1}{x}\,\dee{x}</m>.
@@ -392,7 +392,7 @@ Remark: following the derivation of Equation<nbsp/><xref ref="eq_TRQcentroid"/>,
 Suppose  <m>R</m> is a straight, thin rod with density <m>\rho(x)</m> at a position <m>x</m>. Let the left endpoint of <m>R</m> lie at <m>x=a</m>, and the right endpoint lie at <m>x=b</m>.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li><p>
 To approximate the centre of mass of <m>R</m>, imagine chopping it into <m>n</m> pieces of equal length, and approximating the mass of each piece using the density at its midpoint.  Give your approximation for the centre of mass in sigma notation.
 </p><sidebyside width="75%">
@@ -429,7 +429,7 @@ a+(i-\tfrac12)\left(\tfrac{b-a}{n}\right)
 (b) <m>\displaystyle\bar x=\frac{\int_a^b x\rho(x)\,\dee{x}}{\int_a^b\rho(x)\,\dee{x}}</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 If we chop <m>R</m> into <m>n</m> pieces, each piece has length <m>\frac{b-a}{\vphantom{\frac12}n}</m>. Then our <m>i</m>th cut is at position <m>a+i\left(\frac{b-a}{n}\right)</m>, so our <m>i</m>th piece runs from <m>a+(i-1)\left(\frac{b-a}{n}\right)</m> to <m>a+i\left(\frac{b-a}{n}\right)</m>. The approximation of the mass of this piece comes from the density at its midpoint,
@@ -512,7 +512,7 @@ and at (horizontal) position <m>x</m>  its height is <m>T(x)-B(x)</m>. Its leftm
 </p>
 
 <p>To approximate the <m>x</m>-coordinate of the centroid of <m>S</m>, we imagine it as a straight, thin rod <m>R</m>, where the mass of <m>R</m> from <m>a \le x \le b</m> is equal to the area of <m>S</m> from <m>a \leq x \leq b</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 If <m>S</m> is the sheet shown below, sketch <m>R</m> as a rod with the same horizontal length, shaded darker when <m>R</m> is denser, and lighter when <m>R</m> is less dense.
@@ -567,7 +567,7 @@ In (a), the slices all have the same width, so the area of the slices is larger 
 (d) <m>\bar x=\dfrac{\int_a^b x({T(x)-B(x)})\,\dee{x}}{\int_a^b({T(x)-B(x)})\,\dee{x}}</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li><p>
 On the left-most corner of <m>S</m>, <m>T(x)=B(x)</m>, so the height of <m>S</m> is zero; that is, the area of a very small vertical strip is very close to zero, so the density of <m>R</m> is close to 0. As we move closer to the position labeled <m>a'</m>, the height of the strips increases, so the areas of the strips increases, so the density of <m>R</m> increases. Then, between the points labeled <m>a'</m> and <m>b'</m>, the height of <m>S</m> remains constant, since <m>T(x)</m> and <m>B(x)</m> are parallel here, so the areas of the strips of <m>S</m> remain constant, and the density of <m>R</m> remains constant. Then, between <m>b'</m> and <m>b</m>, the height of <m>S</m> decreases, so the area of the strips decrease, so the density of <m>R</m> decreases.
 </p><sidebyside width="66%">
@@ -638,7 +638,7 @@ and at (horizontal) position <m>x</m> its height is <m>T(x)-B(x)</m>.
 <li> mass in <m>R</m> equal to the area of the strip in <m>S</m>.
 </li>
 </ul>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 If <m>S</m> is the sheet shown below, slice it into a number of vertical pieces of equal length, approximated by rectangles. For each rectangle, mark its centre of mass. Sketch <m>R</m> as a rod with the same vertical height, with weights corresponding to the slices you made of <m>S</m>.
@@ -753,7 +753,7 @@ Part (a) is a significantly different model from the last question.
 (c) <m>\displaystyle\bar y=\frac{\int_a^b \big(T(x)^2-B(x)^2\big)\,\dee{x}}{2\int_a^b\big( T(x)-B(x)\big)\,\dee{x}}</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 To begin with, we'll sketch some strips, and put a dot at the centre of mass of each one (its vertical centre).
@@ -1155,7 +1155,7 @@ Using Equation<nbsp/><xref ref="eq_TRQcentroid"/>, the <m>y</m>-coordinate of th
 <exercise><title><fromexam>1996A</fromexam></title>
 <statement><p>
 Consider the region bounded by <m>y=\frac{1}{\sqrt{16-x^2}}</m>, <m>y=0</m>, <m>x=0</m> and <m>x=2</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 Sketch this region.
 </li>
@@ -1346,7 +1346,7 @@ the region has centroid <m>(\bar x,\bar y)</m> with:
 <statement><p>
 Let <m>A</m> denote the area of the plane region bounded by <m>x=0</m>,
 <m>x=1</m>, <m>y=0</m> and <m>y=\dfrac{k}{\sqrt{1+x^2}}</m>, where <m>k</m> is a positive constant.
-<ol label="a">
+<ol marker="a">
 <li>
 Find the coordinates of the centroid of this region in terms of <m>k</m> and <m>A</m>.
 </li>
@@ -1419,7 +1419,7 @@ We have <m>\bar x=\bar y</m> if and only if
 <statement><p>
  The region <m>R</m> is the portion of the plane which is above
 the curve <m>y=x^2-3x</m> and below the curve <m>y=x-x^2</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 Sketch the region <m>R</m>
 </li>
@@ -1596,7 +1596,7 @@ The top function of our figure is <m>T(x)=\sqrt{9-x^2}</m>, and the bottom funct
 <exercise purpose="RQS"><title><fromexam>2015A</fromexam></title>
 <statement><p>
 Let <m>D</m> be the region below the graph of the curve <m>y=\sqrt{9-4x^2}</m> and above the <m>x</m>-axis.
-<ol label="a">
+<ol marker="a">
 <li>
 Using an appropriate integral, find the <em>area</em> of the region <m>D</m>; simplify your answer completely.
 </li>
@@ -1974,7 +1974,7 @@ the <m>y</m>-coordinate of the centre of mass is
 <statement><p>
 Let <m>A</m> be the region to the right of the <m>y</m>-axis that is bounded
 by the graphs of <m>y=x^2</m> and <m>y = 6-x</m>.
-<ol label="a">
+<ol marker="a">
 <li> Find the centroid of <m>A</m>, assuming it has constant density <m>\rho=1</m>.
 The area of <m>A</m> is <m>\dfrac{22}{3}</m> (you don't have to show this).
 </li>
@@ -2429,7 +2429,7 @@ We will model the cone as a rod <m>R</m> with height <m>h</m>, such that the mas
 \end{scope}
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
-<ol label="a">
+<ol marker="a">
 <li> Using this model, calculate how high above the base of the cone its centre of mass is.
 </li>
 <li> If we cut off the top <m>h-k</m> metres of the cone (leaving an object of height <m>k</m>), how high above the base is the new centre of mass?
@@ -2448,7 +2448,7 @@ The model in the question gives you the setup to solve this problem. You know ho
  (b) <m>\displaystyle\frac{\frac{1}{2}h^2k - \frac{2}{3}hk^2+\frac{1}{4}k^3}{h^2-hk+\frac{1}{3}k^2}</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 To find the centre of mass of the rod <m>R</m>, we need to know its density at height <m>y</m>, <m>\rho(y)</m>. Since the mass of a section of <m>R</m> is the same as the volume of a section of the cone, let's find the volume of a thin horizontal slice of the cone at height <m>y</m>, with thickness <m>\dee{y}.</m> To find its radius <m>s</m>, we use similar triangles. The diagram below represents a vertical cross-section of the cone.
@@ -2654,7 +2654,7 @@ Tank <m>A</m> is in the shape of half a sphere of radius 1 metre, with its flat 
 \end{scope}
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
-<ol label="a">
+<ol marker="a">
 <li> To pump the water from Tank <m>A</m> to Tank <m>B</m>, we need to pump all the water from Tank <m>A</m> to a height of 3 m. How much work is done to pump all the water from Tank <m>A</m> to a height of 3 m? You may model the water as a point mass, originally situated at the centre of mass of the full Tank <m>A</m>.
 </li>
 <li> Suppose we could move the water from Tank <m>A</m> directly to its final position in Tank <m>B</m> without going over the top of Tank <m>B</m>. (For example, maybe tank <m>A</m> is elastic, and Tank <m>B</m> is just Tank <m>A</m> after being smooshed into a different form.) How much work is done pumping the water? (That is, how much work is done moving a point mass from the centre of mass of Tank <m>A</m> to the centre of mass of Tank <m>B</m>?)

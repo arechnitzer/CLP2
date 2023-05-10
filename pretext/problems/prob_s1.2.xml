@@ -13,7 +13,7 @@ For each of the following properties of definite integrals, draw a picture illus
 </p>
 
 <p>For simplicity, you may assume that <m>a \leq c \leq b</m>, and that <m>f(x),g(x)</m> give positive values.
-<ol label="a">
+<ol marker="a">
 <li> <m>\displaystyle\int_a^a f(x)\,\dee{x}=0</m>, (Theorem<nbsp/><xref ref="thm_Intdomain"/>, part (a))
 </li>
 <li> <m>\displaystyle\int_a^b f(x)\,\dee{x}= \displaystyle\int_a^c f(x)\,\dee{x} + \int_c^b f(x)\dee{x} </m>, (Theorem<nbsp/><xref ref="thm_Intdomain"/>, part (c))
@@ -24,7 +24,7 @@ For each of the following properties of definite integrals, draw a picture illus
 </ol>
 </p></statement>
 <hint><p>
-<ol label="a">
+<ol marker="a">
 <li> What is the length of this figure?
 </li>
 <li> Think about cutting the area into two pieces vertically.
@@ -64,7 +64,7 @@ plot[domain=1.5:.5] (\x,{\x*\x/3+.25}) --cycle;
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li><p>
 <m>\displaystyle\int_a^a f(x)\,\dee{x}=0</m>
 </p><sidebyside width="33%">
@@ -167,7 +167,7 @@ If false, provide a counterexample. If true, provide a brief justification.
 </p>
 
 <p>
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_{-3}^{-2} f(x) \dee{x}=-\displaystyle\int_{3}^{2} f(x) \dee{x}</m>.
 </li>
@@ -304,7 +304,7 @@ f(x) = \begin{cases}
 <exercise>
 <statement><p>
 Suppose we want to make a right Riemann sum with 100 intervals to approximate <m>\int\limits_5^0 f(x)\dee{x}</m>, where <m>f(x)</m> is a function that gives only positive values.
-<ol label="a">
+<ol marker="a">
 <li> What is <m>\Delta x</m>? </li>
 <li> Are the heights of our rectangles positive or negative? </li>
 <li> Is our Riemann sum positive or negative? </li>
@@ -323,7 +323,7 @@ Note that the limits of the integral given are in the opposite order from what w
 
 </answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 <m>\Delta x = \dfrac{b-a}{n}=\dfrac{0-5}{100} = -\dfrac{1}{20}</m>
@@ -473,7 +473,7 @@ Using part (d) of the <q>arithmetic of integration</q> Theorem <xref ref="thm_In
 </p>
 
 <p>Using this fact, evaluate the following:
-<ol label="a">
+<ol marker="a">
 <li> <m>\displaystyle\int_{a}^0 \sqrt{1-x^2}\dee{x}</m>, where <m>-1 \leq a \leq 0</m>
 </li>
 <li> <m>\displaystyle\int_{a}^1 \sqrt{1-x^2}\dee{x}</m>, where <m>0 \leq a \leq 1</m>
@@ -483,7 +483,7 @@ Using part (d) of the <q>arithmetic of integration</q> Theorem <xref ref="thm_In
 <hint><p> For part (a), use the symmetry of the integrand. For part (b), the area <m>\int	\limits_{0}^1 \sqrt{1-x^2}\dee{x}</m> is easy to find--how is this useful to you?
 </p></hint>
 <answer><p>
-<ol label="a">
+<ol marker="a">
 <li> <m>\frac{\pi}{4}\! -\! \frac{1}{2}\arccos(-a)-\frac{1}{2}a\sqrt{1\!-\!a^2}
        = -\frac{\pi}{4}\! +\! \frac{1}{2}\arccos(a)-\frac{1}{2}a\sqrt{1\!-\!a^2}</m>
 </li>
@@ -492,7 +492,7 @@ Using part (d) of the <q>arithmetic of integration</q> Theorem <xref ref="thm_In
 </ol>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> Since <m>\sqrt{1-x^2}</m> is an even function,
 <md>
 <mrow>
@@ -782,7 +782,7 @@ Our integrand <m>f(x)=(x-3)^3</m> is neither even nor odd. However, it does have
 <exercise xml:id="prob_s1_2_ellipsearea">
 <statement><p>
 We want to compute the area of an ellipse, <m>(ax)^2+(by)^2=1</m> for some (let's say positive) constants <m>a</m> and <m>b</m>.
-<ol label="a">
+<ol marker="a">
 <li> Solve the equation for the upper half of the ellipse. It should have the form <q><m>y=\cdots</m></q>
 </li>
 <li> Write an integral for the area of the upper half of the ellipse. Using properties of integrals, make the integrand look like the upper half of a circle.
@@ -804,7 +804,7 @@ In part (b), you'll have to factor a constant out through a square root. Remembe
 (c) <m>\dfrac{\pi}{ab}</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <md>
 <mrow>

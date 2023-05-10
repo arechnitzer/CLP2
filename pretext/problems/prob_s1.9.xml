@@ -18,7 +18,7 @@ base <m>e</m>. In other courses it is often denoted <m>\ln x</m>.
 <statement><p>
 For each of the following integrals, choose the substitution that
 is most beneficial for evaluating the integral.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle \int \frac{2x^2}{\sqrt{9x^2-16}} \, \dee{x}</m>
 </li>
@@ -140,7 +140,7 @@ and <m>\sec(\theta)\ge 0</m> for those <m>\theta</m>'s.
 <statement><p>
 For each of the following integrals, choose a trigonometric substitution that
 will eliminate the roots.
-<ol label="a">
+<ol marker="a">
 <li> <m>\displaystyle\int \dfrac{1}{\sqrt{x^2-4x+1}}\dee{x}</m>
 </li>
 <li> <m>\displaystyle\int \dfrac{(x-1)^6}{(-x^2+2x+4)^{3/2}}\dee{x}</m>
@@ -170,7 +170,7 @@ Just as in Question<nbsp/><xref ref="prob_s1_9_1" text="local"/>, we want to cho
 <p>After the squares are completed, the choice of trig substitution follows the logic outlined in the solutions to Question<nbsp/><xref ref="prob_s1_9_1" text="local"/>, or (equivalently) the template in the text.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 <p>
 The quadratic function under the square root is <m>x^2-4x+1</m>. To complete the square, we match the non-constant terms to those of a perfect square.
@@ -325,7 +325,7 @@ So we use the substitution <m>(x-1/2) = \frac{1}{2}\sec u</m>, which eliminates 
 <exercise xml:id="prob_s1_9_3">
 <statement><p>
 In each part of this question, assume  <m>\theta</m> is an angle in the interval <m>\left[ 0,\pi/2\right]</m>.
-<ol label="a">
+<ol marker="a">
 <li> If <m>\sin\theta=\dfrac{1}{20}</m>, what is <m>\cos\theta</m><nbsp/>?
 </li>
 <li> If <m>\tan\theta=7</m>, what is <m>\csc\theta</m><nbsp/>?
@@ -345,7 +345,7 @@ Since <m>\theta</m> is acute, you can draw it as an angle of a right triangle. T
 (c) <m>\dfrac{\sqrt{x-5}}{2} </m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 If <m>\sin\theta=\dfrac{1}{20}</m> and <m>\theta</m> is between 0 and <m>\pi/2</m>, then we can draw a right triangle with angle <m>\theta</m> that has opposite side length 1, and hypotenuse length 20. By the Pythagorean Theorem, the adjacent side has length <m>\sqrt{20^2-1^2}=\sqrt{399}</m>. So,  <m>\cos\theta = \dfrac{\mathrm{adj}}{\mathrm{hyp}}=\dfrac{\sqrt{399}}{20}</m>.
@@ -415,7 +415,7 @@ We can also solve this using identities. Note that since <m>\sec\theta</m> exist
 <exercise xml:id="prob_s1_9_4" purpose="RQS">
 <statement><p>
 Simplify the following expressions.
-<ol label="a">
+<ol marker="a">
 <li> <m>\sin\left(\arccos \left(\frac{x}{2}\right)\right)</m>
 </li>
 <li> <m>\sin\left(\arctan \left(\frac{1}{\sqrt{3}}\right)\right)</m>
@@ -435,7 +435,7 @@ You can draw a right triangle with angle <m>\theta</m>, and use the given inform
 (c) <m>\dfrac{1}{\sqrt{1-x}}</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li><p>
 Let <m>\theta = \arccos \left(\frac{x}{2}\right)</m>. That is, <m>\cos(\theta) = \frac{x}{2}</m>, and <m>0 \leq \theta \leq \pi</m>. Then we can draw the corresponding right triangle with angle <m>\theta</m> with adjacent side of signed length <m>x</m> (we note that if <m>\theta  \gt  \frac{\pi}{2}</m>, then <m>x</m> is negative) and hypotenuse of length <m>2</m>. By the Pythagorean Theorem, the opposite side of the triangle has length <m>\sqrt{4-x^2}</m>.
 </p>
@@ -1565,7 +1565,7 @@ We use the substitution <m>\frac{y}{2} = \sin \theta</m>,
 <exercise>
 <statement><p>
 Let <m>f(x) = \dfrac{|x|}{\sqrt[4]{1-x^2}}</m>, and let <m>R</m> be the region between <m>f(x)</m> and the <m>x</m>-axis over the interval <m>[-\frac{1}{2},\frac{1}{2}]</m>.
-<ol label="a">
+<ol marker="a">
 <li> Find the area of <m>R</m>.
 </li>
 <li> Find the volume of the solid formed by rotating <m>R</m> about the <m>x</m>-axis.
@@ -1704,7 +1704,7 @@ Consider the following work.
 
 
 <p>
-<ol label="a">
+<ol marker="a">
 <li> Differentiate <m>\log\left|  \dfrac{1+x}{\sqrt{1-x^2}}\right|</m>.
 </li>
 <li> True or false: <m>\displaystyle\int_{2}^{3} \frac{1}{1-x^2}\dee{x} =
@@ -1715,7 +1715,7 @@ Consider the following work.
 </ol>
 </p></statement>
 <hint><p>
-<ol label="a">
+<ol marker="a">
 <li> Use logarithm rules to simplify first.
 </li>
 <li> Think about domains.
@@ -1731,7 +1731,7 @@ There is a subtle but important point mentioned in the introductory text to Sect
 </p></hint>
 <answer>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li> <m>\dfrac{1}{1-x^2}</m>
 </li>
 <li> False
@@ -1749,7 +1749,7 @@ The work in the question is not correct. The most salient problem is that when w
 
 </answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> We can save ourselves some trouble by applying logarithm rules before we differentiate.
 <md>
 <mrow>
@@ -1799,7 +1799,7 @@ The work in the question is not correct. The most salient problem is that when w
 
 <exercise>
 <statement><p>
-<ol label="a">
+<ol marker="a">
 <li>
 Suppose we are evaluating an integral that contains the term <m>\sqrt{a^2-x^2}</m>, where <m>a</m> is a positive constant, and we use the substitution <m>x=a\sin u</m> (with inverse <m>u = \arcsin(x/a)</m>), so that
 <me>
