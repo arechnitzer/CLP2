@@ -14,7 +14,7 @@
 
 	<!-- to make referencing like latex referencing - just the number -->
 		<cross-references text="global" />
-		<rename element="fact" lang="en-US">Equation</rename> <!-- use to replace impeqn -->
+		<rename element="fact">Equation</rename> <!-- use to replace impeqn -->
 
 
 	</docinfo>
@@ -25,15 +25,15 @@
 
 		<xi:include href="misc/frontmatter.xml" />
 		<xi:include href="text/integral00.xml" />
-		<!-- <xi:include href="text/app_int00.xml" />   -->
-		<!-- <xi:include href="text/series00.xml" /> -->
+		<xi:include href="text/app_int00.xml" />
+		<xi:include href="text/series00.xml" />
 
 		<backmatter>
 			<title>Appendices</title>
 			<xi:include href="text/appendix01.xml" />
-			<!-- <xi:include href="text/appendix_complex.xml" /> -->
-			<!-- <xi:include href="text/appendix_Richardson.xml" /> -->
-			<!-- <xi:include href="text/appendix_ode_numerical.xml" /> -->
+			<xi:include href="text/appendix_complex.xml" />
+			<xi:include href="text/appendix_Richardson.xml" />
+			<xi:include href="text/appendix_ode_numerical.xml" />
 
 			<solutions xml:id="app_hint" divisional="hint">
 				<title>Hints for Exercises</title>
