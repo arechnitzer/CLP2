@@ -492,12 +492,12 @@ Compute the indefinite integrals
 </example>
 
 <p>
-This last example illustrates that substitution can be used to easily deal with arguments  of the form <m>ax+b</m>, i.e. that are linear functions of <m>x</m>, and suggests the following  theorem.
+This last example illustrates that substitution can be used to easily deal with arguments  of the form <m>ax+b</m> (with <m>a,b</m> constants and <m>a\ne 0</m>), i.e. that are linear functions of <m>x</m>, and suggests the following  theorem.
 </p>
 
 <theorem xml:id="thm_subs_linear">
 <statement><p>
-Let <m>F(u)</m> be an antiderivative of <m>f(u)</m> and let <m>a,b</m> be constants. Then
+Let <m>F(u)</m> be an antiderivative of <m>f(u)</m> and let <m>a,b</m> be constants with <m>a\ne 0</m>. Then
 <md>
 <mrow>
   \int f(ax+b)\dee{x} &amp;= \frac{1}{a} F(ax+b) +C

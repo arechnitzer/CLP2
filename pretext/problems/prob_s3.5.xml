@@ -24,8 +24,28 @@ f(1)&amp;=\displaystyle\sum_{n=0}^\infty\left(\dfrac{3-1}{4}\right)^n
 </mrow><mrow>
 &amp;=\displaystyle\sum_{n=0}^\infty\left(\frac12\right)^n
 </mrow>
-<intertext>This is a geometric series with <m>r=\frac{1}{2}</m>.</intertext><mrow>
+<intertext>This is a geometric series with <m>r=\frac{1}{2}</m>, so we know that it converges and</intertext><mrow>
 &amp;=\frac{1}{1-\frac12}=2
+</mrow>
+</md>
+The question does not ask us to find the interval of convergence of the series defining <m>f(x)</m>.
+But we will do so anyway, to get a bit more practice. We may rewrite the <m>n^{\rm th}</m> term of the series defining <m>f(x)</m> as
+<me>
+\left(\frac{3-x}{4}\right)^n = a r^n\qquad\text{with }a=1\text{  and }r= \frac{3-x}{4}
+</me>
+That is, for every fixed <m>x</m>, we have a geometric series with  <m>r= \frac{3-x}{4}</m>.
+So, by Example<nbsp/><xref ref="eg_SRgeom"/>, the series converges if and only if
+<md>
+<mrow>
+&amp;|r|= \left|\frac{3-x}{4}\right|\lt 1 
+</mrow><mrow>
+\iff &amp;-1\lt \frac{3-x}{4} \lt 1 
+</mrow><mrow>
+\iff &amp; -4\lt 3-x \lt 4 
+</mrow><mrow>
+\iff &amp; -4\lt 3-x \ \text{and}\ 3-x \lt 4  
+</mrow><mrow>
+\iff &amp; -1\lt x \lt 7
 </mrow>
 </md>
 </p></solution>
@@ -42,7 +62,16 @@ Suppose <m>f(x)=\displaystyle\sum_{n=1}^\infty \dfrac{(x-5)^n}{n!+2}</m>. Give a
 	<m>f(x)=\displaystyle\sum_{n=1}^\infty \dfrac{n(x-5)^{n-1}}{n!+2}</m>
 </p></answer>
 <solution><p>
-	Following Theorem<nbsp/><xref ref="thm_SRpsops"/>, we differentiate our function term-by-term.
+By Theorem<nbsp/><xref ref="thm_SRpsops"/>, we may differentiate our function term-by-term for all <m>x</m> obeying <m>|x-5|\lt R</m>, where <m>R</m> is the radius of convergence of the power series. The series defining <m>f(x)</m> is reminiscent of the exponential series 
+<m>\sum_{n=0}^\infty \frac{X^n}{n!}</m> of Example<nbsp/><xref ref="eg_PWRb"/>.
+In that example, we showed that <m>\sum_{n=0}^\infty \frac{X^n}{n!}</m> has radius of convergence 
+<m>\infty</m>. Since
+<me>
+\left|\frac{(x-5)^n}{n!+2}\right|\le \frac{X^n}{n!}\quad\text{with}\  X=|x-5|
+</me>
+the comparison test, Theorem<nbsp/><xref ref="thm_SRcomparisonTest"/>, tells us
+that <m>\sum_{n=1}^\infty \frac{(x-5)^n}{n!+2}</m> converges for all <m>x</m>. So we may 
+differentiate our function term-by-term.
 	<md>
 <mrow>
 	f(x)&amp;=\displaystyle\sum_{n=1}^\infty \dfrac{(x-5)^n}{n!+2}

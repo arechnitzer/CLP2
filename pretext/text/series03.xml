@@ -194,7 +194,7 @@ Then
 </me>
 Furthermore, when the series converges, the truncation error
 <me>
-\bigg|\sum_{n=1}^\infty a_n-\sum_{n=1}^N a_n\bigg|\le \int_N^\infty f(x)\ \dee{x}\qquad\text{for all $N\ge N_0$}
+0\le \sum_{n=1}^\infty a_n-\sum_{n=1}^N a_n\le \int_N^\infty f(x)\ \dee{x}\qquad\text{for all $N\ge N_0$}
 </me>
 </p></statement>
 </theorem>
@@ -231,12 +231,12 @@ Look at the figure above. The shaded area in the figure is  <m>\sum_{n=I}^\infty
 </ul>
 This shaded area is smaller than the area under the curve <m>y=f(x)</m> for  <m>I-1\le x \lt \infty</m>. So
 <me>
-\sum_{n=I}^\infty a_n \le \int_{I-1}^\infty f(x)\ \dee{x}
+0\le \sum_{n=I}^\infty a_n \le \int_{I-1}^\infty f(x)\ \dee{x}
 </me>
 and, if the integral is finite, the sum <m>\sum_{n=I}^\infty a_n</m> is  finite too. Furthermore, the desired bound on the truncation error is just  the special case of this inequality with <m>I=N+1</m>:
 <md>
 <mrow>
-\sum_{n=1}^\infty a_n - \sum_{n=1}^N a_n =\sum_{n=N+1}^\infty a_n \le \int_N^\infty f(x)\ \dee{x}
+0\le \sum_{n=1}^\infty a_n - \sum_{n=1}^N a_n =\sum_{n=N+1}^\infty a_n \le \int_N^\infty f(x)\ \dee{x}
 </mrow>
 </md>
 </p>

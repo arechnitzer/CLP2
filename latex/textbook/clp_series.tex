@@ -747,7 +747,7 @@ not so surprising that there are simple rules for addition and subtraction
 of series and for multiplication of a series by a constant. Unfortunately
 there are no simple general rules for computing products or ratios of series.
 \begin{theorem}[Arithmetic of series]\label{thm:SRseriesarith}
-  Let $A$, $B$ and $C$ be real numbers and let the two series
+  Let $C$, $S$ and $T$ be real numbers and let the two series
 $\sum_{n=1}^\infty a_n$ and  $\sum_{n=1}^\infty b_n$
 converge to $S$ and $T$ respectively. That is, assume that
  \begin{align*}
@@ -1010,7 +1010,7 @@ Then
 \end{equation*}
 Furthermore, when the series converges, the truncation error
 \begin{equation*}
-\bigg|\sum_{n=1}^\infty a_n-\sum_{n=1}^N a_n\bigg|\le
+0\le \sum_{n=1}^\infty a_n-\sum_{n=1}^N a_n\le
   \int_N^\infty f(x)\ \dee{x}\qquad\text{for all $N\ge N_0$}
 \end{equation*}
 \end{theorem}
@@ -1048,7 +1048,7 @@ and width $1$, and hence area $a_{I+1}$, and so on
 This shaded area is smaller than the area under the curve $y=f(x)$ for
 $I-1\le x<\infty$. So
 \begin{equation*}
-\sum_{n=I}^\infty a_n
+0\le \sum_{n=I}^\infty a_n
 \le \int_{I-1}^\infty f(x)\ \dee{x}
 \end{equation*}
 and, if the integral is finite, the sum $\sum_{n=I}^\infty a_n$ is
@@ -1056,7 +1056,7 @@ finite too.
 Furthermore, the desired bound on the truncation error is just
 the special case of this inequality with $I=N+1$:
 \begin{align*}
-\sum_{n=1}^\infty a_n - \sum_{n=1}^N a_n
+0\le \sum_{n=1}^\infty a_n - \sum_{n=1}^N a_n
 =\sum_{n=N+1}^\infty a_n
 \le \int_N^\infty f(x)\ \dee{x}
 \end{align*}
@@ -3953,7 +3953,7 @@ into a form in which $\frac{1}{1-y}$ appears.
                    \quad\text{if $|y|<1$} \\
              &= \frac{1}{2}\ \sum_{n=0}^\infty {\Big(\frac{x-3}{2}\Big)}^n
              = \sum_{n=0}^\infty \frac{(x-3)^n}{2^{n+1}} \\
-             &= \frac{x-3}{2} + \frac{(x-3)^2}{4} + \frac{(x-3)^3}{8}
+             &=\frac{1}{2} + \frac{x-3}{4} + \frac{(x-3)^2}{8} + \frac{(x-3)^3}{16}
                  +\cdots
 \end{alignat*}
 The geometric series that we used in the second line converges when
@@ -4845,7 +4845,7 @@ $f(x)=\log(1+x)$ and finding the Taylor polynomials $T_n(0,x)$, and the correspo
   f(x) &= \log(1+x) & f(0) &= \log 1 = 0 \\
   f'(x) &= \frac{1}{1+x} & f'(0) &= 1 \\
   f''(x) &= \frac{-1}{(1+x)^2} & f''(0) &= -1 \\
-  f'''(x) &= \frac{2}{(1+x)^3} & f'''(1) &= 2 \\
+  f'''(x) &= \frac{2}{(1+x)^3} & f'''(0) &= 2 \\
   f^{(4)}(x) &= \frac{-2\times 3}{(1+x)^4} & f^{(4)}(0) &= -3! \\
   f^{(5)}(x) &= \frac{2\times 3\times 4}{(1+x)^5} & f^{(5)}(0) &= 4! \\
              &\ \ \ \vdots  &  &\ \ \ \vdots \\

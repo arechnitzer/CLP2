@@ -408,7 +408,7 @@ Enough sines and cosines <mdash/> let us try a tangent substitution.
 <li>
 	To remove the absolute value we must consider the range of values of <m>u</m> in  the integral. Since <m>x=3\tan u</m> we have <m>u = \arctan(x/3)</m>. The range
 	<fn>
-		To be  pedantic, we mean the range of the <q>standard</q> arctangent function or its <q>principle  value</q>. One can define other arctangent functions with different ranges.
+		To be  pedantic, we mean the range of the <q>standard</q> arctangent function or its <q>principal  value</q>. One can define other arctangent functions with different ranges.
 	</fn>
 	of arctangent  is <m>-\frac{\pi}{2} \leq \arctan  \leq \frac{\pi}{2}</m> and so <m>u=\arctan(x/3)</m>  will always like between <m>-\frac{\pi}{2}</m> and <m>+\frac{\pi}{2}</m>. Hence <m>\cos u</m>  will always be positive, which in turn implies that <m>|\sec u|=\sec u</m>.
 </li>
@@ -585,8 +585,8 @@ In this example, we were lucky. The answer that we derived for <m>x&gt;1</m> hap
 The method, as we have demonstrated it above, works when our integrand contains the  square root of very specific families of quadratic polynomials. In fact, the same  method works for more general quadratic polynomials <mdash/> all we need to do is complete  the square
 	<fn>
 		If you have not heard of <q>completing the square</q> don't worry. It  is not a difficult method and it will only take you a few moments to learn. It refers to  rewriting a quadratic polynomial
-		<m>P(x) = ax^2 + bx + c</m> as <m>P(x)= a(x+d)^2 +e</m>
-		for new constants <m>d,e</m>.
+		<m>P(x) = ax^2 + bx + c</m> as <m>P(x)= a(x+h)^2 +k</m>
+		for new constants <m>h,k</m>.
 	</fn>.
 </p>
 <example xml:id="eg_INVTRIGc"><title><m>\int_3^5\frac{\sqrt{x^2-2x-3}}{x-1}\dee{x}</m></title>

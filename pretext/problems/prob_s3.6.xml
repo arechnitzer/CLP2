@@ -60,7 +60,7 @@ Following how a Taylor series is constructed, the Taylor series and the function
 
 <exercise purpose="RQS">
 <statement><p>
-Below are a list of common functions, and their Taylor series representations. Match the function to the Taylor series.
+Below are a list of common functions, and their Taylor series representations. Match the function to the Taylor series and give the radius of convergence of the series.
 </p>
 <sidebyside>
 <tabular left="minor" right="minor" top="minor" bottom="minor">
@@ -88,17 +88,17 @@ Below are a list of common functions, and their Taylor series representations. M
 If you don't have these memorized, it's good to be able to derive them. For instance, <m>\log(1+x)</m> is the antiderivative of <m>\dfrac{1}{1+x}</m>, whose Taylor series can be found by modifying the geometric series <m>\sum x^n</m>.
 </p></hint>
 <answer><p>
-A - V
+A - V <m>\quad</m> radius<m>=1</m>
 </p><p>
-B - I
+B - I <m>\quad</m> radius<m>=1</m>
 </p><p>
-C - IV
+C - IV <m>\quad</m> radius<m>=1</m>
 </p><p>
-D - VI
+D - VI <m>\quad</m> radius<m>=+\infty</m>
 </p><p>
-E - II
+E - II <m>\quad</m> radius<m>=+\infty</m>
 </p><p>
-F - III
+F - III <m>\quad</m> radius<m>=+\infty</m>
 </p></answer>
 <solution><p>
 These are listed in Theorem<nbsp/><xref ref="thm_SRimportantTaylorSeries"/>. However, it's possible to figure out many of them without a lot of memorization. For example, <m>e^0=\cos(0)=\frac{1}{1-0}=1</m>, while <m>\sin(0)=\log(1+0)=\arctan(0)=0</m>. So by plugging in <m>x=0</m> to the series listed, we can divide them into these two categories.
@@ -114,20 +114,25 @@ Cosine is an even  function and only III is even.
 <p>Alternately, we can find the first few terms of each series using the definition of a Taylor series, and match them up.
 </p>
 
-<p>All together, the functions correspond to the following series:
-</p>
-
-<p>A - V
-</p><p>
-B - I
-</p><p>
-C - IV
-</p><p>
-D - VI
-</p><p>
-E - II
-</p><p>
-F - III
+<p>In any event, here is what Theorem<nbsp/><xref ref="thm_SRimportantTaylorSeries"/> gives.
+<ol label="(A)">
+<li>
+The Taylor series representation of <m>\frac{1}{1-x}</m> is given in V. The series converges for 
+<m>-1\lt x\lt 1</m>. So by Definition<nbsp/><xref ref="def_SRradiusConvergence"/>, the series has radius of convergence <m>1</m>.
+</li><li>
+The Taylor series representation of <m>\log(1+x)</m> is given in I. The series converges for 
+<m>-1\lt x\le 1</m>. In particular, it converges for all <m>|x|\lt 1</m> and diverges for all <m>|x|\gt 1</m>. So by Definition<nbsp/><xref ref="def_SRradiusConvergence"/>, the series has radius of convergence <m>1</m>.
+</li><li>
+The Taylor series representation of <m>\arctan x</m> is given in IV. The series converges for 
+<m>-1\le x\le 1</m>. In particular, it converges for all <m>|x|\lt 1</m> and diverges for all <m>|x|\gt 1</m>. So it has radius of convergence <m>1</m>.
+</li><li>
+The Taylor series representation of <m>e^x</m> is given in VI. The series converges for all <m>x</m>. So it has infinite radius of convergence.
+</li><li>
+The Taylor series representation of <m>\sin x</m> is given in II. The series converges for all <m>x</m>. So it has infinite radius of convergence.
+</li><li>
+The Taylor series representation of <m>\cos x</m> is given in III. The series converges for all <m>x</m>. So it has infinite radius of convergence.
+</li>
+</ol>
 </p>
 
 </solution>
