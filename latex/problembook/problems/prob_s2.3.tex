@@ -58,7 +58,7 @@ Therefore, the centroid is at $(1,1)$.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 \begin{question}
-Using symmetry, find the centroid of the region inside the unit circle, and outside a rectangle centred at the origin with width 1 and height 0.5.
+Using symmetry, find the centroid of the region inside the unit circle, centred on the origin, and outside a rectangle, also centred on the origin, with width 1 and height 0.5.
 \begin{center}
 \begin{tikzpicture}
 \draw[fill, fill opacity=0.2] (0,0) circle(3cm);
@@ -119,7 +119,7 @@ That is, the centre of mass is $3.5$ metres from the left end.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 \begin{question}
-For each picture below, determine whether the centre of mass is to the left of, to the right of, or along the line  $x=a$, or whether there is not enough information to tell. The shading of a region indicates density: darker shading corresponds to a denser area.
+For each picture below, determine whether the centre of mass is to the left of, to the right of, or along the line  $x=a$, or whether there is not enough information to tell. The shading of a region indicates density: darker shading corresponds to a denser area. In part (d), the right hand side of the right hand $B\times A$ rectangle has $x=2a$. 
 
 \begin{center}
 \begin{tikzpicture}
@@ -504,7 +504,7 @@ On the left-most corner of $S$, $T(x)=B(x)$, so the height of $S$ is zero; that 
 \item At position $x$, the height of $S$ is $T(x)-B(x)$, so a rectangle with width $\dee{x}$ and this height would have area $(T(x)-B(x))\,\dee{x}$.
 \item According to our model, the tiny section of $R$ at position $x$ with width $\dee{x}$ has mass $(T(x)-B(x))\,\dee{x}$ (that is, the area of $S$ over this same tiny interval), so its density is $\rho(x) = \frac{\text{mass}}{\text{length}} = \frac{(T(x)-B(x))\,\dee{x}}{\dee{x}} = T(x)-B(x)$.
 \item
-Imagine $S$ were a solid, of constant density. The the mass of a portion of $S$ is proportional to the area of that portion. To find the $x$-coordinate where the solid would balance, we imagine compressing together the vertical dimension of $S$ until it's a rod. That is, we would take a very thin vertical strip of $S$, and turn it into a small segment of a rod, with the same mass. Then the centre of mass of that rod would be exactly the $x$-coordinate of the centre of mass of the solid--that is, the $x$-coordinate of the centroid of $S$.
+Imagine $S$ were a solid, of constant density. The mass of a portion of $S$ is proportional to the area of that portion. To find the $x$-coordinate where the solid would balance, we imagine compressing together the vertical dimension of $S$ until it's a rod. That is, we would take a very thin vertical strip of $S$, and turn it into a small segment of a rod, with the same mass. Then the centre of mass of that rod would be exactly the $x$-coordinate of the centre of mass of the solid--that is, the $x$-coordinate of the centroid of $S$.
 
 The compressed rod we form in this way is exactly $R$ (perhaps multiplied by a constant, to account for the density of $S$, but this doesn't affect where $R$ balances).
 So, the $x$-coordinate of the centroid has the same position as the centre of mass of $R$.

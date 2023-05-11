@@ -634,7 +634,7 @@ in order to simplify the integration of even and odd functions over intervals  o
 <theorem xml:id="thm_INTevenodd"><title>Even and Odd</title>
 <statement><p>
 Let <m>a \gt 0</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 	If <m>f(x)</m> is an even function, then
 	<md>
@@ -678,7 +678,7 @@ We are still unable to integrate many functions, however with a little work we  
 <theorem xml:id="thm_INTineq"><title>Inequalities for Integrals</title>
 <statement><p>
 Let <m>a\le b</m>  be real numbers and let the functions <m>f(x)</m> and <m>g(x)</m> be integrable on the interval <m>a\le x\le b</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 	If <m>f(x)\ge 0</m> for all <m>a\le x\le b</m>, then
 	<md>
@@ -717,7 +717,7 @@ Let <m>a\le b</m>  be real numbers and let the functions <m>f(x)</m> and <m>g(x)
 
 <proof>
 <p>
-<ol label="a">
+<ol marker="a">
 <li>
 	By interpreting the integral as the signed area, this statement  simply says that if the curve <m>y=f(x)</m> lies above the <m>x</m>-axis and <m>a\le b</m>, then the signed area of  <m>\big\{\ (x,y)\ \big|\ a\le x\le b,\   0\le y\le f(x)\ \big\}</m> is at least zero. This is quite clear. Alternatively, we could argue more  algebraically from Definition<nbsp/><xref ref="def_INTintegral"/>. We observe that when we  define <m>\int_a^b f(x)\dee{x}</m> via Riemann sums, every  summand, <m>f(x_{i,n}^*)\,\frac{b-a}{n}\ge 0</m>. Thus the whole sum is nonnegative  and consequently, so is the limit, and thus so is the integral.
 </li>

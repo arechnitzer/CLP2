@@ -22,9 +22,25 @@
 	\begin{align*}
 f(1)&=\displaystyle\sum_{n=0}^\infty\left(\dfrac{3-1}{4}\right)^n\\
 &=\displaystyle\sum_{n=0}^\infty\left(\frac12\right)^n
-\intertext{This is a geometric series with $r=\frac{1}{2}$.}
+\intertext{This is a geometric series with $r=\frac{1}{2}$, so we know that it converges and}
 &=\frac{1}{1-\frac12}=2
 \end{align*}
+
+The question does not ask us to find the interval of convergence of the series defining $f(x)$.
+But we will do so anyway, to get a bit more practice. We may rewrite the $n^{\rm th}$ term of the series defining $f(x)$ as
+\begin{align*}
+\left(\frac{3-x}{4}\right)^n = a r^n\qquad\text{with $a=1$ and $r= \frac{3-x}{4}$}
+\end{align*}
+That is, for every fixed $x$, we have a geometric series with  $r= \frac{3-x}{4}$.
+So, by (\eref{CLP101}{eq:geomsum}) in the CLP-2 text, the series converges if and only if
+\begin{align*}
+&|r|= \left|\frac{3-x}{4}\right|<1 \\
+\iff & -1< \frac{3-x}{4} < 1 \\
+\iff & -4< 3-x < 4 \\
+\iff & -4< 3-x \ \text{and}\ 3-x < 4  \\
+\iff & -1< x < 7
+\end{align*}
+
 \end{solution}
 
 \begin{Mquestion}
@@ -37,7 +53,15 @@ Suppose $f(x)=\displaystyle\sum_{n=1}^\infty \dfrac{(x-5)^n}{n!+2}$. Give a powe
 	$f(x)=\displaystyle\sum_{n=1}^\infty \dfrac{n(x-5)^{n-1}}{n!+2}$
 \end{answer}
 \begin{solution}
-	Following Theorem~\eref{CLP101}{thm:SRpsops}, we differentiate our function term-by-term.
+	By Theorem~\eref{CLP101}{thm:SRpsops} in the CLP-2 text, we may differentiate our function term-by-term for all $x$ obeying $|x-5|<R$, where $R$ is the radius of convergence of the power series. The series defining $f(x)$ is reminiscent of the exponential series 
+$\sum_{n=0}^\infty \frac{X^n}{n!}$ of Example \eref{CLP101}{eg:PWRb} in the CLP-2 text.
+In that example, we showed that $\sum_{n=0}^\infty \frac{X^n}{n!}$ has radius of convergence $\infty$. Since
+\begin{align*}
+\left|\frac{(x-5)^n}{n!+2}\right|\le \frac{X^n}{n!}\quad\text{with}\  X=|x-5|
+\end{align*}
+the comparison test, Theorem \eref{CLP101}{thm:SRcomparisonTest} in the CLP-2 text, tells us
+that $\sum_{n=1}^\infty \frac{(x-5)^n}{n!+2}$ converges for all $x$. So we may 
+differentiate our function term-by-term.
 	\begin{align*}
 	f(x)&=\displaystyle\sum_{n=1}^\infty \dfrac{(x-5)^n}{n!+2}\\
 	f'(x)&=\displaystyle\sum_{n=1}^\infty \diff{}{x}\left\{\dfrac{(x-5)^n}{n!+2}\right\}\\

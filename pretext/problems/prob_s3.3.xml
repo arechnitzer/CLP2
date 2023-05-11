@@ -31,7 +31,7 @@ That is, which series have terms whose limit is not zero?
 (B), (C)
 </p></answer>
 <solution><p>
-<ol label="A">
+<ol marker="A">
 <li> <m>\displaystyle\lim_{n \to \infty}\frac{1}{n}=0</m>, so the divergence test is inconclusive. It's true that this series diverges, but we can't show it using the divergence test.
 </li>
 <li> <m>\displaystyle\lim_{n \to \infty}\frac{n^2}{n+1}=\infty</m>, which is not zero, so the divergence test tells us this series diverges.
@@ -96,7 +96,7 @@ That is, if <m>f(x)</m> is a function with <m>f(n)=a_n</m> for all whole numbers
 <solution><p>
 Let <m>f(x)</m> be a function with <m>f(n)=a_n</m> for all whole numbers <m>n</m>.
 In order to apply the integral test (Theorem <xref ref="thm_SRintegralTest"/>) we need <m>f(x)</m> to be positive and decreasing for all sufficiently large values of <m>n</m>.
-<ol label="A">
+<ol marker="A">
 <li> <m>f(x) = \frac{1}{x}</m>, which is positive and decreasing for all <m>x \ge 1</m>, so the integral test does apply here.
 </li>
 <li> <m>f(x)=\frac{x^2}{x+1}</m>, which is not decreasing <mdash/> in fact, it goes to infinity. So, the integral test does not apply here. (The divergence test tells us the series diverges, though.)
@@ -121,7 +121,7 @@ Suppose there is some threshold after which a person is considered old, and befo
 </p>
 
 <p>Let Olaf be an old person, and let Yuan be a young person.
-<ol label="a">
+<ol marker="a">
 <li> Suppose  I am older than Olaf. Am I old?
 </li>
 <li> Suppose  I am younger than Olaf. Am I old?
@@ -297,7 +297,7 @@ The comparison test is Theorem<nbsp/><xref ref="thm_SRcomparisonTest"/>. However
 <exercise purpose="RQS">
 <statement><p>
 For each pair of series below, decide whether the second series is a valid comparison series to determine the convergence of the first series, using the  <em>direct</em> comparison test and/or the <em>limit</em> comparison test.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\sum_{n=10}^{\infty} \frac{1}{n-1},</m> compared to the divergent series
 <m>\displaystyle\sum_{n=10}^{\infty} \frac{1}{n}.</m>
@@ -693,7 +693,7 @@ Decide whether each of the following statements is true or false.
 If false, provide a counterexample. If true provide a brief justification.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 If <m>\displaystyle\lim_{n\rightarrow\infty}a_n=0</m>,
                then <m>\sum\limits_{n=1}^{\infty} a_n</m> converges.
@@ -1480,7 +1480,7 @@ Determine, with explanation, whether each of the following series converge or di
 </p>
 
 <p>
-<ol label="a">
+<ol marker="a">
 <li> <m>\displaystyle\sum_{n=1}^\infty\frac{1}{\sqrt{n^2+1}}</m>
 </li>
 <li> <m>\displaystyle\sum_{n=1}^\infty\frac{n\cos(n\pi)}{2^n}</m>
@@ -1576,7 +1576,7 @@ Determine whether each of the following series converge or diverge.
 </p>
 
 <p>
-<ol label="a">
+<ol marker="a">
 <li> <m>\displaystyle\sum_{n=2}^\infty\frac{n^2+n+1}{n^5-n}</m>
 </li>
 <li> <m>\displaystyle\sum_{m=1}^\infty\frac{3m+\sin\sqrt{m}}{m^2}</m>
@@ -1712,7 +1712,7 @@ This is a geometric series.
 Determine, with explanation, whether each of the following series converge or diverge.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 <m>1+\frac{1}{3}+\frac{1}{5}+\frac{1}{7}+\frac{1}{9}+\cdots</m>.
 </li>
@@ -1806,7 +1806,7 @@ the series converges.
 Determine, with explanation, whether each of the following series converges or diverges.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 <m>{\displaystyle \sum_{k=2}^\infty \frac{\root{3}\of{k}}{k^2-k}}</m>.
 </li>
@@ -2058,7 +2058,7 @@ So we need  <m>N=4</m> and then
 Determine, with explanation, whether the following series converge or diverge.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li><m>\displaystyle\sum_{n=1}^\infty\frac{n^n}{9^n n!}</m>
 </li>
 <li> <m>\displaystyle\sum_{n=1}^\infty\frac{1}{n^{\log n}}</m>
@@ -2627,16 +2627,16 @@ So, in a text of 100 words, we expect the most frequently used word to appear <m
 
 </statement>
 <hint><p>
-	If we add together the frequencies of all the words, they should amount to 100<percent/>. We can approximate this sum using ideas from Example<nbsp/><xref ref="eg_firstIntTest"/>.
+	If we add together the frequencies of all the words, they should amount to 100%. We can approximate this sum using ideas from Example<nbsp/><xref ref="eg_firstIntTest"/>.
 </p></hint>
 <answer><p>
-	About 9<percent/> to 10<percent/>
+	About 9% to 10%
 </p></answer>
 <solution><p>
 	The most-commonly used word makes up <m>\alpha</m> percent of all the words. So, we want to find <m>\alpha</m>.
 </p>
 
-<p>	If we add together the frequencies of all the words, they should amount to 100<percent/>. That is,
+<p>	If we add together the frequencies of all the words, they should amount to 100%. That is,
 	<me>
 \sum_{n=1}^{20,000} \frac{\alpha}{n}=100</me>
 </p>
@@ -2661,7 +2661,7 @@ As we see in the diagram above, <m>\displaystyle\sum_{n=1}^N \frac{\alpha}{n}</m
 \int_1^{N+1} \frac{\alpha}{x}\dee{x} \lt  \sum_{n=1}^N \frac{\alpha}{n}\,.</me>
 </p>
 
-<p>		Using the fact that our language's 20,000 words make up 100<percent/> of the words used, we can find a lower bound for <m>\alpha</m>.
+<p>		Using the fact that our language's 20,000 words make up 100% of the words used, we can find a lower bound for <m>\alpha</m>.
 		<md>
 <mrow>
 		100&amp;= \sum_{n=1}^{20,000} \frac{\alpha}{n}

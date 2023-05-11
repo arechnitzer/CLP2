@@ -503,7 +503,7 @@ This gives
 <exercise><title><fromexam>1997A</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^4\frac{x}{\sqrt{9+x^2}}\,\dee{x}</m>
 </li>
@@ -584,7 +584,7 @@ So, integrate by parts with <m>u(x)=\log x</m> and <m>\dee{v}=x^3\,\dee{x}</m>, 
 <exercise><title><fromexam>1997D</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^{\pi/2} x\sin x\,\dee{x} </m>
 </li>
@@ -645,7 +645,7 @@ The power of cosine is odd, so we can reserve one cosine for <m>\dee{u}</m> and 
 <exercise><title><fromexam>1998A</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^2 xe^x\,\dee{x}</m>
 </li>
@@ -764,7 +764,7 @@ So,
 <exercise><title><fromexam>2000D</fromexam></title>
 <statement><p>
 Calculate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^3\sqrt{9-x^2}\,\dee{x}</m>
 </li>
@@ -979,7 +979,7 @@ Now we can evaluate our integral.
 <exercise><title><fromexam>2001A</fromexam></title>
 <statement><p>
 Evaluate the following integrals. <em>Show your work.</em>
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^{\pi\over 4}\sin^2(2x)\cos^3(2x)\ \dee{x}</m>
 </li>
@@ -1115,7 +1115,7 @@ integrate by parts with <m>u=\arctan x</m> and <m>\dee{v}=x\,\dee{x}</m> so that
 <exercise><title><fromexam>M121 2000A</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^{\pi/4}\sin^5(2x)\,\cos(2x)\ \dee{x}</m>
 </li>
@@ -1215,7 +1215,7 @@ as desired. Thus,
 <exercise><title><fromexam>2001D</fromexam></title>
 <statement><p>
 Calculate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^\infty e^{-x} \sin(2x)\,\dee{x}</m>
 </li>
@@ -1398,7 +1398,7 @@ since
 <exercise><title><fromexam>2002A</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int x\,\log x\ \dee{x}</m>
 </li>
@@ -1498,7 +1498,7 @@ Setting <m>x=1</m> gives <m>\textcolor{red}{b=-\frac{1}{2}}</m>.  So,
 <exercise><title><fromexam>2013A</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int_0^1\arctan  x\ \dee{x}</m>.
 </li>
@@ -1554,7 +1554,7 @@ In the last step, you can guess the antiderivative, or use the substitutions <m>
 
 <exercise><title><fromexam>2014A</fromexam></title>
 <statement><p>
-<ol label="a">
+<ol marker="a">
 <li>
 Evaluate <m>{\displaystyle \int\frac{x^2}{(x^3 + 1)^{101}}\,\dee{x}}</m>.
 </li>
@@ -1641,7 +1641,7 @@ First, we note that the integral is improper, because <m>\sin\pi=0</m>. So, we'l
 <exercise><title><fromexam>M105 2015A</fromexam></title>
 <statement><p>
 Evaluate the following integrals.
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\displaystyle\int \frac{e^x}{(e^x+1)(e^x-3)}\, \dee{x}</m>
 </li>
@@ -1755,7 +1755,7 @@ and hence <m>\theta=\frac{\pi}{6}</m>. So
 Evaluate these integrals.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 <m>\displaystyle\int\frac{\sin^3x}{\cos^3x} \ \dee{x}</m>
 </li>
@@ -1867,12 +1867,17 @@ Solution 2: We have an integrand with <m>x</m> multiplied by something integrabl
 </p>
 </li>
 </ul>
+We have just seen two solutions. There are other solutions too. For example, one could use the substitution <m>u=\sqrt{x-1}</m>. Or, as another example, one could write
+<me>
+x\sqrt{x-1} = (x-1)\sqrt{x-1} +\sqrt{x-1} = (x-1)^{3/2} + (x-1)^{1/2}
+</me>
+and just guess a function whose derivative is <m>(x-1)^{3/2}</m> and a function whose derivative is  <m>(x-1)^{1/2}</m>. 
 </p></solution>
 </exercise>
 
 <exercise>
 <statement><p> Evaluate
-<m>\displaystyle\int \frac{\sqrt{x^2-2}}{x^2}\dee{x}</m>.
+<m>\displaystyle\int \frac{\sqrt{x^2-2}}{x^2}\dee{x}</m>  for <m>x\ge\sqrt{2}</m>.
 </p>
 
 <p>You may use that  <m>\int \sec x\dee{x} = \log|\sec x+\tan x| +C</m>.
@@ -1889,47 +1894,48 @@ Note the quadratic function under the square root: you can solve this with trigo
 
 <solution>
 
-<p><me>
+<p>
+We are to integrate
+<me>
 \int \frac{\sqrt{x^2-2}}{x^2}\dee{x}</me>
 </p>
 
-<p>We notice that there is a quadratic function under the square root. If that equation were a perfect square, we could get rid of the square root: so we'll mould it into a perfect square using a trig substitution.
+<p>We notice that there is a quadratic function under the square root. If that function were a perfect square, we could get rid of the square root: so we'll mould it into a perfect square using a trig substitution.
 </p>
 
-<p>Our candidates will use one of the following identities:
+<p>Our candidates are the following identities:
 <me>
-1-\sin^2\theta=\cos^2\theta \hspace{1cm} \tan^2\theta+1=\sec^2\theta \hspace{1cm} \sec^2\theta-1=\tan^2\theta</me>
-</p>
-
-<p>We'll be substituting <m>x=</m>(something), so we notice that <m>x^2-2</m> has the general form of
+1-\sin^2\theta=\cos^2\theta \hspace{1cm} \tan^2\theta+1=\sec^2\theta \hspace{1cm} \sec^2\theta-1=\tan^2\theta
+</me>
+We'll be substituting <m>x=</m>(something), so we notice that <m>x^2-2</m> has the general form of
 (function)<m>-</m>(constant), as does <m>\sec^2\theta-1</m>. In order to get the constant right, we multiply through by two:
 <me>
-2\sec^2\theta-2=2\tan^2\theta</me>
-</p>
-
-<p>or:
+2\sec^2\theta-2=2\tan^2\theta
+</me>
+or:
 <me>
-(\sqrt{2}\sec \theta)^2-2=2\tan^2\theta</me>
-</p>
-
-<p>so we decide to use the substitution
-<me>
-x=\sqrt{2}\sec\theta\hspace{1cm}\dee{x}=\sqrt{2}\sec\theta\tan\theta \dee{\theta}</me>
-</p>
-
-<p>Now that we've chosen the substitution, we evaluate the integral.
-</p>
-
-<p><md>
+(\sqrt{2}\sec \theta)^2-2=2\tan^2\theta
+</me>
+So we decide to use the substitution
+<md>
 <mrow>
-\int\frac{\sqrt{x^2-2}}{x^2}\dee{x}&amp;=\int\frac{\sqrt{2\sec^2\theta-2}}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta \dee{\theta}
+x&amp;=\sqrt{2}\sec\theta\qquad 0\le \theta \lt \pi/2\quad \text{(Recall that }x\ge\sqrt{2}\text{.)} 
 </mrow><mrow>
-&amp;=\int
-\frac{\sqrt{2\tan^2\theta}}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta
-\dee{\theta}
+\dee{x}&amp;=\sqrt{2}\sec\theta\tan\theta\, \dee{\theta} 
 </mrow><mrow>
+\sqrt{x^2-2}&amp;=\sqrt{2\sec^2\theta-2}
+            =\sqrt{2\tan^2\theta}
+            =\sqrt{2}\,|\tan\theta| 
+</mrow><mrow>
+            &amp;=\sqrt{2}\,\tan\theta\quad\text{since }0\le \theta \lt \pi/2
+</mrow>
+</md>
+Now that we've chosen the substitution, we evaluate the integral.
+<md>
+<mrow>
+\int\frac{\sqrt{x^2-2}}{x^2}\dee{x}
 &amp;=\int
-\frac{\sqrt{2}\tan\theta}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta
+\frac{\sqrt{2}\tan\theta}{2\sec^2\theta}\sqrt{2}\sec\theta\tan\theta\,
 \dee{\theta}
 </mrow><mrow>
 &amp;=\int
@@ -1944,7 +1950,7 @@ x=\sqrt{2}\sec\theta\hspace{1cm}\dee{x}=\sqrt{2}\sec\theta\tan\theta \dee{\theta
 &amp;=\log|\sec\theta + \tan\theta|-\sin\theta +C
 </mrow>
 </md>
-Now we need everything back in terms of <m>x</m>. We need a triangle. Since <m>x=\sqrt{2}\sec\theta</m>, that means if we label an angle <m>\theta</m>, its secant (hypotenuse over adjacent side) is <m>\dfrac{x}{\sqrt{2}}</m>. By Pythagoras, the opposite side is <m>\sqrt{x^2-2}</m>.
+Now we need everything back in terms of <m>x</m>. We need a triangle. Since <m>x=\sqrt{2}\sec\theta</m>, that means that if we label an angle <m>\theta</m>, its secant (hypotenuse over adjacent side) is <m>\dfrac{x}{\sqrt{2}}</m>. By Pythagoras, the opposite side is <m>\sqrt{x^2-2}</m>.
 </p>
 <sidebyside width="33%">
 <image><latex-image><![CDATA[
@@ -1953,9 +1959,7 @@ Now we need everything back in terms of <m>x</m>. We need a triangle. Since <m>x
 </sidebyside>
 <p>
 So <m>\tan \theta = \frac{\mbox{opp}}{\mbox{adj}}=\dfrac{\sqrt{x^2-2}}{\sqrt{2}}</m>, and <m>\sin\theta = \frac{\mbox{opp}}{\mbox{hyp}}=\dfrac{\sqrt{x^2-2}}{x}</m>. Then the value of the integral is:
-</p>
-
-<p><md>
+<md>
 <mrow>
 \amp\log|\sec\theta + \tan\theta|-\sin\theta +C
 ={ \log \left|
@@ -1969,9 +1973,8 @@ So <m>\tan \theta = \frac{\mbox{opp}}{\mbox{adj}}=\dfrac{\sqrt{x^2-2}}{\sqrt{2}}
 \right|-\frac{\sqrt{x^2-2}}{x}+C
 </mrow>
 </md>
-</p>
-
-<p>Note the simplification in the last step is due to our convention that <m>C</m> is an arbitrary constant. So, <m>C-\log\sqrt{2}</m> can be re-written as simply <m>C</m>.
+Note that the simplification in the last step is possible because <m>C</m> is an arbitrary constant. So, 
+<m>C-\log\sqrt{2}</m> is just another arbitrary constant and can be renamed to <m>C</m>.
 </p></solution>
 </exercise>
 
@@ -1981,7 +1984,7 @@ So <m>\tan \theta = \frac{\mbox{opp}}{\mbox{adj}}=\dfrac{\sqrt{x^2-2}}{\sqrt{2}}
 </p></statement>
 
 <hint><p>
-Try a <m>u</m>-substitution, as in Section<nbsp/><xref ref="sec_tansec"/>.
+Try a substitution, as in Section<nbsp/><xref ref="sec_tansec"/>.
 </p></hint>
 
 <answer><p>
@@ -2437,7 +2440,7 @@ What is the derivative of the function in the denominator? How could that be use
 Evaluate these integrals.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 <m>\displaystyle\int\sin(\log x) \ \dee{x}</m>
 </li>
@@ -2532,7 +2535,7 @@ and the definite integral
 Evaluate (with justification).
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 <m>\displaystyle\int_0^3(x+1)\sqrt{9-x^2} \ \dee{x}</m>
 </li>
@@ -2897,7 +2900,7 @@ x^4+1&amp;=(x^2+bx+c)(x^2+ex+1/c)
 &amp;=x^4 + \underbrace{\vphantom{\bigg(}(b+e)}_{(1)}x^3+\underbrace{\left(\frac{1}{c}+be+c\right)}_{(3)}x^2+\underbrace{\left(\frac{b}{c}+ec\right)}_{(2)}x+1
 </mrow>
 </md>
-<ol label="1">
+<ol marker="1">
 <li> The coefficient of <m>x^3</m> tells us <m>e=-b</m>.
 </li>
 <li> Then the coefficient of <m>x</m> tells us <m>0=\frac{b}{c}+ec = \frac{b}{c}-bc</m>. So, <m>c = \frac{1}{c}</m>, hence <m>c=\pm 1</m>.

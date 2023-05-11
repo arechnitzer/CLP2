@@ -501,7 +501,7 @@ After an example, we give a second theorem that contains some less commonly used
 <theorem xml:id="thm_TaylorRemainderA"><title>Commonly used formulae for the Taylor remainder</title>
 <statement><p>
 The Taylor remainder <m>E_n(a,x)</m> is given by
-<ol label="a">
+<ol marker="a">
 <li>
  (integral form) 
  <me> 
@@ -526,7 +526,7 @@ expansion to approximate <m>f</m>.) This contrasts with the Lagrange form which 
 
 
 
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 We will give two proofs. The first is shorter and simpler, but uses some trickery. The second is longer, but is more straightforward. It uses a technique called mathematical induction.
@@ -765,7 +765,7 @@ Theorem<nbsp/><xref ref="thm_TaylorRemainderA"/>. We start by setting
 </mrow><mrow>
   f''(x) &amp;= \frac{-1}{(1+x)^2} &amp; f''(0) &amp;= -1 
 \</mrow><mrow>
-  f'''(x) &amp;= \frac{2}{(1+x)^3} &amp; f'''(1) &amp;= 2 
+  f'''(x) &amp;= \frac{2}{(1+x)^3} &amp; f'''(0) &amp;= 2 
 </mrow><mrow>
   f^{(4)}(x) &amp;= \frac{-2\times 3}{(1+x)^4} &amp; f^{(4)}(0) &amp;= -3! 
 \</mrow><mrow>
@@ -934,7 +934,7 @@ commonly used formulae for the Taylor remainder. Here are some less commonly use
 
 <theorem xml:id="thm_TaylorRemainderB"><title>More formulae for the Taylor remainder</title>
 <statement><p>
-<ol label="a">
+<ol marker="a">
 <li>
 If <m>G(t)</m> is differentiable<fn>Note that the function <m>G</m> need not be related to <m>f</m>. It just has to be differentiable with a nonzero derivative.</fn> and <m>G'(c)</m> is nonzero for all <m>c</m> strictly 
 between <m>a</m> and <m>x</m>, then the Taylor remainder
@@ -961,7 +961,7 @@ S(t) = f(x) - f(t) -f'(t)\,(x\!-\!t)-\tfrac{1}{2}f''(t)\,(x\!-\!t)^2
 </me>
 and observe that <m>E_n(a,x) = S(a)</m> and <m>S(x)=0</m> and
 <m>S'(t)= -\tfrac{1}{n!}  f^{(n+1)}(t)\,(x-t)^n</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 Recall that the generalised mean-value theorem, which 
 is Theorem 3.4.38 in the CLP-1 text, says that
@@ -1878,7 +1878,7 @@ under Definition <xref ref="def_bigoh"/>, with <m>C=\tfrac{2^{n+1}}{n+1}</m> and
 <remark xml:id="rem_bigohppties">
 <p>
 The big O notation has a few properties that are useful in computations and taking limits. All follow immediately from Definition <xref ref="def_bigoh"/>.
-<ol label="a">
+<ol marker="a">
 <li>
 	If <m>p \gt 0</m>, then
 	<me>

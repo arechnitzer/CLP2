@@ -60,7 +60,7 @@ Following how a Taylor series is constructed, the Taylor series and the function
 
 <exercise purpose="RQS">
 <statement><p>
-Below are a list of common functions, and their Taylor series representations. Match the function to the Taylor series.
+Below are a list of common functions, and their Taylor series representations. Match the function to the Taylor series and give the radius of convergence of the series.
 </p>
 <sidebyside>
 <tabular left="minor" right="minor" top="minor" bottom="minor">
@@ -88,17 +88,17 @@ Below are a list of common functions, and their Taylor series representations. M
 If you don't have these memorized, it's good to be able to derive them. For instance, <m>\log(1+x)</m> is the antiderivative of <m>\dfrac{1}{1+x}</m>, whose Taylor series can be found by modifying the geometric series <m>\sum x^n</m>.
 </p></hint>
 <answer><p>
-A - V
+A - V <m>\quad</m> radius<m>=1</m>
 </p><p>
-B - I
+B - I <m>\quad</m> radius<m>=1</m>
 </p><p>
-C - IV
+C - IV <m>\quad</m> radius<m>=1</m>
 </p><p>
-D - VI
+D - VI <m>\quad</m> radius<m>=+\infty</m>
 </p><p>
-E - II
+E - II <m>\quad</m> radius<m>=+\infty</m>
 </p><p>
-F - III
+F - III <m>\quad</m> radius<m>=+\infty</m>
 </p></answer>
 <solution><p>
 These are listed in Theorem<nbsp/><xref ref="thm_SRimportantTaylorSeries"/>. However, it's possible to figure out many of them without a lot of memorization. For example, <m>e^0=\cos(0)=\frac{1}{1-0}=1</m>, while <m>\sin(0)=\log(1+0)=\arctan(0)=0</m>. So by plugging in <m>x=0</m> to the series listed, we can divide them into these two categories.
@@ -114,20 +114,25 @@ Cosine is an even  function and only III is even.
 <p>Alternately, we can find the first few terms of each series using the definition of a Taylor series, and match them up.
 </p>
 
-<p>All together, the functions correspond to the following series:
-</p>
-
-<p>A - V
-</p><p>
-B - I
-</p><p>
-C - IV
-</p><p>
-D - VI
-</p><p>
-E - II
-</p><p>
-F - III
+<p>In any event, here is what Theorem<nbsp/><xref ref="thm_SRimportantTaylorSeries"/> gives.
+<ol label="(A)">
+<li>
+The Taylor series representation of <m>\frac{1}{1-x}</m> is given in V. The series converges for 
+<m>-1\lt x\lt 1</m>. So by Definition<nbsp/><xref ref="def_SRradiusConvergence"/>, the series has radius of convergence <m>1</m>.
+</li><li>
+The Taylor series representation of <m>\log(1+x)</m> is given in I. The series converges for 
+<m>-1\lt x\le 1</m>. In particular, it converges for all <m>|x|\lt 1</m> and diverges for all <m>|x|\gt 1</m>. So by Definition<nbsp/><xref ref="def_SRradiusConvergence"/>, the series has radius of convergence <m>1</m>.
+</li><li>
+The Taylor series representation of <m>\arctan x</m> is given in IV. The series converges for 
+<m>-1\le x\le 1</m>. In particular, it converges for all <m>|x|\lt 1</m> and diverges for all <m>|x|\gt 1</m>. So it has radius of convergence <m>1</m>.
+</li><li>
+The Taylor series representation of <m>e^x</m> is given in VI. The series converges for all <m>x</m>. So it has infinite radius of convergence.
+</li><li>
+The Taylor series representation of <m>\sin x</m> is given in II. The series converges for all <m>x</m>. So it has infinite radius of convergence.
+</li><li>
+The Taylor series representation of <m>\cos x</m> is given in III. The series converges for all <m>x</m>. So it has infinite radius of convergence.
+</li>
+</ol>
 </p>
 
 </solution>
@@ -135,7 +140,7 @@ F - III
 
 <exercise purpose="RQS">
 <statement><p>
-<ol label="a">
+<ol marker="a">
 <li> Suppose <m>f(x)=\displaystyle\sum_{n=0}^\infty \frac{n^2}{(n!+1)}(x-3)^n</m> for all real <m>x</m>. What is <m>f^{(20)}(3)</m> (the twentieth derivative of <m>f(x)</m> at <m>x=3</m>)?
 </li>
 <li> Suppose <m>g(x)=\displaystyle\sum_{n=0}^\infty \frac{n^2}{(n!+1)}(x-3)^{2n}</m> for all real <m>x</m>. What is <m>g^{(20)}(3)</m>?
@@ -155,7 +160,7 @@ See Example<nbsp/><xref ref="eg_SRfindDeriv"/>.
 (c) <m>h^{(20)}(0)=0;\quad h^{(22)}(0)=\dfrac{22!\cdot 5^{13}}{13}</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 Using the definition of a Taylor series, we know
@@ -1120,7 +1125,7 @@ Hence <m>\displaystyle\sum\limits_{n=0}^\infty \frac{1}{(2n)!}=\frac12\left(e+\f
 
 <exercise purpose="RQS">
 <statement><p>
-<ol label="a">
+<ol marker="a">
 <li> Using the fact that <m>\arctan(1)=\dfrac{\pi}{4}</m>, how many terms of the Taylor series for arctangent would you have to add up to approximate <m>\pi</m> with an error of at most <m>4\times 10^{-5}</m>?
 </li>
 <li>
@@ -1161,7 +1166,7 @@ Using the Taylor series for arctangent, how many terms would you have to add up 
 for every real <m>x</m>.
 </p>
 
-<p>	<ol label="a">
+<p>	<ol marker="a">
 <li>
 	Using the Taylor series for arctangent when <m>x=1</m>, we see
 	<md>
@@ -1936,7 +1941,7 @@ Recall the Taylor series for arctangent is:
 
 <exercise purpose="RQS">
 <statement><p>
-	<ol label="a">
+	<ol marker="a">
 <li> Find the Maclaurin series for <m>f(x) = (1-x)^{-1/2}</m>. What is its radius of convergence?
 </li>
 <li> Manipulate the  series you just found to find the Maclaurin series for <m>g(x)=\arcsin x</m>. What is its radius of convergence?
@@ -1954,7 +1959,7 @@ For simplification purposes, note
 <p>	(b) the Maclaurin series for <m>\arcsin x</m> is <m>\displaystyle\sum_{n=0}^\infty\frac{(2n)!}{2^{2n}\,(n!)^2(2n+1)}x^{2n+1}</m>, and its radius of convergence is <m>R=1</m>.
 </p></answer>
 <solution><p>
-	<ol label="(a)">
+	<ol marker="(a)">
 <li> 	We'll start, as we usually do, by finding a pattern for <m>f^{(n)}(0)</m>.
 	<md>
 <mrow>
@@ -2064,7 +2069,7 @@ It converges when <m>-1 \lt y\le 1</m>, or equivalently,
 <exercise><title><fromexam>1996A</fromexam></title>
 <statement><p>
 Let <m>\displaystyle I(x)=\int_0^x\frac{1}{1+t^4}\ \dee{t}</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 Find the Maclaurin series for <m>I(x)</m>.
 </li>
@@ -2257,7 +2262,7 @@ possible accumulated roundoff errors in the added terms.
 <exercise><title><fromexam>1996D</fromexam></title>
 <statement><p>
  Let <m>\displaystyle I(x)=\int_0^x\frac{e^{-t}-1}{t}\,\dee{t}</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 Find the Maclaurin series for <m>I(x)</m>.
 </li>
@@ -2343,7 +2348,7 @@ I(1)=-1+0.25-0.0556+0.0104\pm 0.0019=-0.7952\pm 0.0019
  The function <m>\Si(x)</m> is defined by <m>\Si(x)=\displaystyle\int_0^x\frac{\sin t}{t}\,\dee{t}</m>.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 Find the Maclaurin series for <m>\Si(x)</m>.
 </li>
@@ -2444,7 +2449,7 @@ possible accumulated roundoff error in all five retained terms).
   Let <m>\displaystyle I(x)=\int_0^x\frac{\cos t-1}{t^2}\,\dee{t}</m>.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 Find the Maclaurin series for <m>I(x)</m>.
 </li>
@@ -2522,7 +2527,7 @@ between <m>0</m> and <m>-\frac{1}{6!5}</m>. Hence <m>I(1) \lt -\frac{1}{2}+\frac
 Let <m>\displaystyle I(x)=\int_0^x\frac{\cos t+t\sin t-1}{t^2}\,\dee{t}</m>
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 Find the Maclaurin series for <m>I(x)</m>.
 </li>
@@ -2647,7 +2652,7 @@ Define
 <m>
 {\displaystyle f(x) = \int_0^x\frac{1-e^{-t}}{t}\ \dee{t}}
 </m>.
-<ol label="a">
+<ol marker="a">
 <li>
 Show that the Maclaurin series for <m>f(x)</m> is
 <m>\displaystyle\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n\cdot n!} x^n</m>.
@@ -2770,7 +2775,7 @@ See the solution.
 <exercise><title><fromexam>M121 2012A</fromexam></title>
 <statement><p>
 Let <m>\displaystyle \cosh(x) =\frac{e^x+e^{-x}}{2}</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 Find the power series expansion of <m>\cosh(x)</m> about <m>x_0 = 0</m> and
 determine its interval of convergence.
@@ -2897,7 +2902,7 @@ Now. for all <m>n\ge 1</m>,
 <exercise purpose="RQS">
 <statement><p>The law of the instrument says <q>If you have a hammer then everything looks like a nail</q> <mdash/> it is really a description of the <q>tendency of jobs to be adapted to tools rather than adapting tools to jobs</q><fn>Quote from Silvan Tomkins's <em>Computer Simulation of Personality: Frontier of Psychological Theory</em>. See also Birmingham screwdrivers.</fn>. Anyway, this is a long way of saying that just because we know how to compute things using Taylor series doesn't mean we should neglect other techniques.
 
-<ol label="a">
+<ol marker="a">
 <li> Using Newton's method, approximate the constant <m>\sqrt[3]{2}</m> as a root of the function <m>g(x)=x^3-2</m>. Using a calculator, make your estimation accurate to within 0.01.
 </li>
 <li> You may assume without proof that
@@ -2924,7 +2929,7 @@ For Newton's method, recall we approximate a root of the function <m>g(x)</m> in
 </p></answer>
 <solution>
 
-<p>	<ol label="(a)">
+<p>	<ol marker="(a)">
 <li>
 		For Newton's method, recall we approximate a root of the function <m>g(x)</m> in iterations: given an approximation <m>x_n</m>, our next approximation is <m>x_{n+1}=x_n-\dfrac{g(x_n)}{g'(x_n)}</m>. In our case,
 <me>
@@ -3091,7 +3096,7 @@ e^{-1/x^2} &amp; x \neq 0\\
 \end{cases}</me>
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li> Sketch <m>y=f(x)</m>.
 </li>
 <li> Assume (without proof) that <m>f^{(n)}(0)=0</m> for all whole numbers <m>n</m>. Find the Maclaurin series for <m>f(x)</m>.
@@ -3129,7 +3134,7 @@ e^{-1/x^2} &amp; x \neq 0\\
 (d) only at <m>x=0</m>
 </p></answer>
 <solution><p>
-<ol label="(a)">
+<ol marker="(a)">
 <li>
 <p>
 To sketch <m>y=f(x)</m>, we note the following:

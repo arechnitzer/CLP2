@@ -65,7 +65,7 @@ If we were evaluating a Taylor series at a point \emph{other than its centre}, w
 %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%
 \begin{Mquestion}
-Below are a list of common functions, and their Taylor series representations. Match the function to the Taylor series.
+Below are a list of common functions, and their Taylor series representations. Match the function to the Taylor series and give the radius of convergence of the series.
 \begin{center}
 \begin{tabular}{l c l}
 function & \qquad & series\\
@@ -83,12 +83,16 @@ F. $\cos x$ &&VI. $\displaystyle\sum_{n=0}^\infty \frac{x^n}{n!}$
 If you don't have these memorized, it's good to be able to derive them. For instance, $\log(1+x)$ is the antiderivative of $\dfrac{1}{1+x}$, whose Taylor series can be found by modifying the geometric series $\sum x^n$.
 \end{hint}
 \begin{answer}
-A - V \hfill
-B - I \hfill
-C - IV \hfill
-D - VI \hfill
-E - II \hfill
-F - III
+\begin{center}
+\begin{tabular}{l l l}
+A - V,\quad radius$=1$ &
+B - I,\quad radius$=1$ &
+C - IV,\quad radius$=1$ \\
+D - VI,\quad radius$=+\infty$ &
+E - II,\quad radius$=+\infty$ &
+F - III,\quad radius$=+\infty$
+\end{tabular}
+\end{center}
 \end{answer}
 \begin{solution}
 These are listed in Theorem~\eref{CLP101}{thm:SRimportantTaylorSeries} in the CLP--2 text. However, it's possible to figure out many of them without a lot of memorization. For example, $e^0=\cos(0)=\frac{1}{1-0}=1$, while $\sin(0)=\log(1+0)=\arctan(0)=0$. So by plugging in $x=0$ to the series listed, we can divide them into these two categories.
@@ -100,15 +104,33 @@ Cosine is an even  function and only III is even.
 
 Alternately, we can find the first few terms of each series using the definition of a Taylor series, and match them up.
 
-All together, the functions correspond to the following series:
+In any event, here is what Theorem~\eref{CLP101}{thm:SRimportantTaylorSeries} in the CLP--2 text gives.
 
-A - V \hfill
-B - I \hfill
-C - IV \hfill
-D - VI \hfill
-E - II \hfill
-F - III
+\begin{enumerate}[(A)]
+\item 
+The Taylor series representation of $\frac{1}{1-x}$ is given in V. The series converges for $-1<x<1$. So by 
+Definition~\eref{CLP101}{def:SRradiusConvergence} in the CLP--2 text, the series has radius of convergence $1$.
 
+\item 
+The Taylor series representation of $\log(1+x)$ is given in I. The series converges for $-1<x\le 1$. In particular, it converges for all $|x|<1$ and diverges for all $|x|>1$. So by 
+Definition~\eref{CLP101}{def:SRradiusConvergence} in the CLP--2 text, the series has radius of convergence $1$.
+
+\item 
+The Taylor series representation of $\arctan x$ is given in IV. The series converges for $-1\le x\le 1$. In particular, it converges for all $|x|<1$ and diverges for all $|x|>1$. So it has radius of convergence $1$.
+
+\item 
+The Taylor series representation of $e^x$ is given in VI. The series converges for all $x$. So it has 
+infinite radius of convergence.
+
+\item 
+The Taylor series representation of $\sin x$ is given in II. The series converges for all $x$. So it has 
+infinite radius of convergence.
+
+\item 
+The Taylor series representation of $\cos x$ is given in III. The series converges for all $x$. So it has 
+infinite radius of convergence.
+
+\end{enumerate}
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%

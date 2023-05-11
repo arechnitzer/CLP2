@@ -52,7 +52,7 @@ Consider approximating <m>\displaystyle\int_2^{10} f(x) \dee{x}</m>, where <m>f(
 \draw[thick, blue] plot[domain=-1:7, samples=50](\x,{.25*\x* sin(\x r)+1.5});
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
-<ol label="a">
+<ol marker="a">
 <li> Draw the rectangles associated with the midpoint rule approximation and <m>n=4</m>.
 </li>
 <li> Draw the trapezoids associated with the trapezoidal rule approximation and <m>n=4</m>.
@@ -128,7 +128,7 @@ Trapezoidal rule:
 <exercise purpose="RQS">
 <statement><p>
 Let <m>f(x) = -\dfrac{1}{12}x^4+\dfrac{7}{6}x^3-3x^2</m>.
-<ol label="a">
+<ol marker="a">
 <li> Find a reasonable value <m>M</m> such that <m>|f''(x)| \leq M</m> for all <m>1 \leq x \leq 6</m>.
 </li>
 <li> Find a reasonable value <m>L</m> such that <m>|f^{(4)}(x)| \leq L</m> for all <m>1 \leq x \leq 6</m>.
@@ -141,7 +141,7 @@ Sketch the second derivative--it's quadratic.
 <answer><p> <m>M=6.25</m>, <m>L=2</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 Differentiating, we find <m>f''(x) = -x^2+7x-6</m>. Since <m>f''(x)</m> is quadratic, we have a pretty good idea of what it looks like.
@@ -212,7 +212,7 @@ Question<nbsp/><xref ref="prob_s1_11_exactM" text="local"/> has a further invest
 <exercise xml:id="prob_s1_11_approxerror1" purpose="RQS">
 <statement><p>
 Consider the quantity <m>A=\displaystyle\int_{-\pi}^{\pi} \cos x \dee{x}</m>.
-<ol label="a">
+<ol marker="a">
 <li> Find the upper bound on the error using Simpson's rule with <m>n=4</m> to approximate <m>A</m> using Theorem<nbsp/><xref ref="thm_num_int_err"/> in the text.
 </li>
 <li> Find the Simpson's rule approximation of <m>A</m> using <m>n=4</m>.
@@ -237,7 +237,7 @@ To compute the upper bound on the error, find an upper bound on the fourth deriv
    (c) <m>0</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 Let <m>f(x) = \cos x</m>. Then <m>f^{(4)}(x)=\cos x</m>, so <m>|f^{(4)}(x)| \leq 1</m> when <m>-\pi \leq x \leq \pi</m>. So, using <m>L=1</m>, we find the upper bound of the error using Simpson's rule with <m>n=4</m> is:
@@ -355,7 +355,7 @@ Under any reasonable assumptions
 
 <exercise>
 <statement><p>
-<ol label="a">
+<ol marker="a">
 <li> True or False: for fixed positive constants <m>M</m>, <m>n</m>, <m>a</m>, and <m>b</m>, with <m>b \gt a</m>,<me>
 \dfrac{M}{24}\dfrac{(b-a)^3}{n^2}\leq \dfrac{M}{12}\dfrac{(b-a)^3}{n^2}</me>
 </li>
@@ -995,7 +995,7 @@ heights <m>h</m>. The volume of the hill is <m>V=\int_0^{60} A(h)\,\dee{h}</m>.
 </sidebyside>
 
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 If the geologist uses the Trapezoidal Rule to estimate the
 volume of the hill, what will be their estimate, to the nearest 1,000<m>\mathrm{m}^3</m>?
@@ -1057,7 +1057,7 @@ The graph below applies to both parts (a) and (b).
 </sidebyside>
 
 <p>
-<ol label="a">
+<ol marker="a">
 <li>
 Use the Trapezoidal Rule, with <m>n = 4</m>, to estimate
 the area under the graph between <m>x = 2</m> and <m>x = 6</m>.
@@ -1223,7 +1223,7 @@ so we can take <m>M = 24\cdot(-2)^2=96</m>. Thus the total error for the midpoin
 <exercise><title><fromexam>2016A</fromexam></title>
 <statement><p>
 Both parts of this question concern the integral <m>I = \displaystyle\int_{0}^{2} (x-3)^5\,\dee{x}</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 Write down the Simpson's Rule approximation to <m>I</m> with <m>n=6</m>.
 Leave your answer in calculator-ready form.
@@ -1429,7 +1429,7 @@ So, we  take <m>L=16</m> and <m>\De x=\frac{1-0}{6}=\frac{1}{6}</m>.
 Let <m>I=\displaystyle\int_1^2 (1/x)\,\dee{x}</m>.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 Write down the trapezoidal approximation <m>T_4</m> for <m>I</m>.
 <em>You do not need to simplify your answer.</em>
@@ -1546,7 +1546,7 @@ A function <m>s(x)</m> satisfies <m>s(0)=1.00664</m>, <m>s(2)=1.00543</m>,
 integers <m>k</m>.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 Find the best Trapezoidal Rule and Simpson's Rule approximations
 that you can for <m>\displaystyle I=\int_0^8 s(x)\dee{x}</m>.
@@ -1590,7 +1590,7 @@ Set <m>a=0</m> and <m>b=8</m>. Since we have information about <m>s(x)</m> when 
 </p>
 
 <p>We could perform the trapezoidal approximations with fewer intervals, for example <m>n=2</m>, but this would involve ignoring some of the points we're given. Since the question asks for the best estimation we can give, we use <m>n=4</m> intervals and no fewer.
-<ol label="a">
+<ol marker="a">
 <li>
 <p><md>
 <mrow>
@@ -1768,7 +1768,7 @@ Data from the manufacturer is given below:
 </tabular>
 </sidebyside>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 Find the best Trapezoidal Rule approximation that you
 can for <m>W</m> based on the data in the table.
@@ -1859,7 +1859,7 @@ So,
 <statement><p>
 Simpson's rule can be used to approximate <m>\log 2</m>,
 since <m>\displaystyle\log 2=\int_1^2\frac{1}{x}\,\dee{x}</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 Use Simpson's rule with 6 subintervals to approximate <m>\log 2</m>.
 </li>
@@ -1940,7 +1940,7 @@ So, any even number greater than or equal to 12 will do.
 <statement><p>
 Let <m>I={\displaystyle\int_0^2}\cos(x^2)\dee{x}</m> and
 let <m>S_n</m> be the Simpson's rule approximation to <m>I</m> using <m>n</m> subintervals.
-<ol label="a">
+<ol marker="a">
 <li>
 Estimate the maximum absolute error in using <m>S_8</m> to approximate <m>I</m>.
 </li>
@@ -2076,7 +2076,7 @@ Any integer <m>n \geq 259</m> will do.
 with <m>f''(x) = \dfrac{x^2}{x+1}</m>.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li> Show that <m>|f''(x)| \leq 1</m> whenever <m>x</m> is in the interval <m>[0,1]</m>.
 </li>
 <li> Find the maximum value of <m>|f''(x)|</m> over the interval <m>[0,1]</m>.
@@ -2104,7 +2104,7 @@ To find the maximum value of <m>|f''(x)|</m>, check its critical points and endp
 </p></answer>
 <solution>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li> When <m>0 \leq x \leq1</m>, then <m>x^2 \leq 1</m> and <m>x+1 \geq 1</m>, so <m>|f''(x)| = \dfrac{x^2}{|x+1|}\leq \dfrac{1}{1}=1</m>.
 </li>
 <li>

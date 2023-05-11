@@ -2516,7 +2516,7 @@ for all $a<x<b$. Then
 Before we prove this theorem and look at a bunch of examples of its
 application, it is important that we recall one definition from differential
 calculus --- antiderivatives. If $F'(x) = f(x)$ on some interval, then  $F(x)$
-is called an antiderivative of $f(x)$ on that interval. So Part 2 of the the
+is called an antiderivative of $f(x)$ on that interval. So Part 2 of the
 fundamental theorem of calculus tells us how to evaluate the definite integral
 of $f(x)$ in terms of any of its antiderivatives ---  if  $G(x)$ is any
 antiderivative of $f(x)$ then
@@ -2762,7 +2762,7 @@ into pieces whose derivatives we already know.
 &\text{by Theorem~\ref{thm:Intdomain}(b)}
 \end{align*}
 With this pre-processing, both integrals are of the right form. Using what
-we have learned in the the previous two examples,
+we have learned in the previous two examples,
 \begin{align*}
 \diff{}{x}\int_x^{x^2} e^{-t^2}\dee{t}
 &=\diff{}{x}\left(
@@ -2811,16 +2811,13 @@ $G(x) = F(x)+C$ for some constant $C$. To do this let $H(x) = G(x)-F(x)$. Then
 = f(x) - f(x) = 0
 \end{align*}
 Since the derivative of $H(x)$ is zero, $H(x)$ must be a constant
-function\footnote{This follows from the Mean Value Theorem. Say $H(x)$ were not constant,
-then there would be two numbers $a<b$ so that $H(a)\neq H(b)$. Then the MVT tells us that
-there is a number $c$ between $a$ and $b$ so that
+function\footnote{This follows from the Mean Value Theorem.
+Indeed, fix any number $x_0$. Then, for each $x\ne x_0$, the MVT gives us a number $c$ between $x_0$ and $x$ with
 \begin{align*}
-  H'(c) &= \frac{H(b)-H(a)}{b-a}.
+H(x)-H(x_0)&= H'(c)\,(x-x_0) = 0
 \end{align*}
-Since both numerator and denominator are non-zero, we know the derivative at $c$ is
-nonzero. But this would contradict the assumption that derivative of $H$ is zero. Hence
-we cannot have $a<b$ with $H(a)\neq H(b)$ and so $H(x)$ must be constant.
-}. Thus $H(x)=G(x)-F(x)=C$ for
+since the derivative of $H$ is zero everywhere. Thus $H(x)=H(x_0)$ for all $x$
+and $H(x)$ is a constant function.}. Thus $H(x)=G(x)-F(x)=C$ for
 some constant $C$ and the result follows.
 \end{itemize}
 
@@ -3679,11 +3676,12 @@ replace $\dee{x}$ by $\frac{1}{u'(x)}\dee{u} = \frac{1}{3}\dee{u}$:
 \end{align*}
 \end{itemize}
 \end{eg}
-This last example illustrates that substitution can be used to easily deal with arguments
-of the form $ax+b$, i.e. that are linear functions of $x$, and suggests the following
-theorem.
+This last example illustrates that substitution can be used to easily deal 
+with arguments of the form $ax+b$ (with $a,b$ constants and $a\ne 0$), i.e. 
+that are linear functions of $x$, and suggests the following theorem.
 \begin{theorem}\label{thm subs linear}
-Let $F(u)$ be an antiderivative of $f(u)$ and let $a,b$ be constants. Then
+Let $F(u)$ be an antiderivative of $f(u)$ and let $a,b$ be constants 
+with $a\ne 0$. Then
 \begin{align*}
   \int f(ax+b)\dee{x} &= \frac{1}{a} F(ax+b) +C
 \end{align*}
@@ -3932,7 +3930,7 @@ specified values. More precisely
 \begin{align*}
   \int_a^b f(x) \dee{x}
 \end{align*}
-is equal to the signed area between the the curve $y=f(x)$, the $x$-axis, and the
+is equal to the signed area between the curve $y=f(x)$, the $x$-axis, and the
 vertical lines $x=a$ and $x=b$.
 
 We found the area of this region by approximating it by the union of tall thin
@@ -4129,7 +4127,7 @@ This leads us to the sketch
    \includegraphics{areaSMPL}
 \end{center}
 \end{efig}
-\item So on this region we have $0\leq x\leq 2$, the top curve is $T(x)=6x-x^2$ and the
+\item So on this region we have $0\leq x\leq 2$, the top curve is $T(x)=6x-2x^2$ and the
 bottom curve is $B(x)=x^2$. Hence the area is given by
 \begin{align*}
   \text{Area} &=\int_a^b \big[T(x)-B(x)\big]\dee{x} \\
@@ -5942,7 +5940,7 @@ result from Example~\ref{eg:TRGINTg} to take care of the last term:
 x \dee{x} \\
 \intertext{Now factor out the common $\sec^2x$ term and integrate $\tan x$ via
 Example~\ref{eg:TRGINTg}}
-&= \int \big[ \tan^5x - \tan^3x +\tan x\big]\sec x\dee{x} - \log|\sec x| +C \\
+&= \int \big[ \tan^5x - \tan^3x +\tan x\big]\sec^2 x\ \dee{x} - \log|\sec x| +C \\
 &= \int \big[ u^5 - u^3 + u \big]\dee{u} - \log|\sec x| +C \\
 &= \frac{u^6}{6} - \frac{u^4}{4} + \frac{u^2}{2} - \log|\sec x| +C \\
 &= \frac{1}{6}\tan^6x - \frac{1}{4}\tan^4x +\frac{1}{2}\tan^2x - \log|\sec x| +
@@ -6661,7 +6659,7 @@ This allows us to remove the square root:
 
 \item To remove the absolute value we must consider the range of values of $u$ in
 the integral. Since $x=3\tan u$ we have $u = \arctan(x/3)$. The range\footnote{To be
-pedantic, we mean the range of the ``standard'' arctangent function or its ``principle
+pedantic, we mean the range of the ``standard'' arctangent function or its ``principal
 value''. One can define other arctangent functions with different ranges.} of arctangent
 is $-\nicefrac{\pi}{2} \leq \arctan  \leq \nicefrac{\pi}{2}$ and so $u=\arctan(x/3)$
 will always like between $-\nicefrac{\pi}{2}$ and $+\nicefrac{\pi}{2}$. Hence $\cos u$
@@ -6835,9 +6833,9 @@ the square\footnote{If you have not heard of ``completing the square'' don't wor
 is not a difficult method and it will only take you a few moments to learn. It refers to
 rewriting a quadratic polynomial
 \begin{align*}
-  P(x) &= ax^2 + bx + c &\text{as}&& P(x)= a(x+d)^2 +e
+  P(x) &= ax^2 + bx + c &\text{as}&& P(x)= a(x+h)^2 +k
 \end{align*}
-for new constants $d,e$.
+for new constants $h,k$.
 }.
 \begin{eg}[$\int_3^5\frac{\sqrt{x^2-2x-3}}{x-1}\ \dee{x}$]\label{eg:INVTRIGc}
 This time we have an integral with a square root in the integrand, but
@@ -9547,7 +9545,7 @@ Then the area between it and the $x$-axis with $x$ running from $-h$ to $h$ is
   &= \frac{h}{3}\left( 2Ah^2 + 6C \right)
 \end{align*}
 
-Now, the the three points $(-h,y_{-1}), (0,y_0)$ and $(h,y_1)$ lie on this parabola if and
+Now, the three points $(-h,y_{-1}), (0,y_0)$ and $(h,y_1)$ lie on this parabola if and
 only if
 \begin{align*}
 A h^2 - Bh + C &= y_{-1} & \text{at $(-h,y_{-1})$} \\

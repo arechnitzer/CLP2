@@ -456,7 +456,7 @@ If <m>f(x)</m> is always increasing or always decreasing, then the midpoint Riem
 <exercise xml:id="p1_1sigmaa">
 <statement><p>
 Express the following sums in sigma notation:
-<ol label="a">
+<ol marker="a">
 <li> <m>3+4+5+6+7</m> </li>
 <li> <m>6+8+10+12+14</m> </li>
 <li> <m>7+9+11+13+15</m> </li>
@@ -466,7 +466,7 @@ Express the following sums in sigma notation:
 <hint><p> The ordering of the parts is intentional: each sum can be written by changing some small part of the sum before it.
 </p></hint>
 <answer><p> Some of the possible answers are given, but more exist.
-<ol label="a">
+<ol marker="a">
 <li> <m>\displaystyle\sum_{i=3}^7 i \quad;\quad  \sum_{i=1}^5 (i+2)</m> </li>
 <li> <m>\displaystyle\sum_{i=3}^7 2i \quad;\quad  \sum_{i=1}^5 (2i+4)</m> </li>
 <li> <m>\displaystyle\sum_{i=3}^7 (2i+1) \quad;\quad  \sum_{i=1}^5 (2i+5)</m> </li>
@@ -474,7 +474,7 @@ Express the following sums in sigma notation:
 </ol>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 Two possible answers are <m>\displaystyle\sum_{i=3}^7 i</m> and <m>\displaystyle\sum_{i=1}^5 (i+2)</m>. The first has simpler terms (<m>i</m> versus <m>i+2</m>), while the second has simpler indices (we often like to start at <m>i=1</m>). Neither is objectively better than the other, but  depending on your purposes you might find one more useful.
 </li>
@@ -503,7 +503,7 @@ The terms of this sum are each double the terms of the sum from part (a), so two
 <exercise xml:id="p1_1powers"  purpose="RQS">
 <statement><p>
 Express the following sums in sigma notation:
-<ol label="a">
+<ol marker="a">
 <li> <m>\frac{1}{3}+\frac{1}{9}+\frac{1}{27}+\frac{1}{81}</m> </li>
 <li> <m>\frac{2}{3}+\frac{2}{9}+\frac{2}{27}+\frac{2}{81}</m> </li>
 <li> <m>-\frac{2}{3}+\frac{2}{9}-\frac{2}{27}+\frac{2}{81}</m> </li>
@@ -513,7 +513,7 @@ Express the following sums in sigma notation:
 <hint><p> If we raise <m>-1</m> to an even power, we get <m>+1</m>, and if we raise it to an odd power, we get <m>-1</m>.
 </p></hint>
 <answer><p> Some answers are below, but others are possible.
-<ol label="a">
+<ol marker="a">
 <li> <m>\displaystyle\sum_{i=1}^4 \frac{1}{3^i}</m> and
 <m>\displaystyle\sum_{i=1}^4 \left(\frac{1}{3}\right)^i</m>
 </li>
@@ -530,7 +530,7 @@ and
 </ol>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 The denominators are successive powers of three, so one way of writing this is <m>\displaystyle\sum_{i=1}^4 \frac{1}{3^i}</m>. Equivalently, the terms we're adding are powers of <m>1/3</m>, so we can also write <m>\displaystyle\sum_{i=1}^4 \left(\frac{1}{3}\right)^i</m>.
 </li>
@@ -556,7 +556,7 @@ Be careful with the second form: a common mistake is to think that <m>-\dfrac{2}
 <exercise>
 <statement><p>
 Express the following sums in sigma notation:
-<ol label="a">
+<ol marker="a">
 <li> <m>\frac{1}{3}+\frac{1}{3}+\frac{5}{27}+\frac{7}{81}+\frac{9}{243}</m> </li>
 <li> <m>\frac{1}{5}+\frac{1}{11}+\frac{1}{29}+\frac{1}{83}+\frac{1}{245}</m> </li>
 <li> <m>1000+200+30+4+\frac{1}{2}+\frac{3}{50}+\frac{7}{1000}</m> </li>
@@ -564,14 +564,14 @@ Express the following sums in sigma notation:
 </p></statement>
 <hint><p>
 Sometimes a little anti-simplification can make the pattern more clear.
-<ol label="a">
+<ol marker="a">
 <li> Re-write as <m>\frac{1}{3}+\frac{3}{9}+\frac{5}{27}+\frac{7}{81}+\frac{9}{243}</m>. </li>
 <li> Compare to the sum in the hint for (a). </li>
 <li> Re-write as <m>1\cdot1000+2\cdot 100+3\cdot10+\frac{4}{1}+\frac{5}{10}+\frac{6}{100}+\frac{7}{1000}</m>. </li>
 </ol>
 </p></hint>
 <answer><p>
-<ol label="a">
+<ol marker="a">
 <li> <m>\displaystyle\sum_{i=1}^5 \frac{2i-1}{3^i}</m> </li>
 <li> <m>\displaystyle\sum_{i=1}^5 \frac{1}{3^i+2}</m> </li>
 <li> <m>\displaystyle\sum_{i=1}^7 i\cdot10^{4-i}</m> and  <m>\displaystyle\sum_{i=1}^7 \frac{i}{10^{i-4}}</m>
@@ -579,7 +579,7 @@ Sometimes a little anti-simplification can make the pattern more clear.
 </ol>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 If we re-write the second term as <m>\frac{3}{9}</m> instead of <m>\frac{1}{3}</m>, our sum becomes:
@@ -622,7 +622,7 @@ If we let the red numbers be our index <m>i</m>, this gives us the expression <m
 <exercise>
 <statement><p>
 Evaluate the following sums. You might want to use the formulas from Theorems <nbsp/><xref ref="thm_INTsummationArith" text="local"/> and <xref ref="thm_INTspecialSums" text="local"/>.
-<ol label="a">
+<ol marker="a">
 <li> <m>\displaystyle\sum_{i=0}^{100} \left(\dfrac{3}{5}\right)^i</m> </li>
 <li> <m>\displaystyle\sum_{i=50}^{100} \left(\dfrac{3}{5}\right)^i</m> </li>
 <li> <m>\displaystyle\sum_{i=1}^{10} \left(i^2-3i+5\right)</m> </li>
@@ -638,7 +638,7 @@ Evaluate the following sums. You might want to use the formulas from Theorems <n
 </ul>
 </p></hint>
 <answer><p>
-<ol label="a">
+<ol marker="a">
 <li> <m>\dfrac{5}{2}\left[1-\left(\dfrac{3}{5}\right)^{101}\right]</m> </li>
 <li> <m>\dfrac{5}{2}\left(\dfrac{3}{5}\right)^{50}\left[1-\left(\dfrac{3}{5}\right)^{51}\right]</m> </li>
 <li> <m>270</m> </li>
@@ -646,7 +646,7 @@ Evaluate the following sums. You might want to use the formulas from Theorems <n
 </ol>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> Using Theorem<nbsp/><xref ref="thm_INTspecialSums"/>, part (a) with <m>a=1</m>, <m>r=\frac{3}{5}</m> and <m>n=100</m>:
 <me>
 \sum_{i=0}^{100} \left(\dfrac{3}{5}\right)^i = \dfrac{1-\left(\frac{3}{5}\right)^{101}}{1-\frac{3}{5}} = \dfrac{5}{2}\left[1-\left(\frac{3}{5}\right)^{101}\right]</me>
@@ -746,7 +746,7 @@ Before we can use the equations in Theorem<nbsp/><xref ref="thm_INTspecialSums"/
 <exercise xml:id="p1_1sigmab">
 <statement><p>
 Evaluate the following sums. You might want to use the formulas from Theorem<nbsp/><xref ref="thm_INTspecialSums"/>.
-<ol label="a">
+<ol marker="a">
 <li> <m>\displaystyle\sum_{i=50}^{100} (i-50)+\displaystyle\sum_{i=0}^{50} i</m>
 </li>
 <li> <m>\displaystyle\sum_{i=10}^{100} \left(i-5\right)^3</m>
@@ -758,7 +758,7 @@ Evaluate the following sums. You might want to use the formulas from Theorem<nbs
 </ol>
 </p></statement>
 <hint><p>
-<ol label="a">
+<ol marker="a">
 <li> Write out the terms of the two sums.
 </li>
 <li> A change of index is an easier option than expanding the cubic.
@@ -770,7 +770,7 @@ Evaluate the following sums. You might want to use the formulas from Theorem<nbs
 </ol>
 </p></hint>
 <answer><p>
-<ol label="a">
+<ol marker="a">
 <li> <m>50\cdot 51=2550</m>
 </li>
 <li> <m>\left[\frac{1}{2}(95)(96)\right]^2-\left[\frac{1}{2}(4)(5)\right]^2=20,793,500</m>
@@ -782,7 +782,7 @@ Evaluate the following sums. You might want to use the formulas from Theorem<nbs
 </ol>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> The two pieces are very similar, which we can see by changing the index, or expanding them out:
 <md>
 <mrow>
@@ -1303,7 +1303,7 @@ Fill in the blanks with right, left, or midpoint;
 an interval; and a value of n.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
 <m>\sum\limits_{k=0}^3 f (1.5 + k) \cdot 1</m> is a
 <m>\underline{\ \ \ \ \ \ \ \ \ \ \ \ }</m>
@@ -1783,7 +1783,7 @@ Possible answers include:
 
 <solution><p>
 <ul>
-<li> Choice <hash />1:
+<li> Choice #1:
 If we set <m>\De x = \frac{2}{n}</m> and <m>x_i^*= \frac{2i}{n}</m>, i.e. <m>x_i^* = a + i\De x</m> with <m>a=0</m>,
 then
 <md>
@@ -1803,7 +1803,7 @@ then
 </mrow>
 </md>
 </li>
-<li>Choice <hash />2:
+<li>Choice #2:
 If we set <m>\De x = \frac{2}{n}</m> and <m>x_i^*= 1+\frac{2i}{n}</m>, i.e. <m>x_i^* = a + i\De x</m>
 with <m>a=1</m>,
 then
@@ -1824,7 +1824,7 @@ then
 </mrow>
 </md>
 </li>
-<li>Choice <hash />3:
+<li>Choice #3:
 If we set <m>\De x = \frac{1}{n}</m> and <m>x_i^*= \frac{i}{n}</m>, i.e. <m>x_i^* = a + i\De x</m> with <m>a=0</m>,
 then
 <md>
@@ -1844,7 +1844,7 @@ then
 </mrow>
 </md>
 </li>
-<li>Choice <hash />4:
+<li>Choice #4:
 If we set <m>\De x = \frac{1}{n}</m> and <m>x_i^*= \frac{1}{2}+\frac{i}{n}</m>, i.e. <m>x_i = a + i\De x</m>
 with <m>a=\frac{1}{2}</m>,
 then
@@ -2319,7 +2319,7 @@ Sure looks like a Riemann sum.
 <ul>
 <li>
 <p>
-Solution <hash />1:
+Solution #1:
 Set <m>x_i^*=-2+\frac{2i}{n}</m>. Then <m>a=x_0=-2</m>
 and <m>b=x_n=0</m> and <m>\Delta x=\frac{2}{n}</m>. So
 <md>
@@ -2355,7 +2355,7 @@ and the <m>x</m>-axis with <m>-2\le x\le 0</m>, which is a quarter circle with a
 </li>
 <li>
 <p>
-Solution <hash />2:
+Solution #2:
 Set <m>x_i^*=\frac{2i}{n}</m>. Then <m>a=x_0=0</m>
 and <m>b=x_n=2</m> and <m>\Delta x=\frac{2}{n}</m>. So
 <md>
@@ -2401,7 +2401,7 @@ Consider the integral:
    \int_0^3 (7 + x^3) \,\,\dee{x} .\qquad\qquad (*)
 </mrow>
 </md>
-<ol label="a">
+<ol marker="a">
 <li>
    Approximate this integral using the left Riemann sum with <m>n=3</m> intervals.
 </li>
@@ -2742,7 +2742,7 @@ Using a calculator, we see this is about 1.44 square units.
 
 <exercise>
 <statement><p>
-<ol label="a">
+<ol marker="a">
 <li> Using the method of Example<nbsp/><xref ref="eg_INTexpareaB"/>, evaluate
 <me>
 \int_a^b 10^x \dee{x}</me>
@@ -2947,7 +2947,7 @@ Suppose <m>f(x)</m> is a positive, decreasing function from <m>x=a</m> to <m>x=b
 \YExcoord{6}{b};
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
-<ol label="a">
+<ol marker="a">
 <li xml:id="riemannerrorbounda"> What is the difference between the lower bound and the upper bound? (That is, if we subtract the smaller estimate from the larger estimate, what do we get?) Give your answer in terms of <m>f</m>, <m>a</m>,  <m>b</m>, and <m>n</m>.
 </li>
 <li> If you want to approximate the area under the curve to within 0.01 square units using this method, how many rectangles should you use? That is, what should <m>n</m> be?
@@ -2955,7 +2955,7 @@ Suppose <m>f(x)</m> is a positive, decreasing function from <m>x=a</m> to <m>x=b
 </ol>
 </p></statement>
 <hint><p>
-<ol label="a">
+<ol marker="a">
 <li> The difference between the upper and lower bounds is the area that is outside of the smaller rectangles but inside the larger rectangles.  Drawing both sets of rectangles on one picture might make things clearer. Look for an easy way to compute the area you want.
 </li>
 <li> Use your answer from Part<nbsp/>(<xref ref="riemannerrorbounda" text="local"/>). Your answer will depend on <m>f</m>, <m>a</m>, and <m>b</m>.
@@ -2963,7 +2963,7 @@ Suppose <m>f(x)</m> is a positive, decreasing function from <m>x=a</m> to <m>x=b
 </ol>
 </p></hint>
 <answer><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <m>\left[f(b)-f(a)\right]\cdot\dfrac{b-a}{n}</m>
 </li>
@@ -2972,7 +2972,7 @@ Suppose <m>f(x)</m> is a positive, decreasing function from <m>x=a</m> to <m>x=b
 </ol>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 The difference between our upper and lower bounds is the difference in areas between the larger set of rectangles and the smaller set of rectangles. Drawing them on a single picture makes this a little clearer.

@@ -117,7 +117,7 @@ Let <m>f(x) = e^{-x}</m> and <m>g(x)=\dfrac{1}{x+1}</m>. Note <m>\int_{0}^\infty
 <p>For each of the functions <m>h(x)</m> described below, decide whether <m>\int_{0\vphantom{\frac12}}^\infty h(x) \dee{x}</m> converges or diverges, or whether there isn't enough information to decide. Justify your decision.
 </p>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li> <m>h(x)</m>, continuous and defined for all <m>x \ge0</m>, <m>h(x) \leq f(x)</m>.
 </li>
 <li> <m>h(x)</m>, continuous and defined for all <m>x\ge 0</m>, <m>f(x) \leq h(x) \leq g(x)</m>.
@@ -134,7 +134,7 @@ Let <m>f(x) = e^{-x}</m> and <m>g(x)=\dfrac{1}{x+1}</m>. Note <m>\int_{0}^\infty
 (c) Note <m>|h(x)| \leq 2f(x)</m>.
 </p></hint>
 <answer><p>
-<ol label="a">
+<ol marker="a">
 <li> Not enough information to decide. For example, consider <m>h(x) = 0</m> versus <m>h(x) = -1</m>.
 </li>
 <li> Not enough information to decide. For example, consider <m>h(x)= f(x)</m> versus <m>h(x) = g(x)</m>.
@@ -144,7 +144,7 @@ Let <m>f(x) = e^{-x}</m> and <m>g(x)=\dfrac{1}{x+1}</m>. Note <m>\int_{0}^\infty
 </ol>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 Not enough information to decide. For example, consider <m>h(x) = 0</m> versus <m>h(x) = -1</m>. In both cases, <m>h(x) \leq f(x)</m>. However, <m>\displaystyle\int_0^\infty 0 \dee{x}</m> converges to 0, while <m>\displaystyle\int_0^\infty -1 \dee{x}</m> diverges.
@@ -510,7 +510,7 @@ This is a <m>p</m>-integral with <m>p=1</m>. From Example<nbsp/><xref ref="eg_IM
 <statement><p>
 Determine (with justification!) which of the following applies to the integral
 <m>\displaystyle\int_{-\infty}^{+\infty}\frac{x}{x^2+1}\dee{x}</m>:
-<ol label="i">
+<ol marker="i">
 <li> <m>\displaystyle\int_{-\infty}^{+\infty}\frac{x}{x^2+1}\dee{x}</m> diverges </li>
 <li> <m>\displaystyle\int_{-\infty}^{+\infty}\frac{x}{x^2+1}\dee{x}</m> converges but
 <m>\displaystyle\int_{-\infty}^{+\infty}\left|\frac{x}{x^2+1}\right|\dee{x}</m> diverges
@@ -1385,7 +1385,7 @@ There are many other correct answers.
 <exercise purpose="RQS">
 <statement><p>
 Suppose <m>f(x)</m> is continuous for all real numbers, and <m>\displaystyle\int_1^\infty f(x) \dee{x}</m> converges.
-<ol label="a">
+<ol marker="a">
 <li> If <m>f(x)</m> is odd, does <m>\displaystyle\int_{-\infty\vphantom{\frac12}}^{-1} f(x) \dee{x}</m> converge or diverge, or is there not enough information to decide?
 </li>
 <li> If <m>f(x)</m> is even, does <m>\displaystyle\int_{-\infty}^\infty f(x) \dee{x}</m> converge or diverge, or is there not enough information to decide?
@@ -1405,7 +1405,7 @@ have nice results about the area under an even/odd curve.
 (b) The interval converges.
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> Since <m>f(x)</m> is odd, using the reasoning of Example<nbsp/><xref ref="eg_areaunderoddfunction"/>,
 <md>
 <mrow>

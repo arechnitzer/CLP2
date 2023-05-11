@@ -88,7 +88,7 @@ If there were a total of 17 cookies before Student 11 came, and 20 cookies after
 <statement><p>
 Suppose the sequence of partial sums of the series <m>\displaystyle\sum_{n=1}^\infty a_n</m>
 is <m>\{S_N\} = \left\{\dfrac{N}{N+1}\right\}</m>.
-<ol label="a">
+<ol marker="a">
 <li> What is <m>\{a_n\}</m>?
 </li>
 <li> What is <m>\lim\limits_{n \to \infty} a_n </m>?
@@ -109,7 +109,7 @@ How is (a) related to Question<nbsp/><xref ref="prob_s3_2_cookies" text="local"/
 (c) 1
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> We find <m>\{a_n\}</m> from <m>\{S_N\}</m> using the same logic as Question<nbsp/><xref ref="prob_s3_2_cookies" text="local"/>. <m>S_N</m> is the sum of the first <m>N</m> terms of <m>\{a_n\}</m>, and <m>S_{N-1}</m> is the sum of all the same terms <em>except</em> <m>a_N</m>. So, <m>a_N = S_N-S_{N-1}</m> when <m>N \geq 2</m>. Written another way:
 <md>
 <mrow>
@@ -247,7 +247,7 @@ Suppose the triangle outlined in red in the picture below has area one.
 \draw[line width=5pt, red] (o0)--(o1)--(o2)--cycle;
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
-<ol label="a">
+<ol marker="a">
 <li> Express the combined area of the black triangles as a series, assuming the pattern continues forever.
 </li>
 <li> Evaluate the series using the picture (<em>not</em> the formula from your book).
@@ -376,7 +376,7 @@ Suppose the square outlined in red in the picture below has area one.
 \draw[line width=5pt,  red] (0,0) rectangle (9,9);
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
-<ol label="a">
+<ol marker="a">
 <li> Express the combined area of the black squares as a series, assuming the pattern continues forever.
 </li>
 <li> Evaluate the series using the picture (<em>not</em> the formula from your book).
@@ -768,12 +768,12 @@ with <m>a=\dfrac{1}{5^{50}},</m> <m>r=\dfrac15</m>, and <m>N=50</m>.</intertext>
 
 <exercise>
 <statement><p>
-<ol label="a">
-<li> Starting on day <m>d=1</m>, every day you give your friend <dollar/><m>\frac{1}{d+1}</m>, and they give <dollar/><m>\frac{1}{d}</m> back to you.  After a long time, how much money have you gained by this arrangement?
+<ol marker="a">
+<li> Starting on day <m>d=1</m>, every day you give your friend $<m>\frac{1}{d+1}</m>, and they give $<m>\frac{1}{d}</m> back to you.  After a long time, how much money have you gained by this arrangement?
 </li>
 <li> Evaluate <m>\displaystyle\sum_{d=1}^\infty \left(\frac{1}{d}-\frac{1}{(d+1)}\right)</m>.
 </li>
-<li> Starting on day <m>d=1</m>, every day your friend gives you <dollar/><m>(d+1)</m>, and they take <dollar/><m>(d+2)</m> from you.  After a long time, how much money have you gained by this arrangement?
+<li> Starting on day <m>d=1</m>, every day your friend gives you $<m>(d+1)</m>, and they take $<m>(d+2)</m> from you.  After a long time, how much money have you gained by this arrangement?
 </li>
 <li> Evaluate <m>\displaystyle\sum_{d=1}^\infty \left((d+1)-(d+2)\right)</m>.
 </li>
@@ -783,7 +783,7 @@ with <m>a=\dfrac{1}{5^{50}},</m> <m>r=\dfrac15</m>, and <m>N=50</m>.</intertext>
 Express your gains in (a) and (c) as series.
 </p></hint>
 <answer><p>
-(a) As time passes, your gains increase, approaching <dollar/>1.<m>\qquad</m>
+(a) As time passes, your gains increase, approaching $1.<m>\qquad</m>
 (b) 1
 </p>
 <p>
@@ -806,7 +806,7 @@ Express your gains in (a) and (c) as series.
 </me>
 </p>
 
-<p>After the exchange of day <m>n</m>, the amount you're left with is <m><dollar/>\left(1-\frac{1}{n+1}\right)</m>. We see this by the cancellation in the table: the <dollar/><m>\frac12</m> you gave your friend on day 1 was returned on day 2; the  <dollar/><m>\frac13</m> you gave your friend on day 2 was returned on day 3, etc.
+<p>After the exchange of day <m>n</m>, the amount you're left with is <m>$\left(1-\frac{1}{n+1}\right)</m>. We see this by the cancellation in the table: the $<m>\frac12</m> you gave your friend on day 1 was returned on day 2; the  $<m>\frac13</m> you gave your friend on day 2 was returned on day 3, etc.
 </p>
 
 <p>So, after a long time, you'll have gained close to (but always slightly less than) one dollar.
@@ -834,14 +834,14 @@ Express your gains in (a) and (c) as series.
 </me>
 </p>
 
-<p>By day <m>d</m>, you've <em>lost</em> <dollar/> <m>d</m> to your so-called friend. As time goes on, you lose more and more.
+<p>By day <m>d</m>, you've <em>lost</em> $ <m>d</m> to your so-called friend. As time goes on, you lose more and more.
 </p>
 
 <p>(d) The series <m>\displaystyle\sum_{d=1}^\infty ((d+1)-(d+2))</m> exactly describes the scenario in part (c), so it diverges to <m>-\infty</m>. You can also see this by writing
 <m>\displaystyle\sum_{d=1}^\infty ((d+1)-(d+2)) =\sum_{d=1}^\infty (-1)=-1-1-1-1-1-\cdots</m>.
 </p>
 
-<p>Be careful to avoid a common mistake with telescoping series: if we look back at our account book, we see that every negative term will cancel with a positive term, with the initial <m>+2</m> as the only term that never cancels. Your friend takes <dollar/>3, which they return the next day; then they take <dollar/>4, which they return the next day; then they take <dollar/>5, which they return the next day, and so on. It's extremely tempting to say that the series adds up to <dollar/>2, since every other term cancels out eventually. This is where we lean on Definition<nbsp/><xref ref="def_SRseries"/>:
+<p>Be careful to avoid a common mistake with telescoping series: if we look back at our account book, we see that every negative term will cancel with a positive term, with the initial <m>+2</m> as the only term that never cancels. Your friend takes $3, which they return the next day; then they take $4, which they return the next day; then they take $5, which they return the next day, and so on. It's extremely tempting to say that the series adds up to $2, since every other term cancels out eventually. This is where we lean on Definition<nbsp/><xref ref="def_SRseries"/>:
 we evaluate the <em>partial sums</em>, which always leave your friend's last withdrawal unreturned. This definition makes sense: saying <q>I gained two bucks from this exchange</q> doesn't really capture the reality of your increasing debt.
 </p></solution>
 </exercise>
@@ -1119,7 +1119,7 @@ the value of the series is</intertext>
 <statement><p>
 The <m>n^{\rm th}</m> partial sum of a series  <m>\displaystyle \sum_{n=1}^{\infty}a_n </m> is known to
 have the formula <m>\displaystyle s_n = \frac{1+3n}{5+4n}</m>.
-<ol label="a">
+<ol marker="a">
 <li>(a) Find an expression for <m>a_n</m>, valid for <m>n\ge2</m>.
 </li>
 <li>(b) Show that the series <m>\displaystyle \sum_{n=1}^{\infty}a_n </m> converges and find its value.

@@ -126,7 +126,7 @@ To be more precise, we actually formally <em>define</em> an integral with an inf
 
 <definition xml:id="def_IItype1"><title>Improper integral with infinite domain of integration</title>
 <statement><p>
-<ol label="a">
+<ol marker="a">
 <li>
 	If the integral <m>\int_a^R f(x)\dee{x}</m> exists for all <m>R \gt a</m>, then
 	<me>
@@ -202,7 +202,7 @@ Indeed, we <em>define</em> integrals with unbounded integrands via this process:
 
 <definition xml:id="def_IItype2"><title>Improper integral with unbounded integrand</title>
 <statement><p>
-<ol label="a">
+<ol marker="a">
 <li>
 	If the integral <m>\int_t^b f(x)\dee{x}</m> exists for all <m>a \lt t \lt b</m>, then
 	<me>
@@ -795,7 +795,7 @@ So far, this is a pretty vague strategy. Here is a theorem which starts to make 
 <theorem xml:id="thm_IMPcomparison"><title>Comparison</title>
 <statement><p>
 Let <m>a</m> be a real number. Let <m>f</m> and <m>g</m> be functions that are  defined and continuous for all <m>x\ge a</m> and assume that  <m>g(x)\ge 0</m>  for all  <m>x\ge a</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 	If <m>|f(x)|\le g(x)</m> for all <m>x\ge a</m> and if <m>\int_a^\infty g(x)\dee{x}</m> converges then <m>\int_a^\infty f(x)\dee{x}</m> also converges.
 </li>
@@ -1060,7 +1060,7 @@ These considerations lead to the following variant of Theorem  <xref ref="thm_IM
 <theorem xml:id="thm_IMPcomparisonLim"><title> Limiting comparison</title>
 <statement><p>
 Let <m>-\infty \lt a \lt \infty</m>. Let <m>f</m> and <m>g</m> be functions that are defined and continuous for all <m>x\ge a</m> and assume that  <m>g(x)\ge 0</m> for all  <m>x\ge a</m>.
-<ol label="a">
+<ol marker="a">
 <li>
 	If  <m>\int_a^\infty g(x)\dee{x}</m> converges and the limit
 	<md>

@@ -289,7 +289,7 @@ The strategy for dealing with these integrals is similar to the strategy that we
 </mrow>
 </md>
 We split the methods for integrating <m>\int \tan^m x\sec^n x\dee{x}</m> into 5 cases which we  list below. These will become much more clear after an example (or two).
-<ol label="1">
+<ol marker="1">
 <li>
 	When <m>m</m> is odd and any <m>n</m> <mdash/> rewrite the integrand in terms of <m>\sin  x</m> and <m>\cos x</m>:
 	<md>
@@ -653,7 +653,7 @@ This last example also shows how we might integrate an odd power of tangent:
 		Now factor out the common <m>\sec^2x</m> term and integrate <m>\tan x</m> via Example <xref ref="eg_TRGINTg"/>
 	</intertext>
 	<mrow>
-	&amp;= \int \big[ \tan^5x - \tan^3x +\tan x\big]\sec x\dee{x} - \log|\sec x| +C
+	&amp;= \int \big[ \tan^5x - \tan^3x +\tan x\big]\sec^2 x\ \dee{x} - \log|\sec x| +C
 	</mrow><mrow>
 	&amp;= \int \big[ u^5 - u^3 + u \big]\dee{u} - \log|\sec x| +C
 	</mrow><mrow>

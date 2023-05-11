@@ -188,7 +188,8 @@ $(-n)^{-n} = \dfrac{(-1)^n}{n^n}$
 Some possible answers:
 \begin{enumerate}[(a)]
 \item $\dfrac{-1}{n}\le \dfrac{\sin n}{n}\le \dfrac{1}{n}$
-\item $\dfrac{n^2}{13e^n} \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}$
+\item $\dfrac{n^2}{13e^n} \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}$ or
+      $0\le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}$
 \item $ \dfrac{-1}{n^n} \le (-n)^{-n} \le \dfrac{1}{n^n}$
 \end{enumerate}
 \end{answer}
@@ -204,7 +205,8 @@ Note $\lim\limits_{n \to \infty}\dfrac{-1}{n} = \lim\limits_{n \to \infty}\dfrac
 \end{align*}
 This gives us the idea to try the bounds
 \[\dfrac{n^2}{13e^n} \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}\]
-We check that $\lim\limits_{n \to \infty}\dfrac{n^2}{13e^n}  = \lim\limits_{n \to \infty}\dfrac{n^2}{e^n} $ (they're both 0--you can verify using l'H\^{o}pital's rule), so these are indeed reasonable bounds to choose to use with the squeeze theorem.
+We check that $\lim\limits_{n \to \infty}\dfrac{n^2}{13e^n}  = \lim\limits_{n \to \infty}\dfrac{n^2}{e^n} $ (they're both 0--you can verify using l'H\^{o}pital's rule), so these are indeed reasonable bounds to choose to use with the squeeze theorem. Alternatively, since $0\le \frac{n^2}{13e^n}$, we can also use 
+\[ 0 \le \dfrac{n^2}{e^n(7+\sin n - 5\cos n)} \le \dfrac{n^2}{e^n}\]
 \item Since $(-n)^{-n} = \dfrac{1}{(-n)^n} = \dfrac{(-1)^n}{n^n}$, we see
 \[ \dfrac{-1}{n^n} \le (-n)^{-n} \le \dfrac{1}{n^n}\]
 Since both $\lim\limits_{n \to \infty}\dfrac{-1}{n^n} $  and $\lim\limits_{n \to \infty}\dfrac{1}{n^n} $  are 0, these are reasonable bounds to use with the squeeze theorem.
@@ -216,8 +218,9 @@ Since both $\lim\limits_{n \to \infty}\dfrac{-1}{n^n} $  and $\lim\limits_{n \to
 \begin{Mquestion}
 Below is a list of sequences, and a list of functions.
 \begin{enumerate}[(a)]
-\item Match each sequence $a_n$ to any and all functions $f(x)$ such that $f(n)=a_n$ for all whole numbers $n$.
-\item Match each sequence $a_n$ to any and all functions $f(x)$ such that $\displaystyle\lim_{n \to \infty}a_n = \lim_{x \to \infty}f(x)$.
+\item Match each sequence $\big\{a_n\big\}_{n=1}^\infty$ to any and all functions $f(x)$ such that $f(n)=a_n$ 
+   for all positive whole numbers $n$.
+\item Match each sequence $\big\{a_n\big\}_{n=1}^\infty$ to any and all functions $f(x)$ such that $\displaystyle\lim_{n \to \infty}a_n = \lim_{x \to \infty}f(x)$.
 \end{enumerate}
 \begin{align*}
 a_n &= 1+\dfrac{1}{n} & f(x) &= \cos(\pi x)\\
@@ -239,7 +242,7 @@ $\lim\limits_{n \to \infty} d_n$,  $\lim\limits_{x\rightarrow\infty} f(x)$  and 
 \begin{enumerate}[(a)]
 \item
 \begin{itemize}
-\item Note $a_n=b_n$, since (in the absence of evidence to the contrary) we assume $n$ begins at one, hence $n=|n|$. Then $a_n=b_n=1+\dfrac{1}{n}=\dfrac{n+1}{n}$. So, whenever $n$ is a whole number, $a_n$ and $b_n$ are the same as $h(n)$ and $i(n)$. (Be careful here: $h(x) \neq i(x)$ when $x$ is not a whole number.)
+\item Note $a_n=b_n$ since $n=|n|$ for all $n\ge 1$. Then $a_n=b_n=1+\dfrac{1}{n}=\dfrac{n+1}{n}$. So, whenever $n$ is a whole number, $a_n$ and $b_n$ are the same as $h(n)$ and $i(n)$. (Be careful here: $h(x) \neq i(x)$ when $x$ is not a whole number.)
 \item $c_n=e^{-n}=\dfrac{1}{e^n}=j(n)$
 \item For any integer $n$, $\cos(\pi n) = (-1)^n$. So, $d_n = f(n)$.
 \item Similarly, $e_n=g(n)$.
@@ -268,8 +271,9 @@ Let $\{a_n\}_{n=1}^\infty$ be a sequence defined by $a_n = \cos n$.
 \item Give three different whole numbers $n$ that are
 within 0.1 of an odd integer multiple of $\pi$, and find the corresponding values of $a_n$.
 \item Give three different whole numbers $n$ such that $a_n$ is close to $0$. Justify your answers.
+\item Give three different whole numbers $n$ such that $a_n$ is close to $1$. Justify your answers.
 \end{enumerate}
-Remark: this demonstrates intuitively, though not rigorously, why $\lim\limits_{n \to \infty}\cos n$ is undefined. We consistently find terms in the sequence that are close to $-1$, and also consistently find terms in the sequence that are close to 1. Contrast this to a sequence like 
+Remark: this demonstrates intuitively, though not rigorously, why $\lim\limits_{n \to \infty}\cos n$ is undefined. We consistently find terms in the sequence that are close to $-1$, and also consistently find terms in the sequence that are close to 0. Contrast this to a sequence like 
 $\big\{\cos(2\pi n)\big\}$, whose terms are always 1, and whose limit therefore is 1.
 It is possible to turn the ideas of this question into a rigorous proof that
 $\lim\limits_{n \to \infty}\cos n$ is undefined. See the solution.
@@ -282,6 +286,9 @@ You can use the fact that $\pi$ is somewhat close to $\dfrac{22}{7}$, or you can
 
 (b) Some possible answers: $a_{11}\approx 0.0044$, $a_{33}\approx -0.0133$, and $a_{55}\approx 0.0221$. \\
 The integers 11, 33, and 55 were found by approximating $\pi$ by $\dfrac{22}{7}$ and finding when an odd multiple of $\dfrac{11}{7}$ (which is the corresponding approximation of $\dfrac{\pi}{2}$) is an integer.
+
+(c) Some possible answers:  $a_{44}\approx 0.9998$,  $a_{132}\approx 0.9986$ and $a_{220}\approx 0.09961$. \\
+See the solution for how we found them.
 \end{answer}
 \begin{solution}
 \noindent (a) We want to find odd multiples of $\pi$ that are close to integers.
@@ -302,7 +309,7 @@ a_{110} &= \cos(110) \approx -0.99902
 Alternately, we could have just listed odd multiple of $\pi$ until we found  three that are close to integers.
 \[\begin{array}{c|c}
 \hline
-\mathbf{2k+1}&\mathbf{(2k+1)\pi}\\
+\mathbf{2k+1}&\mathbf{(2k+1)}\pmb{\pi}\\
 \hline
 1&3.14\\
 3&9.42\\
@@ -332,7 +339,7 @@ $\dfrac{2k+1}{2}\pi$.
 \begin{description}
 \item[Solution 1:]
 \begin{align*}
-\dfrac{2k+1}{2}\pi&\approx \frac{(2k+1)\times 22}{2\times 7}=11\frac{2k+1}{7}
+\dfrac{2k+1}{2}\pi&\approx \frac{(2k+1)\times 22}{2\times 7}=11\times\frac{2k+1}{7}
 \end{align*}
 So, we expect our values to be close to integers when
 $2k+1$ is a multiple of 7. For example, $2k+1=7$, $2k+1=21$, and $2k+1=35$.
@@ -368,7 +375,7 @@ We could have listed the first several values of $a_n$, and looked for some that
 Oof. Nothing very close yet. Maybe a better way is  to list values of $\frac{2k+1}{2}\pi$, and see which ones are close to integers.
 
 \[\begin{array}{c|c}
-\mathbf{2k+1}&\mathbf{\frac{2k+1}{2}\pi}\\
+\mathbf{2k+1}&\mathbf{\frac{2k+1}{2}}\pmb{\pi}\\
 \hline
 1&1.57\\
 3&4.71\\
@@ -392,6 +399,25 @@ Oof. Nothing very close yet. Maybe a better way is  to list values of $\frac{2k+
 \]
 We find roughly the same candidates we did in Solution 1, depending on what we're ready to accept as ``close".
 \end{description}
+
+
+\noindent (c) One can use the same strategies as we did for parts (a) and (b). But since we already know some $n$'s with $\cos(n)$ close to $-1$, it's easier to use the trig identity
+\begin{align*}
+\cos(2m) = 2\cos^2(m) -1
+\end{align*} 
+This identity shows that if $\cos(m)$ is close to $-1$, then $\cos(2m)$ is close to $+1$. So let's try
+$n=2m = 2\times 22=44$, $2\times 66=132$ and $2\times 110=220$.
+\[\begin{array}{c|c}
+\mathbf{n}&\mathbf{a_n}\\
+\hline
+44&0.9998\\
+132&0.9986\\
+220&0.9961
+\end{array}
+\]
+They do the trick.
+
+
 Remark: it is possible to turn the ideas of this question into a rigorous proof 
 that $\lim\limits_{n \to \infty}\cos n$ is undefined.
 \begin{itemize}
@@ -413,6 +439,8 @@ It is impossible to have both $c\ge 0.8$ and $c\le -0.8$,
 so $\lim\limits_{n \to \infty}\cos n$ does not exist.
 
 \end{itemize}
+
+Remark: This question also hints at a property of the set of all numbers $\cos(n)$, with $n$ running over the integers. Mathematicians say that this set is ``dense in the interval $[-1,1]$''. This means that if you pick any number $-1\le r\le 1$, there is an integer $n$ such that $\cos(n)$, while not necessarily being exactly $r$, is as close to $r$ as you like. If you feed ``$\cos(n)$ dense'' into your favourite search engine, you can find out more.  
 \end{solution}
 
 %%%%%%%%%%%%%%%%%%

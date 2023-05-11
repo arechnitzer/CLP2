@@ -127,7 +127,7 @@ Suppose we want to approximate the average value of the function <m>f(x)</m> on 
 	\draw[- \gt , thick] (A) -- (w\x);}
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
-<ol label="a">
+<ol marker="a">
 <li> Using <m>n</m> samples, what is the distance between two consecutive sample points <m>x_i</m> and <m>x_{i+1}</m>?
 </li>
 <li> Assuming <m>n \geq 4</m>, what is the <m>x</m>-coordinate of the fourth sample?
@@ -152,7 +152,7 @@ Part (a) is asking the length of the pieces we've cut our interval into. Part (c
  (d) <m>\dfrac{1}{n}\sum\limits_{i=1}^n f\left(a+(i-1)\frac{b-a}{n}\right)</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> The entire interval has length <m>b-a</m>, and we're cutting it into <m>n</m> pieces, so the length of one piece (and hence the distance between two consecutive samples) is <m>\frac{b-a}{n}</m>.
 </li>
 <li> The first sample, as given in the question statement, is taken at <m>x=a</m>. The second sample, then, is at <m>x=a+\frac{b-a}{n}</m>, this third is at <m>x=1+2\frac{b-a}{n}</m>, and the fourth is at <m>a+3\frac{b-a}{n}</m>.
@@ -188,7 +188,7 @@ As <m>n</m> gets larger and larger, using the definition of a definite integral,
 <exercise purpose="RQS">
 <statement><p>
 Suppose <m>f(x)</m> and <m>g(x)</m> are functions that are defined for all numbers in the interval <m>[0,10]</m>.
-<ol label="a">
+<ol marker="a">
 <li>  If <m>f(x) \leq g(x)</m> for all <m>x</m> in <m>[0,10]</m>, then is the average value of <m>f(x)</m> is less than or equal to the average value of <m>g(x)</m> on the interval <m>[0,10]</m>, or is there not enough information to tell?
 </li>
 <li> Suppose <m>f(x) \leq g(x)</m> for all <m>x</m> in <m>[0.01,10]</m>. Is the average value of <m>f(x)</m> less than or equal to the average value of <m>g(x)</m> over the interval <m>[0,10]</m>, or is there not enough information to tell?
@@ -204,7 +204,7 @@ For (b), the value of <m>f(0)</m> could be much, much larger than <m>g(0)</m>.
  (b) not enough information
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> Yes, the average of <m>f(x)</m> is less than or equal to the average of <m>g(x)</m> on <m>[0,10]</m>. The reason is that, if <m>f(x) \leq g(x)</m> for all <m>x</m> in <m>[0,10]</m>, then:
 <me>
 \frac{1}{10}\int_0^{10}f(x)\,\dee{x} \leq \frac{1}{10}\int_0^{10}g(x)\,\dee{x}.</me>
@@ -554,7 +554,7 @@ By definition, the average value is:
 <exercise purpose="RQS">
 <statement><p>
 The carbon dioxide concentration in the air at a particular location over one year is approximated by <m>C(t) = 400+50\cos\left(\frac{t}{12}\pi\right)+200\cos\left(\frac{t}{4380}\pi\right)</m> parts per million, where  <m>t</m> is measured in hours.
-<ol label="a">
+<ol marker="a">
 <li>  What is the average carbon dioxide concentration for that location for that year?
 </li>
 <li> What is the average over the first day?
@@ -669,7 +669,7 @@ or 12.5<m>\%</m>.
 <exercise xml:id="prob_s2_2_avgarea">
 <statement><p>
 Let <m>S</m> be the solid formed by rotating the parabola <m>y=x^2</m> from <m>x=0</m> to <m>x=2</m> about the <m>x</m>-axis.
-<ol label="a">
+<ol marker="a">
 <li> What is the average area of the circular cross-sections of <m>S</m>? Call this value <m>A</m>.
 </li>
 <li> What is the volume of <m>S</m>?
@@ -689,7 +689,7 @@ A cross section of <m>S</m> at location <m>x</m> is a circle with radius <m>x^2<
 (c) <m>\dfrac{32\pi}{5}</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> The  cross-section of <m>S</m> at <m>x</m> is a circle with radius <m>x^2</m>, so area <m>\pi x^4</m>. The average of these values, <m>0 \leq x \leq 2</m>, is
 <me>
 A = \frac{1}{2-0}\int_0^2 \pi x^4\,\dee{x} = \frac{1}{2}\left[\frac{\pi}{5}x^5\right]_0^2=\frac{16\pi}{5}</me>
@@ -716,7 +716,7 @@ The volume of a cylinder is the product of its base area with its length. A cyli
 <exercise purpose="RQS" xml:id="prob_s2_2_RMS1">
 <statement><p>
 Let <m>f(x) = x</m>.
-<ol label="a">
+<ol marker="a">
 <li> Calculate the average of <m>f(x)</m> over <m>[-3,3]</m>.
 </li>
 <li> Calculate the root mean square of <m>f(x)</m> over <m>[-3,3]</m>.
@@ -732,7 +732,7 @@ Let <m>f(x) = x</m>.
  (b) <m>\sqrt3</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> We can see without calculation that the average will be zero, since <m>f(x)=x</m> is an odd function and <m>[-3,3]</m> is a symmetric interval. Alternately, we can use the definition of an average to calculate
 <me>
 \frac{1}{6}\int_{-3}^3 x\,\dee{x} = \left[\frac{1}{12}x^2\right]_{-3}^3 = \frac{1}{12}(9-9)=0</me>
@@ -779,7 +779,7 @@ Using the definition provided,
 <exercise xml:id="prob_s2_2_RMS3">
 <statement><p>
 A force acts on a spring, and the spring stretches and contracts. The distance beyond its natural length at time <m>t</m> is <m>f(t) = \sin\left(t\pi\right)</m> cm, where <m>t</m> is measured in seconds. The spring constant is 3 N/cm.
-<ol label="a">
+<ol marker="a">
 <li> What is the force exerted by the spring at time <m>t</m>, if it obeys Hooke's law?
 </li>
 <li> Find the average of the force exerted by the spring from <m>t=0</m> to <m>t=6</m>.
@@ -802,7 +802,7 @@ Remember force is the product of the spring constant with the distance it's stre
  (c) <m>\dfrac{3}{\sqrt{2}} \approx 2.12</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> Using Hooke's law, when the spring is stretched (or compressed) <m>f(t)</m> metres past its natural length, the force exerted is <m>kf(t)</m>, where <m>k</m> is the spring constant. In this case, the force is
 <me>
 F(x) = (3\text{ N/cm})(f(t)\text{ cm}) = 3 \sin\left(t\pi\right)\text{ N}</me>
@@ -859,7 +859,7 @@ the car's speed every 20 minutes, as indicated in the table below:
 </tabular>
 </sidebyside>
 
-<p><ol label="a">
+<p><ol marker="a">
 <li>
  Use the trapezoidal rule to estimate the total distance traveled in the two hours.
 </li>
@@ -908,7 +908,7 @@ The average speed is <m>\frac{\text{dist}}{\text{time}} \approx \frac{130\text{ 
 <exercise xml:id="prob_s2_2_var">
 <statement><p>
 Let <m>s(t) = e^t</m>.
-<ol label="a">
+<ol marker="a">
 <li> Find the average of <m>s(t)</m> on the interval <m>[0,1]</m>. Call this quantity <m>A</m>.
 </li>
 <li> For any point <m>t</m>, the difference between <m>s(t)</m> and <m>A</m> is <m>s(t)-A</m>. Find the average value of <m>s(t)-A</m> on the interval <m>[0,1]</m>.
@@ -929,7 +929,7 @@ To find a definite integral of the absolute value of a function, break up the in
 \approx 0.42</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> <p>Using the definition of an average,
 <me>
 A=\frac{1}{1-0}\int_0^1 e^t\,\dee{t} = e-1
@@ -1002,7 +1002,7 @@ Consider the two functions <m>f(x)</m> and <m>g(x)</m> below, both of which have
 \draw[thick, red] (0,.6)--(4,1) node[right]{$y=g(x)$};
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
-<ol label="a">
+<ol marker="a">
 <li> Which function has a larger average on <m>[0,4]</m>:  <m>f(x)-A</m> or  <m>g(x)-A</m>?
 </li>
 <li> Which function has a larger average on <m>[0,4]</m>:  <m>|f(x)-A|</m> or  <m>|g(x)-A|</m>?
@@ -1018,7 +1018,7 @@ This is an application of the ideas in Question<nbsp/><xref ref="prob_s2_2_var" 
 (b) <m>|f(x)-A|</m> has the larger average on <m>[0,4]</m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>
 <p>
 Neither: the average of both these functions is zero. We saw this with a particular function in Question<nbsp/><xref ref="prob_s2_2_var" text="local"/> (b), but it's  actually true in general. It's a quick calculation to prove.
@@ -1216,7 +1216,7 @@ The function <m>g(x)=f(a+b-x)</m>, on the interval <m>[a,b]</m>, is a mirror of 
 <statement><p>
 Suppose <m>f(t)</m> is a continuous function, and
 <m>A(x)</m> is the average of <m>f(t)</m> on the interval from 0 to <m>x</m>.
-<ol label="a">
+<ol marker="a">
 <li> What is the average of <m>f(t)</m> on <m>[a,b]</m>, where <m>a \lt b</m>? Give your answer in terms of <m>A</m>.
 </li>
 <li> What is <m>f(t)</m>? Again, give your answer in terms of <m>A</m>.
@@ -1232,7 +1232,7 @@ For (b), express <m>A(x)</m> as an integral, then differentiate.
 (b) <m>f(t)=A(t)+tA'(t) </m>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li>  The function <m>A(x)</m> only gives us information about an integral when one limit of integration is zero. We can get around this by using properties of definite integrals from Section 1.2 to break our integral into two integrals, each of which has 0 as one limit of integration. So, we find the average of <m>f(t)</m> on <m>[a,b]</m> as follows:
 <md>
 <mrow>
@@ -1273,7 +1273,7 @@ A(x)+xA'(x) = f(x)</me>
 
 <exercise purpose="RQS">
 <statement><p>
-<ol label="a">
+<ol marker="a">
 <li> Find a function <m>f(x)</m> with average <m>0</m> over <m>[-1,1]</m> but <m>f(x) \neq 0</m> for all <m>x</m> in <m>[-1,1]</m>, or show that no such function exists.
 </li>
 <li> Find a <em>continuous</em> function <m>f(x)</m> with average <m>0</m> over <m>[-1,1]</m> but <m>f(x) \neq 0</m> for all <m>x</m> in <m>[-1,1]</m>, or show that no such function exists.
@@ -1284,7 +1284,7 @@ A(x)+xA'(x) = f(x)</me>
 For (b), consider the cases that <m>f(x)</m> is always bigger or always smaller than 0. Then, use the intermediate value theorem (see the CLP-1 text).
 </p></hint>
 <answer><p>
-<ol label="a">
+<ol marker="a">
 <li> One of many possible answers: <m>f(x) = \begin{cases}
 -1&amp;\text{ if } x \leq 0\\
 1&amp;\text{ if } x  \gt  0
@@ -1305,7 +1305,7 @@ So, if the average value of <m>f(x)</m> is zero, then <m>f(x)\ge 0</m> for some 
 </ol>
 </p></answer>
 <solution><p>
-<ol label="a">
+<ol marker="a">
 <li> One of many possible answers: <m>f(x) = \begin{cases}
 -1&amp;\text{ if } x \leq 0\\
 1&amp;\text{ if } x  \gt  0

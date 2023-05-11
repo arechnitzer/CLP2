@@ -46,7 +46,7 @@ Let <m>a \lt b</m> and let <m>f(x)</m> be a function which is defined and contin
 </theorem>
 
 <p>
-Before we prove this theorem and look at a bunch of examples of its  application, it is important that we recall one definition from differential  calculus <mdash/> antiderivatives. If <m>F'(x) = f(x)</m> on some interval, then  <m>F(x)</m>  is called an antiderivative of <m>f(x)</m> on that interval. So Part 2 of the the  fundamental theorem of calculus tells us how to evaluate the definite integral  of <m>f(x)</m> in terms of any of its antiderivatives <mdash/>  if  <m>G(x)</m> is any  antiderivative of <m>f(x)</m> then
+Before we prove this theorem and look at a bunch of examples of its  application, it is important that we recall one definition from differential  calculus <mdash/> antiderivatives. If <m>F'(x) = f(x)</m> on some interval, then  <m>F(x)</m>  is called an antiderivative of <m>f(x)</m> on that interval. So Part 2 of the  fundamental theorem of calculus tells us how to evaluate the definite integral  of <m>f(x)</m> in terms of any of its antiderivatives <mdash/>  if  <m>G(x)</m> is any  antiderivative of <m>f(x)</m> then
 <md>
 <mrow>
 \int_a^b f(x) \dee x &amp;= G(b)-G(a)
@@ -320,7 +320,7 @@ Fortunately we can use the basic properties of integrals  (Theorem<nbsp/><xref r
 &amp;\text{by Theorem }<xref ref="thm_Intdomain"/>\text{(b)}
 </mrow>
 </md>
-With this pre-processing, both integrals are of the right form. Using what  we have learned in the the previous two examples,
+With this pre-processing, both integrals are of the right form. Using what  we have learned in the previous two examples,
 <md>
 <mrow>
 \diff{}{x}\int_x^{x^2} e^{-t^2}\dee{t}
@@ -385,11 +385,10 @@ There are two parts to the lemma and we prove each in turn.
 	Since the derivative of <m>H(x)</m> is zero, <m>H(x)</m> must be a constant
 	function
 	<fn>
-		This follows from the Mean Value Theorem. Say <m>H(x)</m> were not constant,  then there would be two numbers <m>a \lt b</m> so that <m>H(a)\neq H(b)</m>. Then the MVT tells us that  there is a number <m>c</m> between <m>a</m> and <m>b</m> so that
-		<m>
-		H'(c) = \frac{H(b)-H(a)}{b-a}.
-		</m>
-		Since both numerator and denominator are nonzero, we know the derivative at <m>c</m> is  nonzero. But this would contradict the assumption that derivative of <m>H</m> is zero. Hence  we cannot have <m>a \lt b</m> with <m>H(a)\neq H(b)</m> and so <m>H(x)</m> must be constant.
+	    This follows from the Mean Value Theorem. Indeed, fix any number <m>x_0</m>. Then, 
+	    for each <m>x\ne x_0</m>, the MVT gives us a number <m>c</m> between <m>x_0</m> and <m>x</m> with
+            <m>H(x)-H(x_0)= H'(c)\,(x-x_0) = 0 </m>, since the derivative of <m>H</m> is zero everywhere. 
+            Thus <m>H(x)=H(x_0)</m> for all <m>x</m> and <m>H(x)</m> is a constant function.
 	</fn>.
 	Thus <m>H(x)=G(x)-F(x)=C</m> for  some constant <m>C</m> and the result follows.
 </li>
@@ -885,7 +884,7 @@ little massaging) we can write down a short table of indefinite integrals.
 <example><title>Using Theorem <xref ref="thm_imp_indef_int"/> to compute some integrals</title>
 <p>
  Find the following integrals
-<ol label="i">
+<ol marker="i">
 <li> <m>\int_2^7 e^x \dee{x}</m> </li>
 <li> <m>\int_{-2}^2 \frac{1}{1+x^2} \dee{x}</m> </li>
 <li> <m>\int_0^3 (2x^3+7x-2)\dee{x}</m> </li>
@@ -894,7 +893,7 @@ little massaging) we can write down a short table of indefinite integrals.
 
 <p><alert>Solution:</alert>
 We can proceed with each of these as before <mdash/> find the antiderivative and then  apply the fundamental theorem. The third integral is a little more complicated, but we  can split it up into monomials using Theorem<nbsp/><xref ref="thm_Intarith"/> and do each separately.
-<ol label="i">
+<ol marker="i">
 <li>
 	An antiderivative of <m>e^x</m> is just <m>e^x</m>, so
 	<md>

@@ -186,7 +186,7 @@ All of these possibilities do happen. We give an example of each below. But firs
 
 <definition xml:id="def_SRradiusConvergence">
 <statement><p>
-<ol label="a">
+<ol marker="a">
 <li>
 	Let <m>0 \lt R \lt \infty</m>. If <m>\sum_{n=0}^\infty A_n(x-c)^n</m>  converges for <m>|x-c| \lt R</m>,  and diverges for <m>|x-c|  \gt  R</m>, then we say that the series has radius of convergence <m>R</m>.
 </li>
@@ -374,7 +374,7 @@ Though we won't prove it, it is true that every power series has a  radius of co
 <theorem xml:id="thm_SRradiusofconvergence">
 <statement><p>
 Let <m>\sum\limits_{n=0}^\infty A_n (x-c)^n</m> be a power series. Then one of the following alternatives must hold.
-<ol label="a">
+<ol marker="a">
 <li>
 	The power series converges for every number <m>x</m>. In this case we say that the radius of convergence is <m>\infty</m>.
 </li>
@@ -747,7 +747,7 @@ Now we continue, as in the last example, by manipulating <m>\frac{1}{2-(x-3)}</m
              = \sum_{n=0}^\infty \frac{(x-3)^n}{2^{n+1}}
 </mrow>
 <mrow>
-             &amp;= \frac{x-3}{2} + \frac{(x-3)^2}{4} + \frac{(x-3)^3}{8}
+             &amp;= \frac{1}{2} + \frac{x-3}{4} + \frac{(x-3)^2}{8} + \frac{(x-3)^3}{16}
                  +\cdots
 </mrow>
 </md>
