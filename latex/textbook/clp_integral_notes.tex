@@ -2599,19 +2599,7 @@ $\frac{F(x+h)-F(x)}{h}$ is very close to $f(x)$.
 exactly $f(x)$, which is precisely what we want.
 \end{itemize}
 \end{proof}
-We can make the above more rigorous using the Mean Value Theorem\footnote{The
-MVT tells us that there is a number $c$ between $x$ and $x+h$ so
-that
-\begin{align*}
-  F'(c) &= \frac{F(x+h)-F(x)}{(x+h)-x} = \frac{F(x+h)-F(x)}{h}
-\end{align*}
-But since $F'(x) = f(x)$, this tells us that
-\begin{align*}
-  \frac{F(x+h)-F(x)}{h} &= f(c)
-\end{align*}
-where $c$ is trapped between $x+h$ and $x$. Now when we take the limit as $h
-\to 0$ we have that this number $c$ is squeezed to $x$ and the result
-follows.}.
+
 
 \begin{proof}[Part 2]
 We want to show that $\int_a^b f(t)\dee{t}=G(b)-G(a)$. To do this we exploit

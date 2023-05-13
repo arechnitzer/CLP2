@@ -143,20 +143,6 @@ all close to <m>f(x)</m>.
 </p>
 </proof>
 
-<p>
-We can make the above more rigorous using the Mean Value Theorem
-	<fn>
-		The  MVT tells us that there is a number <m>c</m> between <m>x</m> and <m>x+h</m> so that
-		<m>
-		 F'(c) = \frac{F(x+h)-F(x)}{(x+h)-x} = \frac{F(x+h)-F(x)}{h}
-	 </m>.
-		 But since <m>F'(x) = f(x)</m>, this tells us that
-		 <m>
-		  \frac{F(x+h)-F(x)}{h} = f(c)
-		</m>
-		where <m>c</m> is trapped between <m>x+h</m> and <m>x</m>. Now when we take the limit as <m>h \to 0</m> we have that this number <m>c</m> is squeezed to <m>x</m> and the result follows.
-		</fn>.
-</p>
 
 <proof><title>Part 2</title>
 <p>
