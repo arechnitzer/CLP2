@@ -1062,22 +1062,22 @@ These considerations lead to the following variant of Theorem  <xref ref="thm_IM
 Let <m>-\infty \lt a \lt \infty</m>. Let <m>f</m> and <m>g</m> be functions that are defined and continuous for all <m>x\ge a</m> and assume that  <m>g(x)\ge 0</m> for all  <m>x\ge a</m>.
 <ol marker="a">
 <li>
-	If  <m>\int_a^\infty g(x)\dee{x}</m> converges and the limit
+	If  <m>\int_a^\infty g(x)\,\dee{x}</m> converges and the limit
 	<md>
 	<mrow>
 	\lim_{x\rightarrow\infty}\frac{f(x)}{g(x)}
 	</mrow>
 	</md>
-	exists, then <m>\int_a^\infty f(x)\dee{x}</m> converges.
+	exists, then <m>\int_a^\infty f(x)\,\dee{x}</m> converges.
 </li>
 <li>
-	If <m>\int_a^\infty g(x)\dee{x}</m>  diverges and the limit
+	If <m>\int_a^\infty g(x)\,\dee{x}</m>  diverges and the limit
 	<md>
 	<mrow>
 	\lim_{x\rightarrow\infty}\frac{f(x)}{g(x)}
 	</mrow>
 	</md>
-	exists and <alert>is nonzero</alert>, then <m>\int_a^\infty f(x)</m> diverges.
+	exists and <alert>is nonzero</alert>, then <m>\int_a^\infty f(x)\,\dee{x}</m> diverges.
 </li>
 </ol>
 Note that in (b) the limit must exist and be nonzero, while in (a) we only  require that the limit exists (it can be zero).
