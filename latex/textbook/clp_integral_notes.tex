@@ -40,7 +40,7 @@ such as is shown in the figure above. We'll follow this route by starting with
 a motivating example.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{A Motivating Example}
+\subsection{A Motivating Example}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Let us find the area under the curve $y=e^x$ (and above the $x$--axis)
@@ -2031,7 +2031,8 @@ these restrictions and also make the proof more formal, but it becomes quite
 tedious and
 less intuitive.
 \end{itemize}
-\begin{comment}
+\end{proof}
+\begin{remark}
 For notational simplicity, let's assume that $a\le c\le b$ and $f(x)\ge 0$
 for all $a\le x\le b$.
 The geometric interpretations of the identities
@@ -2051,65 +2052,15 @@ and
 +\text{Area}\big\{\ (x,y)\ \big|\ c\le x\le b,\ 0\le y\le f(x)\ \big\}
 \end{align*}
 respectively. Both of these geometric statements
-are intuitively obvious. See the figures below. We won't give a formal proof.
+are intuitively obvious. See the figures below.
 \begin{wfig}
 \begin{center}
   \includegraphics{areaAA}\qquad\qquad
   \raisebox{-0.05\height}{\includegraphics{areaABC}}
 \end{center}
 \end{wfig}
+\end{remark}
 
-So we concentrate on the formula $\int_b^a f(x)\dee{x}= -\int_a^b f(x)\dee{x}$.
-The midpoint Riemann sum approximation to $\int_a^b f(x)\dee{x}$ with
-$4$ subintervals (so that each subinterval has width $\frac{b-a}{4}$)
-is
-\begin{align}\label{eq:INTflipL}
-&\Big\{f\Big(a+\frac{1}{2}\frac{b-a}{4}\Big)
-      +f\Big(a+\frac{3}{2}\frac{b-a}{4}\Big)
-      +f\Big(a+\frac{5}{2}\frac{b-a}{4}\Big)
-   +f\Big(a+\frac{7}{2}\frac{b-a}{4}\Big)\Big\}\ \frac{b-a}{4}\notag\\[0.05in]
-&=\Big\{f\Big(\frac{7}{8}a+\frac{1}{8}b\Big)
-   +f\Big(\frac{5}{8}a+\frac{3}{8}b\Big)
-   +f\Big(\frac{3}{8}a+\frac{5}{8}b\Big)
-   +f\Big(\frac{1}{8}a+\frac{7}{8}b\Big)\Big\}\ \frac{b-a}{4}
-\end{align}
-We're now going to write out the midpoint Riemann sum approximation to
-$\int_b^a f(x)\dee{x}$ with $4$ subintervals. Note that $b$ is now the lower
-limit on the integral and $a$ is now the upper limit on the integral. This
-is likely to cause confusion when we write out the Riemann sum,
-so we'll temporarily rename $b$ to $A$ and $a$ to $B$.
-The midpoint Riemann sum approximation to $\int_A^B f(x)\dee{x}$ with
-$4$ subintervals is
-\begin{align*}
-&\Big\{f\Big(A+\frac{1}{2}\frac{B-A}{4}\Big)
-      +f\Big(A+\frac{3}{2}\frac{B-A}{4}\Big)
-      +f\Big(A+\frac{5}{2}\frac{B-A}{4}\Big)
-   +f\Big(A+\frac{7}{2}\frac{B-A}{4}\Big)\Big\}\ \frac{B-A}{4}\\[0.05in]
-&=\Big\{f\Big(\frac{7}{8}A+\frac{1}{8}B\Big)
-   +f\Big(\frac{5}{8}A+\frac{3}{8}B\Big)
-   +f\Big(\frac{3}{8}A+\frac{5}{8}B\Big)
-   +f\Big(\frac{1}{8}A+\frac{7}{8}B\Big)\Big\}\ \frac{B-A}{4}
-\end{align*}
-Now recalling that $A=b$ and $B=a$, we have that the midpoint Riemann
-sum approximation to $\int_b^a f(x)\dee{x}$ with  $4$ subintervals is
-\begin{align}\label{eq:INTflipR}
-\Big\{f\Big(\frac{7}{8}b+\frac{1}{8}a\Big)
-   +f\Big(\frac{5}{8}b+\frac{3}{8}a\Big)
-   +f\Big(\frac{3}{8}b+\frac{5}{8}a\Big)
-   +f\Big(\frac{1}{8}b+\frac{7}{8}a\Big)\Big\}\ \frac{a-b}{4}
-\end{align}
-The curly brackets in \eqref{eq:INTflipL} and \eqref{eq:INTflipR}
-are equal to each other --- the terms are just in the reverse order.
-The factors multiplying the curly brackets in \eqref{eq:INTflipL} and
-\eqref{eq:INTflipR}, namely $\frac{b-a}{4}$ and $\frac{a-b}{4}$,
-are negatives of each other, so  \eqref{eq:INTflipR}$=-$\eqref{eq:INTflipL}.
-The same computation
-with $n$ subintervals shows that the midpoint Riemann sum approximations to
-$\int_b^a f(x)\dee{x}$ and $\int_a^b f(x)\dee{x}$ with $n$ subintervals
-are negatives of each other. Taking the limit $n\rightarrow\infty$ gives
-$\int_b^a f(x)\dee{x}= -\int_a^b f(x)\dee{x}$.
-\end{comment}
-\end{proof}
 
 \begin{eg}\label{eg:INTPROPxa}
 Back in Example~\ref{eg:INTtriangle} we saw that when $b>0$
