@@ -311,8 +311,19 @@ We split the methods for integrating <m>\int \tan^m x\sec^n x\dee{x}</m> into 5 
 <li>
 	When <m>m</m> is even and <m>n=0</m> <mdash/> that is the integrand is just an even power of  tangent <mdash/> we can still use the <m>u=\tan x</m> substitution, after using <m>\tan^2x = \sec^2 x - 1</m> (possibly more than once) to  create a <m>\sec^2 x</m>. See Example <xref ref="eg_TRGINTi"/>.
 </li>
-<li>
-	This leaves the case <m>n</m> odd and <m>m</m> even. There are strategies like those above for treating this case. But they are more complicated and also involve more tricks (that basically have to be memorized). Examples using  them are provided in the optional section entitled  <q>Integrating <m>\sec x</m>, <m>\csc x</m>, <m>\sec^3 x</m> and <m>\csc^3 x</m></q>, below.  A more straight forward strategy uses another technique  called <q>partial fractions</q>. We shall return to this strategy after we have learned about partial fractions. See Example<nbsp/><xref ref="eg_PFe"/> and<nbsp/><xref ref="eg_PFf"/> in  Section<nbsp/><xref ref="sec_parfrac"/>.
+<li><p>
+	This leaves the case <m>n</m> odd and <m>m</m> even. There are strategies like those above for treating this case. But they are more complicated and also involve more tricks (that basically have to be memorized). Examples using  them are provided in the optional section entitled  <q>Integrating <m>\sec x</m>, <m>\csc x</m>, <m>\sec^3 x</m> and <m>\csc^3 x</m></q>, below.  A more straightforward strategy involves
+<ul>
+<li> multiplying the numerator <m>\sin^m x</m> and the denominator <m>\cos^{m+n}x</m>
+      by <m>\cos x</m>, and then
+</li><li> expressing the denominator, which is now an even power of <m>\cos x</m>, in terms of <m>\sin x</m>, and then
+</li><li> substituting <m>u=\sin x</m>. This converts the integrand into a rational function (i.e. a ratio of two poynomials) of <m>u</m>. 
+</li><li> That rational function of <m>u</m> may be integrated using a technique called <q>partial fractions</q>, that we will cover later.
+</li>
+</ul>
+We shall return to this strategy after we
+have learned about partial fractions.  See Example<nbsp/><xref ref="eg_PFe"/> and<nbsp/><xref ref="eg_PFf"/> in  Section<nbsp/><xref ref="sec_parfrac"/>.
+</p>
 </li>
 </ol>
 </p>
@@ -756,7 +767,7 @@ to recover the trick. Here it is.
 </example>
 
 <p>
-There is another method for integrating <m>\int \sec x\dee{x}</m>, that is more tedious, but more straight forward. In particular, it does not involve a memorized trick. We first use the substitution <m>u=\sin x</m>,  <m>\dee{u}=\cos x\,\dee{x}</m>, together with <m>\cos^2 x = 1-\sin^2x=1-u^2</m>. 
+There is another method for integrating <m>\int \sec x\dee{x}</m>, that is more tedious, but more straightforward. In particular, it does not involve a memorized trick. We first use the substitution <m>u=\sin x</m>,  <m>\dee{u}=\cos x\,\dee{x}</m>, together with <m>\cos^2 x = 1-\sin^2x=1-u^2</m>. 
 This converts the integral into
 <md>
 <mrow>
