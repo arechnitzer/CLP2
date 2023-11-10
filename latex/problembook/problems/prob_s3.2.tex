@@ -923,11 +923,13 @@ We recognize that this is a telescoping series, and set up a table to find the s
 \vdots&&&
 \end{array}\]
 
-The $N$th partial sum sees every term cancel except the first part of the first term ($\tfrac12$) and the second part of the last term ($-\cos(\tfrac{\pi}{n+1})$).
+In the partial sum 
+\begin{equation*}
+s_N = \sum_{n=3}^N \bigg( \!\cos\Big( \frac \pi n \Big) - \cos\Big( \frac \pi{n+1} \Big) \bigg)
+\end{equation*}
+every term cancels except the first part of the first term ($\cos\big(\frac{\pi}{3}\big)=\tfrac12$) and the second part of the last term ($-\cos(\tfrac{\pi}{N+1})$). So
 \begin{align*}
-\hskip-8mm
-s_N &= \sum_{n=3}^N \bigg( \!\cos\Big( \frac \pi n \Big) - \cos\Big( \frac \pi{n+1} \Big) \bigg)\\
-&=\cos\Big( \frac \pi 3 \Big)  - \cos\Big( \frac \pi{N+1} \Big)\\
+s_N &=\cos\Big( \frac \pi 3 \Big)  - \cos\Big( \frac \pi{N+1} \Big)\\
 &=\frac12  - \cos\Big( \frac \pi{N+1} \Big).
 \intertext{As $N\to\infty$, the argument $\frac{\pi}{N+1}$
 converges to $0$, and $\cos x$ is continuous at $x=0$. By
