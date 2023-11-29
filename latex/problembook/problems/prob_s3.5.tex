@@ -107,10 +107,10 @@ differentiate our function term-by-term.
 \begin{solution}
 	According to Theorem~\eref{CLP101}{thm:SRradiusofconvergence} in the CLP-2 text, because $f(x)$ diverges somewhere, and because it converges at a point other than its centre,  $f(x)$ has a positive radius of convergence $R$. That is, $f(x)$ converges whenever $|x-5|<R$, and it diverges whenever $|x-5|>R$.
 
-	If $R>6$, then $|11-5|<R$, so $f(x)$ converges at $x=11$; since we are told $f(x)$ \emph{diverges} at $x=11$, we see $R \le 6$.
+	Since we are told that the series \emph{diverges} at $x=11$, the statement $|11-5|<R$ must be false. That is, we must have $R\le |11-5|=6$.
 
-	If $R<6$, then $|-1-5|>R$, so $f(x)$ diverges at $x=-1$; since we are told $f(x)$ \emph{converges} at $x=-1$, we see $R \ge 6$.
-
+	Since we are told that the series \emph{converges} at $x=-1$, the statement $|-1-5|>R$ must be false. That is, we must have $R\ge |-1-5|=6$.
+	
 	Therefore, $R=6$.
 \end{solution}
 

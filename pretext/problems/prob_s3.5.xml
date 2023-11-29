@@ -130,10 +130,10 @@ differentiate our function term-by-term.
 	According to Theorem<nbsp/><xref ref="thm_SRradiusofconvergence"/>, because <m>f(x)</m> diverges somewhere, and because it converges at a point other than its centre,  <m>f(x)</m> has a positive radius of convergence <m>R</m>. That is, <m>f(x)</m> converges whenever <m>|x-5| \lt R</m>, and it diverges whenever <m>|x-5| \gt R</m>.
 </p>
 
-<p>	If <m>R \gt 6</m>, then <m>|11-5| \lt R</m>, so <m>f(x)</m> converges at <m>x=11</m>; since we are told <m>f(x)</m> <em>diverges</em> at <m>x=11</m>, we see <m>R \le 6</m>.
+<p>	Since we are told that the series <em>diverges</em> at <m>x=11</m>, the statement <m>|11-5|\lt R</m> must be false. That is, we must have <m>R\le |11-5|=6</m>.
 </p>
 
-<p>	If <m>R \lt 6</m>, then <m>|-1-5| \gt R</m>, so <m>f(x)</m> diverges at <m>x=-1</m>; since we are told <m>f(x)</m> <em>converges</em> at <m>x=-1</m>, we see <m>R \ge 6</m>.
+<p>	Since we are told that the series <em>converges</em> at <m>x=-1</m>, the statement <m>|-1-5|\gt R</m> must be false. That is, we must have <m>R\ge |-1-5|=6</m>.
 </p>
 
 <p>	Therefore, <m>R=6</m>.
