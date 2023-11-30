@@ -445,18 +445,24 @@ So the given series converges if and only if  $-3\le x\le -1$.
 %%%%%%%%%%%%%%%%%%%
 
 \begin{question}[2016Q6]
-Find the interval of convergence for $\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(x-1)^n$.
+Find the interval of convergence for the following series.
+\begin{enumerate}[(a)]
+\item
+$\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(x-1)^n$.
+\item
+$\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(2x+1)^n$.
+\end{enumerate}
 \end{question}
 
 %\begin{hint}
 %\end{hint}
 
 \begin{answer}
-The interval of convergence  is $\frac{3}{4}\le x<\frac{5}{4}$,
-or $\big[\frac{3}{4},\frac{5}{4}\big)$.
+(a) $\frac{3}{4}\le x<\frac{5}{4}$ or $\big[\frac{3}{4},\frac{5}{4}\big)$\qquad
+(b) $-\frac{5}{8}\le x<-\frac{3}{8}$ or $\big[-\frac{5}{8},-\frac{3}{8}\big)$
 \end{answer}
 
-\begin{solution}
+\begin{solution} (a)
 We apply the ratio test with $a_n= \frac{4^n}{n}(x-1)^n$.
 Since
 \begin{align*}
@@ -484,6 +490,35 @@ is the divergent harmonic series. At the left endpoint $x=\frac{3}{4}$,
 \end{align*}
 converges by the alternating series test. Therefore the interval of convergence of the
 original series is $\frac{3}{4}\le x<\frac{5}{4}$, or $\big[\frac{3}{4},\frac{5}{4}\big)$.
+
+\noindent (b)
+We apply the ratio test with $a_n= \frac{4^n}{n}(2x+1)^n$.
+Repeating the computation of part (a), just with $x-1$ replaced by $2x+1$, 
+\begin{align*}
+\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
+&= \lim_{n\to\infty} \bigg| \frac{4^{n+1}(2x+1)^{n+1}/(n+1)}{4^n(2x+1)^n/n} \bigg| \\
+&= 4|2x+1| \lim_{n\to\infty} \frac{n}{n+1} = 4|2x+1|\cdot1.
+\end{align*}
+So the series converges if
+\begin{align*}
+4|2x+1|<1
+&\iff -1<4(2x+1)<1 \\
+&\iff -\frac{1}{4}<2x+1<\frac{1}{4} \\
+&\iff -\frac{5}{4}<2x<-\frac{3}{4} \\
+&\iff -\frac{5}{8}<x<-\frac{3}{8}
+\end{align*}
+and diverges if $4|2x+1|>1$.
+At the right endpoint $x=-\frac{3}{8}$, the series becomes
+\begin{align*}
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( -\frac{3}{4}+1 \bigg)^n
+= \sum_{n=1}^\infty \frac{1}{n}
+\end{align*}
+which is the divergent harmonic series. At the left endpoint $x=-\frac{5}{8}$,
+\begin{align*}
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( -\frac54+1 \bigg)^n = \sum_{n=1}^\infty \frac{(-1)^n}{n}
+\end{align*}
+converges by the alternating series test. Therefore the interval of convergence of the
+original series is $-\frac{5}{8}\le x<-\frac{3}{8}$, or $\big[-\frac{5}{8},-\frac{3}{8}\big)$.
 
 \end{solution}
 %%%%%%%%%%%%%%%%%%%

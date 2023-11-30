@@ -506,15 +506,25 @@ So the given series converges if and only if  <m>-3\le x\le -1</m>.
 
 <exercise><title><fromexam>2016Q6</fromexam></title>
 <statement><p>
-Find the interval of convergence for <m>\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(x-1)^n</m>.
+Find the interval of convergence for the following series.
+<ol marker="a">
+<li><m>\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(x-1)^n</m>
+</li><li>
+<m>\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(2x+1)^n</m>
+</li>
+</ol>
 </p></statement>
 
 <answer><p>
-The interval of convergence  is <m>\frac{3}{4}\le x \lt \frac{5}{4}</m>,
-or <m>\big[\frac{3}{4},\frac{5}{4}\big)</m>.
-</p></answer>
+(a) <m>\frac{3}{4}\le x \lt \frac{5}{4}</m> or <m>\big[\frac{3}{4},\frac{5}{4}\big)</m>
+</p>
 
-<solution><p>
+<p>
+(b) <m>-\frac{5}{8}\le x \lt -\frac{3}{8}</m> or <m>\big[-\frac{5}{8},-\frac{3}{8}\big)</m>
+</p>
+</answer>
+
+<solution><p>(a)
 We apply the ratio test with <m>a_n= \frac{4^n}{n}(x-1)^n</m>.
 Since
 <md>
@@ -553,6 +563,48 @@ is the divergent harmonic series. At the left endpoint <m>x=\frac{3}{4}</m>,
 </md>
 converges by the alternating series test. Therefore the interval of convergence of the
 original series is <m>\frac{3}{4}\le x \lt \frac{5}{4}</m>, or <m>\big[\frac{3}{4},\frac{5}{4}\big)</m>.
+</p>
+
+<p>(b)
+We apply the ratio test with <m>a_n= \frac{4^n}{n}(2x+1)^n</m>.
+Repeating the computation of part (a), just with <m>x-1</m> replaced by <m>2x+1</m>, 
+<md>
+<mrow>
+\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
+&amp;= \lim_{n\to\infty} \bigg| \frac{4^{n+1}(2x+1)^{n+1}/(n+1)}{4^n(2x+1)^n/n} \bigg|
+</mrow><mrow>
+&amp;= 4|2x+1| \lim_{n\to\infty} \frac{n}{n+1} = 4|2x+1|\cdot1
+</mrow>
+</md>
+So the series converges if
+<md>
+<mrow>
+4|2x+1| \lt 1
+\amp\iff -1 \lt 4(2x+1) \lt 1
+</mrow><mrow>
+\amp\iff -\frac{1}{4} \lt 2x+1 \lt \frac{1}{4}
+</mrow><mrow>
+\amp\iff -\frac{5}{4} \lt 2x \lt -\frac{3}{4}
+</mrow><mrow>
+\amp\iff -\frac{5}{8} \lt x \lt -\frac{3}{8}
+</mrow>
+</md>
+and diverges if <m>4|2x+1| \gt 1</m>.
+At the right endpoint <m>x=-\frac{3}{8}</m>, the series becomes
+<md>
+<mrow>
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( -\frac{3}{4}+1 \bigg)^n
+= \sum_{n=1}^\infty \frac{1}{n}
+</mrow>
+</md>
+which is the divergent harmonic series. At the left endpoint <m>x=-\frac{5}{8}</m>,
+<md>
+<mrow>
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( -\frac{5}{4}+1 \bigg)^n = \sum_{n=1}^\infty \frac{(-1)^n}{n}
+</mrow>
+</md>
+converges by the alternating series test. Therefore the interval of convergence of the
+original series is <m>-\frac{5}{8}\le x \lt -\frac{3}{8}</m>, or <m>\big[-\frac{5}{8},-\frac{3}{8}\big)</m>.
 </p>
 
 </solution>
