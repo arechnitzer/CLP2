@@ -136,6 +136,9 @@ The <m>N^{\rm th}</m> partial sum of the series <m>\sum_{n=1}^\infty a_n</m> is 
 S_N=\sum_{n=1}^N a_n.
 </mrow>
 </md>
+Conversely, for each <m>N\ge 2</m>, <m>a_N=S_N-S_{N-1}</m>.
+</p>
+<p>
 The partial sums form a sequence <m>\big\{S_N\big\}_{N=1}^\infty</m>.  If this sequence of partial sums converges <m>S_N \to S</m> as  <m>N\rightarrow\infty</m>  then we say that the series <m>\sum_{n=1}^\infty a_n</m>  converges to <m>S</m> and we write
 <me>
 \sum_{n=1}^\infty a_n=S
@@ -143,7 +146,18 @@ The partial sums form a sequence <m>\big\{S_N\big\}_{N=1}^\infty</m>.  If this s
 If the sequence of partial sums diverges, we say that the series diverges.
 </p></statement>
 </definition>
-
+<p>
+In the last definition, we introduced the notation <m>S_N</m> for the <m>N^{\rm th}</m> partial sum of a series 
+<m>\sum_{n=1}^\infty a_n</m> that has the smallest value of the index <m>n</m> being <m>1</m>. 
+It is sometimes convenient, as we shall see in the next example, to express a series with the 
+index having a smallest value other than one, like for example 
+<m>\sum_{n=0}^\infty a_n</m>. Then there are a couple of different commonly used definitions for the partial 
+sum notation <m>S_N</m>. One is <m>S_N=\sum_{n=0}^N a_n</m>, which is the sum of all terms having indices less 
+than or equal to <m>N</m>. With this definition, we still have <m>a_N=S_N-S_{N-1}</m>. A second commonly used 
+definition is the sum of the first <m>N</m> terms in the series, i.e. <m>S_N=\sum_{n=0}^{N-1} a_n</m>. Under this 
+definition <m>a_N=S_{N+1}-S_N</m>. You may of course use whatever definition you like. But you should state 
+clearly what definition you are using.  
+</p>
 
 <example xml:id="eg_SRgeom"><title>Geometric Series</title>
 <p>
@@ -561,6 +575,172 @@ by Example <xref ref="eg_SRtelecope"/>. We can now use Theorem <xref ref="thm_SR
 </md>
 </p>
 </example>
+
+<example xml:id="eg_SRarithmeticseries"><title>Arithmetic Progressions</title>
+<p>
+An arithmetic progression is a sequence for which the difference between successive terms is a constant. 
+That is, there are constants <m>a_1</m> and <m>d</m> such that the <m>n^{\rm th}</m> term in the sequence is 
+<m>a_n = a_1 + (n-1) d</m>. For example, the sequence <m>1</m>, <m>2</m>, <m>3</m>, <m>4</m>, <m>\cdots</m> has <m>a_1=1</m>, <m>d=1</m> and <m>a_n=n</m>. 
+We will now compute the partial sum <m>S_N = \sum_{n=1}^N n</m> of the corresponding series <m>\sum_{n=1}^\infty n</m>.
+To do so, we will use a trick that is often attributed to Carl Friedrich Gauss<fn>Carl Friedrich Gauss 
+(1777<ndash/>1855) was a German mathematician and physicist who ranks among the world's most influential 
+mathematicians. He is said to have reinvented this trick when he was in primary school. In fact, the trick was 
+known many centuries before him. You can use your favourite search engine to learn more.</fn>. The trick consists 
+of writing <m>S_N</m> twice, once in forward order and once in reverse order
+<md>
+<mrow>
+S_N &amp;= 1\ +\ \ \ \ \ \ 2\ \ \ \ \ \ +\ \ \ \ \ \ 3\ \ \ \ \  +\cdots+ N
+</mrow><mrow>
+S_N &amp;= N +(N-1) + (N-2) +\cdots+1 
+</mrow>
+</md>   
+and then adding the two representations of <m>S_N</m> together.
+<md>
+<mrow>
+2 S_N &amp; = \overbrace{(N+1) + (N+1) + (N+1) + \cdots (N+1)}^{N\ {\rm terms}} 
+</mrow><mrow>
+      &amp; = N(N+1) 
+</mrow><mrow>
+\implies S_N &amp; = \frac{N(N+1)}{2}
+</mrow>
+</md>
+ Using this and a little arithmetic, we can compute the partial sums for the series 
+ that corresponds to the general arithmetic progression <m>a_n=a_1 + (n-1) d</m>. (Of course, you can get the 
+ same result by applying the above trick to <m>S_N = \sum_{n=1}^N \big\{a_1 + (n-1) d\big\}</m>.)
+ <md>
+<mrow>
+S_N &amp; = \sum_{n=1}^N \big\{a_1 + (n-1) d\big\} 
+      = \sum_{n=1}^N \big\{(a_1 -d) + n d\big\} 
+</mrow><mrow>
+      &amp; = (a_1-d) \sum_{n=1}^N 1 + d\sum_{n=1}^N n  
+      = (a_1-d)N + d\tfrac{N(N+1)}{2}  
+</mrow><mrow>
+      &amp;=\tfrac{N}{2}\Big\{a_1 + [a_1+d(N-1)] \Big\} 
+</mrow><mrow>
+      &amp;= \tfrac{N}{2}\big\{\text{first term}+\text{last term}\big\}
+</mrow>
+</md>
+</p>
+</example>
+
+<example xml:id="eg_SRpowerseries"><title>Power Sequence</title>
+<p>
+We are now going to consider partial sums for the series <m>\sum_{n=1}^\infty n^k</m>, for several values of 
+the parameter <m>k</m>. In the last example, we found the partial sum
+<md>
+<mrow>
+\sum_{n=1}^N n = \tfrac{1}{2}N(N+1)
+</mrow>
+</md>
+for the case <m>k=1</m>. 
+In Theorem <nbsp/><xref ref="thm_INTspecialSums"/> we stated the partial sums
+<md>
+<mrow>
+\sum_{n=1}^N n^2 &amp;= \tfrac{1}{6}N(N+1)(2N+1) 
+</mrow><mrow>
+\sum_{n=1}^N n^3 &amp;= \Big[\tfrac{1}{2}N(N+1)\Big]^2
+</mrow>
+</md>
+for the cases <m>k=2</m> and <m>k=3</m>. In that theorem, while we gave a strategy that could be used to prove those 
+formulae, we did not actually give the proofs. We are now going to give the proofs, using a different strategy
+<mdash/> a strategy that can be used to find the partial sums for any natural number <m>k</m>. As a warmup, we'll 
+start with <m>k=1</m>, even though we have already handled that case. The strategy is based on the observation 
+that the telescoping sum
+<md>
+<mrow>
+\sum_{n=1}^N \big\{(n+1)^2 -n^2\big\} &amp;= (N+1)^2 -1 = N^2+2N
+</mrow>
+</md>
+On the other hand, the same sum
+<md>
+<mrow>
+\sum_{n=1}^N \big\{(n+1)^2 -n^2\big\} &amp;= \sum_{n=1}^N \big\{2n+1\big\} 
+                                       = 2\left[\sum_{n=1}^N n\right] + \left[\sum_{n=1}^N 1\right] 
+</mrow><mrow>                                       
+                                      &amp;= 2\left[\sum_{n=1}^N n\right] + N
+</mrow>
+</md>
+Equating the two formulae for <m>\sum_{n=1}^N \big\{(n+1)^2 -n^2\big\}</m> gives
+<md>
+<mrow>
+&amp;N^2+2N = 2\left[\sum_{n=1}^N n\right] + N 
+</mrow><mrow>
+\implies &amp;\sum_{n=1}^N n = \tfrac{1}{2}\big[N^2+N\big]
+                         =\tfrac{1}{2} N (N+1)
+</mrow>
+</md>
+as we found in Example<nbsp/><xref ref="eg_SRarithmeticseries"/>.
+
+Now we move on to <m>k=2</m>. This time we use the telescoping sum
+<md>
+<mrow>
+\sum_{n=1}^N \big\{(n+1)^3 -n^3\big\} &amp;= (N+1)^3 -1 = N^3 + 3N^2 +3N
+</mrow>
+</md>
+On the other hand, the same sum
+<md>
+<mrow>
+\sum_{n=1}^N \big\{(n+1)^3 -n^3\big\} &amp;= \sum_{n=1}^N \big\{3n^2 + 3n+1\big\} 
+                                       = 3\left[\sum_{n=1}^N n^2\right] + 
+                                         3\left[\sum_{n=1}^N n\right] +
+                                         \left[\sum_{n=1}^N 1\right] 
+</mrow><mrow>                                         
+                                      &amp;= 3\left[\sum_{n=1}^N n^2\right] + \tfrac{3}{2}N(N+1) + N
+</mrow>
+</md>
+Equating the two formulae for <m>\sum_{n=1}^N \big\{(n+1)^3 -n^3\big\}</m> gives
+<md>
+<mrow>
+N^3 + 3N^2 +3N &amp;= 3\left[\sum_{n=1}^N n^2\right] + \tfrac{3}{2}N^2 +\tfrac{5}{2}N
+</mrow><mrow>
+\implies \sum_{n=1}^N n^2 &amp;= \tfrac{1}{3}\Big[N^3 + \tfrac{3}{2}N^2 +\tfrac{1}{2}N\Big] 
+                           =\tfrac{1}{6}N\Big[2N^2+3N+1\Big]
+</mrow><mrow>
+                         &amp;=\tfrac{1}{6}N(N+1)(2N+1)
+</mrow>
+</md>
+as stated in Theorem<nbsp/><xref ref="thm_INTspecialSums"/>.
+
+Finally, we get to <m>k=3</m>.
+ This time we use the telescoping sum
+<md>
+<mrow>
+\sum_{n=1}^N \big\{(n+1)^4 -n^4\big\} &amp;= (N+1)^4 -1 
+</mrow>
+</md> 
+On the other hand, the same sum
+<md>
+<mrow>
+\sum_{n=1}^N \big\{(n+1)^4 -n^4\big\} &amp;= \sum_{n=1}^N \big\{4n^3 +6n^2+4n+1\big\} 
+</mrow><mrow>
+                                      &amp;= 4\left[\sum_{n=1}^N n^3\right] + 
+                                         6\left[\sum_{n=1}^N n^2\right] +
+                                         4\left[\sum_{n=1}^N n\right] +
+                                         \left[\sum_{n=1}^N 1\right] 
+</mrow><mrow>                                         
+                                      &amp;= 4\left[\sum_{n=1}^N n^3\right] + N(N+1)(2N+1)
+                                                       +2N(N+1) + N
+</mrow>
+</md>
+Equating the two formulae for <m>\sum_{n=1}^N \big\{(n+1)^4 -n^4\big\}</m> gives
+<md>
+<mrow>
+(N+1)^4 -1 &amp;= 4\left[\sum_{n=1}^N n^3\right] + (N+1)(2N^2+3N)  + N 
+</mrow><mrow>
+\implies \sum_{n=1}^N n^3 &amp;= \tfrac{1}{4}\Big[(N+1)^4-1-(N+1)(2N^3+3N) -N\Big] 
+</mrow><mrow>
+                          &amp;=\tfrac{1}{4}(N+1)\Big[(N+1)^3-(2N^2+3N) -1\Big] 
+</mrow><mrow>                          
+                         &amp;=\tfrac{1}{4}(N+1)\Big[N^3+N^2\Big] 
+</mrow><mrow>
+                         &amp;=\tfrac{1}{4}N^2(N+1)^2
+</mrow>
+</md>
+as stated in Theorem<nbsp/><xref ref="thm_INTspecialSums"/>.
+</p> 
+</example>
+
+
 
 </subsection>
 
