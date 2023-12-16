@@ -172,8 +172,8 @@ Review the discussion immediately following Definition
 </p></answer>
 
 <solution><p> (a)
-We apply the ratio test for the series whose <m>k^{\rm th}</m>
-term is <m>a_k= (-1)^k 2^{k+1} x^k</m>. Then
+We give two solutions. For the first solution, we apply the ratio test for the series 
+whose <m>k^{\rm th}</m> term is <m>a_k= (-1)^k 2^{k+1} x^k</m>. Then
 <md>
 <mrow>
 \lim_{k\to\infty} \bigg| \frac{ a_{k+1} }{ a_k } \bigg|
@@ -189,7 +189,8 @@ obeying <m>|2x| \gt 1</m>, i.e. <m>|x| \gt \frac{1}{2}</m>.
 So the radius of convergence is <m>R = \frac{1}{2}</m>.
 </p>
 
-<p>Alternatively, one can set <m>A_k = (-1)^k 2^{k+1}</m> and compute
+<p>For the second solution we apply (<xref ref="eq_SRradConv"/>). To do so, we set 
+<m>A_k = (-1)^k 2^{k+1}</m> and compute
 <me>
 A = \lim_{k\to\infty} \bigg| \frac{A_{k+1}}{A_k}\bigg|
   = \lim_{k\to\infty} \bigg| \frac{(-1)^{k+1} 2^{k+2}}{(-1)^k 2^{k+1}}\bigg|
@@ -232,8 +233,8 @@ Review the discussion immediately following Definition
 </p></answer>
 
 <solution><p>
-We apply the ratio test for the series whose <m>k^{\rm th}</m>
-term is <m>a_k= \frac{x^k}{ 10^{k+1}(k+1)! }</m>. Then
+We give two solutions. For the first solution, we apply the ratio test for the series 
+whose <m>k^{\rm th}</m> term is <m>a_k= \frac{x^k}{ 10^{k+1}(k+1)! }</m>. Then
 <md>
 <mrow>
 \lim_{k\to\infty} \bigg| \frac{ a_{k+1} }{ a_k } \bigg|
@@ -250,9 +251,16 @@ Therefore, by the ratio test, the series converges for all <m>x</m>
 and the radius of convergence is <m>R = \infty</m>.
 </p>
 
-<p>Alternatively, one can set <m>A_k = \dfrac{1}{10^{k+1}(k+1)!}</m> and compute
-<m>A = \displaystyle\lim_{k\to\infty} \left| \frac{A_{k+1}}{A_k}\right| = 0</m>, so that
-<m>R</m> is again <m>+\infty</m>.
+<p>For the second solution we apply (<xref ref="eq_SRradConv"/>). To do so, we set 
+<m>A_k = \dfrac{1}{10^{k+1}(k+1)!}</m> and compute
+<md>
+<mrow>
+A = \lim_{k\to\infty} \left| \frac{A_{k+1}}{A_k}\right| 
+  = \lim_{k\to\infty} \left|\frac{10^{k+1}}{10^{k+2}}\right|\cdot\left|\frac{(k+1)!}{(k+2)!}\right|
+  = 0
+</mrow>
+</md>
+So, by the bullet just after (<xref ref="eq_SRradConv"/>), <m>R</m> is again <m>+\infty</m>.
 </p>
 
 </solution>
@@ -274,7 +282,8 @@ Review the discussion immediately following Definition
 </p></answer>
 
 <solution><p>
-We apply the ratio test with <m>a_n = \frac{(x - 2)^n}{n^2+1}</m>.
+We give two solutions. For the first solution,
+we apply the ratio test with <m>a_n = \frac{(x - 2)^n}{n^2+1}</m>.
 </p>
 
 <p><md>
@@ -294,7 +303,24 @@ We apply the ratio test with <m>a_n = \frac{(x - 2)^n}{n^2+1}</m>.
 </md>
 So, the series converges if <m>|x-2| \lt 1</m> and diverges if <m>|x-2| \gt 1</m>.
 That is, the radius of convergence is 1.
-</p></solution>
+</p>
+
+<p>For the second solution we apply (<xref ref="eq_SRradConv"/>). To do so, we set 
+<m>A_n =\frac{1}{n^2+1}</m> and compute
+<md>
+<mrow>
+A &amp; = \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg|
+</mrow><mrow>
+&amp; = \lim_{n\to\infty} \bigg| \lim_{n\rightarrow\infty}\frac{n^2+1}{(n+1)^2+1}
+</mrow><mrow>
+&amp; = \lim_{n\to\infty} \frac{1+1/n^2}{(1+1/n)^2+1/n^2}
+</mrow><mrow>
+&amp;  = 1
+  </mrow>
+</md>
+so that <m>R=\frac{1}{A}=1</m>, again.
+</p>
+</solution>
 </exercise>
 
 <exercise><title><fromexam>2013A</fromexam></title>
@@ -757,10 +783,10 @@ Start part (b) by computing the partial sums of
 
 <solution><p> (a)
 We apply the ratio test for the series whose <m>k^{\rm th}</m>
-term is <m>A_k=\frac{(x+1)^k}{k^2 9^k}</m>. Then
+term is <m>a_k=\frac{(x+1)^k}{k^2 9^k}</m>. Then
 <md>
 <mrow>
-\lim_{k\rightarrow\infty}\bigg|\frac{A_{k+1}}{A_k}\bigg|
+\lim_{k\rightarrow\infty}\bigg|\frac{a_{k+1}}{a_k}\bigg|
 &amp;=\lim_{k\rightarrow\infty} \bigg|\frac{(x+1)^{k+1}}{(k+1)^2 9^{k+1}}
                                   \ \frac{k^2 9^k}{(x+1)^k}\bigg|
 </mrow><mrow>

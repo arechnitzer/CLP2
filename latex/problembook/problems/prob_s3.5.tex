@@ -153,7 +153,7 @@ CLP-2 text.
 \end{answer}
 
 \begin{solution} (a)
-We apply the ratio test for the series whose $k^{\rm th}$
+We give two solutions. For the first solution, we apply the ratio test for the series whose $k^{\rm th}$
 term is $a_k= (-1)^k 2^{k+1} x^k$. Then
 \begin{align*}
 \lim_{k\to\infty} \bigg| \frac{ a_{k+1} }{ a_k } \bigg|
@@ -166,7 +166,7 @@ obeying $|2x|<1$, i.e. $|x|<\frac{1}{2}$, and diverges for all $x$
 obeying $|2x|>1$, i.e. $|x|>\frac{1}{2}$.
 So the radius of convergence is $R = \frac{1}{2}$.
 
-Alternatively, one can set $A_k = (-1)^k 2^{k+1}$ and compute
+For the second solution we apply (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. To do so, we set $A_k = (-1)^k 2^{k+1}$ and compute
 \begin{equation*}
 A = \lim_{k\to\infty} \bigg| \frac{A_{k+1}}{A_k}\bigg|
   = \lim_{k\to\infty} \bigg| \frac{(-1)^{k+1} 2^{k+2}}{(-1)^k 2^{k+1}}\bigg|
@@ -208,7 +208,7 @@ $R = \infty$
 \end{answer}
 
 \begin{solution}
-We apply the ratio test for the series whose $k^{\rm th}$
+We give two solutions. For the first solution, we apply the ratio test for the series whose $k^{\rm th}$
 term is $a_k= \frac{x^k}{ 10^{k+1}(k+1)! }$. Then
 \begin{align*}
 \lim_{k\to\infty} \bigg| \frac{ a_{k+1} }{ a_k } \bigg|
@@ -221,9 +221,14 @@ for all $x$.
 Therefore, by the ratio test, the series converges for all $x$
 and the radius of convergence is $R = \infty$.
 
-Alternatively, one can set $A_k = \dfrac{1}{10^{k+1}(k+1)!}$ and compute
-$A = \displaystyle\lim_{k\to\infty} \left| \frac{A_{k+1}}{A_k}\right| = 0$, so that
-$R$ is again $+\infty$.
+For the second solution we apply (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. To do so, we set 
+$A_k = \dfrac{1}{10^{k+1}(k+1)!}$ and compute 
+\begin{align*}
+A = \lim_{k\to\infty} \left| \frac{A_{k+1}}{A_k}\right| 
+  =\lim_{k\to\infty} \left|\frac{10^{k+1}}{10^{k+2}}\right|\cdot\left|\frac{(k+1)!}{(k+2)!}\right|
+  = 0
+\end{align*}
+So, by the bullet just after (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text, $R$ is again $+\infty$.
 
 
 \end{solution}
@@ -247,8 +252,7 @@ $1$
 \end{answer}
 
 \begin{solution}
-We apply the ratio test with $a_n = \frac{(x - 2)^n}{n^2+1}$.
-
+We give two solutions. For the first solution, we apply the ratio test with $a_n = \frac{(x - 2)^n}{n^2+1}$.
 \begin{align*}
 \lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
 &=\lim_{n\rightarrow\infty}\bigg|\frac{(x-2)^{n+1}}{(n+1)^2+1}\cdot
@@ -261,6 +265,16 @@ We apply the ratio test with $a_n = \frac{(x - 2)^n}{n^2+1}$.
 \end{align*}
 So, the series converges if $|x-2|<1$ and diverges if $|x-2|>1$.
 That is, the radius of convergence is 1.
+
+For the second solution we apply (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. To do so, we set 
+$A_n = \frac{1}{n^2+1}$ and compute
+\begin{equation*}
+A = \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg|
+  = \lim_{n\to\infty}  \frac{n^2+1}{(n+1)^2+1}
+  = \lim_{n\to\infty} \frac{1+1/n^2}{(1+1/n)^2+1/n^2}
+  =1
+\end{equation*}
+so that $R=\frac{1}{A}=1$, again.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 
@@ -652,9 +666,9 @@ $\ {\displaystyle \sum_{k=1}^\infty \Big(\frac{a_k}{a_{k+1}}
 
 \begin{solution} (a)
 We apply the ratio test for the series whose $k^{\rm th}$
-term is $A_k=\frac{(x+1)^k}{k^2 9^k}$. Then
+term is $a_k=\frac{(x+1)^k}{k^2 9^k}$. Then
 \begin{align*}
-\lim_{k\rightarrow\infty}\bigg|\frac{A_{k+1}}{A_k}\bigg|
+\lim_{k\rightarrow\infty}\bigg|\frac{a_{k+1}}{a_k}\bigg|
 &=\lim_{k\rightarrow\infty} \bigg|\frac{(x+1)^{k+1}}{(k+1)^2 9^{k+1}}
                                   \ \frac{k^2 9^k}{(x+1)^k}\bigg| \\
 &=\lim_{k\rightarrow\infty} |x+1|\ \frac{1}{9}\ \frac{k^2}{(k+1)^2} \\
