@@ -341,21 +341,29 @@ is <m>-1 \lt x+2\le 1</m> or <m>(-3,-1]</m>.
 </p></answer>
 
 <solution><p>
-We apply the ratio test for the series whose <m>n^{\rm th}</m>
-term is <m>a_n=\dfrac{(-1)^n(x+2)^n}{\sqrt{n}}</m>. Then
+We will first find the radius of convergence <m>R</m> of the given series. Once we have found <m>R</m>, 
+we will know that the series converges for <m>|x+2|\lt R</m> and diverges for <m>|x+2|\gt R</m>. Then we 
+will determine what happens at the two end points, <m>x+2=R</m> and <m>x+2=-R</m>, of the interval.
+</p>
+
+<p>
+To determine the radius of convergence, we apply (<xref ref="eq_SRradConv"/>). To do so, we set 
+<m>A_n= \frac{(-1)^n}{\sqrt{n}}</m> and compute
 <md>
 <mrow>
-\lim_{n\rightarrow\infty}\bigg|\frac{a_{n+1}}{a_n}\bigg|
-&amp;=\lim_{n\rightarrow\infty} \bigg|\frac{(x+2)^{n+1}}{\sqrt{n+1}}
-                                  \ \frac{\sqrt{n}}{(x+2)^n}\bigg|
+A &amp;= \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg|
 </mrow><mrow>
-&amp;=\lim_{n\rightarrow\infty} |x+2|\ \frac{\sqrt{n}}{\sqrt{n+1}}
+&amp;=\lim_{n\rightarrow\infty} \frac{\sqrt{n}}{\sqrt{n+1}}
 </mrow><mrow>
-&amp;=\lim_{n\rightarrow\infty} |x+2|\ \frac{1}{\sqrt{1+1/n}}
+&amp;=\lim_{n\rightarrow\infty} \frac{1}{\sqrt{1+1/n}}
 </mrow><mrow>
-&amp;=|x+2|
+&amp;=1
 </mrow>
 </md>
+so that <m>R=\frac{1}{A}=1</m>.
+</p>
+
+<p>
 So the series must converge when <m>|x+2| \lt 1</m> and must diverge when <m>|x+2| \gt 1</m>.
 When <m>x+2=1</m>, the series reduces to
 <md>
@@ -392,11 +400,20 @@ See Example <xref ref="eg_SRintervalofconvergence"/>.
 </p></hint>
 
 <answer><p>
+The radius of convergence is <m>3</m>.
 The interval of convergence is <m>-4 \lt x\le2</m>, or simply <m>(-4,2]</m>.
 </p></answer>
 
 <solution><p>
-We apply the ratio test for the series whose <m>n^{\rm th}</m>
+We will first find the radius of convergence <m>R</m> of the given series. Once we have found <m>R</m>, 
+we will know that the series converges for <m>|x+1|\lt R</m> and diverges for <m>|x+1| \gt R </m>. 
+Then we will determine what happens at the two end points, <m>x+1=R</m> and <m>x+1=-R</m>, of the interval.
+</p>
+
+<p>
+We could determine the radius of convergence by applying (<xref ref="eq_SRradConv"/>)
+with  <m>A_n = \frac{(-1)^n}{(n+1)3^n}</m>. As an alternate method,
+we apply the ratio test for the series whose <m>n^{\rm th}</m>
 term is <m>a_n= \frac{(-1)^n}{n+1} \left(\frac{x+1}{3}\right)^n</m>.
 <md>
 <mrow>
@@ -416,9 +433,7 @@ and diverges when <m>\frac{|x+1|}3  \gt  1</m>. In particular, it converges when
 |x+1|  \lt  3 \iff -3  \lt  x+1  \lt  3 \iff -4  \lt  x  \lt  2
 </mrow>
 </md>
-and the radius of convergence is <m>R = 3</m>. (Alternatively, one can set <m>A_n = \frac{(-1)^n}{(n+1)3^n}</m> and compute
-<m>A = \lim_{n\to\infty} \big| \frac{A_{n+1}}{A_n}\big| = \frac{1}{3}</m>, so that
-<m>R=\frac{1}{A}=3</m>.)
+and the radius of convergence is <m>R = 3</m>. 
 </p>
 
 <p>Next, we consider the endpoints <m>2</m> and <m>-4</m>.
@@ -456,24 +471,30 @@ series <m>\sum_{n=1}^\infty \frac{1}{n}</m>, re-indexed to start at <m>n=0</m>.)
 </p></answer>
 
 <solution><p>
-We first apply the ratio test with <m>a_n = \frac{(x-2)^n}{n^{4/5}(5^n-4)}</m>.
+We will first find the radius of convergence <m>R</m> of the given series. Once we have found <m>R</m>, 
+we will know that the series converges for <m>|x-2| \lt R</m> and diverges for <m>|x-2| \gt R</m>. 
+Then we will determine what happens at the two end points, <m>x-2=R</m> and <m>x-2=-R</m>, of the interval.
 </p>
 
-<p><md>
+<p>
+To determine the radius of convergence, we apply (<xref ref="eq_SRradConv"/>). To do so, we set 
+<m>A_n= \frac{1}{n^{4/5}(5^n-4)}</m> and compute
+<md>
 <mrow>
-\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
-&amp;=\lim_{n\rightarrow\infty}\bigg|\frac{(x-2)^{n+1}}{(n+1)^{4/5}(5^{n+1}-4)}\cdot
-                               \frac{n^{4/5}(5^n-4)}{(x-2)^n}\bigg|
+A &amp;= \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg|
 </mrow><mrow>
+\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
 &amp;=\lim_{n\rightarrow\infty}\frac{n^{4/5}(5^n-4)}{(n+1)^{4/5}(5^{n+1}-4)}
-                               |x-2|
 </mrow><mrow>
 &amp;=\lim_{n\rightarrow\infty}\frac{(1-4/5^n)}{(1+1/n)^{4/5}(5-4/5^n)}
-                               |x-2|
 </mrow><mrow>
-&amp;=\frac{|x-2|}{5}
+&amp;=\frac{1}{5}
 </mrow>
 </md>
+so that <m>R=\frac{1}{A}=5</m>.
+</p>
+
+<p>
 Therefore the series converges if <m>|x-2| \lt 5</m> and diverges if <m>|x-2| \gt 5</m>.
 When <m>x-2=+5</m>, i.e. <m>x=7</m>, the series reduces to
 <m>\sum\limits_{n=1}^\infty \frac{5^n}{n^{4/5}(5^n-4)}

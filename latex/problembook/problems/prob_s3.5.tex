@@ -298,16 +298,19 @@ is $-1<x+2\le 1$ or $(-3,-1]$.
 \end{answer}
 
 \begin{solution}
-We apply the ratio test for the series whose $n^{\rm th}$
-term is $a_n=\dfrac{(-1)^n(x+2)^n}{\sqrt{n}}$. Then
+We will first find the radius of convergence $R$ of the given series. Once we have found $R$, we will know 
+that the series converges for $|x+2|<R$ and diverges for $|x+2|>R$. Then we will determine what 
+happens at the two end points, $x+2=R$ and $x+2=-R$, of the interval.
+
+To determine the radius of convergence, we apply (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. To do so, we set $A_n= \frac{(-1)^n}{\sqrt{n}}$ and compute
 \begin{align*}
-\lim_{n\rightarrow\infty}\bigg|\frac{a_{n+1}}{a_n}\bigg|
-&=\lim_{n\rightarrow\infty} \bigg|\frac{(x+2)^{n+1}}{\sqrt{n+1}}
-                                  \ \frac{\sqrt{n}}{(x+2)^n}\bigg| \\
-&=\lim_{n\rightarrow\infty} |x+2|\ \frac{\sqrt{n}}{\sqrt{n+1}} \\
-&=\lim_{n\rightarrow\infty} |x+2|\ \frac{1}{\sqrt{1+1/n}} \\
-&=|x+2|
+A = \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg|
+&=\lim_{n\rightarrow\infty} \frac{\sqrt{n}}{\sqrt{n+1}} \\
+&=\lim_{n\rightarrow\infty} \frac{1}{\sqrt{1+1/n}} \\
+&=1
 \end{align*}
+so that $R=\frac{1}{A}=1$.
+ 
 So the series must converge when $|x+2|<1$ and must diverge when $|x+2|>1$.
 When $x+2=1$, the series reduces to
 \begin{align*}
@@ -338,12 +341,18 @@ CLP-2 text.
 \end{hint}
 
 \begin{answer}
+The radius of convergence is $3$.
 The interval of convergence is $-4<x\le2$, or simply $(-4,2]$.
 \end{answer}
 
 \begin{solution}
-We apply the ratio test for the series whose $n^{\rm th}$
-term is $a_n= \frac{(-1)^n}{n+1} \left(\frac{x+1}{3}\right)^n$.
+We will first find the radius of convergence $R$ of the given series. Once we have found $R$, we will know 
+that the series converges for $|x+1|<R$ and diverges for $|x+1|>R$. Then we will determine what 
+happens at the two end points, $x+1=R$ and $x+1=-R$, of the interval.
+
+We could determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}), from the CLP-2 text,
+with  $A_n = \frac{(-1)^n}{(n+1)3^n}$. As an alternate method, we apply the ratio test for the series 
+whose $n^{\rm th}$ term is $a_n= \frac{(-1)^n}{n+1} \left(\frac{x+1}{3}\right)^n$.
 \begin{align*}
 \lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
 &= \lim_{n\to\infty} \bigg| \frac{ \frac{(-1)^{n+1}}{n+2} \left(\frac{x+1}{3}\right)^{n+1}}
@@ -356,9 +365,7 @@ and diverges when $\frac{|x+1|}3 > 1$. In particular, it converges when
 \begin{align*}
 |x+1| < 3 \iff -3 < x+1 < 3 \iff -4 < x < 2
 \end{align*}
-and the radius of convergence is $R = 3$. (Alternatively, one can set $A_n = \frac{(-1)^n}{(n+1)3^n}$ and compute
-$A = \lim_{n\to\infty} \big| \frac{A_{n+1}}{A_n}\big| = \frac{1}{3}$, so that
-$R=\frac{1}{A}=3$.)
+and the radius of convergence is $R = 3$. 
 
 Next, we consider the endpoints $2$ and $-4$.
 At $x=2$, i.e. $x+1=3$, the series is simply $\sum_{n=0}^\infty \frac{(-1)^{n}}{n+1}$,
@@ -394,18 +401,20 @@ In summary, the interval of convergence is $-4<x\le2$, or simply $(-4,2]$.
 \end{answer}
 
 \begin{solution}
-We first apply the ratio test with $a_n = \frac{(x-2)^n}{n^{4/5}(5^n-4)}$.
+We will first find the radius of convergence $R$ of the given series. Once we have found $R$, we will know 
+that the series converges for $|x-2|<R$ and diverges for $|x-2|>R$. Then we will determine what 
+happens at the two end points, $x-2=R$ and $x-2=-R$, of the interval.
 
+To determine the radius of convergence, we apply (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. To do so, 
+we set $A_n= \frac{1}{n^{4/5}(5^n-4)}$ and compute
 \begin{align*}
-\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
-&=\lim_{n\rightarrow\infty}\bigg|\frac{(x-2)^{n+1}}{(n+1)^{4/5}(5^{n+1}-4)}\cdot
-                               \frac{n^{4/5}(5^n-4)}{(x-2)^n}\bigg|\\
-&=\lim_{n\rightarrow\infty}\frac{n^{4/5}(5^n-4)}{(n+1)^{4/5}(5^{n+1}-4)}
-                               |x-2|\\
-&=\lim_{n\rightarrow\infty}\frac{(1-4/5^n)}{(1+1/n)^{4/5}(5-4/5^n)}
-                               |x-2|\\
-&=\frac{|x-2|}{5}
+A & \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg| \\
+&=\lim_{n\rightarrow\infty}\frac{n^{4/5}(5^n-4)}{(n+1)^{4/5}(5^{n+1}-4)} \\
+&=\lim_{n\rightarrow\infty}\frac{(1-4/5^n)}{(1+1/n)^{4/5}(5-4/5^n)} \\
+&=\frac{1}{5}
 \end{align*}
+so that $R=\frac{1}{A}=5$.
+
 Therefore the series converges if $|x-2|<5$ and diverges if $|x-2|>5$.
 When $x-2=+5$, i.e. $x=7$, the series reduces to
 $\sum\limits_{n=1}^\infty \frac{5^n}{n^{4/5}(5^n-4)}
