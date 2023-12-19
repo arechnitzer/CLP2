@@ -483,7 +483,6 @@ To determine the radius of convergence, we apply (<xref ref="eq_SRradConv"/>). T
 <mrow>
 A &amp;= \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg|
 </mrow><mrow>
-\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
 &amp;=\lim_{n\rightarrow\infty}\frac{n^{4/5}(5^n-4)}{(n+1)^{4/5}(5^{n+1}-4)}
 </mrow><mrow>
 &amp;=\lim_{n\rightarrow\infty}\frac{(1-4/5^n)}{(1+1/n)^{4/5}(5-4/5^n)}
@@ -522,22 +521,20 @@ Equivalently, the series has interval of convergence <m>[-3,-1]</m>.
 </p></answer>
 
 <solution><p>
-We apply the ratio test with <m>a_n=\frac{(x+2)^n}{n^2}</m>.
-Since
+We determine the radius of convergence by applying (<xref ref="eq_SRradConv"/>). To do so, 
+we set <m>A_n= \frac{1}{n^2}</m> and compute
 <md>
 <mrow>
-\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
-&amp; =\lim_{n\rightarrow\infty}\left|\frac{\frac{(x+2)^{n+1}}{(n+1)^2}}
-                                       {\frac{(x+2)^n}{n^2}}\right|
- =\lim_{n\rightarrow\infty}\frac{n^2}{{(n+1)}^2}|x+2|
-</mrow>
-<mrow>
+A &amp;= \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg|
+</mrow><mrow>
+&amp; =\lim_{n\rightarrow\infty}\frac{n^2}{{(n+1)}^2}
+</mrow><mrow>
 &amp;
-=\lim_{n\rightarrow\infty}\frac{1}{{(1+1/n)}^2}|x+2|
-=|x+2|
+=\lim_{n\rightarrow\infty}\frac{1}{{(1+1/n)}^2}
+=1
 </mrow>
 </md>
-we have convergence for
+So we have convergence for
 <me>
 |x+2| \lt 1
 \iff -1 \lt x+2 \lt 1
@@ -558,6 +555,8 @@ Find the interval of convergence for the following series.
 <li><m>\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(x-1)^n</m>
 </li><li>
 <m>\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(2x+1)^n</m>
+</li><li>
+<m>\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(2x+1)^{2n}</m>
 </li>
 </ol>
 </p></statement>
@@ -569,11 +568,16 @@ Find the interval of convergence for the following series.
 <p>
 (b) <m>-\frac{5}{8}\le x \lt -\frac{3}{8}</m> or <m>\big[-\frac{5}{8},-\frac{3}{8}\big)</m>
 </p>
+
+<p>
+(c) <m>-\frac{3}{4}\lt x \lt -\frac{1}{4}</m>, or <m>\big(-\frac{3}{4},-\frac{1}{4}\big)</m>
+</p>
 </answer>
 
 <solution><p>(a)
-We apply the ratio test with <m>a_n= \frac{4^n}{n}(x-1)^n</m>.
-Since
+We could determine the radius of convergence by applying (<xref ref="eq_SRradConv"/>)
+with  <m> A_n = \frac{4^n}{n}</m>. As an alternate method, we apply the ratio test for the series 
+whose <m>n^{\rm th}</m> term is <m> a_n= \frac{4^n}{n}(x-1)^n</m>. Since
 <md>
 <mrow>
 \lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
@@ -613,7 +617,11 @@ original series is <m>\frac{3}{4}\le x \lt \frac{5}{4}</m>, or <m>\big[\frac{3}{
 </p>
 
 <p>(b)
-We apply the ratio test with <m>a_n= \frac{4^n}{n}(2x+1)^n</m>.
+We could determine the radius of convergence by applying (<xref ref="eq_SRradConv"/>).
+But to do so,  we would first have to rewrite the series as 
+<m>\sum_{n=1}^\infty \frac{8^n}{n}\big(x+\frac{1}{2}\big)^n</m> to get the <m>n^{\rm th}</m> term into 
+the form <m>A_n (x-c)^n</m> required by (<xref ref="eq_SRradConv"/>). Instead, we use the alternate
+method that consists of applying the ratio test with <m>a_n= \frac{4^n}{n}(2x+1)^n</m>.
 Repeating the computation of part (a), just with <m>x-1</m> replaced by <m>2x+1</m>, 
 <md>
 <mrow>
@@ -654,6 +662,50 @@ converges by the alternating series test. Therefore the interval of convergence 
 original series is <m>-\frac{5}{8}\le x \lt -\frac{3}{8}</m>, or <m>\big[-\frac{5}{8},-\frac{3}{8}\big)</m>.
 </p>
 
+<p>(c)
+This time we cannot determine the radius of convergence by applying (<xref ref="eq_SRradConv"/>),
+because the <m>n^{\rm th}</m> term is not in the form <m>A_n (x-c)^n</m> required by 
+(<xref ref="eq_SRradConv"/>). But we may still apply the ratio test with <m>a_n= \frac{4^n}{n}(2x+1)^{2n}</m>.
+Repeating the computation of part (a), just with <m>x-1</m> replaced by <m>(2x+1)^2</m>, 
+<md>
+<mrow>
+\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
+&amp;= \lim_{n\to\infty} \bigg| \frac{4^{n+1}(2x+1)^{2(n+1)}/(n+1)}{4^n(2x+1)^{2n}/n} \bigg|
+</mrow><mrow>
+&amp;= 4|2x+1|^2 \lim_{n\to\infty} \frac{n}{n+1} = 4|2x+1|^2\cdot1
+</mrow>
+</md>
+So the series converges if
+<md>
+<mrow>
+4|2x+1|^2 \lt 1
+\amp\iff -1 \lt 2(2x+1) \lt 1
+</mrow><mrow>
+\amp\iff -\frac{1}{2} \lt 2x+1 \lt \frac{1}{2}
+</mrow><mrow>
+\amp\iff -\frac{3}{2} \lt 2x \lt -\frac{1}{2}
+</mrow><mrow>
+\amp\iff -\frac{3}{4} \lt x \lt -\frac{1}{4}
+</mrow>
+</md>
+and diverges if <m>4|2x+1|^2 \gt 1</m>.
+At the right endpoint <m>x=-\frac{1}{4}</m>, the series becomes
+<md>
+<mrow>
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( -\frac{1}{2}+1 \bigg)^{2n}
+= \sum_{n=1}^\infty \frac{1}{n}
+</mrow>
+</md>
+which is the divergent harmonic series. At the left endpoint <m>x=-\frac{3}{4}</m>,
+<md>
+<mrow>
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( -\frac{3}{2}+1 \bigg)^{2n} = \sum_{n=1}^\infty \frac{1}{n}
+</mrow>
+</md>
+which is again the divergent harmonic series. Therefore the interval of convergence of the
+original series is <m>-\frac{3}{4}\lt x \lt -\frac{1}{4}</m>, or <m>\big(-\frac{3}{4},-\frac{1}{4}\big)</m>.
+</p>
+
 </solution>
 </exercise>
 
@@ -673,32 +725,31 @@ or <m>\big(-1,3\big]</m>.
 </p></answer>
 
 <solution><p>
-We apply the ratio test with <m>a_n= (-1)^n\frac{(x-1)^n}{2^n(n+2)}</m>.
-Since
+We determine the radius of convergence by applying (<xref ref="eq_SRradConv"/>). To do so, 
+we set <m>A_n= \frac{(-1)^n}{2^n(n+2)}</m> and compute
 <md>
 <mrow>
-\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
-&amp;= \lim_{n\to\infty} \bigg| \frac{(x-1)^{n+1}}{2^{n+1}(n+3)}\
-                            \frac{2^n(n+2)}{(x-1)^n} \bigg|
+A &amp;= \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg|
 </mrow><mrow>
-&amp;= \lim_{n\to\infty} \frac{|x-1|}{2} \frac{n+2}{n+3}
+&amp;= \lim_{n\to\infty} \frac{2^n(n+2)}{2^{n+1}(n+3)}
 </mrow><mrow>
-&amp;= \frac{|x-1|}{2} \lim_{n\to\infty} \frac{1+2/n}{1+3/n} = \frac{|x-1|}{2}
+&amp;= \lim_{n\to\infty} \frac{1}{2}\ \frac{n+2}{n+3}
+</mrow><mrow>
+&amp;= \frac{1}{2} \lim_{n\to\infty} \frac{1+2/n}{1+3/n} = \frac{1}{2}
 </mrow>
 </md>
+So the radius of convergence is <m>R=\frac{1}{A}=2</m> and
 the series converges if
 <md>
 <mrow>
-\frac{|x-1|}{2} \lt 1
-&amp;\iff |x-1| \lt 2
-\iff -2 \lt (x-1) \lt 2
+ |x-1| \lt 2
+\amp\iff -2 \lt (x-1) \lt 2
 </mrow><mrow>
 \amp\iff -1 \lt x \lt 3
 </mrow>
 </md>
-and diverges if <m>|x-1| \gt 2</m>. So the series has radius of convergence <m>2</m>.
-Checking the left endpoint <m>x=-1</m>, so that <m>\frac{x-1}{2}=-1</m>,
-we see that
+and diverges if <m>|x-1| \gt 2</m>. 
+Checking the left endpoint <m>x=-1</m>, we see that
 <md>
 <mrow>
 \sum_{n=0}^\infty (-1)^n\frac{(-1-1)^n}{2^n(n+2)}
@@ -706,7 +757,7 @@ we see that
 </mrow>
 </md>
 is the divergent harmonic series. At the right endpoint <m>x=3</m>,
-so that <m>\frac{x-1}{2}=+1</m> and
+so that 
 <md>
 <mrow>
 \sum_{n=0}^\infty (-1)^n\frac{(3-1)^n}{2^n(n+2)}
@@ -733,8 +784,10 @@ or <m>\big(a-1,a+1\big)</m>.
 </p></answer>
 
 <solution><p>
-We apply the ratio test with <m>a_n= (-1)^n n^2(x-a)^{2n}</m>.
-Since
+We cannot determine the radius of convergence by applying (<xref ref="eq_SRradConv"/>),
+because the <m>n^{\rm th}</m> term is not in the form <m>A_n (x-c)^n</m> required by 
+(<xref ref="eq_SRradConv"/>). But we may still apply the ratio test with 
+<m>a_n= (-1)^n n^2(x-a)^{2n}</m>. Since
 <md>
 <mrow>
 \lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
@@ -803,7 +856,9 @@ Start part (b) by computing the partial sums of
 </p></answer>
 
 <solution><p> (a)
-We apply the ratio test for the series whose <m>k^{\rm th}</m>
+We could determine the radius of convergence by applying (<xref ref="eq_SRradConv"/>)
+with  <m> A_n = \frac{1}{n^2 9^n}</m>. As an alternate method, 
+we apply the ratio test for the series whose <m>k^{\rm th}</m>
 term is <m>a_k=\frac{(x+1)^k}{k^2 9^k}</m>. Then
 <md>
 <mrow>
@@ -990,9 +1045,15 @@ for <m>x=-9</m> and diverges otherwise.
 </p></answer>
 
 <solution><p>
-We apply the ratio test for the series whose <m>n^{\rm th}</m>
-term is either <m>a_n=\frac{x^n}{3^{2n}\log n}</m>
-or <m>a_n=\big|\frac{x^n}{3^{2n}\log n}\big|</m>. For both series
+We'll start by applying the ratio test twice,
+<ul>
+<li> 
+once for the series whose <m>n^{\rm th}</m> term is <m>a_n=\frac{x^n}{3^{2n}\log n}</m>, and
+</li><li>
+once for the series whose <m>n^{\rm th}</m> term is <m>a_n=\big|\frac{x^n}{3^{2n}\log n}\big|</m>.
+</li>
+</ul>
+For both series, i.e. for both <m>a_n</m>'s,
 <md>
 <mrow>
 \lim_{n\to\infty} \bigg| \frac{ a_{n+1} }{ a_n } \bigg|
@@ -1007,8 +1068,11 @@ or <m>a_n=\big|\frac{x^n}{3^{2n}\log n}\big|</m>. For both series
 &amp;=\frac{|x|}{9}
 </mrow>
 </md>
-Therefore, by the ratio test, our series converges absolutely when
-<m>|x| \lt 9</m> and diverges when <m>|x| \gt 9</m>.
+Therefore, by the ratio test, when <m>|x| \lt 9</m>, the series 
+<m>\sum_{n=2}^\infty  \big|\frac{x^n}{3^{2n}\log n}\big|</m>
+converges and the series <m>\sum_{n=2}^\infty \frac{x^n}{3^{2n}\log n}</m> converges absolutely, and when
+<m>|x|\gt 9</m> the series <m>\sum_{n=2}^\infty \frac{x^n}{3^{2n}\log n}</m> diverges. 
+That just leaves <m>x=\pm 9</m>.
 </p>
 
 <p>For <m>x=-9</m>, <m>\displaystyle\sum_{n=2}^\infty\frac{x^n}{3^{2n}\log n}

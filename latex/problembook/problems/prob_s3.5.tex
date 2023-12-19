@@ -443,17 +443,15 @@ Equivalently, the series has interval of convergence $[-3,-1]$.
 \end{answer}
 
 \begin{solution}
-We apply the ratio test with $a_n=\frac{(x+2)^n}{n^2}$.
-Since
-\begin{equation*}
-\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
-=\lim_{n\rightarrow\infty}\Bigg|\frac{\frac{(x+2)^{n+1}}{(n+1)^2}}
-                                       {\frac{(x+2)^n}{n^2}}\Bigg|
-=\lim_{n\rightarrow\infty}\frac{n^2}{{(n+1)}^2}|x+2|
-=\lim_{n\rightarrow\infty}\frac{1}{{(1+1/n)}^2}|x+2|
-=|x+2|
-\end{equation*}
-we have convergence for
+We determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. To do so, 
+we set $A_n= \frac{1}{n^2}$ and compute
+\begin{align*}
+A &= \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg| \\
+&=\lim_{n\rightarrow\infty}\frac{n^2}{{(n+1)}^2}  \\
+&=\lim_{n\rightarrow\infty}\frac{1}{{(1+1/n)}^2} \\
+&=1
+\end{align*}
+So we have convergence for
 \begin{equation*}
 |x+2|<1
 \iff -1<x+2<1
@@ -474,6 +472,8 @@ Find the interval of convergence for the following series.
 $\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(x-1)^n$.
 \item
 $\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(2x+1)^n$.
+\item
+$\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(2x+1)^{2n}$.
 \end{enumerate}
 \end{question}
 
@@ -482,12 +482,14 @@ $\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(2x+1)^n$.
 
 \begin{answer}
 (a) $\frac{3}{4}\le x<\frac{5}{4}$ or $\big[\frac{3}{4},\frac{5}{4}\big)$\qquad
-(b) $-\frac{5}{8}\le x<-\frac{3}{8}$ or $\big[-\frac{5}{8},-\frac{3}{8}\big)$
+(b) $-\frac{5}{8}\le x<-\frac{3}{8}$ or $\big[-\frac{5}{8},-\frac{3}{8}\big)$\qquad
+(c) $-\frac{3}{4}< x<-\frac{1}{4}$, or $\big(-\frac{3}{4},-\frac{1}{4}\big)$
 \end{answer}
 
 \begin{solution} (a)
-We apply the ratio test with $a_n= \frac{4^n}{n}(x-1)^n$.
-Since
+We could determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}), from the CLP-2 text,
+with  $A_n = \frac{4^n}{n}$. As an alternate method, we apply the ratio test for the series 
+whose $n^{\rm th}$ term is $a_n= \frac{4^n}{n}(x-1)^n$. Since
 \begin{align*}
 \lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
 &= \lim_{n\to\infty} \bigg| \frac{4^{n+1}(x-1)^{n+1}/(n+1)}{4^n(x-1)^n/n} \bigg| \\
@@ -515,7 +517,11 @@ converges by the alternating series test. Therefore the interval of convergence 
 original series is $\frac{3}{4}\le x<\frac{5}{4}$, or $\big[\frac{3}{4},\frac{5}{4}\big)$.
 
 \noindent (b)
-We apply the ratio test with $a_n= \frac{4^n}{n}(2x+1)^n$.
+We could determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}), from the CLP-2 text.
+But to do so,  we would first have to rewrite the series as 
+$\sum_{n=1}^\infty \frac{8^n}{n}\big(x+\frac{1}{2}\big)^n$ to get the $n^{\rm th}$ term into the form 
+$A_n (x-c)^n$ required by (\eref{CLP101}{eq:SRradConv}). Instead, we use the alternate
+method that consists of applying the ratio test with $a_n= \frac{4^n}{n}(2x+1)^n$.
 Repeating the computation of part (a), just with $x-1$ replaced by $2x+1$, 
 \begin{align*}
 \lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
@@ -543,6 +549,36 @@ which is the divergent harmonic series. At the left endpoint $x=-\frac{5}{8}$,
 converges by the alternating series test. Therefore the interval of convergence of the
 original series is $-\frac{5}{8}\le x<-\frac{3}{8}$, or $\big[-\frac{5}{8},-\frac{3}{8}\big)$.
 
+\noindent (c)
+This time we cannot determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}), from the 
+CLP-2 text, because the $n^{\rm th}$ term is not in the form $A_n (x-c)^n$ required by 
+(\eref{CLP101}{eq:SRradConv}). But we may still apply the ratio test with $a_n= \frac{4^n}{n}(2x+1)^{2n}$.
+Repeating the computation of part (a), just with $x-1$ replaced by $(2x+1)^2$, 
+\begin{align*}
+\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
+&= \lim_{n\to\infty} \bigg| \frac{4^{n+1}(2x+1)^{2(n+1)}/(n+1)}{4^n(2x+1)^{2n}/n} \bigg| \\
+&= 4|2x+1|^2 \lim_{n\to\infty} \frac{n}{n+1} = 4|2x+1|^2\cdot1.
+\end{align*}
+So the series converges if
+\begin{align*}
+4|2x+1|^2<1
+&\iff -1<2(2x+1)<1 \\
+&\iff -\frac{1}{2}<2x+1<\frac{1}{2} \\
+&\iff -\frac{3}{2}<2x<-\frac{1}{2} \\
+&\iff -\frac{3}{4}<x<-\frac{1}{4}
+\end{align*}
+and diverges if $4|2x+1|^2>1$.
+At the right endpoint $x=-\frac{1}{4}$, the series becomes
+\begin{align*}
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( -\frac{1}{2}+1 \bigg)^{2n}
+= \sum_{n=1}^\infty \frac{1}{n}
+\end{align*}
+which is the divergent harmonic series. At the left endpoint $x=-\frac{3}{4}$,
+\begin{align*}
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( -\frac32+1 \bigg)^{2n} = \sum_{n=1}^\infty \frac{1}{n}
+\end{align*}
+which is again the divergent harmonic series. Therefore the interval of convergence of the
+original series is $-\frac{3}{4}< x<-\frac{1}{4}$, or $\big(-\frac{3}{4},-\frac{1}{4}\big)$.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 
@@ -565,31 +601,29 @@ or $\big(-1,3\big]$.
 \end{answer}
 
 \begin{solution}
-We apply the ratio test with $a_n= (-1)^n\frac{(x-1)^n}{2^n(n+2)}$.
-Since
+We determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. 
+To do so, we set $A_n= \frac{(-1)^n}{2^n(n+2)}$ and compute
 \begin{align*}
-\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
-&= \lim_{n\to\infty} \bigg| \frac{(x-1)^{n+1}}{2^{n+1}(n+3)}\
-                            \frac{2^n(n+2)}{(x-1)^n} \bigg| \\
-&= \lim_{n\to\infty} \frac{|x-1|}{2} \frac{n+2}{n+3} \\
-&= \frac{|x-1|}{2} \lim_{n\to\infty} \frac{1+2/n}{1+3/n} = \frac{|x-1|}{2}
+A &= \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg| \\
+&= \lim_{n\to\infty}  \frac{2^n(n+2)}{2^{n+1}(n+3)}  \\
+&= \lim_{n\to\infty} \frac{1}{2}\ \frac{n+2}{n+3} \\
+&= \frac{1}{2} \lim_{n\to\infty} \frac{1+2/n}{1+3/n} = \frac{1}{2}
 \end{align*}
+So the radius of convergence is $R=\frac{1}{A}=2$ and
 the series converges if
 \begin{align*}
-\frac{|x-1|}{2}<1
-&\iff |x-1|<2
+|x-1|<2
 \iff -2<(x-1)<2
 \iff -1<x<3
 \end{align*}
-and diverges if $|x-1|>2$. So the series has radius of convergence $2$.
-Checking the left endpoint $x=-1$, so that $\frac{x-1}{2}=-1$,
-we see that
+and diverges if $|x-1|>2$. 
+Checking the left endpoint $x=-1$, we see that
 \begin{align*}
 \sum_{n=0}^\infty (-1)^n\frac{(-1-1)^n}{2^n(n+2)}
 = \sum_{n=0}^\infty \frac{1}{n+2}
 \end{align*}
 is the divergent harmonic series. At the right endpoint $x=3$,
-so that $\frac{x-1}{2}=+1$ and
+so that 
 \begin{align*}
 \sum_{n=0}^\infty (-1)^n\frac{(3-1)^n}{2^n(n+2)}
 = \sum_{n=0}^\infty \frac{(-1)^n}{n+2}
@@ -616,7 +650,9 @@ or $\big(a-1,a+1\big)$.
 \end{answer}
 
 \begin{solution}
-We apply the ratio test with $a_n= (-1)^n n^2(x-a)^{2n}$.
+We cannot determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}), from the 
+CLP-2 text, because the $n^{\rm th}$ term is not in the form $A_n (x-c)^n$ required by 
+(\eref{CLP101}{eq:SRradConv}). But we may still apply the ratio test with $a_n= (-1)^n n^2(x-a)^{2n}$.
 Since
 \begin{align*}
 \lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
@@ -674,7 +710,9 @@ $\ {\displaystyle \sum_{k=1}^\infty \Big(\frac{a_k}{a_{k+1}}
 \end{answer}
 
 \begin{solution} (a)
-We apply the ratio test for the series whose $k^{\rm th}$
+We could determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}), 
+from the CLP-2 text, with  $A_n = \frac{1}{n^2 9^n}$. As an alternate method, 
+we apply the ratio test for the series whose $k^{\rm th}$
 term is $a_k=\frac{(x+1)^k}{k^2 9^k}$. Then
 \begin{align*}
 \lim_{k\rightarrow\infty}\bigg|\frac{a_{k+1}}{a_k}\bigg|
@@ -820,9 +858,14 @@ for $x=-9$ and diverges otherwise.
 \end{answer}
 
 \begin{solution}
-We apply the ratio test for the series whose $n^{\rm th}$
-term is either $a_n=\frac{x^n}{3^{2n}\log n}$
-or $a_n=\big|\frac{x^n}{3^{2n}\log n}\big|$. For both series
+We'll start by applying the ratio test twice,
+\begin{itemize}
+\item
+once for the series whose $n^{\rm th}$ term is $a_n=\frac{x^n}{3^{2n}\log n}$, and
+\item
+once for the series whose $n^{\rm th}$ term is $a_n=\big|\frac{x^n}{3^{2n}\log n}\big|$. 
+\end{itemize}
+For both series, i.e. for both $a_n$'s,
 \begin{align*}
 \lim_{n\to\infty} \bigg| \frac{ a_{n+1} }{ a_n } \bigg|
 &= \lim_{n\to\infty} \bigg| \frac{x^{n+1}}{3^{2(n+1)}\log(n+1)} \
@@ -832,8 +875,9 @@ or $a_n=\big|\frac{x^n}{3^{2n}\log n}\big|$. For both series
 &=\lim_{n\to\infty} \bigg| \frac{x}{3^2[1+\log(1+1/n)/\log(n)]} \bigg| \\
 &=\frac{|x|}{9}
 \end{align*}
-Therefore, by the ratio test, our series converges absolutely when
-$|x|<9$ and diverges when $|x|>9$.
+Therefore, by the ratio test, when $|x|<9$, the series $\sum_{n=2}^\infty  \big|\frac{x^n}{3^{2n}\log n}\big|$
+converges and the series $\sum_{n=2}^\infty \frac{x^n}{3^{2n}\log n}$ converges absolutely, and when
+$|x|> 9$ the series $\sum_{n=2}^\infty \frac{x^n}{3^{2n}\log n}$ diverges. That just leaves $x=\pm 9$.
 
 For $x=-9$, $\displaystyle\sum_{n=2}^\infty\frac{x^n}{3^{2n}\log n}
 =\sum_{n=2}^\infty\frac{(-1)^n}{\log n}$ which converges by
