@@ -347,7 +347,7 @@ converges to some finite number, or it is infinite. We want to generate a guess 
 </mrow>
 </md>
 Note that <m>\frac{1}{x^2+\sqrt{x}}</m> is defined and continuous for all <m>x\gt 0</m>, <m>\frac{1}{\sqrt{x}}</m> is defined and continuous for <m>x \gt 0</m>, and <m>\frac{1}{x^2}</m> is defined and continuous for <m>x \ge 1</m>.
-So, the integral converges by the comparison test, Theorem<nbsp/><xref ref="thm_IMPcomparison"/> in the text, together with Remark<nbsp/><xref ref="rmk_singularities"/>.
+So, the integral converges by the comparison test, Theorems<nbsp/><xref ref="thm_IMPcomparison"/> and <xref ref="thm_IMPcomparisonFinite"/>.
 </p>
 
 </solution>
@@ -365,7 +365,7 @@ Remember to break the integral into two pieces.
 The integral diverges.
 </p></answer>
 <solution><p>
-There are two <q>sources of impropriety:</q> the two (infinite) limits of integration. So, we break our integral into two pieces.
+There are two <q>sources of impropriety</q>: the two (infinite) limits of integration. So, we break our integral into two pieces.
 <md>
 <mrow>
 \int_{-\infty}^\infty \cos x \dee{x}&amp;=\int_{-\infty}^0 \cos x \dee{x}+\int_{0}^\infty \cos x \dee{x}
@@ -398,7 +398,7 @@ Remember to break the integral into two pieces.
 The integral diverges.
 </p></answer>
 <solution><p>
-There are two <q>sources of impropriety:</q> the two bounds. So, we break our integral into two pieces.
+There are two <q>sources of impropriety</q>: the <m>-\infty</m> and the <m>+\infty</m>. So, we break our integral into two pieces.
 <md>
 <mrow>
 \int_{-\infty}^\infty \sin x \dee{x}&amp;=\int_{-\infty}^0 \sin x \dee{x}+\int_{0}^\infty \sin x \dee{x}
@@ -618,14 +618,15 @@ Since both terms in the denominator give positive numbers when <m>x</m> is posit
 </p>
 
 <p>
-Now we have all the data we need to apply the comparison test, Theorem<nbsp/><xref ref="thm_IMPcomparison"/>.
+Now we have all the data we need to apply the comparison test, Theorems<nbsp/><xref ref="thm_IMPcomparison"/>
+and <xref ref="thm_IMPcomparisonFinite"/>.
 <ul>
 <li> <m>\dfrac{|\sin x|}{x^{3/2}+x^{1/2}}\,, \dfrac{1}{x^{1/2}}\,,</m> and <m>\dfrac{1}{x^{3/2}}</m> are defined and continuous for <m>x \gt 0</m>
 </li>
 <li> <m>\dfrac{1}{x^{1/2}}</m> and <m>\dfrac{1}{x^{3/2}}</m> are nonnegative for <m>x \ge 0</m>
 </li>
 <li> <m>\dfrac{|\sin x|}{x^{3/2}+x^{1/2}}\le \dfrac{1}{x^{1/2}}</m> for all <m>x  \gt  0</m> and
-<m>\displaystyle\int_0^1\dfrac{1}{x^{1/2}} \dee{x}</m> converges, so (using Remark<nbsp/><xref ref="rmk_singularities"/>)
+<m>\displaystyle\int_0^1\dfrac{1}{x^{1/2}} \dee{x}</m> converges, so 
 <textblue> <m>\displaystyle\int_0^{1\vphantom{\frac12}}\dfrac{|\sin x|}{x^{3/2}+x^{1/2}} \dee{x}</m> converges. </textblue>
 </li>
 <li> <m>\dfrac{|\sin x|}{x^{3/2}+x^{1/2}}\le \dfrac{1}{x^{3/2}}</m> for all <m>x \ge 1</m> and
@@ -687,7 +688,7 @@ Note <m>\int_0^1 \frac{1}{x^{1/3}} \dee{x}</m> converges by Example<nbsp/><xref 
 Note <m>\int_1^\infty \frac{1}{x^{4/3}} \dee{x}</m> converges by Example<nbsp/><xref ref="eg_IMPp1"/> (it's a <m>p</m>-type integral), so we guess <m>\int_1^\infty \frac{x+1}{x^{1/3}(x^2+x+1)} \dee{x}</m> converges as well.
 </p>
 
-<p>Now it's time to verify our guesses with the limiting comparison test, Theorem<nbsp/><xref ref="thm_IMPcomparisonLim"/>. Be careful: our <q><m>\approx</m></q> signs are not strong enough to use either the limiting comparison test or the comparison test, they are only enough to suggest a reasonable function to compare <em>to</em>.
+<p>Now it's time to verify our guesses with the limiting comparison test, Theorems<nbsp/><xref ref="thm_IMPcomparisonLim"/> and <xref ref="thm_IMPcomparisonLimFinite"/>. Be careful: our <q><m>\approx</m></q> signs are not strong enough to use either the limiting comparison test or the comparison test, they are only enough to suggest a reasonable function to compare <em>to</em>.
 </p>
 
 <p><ul>
@@ -701,7 +702,7 @@ Note <m>\int_1^\infty \frac{1}{x^{4/3}} \dee{x}</m> converges by Example<nbsp/><
 =\lim\limits_{x \to 0}\dfrac{x+1}{x^2+x+1}=\dfrac{0+1}{0+0+1}=1
 </m>; in particular, this limit exists.
 </li>
-<li> Using the limiting comparison test (Theorem<nbsp/><xref ref="thm_IMPcomparisonLim"/>, together with Remark<nbsp/><xref ref="rmk_singularities"/> because our impropriety is due to a singularity),
+<li> Using the limiting comparison test (Theorem<nbsp/><xref ref="thm_IMPcomparisonLimFinite"/>),
 <textblue>
 <m>\int_0^1 \frac{x+1}{x^{1/3}(x^2+x+1)} \dee{x}</m> converges.
 </textblue>

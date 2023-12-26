@@ -10825,7 +10825,9 @@ extends to $+\infty$, or a domain of integration that extends to $-\infty$, or
 an integrand which is singular at one end of the domain of integration. So we
 are now going to consider only the first of these three possibilities. But the
 techniques that we are about to see have obvious analogues for the other two
-possibilities.
+possibilities. And, at the end of this section, we'll give the analogous tools 
+that are appropriate for use with an integrand which is singular at one end 
+of a finite domain of integration. 
 \end{remark}
 
 Now let's start. Imagine that we have an improper integral
@@ -11109,7 +11111,7 @@ exists, then $\int_a^\infty f(x)\ \dee{x}$ converges.
 exists and \underline{is nonzero}, then $\int_a^\infty f(x)\ \dee{x}$ diverges.
 \end{enumerate}
 Note that in (b) the limit must exist and be nonzero, while in (a) we only
-require that the limit exists (it can be zero).
+require that the limit exists. (It can be zero.)
 \end{theorem}
 
 Here is an example of how Theorem \ref{thm:IMPcomparisonLim} is used.
@@ -11168,8 +11170,6 @@ diverges, by Example \ref{eg:IMPp1} with $p=1$, Theorem
 \end{itemize}
 \end{eg}
 
-
-
 % \begin{theorem}\label{thm:IMPdropFinite}
 % Let the functions $f(x)$ and $g(x)$ be continuous for all $x\ge a$.
 % Assume that the improper integral $\int_a^\infty f(x)\ \dee{x}$ converges.
@@ -11190,3 +11190,54 @@ diverges, by Example \ref{eg:IMPp1} with $p=1$, Theorem
 % exists and is finite, which in turn is the case if and only if the integral
 % $\int_a^\infty g(x)\ \dee{x}$ converges.
 % \end{proof}
+
+We finish this section by giving variants of Theorems \ref{thm:IMPcomparison} 
+and \ref{thm:IMPcomparisonLim} that are useful in dealing with an integrand 
+that is singular at one end of a (finite) domain of integration. For
+the rest of this section, let $a<b$ and let $[a,b]=\big\{x\,\big|\,a\le x\le b\big\}$ be the domain
+of integration. We allow the integrand to be singular at one end, that we'll call $x_s$,
+of the domain of integration. So
+\begin{itemize}
+\item if the integrand is singular at $x=a$, we set $x_s=a$ and write 
+       \begin{equation*}
+      I=(a,b]=\big\{x\,\big|\,a < x\le b\big\}
+       \end{equation*}
+      and
+\item if the integrand is singular at $x=b$ we set $x_s=b$ and write 
+       \begin{equation*}
+      I=[a,b)=\big\{x\,\big|\,a \le x< b\big\}
+      \end{equation*}
+\end{itemize}
+Recall that ``$x\in I$'' means ``$x$ is an element of the set $I$''. Here is the analogue
+of Theorem \ref{thm:IMPcomparison} 
+\begin{theorem}[Comparison]\label{thm:IMPcomparisonFinite}
+Let $f$ and $g$ be functions that are defined and continuous for all $x\in I$ 
+and assume that  $g(x)\ge 0$ for all  $x\in I$.
+\begin{enumerate}[(a)]
+\item If $|f(x)|\le g(x)$ for all $x\in I$ and if $\int_a^b g(x)\ \dee{x}$
+  converges then $\int_a^b f(x)\ \dee{x}$ also converges.
+\item If $f(x)\ge g(x)$ for all $x\in I$ and if $\int_a^b g(x)\ \dee{x}$
+ diverges then $\int_a^b f(x)\ \dee{x}$ also diverges.
+\end{enumerate}
+\end{theorem}
+and here is the analogue of Theorem \ref{thm:IMPcomparisonLim} 
+\begin{theorem}[ Limiting comparison]\label{thm:IMPcomparisonLimFinite}
+Let $f$ and $g$ be functions that are defined
+and continuous for all $x\in I$ and assume that  $g(x)\ge 0$ for all
+$x\in I$.
+\begin{enumerate}[(a)]
+\item If  $\int_a^b g(x)\ \dee{x}$ converges and the limit
+\begin{align*}
+\lim_{x\rightarrow x_s\atop x\in I}\frac{f(x)}{g(x)}
+\end{align*}
+exists, then $\int_a^b f(x)\ \dee{x}$ converges.
+\item If $\int_a^b g(x)\ \dee{x}$  diverges and the limit
+\begin{align*}
+\lim_{x\rightarrow x_s\atop x\in I}\frac{f(x)}{g(x)}
+\end{align*}
+exists and \underline{is nonzero}, then $\int_a^b f(x)\ \dee{x}$ diverges.
+\end{enumerate}
+Note that in (b) the limit must exist and be nonzero, while in (a) we only
+require that the limit exists. (It can be zero.)
+\end{theorem}
+
