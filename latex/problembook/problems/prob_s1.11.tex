@@ -1913,7 +1913,7 @@ Which approximation should we use? We're given the fourth derivative of $\dfrac{
 Now that we've chosen Simpson's rule, we should decide how many intervals to use.
 In order to bound our error, we need to find a bound for the fourth derivative. To that end, define $N(x) = 24(5x^4-10x^2+1)$. Then $N'(x) = 24(20x^3-20x)= 480x(x^2-1)$, which is positive over the interval $[1,2]$. So, $N(x) \leq N(2)=24(5\cdot 2^4 - 10\cdot 2^2+1)=984$ when $1 \leq x \leq 2$. Furthermore, let $D(x)=(x^2+1)^5$. If  $1 \leq x \leq 2$, then $D(x) \geq 2^5$. Now we can find   a reasonable value of $L$:
 \begin{align*}
-|f^{(4)}(x)|&=\left|\frac{25(5x^4-10x^2+1)}{(x^2+1)^5}\right| =
+|f^{(4)}(x)|&=\left|\frac{24(5x^4-10x^2+1)}{(x^2+1)^5}\right| =
 \left|\frac{N(x)}{D(x)}\right| \leq \frac{984}{2^5} = \frac{123}{4} = 30.75
 \end{align*}
 So, we take $L=30.75$.

@@ -2336,7 +2336,7 @@ A - \varepsilon &amp;\leq \left(\int_1^2 \frac{1}{1+x^2} \dee{x}\right) \leq A +
 In order to bound our error, we need to find a bound for the fourth derivative. To that end, define <m>N(x) = 24(5x^4-10x^2+1)</m>. Then <m>N'(x) = 24(20x^3-20x)= 480x(x^2-1)</m>, which is positive over the interval <m>[1,2]</m>. So, <m>N(x) \leq N(2)=24(5\cdot 2^4 - 10\cdot 2^2+1)=984</m> when <m>1 \leq x \leq 2</m>. Furthermore, let <m>D(x)=(x^2+1)^5</m>. If  <m>1 \leq x \leq 2</m>, then <m>D(x) \geq 2^5</m>. Now we can find   a reasonable value of <m>L</m>:
 <md>
 <mrow>
-|f^{(4)}(x)|&amp;=\left|\frac{25(5x^4-10x^2+1)}{(x^2+1)^5}\right| =
+|f^{(4)}(x)|&amp;=\left|\frac{24(5x^4-10x^2+1)}{(x^2+1)^5}\right| =
 \left|\frac{N(x)}{D(x)}\right| \leq \frac{984}{2^5} = \frac{123}{4} = 30.75
 </mrow>
 </md>
