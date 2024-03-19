@@ -173,7 +173,7 @@ In Example~\eref{CLP101}{eg:PRTSlnx} of the CLP-2 text, we found the antiderivat
 That is, we perform integration by parts with $u=\log x$ and $\dee{v}=x\,\dee{x}$,
 so that $\dee{u}=\frac{\dee{x}}{x}$ and $v = \frac{x^2}{2}$.
 \begin{align*}
-\int\underbrace{ x}_{u}\underbrace{\log x\,\dee{x}}_{\dee{v}}
+\int\underbrace{\log x}_{u}\underbrace{x\,\dee{x}}_{\dee{v}}
    &= \underbrace{\frac{x^2\log x}{2}}_{uv} - \int \underbrace{\frac{x^2}{2}}_v\ \underbrace{\frac{\dee{x}}{x}}_{\dee{u}}
     = \frac{x^2\log x}{2} -\frac{1}{2} \int x \ \dee{x} \\
    &= \frac{x^2\log x}{2} - \frac{x^2}{4} + C

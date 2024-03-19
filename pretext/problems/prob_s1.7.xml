@@ -210,7 +210,7 @@ For integration by parts, we want to break the integrand into two pieces, multip
 so that <m>\dee{u}=\frac{\dee{x}}{x}</m> and <m>v = \frac{x^2}{2}</m>.
 <md>
 <mrow>
-\int\underbrace{ x}_{u}\underbrace{\log x\,\dee{x}}_{\dee{v}}
+\int\underbrace{\log x}_{u}\ \underbrace{x\,\dee{x}}_{\dee{v}}
    &amp;= \underbrace{\frac{x^2\log x}{2}}_{uv} - \int \underbrace{\frac{x^2}{2}}_v\ \underbrace{\frac{\dee{x}}{x}}_{\dee{u}}
     = \frac{x^2\log x}{2} -\frac{1}{2} \int x \dee{x}
 </mrow><mrow>
