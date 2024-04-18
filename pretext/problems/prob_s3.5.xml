@@ -1606,7 +1606,7 @@ As we saw in in Example<nbsp/><xref ref="eg_SRpsrepD"/>,
 
 <p>which is an alternating series when <m>x</m> is nonzero. If we use its partial sum <m>S_N</m> to approximate <m>\arctan x</m>, the absolute error involved is no more than
  <me>
-\frac{|x|^{2(N+1)+1}}{N(n+1)+1} =\frac{|x|^{2N+3}}{2N+3}</me>
+\frac{|x|^{2(N+1)+1}}{2(N+1)+1} =\frac{|x|^{2N+3}}{2N+3}</me>
 </p>
 
 <p> We want this error to be at most <m>10^{-6}</m> whenever <m>-\frac14 \lt  x  \lt \frac14</m>. For this range of <m>x</m> values,
