@@ -1316,7 +1316,7 @@ As we saw in in Example~\eref{CLP101}{eg:SRpsrepD}  of the CLP-2 text,
 \[\arctan x = \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}\]
 which is an alternating series when $x$ is nonzero. If we use its partial sum $S_N$ to approximate $\arctan x$, the absolute error involved is no more than
  \[\frac{|x|^{2(N+1)+1}}{2(N+1)+1} =\frac{|x|^{2N+3}}{2N+3}\]
- We want this error to be at most $10^{-6}$ whenever $-\frac14< x <\frac14$. For this range of $x$ values,
+ We want this error to be at most $10^{-5}$ whenever $-\frac14< x <\frac14$. For this range of $x$ values,
 $ \dfrac{|x|^{2N+3}}{2N+3}<\dfrac{1}{(2N+3)4^{2N+3}}$, so we want $N$ that satisfies the  inequality:
 \[
 \frac{1}{(2N+3)4^{2N+3}}\le \frac{1}{10^5}

@@ -1609,7 +1609,7 @@ As we saw in in Example<nbsp/><xref ref="eg_SRpsrepD"/>,
 \frac{|x|^{2(N+1)+1}}{2(N+1)+1} =\frac{|x|^{2N+3}}{2N+3}</me>
 </p>
 
-<p> We want this error to be at most <m>10^{-6}</m> whenever <m>-\frac14 \lt  x  \lt \frac14</m>. For this range of <m>x</m> values,
+<p> We want this error to be at most <m>10^{-5}</m> whenever <m>-\frac14 \lt  x  \lt \frac14</m>. For this range of <m>x</m> values,
 <m> \dfrac{|x|^{2N+3}}{2N+3} \lt \dfrac{1}{(2N+3)4^{2N+3}}</m>, so we want <m>N</m> that satisfies the  inequality:
 <me>
 \frac{1}{(2N+3)4^{2N+3}}\le \frac{1}{10^5}
