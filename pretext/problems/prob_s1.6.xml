@@ -1121,9 +1121,9 @@ In the first simplification step, we used the fact that our integrand was even, 
 
 <exercise purpose="RQS"><title><fromexam>2001D</fromexam></title>
 <statement><p>
-A frustrum of a right circular cone (as shown below) has
+A frustum of a right circular cone (as shown below) has
 height <m>h</m>. Its base is a circular disc with radius <m>4</m> and its top is
-a circular disc with radius <m>2</m>. Calculate the volume of the frustrum.
+a circular disc with radius <m>2</m>. Calculate the volume of the frustum.
 </p>
 <sidebyside width="33%">
 <image source="problems/figs/OE01D_4b"/>
@@ -1139,9 +1139,9 @@ See Example <xref ref="eg_VOLa"/>.
 </p></answer>
 
 <solution><p>
-Slice the frustrum into horizontal discs. When the disc is a distance
-<m>t</m> from the top of the frustrum it has radius <m>2+2t/h</m>. Note that as <m>t</m>
-runs from <m>0</m> (the top of the frustrum) to <m>t=h</m> (the bottom of the frustrum)
+Slice the frustum into horizontal discs. When the disc is a distance
+<m>t</m> from the top of the frustum it has radius <m>2+2t/h</m>. Note that as <m>t</m>
+runs from <m>0</m> (the top of the frustum) to <m>t=h</m> (the bottom of the frustum)
 the radius <m>2+2t/h</m> increases linearly from <m>2</m> to <m>4</m>.
 </p>
 <sidebyside width="40%">
@@ -1149,7 +1149,7 @@ the radius <m>2+2t/h</m> increases linearly from <m>2</m> to <m>4</m>.
 </sidebyside>
 <p>
 Thus the disk has volume <m>\pi \big(2+2t/h\big)^2 \dee{t}</m>. The total volume of the
-frustrum is
+frustum is
 <md>
 <mrow>
 \pi\int_0^h \big(2+2t/h\big)^2 \dee{t}
@@ -1162,7 +1162,7 @@ frustrum is
 </md>
 </p>
 
-<p>Remark: we could also solve this problem using the formula for the volume of a cone. Using similar triangles, the frustrum in question is shaped like a right circular cone of height <m>2h</m> and base radius 4 (and hence of volume <m>\dfrac{1}{3}\pi(4^2)(2h)</m>), but missing its top, which is a right circular cone of height <m>h</m> and base radius <m>2</m> (and hence volume <m>\dfrac{1}{3}\pi(2^2)h</m>). So, the volume of the frustrum is <me>\dfrac{1}{3}\pi(4^2)(2h) - \dfrac{1}{3}\pi(2^2)h = \dfrac{28}{3}\pi h</me>.
+<p>Remark: we could also solve this problem using the formula for the volume of a cone. Using similar triangles, the frustum in question is shaped like a right circular cone of height <m>2h</m> and base radius 4 (and hence of volume <m>\dfrac{1}{3}\pi(4^2)(2h)</m>), but missing its top, which is a right circular cone of height <m>h</m> and base radius <m>2</m> (and hence volume <m>\dfrac{1}{3}\pi(2^2)h</m>). So, the volume of the frustum is <me>\dfrac{1}{3}\pi(4^2)(2h) - \dfrac{1}{3}\pi(2^2)h = \dfrac{28}{3}\pi h</me>.
 </p></solution>
 </exercise>
 </exercisegroup>

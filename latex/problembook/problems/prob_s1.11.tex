@@ -769,7 +769,7 @@ where we used a calculator to approximate the decimal value.
 \begin{question}[1998A]
  The circumference of an 8 metre high tree at different heights
 above the ground is given in the table below. Assume that all horizontal
-cross--sections of the tree are circular disks.
+cross-sections of the tree are circular disks.
 
 \renewcommand{\arraystretch}{1.1}
 \begin{center}
@@ -805,7 +805,7 @@ $\dfrac{12.94}{6\pi}
 \begin{solution}
 At height $x$ metres, let the circumference of the tree be $c(x)$.
 The corresponding
-radius is $\dfrac{c(x)}{2\pi}$, so the corresponding cross--sectional area
+radius is $\dfrac{c(x)}{2\pi}$, so the corresponding cross-sectional area
 is $\pi\left(\dfrac{c(x)}{2\pi}\right)^2=\dfrac{c(x)^2}{4\pi}$.
 
 
@@ -823,7 +823,7 @@ is $\pi\left(\dfrac{c(x)}{2\pi}\right)^2=\dfrac{c(x)^2}{4\pi}$.
 \end{tikzpicture}
 \end{center}
 
-The height of a very thin cross--sectional  disk is $\dee{x}$, so the
+The height of a very thin cross-sectional  disk is $\dee{x}$, so the
 volume of a cross-sectional disk is $\dfrac{c(x)^2}{4\pi}~\dee{x}$.
 Therefore,
 total volume of the tree is:
@@ -1226,7 +1226,7 @@ Since $\dfrac{1}{x^5}$ is a decreasing function when $x>0$, look for its maximum
 
 \noindent
 (c) $\displaystyle\Big|I -S_4\Big|
-                \le \frac{24}{180\times 4^4}=\frac{3}{5760}$
+                \le \frac{24}{180\times 4^4}=\frac{1}{1920}$
 
 \end{answer}
 
@@ -1279,7 +1279,7 @@ So,
 We take $L=24$.
 \begin{align*}
 |\text{Error }|\le \frac{L(b-a)^5}{180\times n^4}
-\le \frac{24(2-1)^5}{180\times 4^4}=\frac{24}{180\times 4^4}=\frac{3}{5760}
+\le \frac{24(2-1)^5}{180\times 4^4}=\frac{24}{180\times 4^4}=\frac{1}{1920}
 \end{align*}
 
 
@@ -1410,7 +1410,7 @@ any  $n\ge 68$ works.
 
 \begin{question}[1996A]
  A swimming pool has the shape shown in the figure below.
-The vertical cross--sections of the pool are semi--circular disks. The
+The vertical cross-sections of the pool are semi-circular disks. The
 distances in feet across the pool are given in the figure at 2--foot intervals along
 the sixteen--foot length of the pool. Use Simpson's Rule to estimate the
 volume of the pool.
@@ -1463,7 +1463,7 @@ V&=\frac{\pi}{8}\int_0^{16}f(x)^2\,\dee{x}\cr
 
 \begin{Mquestion}[2002A,M121 2002A]
 A piece of wire 1m long with radius 1mm is made in such
-a way that the density varies in its cross--section, but is radially symmetric
+a way that the density varies in its cross-section, but is radially symmetric
 (that is, the local density $g(r)$ in ${\rm kg/m^3}$ depends only on the
 distance $r$ in mm from the centre of the wire). Take as given that the
 total mass $W$ of the wire in kg is given by
@@ -1913,7 +1913,7 @@ Which approximation should we use? We're given the fourth derivative of $\dfrac{
 Now that we've chosen Simpson's rule, we should decide how many intervals to use.
 In order to bound our error, we need to find a bound for the fourth derivative. To that end, define $N(x) = 24(5x^4-10x^2+1)$. Then $N'(x) = 24(20x^3-20x)= 480x(x^2-1)$, which is positive over the interval $[1,2]$. So, $N(x) \leq N(2)=24(5\cdot 2^4 - 10\cdot 2^2+1)=984$ when $1 \leq x \leq 2$. Furthermore, let $D(x)=(x^2+1)^5$. If  $1 \leq x \leq 2$, then $D(x) \geq 2^5$. Now we can find   a reasonable value of $L$:
 \begin{align*}
-|f^{(4)}(x)|&=\left|\frac{25(5x^4-10x^2+1)}{(x^2+1)^5}\right| =
+|f^{(4)}(x)|&=\left|\frac{24(5x^4-10x^2+1)}{(x^2+1)^5}\right| =
 \left|\frac{N(x)}{D(x)}\right| \leq \frac{984}{2^5} = \frac{123}{4} = 30.75
 \end{align*}
 So, we take $L=30.75$.

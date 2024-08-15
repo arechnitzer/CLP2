@@ -138,7 +138,7 @@ infinite radius of convergence.
 \begin{enumerate}[(a)]
 \item Suppose $f(x)=\displaystyle\sum_{n=0}^\infty \frac{n^2}{(n!+1)}(x-3)^n$ for all real $x$. What is $f^{(20)}(3)$ (the twentieth derivative of $f(x)$ at $x=3$)?
 \item Suppose $g(x)=\displaystyle\sum_{n=0}^\infty \frac{n^2}{(n!+1)}(x-3)^{2n}$ for all real $x$. What is $g^{(20)}(3)$?
-\item If $h(x)=\dfrac{\arctan(5x^2)}{x^4}$, what is $h^{(20)}(0)$? What is $h^{(22)}(0)$?
+\item If $h(x)=\dfrac{\arctan(5x^2)}{x^2}$, what is $h^{(20)}(0)$? What is $h^{(22)}(0)$?
 \end{enumerate}
 \end{Mquestion}
 \begin{hint}
@@ -147,7 +147,7 @@ See Example~\eref{CLP101}{eg:SRfindDeriv} in the CLP-2 text.
 \begin{answer}
 (a) $f^{(20)}(3)=20^2\left(\dfrac{20!}{20!+1}\right)$\qquad
 (b) $g^{(20)}(3)=10^2\left(\dfrac{20!}{10!+1}\right)$\\
-(c) $h^{(20)}(0)=0$;\quad $h^{(22)}(0)=\dfrac{22!\cdot 5^{13}}{13}$
+(c) $h^{(20)}(0)=-\dfrac{20!\cdot 5^{11}}{11}$;\quad $h^{(22)}(0)=0$
 \end{answer}
 \begin{solution}
 \begin{enumerate}[(a)]
@@ -169,22 +169,23 @@ So, the coefficient of $(x-3)^{20}$ is  $\frac{g^{(20)}(3)}{20!}$ (using the def
 \frac{g^{(20)}(3)}{20!}&=\frac{10^2}{10!+1}\\
 \Rightarrow \qquad g^{(20)}(3)&=10^2\left(\frac{20!}{10!+1}\right)\\
 \end{align*}
+
 \item
-With the previous two examples in mind, we find the Maclaurin series for $h(x).$ (Using the series representation will be much easier than differentiating $h(x)$ directly twenty times.) Recall from the text that we know the Maclaurin series for $\arctan x$.
+With the previous two examples in mind, we find the Maclaurin series for $h(x)$. (Using the series representation will be much easier than differentiating $h(x)$ directly twenty times.) Recall from the text that we know the Maclaurin series for $\arctan x$.
 \begin{align*}
 \arctan(x)&=\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}\\
-\arctan(5x^2)&=\sum_{n=0}^\infty (-1)^n\frac{(5x^2)^{2n+1}}{2n+1}
+\arctan(5x^2)&=\sum_{n=0}^\infty (-1)^n\frac{{(5x^2)}^{2n+1}}{2n+1}
 =\sum_{n=0}^\infty (-1)^n\frac{5^{2n+1}}{2n+1}x^{4n+2}\\
-\frac{\arctan(5x^2)}{x^4}&=\sum_{n=0}^\infty (-1)^n\frac{5^{2n+1}}{2n+1}x^{4n-2}\\
-\sum_{k=0}^\infty \frac{h^{(k)}(0)}{k!}x^k&=\sum_{n=0}^\infty (-1)^n\frac{5^{2n+1}}{2n+1}x^{4n-2}
+\frac{\arctan(5x^2)}{x^2}&=\sum_{n=0}^\infty (-1)^n\frac{5^{2n+1}}{2n+1}x^{4n}\\
+\sum_{k=0}^\infty \frac{h^{(k)}(0)}{k!}x^k&=\sum_{n=0}^\infty (-1)^n\frac{5^{2n+1}}{2n+1}x^{4n}
 \end{align*}
-Using the definition of a Maclaurin series, the coefficient of $x^{22}$ is $\dfrac{h^{(22)}(0)}{22!}$. This occurs in  the given series when $n=6$, so
+Using the definition of a Maclaurin series, the coefficient of $x^{20}$ is $\dfrac{h^{(20)}(0)}{20!}$. This occurs in the given series when $n=5$, so
 \begin{align*}
-\dfrac{h^{(22)}(0)}{22!}&=(-1)^6\frac{5^{2\times6+1}}{2\times6+1}=\frac{5^{13}}{13}\\
-\Rightarrow\qquad h^{(22)}(0)&=\frac{22!\cdot 5^{13}}{13}
+\dfrac{h^{(20)}(0)}{20!}&=(-1)^5\frac{5^{2\times5+1}}{2\times5+1}=-\frac{5^{11}}{11}\\
+\Rightarrow\qquad h^{(20)}(0)&=-\frac{20!\cdot 5^{11}}{11}
 \end{align*}
 
-Similarly, the coefficient of $x^{20}$ in the Maclaurin series is $\dfrac{h^{(20)(0)}}{20!}$. Since no term $x^{20}$ occurs in our series, that coefficient is 0, so $h^{(20)}(0)=0$.
+Similarly, the coefficient of $x^{22}$ in the Maclaurin series is $\dfrac{h^{(22)}(0)}{22!}$. Since no term $x^{22}$ occurs in our series, that coefficient is 0, so $h^{(22)}(0)=0$.
 \end{enumerate}
 
 \end{solution}
@@ -2486,10 +2487,10 @@ Since $f(x)$ is odd, $f(-x)=-f(x)$ for all $x$ in its domain. Consider the even-
 f(-x)&=-f(x)\\
 \sum_{n=0}^\infty\frac{f^{(n)}(0)}{n!}(-x)^n&=-\sum_{n=0}^\infty\frac{f^{(n)}(0)}{n!}x^n\\
 \textcolor{red}{\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{(2n+1)!}(-x)^{2n+1}}+
-\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}(-x)^{2n}}&=\textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{n!}x^{2n+1}}\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{n!}x^{2n}}\\
+\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}(-x)^{2n}}&=\textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{(2n+1)!}x^{2n+1}}\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}\\
 \textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{(2n+1)!}x^{2n+1}}+
-\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&=\textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{n!}x^{2n+1}}\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{n!}x^{2n}}\\
-\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&=\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{n!}x^{2n}}\\
+\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&=\textcolor{red}{-\sum_{n=0}^\infty\frac{f^{(2n+1)}(0)}{(2n+1)!}x^{2n+1}}\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}\\
+\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&=\textcolor{blue}{-\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}\\
 2\textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&=0\\
 \textcolor{blue}{\sum_{n=0}^\infty\frac{f^{(2n)}(0)}{(2n)!}x^{2n}}&=0
 \end{align*}

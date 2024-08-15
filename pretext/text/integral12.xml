@@ -155,10 +155,9 @@ When the limit(s) exist, the integral is said to be convergent. Otherwise it is 
 </definition>
 
 <p>
-We must also be able to treat an integral like <m>\int_0^1\frac{\dee{x}}{x}</m> that has a finite domain of integration but whose integrand is unbounded near one limit of integration
-	<fn>
+We must also be able to deal with an integral like <m>\int_0^1\frac{\dee{x}}{x}</m> that has a finite domain of integration, but whose integrand is unbounded near one limit of integration<fn>
 		This will, in turn, allow us to  deal with integrals whose integrand is unbounded somewhere inside the domain of  integration.
-	</fn>
+	</fn>.
 Our approach is similar <mdash/> we sneak up on the problem.  We compute the integral on a smaller domain, such as <m>\int_t^1\frac{\dee{x}}{x}</m>, with  <m>t \gt 0</m>, and then take the limit <m>t\rightarrow 0+</m>.
 </p>
 
@@ -771,7 +770,7 @@ Fortunately  it is usually possible to determine whether or not an improper inte
 
 <remark  xml:id="rmk_singularities">
 <p>
-For pedagogical purposes, we are going to concentrate on the problem of  determining whether or not an integral <m>\int_a^\infty f(x)\dee{x}</m> converges,  when <m>f(x)</m> has no singularities for <m>x\ge a</m>. Recall that the first step in  analyzing any improper integral is to write it as a sum of integrals each of has  only a single <q>source of impropriety</q> <mdash/> either a domain of integration that  extends to <m>+\infty</m>, or a domain of integration that extends to <m>-\infty</m>, or  an integrand which is singular at one end of the domain of integration. So we  are now going to consider only the first of these three possibilities. But the  techniques that we are about to see have obvious analogues for the other two  possibilities.
+For pedagogical purposes, we are going to concentrate on the problem of  determining whether or not an integral <m>\int_a^\infty f(x)\dee{x}</m> converges,  when <m>f(x)</m> has no singularities for <m>x\ge a</m>. Recall that the first step in  analyzing any improper integral is to write it as a sum of integrals each of has  only a single <q>source of impropriety</q> <mdash/> either a domain of integration that  extends to <m>+\infty</m>, or a domain of integration that extends to <m>-\infty</m>, or  an integrand which is singular at one end of the domain of integration. So we  are now going to consider only the first of these three possibilities. But the  techniques that we are about to see have obvious analogues for the other two  possibilities.  And, at the end of this section, we'll give the analogous tools that are appropriate for use with an integrand which is singular at one end of a finite domain of integration. 
 </p>
 </remark>
 
@@ -1062,22 +1061,22 @@ These considerations lead to the following variant of Theorem  <xref ref="thm_IM
 Let <m>-\infty \lt a \lt \infty</m>. Let <m>f</m> and <m>g</m> be functions that are defined and continuous for all <m>x\ge a</m> and assume that  <m>g(x)\ge 0</m> for all  <m>x\ge a</m>.
 <ol marker="a">
 <li>
-	If  <m>\int_a^\infty g(x)\dee{x}</m> converges and the limit
+	If  <m>\int_a^\infty g(x)\,\dee{x}</m> converges and the limit
 	<md>
 	<mrow>
 	\lim_{x\rightarrow\infty}\frac{f(x)}{g(x)}
 	</mrow>
 	</md>
-	exists, then <m>\int_a^\infty f(x)\dee{x}</m> converges.
+	exists, then <m>\int_a^\infty f(x)\,\dee{x}</m> converges.
 </li>
 <li>
-	If <m>\int_a^\infty g(x)\dee{x}</m>  diverges and the limit
+	If <m>\int_a^\infty g(x)\,\dee{x}</m>  diverges and the limit
 	<md>
 	<mrow>
 	\lim_{x\rightarrow\infty}\frac{f(x)}{g(x)}
 	</mrow>
 	</md>
-	exists and <alert>is nonzero</alert>, then <m>\int_a^\infty f(x)</m> diverges.
+	exists and <alert>is nonzero</alert>, then <m>\int_a^\infty f(x)\,\dee{x}</m> diverges.
 </li>
 </ol>
 Note that in (b) the limit must exist and be nonzero, while in (a) we only  require that the limit exists (it can be zero).
@@ -1146,6 +1145,71 @@ Does the integral <m>\ds \int_1^\infty\frac{x+\sin x}{e^{-x}+x^2}\dee{x}</m> con
 </ul>
 </p>
 </example>
+
+<p>
+We finish this section by giving variants of Theorems<nbsp/><xref ref="thm_IMPcomparison"/> 
+and <xref ref="thm_IMPcomparisonLim"/> that are useful in dealing with an integrand 
+that is singular at one end of a (finite) domain of integration. For
+the rest of this section, let <m>a\lt b</m> and let <m>[a,b]=\big\{x\,\big|\,a\le x\le b\big\}</m> be the domain
+of integration. We allow the integrand to be singular at one end, that we'll call <m>x_s</m>,
+of the domain of integration. So
+<ul>
+<li>
+if the integrand is singular at <m>x=a</m>, we set <m>x_s=a</m> and write 
+      <me>
+      I=(a,b]=\big\{x\,\big|\,a \lt x\le b\big\}
+      </me>
+      and
+</li><li> if the integrand is singular at <m>x=b</m> we set <m>x_s=b</m> and write 
+      <me>
+      I=[a,b)=\big\{x\,\big|\,a \le x\lt b\big\}
+      </me>
+</li>
+</ul>
+Recall that <q><m>x\in I</m></q> means <q><m>x</m> is an element of the set <m>I</m></q>. Here is the analogue
+of Theorem<nbsp/><xref ref="thm_IMPcomparison"/> 
+<theorem xml:id="thm_IMPcomparisonFinite"><title>Comparison</title>
+<statement><p>
+Let <m>f</m> and <m>g</m> be functions that are defined and continuous for all <m>x\in I</m> 
+and assume that  <m>g(x)\ge 0</m> for all  <m>x\in I</m>.
+<ol marker="a">
+<li> 
+If <m>|f(x)|\le g(x)</m> for all <m>x\in I</m> and if <m>\int_a^b g(x)\ \dee{x}</m>
+ converges then <m>\int_a^b f(x)\ \dee{x}</m> also converges.
+</li><li>
+If <m>f(x)\ge g(x)</m> for all <m>x\in I</m> and if <m>\int_a^b g(x)\ \dee{x}</m>
+ diverges then <m>\int_a^b f(x)\ \dee{x}</m> also diverges.
+</li>
+</ol>
+</p></statement>
+</theorem>
+and here is the analogue of Theorem<nbsp/><xref ref="thm_IMPcomparisonLim"/> 
+<theorem xml:id="thm_IMPcomparisonLimFinite"><title>Limiting comparison</title>
+<statement><p>
+Let <m>f</m> and <m>g</m> be functions that are defined
+and continuous for all <m>x\in I</m> and assume that  <m>g(x)\ge 0</m> for all
+<m>x\in I</m>.
+<ol marker="a">
+<li>
+If  <m>\int_a^b g(x)\ \dee{x}</m> converges and the limit
+<me>
+\lim_{x\rightarrow x_s\atop x\in I}\frac{f(x)}{g(x)}
+</me>
+exists, then <m>\int_a^b f(x)\ \dee{x}</m> converges.
+</li><li>
+If <m>\int_a^b g(x)\ \dee{x}</m>  diverges and the limit
+<me>
+\lim_{x\rightarrow x_s\atop x\in I}\frac{f(x)}{g(x)}
+</me>
+exists and <alert>is nonzero</alert>, then <m>\int_a^b f(x)\ \dee{x}</m> diverges.
+</li>
+</ol>
+Note that in (b) the limit must exist and be nonzero, while in (a) we only
+require that the limit exists. (It can be zero.)
+</p></statement>
+</theorem>
+</p>
+
 </subsection>
 
 

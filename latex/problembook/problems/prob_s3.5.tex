@@ -107,10 +107,10 @@ differentiate our function term-by-term.
 \begin{solution}
 	According to Theorem~\eref{CLP101}{thm:SRradiusofconvergence} in the CLP-2 text, because $f(x)$ diverges somewhere, and because it converges at a point other than its centre,  $f(x)$ has a positive radius of convergence $R$. That is, $f(x)$ converges whenever $|x-5|<R$, and it diverges whenever $|x-5|>R$.
 
-	If $R>6$, then $|11-5|<R$, so $f(x)$ converges at $x=11$; since we are told $f(x)$ \emph{diverges} at $x=11$, we see $R \le 6$.
+	Since we are told that the series \emph{diverges} at $x=11$, the statement $|11-5|<R$ must be false. That is, we must have $R\le |11-5|=6$.
 
-	If $R<6$, then $|-1-5|>R$, so $f(x)$ diverges at $x=-1$; since we are told $f(x)$ \emph{converges} at $x=-1$, we see $R \ge 6$.
-
+	Since we are told that the series \emph{converges} at $x=-1$, the statement $|-1-5|>R$ must be false. That is, we must have $R\ge |-1-5|=6$.
+	
 	Therefore, $R=6$.
 \end{solution}
 
@@ -153,7 +153,7 @@ CLP-2 text.
 \end{answer}
 
 \begin{solution} (a)
-We apply the ratio test for the series whose $k^{\rm th}$
+We give two solutions. For the first solution, we apply the ratio test for the series whose $k^{\rm th}$
 term is $a_k= (-1)^k 2^{k+1} x^k$. Then
 \begin{align*}
 \lim_{k\to\infty} \bigg| \frac{ a_{k+1} }{ a_k } \bigg|
@@ -166,7 +166,7 @@ obeying $|2x|<1$, i.e. $|x|<\frac{1}{2}$, and diverges for all $x$
 obeying $|2x|>1$, i.e. $|x|>\frac{1}{2}$.
 So the radius of convergence is $R = \frac{1}{2}$.
 
-Alternatively, one can set $A_k = (-1)^k 2^{k+1}$ and compute
+For the second solution we apply (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. To do so, we set $A_k = (-1)^k 2^{k+1}$ and compute
 \begin{equation*}
 A = \lim_{k\to\infty} \bigg| \frac{A_{k+1}}{A_k}\bigg|
   = \lim_{k\to\infty} \bigg| \frac{(-1)^{k+1} 2^{k+2}}{(-1)^k 2^{k+1}}\bigg|
@@ -208,7 +208,7 @@ $R = \infty$
 \end{answer}
 
 \begin{solution}
-We apply the ratio test for the series whose $k^{\rm th}$
+We give two solutions. For the first solution, we apply the ratio test for the series whose $k^{\rm th}$
 term is $a_k= \frac{x^k}{ 10^{k+1}(k+1)! }$. Then
 \begin{align*}
 \lim_{k\to\infty} \bigg| \frac{ a_{k+1} }{ a_k } \bigg|
@@ -221,9 +221,14 @@ for all $x$.
 Therefore, by the ratio test, the series converges for all $x$
 and the radius of convergence is $R = \infty$.
 
-Alternatively, one can set $A_k = \dfrac{1}{10^{k+1}(k+1)!}$ and compute
-$A = \displaystyle\lim_{k\to\infty} \left| \frac{A_{k+1}}{A_k}\right| = 0$, so that
-$R$ is again $+\infty$.
+For the second solution we apply (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. To do so, we set 
+$A_k = \dfrac{1}{10^{k+1}(k+1)!}$ and compute 
+\begin{align*}
+A = \lim_{k\to\infty} \left| \frac{A_{k+1}}{A_k}\right| 
+  =\lim_{k\to\infty} \left|\frac{10^{k+1}}{10^{k+2}}\right|\cdot\left|\frac{(k+1)!}{(k+2)!}\right|
+  = 0
+\end{align*}
+So, by the bullet just after (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text, $R$ is again $+\infty$.
 
 
 \end{solution}
@@ -247,8 +252,7 @@ $1$
 \end{answer}
 
 \begin{solution}
-We apply the ratio test with $a_n = \frac{(x - 2)^n}{n^2+1}$.
-
+We give two solutions. For the first solution, we apply the ratio test with $a_n = \frac{(x - 2)^n}{n^2+1}$.
 \begin{align*}
 \lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
 &=\lim_{n\rightarrow\infty}\bigg|\frac{(x-2)^{n+1}}{(n+1)^2+1}\cdot
@@ -261,6 +265,16 @@ We apply the ratio test with $a_n = \frac{(x - 2)^n}{n^2+1}$.
 \end{align*}
 So, the series converges if $|x-2|<1$ and diverges if $|x-2|>1$.
 That is, the radius of convergence is 1.
+
+For the second solution we apply (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. To do so, we set 
+$A_n = \frac{1}{n^2+1}$ and compute
+\begin{equation*}
+A = \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg|
+  = \lim_{n\to\infty}  \frac{n^2+1}{(n+1)^2+1}
+  = \lim_{n\to\infty} \frac{1+1/n^2}{(1+1/n)^2+1/n^2}
+  =1
+\end{equation*}
+so that $R=\frac{1}{A}=1$, again.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 
@@ -284,16 +298,19 @@ is $-1<x+2\le 1$ or $(-3,-1]$.
 \end{answer}
 
 \begin{solution}
-We apply the ratio test for the series whose $n^{\rm th}$
-term is $a_n=\dfrac{(-1)^n(x+2)^n}{\sqrt{n}}$. Then
+We will first find the radius of convergence $R$ of the given series. Once we have found $R$, we will know 
+that the series converges for $|x+2|<R$ and diverges for $|x+2|>R$. Then we will determine what 
+happens at the two end points, $x+2=R$ and $x+2=-R$, of the interval.
+
+To determine the radius of convergence, we apply (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. To do so, we set $A_n= \frac{(-1)^n}{\sqrt{n}}$ and compute
 \begin{align*}
-\lim_{n\rightarrow\infty}\bigg|\frac{a_{n+1}}{a_n}\bigg|
-&=\lim_{n\rightarrow\infty} \bigg|\frac{(x+2)^{n+1}}{\sqrt{n+1}}
-                                  \ \frac{\sqrt{n}}{(x+2)^n}\bigg| \\
-&=\lim_{n\rightarrow\infty} |x+2|\ \frac{\sqrt{n}}{\sqrt{n+1}} \\
-&=\lim_{n\rightarrow\infty} |x+2|\ \frac{1}{\sqrt{1+1/n}} \\
-&=|x+2|
+A = \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg|
+&=\lim_{n\rightarrow\infty} \frac{\sqrt{n}}{\sqrt{n+1}} \\
+&=\lim_{n\rightarrow\infty} \frac{1}{\sqrt{1+1/n}} \\
+&=1
 \end{align*}
+so that $R=\frac{1}{A}=1$.
+ 
 So the series must converge when $|x+2|<1$ and must diverge when $|x+2|>1$.
 When $x+2=1$, the series reduces to
 \begin{align*}
@@ -324,12 +341,18 @@ CLP-2 text.
 \end{hint}
 
 \begin{answer}
+The radius of convergence is $3$.
 The interval of convergence is $-4<x\le2$, or simply $(-4,2]$.
 \end{answer}
 
 \begin{solution}
-We apply the ratio test for the series whose $n^{\rm th}$
-term is $a_n= \frac{(-1)^n}{n+1} \left(\frac{x+1}{3}\right)^n$.
+We will first find the radius of convergence $R$ of the given series. Once we have found $R$, we will know 
+that the series converges for $|x+1|<R$ and diverges for $|x+1|>R$. Then we will determine what 
+happens at the two end points, $x+1=R$ and $x+1=-R$, of the interval.
+
+We could determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}), from the CLP-2 text,
+with  $A_n = \frac{(-1)^n}{(n+1)3^n}$. As an alternate method, we apply the ratio test for the series 
+whose $n^{\rm th}$ term is $a_n= \frac{(-1)^n}{n+1} \left(\frac{x+1}{3}\right)^n$.
 \begin{align*}
 \lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
 &= \lim_{n\to\infty} \bigg| \frac{ \frac{(-1)^{n+1}}{n+2} \left(\frac{x+1}{3}\right)^{n+1}}
@@ -342,9 +365,7 @@ and diverges when $\frac{|x+1|}3 > 1$. In particular, it converges when
 \begin{align*}
 |x+1| < 3 \iff -3 < x+1 < 3 \iff -4 < x < 2
 \end{align*}
-and the radius of convergence is $R = 3$. (Alternatively, one can set $A_n = \frac{(-1)^n}{(n+1)3^n}$ and compute
-$A = \lim_{n\to\infty} \big| \frac{A_{n+1}}{A_n}\big| = \frac{1}{3}$, so that
-$R=\frac{1}{A}=3$.)
+and the radius of convergence is $R = 3$. 
 
 Next, we consider the endpoints $2$ and $-4$.
 At $x=2$, i.e. $x+1=3$, the series is simply $\sum_{n=0}^\infty \frac{(-1)^{n}}{n+1}$,
@@ -380,18 +401,20 @@ In summary, the interval of convergence is $-4<x\le2$, or simply $(-4,2]$.
 \end{answer}
 
 \begin{solution}
-We first apply the ratio test with $a_n = \frac{(x-2)^n}{n^{4/5}(5^n-4)}$.
+We will first find the radius of convergence $R$ of the given series. Once we have found $R$, we will know 
+that the series converges for $|x-2|<R$ and diverges for $|x-2|>R$. Then we will determine what 
+happens at the two end points, $x-2=R$ and $x-2=-R$, of the interval.
 
+To determine the radius of convergence, we apply (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. To do so, 
+we set $A_n= \frac{1}{n^{4/5}(5^n-4)}$ and compute
 \begin{align*}
-\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
-&=\lim_{n\rightarrow\infty}\bigg|\frac{(x-2)^{n+1}}{(n+1)^{4/5}(5^{n+1}-4)}\cdot
-                               \frac{n^{4/5}(5^n-4)}{(x-2)^n}\bigg|\\
-&=\lim_{n\rightarrow\infty}\frac{n^{4/5}(5^n-4)}{(n+1)^{4/5}(5^{n+1}-4)}
-                               |x-2|\\
-&=\lim_{n\rightarrow\infty}\frac{(1-4/5^n)}{(1+1/n)^{4/5}(5-4/5^n)}
-                               |x-2|\\
-&=\frac{|x-2|}{5}
+A & \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg| \\
+&=\lim_{n\rightarrow\infty}\frac{n^{4/5}(5^n-4)}{(n+1)^{4/5}(5^{n+1}-4)} \\
+&=\lim_{n\rightarrow\infty}\frac{(1-4/5^n)}{(1+1/n)^{4/5}(5-4/5^n)} \\
+&=\frac{1}{5}
 \end{align*}
+so that $R=\frac{1}{A}=5$.
+
 Therefore the series converges if $|x-2|<5$ and diverges if $|x-2|>5$.
 When $x-2=+5$, i.e. $x=7$, the series reduces to
 $\sum\limits_{n=1}^\infty \frac{5^n}{n^{4/5}(5^n-4)}
@@ -420,17 +443,15 @@ Equivalently, the series has interval of convergence $[-3,-1]$.
 \end{answer}
 
 \begin{solution}
-We apply the ratio test with $a_n=\frac{(x+2)^n}{n^2}$.
-Since
-\begin{equation*}
-\lim_{n\rightarrow\infty}\Big|\frac{a_{n+1}}{a_n}\Big|
-=\lim_{n\rightarrow\infty}\Bigg|\frac{\frac{(x+2)^{n+1}}{(n+1)^2}}
-                                       {\frac{(x+2)^n}{n^2}}\Bigg|
-=\lim_{n\rightarrow\infty}\frac{n^2}{{(n+1)}^2}|x+2|
-=\lim_{n\rightarrow\infty}\frac{1}{{(1+1/n)}^2}|x+2|
-=|x+2|
-\end{equation*}
-we have convergence for
+We determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. To do so, 
+we set $A_n= \frac{1}{n^2}$ and compute
+\begin{align*}
+A &= \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg| \\
+&=\lim_{n\rightarrow\infty}\frac{n^2}{{(n+1)}^2}  \\
+&=\lim_{n\rightarrow\infty}\frac{1}{{(1+1/n)}^2} \\
+&=1
+\end{align*}
+So we have convergence for
 \begin{equation*}
 |x+2|<1
 \iff -1<x+2<1
@@ -445,20 +466,30 @@ So the given series converges if and only if  $-3\le x\le -1$.
 %%%%%%%%%%%%%%%%%%%
 
 \begin{question}[2016Q6]
-Find the interval of convergence for $\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(x-1)^n$.
+Find the interval of convergence for the following series.
+\begin{enumerate}[(a)]
+\item
+$\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(x-1)^n$.
+\item
+$\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(2x+1)^n$.
+\item
+$\displaystyle \sum_{n=1}^\infty \frac{4^n}{n}(2x+1)^{2n}$.
+\end{enumerate}
 \end{question}
 
 %\begin{hint}
 %\end{hint}
 
 \begin{answer}
-The interval of convergence  is $\frac{3}{4}\le x<\frac{5}{4}$,
-or $\big[\frac{3}{4},\frac{5}{4}\big)$.
+(a) $\frac{3}{4}\le x<\frac{5}{4}$ or $\big[\frac{3}{4},\frac{5}{4}\big)$\qquad
+(b) $-\frac{5}{8}\le x<-\frac{3}{8}$ or $\big[-\frac{5}{8},-\frac{3}{8}\big)$\qquad
+(c) $-\frac{3}{4}< x<-\frac{1}{4}$, or $\big(-\frac{3}{4},-\frac{1}{4}\big)$
 \end{answer}
 
-\begin{solution}
-We apply the ratio test with $a_n= \frac{4^n}{n}(x-1)^n$.
-Since
+\begin{solution} (a)
+We could determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}), from the CLP-2 text,
+with  $A_n = \frac{4^n}{n}$. As an alternate method, we apply the ratio test for the series 
+whose $n^{\rm th}$ term is $a_n= \frac{4^n}{n}(x-1)^n$. Since
 \begin{align*}
 \lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
 &= \lim_{n\to\infty} \bigg| \frac{4^{n+1}(x-1)^{n+1}/(n+1)}{4^n(x-1)^n/n} \bigg| \\
@@ -485,6 +516,69 @@ is the divergent harmonic series. At the left endpoint $x=\frac{3}{4}$,
 converges by the alternating series test. Therefore the interval of convergence of the
 original series is $\frac{3}{4}\le x<\frac{5}{4}$, or $\big[\frac{3}{4},\frac{5}{4}\big)$.
 
+\noindent (b)
+We could determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}), from the CLP-2 text.
+But to do so,  we would first have to rewrite the series as 
+$\sum_{n=1}^\infty \frac{8^n}{n}\big(x+\frac{1}{2}\big)^n$ to get the $n^{\rm th}$ term into the form 
+$A_n (x-c)^n$ required by (\eref{CLP101}{eq:SRradConv}). Instead, we use the alternate
+method that consists of applying the ratio test with $a_n= \frac{4^n}{n}(2x+1)^n$.
+Repeating the computation of part (a), just with $x-1$ replaced by $2x+1$, 
+\begin{align*}
+\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
+&= \lim_{n\to\infty} \bigg| \frac{4^{n+1}(2x+1)^{n+1}/(n+1)}{4^n(2x+1)^n/n} \bigg| \\
+&= 4|2x+1| \lim_{n\to\infty} \frac{n}{n+1} = 4|2x+1|\cdot1.
+\end{align*}
+So the series converges if
+\begin{align*}
+4|2x+1|<1
+&\iff -1<4(2x+1)<1 \\
+&\iff -\frac{1}{4}<2x+1<\frac{1}{4} \\
+&\iff -\frac{5}{4}<2x<-\frac{3}{4} \\
+&\iff -\frac{5}{8}<x<-\frac{3}{8}
+\end{align*}
+and diverges if $4|2x+1|>1$.
+At the right endpoint $x=-\frac{3}{8}$, the series becomes
+\begin{align*}
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( -\frac{3}{4}+1 \bigg)^n
+= \sum_{n=1}^\infty \frac{1}{n}
+\end{align*}
+which is the divergent harmonic series. At the left endpoint $x=-\frac{5}{8}$,
+\begin{align*}
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( -\frac54+1 \bigg)^n = \sum_{n=1}^\infty \frac{(-1)^n}{n}
+\end{align*}
+converges by the alternating series test. Therefore the interval of convergence of the
+original series is $-\frac{5}{8}\le x<-\frac{3}{8}$, or $\big[-\frac{5}{8},-\frac{3}{8}\big)$.
+
+\noindent (c)
+This time we cannot determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}), from the 
+CLP-2 text, because the $n^{\rm th}$ term is not in the form $A_n (x-c)^n$ required by 
+(\eref{CLP101}{eq:SRradConv}). But we may still apply the ratio test with $a_n= \frac{4^n}{n}(2x+1)^{2n}$.
+Repeating the computation of part (a), just with $x-1$ replaced by $(2x+1)^2$, 
+\begin{align*}
+\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
+&= \lim_{n\to\infty} \bigg| \frac{4^{n+1}(2x+1)^{2(n+1)}/(n+1)}{4^n(2x+1)^{2n}/n} \bigg| \\
+&= 4|2x+1|^2 \lim_{n\to\infty} \frac{n}{n+1} = 4|2x+1|^2\cdot1.
+\end{align*}
+So the series converges if
+\begin{align*}
+4|2x+1|^2<1
+&\iff -1<2(2x+1)<1 \\
+&\iff -\frac{1}{2}<2x+1<\frac{1}{2} \\
+&\iff -\frac{3}{2}<2x<-\frac{1}{2} \\
+&\iff -\frac{3}{4}<x<-\frac{1}{4}
+\end{align*}
+and diverges if $4|2x+1|^2>1$.
+At the right endpoint $x=-\frac{1}{4}$, the series becomes
+\begin{align*}
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( -\frac{1}{2}+1 \bigg)^{2n}
+= \sum_{n=1}^\infty \frac{1}{n}
+\end{align*}
+which is the divergent harmonic series. At the left endpoint $x=-\frac{3}{4}$,
+\begin{align*}
+\sum_{n=1}^\infty \frac{4^n}{n}\bigg( -\frac32+1 \bigg)^{2n} = \sum_{n=1}^\infty \frac{1}{n}
+\end{align*}
+which is again the divergent harmonic series. Therefore the interval of convergence of the
+original series is $-\frac{3}{4}< x<-\frac{1}{4}$, or $\big(-\frac{3}{4},-\frac{1}{4}\big)$.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%
 
@@ -507,31 +601,29 @@ or $\big(-1,3\big]$.
 \end{answer}
 
 \begin{solution}
-We apply the ratio test with $a_n= (-1)^n\frac{(x-1)^n}{2^n(n+2)}$.
-Since
+We determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}) in the CLP-2 text. 
+To do so, we set $A_n= \frac{(-1)^n}{2^n(n+2)}$ and compute
 \begin{align*}
-\lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
-&= \lim_{n\to\infty} \bigg| \frac{(x-1)^{n+1}}{2^{n+1}(n+3)}\
-                            \frac{2^n(n+2)}{(x-1)^n} \bigg| \\
-&= \lim_{n\to\infty} \frac{|x-1|}{2} \frac{n+2}{n+3} \\
-&= \frac{|x-1|}{2} \lim_{n\to\infty} \frac{1+2/n}{1+3/n} = \frac{|x-1|}{2}
+A &= \lim_{n\to\infty} \bigg| \frac{A_{n+1}}{A_n}\bigg| \\
+&= \lim_{n\to\infty}  \frac{2^n(n+2)}{2^{n+1}(n+3)}  \\
+&= \lim_{n\to\infty} \frac{1}{2}\ \frac{n+2}{n+3} \\
+&= \frac{1}{2} \lim_{n\to\infty} \frac{1+2/n}{1+3/n} = \frac{1}{2}
 \end{align*}
+So the radius of convergence is $R=\frac{1}{A}=2$ and
 the series converges if
 \begin{align*}
-\frac{|x-1|}{2}<1
-&\iff |x-1|<2
+|x-1|<2
 \iff -2<(x-1)<2
 \iff -1<x<3
 \end{align*}
-and diverges if $|x-1|>2$. So the series has radius of convergence $2$.
-Checking the left endpoint $x=-1$, so that $\frac{x-1}{2}=-1$,
-we see that
+and diverges if $|x-1|>2$. 
+Checking the left endpoint $x=-1$, we see that
 \begin{align*}
 \sum_{n=0}^\infty (-1)^n\frac{(-1-1)^n}{2^n(n+2)}
 = \sum_{n=0}^\infty \frac{1}{n+2}
 \end{align*}
 is the divergent harmonic series. At the right endpoint $x=3$,
-so that $\frac{x-1}{2}=+1$ and
+so that 
 \begin{align*}
 \sum_{n=0}^\infty (-1)^n\frac{(3-1)^n}{2^n(n+2)}
 = \sum_{n=0}^\infty \frac{(-1)^n}{n+2}
@@ -558,7 +650,9 @@ or $\big(a-1,a+1\big)$.
 \end{answer}
 
 \begin{solution}
-We apply the ratio test with $a_n= (-1)^n n^2(x-a)^{2n}$.
+We cannot determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}), from the 
+CLP-2 text, because the $n^{\rm th}$ term is not in the form $A_n (x-c)^n$ required by 
+(\eref{CLP101}{eq:SRradConv}). But we may still apply the ratio test with $a_n= (-1)^n n^2(x-a)^{2n}$.
 Since
 \begin{align*}
 \lim_{n\to\infty} \bigg| \frac{a_{n+1}}{a_n} \bigg|
@@ -616,10 +710,12 @@ $\ {\displaystyle \sum_{k=1}^\infty \Big(\frac{a_k}{a_{k+1}}
 \end{answer}
 
 \begin{solution} (a)
-We apply the ratio test for the series whose $k^{\rm th}$
-term is $A_k=\frac{(x+1)^k}{k^2 9^k}$. Then
+We could determine the radius of convergence by applying (\eref{CLP101}{eq:SRradConv}), 
+from the CLP-2 text, with  $A_n = \frac{1}{n^2 9^n}$. As an alternate method, 
+we apply the ratio test for the series whose $k^{\rm th}$
+term is $a_k=\frac{(x+1)^k}{k^2 9^k}$. Then
 \begin{align*}
-\lim_{k\rightarrow\infty}\bigg|\frac{A_{k+1}}{A_k}\bigg|
+\lim_{k\rightarrow\infty}\bigg|\frac{a_{k+1}}{a_k}\bigg|
 &=\lim_{k\rightarrow\infty} \bigg|\frac{(x+1)^{k+1}}{(k+1)^2 9^{k+1}}
                                   \ \frac{k^2 9^k}{(x+1)^k}\bigg| \\
 &=\lim_{k\rightarrow\infty} |x+1|\ \frac{1}{9}\ \frac{k^2}{(k+1)^2} \\
@@ -633,7 +729,7 @@ When $x+1=\pm 9$, the series reduces to
 =\sum_{k=1}^\infty \frac{(\pm 1)^k}{k^2}
 \end{align*}
 which converges (since, by the $p$--test, $\sum_{k=1}^\infty\frac{1}{k^p}$ converges for
-any $p>1$). So the interval of covnergence is $|x+1|\le 9$
+any $p>1$). So the interval of convergence is $|x+1|\le 9$
 or $-10\le x\le 8$  or $[-10,8]$.
 
 
@@ -762,9 +858,14 @@ for $x=-9$ and diverges otherwise.
 \end{answer}
 
 \begin{solution}
-We apply the ratio test for the series whose $n^{\rm th}$
-term is either $a_n=\frac{x^n}{3^{2n}\log n}$
-or $a_n=\big|\frac{x^n}{3^{2n}\log n}\big|$. For both series
+We'll start by applying the ratio test twice,
+\begin{itemize}
+\item
+once for the series whose $n^{\rm th}$ term is $a_n=\frac{x^n}{3^{2n}\log n}$, and
+\item
+once for the series whose $n^{\rm th}$ term is $a_n=\big|\frac{x^n}{3^{2n}\log n}\big|$. 
+\end{itemize}
+For both series, i.e. for both $a_n$'s,
 \begin{align*}
 \lim_{n\to\infty} \bigg| \frac{ a_{n+1} }{ a_n } \bigg|
 &= \lim_{n\to\infty} \bigg| \frac{x^{n+1}}{3^{2(n+1)}\log(n+1)} \
@@ -774,8 +875,9 @@ or $a_n=\big|\frac{x^n}{3^{2n}\log n}\big|$. For both series
 &=\lim_{n\to\infty} \bigg| \frac{x}{3^2[1+\log(1+1/n)/\log(n)]} \bigg| \\
 &=\frac{|x|}{9}
 \end{align*}
-Therefore, by the ratio test, our series converges absolutely when
-$|x|<9$ and diverges when $|x|>9$.
+Therefore, by the ratio test, when $|x|<9$, the series $\sum_{n=2}^\infty  \big|\frac{x^n}{3^{2n}\log n}\big|$
+converges and the series $\sum_{n=2}^\infty \frac{x^n}{3^{2n}\log n}$ converges absolutely, and when
+$|x|> 9$ the series $\sum_{n=2}^\infty \frac{x^n}{3^{2n}\log n}$ diverges. That just leaves $x=\pm 9$.
 
 For $x=-9$, $\displaystyle\sum_{n=2}^\infty\frac{x^n}{3^{2n}\log n}
 =\sum_{n=2}^\infty\frac{(-1)^n}{\log n}$ which converges by
@@ -1091,7 +1193,7 @@ Remark: we can check that this makes some sense. Since the weights to the right 
 
 
 \begin{question}
-	Let $f(x)=\displaystyle\sum_{n=0}^{\infty}A_n(x-c)^n$, for some constant $c$ and a sequence of constants $\{A_n\}$. Further, let $f(x)$ have a positive radius of covergence.
+	Let $f(x)=\displaystyle\sum_{n=0}^{\infty}A_n(x-c)^n$, for some constant $c$ and a sequence of constants $\{A_n\}$. Further, let $f(x)$ have a positive radius of convergence.
 
 	If $A_1=0$, show that $y=f(x)$ has a critical point at $x=c$. What is the relationship between the behaviour of the graph at that point and the value of $A_2$?
 \end{question}
@@ -1213,8 +1315,8 @@ $x-\dfrac{x^3}{3}+\dfrac{x^5}{5}$
 As we saw in in Example~\eref{CLP101}{eg:SRpsrepD}  of the CLP-2 text,
 \[\arctan x = \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{2n+1}\]
 which is an alternating series when $x$ is nonzero. If we use its partial sum $S_N$ to approximate $\arctan x$, the absolute error involved is no more than
- \[\frac{|x|^{2(N+1)+1}}{N(n+1)+1} =\frac{|x|^{2N+3}}{2N+3}\]
- We want this error to be at most $10^{-6}$ whenever $-\frac14< x <\frac14$. For this range of $x$ values,
+ \[\frac{|x|^{2(N+1)+1}}{2(N+1)+1} =\frac{|x|^{2N+3}}{2N+3}\]
+ We want this error to be at most $10^{-5}$ whenever $-\frac14< x <\frac14$. For this range of $x$ values,
 $ \dfrac{|x|^{2N+3}}{2N+3}<\dfrac{1}{(2N+3)4^{2N+3}}$, so we want $N$ that satisfies the  inequality:
 \[
 \frac{1}{(2N+3)4^{2N+3}}\le \frac{1}{10^5}

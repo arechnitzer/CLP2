@@ -40,7 +40,7 @@ such as is shown in the figure above. We'll follow this route by starting with
 a motivating example.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{A Motivating Example}
+\subsection{A Motivating Example}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Let us find the area under the curve $y=e^x$ (and above the $x$--axis)
@@ -828,7 +828,7 @@ $n$ and the $(n+1)^2$ of row $n$. So
 \end{align*}
 Finally, just divide across by $2$.
 
-\noindent \emph{Alternate proof 3:} uses the generating functional
+\noindent \emph{Alternate proof 3:} uses the generating function
 \begin{align}\label{eq:INTpowergenfnlexp}
 e^{x}+e^{2x}+e^{3x}+\cdots+e^{nx}&=e^{x}\left(1+e^{x}+e^{2x}+e^{3x}+\cdots+e^{(n-1)x}
 \right)
@@ -868,7 +868,7 @@ which is exactly the sum that we are trying to evaluate. So, by \eqref{eq:INTpow
 
 \item The derivation of the fourth and fifth sums is similar to, but
 even more tedious than, that of the third sum. One takes two or three
-derivatives of the generating functional.
+derivatives of the generating function.
 
 \intremark{%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 When we differentiate the
@@ -1450,7 +1450,7 @@ So the net change in $x$--coordinate from time $a$ to time $b$ is approximately
 +v\Big(a+(n-1)\frac{b-a}{n}\Big)\,\frac{b-a}{n} \\
 &= \sum_{i=1}^n v\Big(a+(i-1)\frac{b-a}{n}\Big)\,\frac{b-a}{n}
 \end{align*}
-This exactly the left Riemann sum approximation to the integral of $v$
+This is exactly the left Riemann sum approximation to the integral of $v$
 from $a$ to $b$ with $n$ subintervals. The limit as $n\rightarrow\infty$
 is exactly the definite integral $\int_a^b v(t)\dee{t}$. Following tradition,
 we have called the (dummy) integration variable $t$ rather than $x$ to
@@ -2031,7 +2031,8 @@ these restrictions and also make the proof more formal, but it becomes quite
 tedious and
 less intuitive.
 \end{itemize}
-\begin{comment}
+\end{proof}
+\begin{remark}
 For notational simplicity, let's assume that $a\le c\le b$ and $f(x)\ge 0$
 for all $a\le x\le b$.
 The geometric interpretations of the identities
@@ -2051,65 +2052,15 @@ and
 +\text{Area}\big\{\ (x,y)\ \big|\ c\le x\le b,\ 0\le y\le f(x)\ \big\}
 \end{align*}
 respectively. Both of these geometric statements
-are intuitively obvious. See the figures below. We won't give a formal proof.
+are intuitively obvious. See the figures below.
 \begin{wfig}
 \begin{center}
   \includegraphics{areaAA}\qquad\qquad
   \raisebox{-0.05\height}{\includegraphics{areaABC}}
 \end{center}
 \end{wfig}
+\end{remark}
 
-So we concentrate on the formula $\int_b^a f(x)\dee{x}= -\int_a^b f(x)\dee{x}$.
-The midpoint Riemann sum approximation to $\int_a^b f(x)\dee{x}$ with
-$4$ subintervals (so that each subinterval has width $\frac{b-a}{4}$)
-is
-\begin{align}\label{eq:INTflipL}
-&\Big\{f\Big(a+\frac{1}{2}\frac{b-a}{4}\Big)
-      +f\Big(a+\frac{3}{2}\frac{b-a}{4}\Big)
-      +f\Big(a+\frac{5}{2}\frac{b-a}{4}\Big)
-   +f\Big(a+\frac{7}{2}\frac{b-a}{4}\Big)\Big\}\ \frac{b-a}{4}\notag\\[0.05in]
-&=\Big\{f\Big(\frac{7}{8}a+\frac{1}{8}b\Big)
-   +f\Big(\frac{5}{8}a+\frac{3}{8}b\Big)
-   +f\Big(\frac{3}{8}a+\frac{5}{8}b\Big)
-   +f\Big(\frac{1}{8}a+\frac{7}{8}b\Big)\Big\}\ \frac{b-a}{4}
-\end{align}
-We're now going to write out the midpoint Riemann sum approximation to
-$\int_b^a f(x)\dee{x}$ with $4$ subintervals. Note that $b$ is now the lower
-limit on the integral and $a$ is now the upper limit on the integral. This
-is likely to cause confusion when we write out the Riemann sum,
-so we'll temporarily rename $b$ to $A$ and $a$ to $B$.
-The midpoint Riemann sum approximation to $\int_A^B f(x)\dee{x}$ with
-$4$ subintervals is
-\begin{align*}
-&\Big\{f\Big(A+\frac{1}{2}\frac{B-A}{4}\Big)
-      +f\Big(A+\frac{3}{2}\frac{B-A}{4}\Big)
-      +f\Big(A+\frac{5}{2}\frac{B-A}{4}\Big)
-   +f\Big(A+\frac{7}{2}\frac{B-A}{4}\Big)\Big\}\ \frac{B-A}{4}\\[0.05in]
-&=\Big\{f\Big(\frac{7}{8}A+\frac{1}{8}B\Big)
-   +f\Big(\frac{5}{8}A+\frac{3}{8}B\Big)
-   +f\Big(\frac{3}{8}A+\frac{5}{8}B\Big)
-   +f\Big(\frac{1}{8}A+\frac{7}{8}B\Big)\Big\}\ \frac{B-A}{4}
-\end{align*}
-Now recalling that $A=b$ and $B=a$, we have that the midpoint Riemann
-sum approximation to $\int_b^a f(x)\dee{x}$ with  $4$ subintervals is
-\begin{align}\label{eq:INTflipR}
-\Big\{f\Big(\frac{7}{8}b+\frac{1}{8}a\Big)
-   +f\Big(\frac{5}{8}b+\frac{3}{8}a\Big)
-   +f\Big(\frac{3}{8}b+\frac{5}{8}a\Big)
-   +f\Big(\frac{1}{8}b+\frac{7}{8}a\Big)\Big\}\ \frac{a-b}{4}
-\end{align}
-The curly brackets in \eqref{eq:INTflipL} and \eqref{eq:INTflipR}
-are equal to each other --- the terms are just in the reverse order.
-The factors multiplying the curly brackets in \eqref{eq:INTflipL} and
-\eqref{eq:INTflipR}, namely $\frac{b-a}{4}$ and $\frac{a-b}{4}$,
-are negatives of each other, so  \eqref{eq:INTflipR}$=-$\eqref{eq:INTflipL}.
-The same computation
-with $n$ subintervals shows that the midpoint Riemann sum approximations to
-$\int_b^a f(x)\dee{x}$ and $\int_a^b f(x)\dee{x}$ with $n$ subintervals
-are negatives of each other. Taking the limit $n\rightarrow\infty$ gives
-$\int_b^a f(x)\dee{x}= -\int_a^b f(x)\dee{x}$.
-\end{comment}
-\end{proof}
 
 \begin{eg}\label{eg:INTPROPxa}
 Back in Example~\ref{eg:INTtriangle} we saw that when $b>0$
@@ -4672,7 +4623,7 @@ function of $y$. That is, the region is bounded by $x=y^2$, $x=4$, $y=0$ and $y=
 \includegraphics[width=0.95\textwidth]{rot_rootx3}
 \end{wfig}
 
-\item When we rotate the region about the line $x=0$, each strip sweeps out a thin
+\item When we rotate the region about $y$-axis, each strip sweeps out a thin
 washer
 \begin{itemize}
 \item whose inner radius is $y^2$ and outer radius is $4$, and
@@ -4933,7 +4884,7 @@ is rotated around the line $x=0$. Find the volume of the region swept out.
 \includegraphics[height=45mm]{rot_rootx2}
 \end{efig}
 
-\item When we rotate the region about the line $y=0$, each strip sweeps out a thin
+\item When we rotate the region about the $y$-axis, each strip sweeps out a thin
 cylindrical shell
 \begin{itemize}
 \item whose radius is $x$,
@@ -5713,9 +5664,16 @@ they are more complicated and also involve more tricks (that basically
 have to be memorized). Examples using
 them are provided in the optional section entitled
 ``Integrating $\sec x$, $\csc x$, $\sec^3 x$ and $\csc^3 x$'', below.
-A more straight forward strategy uses another technique
-called ``partial fractions''. We shall return to this strategy after we
-have learned about partial fractions. See Example~\ref{eg:PFe} and~\ref{eg:PFf} in
+A more straightforward strategy involves
+\begin{itemize}\itemsep1pt \parskip0pt \parsep0pt %\itemindent-15pt
+\item multiplying the numerator $\sin^m x$ and the denominator $\cos^{m+n}x$
+      by $\cos x$, and then
+\item expressing the denominator, which is now an even power of $\cos x$, in terms of $\sin x$, and then
+\item substituting $u=\sin x$. This converts the integrand into a rational function (i.e. a ratio of two poynomials) of $u$. 
+\item That rational function of $u$ may be integrated using a technique called ``partial fractions'', that we will cover later.
+\end{itemize}
+We shall return to this strategy after we
+have learned about partial fractions. See Examples~\ref{eg:PFe} and~\ref{eg:PFf} in
 Section~\ref{sec parfrac}.
 \end{enumerate}
 
@@ -6881,8 +6839,9 @@ continue.
 \intertext{In taking the square root of $\sec^2u-1=\tan^2u$ we used that $\tan u\ge 0$ on
 the range $0\le u\le \frac{\pi}{3}$.}
 &=2\int_0^{\pi/3}\big[ \sec^2 u-1\big]\ \dee{u}
-&&\qquad\text{since $\sec^2u=1+\tan^2u$, again}\\[0.05in]
-&=2\Big[\tan u - u\Big]_0^{\pi/3} \\
+&&\qquad\text{since $\sec^2u=1+\tan^2u$, again}\\
+&=2\Big[\tan u - u\Big]_0^{\pi/3} 
+&&\qquad\text{since $\diff{}{u}\tan u=\sec^2u$}\\
 &=2\big[\sqrt{3}-\nicefrac{\pi}{3}\big]
 \end{align*}
 \end{itemize}
@@ -8329,7 +8288,7 @@ then
           +\frac{B_{1,n_1}x+C_{1,n_1}}{(x^2+b_1x+c_1)^{n_1}}\!+\!\cdots\\
 &\phantom{=}\!+\frac{B_{k,1}x+C_{k,1}}{x^2+b_kx+c_k}
           +\frac{B_{k,2}x+C_{k,2}}{(x^2+b_kx+c_k)^2}+\!\cdots\!
-          +\frac{B_{k,n_k}x+C_{1,n_k}}{(x^2+b_kx+c_k)^{n_k}}
+          +\frac{B_{k,n_k}x+C_{k,n_k}}{(x^2+b_kx+c_k)^{n_k}}
 \end{split}
 \end{align*}
 \end{impeqn}
@@ -9828,7 +9787,7 @@ evaluations of $f$ required to compute the approximation.
 &&\approx  \int_a^b f(x)\,\dee{x}+K_T\cdot \frac{1}{n^2}\\
 %
 &\hbox{approx value of $\ds\int_a^b f(x)\,\dee{x}$ given by $n$ Simpson's steps  }
-&&\approx  \int_a^b f(x)\,\dee{x}+K_M\cdot \frac{1}{n^4}
+&&\approx  \int_a^b f(x)\,\dee{x}+K_S\cdot \frac{1}{n^4}
 \end{alignat*}
 with some constants $K_M,\ K_T$ and $K_S$. It also seems that $K_T\approx
 2 K_M$.
@@ -9896,8 +9855,8 @@ logarithms\footnote{Now is a good time for a quick revision of logarithms --- se
 this ``unusual base'' because it makes it very clear how much the error is improved if we
 \emph{double} the number of steps used. To be more precise --- one unit step along the
 $x$-axis represents changing $n \mapsto 2n$. For example, applying Simpson's rule with
-$n=2^4$ steps results in an error of $0000166$, so the point $(x=\log_2 2^4=4, y=\log_2
-0000166 = \frac{\log 0000166}{\log 2} = -15.8)$ has been included on the graph. Doubling
+$n=2^4$ steps results in an error of $0.0000166$, so the point $(x=\log_2 2^4=4, y=\log_2
+0.0000166 = \frac{\log 0.0000166}{\log 2} = -15.9)$ has been included on the graph. Doubling
 the effort used --- that is, doubling the number of steps to $n=2^5$--- results in an
 error of $0.00000103$. So, the data point $(x=\log_2 2^5=5\ ,\  y=\log_2 0.00000103
 =\frac{\ln 0.00000103}{\ln 2}=-19.9)$ lies on the graph. Note that the $x$-coordinates of
@@ -10396,11 +10355,11 @@ When the limit(s) exist, the integral is said to be convergent. Otherwise
 it is said to be divergent.
 \end{defn}
 
-We must also be able to treat an integral like $\int_0^1\frac{\dee{x}}{x}$
-that has a finite domain of integration but whose integrand is unbounded
+We must also be able to deal with an integral like $\int_0^1\frac{\dee{x}}{x}$
+that has a finite domain of integration, but whose integrand is unbounded
 near one limit of integration\footnote{This will, in turn, allow us to
 deal with integrals whose integrand is unbounded somewhere inside the domain of
-integration.} Our approach is similar --- we sneak up on the problem.
+integration.}. Our approach is similar --- we sneak up on the problem.
 We compute the integral on a smaller domain, such as $\int_t^1\frac{\dee{x}}{x}$, with
 $t>0$, and then take the limit $t\rightarrow 0+$.
 \begin{eg}[$\int_0^1 \frac{1}{x}\dee{x}$]
@@ -10867,7 +10826,9 @@ extends to $+\infty$, or a domain of integration that extends to $-\infty$, or
 an integrand which is singular at one end of the domain of integration. So we
 are now going to consider only the first of these three possibilities. But the
 techniques that we are about to see have obvious analogues for the other two
-possibilities.
+possibilities. And, at the end of this section, we'll give the analogous tools 
+that are appropriate for use with an integrand which is singular at one end 
+of a finite domain of integration. 
 \end{remark}
 
 Now let's start. Imagine that we have an improper integral
@@ -11148,10 +11109,10 @@ exists, then $\int_a^\infty f(x)\ \dee{x}$ converges.
 \begin{align*}
 \lim_{x\rightarrow\infty}\frac{f(x)}{g(x)}
 \end{align*}
-exists and \underline{is nonzero}, then $\int_a^\infty f(x)$ diverges.
+exists and \underline{is nonzero}, then $\int_a^\infty f(x)\ \dee{x}$ diverges.
 \end{enumerate}
 Note that in (b) the limit must exist and be nonzero, while in (a) we only
-require that the limit exists (it can be zero).
+require that the limit exists. (It can be zero.)
 \end{theorem}
 
 Here is an example of how Theorem \ref{thm:IMPcomparisonLim} is used.
@@ -11210,8 +11171,6 @@ diverges, by Example \ref{eg:IMPp1} with $p=1$, Theorem
 \end{itemize}
 \end{eg}
 
-
-
 % \begin{theorem}\label{thm:IMPdropFinite}
 % Let the functions $f(x)$ and $g(x)$ be continuous for all $x\ge a$.
 % Assume that the improper integral $\int_a^\infty f(x)\ \dee{x}$ converges.
@@ -11232,3 +11191,54 @@ diverges, by Example \ref{eg:IMPp1} with $p=1$, Theorem
 % exists and is finite, which in turn is the case if and only if the integral
 % $\int_a^\infty g(x)\ \dee{x}$ converges.
 % \end{proof}
+
+We finish this section by giving variants of Theorems \ref{thm:IMPcomparison} 
+and \ref{thm:IMPcomparisonLim} that are useful in dealing with an integrand 
+that is singular at one end of a (finite) domain of integration. For
+the rest of this section, let $a<b$ and let $[a,b]=\big\{x\,\big|\,a\le x\le b\big\}$ be the domain
+of integration. We allow the integrand to be singular at one end, that we'll call $x_s$,
+of the domain of integration. So
+\begin{itemize}
+\item if the integrand is singular at $x=a$, we set $x_s=a$ and write 
+       \begin{equation*}
+      I=(a,b]=\big\{x\,\big|\,a < x\le b\big\}
+       \end{equation*}
+      and
+\item if the integrand is singular at $x=b$ we set $x_s=b$ and write 
+       \begin{equation*}
+      I=[a,b)=\big\{x\,\big|\,a \le x< b\big\}
+      \end{equation*}
+\end{itemize}
+Recall that ``$x\in I$'' means ``$x$ is an element of the set $I$''. Here is the analogue
+of Theorem \ref{thm:IMPcomparison} 
+\begin{theorem}[Comparison]\label{thm:IMPcomparisonFinite}
+Let $f$ and $g$ be functions that are defined and continuous for all $x\in I$ 
+and assume that  $g(x)\ge 0$ for all  $x\in I$.
+\begin{enumerate}[(a)]
+\item If $|f(x)|\le g(x)$ for all $x\in I$ and if $\int_a^b g(x)\ \dee{x}$
+  converges then $\int_a^b f(x)\ \dee{x}$ also converges.
+\item If $f(x)\ge g(x)$ for all $x\in I$ and if $\int_a^b g(x)\ \dee{x}$
+ diverges then $\int_a^b f(x)\ \dee{x}$ also diverges.
+\end{enumerate}
+\end{theorem}
+and here is the analogue of Theorem \ref{thm:IMPcomparisonLim} 
+\begin{theorem}[ Limiting comparison]\label{thm:IMPcomparisonLimFinite}
+Let $f$ and $g$ be functions that are defined
+and continuous for all $x\in I$ and assume that  $g(x)\ge 0$ for all
+$x\in I$.
+\begin{enumerate}[(a)]
+\item If  $\int_a^b g(x)\ \dee{x}$ converges and the limit
+\begin{align*}
+\lim_{x\rightarrow x_s\atop x\in I}\frac{f(x)}{g(x)}
+\end{align*}
+exists, then $\int_a^b f(x)\ \dee{x}$ converges.
+\item If $\int_a^b g(x)\ \dee{x}$  diverges and the limit
+\begin{align*}
+\lim_{x\rightarrow x_s\atop x\in I}\frac{f(x)}{g(x)}
+\end{align*}
+exists and \underline{is nonzero}, then $\int_a^b f(x)\ \dee{x}$ diverges.
+\end{enumerate}
+Note that in (b) the limit must exist and be nonzero, while in (a) we only
+require that the limit exists. (It can be zero.)
+\end{theorem}
+

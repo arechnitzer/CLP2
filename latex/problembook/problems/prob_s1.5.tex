@@ -237,7 +237,7 @@ and $y=B(x)=x^3-x$, respectively. So,
 
 \begin{question}[2000D]
 Write down a definite integral that represents the
-area of the region bounded by the line $y=-\dfrac{x}{2}$
+area of the finite region bounded by the line $y=-\dfrac{x}{2}$
 and the parabola $y^2=6-\dfrac{5x}{4}$.
 \emph{Do not evaluate the integral explicitly.}
 \end{question}
@@ -314,7 +314,7 @@ Then we have
 
 \begin{Mquestion}[2001D]
 Write down a definite integral that represents the
-area of the region bounded between the line $x+12y+5=0$
+area of the finite region bounded between the line $x+12y+5=0$
 and the curve  $x=4y^2$.
 \emph{Do not evaluate the integral explicitly.}
 \end{Mquestion}
@@ -391,7 +391,7 @@ $b=1$, is exactly the definite integral of $\frac{1}{(2x-4)^2}$ with limits $0$ 
 %%%%%%%%%%%%%%%%%%%
 
 \begin{question}[2016Q2]
-Find the area between the curves $y=x$ and $y=3x-x^2$, by first identifying the points of intersection and then integrating.
+Find the area of the finite region between the curves $y=x$ and $y=3x-x^2$, by first identifying the points of intersection and then integrating.
 \end{question}
 
 \begin{hint}
@@ -438,7 +438,7 @@ We therefore evaluate the integral:
 
 
 \begin{question}[2015A]
-Calculate the area of the region enclosed by $y = 2^x$ and $y = \sqrt x+1$.
+Calculate the area of the finite region enclosed by $y = 2^x$ and $y = \sqrt x+1$.
 \end{question}
 
 \begin{hint}
@@ -450,8 +450,7 @@ $\dfrac{5}{3}-\dfrac{1}{\log 2}$
 \end{answer}
 
 \begin{solution}
-By inspection, the two curves cross at $(0,1)$ and $(1,2)$.
-
+The following sketch contains the graphs of $y=2^x$ and $y=\sqrt{x}+1$.
 
 \begin{center}
 \begin{tikzpicture}
@@ -464,6 +463,7 @@ By inspection, the two curves cross at $(0,1)$ and $(1,2)$.
 \end{tikzpicture}
 \end{center}
 
+From the sketch, it looks like the two curves cross when $x=0$ and when $x=1$ and nowhere\footnote{To verify analytically that the curves have no other crossings, write $f(x)=\sqrt{x}+1-2^x$ and compute $f'(x)= \frac{1}{2\sqrt{x}}-(\log 2)2^x$. Notice that $f'(x)$ decreases as $x$ increases and so can take the value $0$ for at most a single value of $x$. Then, by the mean value theorem (or Rolle's theorem, which is Theorem \eref{CLP100}{thm:DIFFrolle} in the CLP-1 text), $f(x)$ can take the value $0$ for at most two distinct values of $x$.} else. Indeed, when $x=0$ we have $2^x=\sqrt{x}+1=1$ and when $x=1$ we have $2^x=\sqrt{x}+1=2$. 
 
 To antidifferentiate $2^x$, we write $2^x={(e^{\log 2})}^x=e^{x\log 2}$.
 \begin{align*}
@@ -650,7 +650,7 @@ Our region is the difference of two quarter-circles, so we find its area using g
 %%%%%%%%%%%%%%%%%%%
 
 \begin{Mquestion}[2013A]\label{prob_s1.5q5}
-The graph below shows the region between
+The graph below shows the finite region between
 $y = 4 + \pi \sin x$ and $y = 4 + 2\pi - 2x$.
 
 \begin{center}
@@ -871,7 +871,7 @@ We can easily take the area of  triangles and sectors of circles. With that in m
 \item The desired area is $A_3-(A_1+A_2)$.
 \item $A_1$ is the area of right a triangle with base 1 and height 1, so $A_1 = \frac{1}{2}$.
 \item $A_2$ is the area of a quarter circle of radius 1, so $A_2=\frac{\pi}{4}$.
-\item $A_3$ is the area of an eighth of a circle of radius 3, so $A_2 = \frac{9\pi}{8}$
+\item $A_3$ is the area of an eighth of a circle of radius 3, so $A_3 = \frac{9\pi}{8}$
 \end{itemize}
 So, the area of our region is~~ $\dfrac{9\pi}{8} - \dfrac{1}{2}-\dfrac{\pi}{4}=\dfrac{7\pi}{8}-\dfrac{1}{2}$.
 \end{solution}

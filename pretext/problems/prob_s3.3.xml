@@ -390,10 +390,10 @@ Since the limit is a nonzero real number, we can use the limit comparison test t
 <p>For the limit comparison test, we calculate:
 <md>
 <mrow>
-\lim_{n \to \infty}\frac{a_n}{b_n}&amp;=\lim_{n \to \infty}\frac{\frac{1}{\sqrt{n}}}{\frac{1}{\sqrt[4]{n}}}=\lim_{n \to \infty}\frac{1}{\sqrt[4]{n}}=0
+L=\lim_{n \to \infty}\frac{a_n}{b_n}&amp;=\lim_{n \to \infty}\frac{\frac{1}{\sqrt{n}}}{\frac{1}{\sqrt[4]{n}}}=\lim_{n \to \infty}\frac{1}{\sqrt[4]{n}}=0
 </mrow>
 </md>
-Since the limit is zero, the limit comparison test doesn't apply.
+Since the series <m>\sum \frac{1}{\sqrt[4]{n}}</m> diverges, it is part (b) of the limit comparison test, Theorem<nbsp/><xref ref="thm_SRlimitComparison"/>, that is appropriate here. Since the limit is <m>L=0</m>, the limit comparison test doesn't apply.
 </p></solution>
 </exercise>
 
@@ -1558,9 +1558,9 @@ Since
 <mrow>
 \lim_{k\rightarrow\infty} \frac{a_k}{b_k}
 &amp;=\lim_{k\rightarrow\infty} \frac{k^4-2k^3+2}{k^5+k^2+k}\cdot \frac{k}{1}
-=\lim_{k\rightarrow\infty} \frac{k^5-2k^4+k^2}{k^5+k^2+k}
+=\lim_{k\rightarrow\infty} \frac{k^5-2k^4+2k}{k^5+k^2+k}
 </mrow><mrow>
-\amp=\lim_{k\rightarrow\infty} \frac{1-2/k+1/k^3}{1+1/k^3+1/k^4}
+\amp=\lim_{k\rightarrow\infty} \frac{1-2/k+2/k^4}{1+1/k^3+1/k^4}
 </mrow><mrow>
 &amp;=1
 </mrow>

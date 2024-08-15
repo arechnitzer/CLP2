@@ -1090,13 +1090,14 @@ We recognize that this is a telescoping series, and set up a table to find the s
 \end{array}</me>
 </p>
 
-<p>The <m>N</m>th partial sum sees every term cancel except the first part of the first term (<m>\tfrac12</m>) and the second part of the last term (<m>-\cos(\tfrac{\pi}{n+1})</m>).
+<p>In the partial sum 
+<me>
+s_N = \sum_{n=3}^N \bigg( \!\cos\Big( \frac \pi n \Big) - \cos\Big( \frac \pi{n+1} \Big) \bigg)
+</me>
+ every term cancels except the first part of the first term (<m>\cos(\frac{\pi}{3}=\tfrac12</m>) and the second part of the last term (<m>-\cos(\tfrac{\pi}{N+1})</m>). So
 <md>
 <mrow>
-\hskip-8mm
-s_N &amp;= \sum_{n=3}^N \bigg( \!\cos\Big( \frac \pi n \Big) - \cos\Big( \frac \pi{n+1} \Big) \bigg)
-</mrow><mrow>
-&amp;=\cos\Big( \frac \pi 3 \Big)  - \cos\Big( \frac \pi{N+1} \Big)
+s_N &amp;=\cos\Big( \frac \pi 3 \Big)  - \cos\Big( \frac \pi{N+1} \Big)
 </mrow><mrow>
 &amp;=\frac12  - \cos\Big( \frac \pi{N+1} \Big).
 </mrow>

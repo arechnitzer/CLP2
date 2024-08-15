@@ -298,7 +298,7 @@ and
 +\text{Area}\big\{\ (x,y)\ \big|\ c\le x\le b,\ 0\le y\le f(x)\ \big\}
 </mrow>
 </md>
-respectively. Both of these geometric statements are intuitively obvious. See the figures below. We won't give a formal proof.
+respectively. Both of these geometric statements are intuitively obvious. See the figures below.
 </p>
 
 <sidebyside widths="29% 60%" valign="middle">
@@ -306,48 +306,6 @@ respectively. Both of these geometric statements are intuitively obvious. See th
   <image source="text/figs/areaABC"/>
 </sidebyside>
 
-<p>
-So we concentrate on the formula <m>\int_b^a f(x)\dee{x}= -\int_a^b f(x)\dee{x}</m>. The midpoint Riemann sum approximation to <m>\int_a^b f(x)\dee{x}</m> with <m>4</m> subintervals (so that each subinterval has width <m>\frac{b-a}{4}</m>)
-is
-<mdn>
-<mrow number="no">
-&amp;\Big\{f\big(a+\tfrac{1}{2}\tfrac{b-a}{4}\big)
-      +f\big(a+\tfrac{3}{2}\tfrac{b-a}{4}\big)
-      +f\big(a+\tfrac{5}{2}\tfrac{b-a}{4}\big)
-   +f\big(a+\tfrac{7}{2}\tfrac{b-a}{4}\big)\big\}\ \tfrac{b-a}{4}
-</mrow>
-<mrow  xml:id="eq_INTflipL" tag="star">
-&amp;=\Big\{f\big(\tfrac{7}{8}a+\tfrac{1}{8}b\big)
-   +f\big(\tfrac{5}{8}a+\tfrac{3}{8}b\Big)
-   +f\big(\tfrac{3}{8}a+\tfrac{5}{8}b\Big)
-   +f\big(\tfrac{1}{8}a+\tfrac{7}{8}b\big)\Big\}\ \tfrac{b-a}{4}
-</mrow>
-</mdn>
-We're now going to write out the midpoint Riemann sum approximation to  <m>\int_b^a f(x)\dee{x}</m> with <m>4</m> subintervals. Note that <m>b</m> is now the lower limit on the integral and <m>a</m> is now the upper limit on the integral. This is likely to cause confusion when we write out the Riemann sum, so we'll temporarily rename <m>b</m> to <m>A</m> and <m>a</m> to <m>B</m>. The midpoint Riemann sum approximation to <m>\int_A^B f(x)\dee{x}</m> with  <m>4</m> subintervals is
-<md>
-<mrow>
-&amp;\Big\{f\big(A+\tfrac{1}{2}\tfrac{B-A}{4}\big)
-      +f\big(A+\tfrac{3}{2}\tfrac{B-A}{4}\big)
-      +f\big(A+\tfrac{5}{2}\tfrac{B-A}{4}\big)
-   +f\big(A+\tfrac{7}{2}\tfrac{B-A}{4}\big)\Big\}\ \tfrac{B-A}{4}
-</mrow><mrow>
-&amp;=\Big\{f\big(\tfrac{7}{8}A+\tfrac{1}{8}B\big)
-   +f\big(\tfrac{5}{8}A+\tfrac{3}{8}B\big)
-   +f\big(\tfrac{3}{8}A+\tfrac{5}{8}B\big)
-   +f\big(\tfrac{1}{8}A+\tfrac{7}{8}B\big)\Big\}\ \tfrac{B-A}{4}
-</mrow>
-</md>
-Now recalling that <m>A=b</m> and <m>B=a</m>, we have that the midpoint Riemann  sum approximation to <m>\int_b^a f(x)\dee{x}</m> with  <m>4</m> subintervals is
-<mdn>
-<mrow xml:id="eq_INTflipR" tag="dstar">
-\Big\{f\big(\frac{7}{8}b+\frac{1}{8}a\big)
-   +f\big(\tfrac{5}{8}b+\tfrac{3}{8}a\big)
-   +f\big(\tfrac{3}{8}b+\tfrac{5}{8}a\big)
-   +f\big(\tfrac{1}{8}b+\tfrac{7}{8}a\big)\Big\}\ \tfrac{a-b}{4}
-</mrow>
-</mdn>
-The curly brackets in <xref ref="eq_INTflipL"/> and <xref ref="eq_INTflipR"/> are equal to each other <mdash/> the terms are just in the reverse order. The factors multiplying the curly brackets in <xref ref="eq_INTflipL"/> and  <xref ref="eq_INTflipR"/>, namely <m>\frac{b-a}{4}</m> and <m>\frac{a-b}{4}</m>, are negatives of each other, so  <xref ref="eq_INTflipR"/><m>=-</m><xref ref="eq_INTflipL"/>. The same computation with <m>n</m> subintervals shows that the midpoint Riemann sum approximations to  <m>\int_b^a f(x)\dee{x}</m> and <m>\int_a^b f(x)\dee{x}</m> with <m>n</m> subintervals are negatives of each other. Taking the limit <m>n\rightarrow\infty</m> gives <m>\int_b^a f(x)\dee{x}= -\int_a^b f(x)\dee{x}</m>.
-</p>
 </remark>
 
 

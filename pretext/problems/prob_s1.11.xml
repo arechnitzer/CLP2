@@ -908,7 +908,7 @@ where we used a calculator to approximate the decimal value.
 <statement><p>
  The circumference of an 8 metre high tree at different heights
 above the ground is given in the table below. Assume that all horizontal
-cross--sections of the tree are circular disks.
+cross-sections of the tree are circular disks.
 </p>
 
 <sidebyside>
@@ -941,7 +941,7 @@ To set up the volume integral, see Example <xref ref="eg_VOLb"/>, or Question<nb
 <solution><p>
 At height <m>x</m> metres, let the circumference of the tree be <m>c(x)</m>.
 The corresponding
-radius is <m>\dfrac{c(x)}{2\pi}</m>, so the corresponding cross--sectional area
+radius is <m>\dfrac{c(x)}{2\pi}</m>, so the corresponding cross-sectional area
 is <m>\pi\left(\dfrac{c(x)}{2\pi}\right)^2=\dfrac{c(x)^2}{4\pi}</m>.
 </p>
 
@@ -958,7 +958,7 @@ is <m>\pi\left(\dfrac{c(x)}{2\pi}\right)^2=\dfrac{c(x)^2}{4\pi}</m>.
 \draw[help lines,  \lt - \gt ] (-4,-.5) --(-4,9) node[above]{$x$};
 \end{tikzpicture}]]></latex-image></image>
 </sidebyside><p>
-The height of a very thin cross--sectional  disk is <m>\dee{x}</m>, so the
+The height of a very thin cross-sectional  disk is <m>\dee{x}</m>, so the
 volume of a cross-sectional disk is <m>\dfrac{c(x)^2}{4\pi} \dee{x}</m>.
 Therefore,
 total volume of the tree is:
@@ -1463,7 +1463,7 @@ Since <m>\dfrac{1}{x^5}</m> is a decreasing function when <m>x \gt 0</m>, look f
 
 <p>
 (c) <m>\displaystyle\Big|I -S_4\Big|
-                \le \frac{24}{180\times 4^4}=\frac{3}{5760}</m>
+                \le \frac{24}{180\times 4^4}=\frac{1}{1920}</m>
 </p>
 
 </answer>
@@ -1530,7 +1530,7 @@ We take <m>L=24</m>.
 <md>
 <mrow>
 |\text{Error }|\le \frac{L(b-a)^5}{180\times n^4}
-\le \frac{24(2-1)^5}{180\times 4^4}=\frac{24}{180\times 4^4}=\frac{3}{5760}
+\le \frac{24(2-1)^5}{180\times 4^4}=\frac{24}{180\times 4^4}=\frac{1}{1920}
 </mrow>
 </md>
 </p>
@@ -1684,7 +1684,7 @@ any  <m>n\ge 68</m> works.
 <exercise><title><fromexam>1996A</fromexam></title>
 <statement><p>
  A swimming pool has the shape shown in the figure below.
-The vertical cross--sections of the pool are semi--circular disks. The
+The vertical cross-sections of the pool are semi-circular disks. The
 distances in feet across the pool are given in the figure at 2--foot intervals along
 the sixteen--foot length of the pool. Use Simpson's Rule to estimate the
 volume of the pool.
@@ -1746,7 +1746,7 @@ V&amp;=\frac{\pi}{8}\int_0^{16}f(x)^2\,\dee{x}
 <exercise purpose="RQS"><title><fromexam>2002A,M121 2002A</fromexam></title>
 <statement><p>
 A piece of wire 1m long with radius 1mm is made in such
-a way that the density varies in its cross--section, but is radially symmetric
+a way that the density varies in its cross-section, but is radially symmetric
 (that is, the local density <m>g(r)</m> in <m>{\rm kg/m^3}</m> depends only on the
 distance <m>r</m> in mm from the centre of the wire). Take as given that the
 total mass <m>W</m> of the wire in kg is given by
@@ -2336,7 +2336,7 @@ A - \varepsilon &amp;\leq \left(\int_1^2 \frac{1}{1+x^2} \dee{x}\right) \leq A +
 In order to bound our error, we need to find a bound for the fourth derivative. To that end, define <m>N(x) = 24(5x^4-10x^2+1)</m>. Then <m>N'(x) = 24(20x^3-20x)= 480x(x^2-1)</m>, which is positive over the interval <m>[1,2]</m>. So, <m>N(x) \leq N(2)=24(5\cdot 2^4 - 10\cdot 2^2+1)=984</m> when <m>1 \leq x \leq 2</m>. Furthermore, let <m>D(x)=(x^2+1)^5</m>. If  <m>1 \leq x \leq 2</m>, then <m>D(x) \geq 2^5</m>. Now we can find   a reasonable value of <m>L</m>:
 <md>
 <mrow>
-|f^{(4)}(x)|&amp;=\left|\frac{25(5x^4-10x^2+1)}{(x^2+1)^5}\right| =
+|f^{(4)}(x)|&amp;=\left|\frac{24(5x^4-10x^2+1)}{(x^2+1)^5}\right| =
 \left|\frac{N(x)}{D(x)}\right| \leq \frac{984}{2^5} = \frac{123}{4} = 30.75
 </mrow>
 </md>
