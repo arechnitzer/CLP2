@@ -155,7 +155,7 @@ Part (a) is asking the length of the pieces we've cut our interval into. Part (c
 <ol marker="a">
 <li> The entire interval has length <m>b-a</m>, and we're cutting it into <m>n</m> pieces, so the length of one piece (and hence the distance between two consecutive samples) is <m>\frac{b-a}{n}</m>.
 </li>
-<li> The first sample, as given in the question statement, is taken at <m>x=a</m>. The second sample, then, is at <m>x=a+\frac{b-a}{n}</m>, this third is at <m>x=1+2\frac{b-a}{n}</m>, and the fourth is at <m>a+3\frac{b-a}{n}</m>.
+<li> The first sample, as given in the question statement, is taken at <m>x=a</m>. The second sample, then, is at <m>x=a+\frac{b-a}{n}</m>, the third is at <m>x=a+2\frac{b-a}{n}</m>, and the fourth is at <m>a+3\frac{b-a}{n}</m>.
 </li>
 <li> The <m>y</m>-value of the fourth sample is simply <m>f\left(a+3\frac{b-a}{n}\right)</m>. Note this is the number we use in our average, not the <m>x</m>-value.
 </li>
@@ -553,7 +553,15 @@ By definition, the average value is:
 
 <exercise purpose="RQS">
 <statement><p>
-The carbon dioxide concentration in the air at a particular location over one year is approximated by <m>C(t) = 400+50\cos\left(\frac{t}{12}\pi\right)+200\cos\left(\frac{t}{4380}\pi\right)</m> parts per million, where  <m>t</m> is measured in hours.
+The carbon dioxide concentration in the air at a particular location at time <m>t</m>, during the course of one year, is approximated by 
+<me>
+C(t) = 400+50\cos\left(\frac{t}{12}\pi\right)+200\cos\left(\frac{t}{4380}\pi\right)
+</me> 
+parts per million, where  <m>t</m> is measured in hours from the beginning of the year.
+The middle term, <m>50\cos\left(\frac{t}{12}\pi\right)</m>, has a period of <m>24</m> hours, i.e. one day. It gives 
+variations over the course of a day.
+The final term, <m>200\cos\left(\frac{t}{4380}\pi\right)</m>, has a period of <m>8760</m> hours, i.e. one year. It 
+gives seasonal variations over the course of a year.
 <ol marker="a">
 <li>  What is the average carbon dioxide concentration for that location for that year?
 </li>
@@ -561,22 +569,25 @@ The carbon dioxide concentration in the air at a particular location over one ye
 </li>
 <li>
 <p>
-Suppose measurements were only made at noon every day: that is, when <m>t=12+24n</m>, where <m>n</m> is any whole number between 0 and 364.  Then the daily variation would cease: <m>50\cos\left(\frac{(12+24n)}{12}\pi\right) = 50\cos\left(\pi+2\pi n\right) = 50\cos\pi=-50</m>. So, the approximation for the concentration of carbon dioxide in the atmosphere might be given as
+At noon of every day, i.e. when <m>t=12+24n</m>, where <m>n</m> is any whole number between 0 and 364,
+the daily variation term takes the same value:
 <me>
-N(t) = 350 +200\cos\left(\frac{t}{4380}\pi\right)\quad\text{ ppm}</me>
+50\cos\left(\frac{(12+24n)}{12}\pi\right) = 50\cos\left(\pi+2\pi n\right) = 50\cos\pi=-50
+</me>
+Suppose we construct another approximation for the concentration of carbon dioxide in the atmosphere by replacing the 
+middle, daily variation, term with its noon value, <m>-50</m>:
+<me>
+N(t) = 350 +200\cos\left(\frac{t}{4380}\pi\right)\quad\text{ ppm}
+</me>
 </p>
 
-<p>What is the relative error in the yearly average concentration of carbon dioxide involved in using <m>N(t)</m>, instead of <m>C(t)</m>?
+<p>What is the relative error in the yearly average concentration of carbon dioxide introduced by using <m>N(t)</m>, instead of <m>C(t)</m>?
 </p>
 </li>
 </ol>
 You may assume a day has exactly 24 hours, and a year has exactly 8760 hours.
  </p></statement>
-<hint><p>
-Notice the term <m>50\cos\left(\frac{t}{12}\pi\right)</m> has a period of 24 hours, while the term
-<m>200\cos\left(\frac{t}{4380}\pi\right)</m> has a period of one year.
-</p>
-
+<hint>
 <p>If <m>n</m> is an approximation of <m>c</m>, then the relative error of <m>n</m> is <m>\frac{|n-c|}{c}</m>.
 </p></hint>
 <answer><p>
@@ -586,12 +597,7 @@ Notice the term <m>50\cos\left(\frac{t}{12}\pi\right)</m> has a period of 24 hou
 </p><p>
 	(c) 0.125, or 12.5<m>\%</m>
 </p></answer>
-<solution><p>
-Before we start answering questions, let's look at our function a little more carefully.
-The term <m>50\cos\left(\frac{t}{12}\pi\right)</m> has a period of 24 hours, while the term
-<m>200\cos\left(\frac{t}{4380}\pi\right)</m> has a period of one year. So, the former term describes a standard daily variation, while the latter gives a seasonal variation over the year.
-</p>
-
+<solution>
 <p>(a) Using the definition of an average, the average concentration over one year (<m>t=0</m> to <m>8760</m>) is:
 <md>
 <mrow>
@@ -607,7 +613,7 @@ The term <m>50\cos\left(\frac{t}{12}\pi\right)</m> has a period of 24 hours, whi
 &amp;= 400 +\textcolor{red}{ \frac{5}{876}\left[\frac{12}{\pi}\sin\left(\frac{t}{12}\pi\right)\right]_0^{8760}}+
 \textcolor{blue}{\frac{5}{219}\left[\frac{4380}{\pi}\sin\left(\frac{t}{4380}\pi\right)\right]_0^{8760}}
 </mrow>
-<intertext>Since <m>\frac{8760}{12} = 730</m>, which is even, <m>\sin\left(\frac{8760}{12}\pi\right)=\sin(0)=0</m>. Also, <m>\sin\left(\frac{8760}{4380}\pi\right)=\sin(2\pi)=0</m>.
+<intertext>Since <m>\frac{8760}{12} = 730</m>, which is even, <m>\sin\left(\frac{8760}{12}\pi\right)=\sin(730\pi)=0</m>. Also, <m>\sin\left(\frac{8760}{4380}\pi\right)=\sin(2\pi)=0</m>.
 </intertext><mrow>
 &amp;=400+\textcolor{red}{\frac{5}{876}(0}) + \textcolor{blue}{\frac{5}{219}(0)}
 </mrow><mrow>
@@ -662,7 +668,7 @@ Since the average of <m>C(t)</m> was 400, this gives us an absolute error of <m>
 or 12.5<m>\%</m>.
 </p>
 
-<p>That is: sampling at the same time every day, rather than throughout the day, lead to an error of <m>12.5\%</m> in the yearly average concentration of carbon dioxide.
+<p>That is: replacing <m>C(t)</m> with <m>N(t)</m> leads to an error of <m>12.5\%</m> in the yearly average concentration of carbon dioxide.
 </p></solution>
 </exercise>
 
