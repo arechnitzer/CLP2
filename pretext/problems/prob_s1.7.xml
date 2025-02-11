@@ -155,24 +155,30 @@ Suppose you want to evaluate <m>\displaystyle\int f(x)\dee{x}</m> using integrat
 What integral do you have to evaluate, after you plug in your choices to the integration by parts formula?
 </p></hint>
 <answer><p>
-Suppose we choose <m>\dee{v} = f(x)\dee{x}</m>, <m>u=1</m>. Then <m>v = \displaystyle\int f(x)\dee{x}</m>, and <m>\dee{u}=\dee{x}</m>. So, our integral becomes:
+Suppose we choose <m>\dee{v} = f(x)\dee{x}</m>, <m>u=1</m>. Then <m>v = \displaystyle\int f(x)\dee{x}</m>, and <m>\dee{u}=0\dee{x}</m>. So, our integral becomes:
 <md>
 <mrow>
 \int \underbrace{(1)}_{u}\underbrace{f(x)\dee{x}}_{\dee{v}}&amp;=
-\underbrace{(1)}_{u}\underbrace{\int f(x)\dee{x}}_{v} - \int\underbrace{ \left(\int f(x)\dee{x}\right)}_{v}\underbrace{\dee{x}}_{\dee{u}}
+\underbrace{(1)}_{u}\underbrace{\int f(x)\dee{x}}_{v} - \int\underbrace{ \left(\int f(x)\dee{x}\right)}_{v}\underbrace{0\dee{x}}_{\dee{u}}
+</mrow>
+<mrow>
+&amp;=\int f(x)\dee{x}
 </mrow>
 </md>
-In order to figure out the first product (and the second integrand), you need to know the antiderivative of <m>f(x)</m>--but that's exactly what you're trying to figure out!
+So, in this case, using integration by parts has done absolutely nothing!
 </p></answer>
 <solution><p>
-Suppose we choose <m>\dee{v} = f(x)\dee{x}</m>, <m>u=1</m>. Then <m>v = \displaystyle\int f(x)\dee{x}</m>, and <m>\dee{u}=\dee{x}</m>. So, our integral becomes:
+Suppose we choose <m>\dee{v} = f(x)\dee{x}</m>, <m>u=1</m>. Then <m>v = \displaystyle\int f(x)\dee{x}</m>, and <m>\dee{u}=0\dee{x}</m>. So, our integral becomes:
 <md>
 <mrow>
 \int \underbrace{(1)}_{u}\underbrace{f(x)\dee{x}}_{\dee{v}}&amp;=
-\underbrace{(1)}_{u}\underbrace{\int f(x)\dee{x}}_{v} - \int\underbrace{ \left(\int f(x)\dee{x}\right)}_{v}\underbrace{\dee{x}}_{\dee{u}}
+\underbrace{(1)}_{u}\underbrace{\int f(x)\dee{x}}_{v} - \int\underbrace{ \left(\int f(x)\dee{x}\right)}_{v}\underbrace{0\dee{x}}_{\dee{u}} 
+</mrow>
+<mrow>
+&amp;=\int f(x)\dee{x}
 </mrow>
 </md>
-In order to figure out the first product (and the second integrand), you need to know the antiderivative of <m>f(x)</m>--but that's exactly what you're trying to figure out! So, using integration by parts has not eased your pain.
+So, in this case, using integration by parts has done absolutely nothing! It has not eased your pain.
 </p>
 
 <p>We note here that in certain cases, such as <m>\int\log x \dee{x}</m> (Example<nbsp/><xref ref="eg_PRTSlnx"/> in your text), it is useful to choose <m>\dee{v}=1\dee{x}</m>. This is similar to, but crucially different from, the do-nothing method in this problem.
