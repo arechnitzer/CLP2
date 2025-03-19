@@ -2252,7 +2252,7 @@ x_0 =&amp; 1 &amp;
 Using an approximation of the area under the curve <m>\dfrac{1}{x^2+1}</m>, show that the constant <m>\arctan2</m> is in the interval <m>\left[\dfrac{\pi}{4}+0.321,\, \dfrac{\pi}{4}+0.323\right]</m>.
 </p>
 
-<p>You may assume use without proof that <m>\displaystyle\ddiff{4}{}{x}\left\{\frac{1}{1+x^2}\right\} = \dfrac{24(5x^4-10x^2+1)}{(x^2+1)^5}</m>. You may use a calculator, but only to add, subtract, multiply, and divide.
+<p>You may use without proof that <m>\displaystyle\ddiff{4}{}{x}\left\{\frac{1}{1+x^2}\right\} = \dfrac{24(5x^4-10x^2+1)}{(x^2+1)^5}</m>. You may use a calculator, but only to add, subtract, multiply, and divide.
 </p></statement>
 <hint><p>
 <ul>
@@ -2368,7 +2368,7 @@ x_0 = 1 \qquad x_1=\frac{5}{4} \qquad x_2 = \frac{3}{2} \qquad x_3 = \frac{7}{4}
 <p>Now we can find our Simpson's rule approximation <m>A</m>:
 <md>
 <mrow>
-&amp;\int_0^1 \frac{1}{1+x^2} \dee{x}\approx \frac{\De x}{3}\big[
+&amp;\int_1^2 \frac{1}{1+x^2} \dee{x}\approx \frac{\De x}{3}\big[
 f(x_0) + 4f(x_1)+2f(x_2)+4f(x_3)+f(x_4)
 \big]
 </mrow><mrow>
