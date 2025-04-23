@@ -1633,7 +1633,7 @@ You may use the antiderivative <m>\displaystyle\int \csc \theta \dee{\theta} = \
 </m>
 </p></answer>
 <solution><p>
-If we think of <m>e^x</m> as <m>\left(e^{x/2}\right)^2</m>, the function under the square root suggests the substitution <m>e^{x/2}=\tan \theta</m>. Then <m>\frac{1}{2}e^{x/2}\dee{x}=\sec^2\theta\dee{\theta}</m>, so <m>\dee{x} = \frac{2}{e^{x/2}}\sec^2\theta\dee{\theta} = \frac{2}{\tan\theta}\sec\theta\dee{\theta}</m>.
+If we think of <m>e^x</m> as <m>\left(e^{x/2}\right)^2</m>, the function under the square root suggests the substitution <m>e^{x/2}=\tan \theta</m>. Then <m>\frac{1}{2}e^{x/2}\dee{x}=\sec^2\theta\dee{\theta}</m>, so <m>\dee{x} = \frac{2}{e^{x/2}}\sec^2\theta\dee{\theta} = \frac{2}{\tan\theta}\sec^2\theta\dee{\theta}</m>.
 <md>
 <mrow>
 \int \sqrt{1+e^x}\dee{x}&amp;=\int\frac{2\sqrt{1+\tan^2 \theta}}{\tan\theta}\sec^2\theta\dee{\theta}

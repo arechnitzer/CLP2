@@ -1189,7 +1189,7 @@ $2\sqrt{1+e^x}+2\log\left| 1-\sqrt{1+e^x} \right|-x+C
 $
 \end{answer}
 \begin{solution}
-If we think of $e^x$ as $\left(e^{x/2}\right)^2$, the function under the square root suggests the substitution $e^{x/2}=\tan \theta$. Then $\frac{1}{2}e^{x/2}~\dee{x}=\sec^2\theta~\dee{\theta}$, so $\dee{x} = \frac{2}{e^{x/2}}\sec^2\theta~\dee{\theta} = \frac{2}{\tan\theta}\sec\theta~\dee{\theta}$.
+If we think of $e^x$ as $\left(e^{x/2}\right)^2$, the function under the square root suggests the substitution $e^{x/2}=\tan \theta$. Then $\frac{1}{2}e^{x/2}~\dee{x}=\sec^2\theta~\dee{\theta}$, so $\dee{x} = \frac{2}{e^{x/2}}\sec^2\theta~\dee{\theta} = \frac{2}{\tan\theta}\sec^2\theta~\dee{\theta}$.
 \begin{align*}
 \int \sqrt{1+e^x}~\dee{x}&=\int\frac{2\sqrt{1+\tan^2 \theta}}{\tan\theta}\sec^2\theta~\dee{\theta}\\
 &=2\int \frac{\sec^3\theta}{\tan\theta}~\dee{\theta}\\
