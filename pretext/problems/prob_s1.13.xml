@@ -373,7 +373,7 @@ Now, let's  simplify a little and use this substitution on our integral:
 <intertext>Using the result of Example<nbsp/><xref ref="eg_TRGINToptc"/>,
 or a table of integrals:</intertext>
 <mrow>
-&amp;=2\log\left|\csc\theta+\cot\theta \right|+C
+&amp;\int\dfrac{-2}{3x^2+4x+1}\dee{x}=-2\log\left|\cot\theta-\csc\theta \right|+C
 </mrow>
 </md>
 Our final task is to translate this back from <m>\theta</m> to <m>x</m>. Recall we used the substitution <m>3x+2=\sec\theta</m>. Using this information, and <m>\sec\theta = \dfrac{\mathrm{hypotenuse}}{\mathrm{adjacent}}</m>, we can fill in two sides of a right triangle with angle <m>\theta</m>. The Pythagorean theorem tells us the third side (opposite to <m>\theta</m>) has measure <m>\sqrt{(3x+2)^2-1}=\sqrt{9x^2-12x+3}</m>.
@@ -386,30 +386,28 @@ Our final task is to translate this back from <m>\theta</m> to <m>x</m>. Recall 
 <p>
 <md>
 <mrow>
-\amp 2\log\left|\csc\theta+\cot\theta \right|+C
+\amp -2\log\left|\cot\theta-\csc\theta \right|+C
 </mrow><mrow>\hskip0.5in&amp;=
-2\log\left|\dfrac{3x+2}{\sqrt{9x^2+12x+3}}+\dfrac{1}{\sqrt{9x^2+12x+3}} \right|+C
+-2\log\left|\dfrac{1}{\sqrt{9x^2+12x+3}}-\dfrac{3x+2}{\sqrt{9x^2+12x+3}} \right|+C
 </mrow><mrow>
 &amp;\hskip0.5in=
-2\log\left|\dfrac{3x+3}{\sqrt{9x^2+12x+3}}\right|+C
+-2\log\left|-\dfrac{3x+1}{\sqrt{9x^2+12x+3}}\right|+C
 </mrow><mrow>
 &amp;\hskip0.5in=
-\log\left|\dfrac{(3x+3)^2}{\sqrt{9x^2+12x+3}^2}\right|+C
+-\log\left|\dfrac{(3x+1)^2}{\sqrt{9x^2+12x+3}^2}\right|+C
 </mrow><mrow>
 &amp;\hskip0.5in=
-\log\left|\dfrac{(3x+3)^2}{9x^2+12x+3}\right|+C
+-\log\left|\dfrac{(3x+1)^2}{9x^2+12x+3}\right|+C
 </mrow><mrow>
 &amp;\hskip0.5in=
-\log\left|\dfrac{9(x+1)^2}{3(3x+1)(x+1)}\right|+C
+-\log\left|\dfrac{(3x+1)^2}{3(3x+1)(x+1)}\right|+C
 </mrow><mrow>
 &amp;\hskip0.5in=
-\log\left|\dfrac{3(x+1)^2}{(3x+1)(x+1)}\right|+C
-</mrow><mrow>&amp;\hskip0.5in=
-\log\left|\dfrac{3(x+1)}{3x+1}\right|+C
+-\log\left|\dfrac{(3x+1)}{3(x+1)}\right|+C
 </mrow><mrow>&amp;\hskip0.5in=
 \log\left|\dfrac{x+1}{3x+1}\right|+\log3+C
 </mrow>
-<intertext>Since <m>C</m> is an arbitrary constant, we can write our final answer as </intertext><mrow>
+<intertext>Since <m>C</m> is an arbitrary constant, we can rename <m>\log3+C</m> to <m>C</m> and write our final answer as </intertext><mrow>
 &amp; \log\left|\dfrac{x+1}{3x+1}\right|+C
 </mrow>
 </md>
