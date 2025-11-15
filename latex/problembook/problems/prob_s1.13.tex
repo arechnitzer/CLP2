@@ -1907,7 +1907,11 @@ $\displaystyle \frac{1}{2} x \big[\sin(\log x) -\cos(\log x)\big]+C $
 $2\log 2 -\log 3 = \log\frac{4}{3}$
 \end{answer}
 
-\begin{solution} (a) Without any other ideas, we see we have a compound function--a function of a function. We often find it useful to substitute for the ``inside" function. So, we
+\begin{solution} (a) 
+
+\begin{description}
+\item[Solution 1:]
+If we're stuck, we at least see that we have a compound function -- a function of a function. We often find it useful to substitute for the ``inside" function. So, we
 substitute $u=\log x$, $\dee{u}=\frac{1}{x}\,\dee{x}$. Then
 $\dee{x} = x\,\dee{u}= e^u\,\dee{u}$.
 \begin{align*}
@@ -1924,6 +1928,68 @@ So,
 \begin{equation*}
 \int\sin(\log x)\ \dee{x} =\frac{1}{2} x \big[\sin(\log x) -\cos(\log x)\big]+C
 \end{equation*}
+
+\item[Solution 2:]
+We saw, in Solution 1, that we could use a change of variables to convert the given integral
+into an integral that we have already seen in Example \eref{CLP101}{eg:PRTSexsinx} of
+the CLP-2 text. In fact, we can evaluate the given integral using the method of Example \eref{CLP101}{eg:PRTSexsinx}, without making a preparatory change of variables. As we did there, we will evaluate
+two integrals at more or less the same time. Define
+\begin{align*}
+I_1=\int \sin(\log x)\dee{x}\qquad
+I_2=\int \cos(\log x)\dee{x}
+\end{align*}
+
+\begin{itemize}
+ \item First we apply integration by parts to $I_1$ with $u=\sin(\log x)$, $\dee{v} = \dee{x}$ so
+              that $v = x$, $\dee{u}= \frac{1}{x}\cos(\log x)\dee{x}$.
+\begin{align*}
+I_1=\int \sin(\log x)\dee{x}
+&=\int u \dee{v} = uv -\int v \dee{u} \\
+&=x\sin(\log x) - \int \cos(\log x)\dee{x}
+\end{align*}
+We have not found $I_1$ but we have related it to $I_2$.
+\begin{align*}
+I_1&= x\sin(\log x) - I_2
+\end{align*}
+\item Now start over with $I_2$, applying integration by parts with $u=\cos(\log x)$, $\dee{v} = \dee{x}$ so
+              that $v = x$, $\dee{u}= -\frac{1}{x}\sin(\log x)\dee{x}$.
+\begin{align*}
+I_2=\int \cos(\log x)\dee{x}
+&=\int u \dee{v} = uv -\int v \dee{u} \\
+&=x\cos(\log x) + \int \sin(\log x)\dee{x}
+\end{align*}
+Once again, we have not found $I_2$ but we have related it back to $I_1$.
+\begin{align*}
+I_2&=x\cos(\log x) + I_1
+\end{align*}
+\item So, summarising, we have
+\begin{align*}
+I_1&= x\sin(\log x) - I_2
+& I_2&=x\cos(\log x) + I_1
+\end{align*}
+or 
+\begin{align*}
+I_1&= x\sin(\log x) - I_2
+& I_1&=-x\cos(\log x) + I_2
+\end{align*}
+\item So now, adding these two equations together and dividing by two gives,
+recalling that every indefinite integral contains an arbitrary constant,
+\begin{align*}
+I_1&=\frac{x}{2}\big[\sin(\log x)- \cos(\log x)\big] -\frac{I_2}{2}+\frac{I_2}{2} \\
+&=\frac{x}{2}\big[\sin(\log x)- \cos(\log x)\big] +C
+\end{align*}
+If you are worried about $-\frac{I_2}{2}+\frac{I_2}{2}$ being an arbitrary constant, rather than $0$,
+note that the value of the arbitrary constant in the first $I_2$ need not be the same as the value 
+of the arbitrary constant in the second $I_2$. 
+
+\item
+As a bonus (the question does not ask for $I_2$)
+\begin{align*}
+I_2 &= x\cos(\log x) + I_1 = \frac{x}{2}\big[\sin(\log x)+ \cos(\log x)\big] +C
+\end{align*}
+\end{itemize}
+
+\end{description}
 
 
 \noindent (b)
